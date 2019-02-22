@@ -1,0 +1,1499 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbbi, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}   \setmainfont[Ligatures=TeX]{Minion3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{noitemsep,style=unboxed,leftmargin=.5cm,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+\usepackage{titlesec}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\title{Second Year Paper: Practical Reasoning}
+\author{Benjamin Sparkes}
+% \date{ }
+
+\begin{document}
+
+\singlespacing
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intr-prel}
+% General remarks on what the issues are, and why I want to depart from intuition and stuff like that.
+
+This paper is about a framework for modelling practical reasoning.
+In other words, this paper is about the kind of structure that a model of practical reasoning may draw from.
+We understand practical reasoning as answering the question of what to do, and so what is required from this framework is an account of how agents can answer this question.
+
+We use the counterfactual 'may' as we are not concerned with the actual reasoning of agents like us.
+Our capacity to introspect on our own mental processes is limited, and even if we could trace our own reasoning there is no guarantee that this generalises to others, or any agent like us which could be understood to reason about the question of what to do.
+Still, the framework may depart from the reasoning of actual agents only so long as it is empirically adequate.
+The framework must provide adequate resources to represent and explain the reasoning of agents like us, even if it does not necessarily mirror our reasoning.
+% It must reflect our reasoning, but it is not required to mirror our reasoning.
+A framework of this kind is required because our actions are typically the result of reasoning, and we typically understand the actions of others as a result of their reasoning
+We are not isolated agents what we do often depends on what we or others have done, why they did it, what we think they will do, and why.
+So, a framework with which to understand practical reasoning has an important role in comprehending commonplace phenomena.
+However, an intuitive or folk-theoretic understanding of practical reasoning does not necessarily represent nor explain the reasoning of agents like us.
+Intuition may be coarse grained, masking distinctions or similarities between phenomena, and intuition may be unable to capture certain patterns of reasoning.
+
+Intuitions and folk-theory are fundamentally pragmatic; they serve to help us navigate mind and world, but they serve us as individuals, and not necessarily as disinterested observers.
+In everyday life we may see no need to distinguish between distinct reasoning process so long as they each adhere to our understanding of an intention, but whether someone intended to act regardless of their uncertainty about the consequences of their action or because they were unable to consider alternatives may raise important ethical issues.
+Perhaps, too, we would benefit in everyday life from a common framework for modelling practical reasoning but we do not wish to make this argument.
+For now, what matters is that we can ask questions about the structure of practical reasoning with a focus on understanding practical reasoning directly, rather indirectly via our intuitions about practical reasoning.
+
+
+\subsection{General Outlook}
+\label{sec:general-outlook}
+% General remarks on the scope of the paper, motivation, and argumentative strategy.
+
+Our goal is to develop and motivate a framework for practical reasoning.
+This framework will primarily draw on dynamics which can arise from the interaction of basic primitives to capture practical reasoning.
+Practical reasoning is something we do, it is a process, and at any instance an agents reasoning may depend on their prior reasoning and direct their future reasoning.
+Further, we understand practical reasoning as answering the question of what to do, and in this respect practical reasoning is an instance of question resolution.
+So, this process involves generating alternatives (or possible answers) to the question of what to do and selecting from these alternatives answers (or actual answers) to the question.
+This distinguishes practical reasoning from other cognitive abilities we have.
+For example, following a rule has a different structure wherein one takes some initial input and works through the steps provided by the rule in order to arrive at some output.
+An agent may employ rules in order to answer the question of what to do, but it is not clear that generating and selecting from alternatives necessarily reduces to rule following.
+Nor is it clear that answering the question of what to do is substantially distinct from other forms of question answering.
+Still, our focus is exclusively on practical reasoning.
+
+The basic primitives we appeal to will typically take the form of stipulative definitions.
+For example, we will say that agents act in order to satisfy their reasons, and a reason is a consideration which can be satisfied by an action.
+However, we will not specify what satisfaction amounts to, nor will we give an independent account of reasons.
+Instead, the above allows us to focus on the structure of practical reasoning by allowing us to identify alternatives an agent generates in answering the question of what to do as an act which may satisfy their reasons, and in turn leaving an account of reasons open to any account which explains why an agent favours one act over another, finds two or more acts to be acceptable answers to the question of what to do, is unable to compare different acts as answers to the question of what to do, and so on.
+The rationale for this is that there is broad consensus on the inputs and outputs of practical reasoning.
+Given background information, practical reasoning takes in reasons and returns actions.
+In turn, this means that we can view practical reasoning as establishing a relation between reasons and actions, which we capture through satisfaction.
+Stipulating the above allows us to then focus on the dynamics of reasoning, and further to provide an account of the dynamics which may be compatible with different accounts of what reasons, actions, and the connexion between them amounts to.
+We will, however, endeavour to clarify the relevant aspects of these stipulated definitions below.
+
+Above we expressed scepticism about intuitions and folk-theory guiding the construction of a framework.
+However, intuitions and folk-theory can serve an important role in testing a framework.
+In short, while a framework may be novel, it should be able to account for and explain the intuitions we have, else explain why these intuitions are mistaken.
+In this respect, we aim to identify certain folk-theoretic concepts and other phenomena such as intentions, policies and intention-like states through a strategy of sufficiency.
+This strategy seeks sufficient but not necessary conditions to capture a particular phenomenon.
+In turn, this is motivated by a functionalist perspective on mental states, which explains the function of (some analysis of) a folk-theoretic concept by showing how the functioning of the concept can be reduced to base interactions of primitives in a framework.
+Here we assume a functional characterisation of a mental state captures the conditions for some phenomenon to be an instance of that state, and draw on the resources of the framework to explain how the conditions which the functional characterisation identifies may arise.\nolinebreak
+\footnote{For an example of such a characterisation, consider the analysis of belief as a truth-directed state.
+  This requires, among other things, that if an mental state is belief then it must be revised upon learning conflicting information and so if an agent holds some attitude toward a proposition despite learning that the proposition is false, the attitude cannot be belief.
+  The current goal as applied to belief would seek resources to explain how an attitude can be truth-directed.}
+The framework is fundamentally constructive, meaning that if a functional characterisation of some phenomenon exists then there must be adequate tools within the framework to capture the phenomenon.
+Therefore, our assumption that mental states have a functional characterisation is required for the framework to be complete, but this does not mean that one needs to determine what the characterisation of a state is prior to investigating it via the framework.
+This strategy, then, collapses two distinct notions of what an intuition is.
+
+First, there is the predominant sense of intuition linked to folk-theory, in which we have an understanding of practical reasoning drawn from our lives as individuals.
+The strategy assumes that these intuitions can be given a functional characterisation, and for the purposes of this paper we assume that this can be done.
+
+Second, there is a sense of intuition which corresponds to a pre-theoretic understanding of some phenomenon.
+For example, from a disinterested point of view we may attempt to comprehend an intention-like state which our folk-theoretic understanding of practical reasoning does not extend to.
+Here the framework should be able to give structure to this pre-theoretic understanding or complement the understanding with some other explanation.
+Sufficiency and empirical adequacy are two different things.
+The former relates to intuition while the latter relates to direct analysis of phenomena.
+Still, one the assumption that our intuitions approximate phenomena the two share a tight connexion, as empirical adequacy may be argued for by a two-step process from framework to intuition to phenomenon.
+To relieve ourselves from the burden of providing detailed accounts of instances of practical reasoning to analyse, and to more straightforwardly highlight philosophical issues, we will focus on establishing sufficiency.
+
+Our goal and strategy mean that four threads will be intertwined in the following discussion.
+First, the framework of practical reasoning we propose.
+Second, a conjecture that certain folk-theoretic concepts and other phenomena can be captured through basic primitives of the framework or dynamics which arise from the framework.
+Third, arguments in support of the above conjecture via the proposed framework.
+And fourth, an account of the guiding methodology behind the framework.
+
+This section will focus on outlining our approach to framing practical reasoning and the central phenomena of interest in some detail.
+After this, we will turn to a high-level overview of the framework.
+In the following sections we then develop the high-level overview in greater detail, showing how certain phenomena may be captured, and detailing the relation between the framework and core issues in the philosophy of action.
+At the end of this section we provide a detailed overview of the remainder of the paper.
+
+\paragraph{ }
+Practical reasoning is answering the question of what to do.
+More specifically, practical reasoning is understood as answering the question of what to do given some context in which an action can be performed.\nolinebreak
+\footnote{Note, questions of \emph{what} are different from questions of \emph{whether}.
+  In the case of reasoning, asking what to do does not require a statement of possible answers.
+  By contrast, asking a question of whether requires a statement of possible answers to be formed.}
+So, the framework will be directed at capturing the reasoning with goes into answering instances of the above question.
+This will include a specification of what answering the question amounts to and of primary interest are the dynamics involved in the process of reasoning to an answer.
+
+This is a descriptive and not a normative project, and while it is often the case that reasoning to what to do seem instantaneous or automatic we assume that agents do determine answers to the question of what to do, and so an answer is never `given' without some reasoning on behalf of the agent involved.
+Even if in some instances this reasoning is simple for an agent to perform, the framework must account for it.
+Further, there are case where practical reasoning is not trivial.
+It is not uncommon to find people thinking hard about what to do.
+For example, in cases of moral or ethical dilemmas, and in cases of uncertainty or changing information.
+And independent of the difficulty of the question, a difficulty in resolving the question may arises due to the resources available to an agent, such as time, memory, information, or their own capacities as a reasoner.
+
+Still, this is a first and relatively high-level pass at a framework and while our interest is in the process of practical reasoning our attention will be on the basic building  blocks of the process, as opposed to a detailed algorithmic analysis.
+To get a handle on the relevant issues, consider knowledge.
+This is a concept which can be taken as primitive, but also appears open to a constructive analysis.
+Philosophical folklore has it that \textcite{Gettier:1963aa} showed an analysis cannot be given in terms of justification, truth, and belief.
+However, this leaves open whether some other reduction can be found, or whether a primitive treatment of the concept is required.\nolinebreak
+\footnote{Consider also the literature concerning \citeauthor{Moore:1903aa}'s `naturalistic fallacy'.}
+Even if an analysis can be found there may be pressures against adopting the analysis.
+To take a closely related example, consider \citeauthor{Lewis:1969aa}' (\citeyear{Lewis:1969aa}) analysis of common knowledge.
+There is common knowledge of some proposition \(P\) when everyone knows that \(P\), everyone knows that everyone knows that \(P\), everyone knows that everyone knows that everyone knows that \(P\), and so on \dots
+An infinite set of arbitrarily long sentences of the above form ensures that no counterexample to common knowledge of \(P\) can be found, but it may be argued that such a set does give a reduction of common knowledge and instead that each sentence is merely entailed by a primitive concept of common knowledge.
+
+The exact status of the above debates is unimportant.
+What matters is the distinct questions they raise.
+First, whether a plausible constructive analysis can be provided for a given phenomenon and second, whether that analysis should be adopted.
+
+For us, key issues of providing and motivating a constructive analysis arise with respect to intention.
+The reason for this is concern regarding uniformity between intention and intention-like states.
+To illustrate, consider the following two scenarios.
+
+\begin{scenario}[San Francisco]\label{sc:SF}
+  You have settled on going to San Francisco.
+  You arrive at the Palo Alto Caltrain station and buy a three zone ticket, allowing you to make it all the way into the city.
+  You board a train as it passes through the station, and on the way to 4th \& King St.\ you could get off at any of intermediate stops.
+  First you pass through Menlo Park, then Redwood City, San Carlos follows, along the way is San Bruno, and without too much delay you reach Bayshore, the last stop before 4th \& King St.
+  There is nothing to prevent you alighting from the train at any of these stations, but despite the attractiveness of many of their associated neighbourhoods you have settled on going to San Francisco as so you do not give alighting at any of these stops any genuine consideration.
+\end{scenario}
+
+Still, while people on the Peninsula typically travel north, the Caltrain also goes south.
+So, consider an alternative scenario.
+
+\begin{scenario}[San Jose]\label{sc:SJ}
+  You have settled on going to San Jose.
+  As before, you arrive at the Palo Alto Caltrain station and buy a two zone ticket.
+  You board a train as it passes through the station, and on the way to San Jose you could get off at any of the intermediate stops.
+  First you pass through Cal.\ Ave., then San Antonia, Mountain View, Sunnyvale, along the way is Santa Clara , and finally San Jose Diridon.
+  Again, there's nothing to prevent you alighting from the train at any of these stations.
+  And, you have settled on going to San Jose.
+  So, it seems these alternative stops aren't up for genuine consideration.
+  Still, San Jose isn't San Francisco, and as you pass through Mountain View and Santa Clara you do give genuinely consider alighting at these stops, while going to San Jose.
+\end{scenario}
+
+In both scenarios~\ref{sc:SF} and~\ref{sc:SJ} your practical reasoning `settles' on a particular destination, and however this is analysed it is clear that it supports taking initial steps to arriving at the destination.
+In both scenarios you go to the Palo Alto Caltrain station, buy a ticket which would allow you to reach the destination, and board a train which will arrive at the destination.
+What distinguishes the two scenarios is the status of further reasoning after carrying out these initial steps.
+
+In scenario~\ref{sc:SF}, though there are alternative destinations on the way to San Francisco, you do not give these genuine consideration.
+This may be because you have some reason to go to San Francisco which would not be met by alighting at any of the alternative destinations along the way.
+However, we do not understand the scenario as  requiring such an interpretation.
+For, it may also be the case that each alternative destination meets your reasons for going to San Francisco, but having settled on going to San Francisco you see no basis for opening up the question to further reasoning.
+
+By contrast, in scenario~\ref{sc:SJ} you do give genuine consideration to alternative destinations on the way to San Jose.
+Clearly there cannot be some reason for your actions which San Jose meets but the alternative destinations do not, but likewise even having settled on going to San Jose you see some basis for opening up the question to further reasoning.
+
+So, perhaps you are confident that going to San Francisco would meet your reasons for action better than any alternative destination, and this same confidence does not hold for going to San Jose.
+\footnote{Though your prior reasoning still allowed you to settle on going to San Jose albeit temporarily.}
+More specifically, perhaps your prior reasoning was bounded by time or resources, and on the train you have the opportunity for additional reasoning about what to do, and you feel that further reasoning would not affect your decision to go to San Francisco, but it may affect your decision to go to San Jose.
+Perhaps, your reasons for action remained constant on the way to San Francisco, but changed on the way to San Jose.
+The respective scenarios are not sufficiently detailed to support detailed conjectures of this kind.
+
+Pre-theoretically it seems clear that your decision to go to San Francisco could be classified as an intention.
+Still, for your decision to go to San Jose this classification is less clear.
+Perhaps once settled your decision to go to San Jose was an intention, but after opening up the decision to further consideration you rescinded its status as an intention.
+Or, perhaps your ability to open up the decision to further reconsideration shows that the initial decision could not be classified as an intention.
+As above, the scenarios do not seem sufficiently detailed to support any of the above intuitions.
+Regardless, we draw attention to the similarities between the two scenarios and the dissimilarities between the possible analyses of the scenarios.
+Abstracting from the particular destinations and respective routes, the only distinction between the scenarios is your engagement in further reasoning about what to do once boarding the train, and so arguably the possibility of developing scenario~\ref{sc:SF} to include an intention and scenario~\ref{sc:SJ} to exclude an intention should be traced to this.
+For us, a constructive analysis of intention is primarily motivated by a goal of illuminating the relationship between intentions and intention-like states.
+This primary motivation is an instance of a broader motivation deriving from our commitment to a strategy of sufficiency.
+For, we are seeking a framework to capture practical reasoning as a whole, and not some aspect of it.
+This motivates the use of general theoretical primitives which are used to capture (potentially narrow) phenomena through complex composition and interaction of the general primitives, as if a constructive analysis of some phenomenon can be given in terms of more general primitives, these primitives may in turn be used in analysing other phenomena.
+
+We take the similarities and dissimilarities between scenarios~\ref{sc:SF} and~\ref{sc:SJ} to motivate a broader approach to modelling practical reasoning than a gradual understanding through the consideration of particular mental states.
+For, although it is possible to analyse intentions, intention-like states, and other important pre-theoretic items in a gradual way, this strategy carries the risk of postulating `narrow' primitives---primitives which may adequately capture some phenomena, but do not clearly or adequately generalise to other nearby phenomena.
+A broader approach to practical reasoning carries the same risks, as there is no obvious guarantee that an adequate range of phenomena has been considered before moving to framework considerations, but here again appeal can be made to the strategy of sufficiency to motivate the introduction of quite general primitives which exceed what may be required to understand the noted phenomena with the expectation that these may be important when further observations regarding practical reasoning are brought to bear on the framework, so long as an adequate treatment is given of the presently observed phenomena.
+
+\paragraph{ }%Bratman's arguments against desire-belief
+\citeauthor{Bratman:1987aa}'s (\citeyear{Bratman:1987aa}) arguments against a reduction of intentions to desires and beliefs, or elements of a framework functionally equivalent to these (\citeyear[cf.][3--9]{Bratman:1987aa}) have been influential.\nolinebreak
+\footnote{Though, see \textcite{Sinhababu:2013aa} for an argument against the impossibility of such a reduction.}
+However, these arguments do not show that intention must be taken as primitive.
+Indeed, for \citeauthor{Bratman:1987aa} intentions are not strictly primitive, for \citeauthor{Bratman:1987aa} identifies intentions with \emph{filters of admissibility} governed by specific norms (see \citeyear[\S2]{Bratman:1990aa}) and in turn filters of admissibility and the norms identified may be separated from one another and applied to further phenomena.
+However, we shall not directly engage with analyses such as \citeauthor{Bratman:1987aa}'s in this paper.\nolinebreak
+\footnote{
+  On \citeauthor{Bratman:1987aa}'s (\citeyear{Bratman:1987aa}) analysis of intentions the norm of (non)reconsideration which governs filters of admissibility (\citeyear[\S5.2.1]{Bratman:1987aa}) may distinguish scenarios~\ref{sc:SF} and~\ref{sc:SJ} by observing that in scenario~\ref{sc:SF} you decision to go to San Francisco is governed by a norm of non-reconsideration, while in scenario~\ref{sc:SJ} your decision to go to San Jose is not, or that this norm is rescinded.
+  Alternatively, \citeauthor{McCann:1991aa} argues that intentions carry a \emph{ceteris paribus} clause (\citeyear[33--34]{McCann:1991aa}) and these may be triggered on the way to San Jose, but not on the way to San Francisco.
+  However, isolating a distinction between the two scenarios is only part of an overall analysis.
+  Even if either (or any other) of the above analyses of intentions is adopted, a question remains about the shared underling structure intuitively present in scenarios~\ref{sc:SF} and~\ref{sc:SJ} and whether (non)reconsideration, defeasibility, or some other high-level aspect could be captured by that structure, and whether additional resources are required.
+
+  Still, filters of admissibility may be regarded as a narrow primitive.
+  For, while \citeauthor{Bratman:1987aa}'s analysis may be correct, and what distinguishes scenario~\ref{sc:SF} from scenario~\ref{sc:SJ} (on a natural refinement of both scenarios) is that in scenario~\ref{sc:SF} an intention to go to San Francisco is guaranteed by the existence of a filter of admissibility which, in conjunction with a norm of (non)reconsideration, ensures that you don't give genuine consideration to the alternative stops you may alight at.
+  For, such a filter cannot persist in scenario~\ref{sc:SJ} (assuming you reason rationally) as you do genuinely consider alighting at alternative stops on the way to San Jose.
+
+  However, note that in this analysis the relevance of the filter of admissibility in scenario~\ref{sc:SF} is guaranteed by the norm of (non)reconsideration.
+  For, if the norm were to permit reconsidering (as may be in scenario~\ref{sc:SJ}) then, even if on the analysis you would no longer have an intention, you would be able to reconsider.
+  This means that the functional role of the filter would be principally subservient to the norm of (non)reconsideration.
+  In turn, a question which arises is whether the norm and its effect on practical reasoning can be explained without appealing to the existence of a filter.
+  Here, to assume the existence of a filter to explain the norm would be problematic, for the relevant issue is whether the norm \emph{requires} the existence of a filter.
+  And, the framework to be presented makes the case that the norm can be explained without appeal to the existence of a filter.
+  In part, the framework discussed in the body of this paper can be seen as an investigation into what a norm of (non)reconsideration may amount to.
+  This assumes such a norm need not be taken as basic, and if viewed in this way is something we hope to show.
+  Still, in line with the strategy of sufficiency any such analysis would not amount to establishing necessary conditions.
+  Further, though plausible we do not assume that there is a norm of (non)reconsideration and so this will not be a guiding concern of the framework.
+  If a norm can be identified, we will treat this as an emergent phenomena.
+}
+In part, this is due to the complexity such theories and the space afforded to us.
+In larger part, this is due to our adoption of the strategy of sufficiency.
+For, as we do not assume that there is a unique phenomenon corresponding to intention, it follows that any counterexample presented of phenomena taken to correspond to an intention which the analysis failed to mark as such would only be a counterexample to the proposed analysis applying to the specific phenomena taken as a counterexample.
+To generalise such a counterexample to the analysis of intention as a whole would be underhand.
+For, even if the purpose of the analysis was to give necessary (and sufficient) conditions for intention, given our assumptions any other analysis may serve as part of an broader analysis which drew on further resources.
+Likewise, any counterexample  presented of a phenomena not corresponding to an intention which the analysis marked as such would, without buttressing arguments, only show that the analysis may require additional components to refine its scope.%\nolinebreak
+% \footnote{\color{red} Note that \citeauthor{Bratman:1987aa} also uses `intention' in a technical sense (), which complicates things.}
+
+As these two observations show, the strategy of sufficiency is a double-edged sword.
+Rejecting the requirement of necessary conditions fragments potential counterexamples by permitting distinct explanations.
+However, the overall analysis is required to be adequately general and compelling to motivate this potential fragmentation.
+And, though \citeauthor{Bratman:1987aa}'s analysis could be part of the framework we propose, we will not appeal to anything with the same functional role as a filter of admissibility.
+
+We now turn to a high-level overview of the framework.
+
+\subsection{A High-level Overview of the Framework}
+\label{sec:high-level-overview}
+
+The core of the framework is a three-way distinction between actions, reasons for action, and relations of satisfaction which hold between collections of reasons for action and an action.
+Each of these items may be subject to further analysis but for the purposes of this paper, with the exception of some clarificatory remarks, these are somewhat stipulative and we shall take them as given in order focus on the dynamics of reasoning.
+Here we give a preliminary characterisation of each in turn.
+
+
+\paragraph{ }%Actions
+\emph{Actions} are things an agent can do.
+More specifically, we use the term `action' to refer to action \emph{types} and not specific, concrete, actions.
+The use of action types is important, as we are concerned with an agent's reasoning.
+An action conceived of in reasoning may be instantiated by an action token but the action type remains something distinct from an instantiating token itself.
+For example, the decision to go to San Francisco or San Jose concerns an action type, as does going via the Caltrain, with a certain kind of ticket, and so on.
+Going to San Francisco or San Jose, or boarding the Caltrain, buying a certain kind of ticket, and so on, are then instantiations of the above action types.
+Some action type may be stated with a level of specificity which means it can only be instantiated by a unique action token, but it remains distinct from that instantiation.
+Further, the instantiation of an action type need not ever occur.
+It is not uncommon to reason about performing certain actions before settling on some distinct action.
+And, in line with this the action types of interest to us in understanding an agent's reasoning may or may not be available to an agent.
+For example, it may be the case that an agent reasons about an action they cannot current perform, as the availability of that act may depend on factor which may change.
+Or, an agent may simply be mistaken about what they can do.
+
+\paragraph{ }%Reasons
+\emph{Reasons for action} are considerations which count for or against actions.
+We are agnostic, and not catholic, with respect to what reasons for action amount to.
+For example, these may reduce to composites of desires and beliefs (\cite{Hume:2011aa,Sinhababu:2013aa,Smith:1987aa}), they may have complex structure (\cite{Scanlon:1998aa}), or a distinction may be made between phenomenal and non-phenomenal reasons (\cite{Pettit:2006aa}).\nolinebreak
+\footnote{We do not distinguish between motivating and normative reasons in the above references, as we are interested only in the potential nature and structure or reasons.}
+This agnosticism is supported by an assumed independence between what reasons for action are and how these factor in to practical reasoning.
+More specifically, we assume that reasons for action can be \emph{satisfied}, and agents can determine some (subjective) degree and likelihood of reasons being satisfied by actions.
+This assumption may prevent the stated agnosticism about what reasons are from developing into catholicism, and is why we do not favour a stronger attitude.
+
+\paragraph{ }%Satisfaction
+\emph{Relations of satisfaction} make explicit our assumption that reasons for action can be satisfied, but also allows for a clear statement of the primary purpose of practical reasoning: to establish relations of satisfaction.
+Once established, relation of satisfaction serve to identify possible answers to the question of what to do, and a link can be stated which connects established relations of satisfaction to what an agent does, for we assume that an agent performs an act which they judge `best' satisfies their reasons for action.
+What counts as `best' is again an issue we also take an agnostic attitude toward as the role of distinguishing `best' relations of satisfaction is to distinguish between actual and possible answers to the question of what to.
+In turn, an action which occurs in a `best' relation of satisfaction is then an actual answer to the question of what to do.
+
+To provide some support, suppose we fix a collection of reasons and consider some collection of actions.
+A distinct relation of satisfaction will hold between the collection of reasons and each action.
+In this context a natural suggestion is that a relation of satisfaction is `best' just in case there is no other action which is more satisfactory given the collection of reasons.
+In the background we assume that agents are able to make comparisons between relations of satisfaction, but we do not assume that agents are able to make comparisons between arbitrary relations of satisfaction.
+It is possible that multiple relations of satisfaction may be `best' either because they are equally satisfactory, or because an agent cannot compare them.
+Contrast Buridan's ass with the Binding of Isaac (discussed in \S~\ref{sec:prosp-relat}).
+So, from an abstract perspective a `best' relation of satisfaction is a relation which is not surpassed by any other relation in terms of satisfaction.
+Complexities arise when comparisons of satisfaction are made between different collections of reasons and actions, but for the purposes of this paper we shall assume an account of how agents are able to make such comparisons as what will matter to us is not what makes a relation of satisfaction `best' but the dynamics which arise with respect to `best' relations.
+
+To be clear, it is actions which are answers to the question of what to do.
+However, a relation of satisfaction holds between reasons and an action, and in answering a question of what to do an agent is making a judgement about their reasons and the satisfaction which would obtain between those reasons and an action.
+In this respect the focus of practical reasoning is relations of satisfaction, rather than actions themselves, as the issue of whether an action is `best' is \emph{resolved} by whether it occurs in a `best' relation of satisfaction.
+For the remainder of this paper it may be helpful to think of answering a question of what to do as simply establishing `best' relations of satisfaction.
+This is because the adjustment from relations to actions amounts to nothing more than identifying which actions appear in `best' relations.
+This step is important the question of what to do is answered by actions and not relations of satisfaction, but beyond bookkeeping this step is unimportant.\nolinebreak
+\footnote{From a certain point of view the idea that actions answer the question of what to do, rather than relations of satisfaction is a concession to intuition.
+  Nothing of substance would change if we took relations of satisfaction to answer the question of what do to, and required agents to perform an intermediate of identifying the actions in `best' relations of satisfaction between answering the question and acting.}
+To aid in our exposition of the framework we will speak of relations of satisfaction resolving the question of what to do, as answers to the question of what to do are completely determined by relations of satisfaction.
+
+We draw a careful distinction between the act which features in a relation of satisfaction, and which thereby serves as a possible answer to the question of what to do, and the instantiation of this act by the agent as something they do.
+For, on our understanding an act which features in a relation of satisfaction, and hence any act which answers the question of what to do, does not carry any motivational force.
+It is possible to view relations of satisfaction as inherently motivating, to regard the `best' relations as carrying motivational force which dominates the force of other relations of satisfaction, and to specify either some mechanism which selects an action from the `best' relations if there are multiple or to assume there is always a unique `best' relation.
+%TODO {\color{red} (It would be good to have an example of some endorsement of this, but I don't know of one from the top of my head.)}
+However, the view we favour starts with the observation that agents necessarily act, and assumes that agents are inherently motivated to determine what their reasons for action are and what actions are so that they can `best' satisfy their reasons for action by performing particular acts.
+One the one hand, this permits agnosticism about what reasons for action can be, as without the requirement to explain how a reason has motivational force, reasons for action can be identified with anything which an agent takes to weigh on an instance of the question of what to do.
+However, of greater importance is the way in which this perspective on practical reasoning allows for a clear statement of the scope and limits of the considerations which bear on an instance of the question of what to do.
+Intuitively, actions may be more or less specific, and as an agent knows they will act, they may determine a context of action for which the question of what to do can be posed.
+The relevance of actions and reasons will then be implicitly determined by whether the action can be performed in that context, and whether the reasons count for or against an action which can be performed in that context.
+In particular, this view lends itself to hierarchical and general reasoning.
+For, an agent may iteratively reason from broad to narrow contexts, or reason about contexts which may arise on multiple occasions.
+This reduces the cognitive requirements placed on an agent in reasoning about what to do.
+If, by contrast to this assumption, agents did not specify a context of action in which to resolve the question of what to do, they would be required to reason about all actions available to them, and the reasons which bear for and against these.
+Intuitively, this is an overwhelming search space, with no guarantee that the actions they consider will have any relevance to the acts they will necessarily perform in some context.
+It is not necessary that agents reason prior to performing some action, but likewise there is then no guarantee that the action they perform will satisfy their reasons for action.
+The assumption that agents specify contexts of action to reason about does place a burden on the framework to explain how agents determine a context, and how agents reason about multiple (potentially conflicting) contexts if these contexts are not assumed to be fixed after specification.\nolinebreak
+\footnote{Note, if agents are able to reason about multiple contexts, then given adequate resources they may eventually consider all contexts, and hence all possible actions and reasons for action.
+  Indeed, an important worry regarding the specification of contexts is that an agent will specify a context which inadvertently constraints the relevant actions and reasons and leads to the performance of an action which would not have satisfied their reasons for action had they specified some other context which included the same circumstances of action.
+  We think this is a plausible phenomenon, but will not argue for it here.}
+For the purposes of this paper, though, we will simply assume a context is given, and focus on the reasoning which occurs in answering the question of what to do \emph{given} that context.
+
+To summarise, our focus on be practical reasoning when an agent is solving for \(x\), where \(x\) is what to do in some context, and solving for \(x\) primarily constitutes establishing relations of satisfaction between actions and reasons for action.
+
+\paragraph{ }%The dynamic perspective on satisfaction.
+The above constitutes the base of our understanding of practical reasoning.
+By making explicit the role of establishing relations of satisfaction in determining possible answers to the question of what to do given some context, we can state the core insights of the paper; a \emph{dynamic} perspective on establishing relations of satisfaction.
+
+The dynamic perspective takes agents to establish \emph{initial} instances of relations of satisfaction, before iteratively developing these as additional actions and reasons come to light through further reasoning.
+In this way, dynamic relations of satisfaction differ from relations of satisfaction simpliciter, as the latter exist and relate fixed actions and reasons for action, while the former are constructed and in the process of construction may relate varying actions and reasons for action.
+However, at any stage of construction a dynamic relation of satisfaction can be viewed as a relation of satisfaction simpliciter by considering the presently related action and reasons for action as fixed.
+This dual perspective on dynamics relations of satisfaction is important, as it allows a dynamic relation to be viewed as resolving the question of what to do at any stage of its construction.
+Still, of greater importance is the ability to introduce and motivate properties which may hold of dynamic relations, and how these properties can be employed in line with the strategy of sufficiency to identify intentions, intention-like states, and other mental states.
+
+A key insight is that dynamic relations of satisfaction can be treated differently to relations of satisfaction simpliciter.
+For example, suppose in constructing a relation of satisfaction an agent considers a certain action to satisfy the reasons under consideration to some degree, and then considers an alternative action which they realise satisfies those same reasons to a greater degree.
+Properly speaking, there are two relations of satisfaction, but given our assumption that agents act to `best' satisfy their reasons, there may be little point in the agent continuing to reason about performing the first action.
+For, the relation resolves a possible answer to the question of what to do, but as it does not determine an answer they will act on it can be discarded.
+So, instead of developing two distinct relations of satisfaction, the agent may substitute the first action for the second in a dynamic relation of satisfaction they are constructing.
+
+This dynamic leads key property of interest we term \emph{stability}, which holds of a relation of satisfaction when the agent does not expect further reasoning to lead to revision the constructed relation of satisfaction.
+One way to specify stability is to require that the agent does not expect to substitute the related action for any other (considered or unconsidered action), that the no new reasons for action will come to light that would lead to such a substitution, and that they take their prior reasoning to be sound.
+For example, your decision to go to San Francisco in scenario~\ref{sc:SF} was stable, while your decision to go to San Jose in scenario~\ref{sc:SJ} was not, and this may explain your willingness to consider alternative stops on the way to San Jose.
+
+In this respect, stability depends on an agents epistemic state, and their own assessment of their reasoning.
+For example, an agent play the lottery and before hearing the draw answer the question of what to do tomorrow with the action of going into work.
+Further, even though there is a chance that they may win, their judgement that going into work tomorrow is `best' may be stable as they do not expect to win given the odds of the lottery, nor do they expect any other consideration to revise their judgement.
+However, they may in fact win, and upon winning they may revise their judgement about what is `best' to do tomorrow.
+
+Still, relations of satisfaction may be stable without the related action satisfying an agent's reasons for action to a significant degree, and a further distinction may be drawn between \emph{satisfyingly stable} and \emph{unsatisfying stable} relations of satisfaction.
+Further, stability alone applies only to relations of satisfaction, but one may also identify `best' relations of satisfaction which are not only stable, but are also such that the agent does not expect further reasoning to revise their status as `best'.
+For example, your decision to go to San Francisco may also have this latter property.
+These possibilities are highlighted to show that broad distinctions can be motivated on the basis of the dynamic perspective independently from intuitions about mental states, and drawn on in line with the strategy of sufficiency to identify states.
+In addition, by relying on aspects of an agents reasoning these properties can, intuitively, be (perhaps implicitly) recognised by an agent in the course of their reasoning and be used to structure further reasoning.
+
+\paragraph{ }%Bounded rationality
+In the background of the dynamic perspective on the relation of satisfaction are concerns about bounded rationality (\cite{Simon:1957aa})  and the (potentially unknown) resource limitations which constrain the practical reasoning of agents like us.\nolinebreak
+\footnote{As \citeauthor{Bratman:1987aa} puts it, agents like us `have limited resources for use in attending to problems, deliberating about options, determining likely consequences, performing relevant calculations, and so on.' (\citeyear[10]{Bratman:1987aa})}
+The dynamic perspective on the relation of satisfaction addresses the problem of resource limitations by placing no requirements on what it takes to establish a relation of satisfaction, and so no requirement on what counts as a possible answer.
+What matters is an agent's judgement about relations of satisfaction and hence actions.
+Further, once established constructing a dynamic relation of satisfaction is an iterative process, and can continue indefinitely.
+Resource limitations merely constrain the number of distinct relations an agent may construct, the depth of reasoning involved, and the extent of construction.
+And, though an agent may exhaust the resources available to them, so long as construction has begun on a dynamic relation of satisfaction, the action featured in this relation serves as a possible answer to the question of what to do, and the adequacy of this answer can be determined by the degree of satisfaction involved.
+This may be taken as a specification of agents who `\emph{satisfice} because they do not have the wits to \emph{maximize}' (\citeyear[118]{Simon:1957aa}), where for \citeauthor{Simon:1957aa}, to `satisfice' is to satisfy in a way which suffices.
+The guiding interpretation of the framework is that agents will typically reason to the extent of their resources in constructing relations of satisfaction (and hence it seems whatever relation they establish must suffice as an answer of the question of what to do), but we shall not pursue overt connexion between our framework and \citeauthor{Simon:1957aa}'s notion in this paper.
+
+% Still, bounded rationality, as a normative concept, is an important subject but lies beyond the scope of this paper.
+% Though with a descriptive framework in hand, normative interpretations of the framework may be pursued, and distinctions between bounded and unbounded rationality (if any) noted.
+
+\paragraph{ }
+This complete our high-level overview of the framework.
+There are numerous issues we have glossed over and further avenues to explore.
+In the remainder of the paper we will explore the above sketch in greater detail, introduce further components, and apply the strategy of sufficiency for certain simple cases.
+Before doing so, we give an itemisation of what it to follow.
+
+Section~\ref{sec:pract-reas-satisf} of the paper explores and extends the framework in greater detail.
+This begins in section~\ref{sec:acti-reas-acti} with a more detailed account of actions (\S~\ref{sec:actions}), reasons for action (section~\ref{sec:reasons-action}), and the relation of satisfaction (\S~\ref{sec:relat-satisf}).
+These sections serve primarily to clarify the issues raised in the high-level overview of section~\ref{sec:high-level-overview}.
+Of note, section~\ref{sec:relat-satisf} contains a discussion of normative judgements (\S~\ref{sec:normative-judgements}) and akrasia (\S~\ref{sec:akrasia-1}).
+
+Section~\ref{sec:dynamic-perspective} then turns to the dynamic perspective on satisfaction.
+In section~\ref{sec:answ-quest-what} we expand on the dynamic perspective and the idea of selection introduced in the high-level overview, before turning to background remarks on the role of folk-theory and introspection in section~\ref{sec:backgr-remarks-role}.
+Section~\ref{sec:uncert-stab} contains a detailed discussion of the role of uncertainty and confidence in our understanding of practical reasoning, and introduces to notion of stability which is serves both as an important theoretical component and as the basis for an illustration of the strategy of sufficiency.
+This section also touches in part on the role of belief in practical reasoning.
+
+Finally, in section~\ref{sec:prosp-relat} we turn to cases multiple relations of satisfaction can be judged as ‘best’, issues surrounding these, and the idea of planning.
+This motivates a final introduction to the framework in the form of prospective relations, and further reflection on the role of relations of satisfaction in our understanding of practical reasoning.
+
+In short, the remainder of the paper attempts to expand on the high-level overview given in section~\ref{sec:high-level-overview} while touching on issues we see to be of central importance when constructing a framework for practical reasoning.
+We aim to give a characterisation of the framework which touches on these central issues in a way which demonstrates both the content and the motivating concerns which guide the construction of the framework.
+% In part, this is good philosophical practice, but in addition to this the material we present is incomplete and a precise statement of the framework is left to future work.
+
+
+\section{Practical Reasoning and Satisfaction}
+\label{sec:pract-reas-satisf}
+
+In the high-level overview of the framework presented in section~\ref{sec:high-level-overview} we introduced a three-way distinction between actions, reasons for action, and relations of satisfaction.
+We begin this part of the paper by recapping and expanding on this distinction.
+
+\subsection{Actions, Reasons for Action, and The Relation of Satisfaction}
+\label{sec:acti-reas-acti}
+
+\subsubsection{Actions}
+\label{sec:actions}
+
+Recall, we use the term `action' to speak of action \emph{types} which we distinguish from action \emph{tokens} which are instantiations of action types.
+We do not assume that there necessarily exists an action type corresponding to every concrete action which takes place, as depending on how concrete actions are analysed there may be no way to identify a specific or general action type which identifies or includes the concrete action.
+
+Consider, by way of example, a \citeauthor{Davidson:1967aa}ian (\citeyear{Davidson:1967aa}) or neo-\citeauthor{Davidson:1967aa}ian (\cite{Carlson:1984aa,Parsons:1990aa}) treatment of action sentences, where concrete actions are taken to be (parts of) events, and events are identified by existentially quantifying over properties and relations which holds of events.
+Here, a concrete action such as \emph{Brutus stabbing Ceaser} is analysed as \(\exists e[\mathbf{stab}(e,b,c)]\) or \(\exists e[\mathbf{stab}(e) \land \mathbf{ag}(e,b) \land \mathbf{th}(e,c)]\), and in general there is no guarantee that this identifies a unique event, nor that `stabbing' or any other relation/predicate we could construct fully captures the action which occurs in the event.
+
+Still, we do assume that action types can be instantiated (i.e.\ be part of some event), though `can' is a flexible modality and in the most general case this merely amounts to a requirement that the action is plausibly possible.
+In defence of this lax requirement we note that the current project is descriptive, and so there does not seem to be ground for excluding the possibility of an event type from occurring in practical reasoning so long as an agent thinks the action possible.
+From a normative standpoint, good reasoning may require restrictions either on the understanding of `can' or via other means to ensure that agents reason about actions they can perform or have some likelihood or possibility of occurring.
+However, we will not explore such issues here.
+%TODO: References to normative constraints?
+%TODO: Could include the belief argument here.
+
+\subsubsection{Reasons for Action}
+\label{sec:reasons-action}
+
+
+We introduced reasons for action as considerations which count for or against actions, that reasons for action can be satisfied by actions to varying degrees, and that agents can determine some (subjective) degree and likelihood of reasons being satisfied by actions.
+
+To illustrate the intuition behind satisfaction, consider ordering a meal from a menu at a restaurant.
+Requesting any of the items on the menu is an action you can perform, and let us assume that you are hungry and have certain tastes and preferences.
+As you go through the menu, each item would satisfy your hunger to some degree, but different items would do some to varying degrees.
+The salad is less calorie dense than the steak, though you have a preference for vegetarian items and while you're not wholeheartedly pescatarian the rocket risotto satisfies this preference better than the shrimp risotto.
+Still, you're not that fond of rocket and the mushroom risotto is much more appealing.
+Against this, you would like to keep a tight budget, and settling for the rocket risotto would allow you to order a drink, you do feel like having a drink, and so on\dots
+
+The above is an intuition pump, but likewise satisfaction stands as an assumption.
+Furthermore, it is a relatively flexible assumption as it only concerns instances of relations between actions and reasons for action.
+For, we do further assume that agents are able to reason about relations of satisfaction, and in particular establish some ordering on these relations to determine which relations are `best' and hence resolve \emph{actual} rather than merely \emph{possible} answers to the question of what to do.
+The basis of such reasoning does not need to rely on intrinsic properties of relations of satisfaction themselves.
+When modelling practical reasoning the use of relations of satisfaction can be restricted to capturing only what motivates an agent to consider the pros and cons of particular actions, but may also be enriched to function as, for example, utility, where comparison between relations is implicitly defined.\nolinebreak
+\footnote{Again, in a simple case may implicitly define some ordinal scale allowing for arbitrary comparisons, but in more complex cases incomparability between different utilities may be considered.}
+To illustrate, note the range of reasons that the above illustration draws on.
+These range from instinctual (hunger) to pragmatic (cost), and potentially include moral or ethical (vegetarianism) and emotional (feeling like) reasons.
+Perhaps these can be further analysed and reduce to, say, a uniform notion of desire, but taken at face value these may be distinguished in an agent's reasoning, and an agent may find certain reasons incomparable, requiring the comparison of two distinct relations of satisfaction.
+For example, incorporating pragmatic reasons into one relation of satisfaction, moral reasons into another, and relying on their reasoning about satisfaction itself to determine whether the act on pragmatic or moral grounds.
+In other words, reasons for action may be distinguished as a subclass of reasons more broadly due to the fact that they relate reasons to specific actions.\nolinebreak
+\footnote{To be clear, this statement relies on the characterisation of reasons as considerations which bear on the question of what to do.
+  If reasons are distinguished by something other than this function role, then our talk of reasons should be recast in terms of considerations, and these privileged reasons may be a subclass of (potential) considerations but may also have no structural connexion to considerations.}
+However, in this paper we shall assume that reasons enter in to practical reasoning only in relation to specific actions, that reasons for action implicitly determine which relations of satisfaction are `best', and that no additional reasons bear on cases in which there are multiple `best' relations.
+Still, this is not a crucial assumption, and could be revised.
+Given this assumption, from this point forwards we will refer to reasons for action simply as reasons.
+
+\subsubsection{Relations of Satisfaction}
+\label{sec:relat-satisf}
+
+\paragraph{ } %More on the relation of satisfaction.
+We have already elaborated further on the relation of satisfaction when discussing reasons.
+Here, we situate the relation of satisfaction in practical reasoning more broadly, and postpone further developments of the relation to the adoption of a dynamic perspective (noted in section~\ref{sec:high-level-overview}) in the following section.
+
+\paragraph{ } %Anscombe
+The relation of satisfaction as described may be regarded as a more abstract take on the practical syllogism.
+The exact nature of the practical syllogism is admittedly something of a mystery to us.
+We understand the idea of a syllogism, and of a syllogism which has as its conclusion an action.
+And, we further see that the term `syllogism' occurs in the idea of a practical syllogism due to its \hyperlink{Broadie:2002aa}{Aristotelian} roots, and more generally the conclusion of a practical syllogism may follow from an arbitrary number of premises, but the difficulty we have is in understanding how the conclusion of a practical syllogism can be \emph{detached} from its premises.
+
+Consider \citeauthor{Anscombe:1957aa}'s example of a person who reasons along the following lines:
+\begin{quote}
+  \begin{enumerate}
+  \item\label{aps:1} Vitamin X is good for all men over 60
+  \item\label{aps:2} Pigs' tripes are full of vitamin X
+  \item\label{aps:3} I'm a person over 60
+  \item\label{aps:4} Here's some pigs' tripes.\nolinebreak
+\mbox{ }\hfill(\citeyear[60]{Anscombe:1957aa})
+  \end{enumerate}
+\end{quote}
+\citeauthor{Anscombe:1957aa} remarks that `we may suppose the person who has been thinking on these lines to take some of the dish that they sees' (\citeyear[60]{Anscombe:1957aa}).
+A natural way to state the conclusion would then be to say that
+\begin{quote}
+  \begin{enumerate}[resume]
+    \setcounter{enumi}{4}
+  \item\label{aps:5} Eating the pigs' tripes is an answer to the question of what to do in the given context.
+  \end{enumerate}
+\end{quote}
+Still, \citeauthor{Anscombe:1957aa} argues that the conclusion cannot follow from the premises the person considers, unless they were to include something of the form `it is necessary for all people over 60 to eat any food containing Vitamin X that they ever come across' (\citeyear[61]{Anscombe:1957aa}).
+We take \citeauthor{Anscombe:1957aa}'s point to be that the syllogism is non-monotonic.
+For example, if one were to include information about the toxicity of vitamin X when occurring above some concentration in the bloodstream and that the pigs' tripes would put one above that level of concentration, it would not follow that eating the pigs' tripes is an answer to the question of what to do in the given context.
+Now, \citeauthor{Mothersill:1962aa} may be right in observing that the relation of the premises to the presumed conclusion should not be understood as monotonic, and that to think otherwise would be to make a `crude type-mistake' (\citeyear[453]{Mothersill:1962aa}) but then there is an issue about what allows one to detach the conclusion from it's premises.
+In a monotonic argument this issue fails to arise with the same force, because one cannot deny the conclusion of a valid argument without denying some of its premises, but following \citeauthor{Anscombe:1957aa} it would seem problematic to place this requirement on practical syllogisms.
+For, without additional premises an argument from \ref{aps:1}---\ref{aps:4} to \ref{aps:5} appears quite natural.
+What seems to be required in the case of a practical syllogism, and in contrast to other reasoning, is that the premises used in a practical syllogism must be kept in hand so that whether or not the conclusion follows when these premises undergo change.
+Given this it is unclear how a conclusion can be detached from its premises.\nolinebreak
+\footnote{One may argue that a similar problem arises in monotonic reasoning, as if one deduces a conclusion from some premises and later finds the conclusion to be false then to detach the conclusion from the premises was a mistake, as without detachment one can easily determine which collection of premises must be at fault.
+  This may be the case, but note that in contrast to the above argument, this argument requires some fault in one's premises.
+  The issue is that in the case of a practical syllogism one can reason without mistake and still invalidate a previously established conclusion by establishing additional premises.}
+
+The above worries parallel issues raised by \textcite{Davidson:1969aa} who distinguishes \emph{prima facie} judgements regarding answers to the question of what to do from all-out judgements.
+For \citeauthor{Davidson:1969aa} these kinds of judgements hold with respect to actions, while we are presently concerned with relations of satisfaction, however the parallel arises as \emph{prima facie} judgements determine which actions would `best' satisfy an agents reasons conditional on certain reasons, while all-out judgements are unconditional.
+\citeauthor{Davidson:1969aa} argues that practical reasoning does often `arrive at unconditional judgements that one action is better than another---otherwise there would be no such thing as acting on a reason' (\citeyear[39]{Davidson:1969aa}) and allows \emph{prima facie} and all-out judgements to diverge.
+However, we deny the spirit of this inference.
+While a relation of satisfaction cannot directly answer the question of what to do, it can resolve the question by specifying which act would `best' satisfy the agent's reasons, and therefore there is no distinction between a conditional judgement that an action `better' satisfies an agent's reasons that some other action and that the former action actually answers the question of what to do while the latter serves only as a possible answer.
+Appealing to relations of satisfaction in this way avoids worries about detachment because actions are not considered in isolation from the reasons they satisfy.
+In the locution used, actions do not `detach' from reasons when viewed as part of a relation, but they do `detach' when relations or satisfaction are coerced into actions in order to answer (rather than merely resolve) the question of what to do.
+Further, there is a straightforward correspondence between practical syllogisms and relations of satisfaction obtained by taking the premises of a practical syllogism to be reasons and the conclusion of the syllogism to be the action.
+There may be arguments against such a simple correspondence, and the correspondence does illustrate how lax our use of `reasons' is, but so long as the premises of a syllogism count in favour of the action, this corresponds to the use of reasons we set out above.%\nolinebreak
+This perspective has implications for understanding weakness of the will, which we shall discuss in section~\ref{sec:akrasia-1}, where we further expand on this perspective.
+For now, what we simply stress that a framework for modelling practical reasoning must account for how agents answer the question of what to do, and for us this is given by relations of satisfaction resolving, and the answers occurring in those relations answering, the question of what to do.
+% \footnote{% Pettit
+% \citeauthor{Pettit:1991aa} draws a distinction between \emph{prospects} and \emph{properties}, where prospects are (roughly) states of affairs, and properties are realised by prospects.
+% (\citeyear[151--152]{Pettit:1991aa})
+% For example, pedal boats are available for hire on The Serpentine this afternoon, and so the state of affairs in which you're at Hyde Park includes (supposing you have the relevant change) involves the property of you being able to rent a pedal boat.
+% Supposing you have the appropriate reasons for action, what would satisfy these reasons is not the property of renting a pedal boat, but the prospect which realises this property.
+% \citeauthor{Pettit:1991aa} holds that `to desire a prospect is to opt for it, or to form the intention of opting for it, among the set of available alternatives; to desire a property is to value it, being disposed, if other things are equal, to desire any prospect that displays the property' (\citeyear[153]{Pettit:1991aa}) and substituting talk of `reasons for actions' as opposed to `desires'.
+% In other words, prospects satisfy reasons for action, but a prospect may satisfy one's reasons for action due to the properties it realises---which is in turn shorthand for a something that may be realised by multiple prospects.
+
+% Actions, on this view, are a particular kind of prospect.
+% It is perhaps more natural to think of actions as things an agent can do to bring about prospects, but I do not see the need for a principled distinction between the two\nolinebreak
+% \footnote{Savage vs.\ Jeffrey, etc.}
+% and little of what I wish to say would hang on such a distinction.
+% Still, I do wish to be clear that if a distinction between actions and prospects is drawn, then reasons for action can target either actions, prospects, or properties these have.
+
+% \citeauthor{Pettit:2006aa} also draws a distinction between \emph{phenomenal} and \emph{non-phenomenal} reasons for action (\citeyear[145--146]{Pettit:2006aa}).
+% Examples of phenomenal reasons for action may be the longing for a drink or the discomfort of an argument and these contrast with non-phenomenal reasons for action such as understanding the meaning of a text or the ability to run a half-marathon.
+% The importance of this distinction is that satisfaction can be conceptualised either as the realisation of prospects, or the `removal' of reasons for action by means of fulfilling them.
+% (\citeyear[147]{Pettit:2006aa})
+
+% I am agnostic about whether there is a genuine difference or whether all reasons for action eventually reduce to some phenomenal reason.
+% A Humean approach, I think, would endorse the latter option through talk of pleasure and pain, but I tend to think we're stranger creates than that.
+% The importance of the distinction is merely that satisfaction can take potentially take different forms, and that talk of the relation itself does not distinguish which form it takes.
+
+% A related distinction may be drawn between \emph{directed} and \emph{undirected} reasons for action, where directed reasons specify---at varying levels of granularity---prospects, while undirected reasons do not.
+% Phenomenal reasons seem to typically be undirected in this sense---the longing for a drink need not specify any particular drink, while non-phenomenal reasons often seem directed---one may not know how to understand a text, but such understanding specifies a prospect to be realised.
+% I doubt these distinctions are co-extensive, but I do think it is important to note that it may be quite unclear to an agent how their reasons for action may be satisfied and it may (especially in the case of undirected reasons) be doubted by an agent that an action which they selects to satisfy their reasons for action will satisfy their reasons when performed.
+
+% {\color{red} The issue with talking about prospects and properties is that this are things that the agent performs actions in order to bring about, so it is removed from the conclusion of practical reasoning.}
+% }
+
+There is, in addition, no requirement for the action occurring in a relation of satisfaction to detach because we assume that agents are motivated to act in order to satisfy their reasons, and it therefore the fact that the relation of satisfaction connects actions to reasons which allows the actions which occur in such reasons to serve as possible answers to the question of what to do.
+
+The primary issue, then, is how agents establish relations of satisfaction in order to answer the question of what to do in a given context.
+For, an agent must recognise that a relation of satisfaction obtains in order for them to take it as a possible answer to the question of what to do, and additionally that such a relation is `best' in order for them to judge the related action as the thing to do.
+
+Let us term whatever it is about an agent which allows them to establish the relation of satisfaction their \emph{deliberative} agency.
+The above then sets out minimal requirements for deliberative agency.
+For, agents must determine
+\begin{enumerate*}[label=(\alph*)]
+\item\label{isp:reasons} what their reasons are,
+\item\label{isp:actions} actions which they may perform,
+\item\label{isp:satisfy} how those actions satisfy their reasons, and
+\item\label{isp:bestrel} which relations of satisfaction are `best'.
+\end{enumerate*}
+We use the dynamic perspective on the relations of satisfaction to explore and expand these requirements.
+Before doing so, we clarify two connected applications of relations of satisfaction.
+First, with respect to normative judgements and second, to the idea of akrasia.
+
+\subsubsubsection{Normative Judgements}
+\label{sec:normative-judgements}
+
+%Norms
+We have stated that actions which feature in relations of satisfaction constitute possible answers to the question of what to do in a given context.
+Still, we assume that agents are motivated to satisfy their reasons, and thus relations of satisfaction resolve the question of what to do by specifying how the agent's reasons may be satisfied.
+This means that though we locates the role of relations of satisfaction with connexion to an agent's motivational psychology, we do not assume relations of satisfaction have inherent motivational force.
+Still, possible answers to the question of what to do may also be regarded normatively.
+For example, an agent may see that they ought not to perform a certain action or that morality favours one action over another, while prudence makes a converse judgement.
+Strictly speaking, a purely normative concern with reasons with action is beyond the scope of the framework, and if normative considerations are brought to bear on an action then these will be captured as reasons for or against an action in a specific relation of satisfaction, given our prior assumption about reasons.
+However, though the framework is motivated by descriptive considerations, there is nothing which precludes an application of the same core ideas in a normative setting, either by cutting the connexion between the framework and motivation and restricting attention to a certain kind of reason, by attempting to identify good patterns of reasoning through the tools the framework provides to analyse reasoning, or by some other means.
+
+\subsubsubsection{Akrasia}
+\label{sec:akrasia-1}
+
+%Akrasia
+A tension arises given the assumption made in the high-level overview that agents perform acts which `best' satisfy their reasons.
+For, if an agent reasons that they ought to perform an act because that act features in a `best' relation of satisfaction, then that relation of satisfaction which features that act will answer the question of what to do for the agent.
+The relation of satisfaction may not be unique, and it so it may be possible for an agent to entertain conflicting oughts.
+However, an agent cannot reason that they ought to perform an act because that act `best' satisfies their reasons and perform an action which does feature in a relation of satisfaction which is not `best'.
+If, then, there is an `ought' identified with `best' relations of satisfaction, and agent cannot fail to do what they ought to do, in the relevant sense.
+It may be possible to explain why an agent does not act in accordance with morality or prudence by showing how these do not satisfy the agent's reasons in a way which is `best', but then these readings of `ought' cannot be identified with the (stipulated) sense of `ought' above.
+
+Whether or not the above (stipulated) sense of `ought' actually exists is beyond the scope of this paper, but in an intuitive sense it gives content to the idea that agents cannot fail to perform an act which they judge that they ought to do.
+They may, of course, fail to perform some act which they judge they ought to do if there are multiple `best' relations of satisfaction, but any act they do perform on the basis of their practical reasoning will be one they judge they ought to do.
+% There may be some failure in the transition from thought to action, but we are concerned with practical reasoning and on our understanding practical reasoning does not extend beyond answering the question of what to do.
+
+The idea that agents \emph{can} fail to perform an act which they judge that they ought to do can be cast in alternative language.
+One may say that agents can be subject to weakness of the will, incontinence, or akrasia.
+In turn, it is arguably the case that the framework rules out all of these.
+We focus on the term akrasia, and understand akrasia to mean a state of mind in which someone acts against their better judgement.
+On our understanding answering the question of what to do by determining a `best' relation of satisfaction and instantiating an act which features in a `best' relation are distinct
+The former belongs to practical reasoning while the latter does not, and so it is \emph{possible} for someone to act against their answer to the question of what to do.
+However, in this case it would not be proper to say that the act followed from practical reasoning.
+Akrasia, then, is only relevant to our understanding of practical reasoning if it involves a state of mind in which someone answers the question of what to do against their better judgement, and so is a state included in practical reasoning.
+
+The problem is, such reasoning is intuitively plausible and therefore our framework seems to conflict with an everyday understanding of practical reasoning.
+To illustrate, it seems that one can clearly establish that, given their lack of commitments over the coming hour, documents in easy reach, and a deadline looming, that filing their tax returns would be the (unique) ‘best’ thing to do, and yet still fail to file their taxes.
+Here we do not assume that there is some fault in the agent's practical reasoning or in the transition from thought to action.
+For, if akrasia is to present a problem it cannot do so while being explained away by some fault internal or external to the agent's reasoning.
+We are, after all, biological creatures, and with matters of reasoning and rationality malfunction can be observed without requiring explanation as reasoning is distinct from cognition itself, and so reasoning can cease to function without complete cognitive failure.
+Behind this observation is the intuition that akrasia is \emph{irrational} but not impossible, and so can be traced to some mistake (but not fault) in an agent's reasoning.
+
+Akrasia, then, is intuitive but seems inconsistent with our framework.
+For, given the framework agents answer the question of what to do by determining a `best' relation of satisfaction, while in cases of akrasia agents answer the question of what to do against their better judgement.
+There is, however, a gap that needs to be bridged in order for this inconsistency to be real.
+For while `best' in connexion with relations of satisfaction is a theoretical term, `better judgement' in connexion with akrasia is not.
+What is needed is that an agent answering the question of what to do against their better judgement amounts to failing to answer the question of what to do with a `best' relation of satisfaction.
+This is not a simple argument to make, and we will argue that there is ground for rejecting the plausibility of such an argument.
+The strategy relies on our understanding of what practical reasoning amounts to, and the pressure that the existence of akrasia (as understood above) places on any comparable framework.
+The goal, in short, is to argue that the intuition supporting problematic cases akrasia is itself troublesome, and that the trouble generalises to any complete analysis of practical reasoning.
+
+\paragraph{ }
+Bridging the gap between our framework and akrasia requires taking an agent answering the question of what to do against their better judgement to mean that an agent answers the question with a relation of satisfaction which they do not judge `best'.
+
+A basic observation is that \emph{better} and \emph{best} are just inflected forms of \emph{good}.
+Therefore, for an agent to answer the question of what to do against their better judgement just means to answers the question of what to do with a relation of satisfaction  not judged to be `best'.
+However, this reasoning is too quick.
+For, as we stressed above, `best' as used with respect to the framework is a theoretical term and does not necessarily correspond to an intuitive or everyday understanding of \emph{best}.
+To illustrate, an agent may have reasons to perform some reprehensible act.
+It may further be that these reasons are divisive in their practical reasoning, and so the relation of satisfaction which holds between their reasons and the reprehensible act is (uniquely) `best', but this does not preclude the agent recognising the act as reprehensible, from thinking the act is \emph{bad}, and from thinking the act is not the \emph{best} thing to do.
+What matters is that they do not have sufficient reason to perform any \emph{good} act.
+Reasons, in our framework, are characterised purely in terms of their functional role, and so agents can have independent evaluative judgements regarding these reasons.
+Still, it is not clear that there is a unique sense of `good', and hence a unique sense of `best' as a superlative of `good'.
+Perhaps there is a relevant sense of `good', and the role of `best' in our framework corresponds to this, hence an inconsistency between the framework and akrasia.
+If so, more work is required to turn this basic observation into an argument.
+
+However, it is not clear to us that this captures the intuition behind akrasia.
+The reason for this is that it seems we have successfully raised the problem of akrasia with respect to the framework without specifying what `best' amounts to.
+This may be due to preconceptions or intuitions about possible interpretations of `best', but it would be disingenuous to reduce the problem to interpretation.
+For, we could use some other piece of syntax to refer to `best' relations of satisfaction such as `unbeaten', `chief', or `optimal' and a problem seems to remain.
+To make this more explicit, note that the role of `best' in our framework primarily serves to identify relations of satisfaction which serve as answers to the question of what to do and the problem of akrasia has been raised with respect to this role.
+We could, then, make a change to our framework and instead of identifying answers to the question of what to do with `best' relations of satisfaction we could identify answers to the question of what to do with `adequate' relations of satisfaction, analysing `adequacy' as a matter of an action satisfying reasons to some threshold.
+It would then be possible for an agent to answer the question of what to do with some relation of satisfaction which is not `best', so long as the relation meets the threshold, and that there is some relation which is `better'.
+% {\color{red} This is where I should reference \textcite{Bratman:1979aa}.}
+
+Yet, the possibility of akrasia seems to remain.
+To illustrate, consider again a situation in which one has a lack of commitments over the coming hour, tax documents within reach, and a deadline for submitting tax forms looming.
+The agent reasons that filing their taxes would `best' satisfy their reasons, that cleaning their apartment would `adequately' satisfy their reasons, and that organising their bookshelf alphabetically by author would not `adequately' satisfy their reasons for action.
+The agent, however, spends the hour organising their bookshelf.
+Here, it seems to agent is akratic, no because they failed to file their taxes but because they answered the question of what to do with a relation of satisfaction which fell below the threshold of `adequacy'.
+The point is that it is plausible to understand akrasia as resting on a comparative judgement the answer given to the question of what to do and the action performed by an agent.
+Put in simpler terms, an agent's answer to the question of what to do can be taken to be their better judgement, and the intuition supporting akrasia is an agent can fail to act in accordance with their answer to the question of what to do.
+Talk of adequacy, then, was merely a way to weasel out of talking about betterness and the principal issue was not with distinctions between answers to the question of what to do but the role of reasoned answers in general.
+
+This is a position suggested by \textcite{Davidson:1969aa}.
+For, \citeauthor{Davidson:1969aa} argues that akrasia is possible due to a distinction between \emph{prima facie} and \emph{all-out} judgements.
+\emph{Prima facie} judgements concern relations between actions to reasons and may be understood as comparative judgements relations of satisfaction in our framework.
+\emph{All-out} judgements, by contrast, are comparative judgements between actions.
+For example, `given reasons \(r\), action \(a\) is a better action than \(b\)' would be a \emph{prima facie} judgement, while `action \(a\) is better than action \(b\)' is an \emph{all-out} judgement.
+(\citeyear[37--39]{Davidson:1969aa})
+As \emph{all-out} judgements do not follow from \emph{prima facie} judgements it is therefore possible for an \emph{prima facie} judgement to conflict with an \emph{all-out} judgement, and on the assumption that agents act on the basis of their \emph{all-out} judgements for the agent to act against their judgement formed on the basis of the reasons they recognise.
+Simply; akrasia occurs when \emph{prima facie} and \emph{all-out} judgements diverge.
+In our terms, \emph{prima facie} judgements provide answers the question of what to do, but \emph{all-out} judgements answer the question.
+
+This understanding of akrasia is deeply problematic for any attempted analysis of practical reasoning.
+For, if reasoned action cannot be explained in terms of the answers an agent provides to the question of what to do, then it is unclear how an agent \emph{answers} the question of what to do.
+\citeauthor{Davidson:1969aa} remarks that reasoning which `stops at [\emph{prime facie}] judgements \dots is practical only in its subject, not in its issue' (\citeyear[39]{Davidson:1969aa}) but this leaves a mystery regarding how reasoning about how to answer the question of what to do can fail to issue in action.
+This is a mystery that is immediately resolved if akrasia is a fault.
+For, while faults may be puzzling, they are not mysterious.
+If, however, akrasia is not a fault, then there must be something more to practical reasoning than providing answers to the question of what to do and the question may be answered without drawing from any of the answers provided.
+\citeauthor{Davidson:1969aa} states that an agent has `no reason' when \emph{all-out} judgements diverge from \emph{prime facie} judgements (\citeyear[42]{Davidson:1969aa}).
+What \citeauthor{Davidson:1969aa} means by this is subtle.
+It is not that the agent strictly speaking has no reason, but rather that they lack a reason for not letting their better reason prevail (\citeyear[42fn.25]{Davidson:1969aa}) which in turn means that they cannot view their action in terms of a rational pattern, and cannot explain why they did not act on a rational pattern they could explain (\citeyear[42]{Davidson:1969aa}).
+If this is the case then it seems we cannot hope to analyse practical reasoning.
+Whatever answers an agent provides to the question of what to do, the answer the agent gives is independent of these and cannot be explained.
+So, answering the question of what to do must be taken as unanalysable and primitive.
+
+The idea that answering the question of what to do is unanalysable, then, is the upshot of treating akrasia as possible while resisting the idea that akrasia is a fault in an agents reasoning.
+The conflict between this treatment of akrasia and our framework arises because we do take answering the question of what to as analysable.
+Specifically, we collapse answering the question of what to do with providing answers to the question of what to do.
+There remains an issue as to whether our account of how agents provide answers to the question of what to do is satisfactory.
+It may turn out that it is a mistake to in turn analyse answers to the question of what to do as `best' relations of satisfaction.
+For example, we floated the idea of a threshold above.
+However, the content of our analysis is independent from the core ideas underlying our framework.
+What the analysis of answers to the question of what to do as `best' relations of satisfaction provides is
+\begin{enumerate*}[label=\alph*)]
+\item\label{bestAsAnswer:1} a way to understand answers to the question of what to do in terms of relations of satisfaction, and
+\item\label{bestAsAnswer:2} a straightforward criterion for excluding certain relations of satisfaction as answers to the question of what to by virtue of \ref{bestAsAnswer:1}.
+\end{enumerate*}
+This is what is important for our understanding of practical reasoning, and while `best' relations of satisfaction may not ultimately be the correct analysis, a rejection of this analysis cannot be based on the intuitions about akrasia drawn out in the preceding paragraphs, as these intuitions suggest that no analysis can be given---not that the analysis is incorrect.
+So, the broad tension is between akrasia and a framework of practical reasoning in which an analysis of how agents answer the question of what to do can be given.
+The cost of an analysis is a statement of how agents answer the question of what to do in terms other than `answering the question of what to do', and here intuition can drive a wedge.
+The return is an analysis of practical reasoning.
+It does appear that how agents answer the question of what to do can be analysed in terms other than `answering the question of what to do' because we (intuitively) do not think of the relationship between an agents prior reasoning and their answer to the question of what to do as contingent.
+An agent's prior reasoning \emph{explains} why they answered the question of what to do in the way that they did (barring fault).
+
+It is possible that agents engage in reasoning they do not themselves endorse.
+The framework does not require that agents evaluate their reasoning while engaged in it, and intuition does not appear to require this either.
+Therefore, it is possible that agents engage in some reasoning and perform an action on the basis of that reasoning while rejecting that reasoning from an evaluative standpoint.
+Akrasia, then, may be analysed as an agent engaging in reasoning which they do not endorse when describing themselves as akratic.
+This appeals to quite different intuitions than those used to motivate the problem of akrasia above, but returns to the observation is that \emph{better} and \emph{best} are inflected forms of \emph{good}, but distinguishes between `good' as applied to answering the question of what to do and `good' as applied to evaluating one's answer to the question of what to do.
+What is at issue in the problem of akrasia as developed is whether an analysis can be given of how agents answer the question of what to do, not whether their answer and their evaluation of this answer can come apart.
+
+\paragraph{ }
+To summarise, if an agent can answer the question of what to do, and without fault act against their own answer to this question, then this suggests something is amiss with an analysis which collapses answering the question of what to do with providing answers to the question of what to do.
+If akrasia (as we have understood the term above) is possible, then this analysis is wrong.
+In turn, the bridge required between an (broadly) intuitive understanding of akrasia and the framework to show that this analysis is wrong requires that no complete analysis of practical reasoning can be given in terms of answering the question of what to do, as the answers and agent provides can be independent from the answer itself.
+No attempt to fill this gap could succeed as an agent's answer to the question of what to do could be separated from the agent's prior reasoning.
+So, the bridge appeals to an intuition regarding the possibility of an analysis of practical reasoning in terms of answering the question of what to do, and therefore can be extended to any analysis of practical reasoning which takes answering the question of what to do as central.
+
+% {\color{blue}
+
+%   \begin{enumerate}
+%   \item Idea is to pursue a strategy of sufficiency, noting that these are technical terms.
+%     \begin{enumerate}
+%     \item Bratman
+%     \item Davidson
+%     \item Velleman
+%     \item Holton
+%     \end{enumerate}
+%   \item Further, note some things about the dynamics.
+%     \begin{enumerate}
+%     \item \(K\phi \land B\lnot\phi\) is possible, and captures the possibility of some kind of Moorean thing.
+%     \item Also, weaken this to doubt, etc.\
+%     \item And, notice the different ways that things can be promoted or demoted.
+%     \item This as a possible distinction between weakness and temptation in the intuitive sense.
+%     \end{enumerate}
+%   \item This isn't a full account, but gives the position here.
+%   \item Though, it is possible that the model could be refined to allow for a looser connexion.
+% \end{enumerate}
+
+% It’s possible to disassociate reasons for actions from wants or desires. Perhaps this is plausible to do, but on our understanding, this doesn’t capture weakness of will, because it’s simply going to be the case that those desires won out—an agent would still be acting on the basis what best satisfies their reasons for action. This would be a very Davidsonian approach.
+% Holton’s view is similar, but relies on diachronic issues. This comes close to temptation, at least how we’ve characterised it.
+
+% But we can’t say that there’s a judgement, and that an agent fully endorses that judgement. For, the agent needs to be in control of what they do. (Might reference Bratman here.) One cannot appeal to any blocking of reasons or otherwise, for this would be to get rid of the freedom aspect. Pushing around the bump in the rug.
+% Perhaps, though, the dismissal of a Davidson style approach is too quick, and if the agnosticism with respect to reasons for action is cast as catholicism, then a distinction becomes plausible. But, I don’t want to embrace this kind of approach. The worry is that it brings in additional assumptions which aren’t required. I think the distinction can be made, and is revealing, and both can and should be part of a full model of practical reasoning, but it’s not clear that this is necessary, though it may be sufficient.
+% Similarly, there’s a distinction between establishing a relation of satisfaction, and acting on that relation. This seems to be what Bratman draws on, and it’s quite possible for an agent to be at fault here. This does not necessarily reduce to temptation, as there’s something wrong with the agent’s reasoning. But, to my mind, this doesn’t look like weakness proper, as we have some unexplained breakdown. Bratman argues that there can be reasoning, and I agree with this. The thing is, it then looks like a case of temptation, unless we’re to argue that temptation is rational, while weakness is not, but I worry that there is no clear line to be drawn. (Plausibly, the role of emotions are interesting here, as Bratman kind of suggests with the talk of depression.)
+% }
+
+\paragraph{ } %Moving to the next section.
+We now turn to the dynamic perspective on the relation of satisfaction.
+
+\subsection{The Dynamic Perspective on Satisfaction}
+\label{sec:dynamic-perspective}
+
+In section~\ref{sec:relat-satisf} we introduced the terminology of \emph{deliberative agency} to identify whatever it is about an agent which allows them to establish the relation of satisfaction.
+We set out minimal requirements for deliberative agency as determining
+\begin{enumerate*}[label=(\alph*)]
+\item[\ref{isp:reasons}] what the agent's reasons are,
+\item[\ref{isp:actions}] the actions which may be performed by the agent,
+\item[\ref{isp:satisfy}] how those actions satisfy the agent's reasons,
+\item[\ref{isp:bestrel}] which relations of satisfaction are `best'.
+\end{enumerate*}
+The dynamic perspective on the relation of satisfaction will explore and expand these requirements.
+Recall, however, that here our focus is on the building blocks from which such an analysis may be constructed and not on specific processes which may occur in practical reasoning given the building blocks we present.
+This focus will then relate to our conjecture that certain folk-theoretic concepts and other phenomena can be captured through complex interaction and dynamics of general aspects of practical reasoning by providing potential analyses of phenomena.
+The conjecture and supporting strategy of sufficiency which seeks sufficient but not necessary conditions to capture a particular phenomena guide much of the following discussion.
+
+\subsubsection{Answering the Question of What to Do}
+\label{sec:answ-quest-what}
+
+We introduced and built on the assumption that agents use `best' relations of satisfaction to answer the question of what to do while relations of satisfaction in general resolve possible answers when setting out the high-level overview of the framework in section~\ref{sec:high-level-overview}, and when discussing relations of satisfaction in section~\ref{sec:relat-satisf}.
+We assumed that relations of satisfaction implicitly determine which relations of satisfaction are `best', while noting that this is not an essential part of the framework---so long as there is an explanation of why agents take certain relations to resolve questions of what to do.
+However, in the high-level overview we also raised concerns about resource limitations faced by agents.
+A straightforward way to develop this issue is by distinguishing between relations of satisfaction in the abstract, and relations of satisfaction considered by an agent in practical deliberation.
+Resource limitations suggest it is possible that agents fail to reason about all relations of satisfaction, and in particular agents may fail to reason about relations which they would judge as `best' were those relations given consideration.
+So, an agent may fail to judge that a relation is `best' while entertaining the possibility that given further reasoning they may judge some other relation `best'.
+Resource considerations, then, require clarifying two possible uses of `best', tied together by the fact that `best' is a comparative notion.
+First, there are relations of satisfaction which are `best' in the abstract, when contrasted with all possible relations of satisfaction, and second there are relations of satisfaction which are `best' relative to an agent's reasoning.
+Both uses of the term `best' are important for the framework, as we do not assume that agents can know if a relation of satisfaction is `best' in the abstract.\nolinebreak
+\footnote{It is unclear whether this assumption is distinct from concern about resource limitations.
+
+  One the one hand, it is intuitive to think that if agents could assess all relations of satisfaction then they would be able to see from this which relations are `best'.
+
+  One the other hand, suppose that you're a capable logician who cares about the consistency of arithmetic but sufficiently conservative that you'll only work on the problem if you know that First-order Peano Arithmetic is inconsistent.
+  For all you know this is possible, but this is not a decidable problem.
+  It is semi-decidable, as you may find a contradiction, but unbounded resources do not seem to help with the problem if First-order Peano Arithmetic is consistent.
+  What you seem to need is an oracle.
+  Still, working on the problem could be the `best' thing for you to do if First-order Peano Arithmetic were inconsistent.
+  So, it seems you cannot know which relation of satisfaction is `best'.}
+Still, if all that mattered to an agent was their \emph{judgement} that a relation is `best' relative to their reasoning then there seems no ground to suppose that an agent would reason beyond some minimal level to establish such a relation.
+This would be a mistake as while agents may not exhaust all possible relations of satisfaction in their practical reasoning, they likewise do not arbitrarily settle on a mere judgement of what is `best'.
+Instead, the two distinct uses of `best' correspond to two distinct roles.
+The idea of establishing a `best' relation of satisfaction in the abstract guides reasoning, while a `best' relation of satisfaction relative to those relations considered in reasoning allows an agent to answer the question of what to do, even if they have not (or cannot) reason about all possible relations.
+
+
+This dual role of `best' underlies the dynamic perspective on establishing relations of satisfaction.
+For, guided by the goal of establishing a `best' relation of satisfaction while simultaneously being able to compare from considered relations of satisfaction (some of which are judged `best') means that an agent can use the prior reasoning to structure further deliberation.
+For example, take a simple case in which an agent is comparing two `best' relations of satisfaction which relate the same reasons to two incompatible actions.
+The agent may have some doubt as to whether actions other than the two they are considering would revise the `best' relation(s) of satisfaction given the same reasons.
+The agent could allow any action to come to mind, and consider how this satisfies their reasons, but the agent may find it more beneficial to first consider variations on the action which occurs in the `best' relation of satisfaction.
+Intuitively, if the action is sufficiently specific, then there may be similar actions which differ in important ways, one of which satisfies the agent's reasons to a greater degree than the current `best' action.
+And, if no similar action does so, the agent may benefit from considering less similar actions.
+Similarly, if the action which is not `best' is specific, then it may be beneficial to establish whether this is due to some aspect of its specificity, or whether any similar action would be unsatisfactory.
+To illustrate this example in greater detail, while introducing concerns about reasons and resource limitations, consider the following scenario.
+
+\begin{scenario}[Toys]\label{sc:toys}
+  You've decided to buy a toy for your dog.
+  You arrive at Petco and find the aisle containing the dog toys.
+  As you stand at one end of the aisle, the other end stretches off into the distance, though from what you can see there is no principle to the arrangement of toys.
+  Near to you there are plastic and furry toys, toys which contain squeakers and toys which don't, big toys, small toys, toys filled with treats, and so on.
+
+  You're not too familiar with buying dog toys, though it is clear to you that there are trade-offs to consider.
+  Your dog may enjoy a toy with a squeaker, but this may be distracting around the house.
+  Similarly, a furry toy may be very much appreciated, but carries with it the risk of a very fluffy floor after a vigorous play session.
+
+  As you walk down the aisle you realise that the toys can be broadly categorised, but that for the most part each toy has some novel innovations which distinguish it from others of its kind.
+  Considering the pros and cons of each type of toy is costly as you need to think of both your dog and yourself, but the novel innovations mean that you cannot clearly rule out categories of toys, as the general feature representative of the category may be sufficiently mitigated by the innovation of the particular toy.
+
+  Given the range of choice available, ruling out certain categories regardless allows you to consider the pros and cons of the remaining toys more carefully, and while you may not be sure to find the ideal toy, you seem likely to find a toy which strikes the right balance between the requirements of you and your dog.
+\end{scenario}
+
+In the above scenario the relevant actions available to you take the form of selecting a dog toy, and each type of toy stands in some relation of satisfaction to your reasons.
+In turn, when establishing relations of satisfaction between your reasons and a toy, previously unconsidered reasons may be introduced to your reasoning, and these may require revision of previously established relations of satisfaction.
+For example, after realising that size is an important factor, you may judge smaller toys to satisfy your reasons to a greater degree than larger toys.
+
+Further, as you begin to recognise your reasons, you become able to structure your reasoning around various properties the toys have, and to refrain from reasoning about whether certain actions would satisfy your reasons due to the presence of properties which are on the whole unsatisfactory (e.g.\ the size of a toy) or by noting that certain properties do not correspond to reasons you have (e.g.\ the colour of a toy).
+
+\paragraph{ } %Moving onto dynamics, clarifying what is meant by dynamic relation.
+A detailed deconstruction of scenario~\ref{sc:toys} is beyond the scope of this paper, but in addition to highlighting how reasoning may be structured, the scenario also serves to motivate the idea of the dynamic perspective on relations of satisfaction.
+For, in talking about previously unconsidered reasons and actions, it seems you \emph{revise} previously established relations of satisfaction.
+True, on one analysis you realised that certain relations of satisfaction did not reflect the reasons you have, and moved from considering these relations to relations in which the same action occurred but which contained an expanded class of reasons.
+However, on a more intuitive analysis the relation of satisfaction remained constant and changed to include an expanded class of reasons.
+This distinction between two different kinds of relations is not what we mean by distinguishing a dynamic perspective on the relation of satisfaction.
+
+For our purposes dynamic relations of satisfaction may be reduced to static relations as in the first analysis, as what is important is simply the continuity in reasoning involved from prior to present and future reflection on how to answer the question of what to do when new reasons or actions enter in to an agent's reasoning.
+Still, new reasons or actions are merely a simple case.
+The state of the world may change, an agent may undergo a change of heart, become distracted, simply forget, and so on.
+Certain changes may indicate a break in continuity, but it often seems possible to trace a thread from some initial reasoning about what to do through various changes to some termination of that initial thought.
+This is what we mean by the dynamic perspective, and to do so it helps to use the language of the second analysis, even if this analysis can be reduced to the first.
+
+Furthermore, this language helps clarify the dual role of `best' and how agents deal with resource limitations.
+For, dynamic relations can be treated as `best' in both senses.
+On the one hand, they serve to identify for an agent which actions would `best' satisfy their reasons, and on the other hand how they will answer the question of what to do.
+In other words these relations captures what an agent takes to be `best' were the relation to be compared against all other relations, and what is `best' compared relative to their present deliberation.
+Given the dual role of `best' such an identification must happen at some point in the framework---an agent must treat what is `best' simpliciter as what they judge to be `best'---and dynamic relations serve as this point of equivocation.
+And, as noted in the high-level overview of the framework in section~\ref{sec:high-level-overview}, dynamic relations of satisfaction can serve as actual answers to the question of what to do at arbitrary points in an agent's reasoning.
+Further, we do not need to assume that agents need to keep some resources in reserve to establish a `best' relation of satisfaction prior to a requirement that they answer the question of what to do (i.e.\ when the given context of action arises), as this will be already be given by their prior reasoning.
+
+It is important to note, however, that while dynamic relations of satisfaction \emph{can} be treated as `best', it is not necessary that they are treated in this way.
+Agents may dynamically construct a relation of satisfaction without treating the relation as `best'.
+Our focus with dynamic relations of satisfaction is on continuity in reasoning, and an agent may do more than simply tend toward a `best' relation of satisfaction.
+For example, they may begin to explore some other relation of satisfaction which they do not judge to be `best' to explore whether dynamically revising this relation leads to a `best' relation.
+To reconcile this with the above treatment of answering a question of what to do and resource limitations this assumes that agents can distinguish between relations which are `best' and other relations but this is an assumption we have made.\nolinebreak
+\footnote{To motivate this, consider an agent who has established a relation of satisfaction, and begins to construct another which they think may become `best' upon further reasoning, but does not know this for sure without engaging in the relevant reasoning.}
+Let us call the relations an agent judges as `best' at some arbitrary point in practical reasoning \emph{selected} relations (as the actions which occur in these have been `selected' as answers to the question of what to do), and note that while keeping track of selected relations may incur some overhead in practical reasoning, so long as agents have a class of selected actions their reasoning may terminate at arbitrary points and still answer the question of what to do (even if this amounts to arbitrarily picking from one of many `best' relations).
+
+\subsubsection{Background remarks on the role of folk-theory and introspection}
+\label{sec:backgr-remarks-role}
+
+% \paragraph{ } %On selection, primitives, and folk-theory
+Let us pause here at the introduction to selection to make some additional background remarks.
+First, selection is a new primitive introduced to our framework, and its introduction has been motivated by a need to distinguish applications of the dynamic perspective on relations of satisfaction to distinct aspects of reasoning.
+This relies on agreeing with us about the underlying dynamic, the plausibility of applying the dynamic to distinct aspects of reasoning, the need to employ some primitive distinction, and the plausibility of the primitive itself.
+
+We take it for granted that the reader entertains the possibility of the underlying dynamic.
+The application to distinct aspects of reasoning is motivated by the fact that the dynamic draws on broad aspects of relations of satisfaction which are not unique to `best' relations.
+So, from the viewpoint of the framework a restriction of the dynamic perspective to `best' relations of satisfaction would be unmotivated.
+Therefore, the dynamic perspective should be broadened to apply to relations of satisfaction in general, or further specified to explain why it only applies to `best' relations.
+And, given that it seems plausible that the dynamic may apply to other relations of satisfaction, we favour the former option.
+Yet, we have argued that agents keep track of which relations are `best', and so if they keep in mind relations of satisfaction other than those which are `best' there must be a way to distinguish these, hence selection.
+
+There are two further components to justifying the plausibility of selection.
+First, selection has been stated at the folk-theoretic level, in relation to other aspects of the framework which have also been stated at the folk-theoretic level.
+And second, at the folk-theoretic level selection is intuitively something that agents can do.
+
+Again, we take it for granted that selection is intuitively something that agents can do, and focus on the first component.
+For, up to now the framework has been stated at the folk-theoretic level.
+We have talked of reasons, actions, satisfaction, degrees of satisfaction, `best' relations of satisfaction and so on.
+This means the framework lacks in specificity, we do not know in detail what degrees of satisfaction amount to, nor what a `best' relation of satisfaction amounts to.
+However, this is because the specifics are largely irrelevant to the aims of this paper.
+Here, our goal is to develop and motivate the core of a framework, but not to provide a complete characterisation of it.
+And the relevant heuristic at play is that if a folk-theoretic formulation of the framework can be developed and motivated, then it can be given a complete characterisation.
+The argument for this comes from what the framework is about; practical reasoning.
+For, practical reasoning is both something we all do, but more than this it is something we can and do actively reflect on and reason about.
+We can wonder why we performed an action, while you can reasons about what you would have done and what it is about us which explains the divergence in our judgements.
+We do this at the folk-theoretic level, and this is arguably do to our ability for introspection.
+Practical reasoning is not clearly something we can directly observe of others; we typically only see the results of practical reasoning in action.
+What distinguishes the framework being developed from typical introspection is an attempt to regiment this introspection so that we share a common language about what practical reasoning is, stated in the simple and fundamental terms so that we can see what our folk-theoretic introspection relies on.
+In turn, the strategy of sufficiency is employed to allow for potential disagreement about concepts which go beyond what our folk-theoretic introspection relies on.
+
+In general, then, we permit the introduction of primitives when they are intuitive at the folk-theoretic level, appear sufficiently general, and cannot clearly be reduced to more basic elements, as is the case with selection.
+
+\paragraph{ } %Moving on from folk-theoretic stuff
+The emphasis on folk-theory and introspection does not amount to a requirement that practical reasoning is, or can be, strictly conscious.
+\citeauthor{Velleman:2000aa} draws attention to a case noted by \citeauthor{Freud:1960aa} (taken from \citeauthor{Meringer:1900aa}, \citeyear{Meringer:1900aa}) in which the President of the Lower House of the Austrian Parliament's has a `slip of the tongue' when opening a sitting by announcing ``Gentlemen: I take notice that a full quorum of members is present and herewith declare the sitting \emph{closed}!''
+After which there was some merriment, and the President corrected their mistake.
+
+\citeauthor{Velleman:2000aa}, following \citeauthor{Freud:1960aa} analysis the case by noting that the President's utterance of `closed' satisfied a desire to close the sitting, while the correction satisfied a desire to open the sitting.
+\citeauthor{Freud:1960aa} remarks that `the slip was committed not only unintentionally but unwillingly, since \dots the desire to close the session ``succeeded in making itself effective, against the speaker’s will.'''
+(\citeyear[3--4]{Velleman:2000aa})
+Whether \citeauthor{Freud:1960aa}'s analysis can be reduced to more fundamental terms is an interesting question, but for now what matters is that the President's slip of the tongue cannot plausibly regarded as conscious.
+Yet the president had reasons to close the sitting, and announcing that the sitting was closed would satisfy those reasons.
+While, the president also had reasons to open the sitting, and announcing that the sitting was open would satisfy those reasons.
+The President's slip of the tongue, then, can be seen as the President acting on a relation of satisfaction, and thus performing an act which was identified by the President as `best' at the moment of utterance but whose status as `best' was quickly revised upon further reasoning.
+
+\paragraph{ } %Some kind of summary about the dynamic perspective up to now.
+Returning to the details of the dynamic perspective on the relation of satisfaction, we have noted how this perspective emphasises how agents can be viewed as \emph{constructing} relations of satisfaction and how agents may reflect on this to structure their own reasoning.
+This understanding of the dynamics of practical reasoning is at the core of understanding more complex phenomena such as intentions and intention-like states, and while the idea of selection allows us to explain how agents can reason within (potentially unknown) resource limitations, our understanding of more complex phenomena will rely on identifying additional aspects of the dynamic perspective, and the introduction of additional tools.
+
+In the following section we will explore potential uncertainty agents may have about dynamic relations of satisfaction and how properties of \emph{stability} and \emph{selected stability} may be identified in order to capture certain phenomena.
+In particular, we will highlight how this property may be used to analyse scenarios~\ref{sc:SF} and~\ref{sc:SJ} from section~\ref{sec:general-outlook} and a scenario concerning temptation.
+Finally, in section~\ref{sec:prosp-relat} we will turn to cases of underdetermination and conflict, in which agents are faced with multiple actual answers to the question of what to do.
+
+\subsection{Uncertainty, Fallibility, and Stability}
+\label{sec:uncert-stab}
+
+We have spoken about how the dynamic perspective views relations of satisfaction as constructed and open to revision.
+Further, we introduced the idea of selection to capture relations of satisfaction which agents judge to be `best' and serve as actual answers to the question of what to do while also allowing the dynamic perspective to apply to relations of satisfaction which do not have this role in an agent's practical reasoning.
+In line with this idea of constructing relations of satisfaction, certain things may be unknown to an agent, and further reasoning may lead to the recognition of additional reasons and actions, as was illustrated by scenario~\ref{sc:toys} in section~\ref{sec:answ-quest-what}.
+
+The above discussion focused on new and changing information, which can be subsumed under a general appreciation for uncertainty in practical reasoning.
+An additional source of uncertainty is that agents may be fallible, and may recognise their fallibility.
+So, agents may receive new information, but they may also make mistakes in their assessment of recognised information.
+For example, agents may recognise changes in the world, change their mind about whether something counts as a reason, or the relative importance of reasons, believe an reason supports an action when it does not, or believe an action is impossible when in fact it can be performed.\nolinebreak
+\footnote{We do not think that fallibility or changes of mind are faults akin to answering the question of what to do and failing to act in accordance with that answer as discussed in section~\ref{sec:relat-satisf}.
+For, we argued about that such faults did not properly belong to a discussion of practical reasoning, and by contrast fallibility and changes of mind appear to be ordinary occurrences in our reasoning.
+On the one had we do not regard such phenomena as irrational (though they may have irrational causes), while akrasia does seem to be irrational.
+On the other hand the world is not fixed requiring us to deal with potentially changing information engaged in practical reasoning, and from the perspective of informational inputs to practical reasoning mistaken beliefs and changes of mind (when recognised) merely amount to changes of information.}
+
+There are deep issues which can be explored in connexion to fallibility and changes of mind and uncertainty, but the idea we wish to motivate and discuss is that agents may regard dynamic relations of satisfaction with varying levels of confidence.
+To illustrate, consider an agent who after some reasoning has established a relation of satisfaction they judge to be `best', but has engaged in little reasoning about other possible actions.
+Contrast the above to an agent who has similarly established a relation of satisfaction they judge to be `best' and has engaged in reasoning about a range of possible actions.
+Intuitively the former agent would have a low degree of confidence that the relation they currently judge as `best' would remain `best' even if they were to engage in further reasoning, while the latter agent by contrast may have some (potentially high) degree of confidence that the relation they currently judge as `best' would remain `best' if they were to engage in further reasoning.\nolinebreak
+\footnote{In this respect, and due to uncertainty about the results of performing an action, it may be preferable to term relations of satisfaction as relations of \emph{expected} satisfaction.
+  Still, we assume the relevant notion of expectation is implicitly recognised.}
+
+Confidence may come in various forms.
+For example, specifically targeting change of world, change of mind, or fallibility.
+For our purposes as non-specific, intuitive, understanding of confidence will suffice, as we are primarily interested \emph{stability}, a property of relations of satisfaction which is connected to confidence.
+As a working definition which may be revised in future work we split stability in to four distinct components.
+The are relations of satisfaction such that:
+\begin{enumerate*}[label=(\arabic*)]
+\item The agent does not expect further reasoning to either lead to previously unrecognised reasons, or if so such reasons would not affect the established relation of satisfaction.
+\item The agent does not expect further reasoning to either lead to previously unrecognised actions, or if so such reasons would not affect the established relation of satisfaction.
+% \item The agent believes no relevant change to the environment has occurred.
+  And,
+\item the agent believes that the reasoning performed to establish the current relation of satisfaction could not be improved.
+\end{enumerate*}
+Implicit in each of these components is respect for the resource limitations the agent is bounded by.\nolinebreak
+\footnote{For example, an interpretation of `would' which ruled out any possibility of change is likely inappropriate.}\nolinebreak
+\(^{,}\)\nolinebreak
+\footnote{From a formal point of view, it seems that the idea of stability has some similarity with ideas in \textcite{Skyrms:1990aa}.
+  However, we have not had a chance to read through the book and this is premised on a reading of \textcite{Pacuit:2015aa}.
+  Still, a face value \citeauthor{Skyrms:1990aa}'s approach is distinguished from our own by its focus on multi-agent reasoning in game-theoretic settings.}
+Stability depends on an agent's epistemic state, and following the introduction of stability above it may be the case that an agent takes a relation of satisfaction to be stable while entertaining the possibility of something unexpected happening which would cause them to revise their judgement about the relation of satisfaction.
+
+
+The motivating idea behind stability is that when applied to a dynamic relation of satisfaction, the relation is fixed in the agent's reasoning.
+Stability, however, applies to all relations of satisfaction, and we have particular interest in selected relations of satisfaction, but selections which are in turn stable.
+\emph{Stably selected} relations of satisfaction are relations of satisfaction which are `best' and which the agent does not think would fail to be `best' given further reasoning.\nolinebreak
+\footnote{In line with the definition of stability, these would be characterised as relations of satisfaction which are:
+  \begin{enumerate*}[label=(\arabic*)]
+  \item Judged as `best'.
+  \item The agent does not expect further reasoning to either lead to previously unrecognised reasons, or if so such reasons would not affect the established relation of satisfaction as `best'.
+  \item The agent does not expect further reasoning to either lead to previously unrecognised actions, or if so such reasons would not affect the established relation of satisfaction as `best'.
+  % \item no relevant change to the environment has occurred.
+    And,
+  \item that the reasoning performed to establish the current relation of satisfaction could not be improved.
+  \end{enumerate*}}
+
+Stable and stably selected relations of satisfaction may rely on introducing new primitives into the framework, but do not amount to primitives themselves as they depend on broad features of an agent's reasoning.
+For sure, stability is a property which applies to relations and holds regardless of an agent's judgement with respect to other relations of satisfaction.
+However, while being stably selected is a property which likewise appeals to relations, it does not hold regardless of an agent's judgement with respect to other relations of satisfaction as whether a relation of satisfaction is `best' depends on the other relations of satisfaction the agent has or can expect to entertain.
+We leave these issues aside to focus on the explanatory power which can be derived from the framework by observing that relations of satisfaction may have these properties.
+
+For, return to scenarios~\ref{sc:SF}~and~\ref{sc:SJ} in which you board a train to San Francisco and San Jose, respectively.
+A possible explanation of why you consider alighting at alternative stops on the way to San Jose is that you have not stably selected going to San Jose, while in the contrasting case of going to San Francisco you have stably selected this action.
+Further, you consider Mountain View and Santa Clara because, unlike San Antonia and Sunnyvale, the former relations of satisfaction are not stable, while the latter are---you are confident no further reasoning would lead to a change in the degrees of satisfaction offered by San Antonia and Sunnyvale which do not rank as `best', but do not have the same confidence with respect to Mountain View and Santa Clara.
+The intuitive assessment that you have an intention to go to San Francisco and lack an intention to go to San Jose may then, on the basis of this analysis, be explained in line with the strategy of sufficiency, via the fact that you have stably selected going to San Francisco, but have not stably selected going to San Jose.
+
+This is arguably a simple case of how stability may structure reasoning, where lack of stability is taken as grounds for revising or exploring new relations of satisfaction.\nolinebreak
+\footnote{On the latter disjunct, suppose you had considered San Antonia and Sunnyvale as in the above explanation, but had not considered Mountain View nor Santa Clara.}
+A more complex and illuminating case is temptation.
+\citeauthor{Bratman:2007ab} (\citeyear{Bratman:2007ab}) sets up the backdrop for such a case through the following scenario.
+
+\begin{scenario}[Wine]\label{sc:wine}
+  Suppose you value both pleasant dinners and productive work after dinner.
+  One pleasant aspect of dinner is a glass of wine.
+  Indeed, two glasses would make the dinner even more pleasant.
+  The problem is that a second glass of wine undermines your efforts to work after dinner.
+  So you have an evaluative ranking concerning normal dinners: dinner with one glass of wine over dinner with two glasses.
+  So far so good. The problem is that when you are in the middle of dinner, having had the first glass of wine, you frequently find yourself tempted.
+  As you see it, your temptation is not merely a temporary, felt motivational pull in the direction of a second glass: if it were merely that we could simply say that, in at least one important sense, practical reason is on the side of your evaluative ranking.
+  Your temptation, however, is more than that; or so, at least, it seems to you.
+  Your temptation seems to involve a kind of evaluation, albeit an evaluation that is, you know, temporary.
+  For a short period of time you seem to value the second glass of wine more highly than refraining from that second glass.
+  It is not that you have temporarily come to value, quite generally, dinner with two glasses of wine over dinner with one glass.
+  You still value an overall pattern of one glass over an overall pattern of two glasses; after all, productive after-dinner work remains of great importance to you.
+  But in the middle of dinner, faced with the vivid and immediate prospect of a second glass this one time, you value two glasses over one glass just this one time.\nolinebreak
+  \mbox{ }\hfill(\citeyear[257]{Bratman:2007ab})
+\end{scenario}
+
+The tension in scenario~\ref{sc:wine} is that your broad cross-temporal reasons which support productive after-dinner work conflict with your reasons after you have had a single glass of wine which then support having a second glass of wine as you cannot both have a second glass and engage in productive after-dinner work.\nolinebreak
+\footnote{Note, our use of reasons is interchangeable with \citeauthor{Bratman:2007ab}'s use of `valuing'.
+  For, \citeauthor{Bratman:2007ab} writes that  `I value X when I have a policy of treating X as a justifying consideration in my motivationally effective practical reasoning' (\citeyear[269]{Bratman:2007ab}), and reasons are considerations which hold with respect to an agent's motivationally effective practical reasoning, as reasons are used to answer the question of what to do.}
+
+In an earlier article concerning the same scenario \citeauthor{Bratman:1999ac} notes \citeauthor{Austin:1961aa}'s (\citeyear{Austin:1961aa}) warning not to `collapse succumbing to temptation into losing control of ourselves' (\citeyear[38]{Bratman:1999ac}) and this is echoed in \citeauthor{Bratman:2007ab}'s remarks in the later article that `it really will seem to you that you are not simply inclined in favor of the second glass: rather, you value it more highly than refraining---though, to be sure, only this once' (\citeyear[258]{Bratman:2007ab}).
+This is a warning and observation we take seriously.
+In the language of this paper, after the first glass of wine it really will seem to you as though the second glass of wine `best' satisfies your reasons, though prior to the first glass of wine abstaining seemed to `best' satisfy your reasons, even if this reversal is (recognisably) temporary.
+
+There are two interrelated stands we tie together in analysing the scenario given the framework as it stands.
+First, how the dynamic perspective on relations of satisfaction, and in particular confidence, stability, and stable selections can offer an explanation of how you resist temptation.
+And second, how you may refrain from judging what \emph{seems} to be a `best' relation as `best'.
+
+The short version of the first thread is that due to lack of confidence in your reasoning about certain relations of satisfaction, you may appeal to the prior stability of a relation of satisfaction even if you cannot reconstruct that stability in your present reasoning.
+However, this relies on resolving the second thread, by explaining how you can refrain from judging what seems to be a `best' relation of satisfaction as `best'.
+For this reason we return to the first thread in detail after resolving the second, though both are connected by the role of confidence in the framework.
+
+\paragraph{ } %Judgement and belief
+For simplicity we will understand the phenomenon of a relation of satisfaction \emph{seeming} `best' as a \emph{belief} that the relation of satisfaction is `best'.
+Belief is a well-theorised attitude, and this simplification ensures we do not treat the phenomenon in an ad-hoc way.
+Furthermore this may help highlight the generality of the issue.
+
+For our purposes, what is important about belief is that agents can treat a belief as fallible while holding that belief.
+This distinguishes belief from knowledge.
+For, while it is plainly inconsistent to claim to know something while admitting that (given what one knows) it may be not be the case, it is consistent to believe something while admitting it may not be the case.
+To illustrate, one cannot know that the earliest Caltrain from Palo Alto to San Francisco is set to depart at 5:01am while admitting it possible that the train is set to depart at 5:00, 5:02, or any other time.
+However, one can believe that the last train from San Jose Diridon to Palo Alto departs at 22:30pm, while admitting it may depart at 22:31, 21:45, or some other time.
+
+In terms of answering the question of what to do, belief is problematic due to the above observation.
+For, while fault or something unexpected may occur which permits fallibility regarding the transition from an answer of the question of what to do to the instantiation of that action, you cannot be mistaken about how you answered the question.
+In other words, what is required to answer the question of what to do is not something one thinks they could be wrong about.
+For, if this were the case then your reasoning would not have determined an answer to the question of what to do.
+The answer would have been determined (if at all) by some other piece of reasoning, and it is this reasoning which would be the focus of analysis.
+There is a connexion between your judgement and your reasoning that you cannot be mistaken about.
+Therefore, judging that a relation of satisfaction is `best' cannot amount to a belief that it is `best'.
+Of course, you can be mistaken in making that judgement, just as you can be mistaken about whether you know something, but we stress you cannot judge or know while simultaneously entertaining the thought that you are mistaken.
+
+One may argue that this leaves the term `judgement' mysterious, and observe that unlike belief it is not part of our folk-theoretic understanding of practical reasoning.
+However, our concern is not to adhere to a folk-theoretic understanding of practical reasoning, but to provide (the basis of) a framework which captures practical reasoning at a folk-theoretic level.
+In this respect `judgement' is straightforward to understand through its functional role: to identify (or fix) `best' relations of satisfaction.
+This is a distinction between belief and judgement which may disappear in all but the most extreme cases, but it remains a crucial distinction.\nolinebreak
+\footnote{This distinction offers a possible way to analyse akrasia (of the kind which  allows for an analysis of practical reasoning, (cf.\ section~\ref{sec:akrasia-1}).
+  For, if an agent's beliefs about which relations are `best' can diverge from their judgements about which relations are `best', then it is possible for an agent to act against their beliefs and these beliefs may in turn constitute an agents better judgement.
+  We shall not pursue this line of thought further in the current paper.}\(^{,}\)\nolinebreak
+\footnote{
+This distinction also highlights that there may not be a necessary connexion between beliefs and intention within our framework.
+For, it will not be necessary that an agent's judgement will involve an accompanying belief, and so if intentions are analysed through judgements any necessary connexion will need to be stipulated.
+Whether or not this is the case does not follow from the base framework.
+However, we offer a supplementary argument which draws on similar reasoning to the above as to why we feel it unlikely that this is the case.
+
+
+Consider, by way of example \citeauthor{Setiya:2008aa}'s (\citeyear[391]{Setiya:2008aa}) requirement that:
+\begin{quote}
+\emph{Belief}: If \emph{A} is doing \(\phi\) intentionally, \emph{A} believes that [they are] doing it or is more confident of this than [they] would otherwise be, or else [they are] doing \(\phi\) by doing other things for which that condition holds.
+    % \nolinebreak \mbox{ }
+\end{quote}
+Following \citeauthor{Setiya:2008aa}, in the following discussion we do not take belief to require conscious awareness (\citeyear[389]{Setiya:2008aa}) and we note the observation that if the principle were false, it would be possible for one to intentionally \(\phi\) while believing that one is neither doing, nor doing something as a means to doing,~\(\phi\) (\citeyear[390]{Setiya:2008aa}).
+
+The basic structure behind relations of satisfaction is that an agent selects an action because they expect their performance of that action to satisfy their reasons.
+This lends some support for \emph{Belief}, as (intuitively) if an agent does not believe an action can (or will) be performed, then the agent cannot believe that their reasons for action will be satisfied through that action.
+So, in cases where an agent can perform an action for which they believe their reasons would be satisfied to a greater degree than they would otherwise be, we can expect an agent to perform such an action.
+However, it need not always be the case that actions of this kind are available.
+
+Consider \citeauthor{Bratman:1987aa}'s example of moving a log blocking their drive way.
+The log is heavy, and one do not believe that they can move it, yet one's reasons for action strongly support moving the log.
+One may call a tree company to move the log in the afternoon, but one wishes to move the log in the morning.
+(\citeyear[39]{Bratman:1987aa})
+\citeauthor{Bratman:1987aa} takes it for granted that one can have an intention to move the log, but does not explain why.
+By appealing to the relation of satisfaction and one's reasons for action can explain why.
+
+First, note that calling the tree company in the afternoon is an action one believes they can do, and this would satisfy their reasons for moving the log, but this would not satisfy their reasons for moving the log \emph{in the morning}.
+Further, they merely \emph{believe} that they could not move it.
+Belief is not factive and so it does not follow from the agent's belief that they could not do it.
+So, let us suppose that while the agent lacks any confidence that they can move the log, the do believe it is possible.
+This is a case where an agent believes \(\phi\), but takes their belief to be fallible.
+As the agent takes their belief to be fallible and admit the \emph{possibility} that they can move the log, there is a possible action which satisfies their reasons.
+
+Given that no other action would satisfy their reasons, they may take moving the log to be the action which `best' satisfies their reasons.
+Recall, that it is action \emph{types} which feature in relations of satisfaction and it is only after answering the question of what to do that an agent instantiates the action (type) which occurs in the answer (i.e.\ as `best' relation of satisfaction).
+So, while the ensuing action may be better captured under the description of an \emph{attempt to move the log}, attempting to move the log would not satisfy their reasons, it is the moving of the log which is at issue, not any attempt to do so.
+
+What characterises the above situation is that
+\begin{enumerate*}[label=\alph*)]
+\item\label{nbsc:3} there is an action the agent takes to be possible, but does not believe they will succeed in performing,
+\item\label{nbsc:1} there is no other action which satisfy the agent's reasons to the same degree, and
+\item\label{nbsc:2} no alternative reasons which the agent could satisfy through actions they believe they can perform.
+\end{enumerate*}
+One may wish to add that there is no penalty to the agent attempting to perform the action, or that relevant cost considerations favour the action, but we take considerations such as these to be implicit in condition~\ref{nbsc:2}.
+This schemata can be used to generate further examples of varying content, such as shooting a three-pointer from half court, or scaling the Burj Khalifa from the outside.
+
+Now, let us suppose that the agent does attempt to move the log.
+From an external point of view this description is adequate, but note that from an internal point of view they are instantiating the action of moving the log.
+\citeauthor{Setiya:2008aa}'s condition requires that agents \(\phi\), so this is not at present a counterexample to \emph{Belief}.
+Still, at present what matters is that the agent can try while they do not believe they will succeed and have no greater confidence in performing the action than they would otherwise be.
+After all, the agent does not believe they will move the log, so it seems they cannot believe they will move the log by attempting.
+And, the agent does move the log.
+However, the agent does not have the relevant feedback mechanisms to realise that they are moving the log until it has already moved by some (perhaps not insignificant) degree.
+For example, the agent may be standing in snow, and mistake the movement of the log with their feet slipping under them.
+The agent is now moving the log, but they do not believe they are doing it.
+
+\citeauthor{Setiya:2009aa} may highlight, as in their response to \textcite{Paul:2009aa} that the counterfactual component of \emph{Belief}, that `one is more confident of doing \(\phi\) than [they] would otherwise be' is the relevant part of \emph{Belief} to apply in a case such as this (\citeyear[131]{Setiya:2009aa}).
+However, while the agent may more confident that the log will be moved by acting in order to move the log (if it can be moved by them) than otherwise, this is not an action but an evaluation of an option conditioned on a belief that they do not have.
+So, while they may be more confident that they will move the log than otherwise by attempting in a sense, this is not the relevant proposition to be concerned with in connexion with \emph{Belief}.
+Indeed, as the agent does not believe they can move the log, they are no more confident in moving the log by attempting than by making no attempt.
+What motivates the agent is that they may be wrong about this.
+As the agent mistakes the movement of the log for their feet slipping in the snow their confidence that they cannot move the log may increase.
+}
+
+
+\paragraph{ } %Returning to two glasses of wine
+Returning to the first thread, and to expand on the idea that due to lack of confidence in your reasoning about certain relations of satisfaction, you may appeal to the prior stability of a relation of satisfaction even if you cannot reconstruct that stability in your present reasoning.
+
+For, after drinking the first glass of wine your reasons favour drinking a second glass.
+However, you also know that this temptation is temporary, and productive after-dinner work is of importance to you.
+Even if you doubt that you could reason otherwise, it does not follow from the dynamic understanding of the relation of satisfaction that you would drink the second glass of wine as you may refrain from making a judgement based on your present belief.
+To illustrate this, consider the potential dynamics in two cases.
+First, when you did not engage in prior reasoning about whether or not to drink a second class of wine, and second when you did.
+
+Suppose you did not engage in prior reasoning about whether or not to drink a second glass of wine.
+After drinking the first glass of wine it is not clear that you can be confident that drinking a second glass of wine would satisfy your reasons, and plausibly that this is a stably selected relation.
+For, you know the temptation is temporary, and that productive after-dinner work is of importance to you.
+Even if you can recognise that you are `tempted' after drinking the first glass of wine, this does not change that the `best' relation of satisfaction, given your present reasoning, appears to require a second glass of wine.
+Perhaps you could reflect on your lack of confidence and come to recognise your reasons in favour of abstaining from a second glass, and thereby avoid temptation.
+However, while this may be true for certain cases of temptation, and as we understand scenario~\ref{sc:wine} this is ruled out.
+You may not be confident that a second glass of wine satisfies your reasons (if they were fully recognised) but likewise you---after the first glass---cannot see abstaining as satisfactory either.
+So, even if you have doubts, your then present reasons for action suggest that you cannot reason to abstaining.
+
+Now, suppose that you did engage in prior reasoning about whether or not to drink a second glass of wine.
+Given that you value productive work after-dinner over a second glass of wine it follows that your reasons are `best' satisfied by not having a second glass of wine.
+Perhaps you reason directly to the action of not having a second glass or perhaps this in entailed by taking productive after-dinner work to satisfy your reasons.
+What matters is that you establish a relation of satisfaction which rules out a second glass of wine.
+Furthermore, given the scenario it is reasonable to assume that you would be confident in this established relation of satisfaction, and that you assess it to be stable.
+Still, after the initial glass of wine you do consider having a second glass.
+Your prior reasoning ruled this action out, but the relation of satisfaction is dynamic, and so at issue is whether you have grounds to revise the relation.
+However, as before, is not clear that you can be confident that drinking a second glass of wine would satisfy your reasons and this is further strengthened by the established relation of satisfaction.
+You may not be able to, after the first glass of wine, recognise your reasons in favour of abstaining as `best', but you can recall that you reasoned against a second glass, and that at the time you assessed your reasoning was sound.
+Perhaps you take the first glass to be a relevant change in your environment, and in particular a change which requires revision of the established relation.
+The set up of the scenario, however, suggests otherwise.
+You know that your reasons in favour of the second glass are temporary, and that your reasoning is likely impacted by the immediate prospect of a second glass of wine.
+So, as before, it does not seem you can be confident that a second glass of wine would satisfy your reasons were they fully recognised, but by contrast you can recall your confidence in abstaining.
+This asymmetry may be sufficient to keep you from drinking the second glass of wine.
+For, you can be no more confident that the second glass of wine would satisfy your reasons than that abstaining would, and you recognise this.
+And you may therefore judge that abstaining is `best', even if you do not believe it to be `best'.
+Your prior reasoning has a role to highlight how you may have reasoned otherwise, and here you can be more confident in your past reasoning than your present, not to constrain your current reasoning.
+
+The basic idea underlying the above analysis is that an established relation of satisfaction can record the result of (prior) practical reasoning.
+And, as agents with resource limitations we are aware that not all instances of reasoning are on a par.
+Therefore, deference to previously established relations of satisfaction can be justified, and in particular when one has grounds for being more confident in an established relation of satisfaction than a revision or refinement to that relation.\nolinebreak
+\footnote{Stability may, strictly speaking, not be necessary for this reasoning to occur.
+  However, it is then questionable whether you can take yourself to be justified in your reasoning.}
+
+
+\paragraph{ } %Summing up this section
+The analyses presented in this section of scenarios~\ref{sc:SF},~\ref{sc:SJ},~and~\ref{sc:wine} all draw on varying levels of confidence an agent may have regarding relations of satisfaction, and how an agent may structure further reasoning in line with these levels of confidence.
+The analyses, then, elaborate on how the framework may be applied to model certain phenomena, though we do not take these analyses as necessary as they each rest on elements which go beyond what is stated in the respective scenarios.
+
+In general, confidence coupled with a distinction between what relations an agent judges as `best' and what relations an agents believes to be `best' is a powerful observation.
+Our perspective is that constructing and establishing relations of satisfaction are central to understanding practical reasoning, but relations of satisfaction not merely function in practical reasoning to answers to the question of what to do, as the relations and the properties they may have can also structure practical reasoning.
+However, the scenarios and analyses we have used to motivate this perspective have assumed either a unique `best' relation, or that there is no issue with an agent arbitrarily picking from multiple `best' relations.
+In the following section we will explore this assumptions, and in particular consider cases where the assumption cannot be made.
+
+\subsection{Prospective Relations}
+\label{sec:prosp-relat}
+
+% \begin{note}
+%   We're not talking about complex actions.
+%   Resouce limitations speak against this.
+
+%   The thing is that there's a change in the landscape.
+%   (And this is probably a better way to frame this section.)
+%   Consider, to illustrate, the way in which thinking of something first can have a role in your reasoning.
+%   Quiz shows might be a good example here.
+%   It's not like this should have any role, and it's possible that whatever came first was simply arbitrary.
+%   However, it can structure your reasoning.
+%   I think a lot of the reasoning here rests on confidence and uncertainty.
+%   What does the structure of your prior reasoning tell you?
+%   Was the fact that you decided to do \(x\) an indication of something deeper?
+%   Something that you can't quite get a conscious grasp on?
+%   Or, is this just an illusion?
+%   Arguably, in many cases this kind of strcuture doesn't amount to a reason.
+%   However, this doesn't stop it being the case sometimes.
+% \end{note}
+
+So far in our discussion of practical reasoning we have noted that multiple relations of satisfaction can be judged (and selected) as `best', and that if multiple relations of satisfaction are `best' an agents arbitrarily acts to instantiate one of the actions occurring in a `best' relation.
+Arbitrary choice seems required, because---by stipulation---if there are multiple relations that are judged as `best' in the context of action then there is no further reasoning that an agent could perform to establish any of these relations as `better' than any of the other `best' relations.
+In part, this problem rests on our assumption (made in \S~\ref{sec:reasons-action}) that reasons enter in to practical reasoning only in relation to specific actions.
+We noted that reasons for action may be distinguished as a subclass of reasons more broadly due to the fact that they relate reasons to specific actions.
+Still, it is questionable whether relaxing this assumption would avoid the present issue.
+For, though a broader class of reasons may allow us to understand agents as appealing to considerations which go beyond those directly relating to actions, it is not obvious that this straightforwardly guarantees that there would be a unique `best' relation.
+Indeed, the cases which will concern us in this section are such that, intuitively, there is no way for an agent to non-arbitrarily choose a relation of satisfaction to answer the question of what to do.
+
+Broadly speaking the cases we consider fall in to two types:
+Cases of \emph{underdetermination}, in which two or more actions satisfy the same class of reasons (to the same degree).
+And, cases of \emph{conflict}, in which two or more actions satisfy distinct classes of reasons (to the same degree) or in which two or more actions satisfy the same class of reasons in distinct ways (to the same degree).
+
+\citeauthor{Bratman:1987aa} attributes to Buridan a worry that `a rational ass placed midway between two equally attractive piles of hay would starve, for he would have no reason to go left rather than right, and he would have no reason to go right rather than left', though the ass `would have overwhelming reason to go either left or right; but that is a different matter' (\citeyear[11]{Bratman:1987aa})
+Examples such as this exemplify cases of underdetermination.
+
+Cases of conflict are exemplified by moral or ethical dilemmas.
+Consider \citeauthor{Sartre:1956aa}'s example in which a person recognises reasons both for fighting with the Free French and staying with their mother, while requiring a wholehearted commitment to one of these options over the other.
+(\citeyear[166]{Bratman:2007ac})
+Or, \citeauthor{Kierkegaard:2013aa}'s understanding of the Binding of Isaac as discussed by \textcite{Broome:2001aa} in which God tells Abraham to take his son Isaac to the mountain, and there sacrifice him leaving Abraham to decide whether or not to obey.
+As \citeauthor{Broome:2001aa} remarks
+\begin{quote}
+  The option of obeying will show submission to God, but the option of disobeying will save Isaac's life.
+  Submitting to God and saving the life of one’s son are such different values that they cannot be weighed determinately against each other; that is the assumption.
+  Neither option is better than the other, yet we also cannot say they are equally good.\nolinebreak
+  \mbox{ }\hfill(\citeyear{Broome:2001aa})
+\end{quote}
+
+Cases of conflict are intuitively more worrisome than cases of underdetermination.
+For, the same reasons will be satisfied in cases of underdetermination, regardless the action performed, while this is not so in cases of conflict.
+Whether one decides to fight with the Free French or stay at home with their mother may be a choice which reverberates through one's life, and this is especially clear in the case of Abraham.
+However, what unifies our treatment of these cases is that there is no unique `best' relation of satisfaction, and an agent may have reason to establish a unique answer.
+Why an agent requires a unique answer is, however, not important.
+For \citeauthor{Sartre:1956aa}'s person and \citeauthor{Kierkegaard:2013aa}'s Abraham the weight of the reasons under consideration may cause the respective agents to simply seek relief from the anguish from reasoning.
+However, it is intuitive to take the agents as requiring some answer in order to plan further actions.
+This may hold for cases of underdetermination.
+For, we may elaborate the choice of Burdian's ass to hold between to equally attractive sequences of events which would require practical reasoning at each step but for in the resources available to the agent would  be servery constrained after taking the first step.
+In cases like these it may be beneficial to the agent to set out a plan of action in advance.
+
+The problem presented for the framework is not that there may be cases of underdetermination and conflict, but that these may be settled prior to action.
+For, whatever the explanation of why it remains the fact that the existence of multiple relations of satisfaction which the agent judges to be `best' ensures that not only that no non-arbitrary unique answer can be given to the question of what to do, but also that an agent can choose an arbitrary answer prior to action, given the framework as developed so far.
+For, beyond relations of satisfaction we have only introduced to the base framework the ability for agents to select and stably select relations of satisfaction.
+Yet, multiple relations of satisfaction may be (stably) selected, and so further structure is required.\nolinebreak
+\footnote{To make this implication clearer, it is straightforward to imagine the above illustrations of underdetermination and conflict as involving (stably) selected relations of satisfaction.}
+
+Further structure, then, is required.
+What is required is an account of how agents may not merely select relations of actions as answers to the question of what to do, but fix \emph{an} answer to the question.
+While cases of underdetermination and conflict motivate this need in part, the primary motivation is planning.
+Cases of underdetermination and conflict, however, are particularly important to consider, as even if an agent fixes a specific `best' relation of satisfaction as their answer to a question of what to do, the other `best' actions seem to remain `best'.
+So, on the basis of the agent's reasons there would be no ground to favour the fixed relation of satisfaction over any other as the answer to the question of what to do.
+
+The structure we introduce amounts to nothing more than the ability for an agent to fix a relation of satisfaction as the answer to the question of what to do.
+As there is a distinction between the result of practical reasoning which terminates in answers to a question of what to do
+and the performance of actions by an agent, these fixed relations are prospective, and therefore we introduce the terminology of \emph{prospective} relations.
+Prospective relations amount to nothing more than selected relations which are by necessity unique, and therefore the concerns raised above remain pertinent.
+In particular, marking a relation of satisfaction as prospective amounts to little more than an expectation to instantiate the action occurring in the relation in the context given by the question the relation serves as an answer to.
+So, agents may simply revise which relation of satisfaction they expect to act on.\nolinebreak
+\footnote{Note, prospective relations follow our methodology of introducing broad primitives, explained at the folk-theoretic level, and corresponding to things agents can intuitively do.}
+
+Through layering prospective relations agents may plan sequences of actions extending in to the future.
+However, prospective relations do not amount to reasons, and do not prevent agents from engaging in further reasoning which may effect change in which relations of satisfaction they expect to act on.
+
+A defence of this minimal ability takes two parts.
+First, an argument that anything which goes beyond a relation of satisfaction cannot by virtue of what it is influence which relations of satisfaction are `best'.
+Second, though prospective relations cannot by virtue of what they are influence which relations of satisfaction are `best', the fact that a relation of satisfaction is marked as prospective means that the relation can alter the structure of an agent's reasoning, and in turn this altered structure may serve as a reason.
+In other words, we argue that though prospective relations cannot necessarily amount to reasons by virtue of what they are, they may still function as reasons.\nolinebreak
+\footnote{The ideas and arguments presented here and below share similarities with the arguments presented by \textcite{Broome:2001aa}.
+The core ideas were developed independently of reading \citeauthor{Broome:2001aa}'s article, but received clarification through reading the article, and we recommend a study of the article for a fuller treatment of the issues involved in cases of conflict.}
+
+% \paragraph{ } %First argument.
+The argument that anything which goes beyond a relation of satisfaction cannot by virtue of what it is influence which relations of satisfaction are `best' is straightforward.
+For, which relation of satisfaction is `best' amounts to a claim about the degree to which the related action satisfies the related reasons in contrast to the relation between other reasons and actions.
+In turn, reasons are simply considerations which count for or against actions, and this means that whether or not something is a reason depends on whether or not an agent takes it to be a consideration which counts for or against an action.
+To require that agents take prospective relations as considerations which count for or against actions requires making assumptions that may plausibly not be met when the framework is applied to model specific instances of practical reasoning.
+
+However, by parity the same argument supports the possibility of an agent taking the fact that they have marked a relation of satisfaction as prospective to be a considerations which count for or against actions, and thus a reason.
+
+One may worry that this introduces regress.
+For, on this view marking a relation of satisfaction as prospective plausibly amounts to an action.
+In turn, this seems to require marking the relations of satisfaction to be an answer to a question of what to do, and in turn require practical reasoning.
+However, we have not required that agents answer a question of what to do in order to perform actions in general.
+While this blocks regress, it is more natural to think of marking relations of satisfaction as answers to a question of what to do.
+For, in the case whether there is a unique `best' relation of satisfaction, the fact that this relation is unique justifies marking it as an answer to the question of whether or not you expect to act on it.
+For, you judge it to be `best', and by virtue of it being the unique `best' relation captures (at that moment) the action you expect to perform.
+And, in cases whether there is not a unique `best' relation of satisfaction you cannot but arbitrarily choose one of the multiple `best' relations to act on, and such arbitrary choice does not require considering reasons (for else there would be no need for arbitrary choice).
+
+\paragraph{ } %Returning to underdetermination and conflict
+Returning to underdetermination and conflict, what matters in these cases is whether having marked a relation of satisfaction as prospective counts for or against that relation in an agent's practical reasoning.
+In cases of underdetermination it may easily do so.
+The same reasons will be satisfied by whatever action is marked as prospective, and the arbitrary choice once made may be sufficient for the agent to conclude their reasoning.
+On the other hand, in cases of conflict it may not.
+The considerations involved in support of the each of the conflicting actions may simply outweigh any considerations that marking a relation of satisfaction as prospective may effect have on the relation.
+
+To go beyond this meek conclusion would be incompatible with the role of relations of satisfaction in answering questions of what to do and our understanding of underdetermination and conflict.
+Given underdetermination and conflict agents cannot but make arbitrary choices for were they able to make a non-arbitrary choice they would not be in a case of underdetermination or conflict, and making an arbitrary choice cannot, as \citeauthor{Broome:2001aa} notes, necessarily change the structure of their reasoning as the choice cannot have been made on the basis of reasons (\citeyear[119]{Broome:2001aa}).
+What remains to be explored is how marking a relation of satisfaction as prospective can structure an agent's reasoning in specific cases, but we leave this to future work.\nolinebreak
+\footnote{
+  For example, \textcite{Easwaran:2018aa} suggest various ways in which cases may be modelled.
+In short, given the assumption that a particular of relation can be marked as prospective, this may be reinforced by the resources required to reexamine this.
+For example, after selecting an action from a collection of actions which satisfy an agent's reasons to the same degree, this prospective relation may remain fixed, as the agent would not expect their reasoning to lead to any increase in satisfaction, and hence could not justify the cost of additional reasoning.
+
+Similarly, in cases of particularly intractable combinations of reasons for actions and actions, and agent may not be able to justify the allocation of resources to further reasoning as progress may be unlikely (even if they believe progress would lead to a change in the relation of satisfaction).
+Unlike confidence, these considerations rest on issues concerning an agent's reasoning capacities over a range of problems---they do not reduce to concerns about a particular relation of satisfaction.
+}
+
+
+\section{Review and Outlook}
+\label{sec:review-outlook}
+
+
+We started this paper by raising the question of what the right framework for modelling practical reasoning is, where practical reasoning is understood as answering the question of what to do.
+Given this characterisation of practical reasoning, the sketch for a framework we have presented focuses on how agents resolve the question of what to do.
+The goal of providing a framework is to represent and explain the reasoning of agents like us and we have argued through the course of this paper that important aspects of this reasoning can be captured by focusing on how agents may structure their own reasoning through iteratively revising potential answers to the question of what to do.
+As the result of practical reasoning is action, it is actions which answer the question of what to do.
+However, it is clear that actions are chosen on the basis of reasons, and an agent who engages in practical reasoning does not act arbitrarily.
+We therefore introduced the notion of a relation of satisfaction which holds between reasons and actions, and assumed that agents can compare the way in which actions satisfy reasons.
+This allowed us to argue that while actions answer the question of what to do, relations of satisfaction \emph{resolve} the question by specifying which actions `best' satisfy an agent's reasons.
+We assumed that a relation of satisfaction is `best' by virtue of comparison to other relations of satisfaction, but we did not expand on what `best' amounted in further detail.
+A full understanding of what reasons, actions, satisfaction, and `best' amount to is important for a full account of practical reasoning, but in this paper we have attempted to show that insight into practical reasoning can be gained by considering the dynamics which may arise from these components regardless (given certain constraints) of how they are understood.
+So, from the characterisation of practical reasoning as answering the question of what to do we constructed a broad account of what is involved in practical reasoning; comparisons over relations which hold between reasons and actions.
+
+Given this broad account of what is involved in practical reasoning we turned to investigate the way in which agents may reason about relations between reasons and actions, and comparisons between these relations.
+Agents must establish relations of satisfaction between reasons and actions, and compare these relations in order to determine which are `best', but beyond this the broad account given does not impose any structure.
+In the framework we proposed, agents are seen as constructing relations of satisfaction in practical reasoning, while simultaneously comparing these constructed relations of satisfaction to other relations of satisfaction they have constructed, allowing agents to observe the `best' relation of satisfaction throughout their reasoning.
+In support of this, we observed that the reasoning we are able to perform is bounded by the resources available to us, ensuring that agents are always able to return the `best' relation of satisfaction given their prior reasoning ensures that agents are always able to return an answer to the question of what to do, even if their reasoning were cut short.
+We further argued that agents could be seen as \emph{dynamically} constructing relations of satisfaction, which takes agents to establish initial instances of relations of satisfaction, before iteratively developing these as additional actions and reasons come to light through further reasoning.
+This dynamic perspective on relations of satisfaction opened up a perspective on practical reasoning wherein agents use their prior reasoning to structure their future reasoning.
+The bulk of the paper then focused on insights which could be gained from adopting this dynamic perspective.
+In particular, we drew on confidence and uncertainty regarding relations of satisfaction to offer potential analyses of a number of scenarios, including pair of scenarios in section~\ref{sec:general-outlook} contrasted the reasoning in a trip to San Francisco (scenario~\ref{sc:SF}) and a trip to San Jose (scenario~\ref{sc:SJ}) which exhibited broadly similar reasoning that differed only in an the agents willingness to reconsider an initial course of action, scenario~\ref{sc:toys} from section~\ref{sec:answ-quest-what} involving changing reasons when buying a dog toy and an possible analysis of a case of temptation in scenario~\ref{sc:wine} from section~\ref{sec:uncert-stab} in which an agent recognised an albeit temporarily change in their reasons.
+The analysis sketched for these scenario support the framework through a strategy of sufficiency which seeks sufficient but not necessary conditions to capture and explain certain phenomena and folk-theoretic concepts such as intentions, policies and intention-like states.
+Given the high-level at which we discussed the framework and the length of this paper we did not have the resources to propose and defend specific conditions for capturing phenomena and/or mental states, however we endeavoured to show that the aspects of the framework we presented were adequately general and compelling to motivate further development.
+
+We have, then, presented a sketch of how a framework for modelling practical reasoning may be developed, and suggested how it may be applied to capture and explain certain phenomena.
+However, we have also discussed certain foundational issues which arise when attempting to construct a framework of this kind.
+In particular, as noted throughout our discussed we were careful to attend to concerns about bounded rationality, we discussed the problem of akrasia in section~\ref{sec:akrasia-1}, in section~\ref{sec:uncert-stab} we considered the role of belief in an agent's practical reasoning, and in section~\ref{sec:prosp-relat} we addressed issues which arise when agents judge that multiple relations of satisfaction resolve the question of what to do.
+There are further issues to explore, and a prominent example is how the framework extends to planning agency (\cite[cf.][]{Bratman:1987aa}) and to policies (\cite[cf.][]{Bratman:1989aa,Tenenbaum:2016aa}).
+The resources we have drawn on in the present paper may need to be refined, revised, and expanded to account for phenomena such as these, but we hope to have provided an adequately compelling account of how the core of practical reasoning may be modelled to support interest in further development of the framework.
+
+
+\singlespacing
+\vfill
+\newpage
+\nocite{Bratman:1979aa,Bratman:1987aa,Bratman:1989aa,Bratman:2014aa,Bratman:2017ad,Bratman:2018aa,Bratman:2018ab,Broadie:2002aa,Friston:2015aa,Gerd-Gigerenzer:2002aa,Icard:2014ab,Scanlon:1998aa,Simon:1955aa,Simon:1957aa,Simon:1997aa,Sinhababu:2013aa}
+\printbibliography
+
+
+% The difference between actions and reasons for action are often reflected in the norms---or lack of---which I take to govern actions and reasons for action.
+% {
+%   \color{red} Examples:
+%   \begin{enumerate}
+%   \item Norms of consistency on action.
+%   \item Norms of means-end coherence on action.
+%   \item Neither of these hold (at least directly) for reasons for action.
+%   \item In terms of reasons for action, there are \citeauthor{Bratman:1987aa} norms of (non)reconsideration.
+%   \end{enumerate}
+% }
+
+% \begin{itemize}
+% \item Determining which actions to pursue in order to satisfy one's reasons for action has a central role in practical reasoning.
+%   \begin{itemize}
+%   \item We're resource bound agents, and in general it's a hard problem.
+%   \item Planning helps, and in particular for the reasons \citeauthor{Bratman:1987aa} suggests.
+%   \item But, planning only helps on settling an action to be performed.
+%   \item There are a bunch of issues that remain, due to the contrasting directions in which actions and reasons for action pull:
+%     \begin{enumerate}
+%     \item Sometimes we have reasons for action which can't be satisfied by the actions available to us.
+%     \item Sometimes we have reasons for action which aren't adequately satisfied by the actions available to us.
+%     \item Sometimes we have reasons for action, but the only actions available to us `go beyond' the reasons we have, and so we select an action which satisfies the reasons we have, but which can't quite be described as directly satisfying the reasons we have.
+%     \end{enumerate}
+%   \item In general, fixing an action to perform, via an intention or otherwise, doesn't necessarily address these issues.
+%   \end{itemize}
+% \end{itemize}
+
+
+% {\color{red} An important point is that we need to be careful in terms of how we're thinking about actions.
+%   The problem is that there's \emph{some} sort of belief-like constraint of actions.
+
+%   We need appropriate feedback mechanisms to ensure that we're actually performing the action that we think we are.
+%   This is basically \citeauthor{Davidson:1980aa}'s point \dots
+
+%   For example, if you plan to write a paper, then an important mechanism is going to be that there are words on the page (though there's a certain ambiguity in the use of the term `write' which might make this a less useful example).
+%   Anyway, it's clear that in a lot of cases, there aren't going to be the appropriate feedback mechanisms for the action we would have most reason to do.
+%   Consider not only writing a paper, but writing a paper \emph{well}.
+%   Here, it's really unclear.
+%   Some may have the right mechanisms in place, but for others, it's only after a peers have looked over what you're doing that you can form any opinion about whether you've made some progress on satisfying your reasons.
+%   So, the act that you choose to satisfy your reasons can't be to write the paper \emph{well}, it can only be to write the paper.
+%   One may argue that in this kind of case you're activity is going to be very extended, as you take on feedback and revise the paper.
+%   There are at least two ways in which this objection misses the mark, both of which are variations on any underlying point.
+%   I'll give you the ways, and then highlight the fundamental issue.
+
+%   First, you might not have the time to do so.
+%   Let's say the paper has to be written, and there's no way to revise your paper after your peers have seen it.
+
+%   Second, there's no guarantee that when the time comes you can trust your peers.
+
+%   The underlying point is that the success conditions can't be stated prior to the completion of the relevant activity.
+% }
+
+\end{document}

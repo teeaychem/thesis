@@ -1,0 +1,405 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbbi, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}   \setmainfont[Ligatures=TeX]{Minion3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{noitemsep,style=unboxed,leftmargin=.5cm,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+\usepackage{titlesec}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\newcommand{\boxarrow}{%
+  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+}
+\newcommand{\diamondarrow}{%
+  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+}
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\newcommand{\sem}[1]{\ensuremath{[\kern-.5mm[{#1}]\kern-.5mm]}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\title{Desires}
+\author{Benjamin Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\maketitle
+
+Start with the simple idea that practical reasoning goes beyond desire and belief.
+There are various ways to think about this \dots
+
+
+
+Winning a game, as desiring different things in the same way.
+I don't desire that \emph{Holmes} wins, just as you don't desire that \emph{Moriarty} wins, we both desire that \emph{I} win and the character of our desire does not by itself determine the conditions under which our desires are satisfied.
+
+
+
+Satisfaction is to desire as truth is to belief.
+The important point here is that one doesn't need to take a strong account on the nature of satisfaction to account for the role of desire in practical reasoning just as one doesn't need to take a strong account on the nature of truth.
+
+What I mean by desire is fairly sparse, but it's most definitely the philosophical usage of desire, and more specifically the sort of folk-theoretic philosophical usage.
+In short, the assumption I make about desire is that it's a propositional attitude which when paired with belief provides reasons for action.
+This already allows for various positions to be sketched.
+Humeanism, weak-Humeanism, and strong-Humeanism.
+However, it seems to me that these should be recast as debates about the nature of satisfaction, and my purpose here is to show that a collection of interesting problems arise independently of what we take satisfaction to be.
+In particular, the slogan that satisfaction is to desire as truth is to belief should be read to carry the implication that one does not have privelidged access to one's satisfaction.
+
+
+There's an upshot to this in terms of second-order desires.
+
+
+
+The recieved view has it that
+
+
+\begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RD\arabic*):]
+\item Desire is a relation between a person and a proposition
+\item S’s desire that P is satisfied iff P is true
+\item S’s desire that P is frustrated iff P is not true
+\end{enumerate}
+
+\begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RB\arabic*):]
+\item Belief is a relation between a person and a proposition
+\item S’s belief that P is true iff P is true
+\item S’s belief that P is false iff P is not true
+\end{enumerate}
+
+But this is not the full stroy.
+An agent's belief has character, and it is the character of the agent's belief together with context which determines the content, or proposition of belief.
+
+Simple examples arise from indexicals.
+The character of `I am here now' stays fixed between different people and times (viz.\ contexts) but an utterance by a person at a time determines a different proposition.
+
+Still, indexicals are a sympthom of character and are not constitutive of it.
+What is captured by character and context is a distinction between \emph{what} and \emph{how}.
+
+Following Perry distinguish between two types of cases.
+
+Type A: The same thing is believed in different ways
+
+Type B: Different things are believed in the same way.
+
+There's a subtle shift here from language to mind.
+It's one thing to argue that language depends on character and context, but it is another thing to argue that attitudes depend on character and context.
+I'm interested in the latter, and while I think language provides insight into what goes on in the mind, I don't take any of the following to say anything about language \emph{per se}.
+
+The above is to motivate context, but it feels as though I should be able to specify what I mean by context independently of this.
+
+
+
+Context + character = content
+
+
+\section{A different take}
+\label{sec:different-take}
+
+The wax.
+Misappropriation of character, context, and content, but I think in a revealing way.
+Content cannot be reduced to either character or context.
+General issue of variants and invariants.
+
+
+
+
+\section{Belief}
+\label{sec:belief}
+
+So, something to the idea that belief has character.
+This isn't too well put, but it makes some sense.
+Then, put this together with context, and you get beliefs.
+However, it's not as straightforward as this.
+Beliefs are not simply a report on context.
+Now I need an example of where I see something but I do not believe it.
+I see a spider crawling along the floor, but I believe that it's a bundle of black thread moved by the draft.
+I hear a person upstairs, but I believe the old house is creaking.
+My keys are missing, but I believe they're where I left them.
+I taste coffee, but I believe it's decaf.
+I cannot find an error in my proof/fault in my argument, but I believe it is incorrect.
+I see a familiar face on the train, but I do not believe it is my friend.
+I am given a complement, but I believe that I have been insulted (or vice-versa).
+The letter is signed by the defendant, but I believe it is their lawyers words.
+The point here being that the character of my belief is such that it mediates context, and the beliefs which result are not reducible to context (for else I would believe things that I do not) nor are they reducible to belief (for without context these beliefs would not be formed).
+It's a straightforward point, that our reasoning mediates what is reported to us.
+I see problems of co-reference as particular instances of this broader class.
+I believe that Lewis Carroll, but not Charles Dodgson, wrote Alice in Wonderland, etc.
+
+
+{\color{red} Now, do problems of co-reference really occur as special cases of this class?
+  It seems not, it seems as though these are cases of something different.
+  Well, it's more that the relevant cases of co-reference are where one believes something under one name, and fails to believe, or believes something contrary, under a different name.
+  But it's hard to see how this relates.
+  The idea would be that, in some sense, names across contexts is a tricky thing, but I don't see this argument working out.
+  Isn't it the problem that things appear to us in different contexts, and it takes some work to piece together information across contexts, I don't believe that A and B are the same thing because \dots I come across A in one context and I come across B in another, but I come across Charles Dodgson in many different contexts, and I believe these all refer to the same person.
+  Well, often there's information which links context, and as it happens full names are quite good at this.
+  Partial names are not, I don't believe that Sam refers to the same person every time I hear the name, which seems like a fair observation.
+  So, in this sense these are opposite kinds of cases, in the above I have the same thing happening in multiple contexts, and so I don't form a belief, while in the name case I don't have the same thing in multiple contexts, and so I don't form a belief.
+  Perhaps, then, it doesn't make sense to talk about the character of belief, as it seems as though what's happening here that one builds a somewhat context insensitive body of information and relies on that when forming beliefs.
+  And, if this is the case then the same reasoning with desire goes though.
+  However, in this sense it seems as though all one needs is individual beliefs.
+  In some respect I should be fine with this.
+}
+
+So, there's a puzzle about exactly what I'm arguing for here. 
+
+
+
+
+A problem I have here is that I want to say something about correcting over other contexts, though perhaps this isn't quite the right way to go \dots or maybe I don't need to give a detailed argument for this at all, as it seems sufficiently intuitive that this is what's going on.
+
+A different problem is that I wanted to draw on the idea that desire is a propositional attitude, and that this was a fairly straightforward thing.
+I this respect, well, I really like the wax example, and it does seem as though I'm getting at something with that.
+The idea then, would be to argue that satisfaction is to desire as truth is to belief, and the point I need to make is that the truth is in some sense independent of belief, even though we correct against
+
+Well, there's something about belief which is not reducible to individual beliefs, and there's something about desire which isn't reducible to individual desires.
+In a sense, this is what is captured when we talk about belief forming mechanisms, 
+
+\section{A different start}
+\label{sec:different-start}
+
+Strength of desire.
+Desire that you don't believe will/can be satisfied.
+Instrumental desire that persists through different beliefs.
+
+I think focusing on context is probably the best way to deal with this stuff.
+So, start out and I say that look, there's something that persists through change.
+The outward appearance of the wax does not truly reflect what the wax is.
+
+
+\section{Enough with the wax}
+\label{sec:enough-with-wax}
+
+Basic idea is that desire is to satisfaction as belief is to truth.
+
+Building this out, what I believe is what I take to be true.
+What is desire is what I take to be satisfactory.
+This doesn't say anything substantive about the nature of truth, and I don't think this says anything substantive about the nature of satisfaction.
+What matters here is simply that belief is distinguished from beliefs, and desire is distinguished from desires.
+
+Well, what does a distinction between beliefs and belief, and desires and desire, get me?
+I'm really not sure that this is the right way of putting things.
+
+For sure, there's a sense in which this distinction seems as though it should be relevant, but I'm not sure it actually is.
+
+Perhaps it's better to start with the puzzles about desire.
+There are these cases in which desire is mediated by belief.
+But, it seems as though we can factor out those beliefs.
+We can get to something which doesn't seem to depend on the beliefs that one has.
+But this doesn't really work.
+The food case is nice, as it seems as though things stop with the desire to have eaten.
+However, I wonder about this, am I really hungry, does I really desire a meal, or do I lack some kind of nutrient, and so what I desire is not to eat something, but something with that nutrient.
+Do I really desire to help you, or do I desire to help you in so far as I desire that you will help me, and helping you is a way to increase the chance that you will help me?
+It's clear that we can't identify a desire with the proposition that's desired, but it also seems clear that we can't identify desire with what is taken to be desired.
+
+The same holds for truth.
+What I believe can't be identified with the proposition that's believed,
+
+
+
+Oh, does the example work by showing that you believe something under a certain guise, and then as it happens you believe something further.
+So, believing that A, but I don't just believe that A, I also believe that B.
+It's somewhat misleading, because it doesn't track cognitive significance, but it makes sense, and it's what explains our response when we learn new information.
+
+So, what I believe shouldn't be identified with the cognitive significance of what I believe, and what I desire shouldn't be identified with the cognitive significance of what I desire.
+
+This is a point which can be made.
+Difference between \emph{what} and \emph{how}.
+It's the \emph{what} that's important.
+
+Is this correct?
+You're in a blind tournament, and you hear rumours about this person with a particular play style.
+You desire that they loose their next game.
+So, you desire that you loose your next game.
+But this isn't right.
+
+Well, how similar to is this with respect to cases where you don't believe that \(a = b\)?
+I think the correct response here is to say that you do desire this.
+You do desire something problematic.
+Expand the case so that you anonymously engage in some fixing, and you end up loosing because of it.
+You're desire is satisfied, but you're other desire is not.
+You can have conflicting desire just as you can have conflicting beliefs.
+
+Same with desiring to meet a particular person.
+Your desire can be satisfied, even if you can't recognise how it's been satisfied.
+
+And with the food example, you can resist associating what is cognitively significant to you with a desire, because you recognise what would satisfy your desire may be something else, you desire that.
+
+This may be a little surprising, but there are similar cases with belief.
+
+Now, in making this argument I've assumed nothing about what satisfaction amounts to.
+All I've argued is that one can desire something, on the basis of satisfaction, which does not have the cognitive profile, so to speak, of a desire.
+
+So, is this just a belief-desire pair?
+In one sense, for sure.
+In another sense, however, there's something problematic about thinking of things in this way, as it's definitely different from standard cases in which belief enters the picture.
+Of course, belief is relevant in some respect, but I think then we're forced to say that there are never any cases of `simple' desires, because in order to represent these we must invoke beliefs.
+To me, folk theory takes for granted a certain level of representation, and permits a certain level of reasoning, without requiring the invocation of belief.
+I agree that there are puzzles here, but they are not puzzles at the folk-theoretic level.
+Here, your reasoning about your desires can be separated from your beliefs.
+
+Some borderline cases where beliefs are involved.
+However, I don't think this is quite right.
+It's not the belief that's doing the work in the relevant considerations, it's that there's something there.
+Whatever you want to appeal to, it should be separated from the kind of belief that is at work when I put together my desires with my beliefs.
+
+We're well aware that what appears to use as desirable may not be so, and satisfaction may be taken to require the desire of things which do not impress significance.
+
+This may sound anti-Humean, but I don't think it is, at least not in spirit.
+I'm not assuming anything about desire, and \emph{that} seems to be the key point.
+I am, however, denying that the mind is `directed' by desire, it's rather the inverse, desire directs the mind, it's about satisfaction.
+Or, perhaps better put, it seems right to say that one will not be satisfied because one believes they will be.
+
+
+
+
+
+\end{document}

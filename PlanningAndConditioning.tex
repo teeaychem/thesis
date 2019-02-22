@@ -1,0 +1,595 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbbi, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}   \setmainfont[Ligatures=TeX]{Minion3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{noitemsep,style=unboxed,leftmargin=.5cm,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+\usepackage{titlesec}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\newcommand{\boxarrow}{%
+  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+}
+\newcommand{\diamondarrow}{%
+  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+}
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\newcommand{\sem}[1]{\ensuremath{[\kern-.5mm[{#1}]\kern-.5mm]}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\title{Planning and Conditioning}
+\author{Benjamin Sparkes}
+% \date{ }
+
+\begin{document}
+
+\maketitle
+
+The road's too long to mention--
+Lord, it's something to see!--
+Laid down by the
+Good Intentions Paving Company
+
+\section{Background}
+\label{sec:background}
+
+The motivation here is that I want to figure out what intentions are, or perhaps more properly, what it is that we capture by the concept of (or taking about) an `intention'.
+Part of the problem is that standard accounts mostly focus on norms, and I don't really understand norms.
+On the one hand I get the intuitive idea of appealing to norms when doing some sort of rational evaluation, but to my mind what's of interest is the actual phenomenon of intention, and in this respect either norms are read as describing regularities, which leads to the question of what it is that's underwriting these regularities, or norms are somehow internalised in the minds of agents, which I can't really make much sense of.
+I get that a lot of people think that being rational is appropriately responding to reasons, and there seems to be something inherently normative about reasons here, but I don't quite grasp what could be going on (perhaps for lack of trying).
+
+So, the core idea I have is that intentions aren't really anyhing more than particular instances of the answer to the question of what to do in which an agent subjectively judges that they cannot provide a better answer, typically though exhausting a sufficient range of alternatives, and so `intends to \(\phi\)' as they expect \(\phi\)ing to satisfy their reasons for action when it comes to answering the question (i.e.\ performing an action) and that no further reasoning would yeild a judgement that \(\psi\)ing would be a better thing to do (where \(\phi\)ing and \(\psi\)ing are sufficiently distinct).
+
+Recently (and I mean very recently) I've been thinking about conditionals again, and I'm wondering how much progress can be made by considering the role of intention in interpersonal communcation, specifically with conditionals expressing a means to an intention.
+
+
+\section{Material}
+\label{sec:material}
+
+Conditionals in which the antecedent specifies an intention and the consequent specifies some property of a means to fulfilling that intention are commonplace.
+For example,
+\begin{enumerate}
+\item If you intend to go to San Fransisco, it is best to take 280.
+\item If you intend to have sugar in your soup, you should ask the waiter.
+\item If you intend to have a good nights rest, it's best you make your bed first.
+\item If you intend to go to Harlem, you should take the A-train.
+\end{enumerate}
+
+In each of the cases the antecedent specifies an intention, and the consequent specifies some means, and perhaps more appropriately some \emph{non-necessary} means.
+I don't want to say sufficient, as it's not clear that making one's bed is either necessay or sufficient for a good night's rest, for example.
+Further, in each of these cases the intention is doing a lot of work, the consequent is interpreted relative to the intention in some sense, and does not hold independently.
+This is especially true of the second example, where it's commonly observed that from an `objective' point of view, you really should get tested for diabities.
+However, even though each of these conditionals specifies some course of action relative to the specified intention, it is possible to hold then intention while not following through.
+In a sense, these are special cases of anankastic conditionals and in this respect I don't think there's anything unique to these conditions in virtue of an intention occurring in the antecedent.
+You could, with minor syntactic changes, replace the intent with a want or desire without changing the felicity (for sure, a number of these examples are adapted from `want' variants).
+
+What I do take to be interesting is the role of these sorts of conditionals in practical reasoning and communication.
+
+I'm thinking of a situation in which it's midnight and I'm in the bathroom with a slice of toast, with an intention to butter the toast.
+I've also, perhaps due to the hour at which this is taking place, found myself scooping the butter from the tub with a spoon.
+And, just as I've placed the first scoop of butter on the topmost piece of toast my flatmate walks in, sees the spoon in my hand and butter slowly melting into the toast, frowns, and says to me ``If you intend to butter the toast, it's best to use a knife'' knowing full well I am at that moment considering the feasibility of rotating the spoon in my hand and using the knife-like shape of the handle to spread the butter.
+``Well'', I say, ``I agree that it may be best, but we're currently standing in the bathroom and I don't want to walk the the small distance from here to the kitchen simply to get a knife'' (we are, of course, students living in a tiny apartment so this really wouldn't be much effort).
+``Okay'', my flatmate says, ``but it really would be best''.
+``Oh, yes, of course'', I say, ``but I really don't want to''.
+``Right'', my flatmate says, ``but even if you don't want to to the kitchen it's still best to use a knife if you intend to butter the toast''.
+They also add, ``perhaps it's clearer if I say `if you intend to butter the toast and don't want to go to the kitchen, it's (still) best to use a knife'''.
+I agree, ``it would be best for me to go to the ktichen, but I really don't care for what's best, here, in the bathroom, at midnight, with the spoon'', and I rotate the spoon, spread the butter, and think that it's rather fortuitous that I'm in the bathroom as I'll be able to use the lavendar soap to wash my glistening palm.
+My flatmate, in the meantime, has departed, but if it wasn't midnight and the butter had not almost been absored to the center of the toast I may have said, ``look, I agree that if oen intends to butter the toast and don't want to go to the kitchen, it's best for them to use a knife, but for someone in my situation, they'd be best simply using the handle of their spoon''.
+
+Now, I don't think that I was being irrational nor do I think I was being akratic.
+I think I did what was `best' for me, given my reasoning, and I don't think that in agreeing with the conditional `if I intend to butter the toast and don't want to go to the kitchen, it's (still) best to use a knife' I stating or expressing what followed from my intention (and wanting).
+I think I was stating or expressing what followed from \emph{an} intention (and want).
+After all, one's intention to \(\phi\) is not a characterisation of one's entire mental state.
+One can intend to go to San Franscisco and in this respect it would be best to take 280, but one can also intend to visit the Hilller Aviation Museum along the way, and given an intention to do both it's best to take 101.
+And, if stopped before departing by someone asking about the best way to get to San Franscisco given an intention to do so, you would not say that it's best to take 101 though it is best for you.
+Still, there is, intuitively, something that connects the intentions you have with the intentions which appear in antecedents of conditionals and I think this connexion probably tells us something important about intentions.
+
+A natural thought here, it seems to me, is to say that what reasoning about an intention which occurs in the antecedent of a conditional you take establish some local or subordinate context which serves as the basis for interpreting the consequent.
+Howewver, in these cases you don't merely establish a local context in which one has an intention, but you also establish a (secondary?) context in which the intention is ``adopted''.
+This is a proposal that's been made by \textcite{Dunaway:2014aa} for anankastics in general, and I think it's right, though \citeauthor{Dunaway:2014aa} don't develop anything more than a broad sketch.
+So, the conditional `if you intend to butter the toast, it's best to use a knife' is understood by from a context of intending to butter the toast---not merely a context in which you intend to butter the toast.
+However, from the scenario and suggestions above, it's not a context in which you suppose that a particular individuals intends to butter the toast, but a context in which someone intends to butter the toast, as otherwise all sorts of complicating factors creep in which affect would affect the interpretation.
+
+The details of how this works are not yet developed, but the modal in the consequent remains important, as both of the following seem permissible, but are in some conflict
+\begin{enumerate}
+\item If you intend to have sugar in your soup, you should ask the waiter.
+\item If you intend to have sugar in your soup, you should get tested for diabities (and not ask the waiter).
+\end{enumerate}
+
+Distinguishing between different senses of `should' probably helps here, and I think there's, generally speaking, a good case to be made for conditionals which aim to revise an intention.
+For example
+\begin{enumerate}
+\item If you intend to run a marathon, you should run a half-marathon first.
+\item If you intend to study metaethics, you should read Korsgaard.
+\end{enumerate}
+
+And this is where I want to try to push for something substantive about itnention.
+If one takes of a view of intentions in the spirit of \citeauthor{Bratman:1987aa}, then there's something odd about these.
+For on \citeauthor{Bratman:1987aa}'s account intentions are filters of admissibility governed by norms such as means-end coherence, consistency, and (non)reconsideration.
+Importantly, an intention has no strong connexion to the agent's reasons for action, instead these are constrained by the filter of admissibility.
+Still, in conditionals of this form one `takes on board' the intention, then this should amount to taking on board the filter of admissibility and supposing the relevant norms are in place, but the conditionals seem to speak directly to the agent's reasons for action, and suggest considerations which should be taken into account even in the local context in which the intention is taken on board.
+That is, there's a stong connexion between intentions and reasons for action, and the conditionals just mentioned are highlighting considerations which should bear on one's practical reasoning which respect to the reasons which favour running a marathon or studying metaethics which may not have been recognised by an agent.
+
+So, the point being that when thinking about intentions as mental states of individuals, reasons for action can be taken for granted, but it doesn't seem as though we can do this when we talk to one another about intentions.
+Perhaps one could argue that as reasons for action are always present with respect to intentions as mental states reasons for action are implicitly captured when engaging in interpersonal reasoning about intentions.
+But, what I was trying to convey previously was that we don't take the entire background of an individual into account when engaging in interpersonal reasoning, we `just' pick up on the essential components of the intention, and so it seems as though if reasons for action have an important role in communicating about intention, then this tells us something about what intentions amount to.
+
+Conversely, it's unclear how to reason about what's `best' for an agent if all one has is information about what they consider to be inadmissible actions.
+
+In fact, it's not clear to me how this works in the case of intentions as mental states.
+
+A variation of \citeauthor{Bratman:1987aa}'s Mondale case seems plausible.
+Mondale can ask three questions, one which focus on Star Wars, another which splits between Star Wars and economics, or one which focuses on economics.
+These questions are available to Mondale now, and further Mondale can decide to go after Star Wars or the economy, fully committing to either will favour an extreme question, and Mondale favours attacking the economy, on balance, so opts for going after this.
+As such, Mondale rules the question attacking Star Wars as inadmissible.
+However, this still leaves the Star Wars/econ.\ question open, and it seems that given Mondale's current desires this is the option that best satisfies their desires.
+However, intuitively it seems that they should have gone for the extreme question.
+
+Similar structure with running a race and either going for a win or taking a normal run.
+
+I don't think these would be instances of irrationality, but it seems as though you can say that it would be `best' not to go for the compromise even though you end up favouring it, and this is because the reasons for your intention taken in isolation would not tend toward the compromise.
+
+\newpage
+
+\section{Necessary means}
+\label{sec:necessary-means}
+
+There seem to be too many violations for this to be a straightforward rational requirement.
+There's, for sure, a requirement in the vicinity, but it's not the same thing.
+It's more of a possibility requirement.
+You can't intend to do what's impossible, or what you believe to be impossible.
+But that's a little too strong, it's about taking means that you believe to be impossible.
+Something like that.
+
+
+\section{Differences between wanting and intending}
+\label{sec:diff-betw-want}
+
+This is with respect to the attitudes occurring in the antecedent of conditionals.
+Observation that the two things seem to be largely equivalent in terms of the consequents that they license.
+However, suggestion is that wanting and intending can diverge in some cases.
+Current example is cases in which wanting seems to permit some kind of high risk action which will `full satisfy' the want, while intention will permit only some more moderated form of action.
+
+An example, however, isn't super easy.
+Not sure about a sort of gambling scenario where want allows you to go all in, while intention suggests constraint.
+The underlying intuition here is that the want is in some sense more volatile, and it doesn't so much matter that it might fail to be fulfiled, while the intention captures a want, in a sense, to which the agent really does care about fulfilment.
+This isn't quite a consequence of my account, though it's somewhat compatible.
+This may also work better where the odds are extreme but the stakes are really low.
+Another videogame example?
+
+
+A line of interest may be:
+\begin{enumerate}
+\item If you intend to go to the game, you should want the sox to win.
+\end{enumerate}
+I don't see anything to infelicitous about this.
+It's critical, for sure, but that's all.
+
+
+\newpage
+
+
+\textcite{Broome:2002aa} makes an argument against identifying decision theory with instrumental reasoning in the case of means-end reasoning.
+The gist is that in decision theory utility is fixed, and does not take into account the way in which forming an intention can affect the assessement of options.
+So, form an intention, and it's intuitive that we want to find the best way of brining about the intention, but decision theory will simply report what it is best for an agent to do.
+This seems like a retread of arguments made by \textcite{Bratman:1987aa} against simple (and some refined) views of intentions which treat intentions as special cases of desire-beliefs.
+
+\begin{quote}
+  Consider my intention in January to go to Boston in April.
+  Having formed this intention I might go on to reason from it to a more specific intention (for example, to go during the first week of April) or to a further intention concerning means (for example, to take a United flight) or to a further intention concerning preliminary steps (for example, to ask Jean to cover my teaching responsibilities).
+  For simplicity let us focus on the case in which I reason to an intention concerning means.
+  In such reasoning I begin with my intention to go to Boston and deliberate about how.
+  I treat my intention to go to Boston as directly relevant to the rationality of the further intention concerning means that I reach in such reasoning.
+  I see it, for example, as directly relevant to the rationality of my decision to take a certain United flight.
+  And when I actually take the United flight, I see the fact that so acting is a means to what I intend (going to Boston) as directly relevant to its rationality.
+  I see my prior
+  intention to go to Boston as directly relevant to the rationality of both my later intention to take the United flight and my eventual action of taking that flight.
+  But this understanding of the role of my prior intention is in conflict with the view that only desire-belief reasons could have such direct relevance.\nolinebreak
+  \mbox{ }\hfill(\citeyear[22]{Bratman:1987aa})
+\end{quote}
+
+I'm not sure on the merits of \citeauthor{Broome:2002aa}'s arugment, but it suggests to me a way in which \citeauthor{Bratman:1987aa}'s identification of the function role of intentions with filters of admissibility may be problematic.
+
+For, on \citeauthor{Bratman:1987aa}'s account desire-beliefs do not change when forming an intention.
+This is motivated by concerns about intentions generating reasons.
+Exactly what happens with desire-beliefs when applying a filter of admissibility, is, however, unclear.
+There are (at least) two options.
+
+First, desire-beliefs remain as they were before the filter of admissibilty, but now only certain desire-beliefs are `relevant'.
+Second, given a restricted set of options, the way in which desire-beliefs are reflected the favourability of options changes.
+This second version isn't particularly easy to state, but the basic idea is that desire-belefs are `expressed' in options and when options change these may likewise change.
+
+This second way of viewing things looks as though it violates an independence of irrelevant alternatives requirement, and I think it does.
+However, it's not clear that this is really all that irrational.
+
+Anyway, regardless of the particular details I think \citeauthor{Broome:2002aa}'s argument against decision theory suggests that \citeauthor{Bratman:1987aa}'s account of the function role of intentions may be suspect.
+For, \citeauthor{Broome:2002aa} stresses that practical reasoning should respond to the intentions of an agent, while a filter of admissibility seems only to ensure consistency with the aims of an agent.
+This is most definitely in the weeds, and I'm really not sure that the weeds are threatening to overrun the garden, but it's something I want to consider pursuing as \citeauthor{Bratman:1987aa} offers a thin functional role for intentions and bolsters this with normative requirements, while I'm of the opinion that the function role of intentions may be much more complex, such that the normative requirements that \citeauthor{Bratman:1987aa} identifies are consequences of this complex role, rather than necessary buttresses.
+And so, perhaps, \citeauthor{Broome:2002aa}'s idea shows that a filter is too weak, pushing for a more complex account of the role of intention, and so undermining \citeauthor{Bratman:1987aa}'s general outlook.
+That's the idea.
+
+So, what's required is an argument that these two ways of evaluating options come apart.
+In particular, cases where certain options are favoured by an agent when considered with respect to consistency, but likewise do not seem to be supported when viewed as responding to an intention.
+However, this is not all, the arugment should also favour agent's reasoning via more than consistency of means with ends.
+
+Final point, taking the second view of desire-beliefs, even if this should be rejected, is stronger as so works for argumentative purposes.
+Also, should be talking about admissibility rather than consisetncy, but what admissibility amounts to is somewhat difficult.
+The key, however, I think, is to argue that it can't be super strong, at risk of an agent's desire-beliefs becoming irrelevant.
+
+Types of cases:
+\begin{enumerate}
+\item Unhappy compromise
+\item Ineffective means
+\end{enumerate}
+
+\noindent\hrulefill
+
+We make plans, but at each step we have an action that can influence the desirability of further actions.
+For example, plan to do A, and after this B and C.
+Before doing A, B and C are equally desirable, but after doing A B is more desirable than C.
+No claims to rationality, and no claim that before doing A you should see B as more desirable than C.
+Only the claim that upon doing A you can see that B is more desirable than C and that you plan to do A.
+This is what I mean by conditioned desirability.
+I take it that conditioned desirability may be different to conditional desirability.
+Conditional desirability the desirability of an option given another option, with respect to your current desires.
+
+This traces a fairly standard distinction in probability.
+
+So, having a sort of reflection like principle for utility fails in general.
+However, it's not clear that it also fails for the special case of intentions/plans.
+One the one hand, it looks as though it should be fine.
+You're going to perform an act, and the performance of the act is based on your current utility.
+So, taking into account how your utility will change after performing the act seems important for further acts.
+You can get into the kind of cases which give rise to the problems general reflection faces, but this seems like an unfortunate consequence.
+The alternative is, effectively denying that it's possible to plan in such circumstances.
+
+
+I think a plausible account of Broome's observation is that when reasoning from intentions you should have satisfaction conditioned on the fact that you will perfrom the act.
+This is different from the satisfaction after performing the act.
+
+So, then potentially two problems.
+If conditioning on performing an act, then there's no other outlet for satisfaction other than via admissible acts.
+So, then you get into problems with (non-)reconsideration.
+It's really not clear that an unsatisfactory requirement is of any use, because it's only compared to other admissible acts.
+Of course, it is psychologically plausible that you do this kind of thing.
+Upon deciding on a course of action you don't consider some other, but whether or not this is rational, I'm not sure.
+
+\section{Cases}
+\label{sec:cases}
+
+\subsection{`Inability to commit'}
+\label{sec:inability-commit}
+
+This is a type of case where removal of an option doesn't favour an alternative option, but rather a somewhat (intuitively) unsatisfactory compramise.
+Further, it's important that the compromise does not come from inability to commit, risk, or uncertaintly.
+
+A variation of \citeauthor{Bratman:1987aa}'s Mondale case seems plausible.
+Mondale can ask three questions, one which focus on Star Wars, another which splits between Star Wars and economics, or one which focuses on economics.
+These questions are available to Mondale now, and further Mondale can decide to go after Star Wars or the economy, fully committing to either will favour an extreme question, and Mondale favours attacking the economy, on balance, so opts for going after this.
+As such, Mondale rules the question attacking Star Wars as inadmissible.
+However, this still leaves the Star Wars/econ.\ question open, and it seems that given Mondale's current desires this is the option that best satisfies their desires.
+However, intuitively it seems that they should have gone for the extreme question.
+
+Similar structure with running a race and either going for a win or taking a normal run.
+
+Example of finishing reading a chapter/paper.
+Don't intend right now, but it seems as if desires flow then I will delay.
+Trouble is, this seems a lot like procrastination.
+And, it's then hard to see how I can motivate this concern without undermining my own approach.
+
+\section{Braoder Persepctives}
+\label{sec:braoder-persepctives}
+
+\subsection{IIA}
+\label{sec:iia-1}
+
+Perhaps this is overly na\"{i}ve, but it would seems as though \citeauthor{Bratman:1987aa}'s appraoch would predict systematic violations of the independence of irrelevant alternatives.
+Though, this depends on how IIA is characterised, and there's a line by Broome on some restriction to good reason.
+So, if Broome's line is taken then this would seem a problem, as arguably all of these cases would constitute good reason.
+
+
+
+\subsection{Examples}
+\label{sec:examples}
+
+
+\begin{quote}
+  “If you intend to write as truthfully as you can, your days as a member of polite society are numbered.”
+
+
+― Stephen King, On Writing: A Memoir of the Craft
+\end{quote}
+
+
+\begin{quote}
+  If you intend to make a planning application within the OPDC boundary area, we encourage you to seek pre-application advice, particularly if your scheme is large or raises complex planning issues.
+
+  https://www.london.gov.uk/about-us/organisations-we-work/old-oak-and-park-royal-development-corporation-opdc/opdc-planning/opdc-planning-applications/opdc-pre-application-advice
+\end{quote}
+
+\begin{quote}
+  Is it possible to receive a discount if I intend to stay for a longer period?
+
+  https://support.acomodeo.com/hc/en-us/articles/115004211673-Is-it-possible-to-receive-a-discount-if-I-intend-to-stay-for-a-longer-period-
+\end{quote}
+
+
+\begin{quote}
+  CAESAR No more than my residing here at Rome Might be to you in Egypt. Yet if you there Did practise on my state, your being in Egypt Might be my question.
+
+ANTONY How intend you ‘practised’?
+
+CAESAR You may be pleased to catch at mine intent By what did here befall me. Your wife and brother Made wars upon me, and their contestation Was theme for you. You were the word of war.
+\end{quote}
+
+\section{Conditional Expected Utility}
+\label{sec:cond-expect-util}
+
+
+
+
+\paragraph{Sobel}
+
+\textcite[165]{Sobel:1983aa} defines:
+
+\[U(q \mid p) = \sum_{w \in W(q)} P[(q \boxarrow w), p] \cdot V(w)\]
+
+Given \(p, q\) are logically possible propositions and \(P(p) > 0\).
+
+The comma in the probability function is, I think, means conditional.
+So, this could be rewritten as:
+
+\[U(q \mid p) = \sum_{w \in W(q)} P[(q \boxarrow w) \mid p] \cdot V(w)\]
+
+What's interesting here is that the value function stays somewhat fixed, but is restricted to worlds, and what's evaluated is the probability of \(q\) bringing about a word given that \(p\) is the case.
+So, unlike \citeauthor{Weirich:1980aa}, below, this isn't so much focused on actions, and can extend to assessement of arbitrary propositions.
+
+\paragraph{Weirich}
+
+\textcite{Weirich:1980aa} separates absolute expected utility from relative expected utility and provides conditional versions for both of these, which after some revision are defined as follows:
+
+\[AU(a) = \sum P(s_{i} \mid a)AU(a \mid s_{i} \text{ if } a)\]
+
+\[RU(a) = \sum P(s_{i} \mid a)RU(a \mid s_{i} \text{ if } a)\]
+
+This requires some thought.
+The way I'm reading this is the utility of doing some action is given by summing over the possible states, and proportioning the utility of the action in the state if chosen with the probability of the state if the action is chosen.
+This, has some intuitive pull to it.
+
+\paragraph{Differences}
+
+The primary difference between these two proposals to my mind, is the respective views on what's of interest.
+For, on \citeauthor{Sobel:1983aa}'s account all that happens is a change in the respective probabilities, while on \citeauthor{Weirich:1980aa}'s account there is a different perspective on utility.
+So, in this respect I don't really understand what \citeauthor{Sobel:1983aa} is getting at.
+It doesn't seem to be the sort of thing I'm interested in\dots
+
+A further difference in the approaches of \citeauthor{Sobel:1983aa} and \citeauthor{Weirich:1980aa} is the type of thing that conditional expected utilities attach to.
+This is then reflected in what conditional expected utility attaches to.
+For \citeauthor{Sobel:1983aa} it attaches to contional propositions, on some reading of `conditional proposition', while for \citeauthor{Weirich:1980aa} it attaches to actions, which need not be conditional.
+It's not clear that \citeauthor{Weirich:1980aa} is assuming any kind of act-state independence, however, and futher it seems that \(P(s_{i} \mid a)\) should be read as \(P(a \boxarrow s_{i})\).
+
+
+
+
+
+
+
+\newpage
+
+\section{Charlow}
+\label{sec:charlow}
+
+
+\begin{quote}
+ \textbf{Practical Conditionals Thesis (PCT)} A practical conditional \([\text{if }A][O(B)]\) expresses \(B\)'s conditional preferability given \(A\).
+\end{quote}
+
+
+\begin{definition}[State, Modal base, selection function]
+  A \textbf{state} \(S\) determines a pair \( \langle f_{S}, \sigma_{S} \rangle. f_{S} = \lambda i.\{j \colon j \text{ is a relevant possibility at } \langle S,i \rangle\}  \) is a \textbf{modal base}, supplying the set of \(S\)-relevant possibilities (\(S\)-relevant information). And \(\sigma_{S}(i)\) is a \textbf{selection function} selecting the best possibilities from a set at \(i\).
+\end{definition}
+
+\begin{assumption}[Realism]
+  \(\sigma_{S}(i)(f_{S}(i)) \subseteq f_{S}(i)\) (the preferred possibilities are always relevant).
+\end{assumption}
+
+\begin{assumption}[Definedness]
+  \(\sigma_{S}(i)(f_{S}(i))\) is defined and non-empty.
+\end{assumption}
+
+\begin{assumption}[Ersatz Modus Ponens]
+  The truth (or, possibility, acceptance) of [\emph{if} \(\phi\)][\(\psi\)] and \(\phi\) at \(\langle S,i \rangle\) implies the truth (acceptance) of \(\psi\) at \(\langle S|\phi|,i \rangle\).
+\end{assumption}
+
+
+
+\begin{definition}[Context-Shifty Expressivism (CSE)]\mbox{ }
+  \begin{itemize}[label=-]
+  \item Step 1. \(S \vDash [\text{\emph{if} }\text{\emph{want}}(\mathsf{Sp})][O(\mathsf{Sp})]\) iff \(S|\text{\emph{want}}(\mathsf{Sp})| \vDash O(\mathsf{Sp})\)
+  \item Step 2. According to Expressivism, this is the case iff, on updating \(S\) with \(\text{\emph{want}}(Sp)\), \(\mathsf{Sp}\)-possibilities are preferred.
+    \[S|\text{\emph{want}}(\mathsf{Sp})| \vDash O(\mathsf{Sp})\text{ iff } \sigma_{S|\text{\emph{want}}(\mathsf{Sp})|}(f_{S|\text{\emph{want}}(\mathsf{Sp})|}) \subseteq \sem{\mathsf{Sp}}\]
+  \end{itemize}
+\end{definition}
+
+
+\section{Desire}
+\label{sec:desire}
+
+What's the relationship between a Humean account of desire and utility?
+On a na\"{i}ve view, one might have it that there's a significant difference, as utility is not taken to motivate an agent, it's rather expected utility that does the job.
+While, conversely, on the Humean account it is desire that motivates.
+I mean, at the very least, there seems to be a distinction between \citeauthor{Sinhababu:2013aa}'s understanding of what desire is and what utility is.
+
+\textcite{Lewis:1979aa} has a nice discussion of desires \emph{de se}, and \textcite{Lewis:1999ab} has some interesting things to say about belief.
+\begin{quote}
+  Suppose I have a piece of paper according to which, \emph{inter alia}, Collingwood is east of Fitzroy.
+  Can I tear the paper up so that I get one snippet that has exactly the content that Collingwood is east of Fitzroy, nothing more and nothing less?
+  If the paper is covered with writing, maybe I can; for maybe 'Collingwood is east of Fitzroy' is one of the sentences written there.
+  But if the paper is a map, any snippet according to which Collingwood is east of Fitzroy will be a snippet according to which more is true besides.
+  For instance, I see no way to lose the information that they are adjacent, and that a street runs along the border.
+  And I see no way to lose all information about their size and shape.\nolinebreak
+  \mbox{ }\hfill(\citeyear[310]{Lewis:1999ab})
+\end{quote}
+This is a nice point about separability, and arguably the same may hold of desires, though it's not completely clear what this does for me.
+In some respects, it shouldn't help at all, as \citeauthor{Lewis:1999ab} thinks that folk-theory's agnosticism here is important.
+
+The more important point is that if desire is considered in line with belief, then the same distinction between character and content can be made.
+This suggests there's something problematic about thinking of desire as straightforwardly a propositional attitude.
+
+
+
+\begin{quote}
+  For John came to you in the way of righteousness and you did not believe him, but the tax collectors and the prostitutes believed him; and even after you saw it, you did not change your minds and believe him.
+  (Matthew 21:32)
+\end{quote}
+\end{document}
+
+
