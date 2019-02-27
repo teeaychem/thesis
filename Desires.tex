@@ -115,8 +115,23 @@ qed=\qedsymbol
 \usepackage{array}
 \usepackage{epigraph}
 
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+
 \usepackage{titlesec}
 \usepackage[hidelinks,breaklinks]{hyperref}
+
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+
 
 \newcommand{\boxarrow}{%
   \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
@@ -176,38 +191,53 @@ qed=\qedsymbol
 \epigraph{You're everything I never knew I always wanted.}{Fools Rush In}
 
 
-Basic idea is that desire is to satisfaction as belief is to truth.
+
+\section{Basic idea}
+\label{sec:basic-idea}
 
 
-The recieved view has it that:
+\begin{center}
+  Desire is to satisfaction as belief is to truth.
 
-\begin{minipage}{0.45\linewidth}\mbox{ }
-\begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RB\arabic*)]
-\item\label{rb:1} Belief is a relation between a person and a proposition
-\item\label{rb:2} \emph{S}’s belief that \emph{P} is true iff \emph{P} is true
-\item\label{rb:3} \emph{S}’s belief that \emph{P} is false iff \emph{P} is not true
-\end{enumerate}\mbox{ }
-\end{minipage}\hfill
-\begin{minipage}{0.45\linewidth}\mbox{ }
-\begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RD\arabic*)]
-\item\label{rd:1} Desire is a relation between a person and a proposition
-\item\label{rd:2} \emph{S}’s desire that \emph{P} is satisfied iff \emph{P} is true
-\item\label{rd:3} \emph{S}’s desire that \emph{P} is frustrated iff \emph{P} is not true
-\end{enumerate}\mbox{ }
-\end{minipage}
+  \emph{Or to put it deeply:}
 
-I think the received wisdom is correct in the~\citeauthor{Lewis:1974aa}ian sense that it's at the core of our common sense theory of persons, and it's this common sense (or folk-theoretic) understanding of belief and desire that I'm interested in.
-Still, even if correct \ref{rb:1}---\ref{rb:3} and \ref{rd:1}---\ref{rd:3} aren't particularly informative, and it's the way in which \ref{rd:1}---\ref{rd:3} are correct which I hope to give an account of here.
+  Satisfaction is the aim of desire, as truth is the aim of belief.
+\end{center}
+
+So, figuring out what to desire is an interesting problem.
 
 \begin{description}
-\item[Broad] Satisfaction is to desire as truth is to belief.
-  Satisfaction is the aim of desire, just as truth is the aim of belief.
-  So, figuring out what to desire is an interesting problem.
 \item[Basic idea] Practical reasoning is driven by satisfaction and your desires reflect what you expect to be satisfied by.
 \item[X] Satisfaction is not all-or-nothing; one can be satisfied to varying degrees.
 \item[Y] I have no idea what satisfaction is, and in some respects this is the point.
 \item[Z] Satisfaction may arise from distinct (and potentially conflicting) sources.
 \end{description}
+
+
+\subsection{Some background}
+\label{sec:some-background}
+
+Received wisdom has it that:
+
+\begin{minipage}{0.45\linewidth}\mbox{ }
+  \begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RB\arabic*)]
+  \item\label{rd:1} Desire is a relation between a person and a proposition
+  \item\label{rd:2} \emph{S}’s desire that \emph{P} is satisfied iff \emph{P} is true
+  \item\label{rd:3} \emph{S}’s desire that \emph{P} is frustrated iff \emph{P} is not true
+  \end{enumerate}\mbox{ }
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\mbox{ }
+  \begin{enumerate}[labelindent=\parindent,leftmargin=*,label=(RD\arabic*)]
+  \item\label{rb:1} Belief is a relation between a person and a proposition
+  \item\label{rb:2} \emph{S}’s belief that \emph{P} is true iff \emph{P} is true
+  \item\label{rb:3} \emph{S}’s belief that \emph{P} is false iff \emph{P} is not true
+  \end{enumerate}\mbox{ }
+\end{minipage}
+
+I think the received wisdom is correct a~\citeauthor{Lewis:1974aa}ian sense.
+It's at the core of our common sense theory of persons, and it's this common sense/folk-theoretic understanding of belief and desire that I'm interested in.
+Still, even if correct \ref{rb:1}---\ref{rb:3} and \ref{rd:1}---\ref{rd:3} aren't particularly informative, and it's the way in which \ref{rd:1}---\ref{rd:3} are correct which I hope to give an account of here, in line with the basic idea.\nolinebreak
+\footnote{As an aside, one may argue that desires are for states of affairs rather than propositions, but there's nothing too important about this distinction, as propositions describe states of affairs, and even if this kind of correspondence turns out to be problematic, I don't think what I have to say hangs on this.}
 
 By analogy, satisfaction is to practical reasoning as truth is to theoretical reasoning, in that what I believe is what I take to be true and What is desire is what I take to be satisfactory.
 This doesn't say anything substantive about the nature of truth, and I don't think this says anything substantive about the nature of satisfaction.
@@ -327,21 +357,102 @@ So, on the face of it there's no `golden' argument.
 \subsection{Context}
 \label{sec:context}
 
+
+\subsubsection{Within context}
+\label{sec:within-context}
+
 \begin{center}
-  {\setlength{\tabcolsep}{2em}%
-    \renewcommand{\arraystretch}{1.5}%
-    \begin{tabular}[h]{c|c}
-      Abstract & Nominal \\
+  {\setlength{\tabcolsep}{0.5em}%
+      \renewcommand{\arraystretch}{1.5}%
+    \begin{tabular}[h]{cc|cc}
+      \multicolumn{2}{c}{Abstract} & \multicolumn{2}{c}{Nominal} \\
       \hline
-      Different things, same feature of satisfaction & ? \\
-      Different things, different feature of satisfaction & Different things, different desires \\
-      Same thing, different features of satisfaction & Same thing, different desires \\
-      Same thing, same feature of satisfaction & Same thing, same desire \\
+      Different proposition & Same feature of satisfaction & \multicolumn{2}{c}{?} \\
+      Different proposition & Different feature of satisfaction & Different proposition & Different desire \\
+      Same proposition & Different feature of satisfaction & \multicolumn{2}{c}{?} \\  % Same proposition & Different desire \\
+      Same proposition & Same feature of satisfaction & Same proposition & Same desire \\
     \end{tabular}
 }
 \end{center}
 
 I the same thing, same feature of satisfaction/desire case it seems right to say that there's one thing and one feature of satisfaction/desire.
+
+
+
+There's potentially a problem with this way of putting things, as it's certainly the case that one can desire the same thing in multiple ways, but here my understanding is that cognitive significance is built into the proposition.
+Both abstract and nominal accounts of desires can potentially appeal to a distinction between the cognitive significance of what is desired and the proposition that is desired.\nolinebreak
+\footnote{If it helps, think of \citeauthor{Kaplan:1989ab}'s (\citeyear{Kaplan:1989ab}) distinction between the \emph{character} and \emph{content} of an utterance.
+As an aside, the concerns raised here largely arise from thinking about how this kind of distinction matters to desire.}
+
+
+
+\newpage
+
+\subsubsection{Between context}
+\label{sec:between-context}
+
+
+Something is missing here too.
+There's some interesting cases.
+So, Sen's scenario is a good one.
+But, this is case where there's a switch, so in this sense it's similar to the different restaurant cases.
+But is there as case where we have a different context, and the same thing is desired in two different ways?
+
+So, in the context case, there's different context, same feature, different proposition.
+Hum, perhaps Sen's case is more complex, and perhaps this isn't the right table.
+As it's now to do with the relevant propositions, at least in the Sen case.
+So what I really want to do is expand the table.
+
+
+\newcolumntype{R}{@{\extracolsep{10pt}}|@{\extracolsep{10pt}}}%
+
+
+  \begin{figure}[h]
+    \centering
+    \begin{adjustbox}{center}
+    {\setlength{\tabcolsep}{0.5em}%
+      \renewcommand{\arraystretch}{1.5}%
+      \begin{tabular}[h]{cccr|c|lccc}
+        \multicolumn{3}{c}{Abstract} & \multicolumn{3}{c}{ } & \multicolumn{3}{c}{Nominal} \\
+        \hline\hline
+        \multirow{4}{*}{Different proposition} & \multirow{2}{*}{Different context} & Different feature of satisfaction  &  & \mbox{ \clabel{case:a}{\emph{A}}} & & Different proposition & Different context & Different desire \\
+        \cline{3-3}
+                                      &  & Same feature of satisfaction  & & \mbox{ \clabel{case:b}{\emph{B}}} & & & ? & \\
+        \cline{2-2}
+                                      & \multirow{2}{*}{Same context} & Different feature of satisfaction  & & \mbox{ \clabel{case:c}{\emph{C}}} & &  Different proposition & Same context & Different desire \\
+        \cline{3-3}
+                                      &  & Same feature of satisfaction  & & \mbox{ \clabel{case:d}{\emph{D}}} & &  & ? & \\
+        \cline{1-1}
+        \multirow{4}{*}{Same proposition} & \multirow{2}{*}{Different context} & Different feature of satisfaction  & & \mbox{ \clabel{case:e}{\emph{E}}} & & & ? & \\ % Same proposition & Different context & Different desire \\
+        \cline{3-3}
+                                      &  & Same feature of satisfaction & & \mbox{ \clabel{case:f}{\emph{F}}} & &  Same proposition & Different context & Same desire \\
+        \cline{2-2}
+                                      & \multirow{2}{*}{Same context} & Different feature of satisfaction  & & \mbox{ \clabel{case:g}{\emph{G}}} & &  & ? & \\
+        \cline{3-3}
+                                     & & Same feature of satisfaction  & & \mbox{ \clabel{case:h}{\emph{H}}} & &  Same proposition & Same context & Same desire \\
+        \hline
+      \end{tabular}
+    }
+    \end{adjustbox}
+    \caption{Combinations of proposition and context}
+    \label{fig:comb-prop-ctxt}
+  \end{figure}
+
+
+
+  \begin{enumerate}
+  \item It seems to me that the difference between type \ref{case:a} and \ref{case:c} cases and between type \ref{case:f} and \ref{case:h} cases on the nominal view is only surface level, as change in context cannot mark a change in desire.
+  \item Type \ref{case:b} cases are particularly interesting.
+  \item Type \ref{case:d} cases, with Different proposition, Same context, Same feature are the standard Buridan type cases (as I understand things).
+    \item Type \ref{case:d} cases can't happen on the nominal view, as desires are individuated by propositions.
+    \item Type \ref{case:g} cases, different feature of satisfaction, same context, same proposition, are interesting.
+      These can't come around on the nominal view, as again desires are individuated by propositions.
+  
+
+
+
+
+  \end{enumerate}
 
 
 \newpage
@@ -393,7 +504,7 @@ There are various ways to think about this \dots
 
 
 
-Winning a game, as desiring different things in the same way.
+Winning a game, as desiring different context in the same way.
 I don't desire that \emph{Holmes} wins, just as you don't desire that \emph{Moriarty} wins, we both desire that \emph{I} win and the character of our desire does not by itself determine the conditions under which our desires are satisfied.
 
 
@@ -428,7 +539,7 @@ Following Perry distinguish between two types of cases.
 
 Type A: The same thing is believed in different ways
 
-Type B: Different things are believed in the same way.
+Type B: Different context are believed in the same way.
 
 There's a subtle shift here from language to mind.
 It's one thing to argue that language depends on character and context, but it is another thing to argue that attitudes depend on character and context.
@@ -458,7 +569,7 @@ I cannot find an error in my proof/fault in my argument, but I believe it is inc
 I see a familiar face on the train, but I do not believe it is my friend.
 I am given a complement, but I believe that I have been insulted (or vice-versa).
 The letter is signed by the defendant, but I believe it is their lawyers words.
-The point here being that the character of my belief is such that it mediates context, and the beliefs which result are not reducible to context (for else I would believe things that I do not) nor are they reducible to belief (for without context these beliefs would not be formed).
+The point here being that the character of my belief is such that it mediates context, and the beliefs which result are not reducible to context (for else I would believe proposition that I do not) nor are they reducible to belief (for without context these beliefs would not be formed).
 It's a straightforward point, that our reasoning mediates what is reported to us.
 I see problems of co-reference as particular instances of this broader class.
 I believe that Lewis Carroll, but not Charles Dodgson, wrote Alice in Wonderland, etc.
@@ -592,13 +703,23 @@ It'd be nice to include it.
 ``To paraphrase Lacan’s point, the joke shows that desire is like a ‘perverted’ form of need by the very process of expressing that need in the form of a demand. The young benefactor obviously needs food, but his hunger can obviously be satisfied by something less than the most expensive and elaborate meals. So we find desire in what ‘pushes beyond’ need in the very expression of a demand.''
 http://www.lacanonline.com/index/2010/05/what-does-lacan-say-about-desire/
 
-\section{Examples}
-\label{sec:examples}
+% \section{Examples}
+% \label{sec:examples}
 
-spotted-necked otter (Hydrictis maculicollis), or speckle-throated otter
+% spotted-necked otter (Hydrictis maculicollis), or speckle-throated otter
 
-\url{https://plato.stanford.edu/entries/natural-kinds/}
+% \url{https://plato.stanford.edu/entries/natural-kinds/}
 
-\url{https://en.wikipedia.org/wiki/Conversion_of_units#Force}
+% \url{https://en.wikipedia.org/wiki/Conversion_of_units#Force}
+
+
+
+\nocite{Kaplan:1989aa,Smith:2004aa,Bratman:2003aa,Bratman:1981aa,Chislenko:2016aaMcDaniel:2008aa,Nottelmann:2011aa,Perry:1993aa,Rescher:1960aa,Schapiro:2014aa,Schroeder:2006aa,Schroeder:2007aa,Schroeder:2017aa,Sinhababu:2013aa,Sinhababu:2017aa,Velleman:2000aa,Velleman:2007aa}
+
+
+
+
+\newpage
+\printbibliography
 
 \end{document}
