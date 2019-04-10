@@ -10,13 +10,13 @@
    % \usepackage{textcomp}
    % \usepackage{newtxtext}
    % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
-\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbbi, mtpcal]{mtpro2}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
    \usepackage{bm}% Access to bold math symbols
    % \usepackage[onlytext]{MinionPro}
    \usepackage[no-math]{fontspec}
    \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-   \setmainfont[Ligatures=TeX]{Financier Text} %{Minion 3}
+   \setmainfont[Ligatures=TeX]{Minion 3}
    \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
    \setmonofont[Scale=0.8]{Atlas Typewriter}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
@@ -125,7 +125,7 @@ qed=\qedsymbol
 
 
 \usepackage{titlesec}
-\usepackage[hidelinks,breaklinks]{hyperref}
+
 
 
 \makeatletter
@@ -182,7 +182,12 @@ qed=\qedsymbol
 % \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
 % \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 
-\title{Satisfactory Reasoning}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Aberrant desire}
 \author{Benji Sparkes}
 % \date{ }
 
@@ -195,7 +200,8 @@ qed=\qedsymbol
 \label{sec:scenarios}
 
 \begin{quote}
-  {\color{red} Here I can make references to desires as dispositional states to help motivate the worry.}
+  {\color{red} Here I can make references to desires as dispositional states to help motivate the worry.
+  Though, it's somewhat clear that this is a problem for dispositional theories too.}
 \end{quote}
 
 \begin{scenario}\label{scn:gift}
@@ -220,39 +226,138 @@ However, you also desire to buy a gift for your friend and the particular item y
 Given the desire to buy a gift for your friend we can find fault in your beliefs.
 You believed that the item was a suitable gift, and you formed an auxiliary desire for that item given this belief, but this desire had no independent motivational force, and you can explain that you returned to the store because of this desire to buy a gift and your belief that an item would satisfy that desire.
 
-\begin{scenario}\label{scn:meal}
-  It's early afternoon and it's already been a stressful day in the office.
-  You find yourself day-dreaming in a meeting about a particularly satisfying meal you had, and while the meeting is adjourned you phone the restaurant to confirm that it's still on the menu and with this confirmed you book a table for you and your partner in the evening.
-  At the end of the day you see that you have a table booked and you make your way over to the restaurant.
-  After being seated you start to look at the menu, and while it's all very appetising you can't quite figure out why you're there.
-  You ask your partner if they booked the table, but you did.
-  You wonder why, but nothing comes to mind.
-  It has been a stressful day, and that explains why you're eating out, but not why you're at this particular restaurant.
-  You booked the table, but you booked the table for a reason, and there are handful of other restaurants you'd default to if you simply wanted to eat out.
-  You realise that you probably wanted a particular item from the menu, but you can't recall which.
-  Nor are you sure that you're desire to come wasn't premised on the atmosphere of the place.
-  Still, you recognise that you desire to be here.
+% \begin{scenario}\label{scn:meal}
+%   It's early afternoon and it's already been a stressful day in the office.
+%   You find yourself day-dreaming in a meeting about a meal you had last year, and while the meeting is adjourned you phone the restaurant to confirm that it's still on the menu and with this confirmed you book a table for you and your partner in the evening.
+%   At the end of the day you see that you have a table booked and you make your way over to the restaurant.
+%   After being seated you start to look at the menu, and while it's all very appetising you can't recall why you're there.
+%   You ask your partner if they booked the table, but you did.
+%   You remember calling the restaurant to ask about a meal, and you recall your desire for a particular meal.
+%   You look through the menu, but after multiple passes you can't recall the exact meal you had been day-dreaming about.
+%   % It has been a stressful day, and that explains why you're eating out, but not why you're at this particular restaurant.
+%   % You booked the table, but you booked the table for a reason, and there are handful of other restaurants you'd default to if you simply wanted to eat out.
+%   % You realise that you probably wanted a particular item from the menu, but you can't recall which.
+%   % Nor are you sure that you're desire to come wasn't premised on the atmosphere of the place.
+%   % Still, you recognise that you desire to be here.
+% \end{scenario}
+
+\begin{scenario}\label{scn:song}
+  It's early afternoon and you're talking with a colleague in a coffee shop.
+  A song comes on the radio.
+  The coffee shop is busy and you're trying to focus on the current topic of conversation, but you'd like to listen to the song properly.
+  You briefly ask your colleague if they know what song is playing and they tell write down the title and the artist on a napkin for you.
+  At the end of the day you walk to a record store while humming to see if you can purchase a copy of the song, but the store is closed.
+  So, you set yourself a reminder to return at the weekend while running errands.
+
+  As you enter the store you remember the napkin and take it from your pocket, but as you pull out the napkin you realise the ink has run and you only have the name of the artist.
+  You recall that you asked your colleague to write down a song, but you can't bring to mind anything other than thanking your colleague as you put the napkin in your pocket.
+  Still, the store offers you a booth so you can search through the artists discography for the song you're looking for.
+  And, as you think that upon hearing the song again you'll recognise it and remember why you asked for its information you sit down and being to listen.
 \end{scenario}
 
-
-Scenario~\ref{scn:meal} shares many similarities to scenario~\ref{scn:gift}, but while in scenario~\ref{scn:gift} you could not recall a means to an end, in scenario~\ref{scn:meal} you cannot recall the end to which you have performed the means.
+Scenario~\ref{scn:song} shares many similarities to scenario~\ref{scn:gift}, but while in scenario~\ref{scn:gift} you could not recall a means to an end, in scenario~\ref{scn:song} you cannot recall the end to which you have performed the means.
 As such, this appears to be a puzzle about desire.
-What explains why you are at the restaurant is your desire for a particular meal.
-But your desire has no representational content.
-Had you mentioned to your partner that you'd been thinking about the meal you shared last year they could have explained to you why you're there.
-Or, if you'd taken down the name of the person you talked to on the telephone you could have asked them whether you made any requests.
-Still, sitting as you are you can only say that there was a reason, and you think it was a particular meal.
+What explains why you are searching through a discography is your desire to listen to a particular song.
+However, your desire lacks representational content; you can't recall anything about the song itself, nor why your colleague wrote it on a napkin.
+So, sitting in the booth you have both a desire and a means to satisfy it, but you can't explain what the means are for.
+Perhaps you wanted to listen to the song, but maybe you wanted to give a copy to a friend, or it may have been a recommendation from your colleague.
 
-Perhaps it's a mistake to think that you desire the particular meal you thought of while day-dreaming.
-{\color{red} There are all sorts of reasons why this should fail.
-  Basically going through the literature, looking at the main accounts.}
-These concerns are compelling, but what puzzles me is that in both scenarios~\ref{scn:gift} and~\ref{scn:meal} it seems right to think that if you could recall what is was that you desire, you would be motivated to pursue that thing.
+All that can be said is that you desire to do something with the song that was meant to be written on the napkin.
+In other words, you desire to satisfy the end to which you are taking means.
+
+For sure, you are disposed to take actions that will likely bring about listening to the song again, but you do not believe that you are taking these actions in order to bring about listening to the song.
+Nor is your attention is directed toward the song prior to hearing it and thoughts of the song do not occur to you in a favourable light, though on hearing the song again it would appear `good' or pleasurable.
+The difficulty is that you will be satisfied when hearing the song in the booth.
+Equally, you would be satisfied if you heard the song on the radio when at home, or if a friend played it to you.
+
+These considerations suggest that your desire persists, even though you cannot attribute content to it.
+It seems right to think that if you could recall what is was that you desire you would be motivated to pursue that thing, perhaps by a more direct application of the means you're already engaged, or perhaps by some other means.
 It seems more difficult to think that if you could recalled what is was that you \emph{desired}, you would be motivated to pursue that thing.
 Perhaps this is because the latter formulation permits the possibility that your desires have changed, which should be ruled out.
 The suggestion, however, is that to rule out the possibility that your desires have changed is to simply posit that the desires persist.
 Of course, as the desire does not have representational content it cannot persist as an `ordinary' desire.
-If it did you would buy the item or order the meal.
-The suggestion developed more carefully is that the non-representational component of your desire persists.
+If it did you would be exploring rather than searching through the discography.
+
+Of course, it is possible that you no longer have the desire to hear the song again.
+You may tire of searching through the discography, or you may hear some other song which draws your attention.
+It may be that you only have the desire to recognise the song that you desired to hear again, perhaps you mistake the song for another, or when played again you're sure you heard something else.
+So, you desire to hear the song again may morph into a different desire, and in this respect perhaps your desire morphed into something else when the thought of the song slipped from your mind.
+However, on the assumption that you are satisfied on hearing the song again it is hard to see why we should be committed to change in desire.
+For sure, there is a change in your relation to what you desire, but what you desire does not change.
+
+\paragraph{ }
+To put cards on the table, I adhere to the received wisdom about desire, which \citeauthor{McDaniel:2008aa} characterise by the following three theses:\nolinebreak
+\footnote{\color{red} Also happy to endorse conditional desire, but it's not that relevant here.}
+\begin{enumerate}[label=(RW\arabic*)]
+\item Desire is a relation between a person and a proposition.
+\item \emph{S}'s desire that \(P\) is satisfied iff \(P\) is true.
+\item \emph{S}'s desire that \(P\) is frustrated iff \(P\) is not true.\nolinebreak
+  \mbox{ }\hfill(\citeyear[269]{McDaniel:2008aa})
+\end{enumerate}
+Desire is a propositional attitude which consist of a person (at a time) desiring that some proposition is true.
+This tells us \emph{what} is desired (that a proposition be true) but not \emph{how} it is desired.
+And, it is the \emph{how} not the \emph{what} of your desire that is at issue in scenario~\ref{scn:song}.
+I follow \citeauthor{Kaplan:1989ab} and \citeauthor{Perry:1993aa} in distinguishing the cognitive significance of the proposition an agent has an attitude toward from the proposition thereby related.\nolinebreak
+\footnote{\color{red} Pointing out that a bunch of authors highlight that these puzzles arise for desire as well as belief (and other attitudes) and that this is pretty much an exploration of what's going on in such cases, with a focus on dynamics.}
+
+{\color{red}
+  Okay, I need to get clear on exactly what's going on here.
+  I've got a distinction between \emph{how} and \emph{what} and this is good.
+  However, it now comes to stating what's going on with motivation.
+  The desire cannot be the reason why you act, in the sense that it's not the thing you take to be going on in your practical reasoning.
+  Yet, if there wasn't that desire you're reasoning wouldn't happen in the way it does.
+  So, there's a difference between the how and the what, and here there's really not even a `how' in the standard sense of the term.
+  So, the desire only has an indirect role in your practical reasoning.
+  It gives you the means that you currently take to be relevant in determining what to do, and it also gives the conditions under which you'll be satisfied.
+  However, clearly it cannot be part of your deliberation.
+  So, this is the puzzle stated.
+  The part I need to emphasise is that when you hear the song again you're able to discharge the means, but this might require some work on motivating some of the practical reasoning.
+}
+
+{\color{blue}
+  The puzzle, then, is that given this analysis, there are desires which have a role in practical reasoning which is indirect.
+  So, we won't get a good analysis of desire if we focus on the things you reason about.
+  In other words, an analysis of reasons for action will not provide an analysis of practical reasoning.
+  That is, there's no complete story of practical reasoning which pieces together reasons for action with some decision procedure.
+  So, can't take desires as `givens'.
+  Instead, need to reason about (expected) satisfaction.
+  That's what's going on in the scenario.
+  You're reasoning that there's something which you expect to satisfy you to which you have the means.
+}
+
+{\color{green}
+  Oh, and in cases of akrasia you're reasoning about something which you expect to satisfy you but for which you don't have the means.
+  This, is really nice.
+  (Though also rather sad.)
+}
+
+{\color{blue}
+  Well, then, given the above relations to propositions are still the core of desire, and the idea is that having access to representational content is what allows agents to actually do things.
+  Well, it allows us to do thing in the way we do them.
+  The motivational component comes first, and we use practical reasoning to guide this.
+  (This is really what deals with the problem of akrasia, and the proposal only makes sense in this context.)
+  And, the way the argument is going is that there's a way in which we can understand motivation without resorting to a given proposition.
+  For better or worse we can't really reason without some representation content, and the interesting thing about us is that we are able to do this.
+  
+}
+
+
+% What explains why you are searching through the menu at the restaurant is your desire for a particular meal.
+% But your desire has no representational content.
+% Had you mentioned to your partner that you'd been thinking about the particular meal they could have explained to you why you're there.
+% Or, if you'd taken down the name of the person you talked to on the telephone you could have asked them about your request.
+% Still, sitting as you are you can only that you desire a particular meal, but that you don't know which.
+
+
+{\color{red} Problem is that the counterfactual isn't obviously true.
+  For example, taking the dispositional states, there's no clear proposition that the agent stands in a relation to, but this shows that the desire has simply been corrupted.
+  Then, it reduces to a problem of introspection.}
+
+{\color{blue} Well, the general idea is that it seems as though this is a problem with introspection, and when we grant that introspection can fail, there's no problem with specifying various desires.
+  So, it's the case that the puzzling desires really aren't the same desires without representational content, but that they're different desires.
+  In short, the continuity is somewhat misplaced.}
+
+
 
 \section{Intro}
 \label{sec:intro}
@@ -524,6 +629,34 @@ From a certain perspective, this is what's captured by the use of the lambda cal
 One can take \(\lambda w.\phi(w) = \top\), etc.\
 
 But, this isn't quite the full story.
+
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \node[draw] (sat) {\(\mathcal{S}\)};
+
+    \node[draw, above right=of sat, rectangle] (inf) {\(\sigma\)};
+
+    \node[draw, left=of sat] (world) {\(\omega\)};
+
+    \node[draw, above left=of inf] (exp) {\(\mathbb{E}\)};
+
+    \node[above right=of inf] (ext) {};
+
+    \node[above=of ext] (ext2) {};
+
+    \draw[->, to path={-| (\tikztotarget)}] (sat) edge (inf);
+    \draw[->, to path={|- (\tikztotarget)}] (world) edge (sat);
+    \draw[->, to path={-- (\tikztotarget)}] (exp) edge (sat);
+    \draw[->, to path={|- (\tikztotarget)}] (ext) edge (inf);
+    \draw[->, to path={|- (\tikztotarget)}] (inf) edge (exp);
+    \draw[to path={-- (\tikztotarget)}, dashed] (ext) edge (ext2);
+
+  \end{tikzpicture}
+  \caption{Cards on the table}
+  \label{fig:cards}
+\end{figure}
 
 
 
