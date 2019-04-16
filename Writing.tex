@@ -1,0 +1,221 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+\usepackage{luatexbase} % While TeXLive is broken.
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbbi, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{TimesNRMTPro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{noitemsep,style=unboxed,leftmargin=.5cm,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+\usepackage{titlesec}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\title{Second Year Paper: Practical Reasoning}
+\author{Benjamin Sparkes}
+% \date{ }
+
+\begin{document}
+
+\paragraph{Writing Task}\mbox{ }
+
+\citeauthor{Bratman:2007ab}'s Two Glasses of Wine scenario highlights a problem which arises from the combination of desire for general patterns of behaviour where on any given occasion the satisfaction of one desire leads to the frustration of the other deisre.
+Below we present a simplified version of \citeauthor{Bratman:2007ab}'s scenario.
+In the background we assume a principle which links desire to action by stating that if you have a desire and are able to perform an action to satisfy that desire, you will perform that action.
+
+\begin{enumerate}
+\item\label{w:gP} You have a desire for a general pattern of behaviour in which you have a pleasant dinner.
+\item\label{w:gW} You have a desire for a general pattern of behaviour in which you engage in productive after dinner work.
+\item\label{w:glass} If you have a glass of wine with your dinner, you will satisfy your desire for a pleasant dinner.
+\item\label{w:condBad} If you have a second glass of wine, you will frustrate your desire to engage in productive after dinner work.
+\item\label{w:oneGlass} Given~\ref{w:gP} and~\ref{w:glass}, on any given occasion you desire to have a glass of wine with each dinner.
+\item\label{w:good} By~\ref{w:gW} and~\ref{w:condBad}, on any given occasion you desire not to have a second glass of wine with dinner.
+\item\label{w:glassCond} On any given occasion, if you have a glass of wine with your dinner, you will desire a second glass of wine.
+% \item\label{w:bad} By~\ref{w:condBad}, if you have a second glass of wine you will frustrate your desire to engage in productive after dinner work.
+\item\label{w:rTwo} On any given occasion, if you have a glass of wine with your dinner, then by \ref{w:glassCond} and the background assumption you will have a second glass of wine with your dinner.
+\item\label{w:conflct} By~\ref{w:oneGlass} and~\ref{w:rTwo}, on any given occasion if you satisfy your desire to have a pleasant dinner you will frustrate your desire not to have a second glass of wine with dinner (\ref{w:good}).
+\item\label{w:notGood} Given that \ref{w:conflct} holds for any given occasion, you cannot satisfy your general desires given in~\ref{w:gP} and~\ref{w:gW}
+\end{enumerate}
+
+Steps \ref{w:glass} and \ref{w:condBad} link your behaviour on a given occasion to the satisfaction and frustration of your desires for general patterns of behavrious (premises \ref{w:gP} and~\ref{w:gW}, respectively).
+Steps~\ref{w:oneGlass} and~\ref{w:good} relate your general desires to desires regarding particular occasions.
+Premise \ref{w:glassCond} is the crucial premise to generating the problem, it is a premise about your desire on particular occasions, and does not directly conflict with your desires for general patterns of behaviour.
+Step \ref{w:rTwo} uses step \ref{w:oneGlass} and the background assumption to state your behaviour on any given occasion given the assumption that you satisfy your desire for a glass of wine.
+Step \ref{w:conflct} observes that your desires regarding particular occasions cannot be jointly satisfied, and step \ref{w:notGood} generalises this failure of satisfaction to a problem for your general pattern of behaviour.
+The problem, then, is that two distinct desires for general patterns of behaviour may be conflict free when considered independently of individual instances of behaviour, but conflict on every instance.
+
+
+\newpage
+\paragraph{Original scenario}
+
+% \begin{scenario}[Wine]\label{sc:wine}
+  Suppose you value both pleasant dinners and productive work after dinner.
+  One pleasant aspect of dinner is a glass of wine.
+  Indeed, two glasses would make the dinner even more pleasant.
+  The problem is that a second glass of wine undermines your efforts to work after dinner.
+  So you have an evaluative ranking concerning normal dinners: dinner with one glass of wine over dinner with two glasses.
+  So far so good. The problem is that when you are in the middle of dinner, having had the first glass of wine, you frequently find yourself tempted.
+  As you see it, your temptation is not merely a temporary, felt motivational pull in the direction of a second glass: if it were merely that we could simply say that, in at least one important sense, practical reason is on the side of your evaluative ranking.
+  Your temptation, however, is more than that; or so, at least, it seems to you.
+  Your temptation seems to involve a kind of evaluation, albeit an evaluation that is, you know, temporary.
+  For a short period of time you seem to value the second glass of wine more highly than refraining from that second glass.
+  It is not that you have temporarily come to value, quite generally, dinner with two glasses of wine over dinner with one glass.
+  You still value an overall pattern of one glass over an overall pattern of two glasses; after all, productive after-dinner work remains of great importance to you.
+  But in the middle of dinner, faced with the vivid and immediate prospect of a second glass this one time, you value two glasses over one glass just this one time.\nolinebreak
+  \mbox{ }\hfill(\citeyear[257]{Bratman:2007ab})
+% \end{scenario}
+
+  \vfill
+  \printbibliography
+
+\end{document}
