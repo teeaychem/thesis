@@ -1,0 +1,522 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{verse}
+
+
+\usepackage{titlesec}
+
+
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\newcommand{\boxarrow}{%
+  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+}
+\newcommand{\diamondarrow}{%
+  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+}
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\newcommand{\sem}[1]{\ensuremath{[\kern-.5mm[{#1}]\kern-.5mm]}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,calc}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Aberrant desire}
+\author{Ben Sparkes}
+% \date{ }
+
+\begin{document}
+
+\maketitle
+
+\begin{quote}
+  Suppose I have a piece of paper according to which, inter alia, Collingwood is east of Fitzroy.
+  Can I tear the paper up so that I get one snippet that has exactly the content that Collingwood is east of Fitzroy, nothing more and nothing less?
+  If the paper is covered with writing, maybe I can; for maybe 'Collingwood is east of Fitzroy' is one of the sentences written there.
+  But if the paper is a map, any snippet according to which Collingwood is east of Fitzroy will be a snippet according to which more is true besides.\nolinebreak
+  \mbox{ }\hfill(\citeyear[310]{Lewis:1999ab})
+\end{quote}
+
+\section{Propositional attitudes}
+\label{sec:prop-attit-1}
+
+Desire is a propositional attitude which consist of a person (at a time) desiring that some proposition is true.
+This tells us \emph{what} is desired (that a proposition be true) but not \emph{how} it is desired.\nolinebreak
+\footnote{
+  I take desire as a placeholder for a certain mental state which is identified by its functional role in folk-theory.
+  In this respect, talk of desire can be replaced by talk of pro-attitudes.
+}
+
+The difference between `what' and `how' has been clarified and developed with specific relation to belief by various philosophers, in particular \citeauthor{Kaplan:1989aa}, \citeauthor{Lewis:1979aa}, and \citeauthor{Perry:1993aa}.
+
+To illustrate, consider the belief \emph{I am Spartacus}.
+This is different from the belief that \emph{Spartacus is Spartacus}.
+It is fairly trivial that \emph{Spartacus is Spartacus}, and most people won't have too much difficulty believing this, but it takes something more to believe that \emph{I am Spartacus}, and most people will have some difficulty believing this.
+Still, `I' simply refer to the individual to whom the thought belongs, and so as believed by Spartacus, \emph{I am Spartacus} is the belief that Spartacus is Spartacus.
+
+So, if Spartacus believes \emph{I am Spartacus}, then Spartacus believes \emph{Spartacus is Spartacus}.
+Still, if Riley believes \emph{I am Spartacus}, then Riley believes \emph{Riley is Spartacus}.
+Still, Riley may be in a peculiar situation and not believe that \emph{Riley is Spartacus}.
+This proposition captures \emph{what} Riley believes, but they may not recognise the belief under these terms.
+Riley may believe \emph{I am Spartacus} in a way that doesn't allow them to recognise that they believe \emph{Riley is Spartacus}.
+
+\begin{itemize}
+\item[\hand] Broadly put, propositions are \emph{Russellianism} and not \emph{Fregean}.
+\end{itemize}
+
+If propositions were Fregean we'd separate each proposition into its \emph{sense} and \emph{reference}.
+We wouldn't then say that Riley may believe \emph{I am Spartacus} in a way that doesn't allow them to recognise that they believe \emph{Riley is Spartacus}, as it wouldn't necessarily follow from Riley's belief that \emph{I am Spartacus} that they believe \emph{Riley is Spartacus} as Riley may not be appropriately related to the sensual component of the proposition.
+
+Instead, as propositions are Russelian (or structured) there's no sense to be had, and we distinguish between \emph{what} is believed and \emph{how}.
+If an agent believes something, then they believe any proposition with equivalent truth conditions.
+So, what an agent believes doesn't tell us much about the mental life of an individual.
+This is why it is relevant to talk about how an agent believes a proposition.
+
+
+\paragraph{ }
+So, given the distinction between \emph{what} and \emph{how}, noting that desire is a propositional attitude doesn't tell us much about what desire is.
+For sure, we can extend the observations \citeauthor{Kaplan:1989aa}, \citeauthor{Lewis:1979aa}, and \citeauthor{Perry:1993aa} made with respect to belief to desire, and this suggestions a number of issues that seem to be passed over in the literature on desire and practical reasoning.
+This isn't my focus here.
+Instead, I want to suggest that an agent may have a desire without there being any representational content associated with that desire.\nolinebreak
+\footnote{
+  Talk of an absence of representational content is difficult, as you may think that this amounts to a failure of introspection.
+  This may be so, but I don't think what I have in mind corresponds to what people think is going on with failures of introspection.
+  I'd like to say that failures of introspection mean that an agent has a desire with representational content that they don't have introspective access to, and so desires without representation rule out failures of introspection, but I doubt this sort of thing can be made definitional.
+}
+
+If the argument holds for desire, it likely also holds for belief, but desire is an easier case given the close connexion between desire and motivation.
+Basically, I need to convince you that there are cases in which we (as folk) attribute a desire to an agent while denying that the agent has any way of giving an account of what it is that they desire.
+
+\section{Scenarios}
+\label{sec:scenarios}
+
+\begin{scenario}\label{scn:gift}
+  You've travelled up to London for a meeting, but with a little time to spare you decide to detour through Selfridges to see if you can find a gift for your friend.
+  A little searching proves successful, but the item is on a high shelf and as realise that the item would be suitable your eyes focus on the clock on the far wall and you see that unless you leave now you'll be late.
+  Still, the meeting won't last too long, so you make a mental note to return and buy the item.
+  The meeting was strenuous, but when leaving you remember that Selfridges had a item you wanted to buy and you return.
+  You walk up the stairs and through the aisles, but you can't recall what exactly it was which seemed so suitable as a gift.
+  You think you've found the spot, but it doesn't seem quite right, and so you search some more.
+  You remember that you saw a clock, and that helps narrow your search, but it's a big store and clocks can be seen from a variety of places.
+  Perhaps, even, you're on the wrong floor.
+\end{scenario}
+
+There's something puzzling about this scenario.
+You're searching for something, but you can't recall what it is.
+If you could recall the item it would be straightforward to say that you desire to buy it, but that you cannot remember where it is, and as such your beliefs are failing you.
+Still, here you cannot recall the item, and so if you do have a desire to buy the item it is a desire without representational content.
+But if this is the case, it seems you have a desire that you can't explain, because it is a desire that you cannot represent.
+
+For sure, when you first saw the item you desired to buy it, and one may argue that this desire is what leads you to search the store on your return.
+However, you also desire to buy a gift for your friend and the particular item you saw was a means to this end.
+Given the desire to buy a gift for your friend we can find fault in your beliefs.
+You believed that the item was a suitable gift, and you formed an auxiliary desire for that item given this belief, but this desire had no independent motivational force, and you can explain that you returned to the store because of this desire to buy a gift and your belief that an item would satisfy that desire.
+
+\begin{scenario}\label{scn:song}
+  It's early afternoon and you're talking with a colleague in a coffee shop.
+  A song comes on the radio.
+  The coffee shop is busy and you're trying to focus on the current topic of conversation, but you'd like to listen to the song properly.
+  You briefly ask your colleague if they know what song is playing and they tell write down the title and the artist on a napkin for you.
+  At the end of the day you walk to a record store while humming to see if you can purchase a copy of the song, but the store is closed.
+  So, you set yourself a reminder to return at the weekend while running errands.
+
+  As you enter the store you remember the napkin and take it from your pocket, but as you pull out the napkin you realise the ink has run and you only have the name of the artist.
+  You recall that you asked your colleague to write down a song, but you can't bring to mind anything other than thanking your colleague as you put the napkin in your pocket.
+  Still, the store offers you a booth so you can search through the artists discography for the song you're looking for.
+  And, as you think that upon hearing the song again you'll recognise it and remember why you asked for its information you sit down and being to listen.
+\end{scenario}
+
+Scenario~\ref{scn:song} shares many similarities to scenario~\ref{scn:gift}, but while in scenario~\ref{scn:gift} you could not recall a means to an end, in scenario~\ref{scn:song} you cannot recall the end to which you have performed the means.
+As such, this appears to be a puzzle about desire.
+What explains why you are searching through a discography is your desire to listen to a particular song.
+However, your desire lacks representational content; you can't recall anything about the song itself, nor why your colleague wrote it on a napkin.
+So, sitting in the booth you have both a desire and a means to satisfy it, but you can't explain what the means are for.
+Perhaps you wanted to listen to the song, but maybe you wanted to give a copy to a friend, or it may have been a recommendation from your colleague.
+
+All that can be said is that you desire to do something with the song that was meant to be written on the napkin.
+In other words, you desire to satisfy the end to which you are taking means.
+
+For sure, you are disposed to take actions that will likely bring about listening to the song again, but you do not believe that you are taking these actions in order to bring about listening to the song.
+Nor is your attention is directed toward the song prior to hearing it and thoughts of the song do not occur to you in a favourable light, though on hearing the song again it would appear `good' or pleasurable.
+The difficulty is that you will be satisfied when hearing the song in the booth.
+Equally, you would be satisfied if you heard the song on the radio when at home, or if a friend played it to you.
+
+These considerations suggest that your desire persists, even though you cannot attribute content to it.
+It seems right to think that if you could recall what is was that you desire you would be motivated to pursue that thing, perhaps by a more direct application of the means you're already engaged, or perhaps by some other means.
+It seems more difficult to think that if you could recalled what is was that you \emph{desired}, you would be motivated to pursue that thing.
+Perhaps this is because the latter formulation permits the possibility that your desires have changed, which should be ruled out.
+The suggestion, however, is that to rule out the possibility that your desires have changed is to simply posit that the desires persist.
+Of course, as the desire does not have representational content it cannot persist as an `ordinary' desire.
+If it did you would be exploring rather than searching through the discography.
+
+It is possible that you no longer have the desire to hear the song again.
+You may tire of searching through the discography, or you may hear some other song which draws your attention.
+It may be that you only have the desire to recognise the song that you desired to hear again, perhaps you mistake the song for another, or when played again you're sure you heard something else.
+So, you desire to hear the song again may morph into a different desire, and in this respect perhaps your desire morphed into something else when the thought of the song slipped from your mind.
+However, on the assumption that you are satisfied on hearing the song again it is hard to see why we should be committed to change in desire.
+For sure, there is a change in your relation to what you desire, but what you desire does not change.
+
+\paragraph{ }
+The above distinction between \emph{what} and \emph{how} is static, in that it captures a distinction between an agent's relation to a proposition.
+In the above scenarios we're concerned with the dynamics of reasoning, and given this I'll talk about how desires (and beliefs) \emph{participate} in practical reasoning.
+In other words, \emph{how} a proposition is desired (or believed) gives a static characterisation of its dynamic \emph{participation}.
+
+This allows a slogan for the puzzle:
+\begin{itemize}
+\item[\hand] \emph{participation without representation}
+\end{itemize}
+
+It seems as though agents can have desires which participate in their practical reasoning without that desire having any representational content.
+
+\paragraph{ }
+It may be argued that participation without representation is insufficiently commonplace to require attention in our high-level characterisations of folk-theory.
+I doubt that participation without representation is so rare.
+Scenario~\ref{scn:song} is contrived to make the phenomenon clear, and more standard cases can be found.
+
+Further examples include driving to a supermarket to fetch an important ingredient only to traverse the aisles, beginning a sentence only to pad while trying to recall the motivating thought, or hurrying to finish a task only to pace the room while trying recall what you planned to do at leisure.
+For sure, the quick presentation of these examples does not require us to posit the participation of a desire which you cannot grasp, as for this we must assume that when you find the ingredient, finish the thought, or engage in the leisure activity that you satisfy your prior desire.
+It is possible that you return empty-handed, let the sentence unravel, or decide to engage in some other activity, but often your desire is satisfied.
+The point is that by considering participation without representation we enrich our characterisation of folk-theory, and the hope is to argue that this enrichment is instructive.
+
+\section{Resolving the puzzle}
+\label{sec:resolving-puzzle}
+
+Resolving the puzzle of participation without representation requires a nuanced understanding of the role of desires in an agent's practical reasoning.
+This much is clear.
+I think that this puzzle is resolved by characterising the role of desires in practical reasoning as derivative of an agent's reasoning about satisfaction.
+In short: for an agent to desire a proposition is for that proposition to capture the conditions under which the agent expects to be satisfied.
+This perspective takes `desire' to be a placeholder for whatever mental states bear the appropriation to a substantive understanding of satisfaction.\nolinebreak
+\footnote{This is not hedonism about desire.}
+The contrast perspective takes `desire' to be substantive and identifies satisfaction with the conditions under which the conditions imposed by the mental state are met.
+
+To help distinguish these two perspectives, consider a simple Buridan case in which an agent desires two objects which are in all aspects relevant to the desire.
+To take an example from \citeauthor{Rescher:1960aa}'s (\citeyear{Rescher:1960aa}) survey of the issue, consider \citeauthor{Al-Ghazali:1963aa}'s scenario in which a person has two dates in front of them for which they have a strong desire for, but is unable to take both with all distinguishing qualities, such as beauty, nearness, or facility in taking are assumed absent.
+(\citeyear[26--27]{Al-Ghazali:1963aa};\citeyear[147--148]{Rescher:1960aa})
+
+Adopting the perspective that satisfaction is a placeholder we must attribute two distinct desires to the individual, one for each date.
+Of course, it is possible for the individual to have a single desire for either date, but this is not the scenario they find themselves in.
+They desire both dates and are seemingly unable to choose one over the other given the absence of distinguishing qualities.
+
+In contrast, adopting the perspective that satisfaction is substantive, we may say that the agent expects both dates to satisfy them to the same degree and that  given the absence of distinguishing features, both dates will satisfy the agent in the same way.
+The agent still has two distinct desires as there are two distinct objection which may satisfy their desires.
+However, the lack of distinguishing features serves as evidence that the individual has a desire for either date, and in contrast to the former case the issue is not that the agent fails to have a desire for either date, but has failed to recognise that either date would satisfy the same locus of desire.
+This is idea is captured by \citeauthor{Averroes:1954aa} in his commentary of \citeauthor{Al-Ghazali:1963aa}, noting that [w]hichever of the two dates [the person] may take, [their] aim will be attained and [their] desire satisfied (\citeyear[23]{Averroes:1954aa}).
+
+The two readings of the scenario differ in their account of what the individuals desire amounts to, but the key distinction is in their understanding of what it would take for the individual to desire either date.
+The desire-as-placeholder account requires some third desire to be formed, while the contrasting account allows the two existing desires to be collapsed by some inferential process.
+So, in a certain sense the individual may have two desires as there are tow objects (the dates) that would satisfy them.
+However, in another sense this may be a distinction without a difference, as the two objects would satisfy the individual in the same way and here again we may have an example of a desire participating in an agent's practical reasoning without representation.
+
+This reading of a simple Buridan case does not extend to more complex Buridan cases in which an agent desires two suitably distinct objects, such as \citeauthor{Montaigne:1965aa}'s individual who is placed between a bottle of wine and a gammon of bacon with equal appetite to eat and drink (\cite[cf.][156]{Rescher:1960aa}) as intuitively these desires relate to different aspects of satisfaction.
+Still, in the complex case we can understand the individual's dilemma in terms of satisfaction.
+Both thirst and hunger (or any other conflicting states) serve to indicate to the individual how they may be satisfied, and hence explain their desire for particular means to their satisfaction.
+
+Satisfaction, as I am using the term, is a technical notion and has the theoretical role of allowing us to identify aspects of an agent's reasoning as practical its orientation.
+Broadly stated, satisfaction is to practical reasoning as truth is to theoretical reasoning.
+Desires, in turn, capture information about what would satisfy an agent, just as beliefs capture information about what is true of the world.
+This establishes a parity between desires and beliefs as both attitudes capture information about something independent from an agent's reasoning, and the distinction between desires and beliefs arises from the role of this information in the agent's reasoning.
+The independence of a (substantive) account of satisfaction from an agent's reasoning is the primary factor which distinguishes our account from accounts of practical reasoning which arise from more orthodox conceptions of desire.
+
+To illustrate, consider \citeauthor{Pettit:1990aa}'s (\citeyear{Pettit:1990aa}) strict background view of desire.
+\citeauthor{Pettit:1990aa}'s view  combines two conceptions of practical reasoning.
+On the one hand, an \emph{intentional} conception every action is causally explained by the beliefs and desires of an agent.
+On the other, a \emph{deliberative} conception in which at some point in practical reasoning there is (typically) a belief that a chosen option has some property which provides justification for choosing it.
+(\citeyear[565--566]{Pettit:1990aa})
+\citeauthor{Pettit:1990aa} observe that these two conceptions of practical reasoning are compatible, and argue that desires are always in the background of practical reasoning as these are always part of the motivating reason for an agent's choice of an option.
+(\citeyear[573]{Pettit:1990aa})
+Desires may also appear in the foreground of practical reasoning, as an agent may choose an option due to the belief that they desire that option, but for our purposes it is the backgrounding of desires which is key.
+\citeauthor{Pettit:1990aa}'s argument for the background view is straightforward.
+\begin{quote}
+  \begin{enumerate}
+  \item\label{ps:1} Having a reason to \(\Phi\), specifically a motivating reason to \(\Phi\), is having a goal: say, the goal that p.
+  \item\label{ps:2} Having such a goal is being disposed, given appropriate beliefs, to act so that p.
+  \item\label{ps:3} And being so disposed is desiring that p.
+  \end{enumerate}
+  From (\ref{ps:1}), (\ref{ps:2}) and (\ref{ps:3}) it follows that having a reason to \(\Phi\)-necessarily involves the presence of an appropriate desire.\nolinebreak
+  \mbox{ }\hfill(\citeyear[573]{Pettit:1990aa})
+\end{quote}
+The argument is straightforward and is largely neutral on whether desires are cognitive or non-cognitive states.
+The problem is that for \citeauthor{Pettit:1990aa} to have a (motivating) reason is to have a goal, which \citeauthor{Pettit:1990aa} give a dispositional analysis of.
+However, if the mental is to be dispositionally analysed, we can move directly from the identification of a (motivating) reason to a disposition.
+\citeauthor{Pettit:1990aa}'s initial premise would then become:
+\begin{enumerate}[label=(\arabic*\('\))]
+\item\label{ps:1R} Having a reason to \(\Phi\), specifically a motivating reason to \(\Phi\), is being disposed, given appropriate beliefs, to act in a certain way: say, so that p.
+\end{enumerate}
+Given~\ref{ps:3} it follows that to have a (motivating) reason to \(\Phi\) is to have a desire to act in a certain way, but to infer that an agent has a goal we need the converse of~\ref{ps:2}.
+\begin{enumerate}[label=(\arabic*\('\))]\setcounter{enumi}{1}
+\item Being disposed, given appropriate beliefs, to act so that p is have a goal that p.
+\end{enumerate}
+And it is this that is rejected on the view that takes satisfaction to be substantial.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \node (sat) [draw]  {\(\mathcal{S}\)};
+
+    \node (inf) [draw, above right=of sat, rectangle] {\(\sigma\)};
+
+    \node (world) [draw, left=of sat] {\(\omega\)};
+
+    \node (exp) [draw, above left=of inf] {\(\mathbb{E}\)};
+
+    \node (ext) [above right=of inf] {};
+
+    \node (ext2) [above=of ext] {};
+
+    \draw[->, to path={-| (\tikztotarget)}] (sat) edge (inf);
+    \draw[->, to path={|- (\tikztotarget)}] (world) edge (sat);
+    \draw[->, to path={-- (\tikztotarget)}] (exp) edge (sat);
+    \draw[->, to path={|- (\tikztotarget)}] (ext) edge (inf);
+    \draw[->, to path={|- (\tikztotarget)}] (inf) edge (exp);
+    \draw[to path={-- (\tikztotarget)}, dashed] (ext) edge (ext2);
+
+    \path [dashed, draw=gray] ($(exp.north west)+(-0.125,0.125)$) rectangle ($(inf.south east)+(0.5,-1.625)$);
+    \path [loosely dotted, draw=gray] ($(world.north west)+(-0.25,0.25)$) rectangle ($(sat.south east)+(0.25,-.25)$);
+
+  \end{tikzpicture}
+  \caption{Substantial satisfaction}
+  \label{fig:cards}
+\end{figure}
+
+
+\section{Schroeder's Taxonomy}
+\label{sec:schroeders-taxonomy}
+
+\begin{quote}
+  \textbf{Standard Theory 1 (ST1)}:
+  To desire that \(P\) is to be disposed to bring it about that \(P\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[11]{Schroeder:2004aa})
+\end{quote}
+
+\begin{quote}
+  To desire that \(P\) is to be disposed to act in ways that would tend to bring it about that \(P\) in a world in which one's beliefs, whatever they are, were true.\nolinebreak
+  \mbox{ }\hfill(\citeyear[15]{Stalnaker:1984aa})
+\end{quote}
+
+\begin{quote}
+  \textbf{ST2}:
+  To desire that \(P\) is to be so disposed that, if one were to believe that taking action \(A\) would be an effective method for bringing it about that \(P\), then one would take \(A\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[17]{Schroeder:2004aa})
+\end{quote}
+
+\begin{quote}
+  \textbf{ST3}:
+  To desire that \(P\) is to have a structure inside one whose biological function is to bring it about that \(P\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[18]{Schroeder:2004aa})
+\end{quote}
+
+\begin{quote}
+  \textbf{ST4}:
+  To desire that \(P\) is to have a mental representation that \(P\) which plays a certain causal role, namely, that of disposing one to bring it about that \(P\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[24]{Schroeder:2004aa})
+\end{quote}
+
+\begin{quote}
+  A person has a desire in the directed-attention sense that \(P\) if the thought of \(P\) keeps occurring to him or her in a favorable light, that is to say, if the person’s attention is directed insistently toward considerations that present themselves as counting in favor of \(P\).\nolinebreak
+  \mbox{ }\hfill(\cite[39]{Scanlon:1998aa})\nolinebreak
+  \footnote{
+    However, here \citeauthor{Scanlon:1998aa} takes this account of desire to correspond to the intuitive sense, and as such this doesn't correspond to the placeholder pro-attitude view.
+  }
+\end{quote}
+
+
+\begin{quote}
+  \textbf{Hedonic Theory 1 (HT1)}:
+  To desire that \(P\) is to be so disposed that one will tend to feel pleasure if it seems that \(P\), and/or displeasure if it seems that not-\(P\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[27]{Schroeder:2004aa})
+\end{quote}
+
+\begin{quote}
+  \textbf{HT2}:
+  To desire that \(P\) is to contain some structure (this being the desire) which so disposes one that one will tend to feel pleasure if it seems that \(P\), and/or displeasure if it seems that not-\(P\).\nolinebreak
+  \mbox{ }\hfill(\citeyear[27]{Schroeder:2004aa})
+\end{quote}
+
+
+\begin{quote}
+  \textbf{Reward Theory of Desire (RTD)}:
+  To have an intrinsic (positive) desire that \(P\) is to use the capacity to perceptually or cognitively represent that \(P\) to constitute \(P\) as a reward.
+  To be averse to it being the case that \(P\) is to use the capacity to perceptually or cognitively represent that \(P\) to constitute \(P\) as a punishment.
+  \mbox{ }\hfill(\citeyear[131]{Schroeder:2004aa})
+\end{quote}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\printbibliography
+
+\end{document}
