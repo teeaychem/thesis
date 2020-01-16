@@ -1512,9 +1512,6 @@ Note these are not hold in both directions.
 \subsubsection{Modal Rules}
 \label{sec:modal-rules}
 
-These I need to check, but are taken directly from Jaspers and Thijsse if they work.
-These are also \emph{general} modal rules, encoding more or less the relevant modal behaviour of the partial system.
-
 Following \citeauthor{Jaspars:1996aa}, we introduce a single rule covering the general semantics of box-type formulas in our system.
 This rule is termed general as it does not depend on the constraints we place on accessibility relations.
 
@@ -1810,47 +1807,6 @@ Basically, for any saturated theory is going to be deductively closed, and will 
   \(\Sigma \unlhd \Delta\) iff \(\Sigma \nvdash \overline{\Delta}\).
 \end{fact}
 
-Basic strategy is to suppose \(\Gamma \nvdash \Delta\).
-From this, observe that the complement of \(\Delta\) is a saturator of \(\Gamma\), (\(\Gamma \unlhd \overline{\Delta}\)).
-This, then, means that one can't derive the formulas not in \(\overline{\Delta}\), or alternatively one can't derive the formulas in \(\Delta\) from \(\Gamma\).
-An important part of this seems to be that one also can't derive the formulas in \(\Delta\) from \(\overline{\Delta}\), though this isn't obvious.
-And, this is what's important, I think, as the idea is that you can then use the saturator to make a saturated theory.
-
-So, the way the saturation lemma works is to draw as many formulas from the language so that the saturator still saturates, as this is going to ensure the non-derivability of the complement.
-
-Intuitively, a saturated theory is simply going to contain at least one disjunct, and a saturator for a set is a set which contains at least one disjunct from any set entailed.
-So, a saturator basically collects together some sufficient set of witnesses, and one would guess that the set is going to become saturated by taking these.
-Indeed, however the construction works, when one is adding formulas, the saturator must remain a saturator, so one isn't going to be able to add more than would otherwise be entailed.
-
-So, right, a generalisation of lemma 2.18 seems useful.
-It's the ability to add a formula to \(\Gamma\) from any entailed set, such that the saturator is preserved.
-And, this is where the finite problem  comes up for the first time.
-Proof goes by contraposition, supposing that one can't add any of the formulas in \(\Delta\), which should lead to a contradiction, as there's going to need to be a witness from \(\Delta\) for the entailment to hold, and this should be picked up by the saturating set, though the reliance on proof theory here makes some sense, as the proof theory is going to need to ensure that such a witness exists.
-And, the use of cut here is, I think, relying on the fact that the existence of a witness is guaranteed, and hence if one explicitly adds it to a sequent, then this explicit dependency can be remove via repeated applications of cut.
-Though something seems strange here, ah, well, perhaps the problem is coming in by using contraposition.
-For, this is what introduces the use of the whole of \(\Delta\).
-So, attempting a direct proof of this might be worthwhile.
-Problem is that there's no clear way to figure out what the relevant \(\delta\) would be, but checking the other uses of saturation might offer some hints\dots
-
-Blamey looks more promising for a completeness result, as this uses some of the partial vocabulary.
-Note, Blamey defines \(\ast\) as \(\top \lint \bot\).
-However, Blamey's notion of semantic consequence is a little different.
-
-The double-barrelled understanding of consequence suggested by \citeauthor{Blamey:2002aa} seems useful.
-In particular, given that I have either interjunction or transplication along with a classical fragment, there's going to be a way to define \citeauthor{Blamey:2002aa}'s \(\ast (= \top \lint \bot)\), which is almost equivalent to \(\bot\), but for being undefined and hence more leading more to vacuity than triviality.
-Still, this doesn't completely trivialise a sequent, as depending on where \(\ast\) occurs, only one of the conditions may be made vacuous.
-One of the upshots, though, of taking the double-barrelled understanding is to preserve contraposition, and in this respect, an occurrence of \(\ast\) on the left can always be moved to the right.
-That is, given \(\Gamma \vdash \Delta\), if \(\ast \in \Gamma \cap \Delta\) then both directions are made vacuous, while if \(\ast \in \Gamma\) then the `truth' condition becomes irrelevant, while if \(\ast \in \Delta\) then the `falsity' condition falls out.
-In the latter case, if \(\Gamma \nvdash \Delta\) then \(\Gamma\) may still be pumped up to correspond to a state, while in the former it may be desirable to take \(\lnot\Delta\) and observe that \(\lnot\Delta \nvdash \lnot\Gamma\).
-
-The corresponding generalisation of Lindenbaum's lemma still needs to be found \dots
-What's somewhat puzzling is that for \citeauthor{Blamey:2002aa} sequents are finite.
-Ah, bu this comes after the completeness result?
-No, \citeauthor{Blamey:2002aa} defines \(\Gamma \vdash_{\Sigma} \Delta\) iff for some finite subsets \(\Gamma_{0}, \Delta_{0}\), \(\Gamma_{0} >- \Delta_{0} \in \overline{\Sigma}\) (p.\ 339).
-Right, but given completeness, hm, this doesn't matter too much.
-So, if I can be sure that compactness \emph{is} going to follow, then this can be taken.
-It feels to me as though compactness shouldn't obviously follow, and even if it \emph{does} follow, then it most likely will not for a dynamic extension of the logic.
-However, strong completeness will also likely fail for a dynamic extension, so this may not be the most troublesome thing.
 
 
 \newpage
@@ -1946,14 +1902,6 @@ And, as the right to left direction doesn't depend on bivalence, this should wor
   \end{proof}
 \end{proposition}
 
-So, in the oblique setting there's a characterisation of propositional modalities.
-Diamond is straightforward to capture for classical formulas, but there's no way to do this for non-classical formulas, as the absence of a formula holding doesn't give much information about where it does hold.
-
-\citeauthor{Gargov:1987aa}, by contrast, have some more straightforward axioms, and the completeness proof is detailed, but it doesn't appear particularly robust with respect to multiple relations.
-The source of difficulty appears to arise from the required interaction between \(\lattu{}\) and \(\lattd{}\).
-\citeauthor{Gargov:1987aa} construct a neat kind of model in which these relations are disjoint but such that modal equivalence with the relevant kind of models is ensured.
-However, it's unclear how this relates to the kind of set-theoretic results which drive the rest of the paper.
-
 \begin{note}
   \([U]A \coloneq N(A,A) \coloneq \Box A \land H \lnot A\).
   Ah, this means that \(A\) holds everywhere.
@@ -1969,13 +1917,6 @@ Completeness then proceeds through these `generalised' models.
 
 \section{Canonical Model}
 \label{sec:canonical-model}
-
-\begin{itemize}
-\item Goal is to work with the standard canonical model proof for completeness.
-\item This is slightly complicated by the presence of two modalities.
-\item \citeauthor{Hoek:1996aa} may provide some guidance for how to deal with box-type modalities, but the relevant clauses for window-type modalities is less clear.
-\item So long as a parallel to the standard truth lemma can be found, appealing to the idea of generalised models in the spirit of \citeauthor{Gargov:1987aa} looks promising.
-\end{itemize}
 
 On generalised models, \citeauthor{Gargov:1987aa} give a revised definition of the window modality.
 
@@ -2018,28 +1959,8 @@ The worry here is the use of point generated submodels by \citeauthor{Gargov:198
 For the canonical model construction, set:
 \begin{enumerate}
 \item \(R\Gamma\Delta\) iff \(\widetilde{\Box}\Gamma \subseteq \Delta \subseteq \widetilde{\Diamond}\Gamma\)
-\item \item \(R\Gamma\Delta\) iff \(\widetilde{\Box}\lnot\Gamma \subseteq \Delta \subseteq \widetilde{\Diamond}\lnot\Gamma\)
+\item \(R\Gamma\Delta\) iff \(\widetilde{\Box}\lnot\Gamma \subseteq \Delta \subseteq \widetilde{\Diamond}\lnot\Gamma\)
 \end{enumerate}
-
-\begin{lemma}[Truth lemma]
-
-  \(\Gamma \vDash \phi \leftrightarrow \phi \in \Gamma\) and \(\Gamma \nvDash \phi \leftrightarrow \lnot\phi \in \Gamma\)
-
-  \begin{proof}
-    Suppose \(\Gamma \vDash B\phi\).
-    Then, for all \(\Delta\) such that \(R\Gamma\Delta\) it is the case that \(\Delta \vDash \phi\).
-    It must then be the case that \(\phi \in \Delta\) by the induction hypothesis, and so by definition it must be the case that \(B\phi \in \Gamma\).
-    But this doesn't quite follow, because it may be the case that for some reason \(B\phi\) fails to be in \(\Gamma\) despite the appropriate condition holding.
-    
-
-    Suppose \(\Gamma \nvDash B\phi\).
-    Then, there's some state \(\Delta\) such that \(R\Gamma\Delta\) with \(\Delta \vDash \lnot\phi\).
-    
-    
-
-  \end{proof}
-\end{lemma}
-
 
 \newpage
 
