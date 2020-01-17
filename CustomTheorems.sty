@@ -1,0 +1,47 @@
+\ProvidesPackage{CustomTheorems}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

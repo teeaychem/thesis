@@ -1,0 +1,296 @@
+\ProvidesPackage{Oblique}
+
+\usepackage{xparse} % For creating commands with complex arguments
+% \usepackage{expl3}
+
+
+% % % Custom symbols % % %
+\renewcommand\lbrack[1][]{\ooalign{\ensuremath{#1\lfloor}\cr\ensuremath{#1\lceil}}}
+\renewcommand\rbrack[1][]{\ooalign{\ensuremath{#1\rfloor}\cr\ensuremath{#1\rceil}}}
+
+\makeatletter % 'Bold' double brackets, e.g. for anti-denotation
+\newsavebox{\@brx}
+\newcommand{\lbangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
+  \mathopen{\kern-0\wd\@brx\usebox{\@brx}%
+    \kern-.9\wd\@brx\usebox{\@brx}%
+v    \kern-.9\wd\@brx\usebox{\@brx}}}
+\newcommand{\rbangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
+  \mathclose{\kern-0\wd\@brx\usebox{\@brx}%
+    \kern-.9\wd\@brx\usebox{\@brx}%
+    \kern-.9\wd\@brx\usebox{\@brx}}}
+\makeatother
+
+\makeatletter % Double brackets, e.g. for denotation
+\newsavebox{\@bry}
+\newcommand{\llbrack}[1][]{\savebox{\@bry}{\(\m@th{#1\lbrack}\)}%
+  \mathopen{\usebox{\@bry}\kern-0.7\wd\@bry\usebox{\@bry}}}
+\newcommand{\rrbrack}[1][]{\savebox{\@bry}{\(\m@th{#1\rbrack}\)}%
+  \mathclose{\usebox{\@bry}\kern-0.7\wd\@bry\usebox{\@bry}}}
+\makeatother
+
+\makeatletter     % For support of an expression
+\newsavebox{\@btw}
+\newcommand{\llceil}[1][]{\savebox{\@btw}{\(\m@th{#1\lceil}\)}%
+  \mathopen{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
+\newcommand{\llflor}[1][]{\savebox{\@btw}{\(\m@th{#1\lfloor}\)}%
+  \mathopen{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
+\newcommand{\rrflor}[1][]{\savebox{\@btw}{\(\m@th{#1\rfloor}\)}%
+  \mathclose{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
+\newcommand{\rrceil}[1][]{\savebox{\@btw}{\(\m@th{#1\rceil}\)}%
+  \mathclose{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
+\makeatother
+
+
+\makeatletter     % For negate of an expression
+\newsavebox{\@wtb}
+\newcommand{\lbceil}[1][]{\savebox{\@wtb}{\(\m@th{#1\lceil}\)}%
+  \mathopen{%
+    \usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
+\newcommand{\lbflor}[1][]{\savebox{\@wtb}{\(\m@th{#1\lfloor}\)}%
+  \mathopen{%
+    \usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
+\newcommand{\rbceil}[1][]{\savebox{\@wtb}{\(\m@th{#1\rceil}\)}%
+  \mathclose{\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
+\newcommand{\rbflor}[1][]{\savebox{\@wtb}{\(\m@th{#1\rfloor}\)}%
+  \mathclose{\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}%
+    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
+
+\makeatother
+
+\makeatletter
+\newsavebox{\@btz}
+\newcommand{\lhangle}[1][]{\savebox{\@brz}{\(\m@th{#1\lbrack}\)}%
+  \savebox{\@btz}{\parbox{\wd\@brz}{\(\m@th{#1\arrowvert}\)}}%
+  \mathopen{\usebox{\@btz}\kern-0.7\wd\@brz\usebox{\@btz}}}
+\newcommand{\rhangle}[1][]{\savebox{\@brz}{\(\m@th{#1\rbrack}\)}%
+ \savebox{\@btz}{\parbox{\wd\@brz}{\(\m@th{#1\arrowvert}\)}}%
+ \mathclose{\usebox{\@btz}\kern-0.7\wd\@brz\usebox{\@btz}}}
+\makeatother
+
+
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cdeno}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\vphantom{\overline{#1}}#1}%
+    {\vphantom{\overline{d}}d}%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\vphantom{\overline{#1}}#1(#2)}%
+    {\vphantom{\overline{d}}d(#2)}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ideno}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {\vphantom{\overline{#1}}\overline{#1}}%
+    {\vphantom{\overline{d}}\overline{d}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {\vphantom{\overline{#1}}\overline{#1}(#2)}%
+    {\vphantom{\overline{d}}\overline{d}(#2)}%
+  }
+}
+\ExplSyntaxOff
+
+
+\newcommand*{\oline}[1]{\overline{#1\mathstrut}} % For fixed height overlines
+
+\newcommand{\atmexp}{\ensuremath{\mathsf{Exp}}}
+
+\newcommand{\sem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
+\newcommand{\intp}{\ensuremath{\mathcal{i}}}
+\newcommand{\Intp}{\ensuremath{\mathcal{I}}}
+\newcommand{\supp}{\ensuremath{\mathcal{s}}}
+\newcommand{\Supp}{\ensuremath{\mathcal{S}}}
+\newcommand{\appl}{\ensuremath{\mathcal{a}}}
+\newcommand{\Appl}{\ensuremath{\mathcal{A}}}
+\newcommand{\csupp}[1]{\ensuremath{\supp(#1)}}
+\newcommand{\isupp}[1]{\ensuremath{\overline{\supp}(#1)}}
+\newcommand{\cappl}[1]{\ensuremath{\appl(#1)}}
+\newcommand{\iappl}[1]{\ensuremath{\overline{\appl}(#1)}}
+\newcommand{\cintp}[1]{\ensuremath{\intp(#1)}}
+\newcommand{\cIntp}[1]{\ensuremath{\Intp(#1)}}
+\newcommand{\iintp}[1]{\ensuremath{\overline{\intp}(#1)}}
+\newcommand{\iIntp}[1]{\ensuremath{\overline{\Intp}(#1)}}
+\newcommand{\seq}{\ensuremath{>\!\!\!-}}
+% \newcommand{\cdeno}[2]{\ensuremath{\vphantom{\overline{#1}}#1(#2)}}
+% \newcommand{\ideno}[2]{\ensuremath{\overline{#1}(#2)}}
+\newcommand{\Window}{\ensuremath{\ooalign{\hss\rule[0.125pt]{.5pt}{6.5pt}\hss\cr\Box}}}
+
+\newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
+\newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
+
+\newcommand{\bsem}[1]{\ensuremath{\lhangle{#1}\rhangle}}
+
+\newcommand{\lattn}{\ensuremath{\lceil}}
+\newcommand{\rattn}{\ensuremath{\rfloor}}
+\newcommand{\attn}[1]{\ensuremath{\mathord{\lattn{#1}\rattn}}}
+
+\def\lint{\mathrel{%               for interjunction
+    \ooalign{\hss\land\hss\cr\lor}%
+  }}
+\def\ltrans{\mathrel{%               for interjunction
+    /%
+  }}
+\def\bnfsep{\mathrel{%            for BNF defs, etc.
+    |%
+  }}
+\newcommand{\fint}[1]{\ensuremath{\mathcal{I}({#1})}}
+% \newcommand{\olang}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\oframe}[1]{\ensuremath{\mathfrak{#1}}}
+\newcommand{\ointp}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\omodel}[1]{\ensuremath{\mathcal{#1}}}
+
+
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\olang}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \mathcal{L}%
+  }
+  {
+    \mathcal{#1}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ldesu}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {#1^{\uparrow}}%
+    {D^{\uparrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {#1^{\uparrow}#2}%
+    {D^{\uparrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ldesd}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {#1^{\downarrow}}%
+    {D^{\downarrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {#1^{\downarrow}#2}%
+    {D^{\downarrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\lbelu}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {#1^{\uparrow}}%
+    {B^{\uparrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {#1^{\uparrow}#2}%
+    {B^{\uparrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\lbeld}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {#1^{\downarrow}}%
+    {B^{\downarrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {#1^{\downarrow}#2}%
+    {B^{\downarrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\lattu}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {[#1]^{\uparrow}}%
+    {[A_{i}]^{\uparrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {[#1]^{\uparrow}#2}%
+    {[A_{i}]^{\uparrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\lattd}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {[#1]^{\downarrow}}%
+    {[A_{i}]^{\downarrow}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {[#1]^{\downarrow}#2}%
+    {[A_{i}]^{\downarrow}#2}%
+  }
+}
+\ExplSyntaxOff
+\ExplSyntaxOn
+\DeclareDocumentCommand{\fatt}{ o m }{%
+  \tl_if_empty:nTF {#2}
+  {
+    \IfValueTF{#1}%
+    {#1}%
+    {A_{i}}%
+  }
+  {
+    \IfValueTF{#1}%
+    {#1(#2)}%
+    {A_{i}(#2)}%
+  }
+}
+\ExplSyntaxOff
+
+
+% % % dashV % % %
+\usepackage{graphicx}
+
+\makeatletter
+\providecommand*{\Dashv}{%
+  \mathrel{%
+    \mathpalette\@Dashv\vDash
+  }%
+}
+\newcommand*{\@Dashv}[2]{%
+  \reflectbox{$\m@th#1#2$}%
+}
+\makeatother
+% % % % % % % % % %

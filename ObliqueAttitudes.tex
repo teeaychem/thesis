@@ -50,52 +50,6 @@
 \setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
 \setlist[enumerate]{noitemsep}
 
-% % % The following section relates to theorems, etc. % % %
-\usepackage{thmtools}
-
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\mdseries, notebraces={(}{)},
-bodyfont=\normalfont,
-% postheadspace=1em,
-% qed=\qedsymbol
-]{defstyle}
-
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\normalfont\bfseries, notebraces={}{},
-bodyfont=\normalfont,
-% postheadspace=1em,
-% qed=\qedsymbol
-]{defsstyle}
-
-
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\normalfont\bfseries, notebraces={}{},
-bodyfont=\normalfont\color{red},
-% postheadspace=1em,
-qed=\qedsymbol
-]{notestyle}
-
-\declaretheorem[name=Theorem,numberwithin=section]{theorem}
-\declaretheorem[sibling=theorem,style=remark]{remark}
-\declaretheorem[sibling=theorem,name=Corollary]{corollary}
-\declaretheorem[sibling=theorem,name=Lemma]{lemma}
-\declaretheorem[sibling=theorem,name=Fact]{fact}
-\declaretheorem[sibling=theorem,name=Proposition]{proposition}
-\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
-\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
-\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
-\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
-\declaretheorem[name=Note,style=notestyle]{note}
-\declaretheorem[name=Ramble,style=notestyle]{ramble}
-\declaretheorem[name=Scenario,style=defstyle]{scenario}
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
 % % % Misc packages % % %
 \usepackage{setspace}
 % \usepackage{refcheck} % Can be used for checking references
@@ -105,11 +59,11 @@ qed=\qedsymbol
 % % % % % % % % % % % % %
 
 % % % Red Math % % %
-    \usepackage[usenames, dvipsnames]{xcolor}
-    % \usepackage{everysel}
-    % \EverySelectfont{\color{black}}
-    % \everymath{\color{red}}
-    % \everydisplay{\color{black}}
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
 % % % % % % % % % %
 
 \usepackage{pifont}
@@ -120,7 +74,6 @@ qed=\qedsymbol
 \usepackage{multirow}
 \usepackage{adjustbox}
 
-
 \usepackage{titlesec}
 
 \makeatletter
@@ -130,341 +83,17 @@ qed=\qedsymbol
 }
 \makeatother
 
-\newcommand{\boxarrow}{%
-  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
-}
-\newcommand{\diamondarrow}{%
-  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
-}
-
-\titleclass{\subsubsubsection}{straight}[\subsection]
-
-\newcounter{subsubsubsection}[subsubsection]
-\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
-\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
-
-\titleformat{\subsubsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
-\titlespacing*{\subsubsubsection}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-
-\makeatletter
-\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-  {3.25ex \@plus1ex \@minus.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries}}
-\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
-  {3.25ex \@plus1ex \@minus .2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries}}
-\def\toclevel@subsubsubsection{4}
-\def\toclevel@paragraph{5}
-\def\toclevel@paragraph{6}
-\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
-\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
-\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
-\makeatother
+% \newcommand{\boxarrow}{%
+%   \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+% }
+% \newcommand{\diamondarrow}{%
+%   \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+% }
 
 \usepackage{multicol}
 
-% % % Custom symbols % % %
-\renewcommand\lbrack[1][]{\ooalign{\ensuremath{#1\lfloor}\cr\ensuremath{#1\lceil}}}
-\renewcommand\rbrack[1][]{\ooalign{\ensuremath{#1\rfloor}\cr\ensuremath{#1\rceil}}}
-
-\makeatletter % 'Bold' double brackets, e.g. for anti-denotation
-\newsavebox{\@brx}
-\newcommand{\lbangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}%
-  \mathopen{\kern-0\wd\@brx\usebox{\@brx}%
-    \kern-.9\wd\@brx\usebox{\@brx}%
-v    \kern-.9\wd\@brx\usebox{\@brx}}}
-\newcommand{\rbangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}%
-  \mathclose{\kern-0\wd\@brx\usebox{\@brx}%
-    \kern-.9\wd\@brx\usebox{\@brx}%
-    \kern-.9\wd\@brx\usebox{\@brx}}}
-\makeatother
-
-\makeatletter % Double brackets, e.g. for denotation
-\newsavebox{\@bry}
-\newcommand{\llbrack}[1][]{\savebox{\@bry}{\(\m@th{#1\lbrack}\)}%
-  \mathopen{\usebox{\@bry}\kern-0.7\wd\@bry\usebox{\@bry}}}
-\newcommand{\rrbrack}[1][]{\savebox{\@bry}{\(\m@th{#1\rbrack}\)}%
-  \mathclose{\usebox{\@bry}\kern-0.7\wd\@bry\usebox{\@bry}}}
-\makeatother
-
-\makeatletter     % For support of an expression
-\newsavebox{\@btw}
-\newcommand{\llceil}[1][]{\savebox{\@btw}{\(\m@th{#1\lceil}\)}%
-  \mathopen{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
-\newcommand{\llflor}[1][]{\savebox{\@btw}{\(\m@th{#1\lfloor}\)}%
-  \mathopen{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
-\newcommand{\rrflor}[1][]{\savebox{\@btw}{\(\m@th{#1\rfloor}\)}%
-  \mathclose{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
-\newcommand{\rrceil}[1][]{\savebox{\@btw}{\(\m@th{#1\rceil}\)}%
-  \mathclose{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
-\makeatother
-
-
-\makeatletter     % For negate of an expression
-\newsavebox{\@wtb}
-\newcommand{\lbceil}[1][]{\savebox{\@wtb}{\(\m@th{#1\lceil}\)}%
-  \mathopen{%
-    \usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
-\newcommand{\lbflor}[1][]{\savebox{\@wtb}{\(\m@th{#1\lfloor}\)}%
-  \mathopen{%
-    \usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
-\newcommand{\rbceil}[1][]{\savebox{\@wtb}{\(\m@th{#1\rceil}\)}%
-  \mathclose{\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
-\newcommand{\rbflor}[1][]{\savebox{\@wtb}{\(\m@th{#1\rfloor}\)}%
-  \mathclose{\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}\kern-0.9\wd\@wtb\usebox{\@wtb}%
-    \kern-0.9\wd\@wtb\usebox{\@wtb}}}
-
-\makeatother
-
-\makeatletter
-\newsavebox{\@btz}
-\newcommand{\lhangle}[1][]{\savebox{\@brz}{\(\m@th{#1\lbrack}\)}%
-  \savebox{\@btz}{\parbox{\wd\@brz}{\(\m@th{#1\arrowvert}\)}}%
-  \mathopen{\usebox{\@btz}\kern-0.7\wd\@brz\usebox{\@btz}}}
-\newcommand{\rhangle}[1][]{\savebox{\@brz}{\(\m@th{#1\rbrack}\)}%
- \savebox{\@btz}{\parbox{\wd\@brz}{\(\m@th{#1\arrowvert}\)}}%
- \mathclose{\usebox{\@btz}\kern-0.7\wd\@brz\usebox{\@btz}}}
-\makeatother
-
-
-\usepackage{xparse} % For creating commands with complex arguments
-% \usepackage{expl3}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\cdeno}{ o m }{%
-  \tl_if_empty:nTF {#2} %
-  {
-    \IfValueTF{#1}%
-    {\vphantom{\overline{#1}}#1}%
-    {\vphantom{\overline{d}}d}%
-  } %
-  {
-    \IfValueTF{#1}%
-    {\vphantom{\overline{#1}}#1(#2)}%
-    {\vphantom{\overline{d}}d(#2)}%
-  } %
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ideno}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {\vphantom{\overline{#1}}\overline{#1}}%
-    {\vphantom{\overline{d}}\overline{d}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {\vphantom{\overline{#1}}\overline{#1}(#2)}%
-    {\vphantom{\overline{d}}\overline{d}(#2)}%
-  }
-}
-\ExplSyntaxOff
-
-
-\newcommand*{\oline}[1]{\overline{#1\mathstrut}} % For fixed height overlines
-
-\newcommand{\atmexp}{\ensuremath{\mathsf{Exp}}}
-
-\newcommand{\sem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
-\newcommand{\intp}{\ensuremath{\mathcal{i}}}
-\newcommand{\Intp}{\ensuremath{\mathcal{I}}}
-\newcommand{\supp}{\ensuremath{\mathcal{s}}}
-\newcommand{\Supp}{\ensuremath{\mathcal{S}}}
-\newcommand{\appl}{\ensuremath{\mathcal{a}}}
-\newcommand{\Appl}{\ensuremath{\mathcal{A}}}
-\newcommand{\csupp}[1]{\ensuremath{\supp(#1)}}
-\newcommand{\isupp}[1]{\ensuremath{\overline{\supp}(#1)}}
-\newcommand{\cappl}[1]{\ensuremath{\appl(#1)}}
-\newcommand{\iappl}[1]{\ensuremath{\overline{\appl}(#1)}}
-\newcommand{\cintp}[1]{\ensuremath{\intp(#1)}}
-\newcommand{\cIntp}[1]{\ensuremath{\Intp(#1)}}
-\newcommand{\iintp}[1]{\ensuremath{\overline{\intp}(#1)}}
-\newcommand{\iIntp}[1]{\ensuremath{\overline{\Intp}(#1)}}
-\newcommand{\seq}{\ensuremath{>\!\!\!-}}
-% \newcommand{\cdeno}[2]{\ensuremath{\vphantom{\overline{#1}}#1(#2)}}
-% \newcommand{\ideno}[2]{\ensuremath{\overline{#1}(#2)}}
-
-\newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
-\newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
-
-\newcommand{\bsem}[1]{\ensuremath{\lhangle{#1}\rhangle}}
-
-\newcommand{\lattn}{\ensuremath{\lceil}}
-\newcommand{\rattn}{\ensuremath{\rfloor}}
-\newcommand{\attn}[1]{\ensuremath{\mathord{\lattn{#1}\rattn}}}
-
-\def\lint{\mathrel{%               for interjunction
-    \ooalign{\hss\land\hss\cr\lor}%
-  }}
-\def\ltrans{\mathrel{%               for interjunction
-    /%
-  }}
-\def\bnfsep{\mathrel{%            for BNF defs, etc.
-    |%
-  }}
-\newcommand{\fint}[1]{\ensuremath{\mathcal{I}({#1})}}
-% \newcommand{\olang}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\oframe}[1]{\ensuremath{\mathfrak{#1}}}
-\newcommand{\ointp}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\omodel}[1]{\ensuremath{\mathcal{#1}}}
-
-
-
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\olang}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \mathcal{L}%
-  }
-  {
-    \mathcal{#1}%
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ldesu}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {#1^{\uparrow}}%
-    {D^{\uparrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {#1^{\uparrow}#2}%
-    {D^{\uparrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ldesd}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {#1^{\downarrow}}%
-    {D^{\downarrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {#1^{\downarrow}#2}%
-    {D^{\downarrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\lbelu}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {#1^{\uparrow}}%
-    {B^{\uparrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {#1^{\uparrow}#2}%
-    {B^{\uparrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\lbeld}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {#1^{\downarrow}}%
-    {B^{\downarrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {#1^{\downarrow}#2}%
-    {B^{\downarrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\lattu}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {[#1]^{\uparrow}}%
-    {[A_{i}]^{\uparrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {[#1]^{\uparrow}#2}%
-    {[A_{i}]^{\uparrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\lattd}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {[#1]^{\downarrow}}%
-    {[A_{i}]^{\downarrow}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {[#1]^{\downarrow}#2}%
-    {[A_{i}]^{\downarrow}#2}%
-  }
-}
-\ExplSyntaxOff
-\ExplSyntaxOn
-\DeclareDocumentCommand{\fatt}{ o m }{%
-  \tl_if_empty:nTF {#2}
-  {
-    \IfValueTF{#1}%
-    {#1}%
-    {A_{i}}%
-  }
-  {
-    \IfValueTF{#1}%
-    {#1(#2)}%
-    {A_{i}(#2)}%
-  }
-}
-\ExplSyntaxOff
-
-% % % dashV % % %
-\usepackage{graphicx}
-
-\makeatletter
-\providecommand*{\Dashv}{%
-  \mathrel{%
-    \mathpalette\@Dashv\vDash
-  }%
-}
-\newcommand*{\@Dashv}[2]{%
-  \reflectbox{$\m@th#1#2$}%
-}
-\makeatother
-% % % % % % % % % %
-
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
-
-% \titleclass{\todopar}{straight}[\section]
-% \newcounter{todopar}
-% \renewcommand{\thetodopar}{\Alph{todopar}.}
-% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
-% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning}
@@ -472,6 +101,8 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \usepackage{tabularx}
 
 \usepackage{bussalt}
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems} 
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
@@ -1517,9 +1148,9 @@ This rule is termed general as it does not depend on the constraints we place on
 
 \begin{prooftree}
   \def\fCenter{\mbox{\ \(\seq\)\ }}
-  \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+  \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
   \RightLabel{(Box-1)}
-  \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
+  \UnaryInf\(\Box\Gamma \fCenter\ \Box\phi, \lnot\Box\Delta\)
 \end{prooftree}
 
 \begin{lemma}[Soundness]
@@ -1538,15 +1169,24 @@ While \citeauthor{Jaspars:1996aa} also require the contrapositive of (Box-1), we
 \begin{proposition}
   The following rule is derivable in our system.
     \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
-    \RightLabel{(Box-2)}
-    \UnaryInf\(\Box\Gamma \fCenter\ \Box\phi, \lnot\Box\Delta\)
-  \end{prooftree}
+  \def\fCenter{\mbox{\ \(\seq\)\ }}
+  \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+  \RightLabel{(Box-2)}
+  \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
+\end{prooftree}
   \begin{proof}
     By applying the contraposition rule, changing variables used.
   \end{proof}
 \end{proposition}
+
+Window-type modalities are governed by a corresponding rule.
+
+    \begin{prooftree}
+    \def\fCenter{\mbox{\ \(\seq\)\ }}
+    \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
+    \RightLabel{(Window-1)}
+    \UnaryInf\(\Window\Gamma \fCenter\ \Window\lnot\phi, \Window\Delta\)
+  \end{prooftree}
 
 
 \begin{proposition}[Finiteness]
@@ -1561,16 +1201,24 @@ While \citeauthor{Jaspars:1996aa} also require the contrapositive of (Box-1), we
 \subsection{Completeness Ideas}
 \label{sec:completeness-ideas}
 
-The basic idea is to take pairs of formulas.
-The pairs of interest are those in which the consequence relation does not trivially hold.
-Due to there being two directions to consider, this requires keeping track of which direction is of interest.
-If these pairs were finite, we could potentially focus on one direction, but as these may be infinite, we can't appeal to the rule of contraposition in the proof system.
+Completeness follows the traditional path of showing how to construct a countermodel for any failure of derivability.
+The structural rule (T) is important here.
+For, if \(\Gamma \nvdash \Delta\), then (T) guarantees there is no \(\lambda\) such that \(\Gamma,\lambda \vdash \Delta\) and \(\Gamma \vdash \lambda,\Delta\).
+Spelt out, this means that there's no expression \(\lambda\) which connects \(\Gamma\) and \(\Delta\) by requiring that when every expression in \(\Gamma\) is true then some expression in \(\Delta\) must also be true and if every expression in \(\Delta\) is false then some expression in \(\Gamma\) is false.
+Hence, it will be possible to expand \(\Gamma\) and \(\Delta\) to an exhaustive pair \(\Gamma'\) and \(\Delta'\) partitioning the language, which in turn will provide the basis for specifying a countermodel.
 
-The goal is to take any consistent pair, and show that it can be made exhaustive.
-These exhaustive pairs will then form the basis for the canonical model.
 
-Conjecture: Only one of the pairs is required, as any given pair can be flipped through negation.
-However, it's not clear that this can easily be proven prior to the truth lemma, which is what's grounding the intuition.
+
+The exhaustive pair specifies a point.
+
+\begin{note}
+  The basic idea is to take pairs of formulas. The pairs of interest are those in which the consequence relation does not trivially hold. Due to there being two directions to consider, this requires keeping track of which direction is of interest. If these pairs were finite, we could potentially focus on one direction, but as these may be infinite, we can't appeal to the rule of contraposition in the proof system.
+
+  The goal is to take any consistent pair, and show that it can be made exhaustive. These exhaustive pairs will then form the basis for the canonical model.
+
+  Conjecture: Only one of the pairs is required, as any given pair can be flipped through negation. However, it's not clear that this can easily be proven prior to the truth lemma, which is what's grounding the intuition.
+\end{note}
+
 
 
 
@@ -1611,6 +1259,7 @@ And, we don't need to directly deal with both sub-instances of entailment.
 Consistent sets will be saturated, and correspond to states.
 
 The idea of saturation is key, but the double-barrelled notion of consequence requires some generalisations, as we may need to saturate for either truth or falsity.
+\cite{Thomason:1968aa} and \cite{Aczel:1968aa} provide the foundations for saturated theories.
 
 \begin{definition}[Saturation]
   Given a set of formulas \(\Gamma\), we say that \(\Gamma\) is:
@@ -1731,8 +1380,8 @@ For right saturation, we move our attention to the right-to-left sub-consequence
 \begin{corollary}[Saturation]
   If \(\Gamma \nvdash \Delta\) then there exists an exhaustive pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) such that \(\Gamma^{+} \cap \Delta^{+} = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) and \(\Delta \subseteq \Delta^{+}\) and either
   \begin{enumerate}
-  \item \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a left-saturated pair, or
-  \item \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a right-saturated pair.
+  \item If \(\Gamma \nvdash \ast, \Delta\) then \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a left-saturated pair, or
+  \item If \(\Gamma,\ast \nvdash \Delta\) then \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a right-saturated pair.
   \end{enumerate}
   \begin{proof}
     If \(\Gamma \nvdash \Delta\) then either \(\Gamma \nvdash \ast, \Delta\) or \(\Gamma, \ast \nvdash \Delta\).
@@ -1748,6 +1397,37 @@ For right saturation, we move our attention to the right-to-left sub-consequence
   \end{proof}
 \end{corollary}
 
+\begin{lemma}[Correspondence]\label{lem:correspondence}
+  \(\langle \Gamma,\Delta \rangle\) is left-saturated iff \(\langle \lnot\Delta,\lnot\Gamma \rangle\) is right-saturated.
+  \begin{proof}
+    From left to right, if \(\langle \Gamma,\Delta \rangle\) is left-saturated then, for finite \(\Sigma\), whenever \(\Gamma \vdash \Sigma\), \(\Gamma \cap \Sigma \ne \emptyset\).
+    Suppose for some finite \(\Sigma'\), \(\Sigma' \vdash \lnot\Gamma\).
+    Then, \(\Gamma \vdash \lnot\Sigma'\), by {\color{red} the rule}.
+    However, by the above this means that \(\Gamma \cap \lnot\Sigma' \ne \emptyset\), from which it follows that \(\lnot\Gamma \cap \Sigma' \ne \emptyset\), as if \(\phi \in \Gamma \cap \lnot\Sigma'\) then \(\phi \in \Gamma\) and \(\phi \in \lnot\Sigma'\) which ensures that \(\lnot\phi \in \lnot\Gamma\) and \(\lnot\phi \in \Sigma'\).
+  \end{proof}
+\end{lemma}
+
+Lemma~\ref{lem:correspondence} shows that lemmas~\ref{lindenbaum:left} and~\ref{lindenbaum:right} amount to the same thing, and either can be indirectly used to prove the other.
+However, the primary use of lemma~\ref{lem:correspondence} will be to simplify our canonical model.
+For, instead of taking saturated pairs in general, we may take either left- or right-saturated pairs without loss of generality, reducing the number of cases we need to consider when establishing the relevant truth lemma.
+
+
+\subsection{The Caonical Model}
+\label{sec:caonical-model}
+
+
+\begin{definition}[Canonical Model]
+  Here, take only left-saturated pairs.
+\end{definition}
+
+\begin{lemma}
+  For any \(\langle \Gamma,\Delta \rangle\), \(\langle \Xi,\Psi \rangle\) in \(W\).
+  \begin{itemize}
+  \item If \(\Box^{-}\Gamma \subseteq \Xi\) then there exists a \(\Xi' \subseteq \Xi\) such that \(\langle \Gamma,\Delta \rangle R \langle \Xi',\Psi' \rangle\)
+  \item If \(\Box^{-}\Gamma \subseteq \Psi\) then there exists a \(\Psi' \subseteq \Psi\) such that \(\langle \Gamma,\Delta \rangle R \langle \Xi,\Psi' \rangle\)
+  \end{itemize}
+\end{lemma}
+
 
 
 The truth lemma is split into a pair of truth lemmas, corresponding to the two sub-cases of consequence.
@@ -1756,89 +1436,15 @@ Key here is that the presence of \(\ast\) on the left or right determines which 
 
 
 \begin{lemma}[Truth, left]
-  \(\Gamma \vDash \ast, \phi\) iff \(\phi \in \Gamma\) and \(\Gamma \Dashv \ast, \phi\) iff \(\lnot\phi \in \Gamma\)
+  \(\Gamma \vDash \phi\) iff \(\phi \in \Gamma\) and \(\Gamma \Dashv \phi\) iff \(\lnot\phi \in \Gamma\)
 \end{lemma}
 
 \begin{lemma}[Truth, right]
-  \(\ast, \phi \vDash \Delta\) iff \(\phi \in \Delta\) and \(\ast, \phi \Dashv\) iff \(\lnot\phi \in \Delta\)
+  \(\Delta \vDash \phi\) iff \(\lnot\phi \in \Delta\) and \(\Delta \Dashv \phi\) iff \(\phi \in \Delta\)
 \end{lemma}
 
 
-\subsection{Completeness}
-\label{sec:completeness}
-
-Completeness follows the traditional path of showing how to construct a countermodel for any failure of derivability.
-The structural rule (T) is important here.
-For, if \(\Gamma \nvdash \Delta\), then (T) guarantees there is no \(\lambda\) such that \(\Gamma,\lambda \vdash \Delta\) and \(\Gamma \vdash \lambda,\Delta\).
-Spelt out, this means that there's no expression \(\lambda\) which connects \(\Gamma\) and \(\Delta\) by requiring that when every expression in \(\Gamma\) is true then some expression in \(\Delta\) must also be true and if every expression in \(\Delta\) is false then some expression in \(\Gamma\) is false.
-Hence, it will be possible to expand \(\Gamma\) and \(\Delta\) to an exhaustive pair \(\Gamma'\) and \(\Delta'\) partitioning the language, which in turn will provide the basis for specifying a countermodel.
-
-
-
-The exhaustive pair specifies a point.
-
-
-
-
-
-
-
-\citeauthor{Hoek:1996aa} provide what seems to be a promising outline for a completeness proof.
-Basically, taking saturated theories instead of maximally consistent sets.
-
-\cite{Thomason:1968aa} and \cite{Aczel:1968aa} provide the foundations for saturated theories.
-
-\begin{definition}
-  For any \(\Gamma \subseteq \olang{}\), \(\overline{\Gamma} = \{\phi \in \olang{} \mid \phi \notin \Gamma \}\).
-\end{definition}
-
-\begin{definition}
-  Let \(\Sigma, \Delta,\) and \(\Omega\) be subsets of \(\olang{}\). Then:
-  \begin{itemize}
-  \item \(\Sigma\) is \emph{consistent} iff \(\Sigma \nvdash \emptyset\).
-  \item \(\Sigma\) is a (deductively closed) \emph{theory} iff for all \(\phi\), \(\phi \in \Sigma\) whenever \(\Sigma \vdash \phi\).
-  \item \(\Sigma \subseteq \olang{}\) is \emph{saturated} iff for every \(\Delta\), \(\Sigma \cap \Delta \ne \emptyset\) whenever \(\Sigma \vdash \Delta\).
-  \item \(\Omega\) is a \emph{saturator} of \(\Sigma\) (\(\Sigma \unlhd \Omega\)) iff \(\Omega \cap \Delta \ne \emptyset\) for all \(\Delta\) such that \(\Sigma \vdash \Delta\).
-  \end{itemize}
-\end{definition}
-Basically, for any saturated theory is going to be deductively closed, and will include a witness for any disjunctive statement.
-
-\begin{fact}
-  \(\Sigma \unlhd \Delta\) iff \(\Sigma \nvdash \overline{\Delta}\).
-\end{fact}
-
-
-
 \newpage
-
-Broad idea is to mix a little of \citeauthor{Blamey:2002aa} with a more standard approach.
-
-\begin{definition}\mbox{ }
-  \begin{itemize}
-  \item \(\langle \Gamma,\Delta \rangle\) is a pair of arbitrary sets, while \(\Gamma \vdash \Delta\) is a relation between finite sets.
-  \item \(\langle \Xi,\Upsilon \rangle\) is \emph{exhaustive} in \(\olang{}\) iff \(\Xi \cup \Upsilon = \olang{}\)
-  \end{itemize}
-\end{definition}
-
-A sequent is a pair of finite sets.
-Finite here is important, with the goal to establish compactness independently.
-
-\(\Gamma \vdash \Delta\) means that there's a proof from the premises in \(\Gamma\) to \(\Delta\).
-In particular, if all of the expressions in \(\Gamma\) hold, then one of the expressions in \(\Delta\) must hold, and if all the expressions in \(\Delta\) fail to hold then one of the expressions in \(\Gamma\) must fail to hold.
-
-Completeness goes via the standard sort of Henkin construction.
-If \(\Gamma \nvdash \Delta\) then we find a counterexample by identifying some state in which everything in \(\Gamma\) holds, but nothing in \(\Delta\) does.
-
-This is a little indirect.
-If \(\Gamma \nvdash \Delta\) then build a pair \(\langle \Gamma^{+}, \Delta^{+} \rangle\) such that this is exhaustive.
-
-\begin{fact}
-  \(\Gamma \nvdash \Lambda\) iff for all \(\Delta\), if \(\Gamma \vdash \Delta\) then \(\Delta \cap \overline{\Lambda} \ne \emptyset\) (\(\Gamma \unlhd \overline{\Lambda}\)).
-  \begin{proof}
-    Quite straightforward, as if \(\Delta \cap \overline{\Lambda} = \emptyset\) then it must be the case that \(\Delta \cap \Lambda \ne \emptyset\), but then it's the case that \(\Gamma \vdash \lambda\) for some \(\lambda \in \Lambda\).
-  \end{proof}
-\end{fact}
-The key use of this fact is to highlight that it's possible to rewrite the failure of entailment.
 
 
 \begin{definition}\mbox{ }
@@ -1849,21 +1455,6 @@ The key use of this fact is to highlight that it's possible to rewrite the failu
   \item 5: \(\lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
   \end{itemize}
 \end{definition}
-
-\begin{prooftree}
-  \def\fCenter{\mbox{\ \(\vdash\)\ }}
-  \Axiom\(\Gamma \fCenter \Delta\)
-  \UnaryInf\(\Gamma \fCenter \Delta\)
-\end{prooftree}
-
-\(\Gamma \vdash p,\lnot p\) should do some work, as then at least one of these is going to be in the saturator, and hence the classical fragment for any world is going to be captured via the Lindenbaum construction.
-(Key point here being that the notion of saturation can jump between as many different proofs as needed.)
-
-\begin{prooftree}
-  \def\fCenter{\mbox{\ \(\vdash\)\ }}
-  \Axiom\(\Gamma, \attn{\phi}\ \fCenter\ \Delta\)
-  \UnaryInf\(\Gamma, \attn{\phi}, \phi\ \fCenter\ \Delta\)
-\end{prooftree}
 
 \subsection{Frame Conditions}
 \label{sec:frame-conditions}
