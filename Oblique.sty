@@ -3,10 +3,58 @@
 \usepackage{xparse} % For creating commands with complex arguments
 % \usepackage{expl3}
 
+% % % Simple Commands % % %
+\newcommand*{\oline}[1]{\overline{#1\mathstrut}} % For fixed height overlines
 
-% % % Custom symbols % % %
+\newcommand{\atmexp}{\ensuremath{\mathsf{Exp}}}
+
+\newcommand{\sem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
+
+\newcommand{\intp}{\ensuremath{\mathcal{i}}}
+\newcommand{\Intp}{\ensuremath{\mathcal{I}}}
+
+\newcommand{\supp}{\ensuremath{\mathcal{s}}}
+\newcommand{\Supp}{\ensuremath{\mathcal{S}}}
+
+\newcommand{\appl}{\ensuremath{\mathcal{a}}}
+\newcommand{\Appl}{\ensuremath{\mathcal{A}}}
+
+\newcommand{\csupp}[1]{\ensuremath{\supp(#1)}}
+\newcommand{\isupp}[1]{\ensuremath{\overline{\supp}(#1)}}
+
+\newcommand{\cappl}[1]{\ensuremath{\appl(#1)}}
+\newcommand{\iappl}[1]{\ensuremath{\overline{\appl}(#1)}}
+
+\newcommand{\cintp}[1]{\ensuremath{\intp(#1)}}
+\newcommand{\cIntp}[1]{\ensuremath{\Intp(#1)}}
+\newcommand{\iintp}[1]{\ensuremath{\overline{\intp}(#1)}}
+\newcommand{\iIntp}[1]{\ensuremath{\overline{\Intp}(#1)}}
+
+\newcommand{\seq}{\ensuremath{>\!\!\!-}}
+% \newcommand{\cdeno}[2]{\ensuremath{\vphantom{\overline{#1}}#1(#2)}}
+% \newcommand{\ideno}[2]{\ensuremath{\overline{#1}(#2)}}
+\newcommand{\Window}{\ensuremath{\ooalign{\hss\rule[0.125pt]{.5pt}{6.5pt}\hss\cr\Box}}}
+
+\newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
+\newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
+
+\newcommand{\bsem}[1]{\ensuremath{\lhangle{#1}\rhangle}}
+
+\newcommand{\lattn}{\ensuremath{\lceil}}
+\newcommand{\rattn}{\ensuremath{\rfloor}}
+\newcommand{\attn}[1]{\ensuremath{\mathord{\lattn{#1}\rattn}}}
+
+\newcommand{\fint}[1]{\ensuremath{\mathcal{I}({#1})}}
+% \newcommand{\olang}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\oframe}[1]{\ensuremath{\mathfrak{#1}}}
+\newcommand{\ointp}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\omodel}[1]{\ensuremath{\mathcal{#1}}}
+
 \renewcommand\lbrack[1][]{\ooalign{\ensuremath{#1\lfloor}\cr\ensuremath{#1\lceil}}}
 \renewcommand\rbrack[1][]{\ooalign{\ensuremath{#1\rfloor}\cr\ensuremath{#1\rceil}}}
+
+
+% % % Conditional Commands % % %
 
 \makeatletter % 'Bold' double brackets, e.g. for anti-denotation
 \newsavebox{\@brx}
@@ -28,7 +76,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
   \mathclose{\usebox{\@bry}\kern-0.7\wd\@bry\usebox{\@bry}}}
 \makeatother
 
-\makeatletter     % For support of an expression
+\makeatletter % For support of an expression
 \newsavebox{\@btw}
 \newcommand{\llceil}[1][]{\savebox{\@btw}{\(\m@th{#1\lceil}\)}%
   \mathopen{\usebox{\@btw}\kern-0.7\wd\@btw\usebox{\@btw}}}
@@ -41,7 +89,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \makeatother
 
 
-\makeatletter     % For negate of an expression
+\makeatletter % For negate of an expression
 \newsavebox{\@wtb}
 \newcommand{\lbceil}[1][]{\savebox{\@wtb}{\(\m@th{#1\lceil}\)}%
   \mathopen{%
@@ -74,9 +122,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
  \mathclose{\usebox{\@btz}\kern-0.7\wd\@brz\usebox{\@btz}}}
 \makeatother
 
-
-
-
+% % % Commands for denotations % % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\cdeno}{ o m }{%
   \tl_if_empty:nTF {#2} %
@@ -109,60 +155,22 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 }
 \ExplSyntaxOff
 
-
-\newcommand*{\oline}[1]{\overline{#1\mathstrut}} % For fixed height overlines
-
-\newcommand{\atmexp}{\ensuremath{\mathsf{Exp}}}
-
-\newcommand{\sem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
-\newcommand{\intp}{\ensuremath{\mathcal{i}}}
-\newcommand{\Intp}{\ensuremath{\mathcal{I}}}
-\newcommand{\supp}{\ensuremath{\mathcal{s}}}
-\newcommand{\Supp}{\ensuremath{\mathcal{S}}}
-\newcommand{\appl}{\ensuremath{\mathcal{a}}}
-\newcommand{\Appl}{\ensuremath{\mathcal{A}}}
-\newcommand{\csupp}[1]{\ensuremath{\supp(#1)}}
-\newcommand{\isupp}[1]{\ensuremath{\overline{\supp}(#1)}}
-\newcommand{\cappl}[1]{\ensuremath{\appl(#1)}}
-\newcommand{\iappl}[1]{\ensuremath{\overline{\appl}(#1)}}
-\newcommand{\cintp}[1]{\ensuremath{\intp(#1)}}
-\newcommand{\cIntp}[1]{\ensuremath{\Intp(#1)}}
-\newcommand{\iintp}[1]{\ensuremath{\overline{\intp}(#1)}}
-\newcommand{\iIntp}[1]{\ensuremath{\overline{\Intp}(#1)}}
-\newcommand{\seq}{\ensuremath{>\!\!\!-}}
-% \newcommand{\cdeno}[2]{\ensuremath{\vphantom{\overline{#1}}#1(#2)}}
-% \newcommand{\ideno}[2]{\ensuremath{\overline{#1}(#2)}}
-\newcommand{\Window}{\ensuremath{\ooalign{\hss\rule[0.125pt]{.5pt}{6.5pt}\hss\cr\Box}}}
-
-\newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
-\newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
-
-\newcommand{\bsem}[1]{\ensuremath{\lhangle{#1}\rhangle}}
-
-\newcommand{\lattn}{\ensuremath{\lceil}}
-\newcommand{\rattn}{\ensuremath{\rfloor}}
-\newcommand{\attn}[1]{\ensuremath{\mathord{\lattn{#1}\rattn}}}
-
-\def\lint{\mathrel{%               for interjunction
+% % % The two partial operators % % % 
+\def\lint{\mathrel{%               Interjunction
     \ooalign{\hss\land\hss\cr\lor}%
   }}
-\def\ltrans{\mathrel{%               for interjunction
+\def\ltrans{\mathrel{%             Transplication
     /%
   }}
-\def\bnfsep{\mathrel{%            for BNF defs, etc.
+% % % % % % %
+
+\def\bnfsep{\mathrel{%             For BNF defs, etc.
     |%
   }}
-\newcommand{\fint}[1]{\ensuremath{\mathcal{I}({#1})}}
-% \newcommand{\olang}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\oframe}[1]{\ensuremath{\mathfrak{#1}}}
-\newcommand{\ointp}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\omodel}[1]{\ensuremath{\mathcal{#1}}}
-
-
 
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\olang}{ m }{%
+\DeclareDocumentCommand{\olang}{ m }{% Symbol for the language, with default
   \tl_if_empty:nTF {#1}
   {
     \mathcal{L}%
@@ -174,7 +182,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ldesu}{ o m }{%
+\DeclareDocumentCommand{\ldesu}{ o m }{% 
   \tl_if_empty:nTF {#2}
   {
     \IfValueTF{#1}%
@@ -263,6 +271,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
   }
 }
 \ExplSyntaxOff
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\fatt}{ o m }{%
   \tl_if_empty:nTF {#2}
@@ -294,3 +303,9 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 }
 \makeatother
 % % % % % % % % % %
+
+% % % Completeness Commands % % %
+\newcommand{\opair}[2]{\ensuremath{\left\langle #1,#2 \right\rangle}}
+
+% % % The Canonical Model % % %
+\newcommand{\cmodel}{\ensuremath{\mathfrak{M}}}

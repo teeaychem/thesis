@@ -102,7 +102,7 @@
 
 \usepackage{bussalt}
 \usepackage{Oblique} % Custom package for oblique commands
-\usepackage{CustomTheorems} 
+\usepackage{CustomTheorems}
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
@@ -252,7 +252,7 @@ Hence, the claim that the reasoning is different is due to the relative importan
 In standard cases, you can always reevaluate the means with respect to the end that they're a means to, whereas here, there's no way to figure out whether they should be developed/reformed etc.
 
 What's important, is that there's no straightforward way to evaluate the actions compatible with your means.
-In this respect, the relevant reasoning can't be weighing up reasons for an against, etc. because there's no way to recognise those reasons, speaking loosely.
+In this respect, the relevant reasoning can't be weighing up reasons for an against, etc.\ because there's no way to recognise those reasons, speaking loosely.
 Similarly, perceived desirability and so on seem problematic.
 From a different point of view, there's some full evaluation function, and the agent only has restricted access to it.
 
@@ -463,7 +463,7 @@ First a full denotation to capture to the support of any atomic expression and s
 Given a collection of atomic expressions, a frame paired with an interpretation forms a model.
 
 \begin{definition}[Model]
-  An \emph{oblique model} \(\omodel{M} = \langle \oframe{F}, \ointp{I}  \rangle\) is a frame together with an interpretation.
+  An \emph{oblique model} \(\omodel{M} = \langle \oframe{F}, \ointp{I} \rangle\) is a frame together with an interpretation.
 \end{definition}
 
 Given a scenario, the specification of a model captures core aspects of the phenomena we are interested in.
@@ -1248,7 +1248,7 @@ And, we don't need to directly deal with both sub-instances of entailment.
   If a contradiction were used, this would lead to a stronger condition.
   \begin{itemize}
   \item \(\Gamma\) is consistent iff \(\Gamma \nvdash \ast\) or \(\ast \nvdash \Gamma\).
-  \item \(\langle \Gamma,\Delta \rangle\) is consistent iff either \(\Gamma\) or \(\Delta\) is consistent.
+  \item \(\opair{\Gamma}{\Delta}\) is consistent iff either \(\Gamma\) or \(\Delta\) is consistent.
     \begin{itemize}
     \item Left consistency and right consistency, respectively.
     \end{itemize}
@@ -1264,8 +1264,8 @@ The idea of saturation is key, but the double-barrelled notion of consequence re
 \begin{definition}[Saturation]
   Given a set of formulas \(\Gamma\), we say that \(\Gamma\) is:
   \begin{itemize}
-  \item left-saturated if for all \(\Sigma\), if \(\Gamma \vdash \Sigma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
-  \item right-saturated if for all \(\Sigma\), if \(\Sigma \vdash \Gamma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
+  \item left-saturated if for all \(\Sigma\), if \(\Gamma \vdash \ast, \Sigma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
+  \item right-saturated if for all \(\Sigma\), if \(\Sigma, \ast \vdash \Gamma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
   \end{itemize}
 \end{definition}
 
@@ -1274,8 +1274,8 @@ Note that these dual notions of saturation correspond to the two notions of cons
 \begin{definition}[Saturators]
   \mbox{ }
   \begin{itemize}
-  \item \(\Lambda\) is a left saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Gamma \vdash \Delta\) then \(\Delta \cap \Lambda \ne \emptyset\)
-  \item \(\Lambda\) is a right saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Delta \vdash \Gamma\) then \(\Delta \cap \Lambda \ne \emptyset\)
+  \item \(\Lambda\) is a left saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Gamma \vdash \ast, \Delta\) then \(\Delta \cap \Lambda \ne \emptyset\)
+  \item \(\Lambda\) is a right saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Delta, \ast \vdash \Gamma\) then \(\Delta \cap \Lambda \ne \emptyset\)
   \end{itemize}
 \end{definition}
 
@@ -1283,7 +1283,7 @@ Note that these dual notions of saturation correspond to the two notions of cons
 The Lindenbaum lemma is move involved than usual.
 A saturated pair is either left or right saturated.
 However, it may be possible for a pair to be either left or right saturated.
-For example, \(\langle \{p\}, \{q\} \rangle\).
+For example, \(\opair{\{p\}}{\{q\}}\).
 Here, there are two exhaustive pairs, both of which would be fit for purpose.
 Instead of choosing, we introduce two cases of saturation.
 
@@ -1293,26 +1293,27 @@ For left saturation, we immediately introduce an \(\ast\) on the right.
 This weakens the consequence relation, as desired.
 
 \begin{lemma}[Lindenbaum, left]\label{lindenbaum:left}
-  Suppose \(\Lambda\) is a left saturator of \(\langle \Gamma, \Delta \rangle\), then there's a left-saturated exhaustive pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Lambda\).
+  Suppose \(\Lambda\) is a left saturator of \(\opair{\Gamma}{\Delta}\), then there's a left-saturated exhaustive pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Lambda\).
 
 
   \begin{proof}
     Let \(\{\phi\}_{i_{i \in \omega}}\) be an enumeration of \(\olang{}\) such that every element of \(\Lambda\) occurs infinitely many times.\nolinebreak
 
-    Given \(\{\phi\}_{i \in \omega}\), we define a sequence \(\langle \Gamma_{i}, \Delta_{i} \rangle_{i \in \omega}\) such that \(\Lambda\) is a left-saturator of each \(\langle \Gamma_{i},\Delta_{i} \rangle\), with the limit of the sequence providing the desired left-saturated pair \(\langle \Gamma^{+},\Delta^{+} \rangle\).
+    Given \(\{\phi\}_{i \in \omega}\), we define a sequence \(\opair{\Gamma_{i}}{\Delta_{i}}_{i \in \omega}\) such that \(\Lambda\) is a left-saturator of each \(\opair{\Gamma_{i}}{\Delta_{i}}\), with the limit of the sequence providing the desired left-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\).
 
     \begin{align*}
-      \langle \Gamma_{0},\Delta_{0} \rangle &= \langle \Gamma,\Delta \cup \{\ast\} \rangle \\
-      \langle \Gamma_{n+1},\Delta_{n+1} \rangle &=
+      \opair{\Gamma_{0}}{\Delta_{0}} &= \opair{\Gamma}{\Delta \cup \{\ast\}} \\
+      \opair{\Gamma_{n+1}}{\Delta_{n+1}} &=
                                                   \begin{cases}
-                                                    \langle \Gamma_{n} \cup \{\phi_{n}\}, \Delta_{n} \rangle &\text{if for all finite } \Sigma \colon  \\
+                                                    \opair{\Gamma_{n} \cup \{\phi_{n}\}}{\Delta_{n}} &\text{if for all finite } \Sigma \colon  \\
                                                     &\quad \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Gamma_{n},\phi_{n} \vdash \ast, \Sigma \\
-                                                    \langle \Gamma_{n},\Delta_{n} \cup \{\phi_{n}\} \rangle &\text{otherwise} \\
+                                                    \opair{\Gamma_{n}}{\Delta_{n} \cup \{\phi_{n}\}}
+                                                    &\text{otherwise} \\
                                                   \end{cases}
       \\
-      \langle \Gamma^{+},\Delta^{+} \rangle &= \left\langle \bigcup_{n \in \omega}\Gamma_{n}, \bigcup_{n\in\omega}\Delta_{n} \right\rangle
+      \opair{\Gamma^{+}}{\Delta^{+}} &= \opair{\bigcup_{n \in \omega}\Gamma_{n}}{\bigcup_{n\in\omega}\Delta_{n}}
     \end{align*}
-    Note first that \(\langle \Gamma^{+}, \Delta^{+} \rangle\) is exhaustive by construction.
+    Note first that \(\opair{\Gamma^{+}}{\Delta^{+}}\) is exhaustive by construction.
 
     To see that \(\Gamma^{+} \subseteq \Lambda\) note that by definition:
     \begin{enumerate}[label=(\arabic*)]
@@ -1320,7 +1321,7 @@ This weakens the consequence relation, as desired.
     \end{enumerate}
     By proposition~\ref{prop:finiteness} this means that \(\Lambda\) is a saturator of each \(\Gamma_{n}\), and so by some other observation we have \(\Gamma^{+} \subseteq \Lambda\).
 
-    To establish the left-saturation of \(\langle \Gamma^{+},\Delta^{+} \rangle\) we show that:
+    To establish the left-saturation of \(\opair{\Gamma^{+}}{\Delta^{+}}\) we show that:
     \begin{enumerate}[label=(\arabic*),resume]
     \item\label{leftLindenbaum:2} For all \(k \in \omega \colon\) if \(\Gamma_{k} \vdash \ast, \Sigma\) and \(\Sigma\) is finite, then \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
     \end{enumerate}
@@ -1345,7 +1346,7 @@ This weakens the consequence relation, as desired.
 
     By proposition~\ref{prop:finiteness}, if \(\Gamma^{+} \vdash \ast, \Sigma\) then there are finite subsets \(\Gamma \subseteq \Gamma^{+}\) and \(\Sigma' \subseteq \Sigma\) such that \(\Gamma \vdash \ast, \Sigma\) and by construction of \(\Gamma^{+}\) there is some \(n \in \omega\) such that \(\Gamma_{n} \vdash \ast, \Sigma'\).
     From \label{leftLindenbaum:2} we know that \(\Sigma' \cap \Gamma^{+} \ne \emptyset\) and so \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
-    Therefore, \(\langle \Gamma^{+},\Delta^{+} \rangle\) is left-saturated.
+    Therefore, \(\opair{\Gamma^{+}}{\Delta^{+}}\) is left-saturated.
   \end{proof}
 
 \end{lemma}
@@ -1353,21 +1354,21 @@ This weakens the consequence relation, as desired.
 For right saturation, we move our attention to the right-to-left sub-consequence relation.
 
 \begin{lemma}[Lindenbaum, right]\label{lindenbaum:right}
-  Suppose \(\Lambda\) is a right saturator of \(\langle \Gamma, \Delta \rangle\), then there's a right-saturated pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) such that \(\Delta \subseteq \Delta^{+} \subseteq \Lambda\).
+  Suppose \(\Lambda\) is a right saturator of \(\opair{\Gamma}{\Delta}\), then there's a right-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Delta \subseteq \Delta^{+} \subseteq \Lambda\).
   \begin{proof}
     The proof strategy for right-saturation is analogous to left-saturation, altered only for the corresponding change in sub-consequence relation of interest.
     \begin{align*}
-      \langle \Gamma_{0},\Delta_{0} \rangle &= \langle \Gamma \cup \{\ast\},\Delta \rangle \\
-      \langle \Gamma_{n+1},\Delta_{n+1} \rangle &=
+      \opair{\Gamma_{0}}{\Delta_{0}} &= \opair{\Gamma \cup \{\ast\}}{\Delta} \\
+      \opair{\Gamma_{n+1}}{\Delta_{n+1}} &=
                                                   \begin{cases}
-                                                    \langle \Gamma_{n}, \Delta_{n} \cup \{\phi_{n}\} \rangle &\text{if for all finite } \Sigma \colon\\
+                                                    \opair{\Gamma_{n}}{\Delta_{n} \cup \{\phi_{n}\}} &\text{if for all finite } \Sigma \colon\\
                                                     &\quad \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Sigma,\ast \vdash \phi_{n},\Delta_{n} \\
-                                                    \langle \Gamma_{n} \cup \{\phi_{n}\},\Delta_{n} \rangle &\text{otherwise} \\
+                                                    \opair{\Gamma_{n} \cup \{\phi_{n}\}}{\Delta_{n}} &\text{otherwise} \\
                                                   \end{cases}
       \\
-      \langle \Gamma',\Delta' \rangle &= \left\langle \bigcup_{n \in \omega}\Gamma_{n}, \bigcup_{n\in\omega}\Delta_{n} \right\rangle
+      \opair{\Gamma^{+}}{\Delta^{+}} &= \opair{\bigcup_{n \in \omega}\Gamma_{n}}{\bigcup_{n\in\omega}\Delta_{n}}
     \end{align*}
-    Again, \(\langle \Gamma^{+},\Delta^{+} \rangle\) is exhaustive by construction and the following two properties can be established:
+    Again, \(\opair{\Gamma^{+}}{\Delta^{+}}\) is exhaustive by construction and the following two properties can be established:
     \begin{enumerate}[label=(\arabic*)]
     \item\label{rightLindenbaum:1} If \(\Sigma,\ast \vdash \Delta_{n}\) then \(\Sigma \cap \Lambda \ne \emptyset\) for all finite \(\Sigma\).
     \item\label{rightLindenbaum:2} For all \(k \in \omega \colon\) if \(\Sigma, \ast \vdash \Delta_{k}\) and \(\Sigma\) is finite, then \(\Sigma \cap \Delta^{+} \ne \emptyset\).
@@ -1378,36 +1379,37 @@ For right saturation, we move our attention to the right-to-left sub-consequence
 
 
 \begin{corollary}[Saturation]
-  If \(\Gamma \nvdash \Delta\) then there exists an exhaustive pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) such that \(\Gamma^{+} \cap \Delta^{+} = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) and \(\Delta \subseteq \Delta^{+}\) and either
+  If \(\Gamma \nvdash \Delta\) then there exists an exhaustive pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma^{+} \cap \Delta^{+} = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) and \(\Delta \subseteq \Delta^{+}\) and either
   \begin{enumerate}
-  \item If \(\Gamma \nvdash \ast, \Delta\) then \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a left-saturated pair, or
-  \item If \(\Gamma,\ast \nvdash \Delta\) then \(\langle \Gamma^{+},\Delta^{+} \rangle\) is a right-saturated pair.
+  \item If \(\Gamma \nvdash \ast, \Delta\) then \(\opair{\Gamma^{+}}{\Delta^{+}}\) is a left-saturated pair, or
+  \item If \(\Gamma,\ast \nvdash \Delta\) then \(\opair{\Gamma^{+}}{\Delta^{+}}\) is a right-saturated pair.
   \end{enumerate}
   \begin{proof}
     If \(\Gamma \nvdash \Delta\) then either \(\Gamma \nvdash \ast, \Delta\) or \(\Gamma, \ast \nvdash \Delta\).
 
     Suppose \(\Gamma \nvdash \ast, \Delta\).
-    Then, \(\Delta^{c} = \olang{} - \Delta\) is a left-saturator of \(\langle \Gamma,\Delta \rangle\).
+    Then, \(\Delta^{c} = \olang{} - \Delta\) is a left-saturator of \(\olang{\Gamma}{\Delta}\).
     For, \(\Delta^{c}\) is \emph{not} a saturator of \(\Gamma\) if and only if there is some \(\Sigma\) such that \(\Gamma \vdash \ast, \Sigma\) with \(\Sigma \cap \Delta^{c} = \emptyset\).
     Yet, if \(\Sigma \cap \Delta^{c} = \emptyset\), then \(\Sigma \subseteq \Delta\), and so by R-Mon the previous is the case if and only if \(\Gamma \vdash \ast, \Delta\) contradicting our initial assumption.
 
-    So, as \(\Delta^{c}\) is a left-saturator of \(\langle  \Gamma, \Delta \rangle\) and appeal to lemma~\ref{lindenbaum:left} ensures there is a left-saturated pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Delta^{c}\) and hence \(\Gamma^{+} \cap \Delta = \emptyset\).
+    So, as \(\Delta^{c}\) is a left-saturator of \(\opair{\Gamma}{\Delta}\) and appeal to lemma~\ref{lindenbaum:left} ensures there is a left-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Delta^{c}\) and hence \(\Gamma^{+} \cap \Delta = \emptyset\).
 
-    Likewise, if \(\Gamma, \ast \nvdash \Delta\) then \(\Gamma^{c}\) is a right-saturator of \(\langle \Gamma,\Delta \rangle\) we appeal to lemma~\ref{lindenbaum:right} to find a right-saturated pair \(\langle \Gamma^{+},\Delta^{+} \rangle\) with the desired properties.
+    Likewise, if \(\Gamma, \ast \nvdash \Delta\) then \(\Gamma^{c}\) is a right-saturator of \(\olang{\Gamma}{\Delta}\) we appeal to lemma~\ref{lindenbaum:right} to find a right-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) with the desired properties.
   \end{proof}
 \end{corollary}
 
 \begin{lemma}[Correspondence]\label{lem:correspondence}
-  \(\langle \Gamma,\Delta \rangle\) is left-saturated iff \(\langle \lnot\Delta,\lnot\Gamma \rangle\) is right-saturated.
+  \(\olang{\Gamma}{\Delta}\) is left-saturated iff \(\opair{\lnot\Delta}{\lnot\Gamma}\) is right-saturated.
   \begin{proof}
-    From left to right, if \(\langle \Gamma,\Delta \rangle\) is left-saturated then, for finite \(\Sigma\), whenever \(\Gamma \vdash \Sigma\), \(\Gamma \cap \Sigma \ne \emptyset\).
+    From left to right, if \(\olang{\Gamma}{\Delta}\) is left-saturated then, for finite \(\Sigma\), whenever \(\Gamma \vdash \Sigma\), \(\Gamma \cap \Sigma \ne \emptyset\).
     Suppose for some finite \(\Sigma'\), \(\Sigma' \vdash \lnot\Gamma\).
     Then, \(\Gamma \vdash \lnot\Sigma'\), by {\color{red} the rule}.
     However, by the above this means that \(\Gamma \cap \lnot\Sigma' \ne \emptyset\), from which it follows that \(\lnot\Gamma \cap \Sigma' \ne \emptyset\), as if \(\phi \in \Gamma \cap \lnot\Sigma'\) then \(\phi \in \Gamma\) and \(\phi \in \lnot\Sigma'\) which ensures that \(\lnot\phi \in \lnot\Gamma\) and \(\lnot\phi \in \Sigma'\).
   \end{proof}
 \end{lemma}
 
-Lemma~\ref{lem:correspondence} shows that lemmas~\ref{lindenbaum:left} and~\ref{lindenbaum:right} amount to the same thing, and either can be indirectly used to prove the other.
+Lemma~\ref{lem:correspondence} shows that lemmas~\ref{lindenbaum:left} and~\ref{lindenbaum:right} amount to the same thing, and either can be indirectly used to prove the other.\nolinebreak
+\footnote{This is a version of \citeauthor{Blamey:1980aa}'s Lemma III.2.15 (\citeyear[122]{Blamey:1980aa})}
 However, the primary use of lemma~\ref{lem:correspondence} will be to simplify our canonical model.
 For, instead of taking saturated pairs in general, we may take either left- or right-saturated pairs without loss of generality, reducing the number of cases we need to consider when establishing the relevant truth lemma.
 
@@ -1417,14 +1419,20 @@ For, instead of taking saturated pairs in general, we may take either left- or r
 
 
 \begin{definition}[Canonical Model]
+  \(\cmodel = (W,R^{+},R^{-},V)\) where:
+  \begin{itemize}
+  \item \(W\) is the set of all saturated sets.
+  \item \(\)
+  \end{itemize}
+  
   Here, take only left-saturated pairs.
 \end{definition}
 
 \begin{lemma}
-  For any \(\langle \Gamma,\Delta \rangle\), \(\langle \Xi,\Psi \rangle\) in \(W\).
+  For any \(\opair{\Gamma}{\Delta}\), \(\opair{\Xi}{\Psi}\) in \(W\).
   \begin{itemize}
-  \item If \(\Box^{-}\Gamma \subseteq \Xi\) then there exists a \(\Xi' \subseteq \Xi\) such that \(\langle \Gamma,\Delta \rangle R \langle \Xi',\Psi' \rangle\)
-  \item If \(\Box^{-}\Gamma \subseteq \Psi\) then there exists a \(\Psi' \subseteq \Psi\) such that \(\langle \Gamma,\Delta \rangle R \langle \Xi,\Psi' \rangle\)
+  \item If \(\Box^{-}\Gamma \subseteq \Xi\) then there exists a \(\Xi' \subseteq \Xi\) such that \(\opair{\Gamma}{\Delta} R \opair{\Xi'}{\Psi'}\)
+  \item If \(\Box^{-}\Gamma \subseteq \Psi\) then there exists a \(\Psi' \subseteq \Psi\) such that \(\opair{\Gamma}{\Delta} R \opair{\Xi'}{\Psi'}\)
   \end{itemize}
 \end{lemma}
 
