@@ -1,0 +1,506 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{verse}
+
+
+\usepackage{titlesec}
+
+
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\newcommand{\boxarrow}{%
+  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+}
+\newcommand{\diamondarrow}{%
+  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+}
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\newcommand{\sem}[1]{\ensuremath{[\kern-.5mm[{#1}]\kern-.5mm]}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Substantive satisfaction}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\maketitle
+
+The issue is the role of desires in practical reasoning.
+The idea is that there's two ways of looking at this.
+Either desires inform you about how satisfaction is to occur, or desires give an indication of satisfaction.
+With this distinction, the actual reasoning that occurs is different.
+
+
+Example: Railton seems to be of the former.
+The desires themselves track, and give conditions for satisfaction.
+The worry is that this is just the sort of distinction that Shapiro highlights.
+Though I don't think it is.
+There's a difficulty here, and I think the way out is to view desires as reports on a dynamic process.
+So, the idea is that with Smith, Railton, etc, we have one view.
+Schroder might also fit this.
+Frankfurt also seems to have this in mind.
+This is kind of the point of higher order desires.
+Then, there's certain conditions of satisfaction that one gives authority to, and all of this stuff.
+Still, the states are primary, and that's all there's to say.
+
+The alternative view says that desires are something like reports.
+And, there's a distinction to be made with respect to the interal and external use of desires.
+Roughly, there's nothing that gives conditions of satisfaction, this is something that we are informed about, and practical reasoning works to figure this out.
+Internal desires then are reports we use to help get satisfaction, but we don't need to think of these as specifying conditions under which the agent is satisfied.
+So, when we get into a situation where an agent reasons against their desires, we don't need to look for another desire in the conditions sense, rather we get something where the agent's reasoning just concerns satisfaction.
+Intuitively, there's some fact, but we could be an error theorist here.
+
+Talk about orientation because beliefs are governed by norms, and I don't want to assume anything here.
+Similarly, worries about motivation, etc.
+Orientation gets explained through this way of thinking, but isn't committed to it.
+
+
+\section{Notes}
+\label{sec:notes}
+
+Information, survival, and liking.
+To `like' something is for there to be something of a standing desire.
+Something about information about what's satisfying being passed down through multiple occasions.
+The other idea was something about the immortality of desires.
+The desire is the information?
+
+\section{Introduction}
+\label{sec:introduction}
+
+
+
+\section{Substance}
+\label{sec:substance}
+
+Received wisdom about desire.
+
+Relation between desire and satisfaction.
+The desire is satisfied, but it does not follow from this that the agent is satisfied.
+
+Or so it may seem.
+Things aren't so straightforward.
+Distinguish between intrinsic desires and instrumental desires.
+Satisfy instrumental desires without satisfying intrinsic desires, and this gives us the appropriate understanding of satisfaction.
+Alternatively, other desires, etc.
+Extreme position is a desire for everything (\cite{Schroeder:2007aa}).
+Function role, specify conditions under which to act, or something like this.
+(This we take to be the orthodox position.)
+Satisfaction is insubstantive.
+Agent's are satisfied by meeting the conditions set out by their (intrinsic) desires.
+Smith, Hume (maybe), Bramble, Schroeder, and others.
+{\color{red}
+  (save guise of the good until later)
+}
+Railton also goes here, potentially, but it's unclear.
+The basic structure is substantive-satisfaction, but if all of this is internalised to desire, and that's all one has, then this gets us a different view.
+
+Alternatively, the agent's desire misled them about satisfaction.
+Satisfaction stands independent of desire, and agents' desire what they expect to be satisfying.
+Satisfaction is substantive, and desire is not.
+Agent's are satisfied independently of meeting the conditions set out by their desires.
+If all goes well, desire-satisfaction and satisfaction go together, but these can come apart.
+The key point here is that the state isn't at all important, we have a system, and we get reports on this.
+There's a difficult feedback loop, but that's where the interest lies.
+
+
+It's about the structure of practical reasoning, and what's of relevance to the agent as they're deliberating.
+Reasoning premised on substantive-desire can't look beyond the desires.
+
+
+
+
+Reasoning premised on substantive-desire `looks inward'.
+This isn't egocentric, intrinsic desires may not involve the self in any key way.
+Nor does it assume that intrinsic desires can be recognised, there may be no way to conceive of these but indirectly through instrumental desires.
+
+
+
+
+This distinction cuts across cognitive and non-cognitive lines.
+
+
+
+
+\section{Cognitivism and non-cognitivism}
+\label{sec:cogn-non-cogn}
+
+This distinction cuts across the cognitive non-cognitive dispute.
+
+Substantive-desires may be cognitive, this is straightforwardly the case with instrumental desires.
+Easily paired with non-cognitivism about intrinsic desires.
+But intrinsic desires can also be put on a cognitive basis.
+For example, assume a basic belief about what's valuable, more easy to take this as knowledge.
+This isn't clearly a defensible position, but it can be taken.
+
+Non-cognitivism is more straightforward.
+
+A natural view of substantive-satisfaction is cognitive.
+You have beliefs about some matter of fact.
+This might be put in terms of reason, following most other people who have written on this topic.
+However, it's not clear to me that this reasoning must deal with beliefs.
+If we follow a bunch of metaethics, then it's fairly clear that we can consider non-cognitive reasoning.
+
+
+
+Intrinsic desires may non-cognitive but inaccessible, so beliefs about these, or beliefs about how to collect these together.
+
+
+
+
+\section{Railton}
+\label{sec:railton}
+
+I think Railton comes close, but gets the substance wrong.
+
+
+\newpage
+
+
+Television case, it seems you are satisfied while your desire is frustrated.
+What happens here is that you have the desire, you see at the end you got the wrong film, so the desire persists, and yet you're satisfied.
+
+Suppose you have a desire to read a novel.
+You pick a slim volume off the shelf, and begin to work through the story.
+The story is well-written and you continue through to the end.
+However, on finishing you are not satisfied, though you are not dissatisfied either.
+Your desire to read the novel was satisfied, the novel was good, and you no longer have the desire to read.
+All that seems to have changed is that you no longer have the desire to read a novel.
+In a sense, the satisfaction of your desire is something that (merely) happened.
+
+{\color{red}
+  Here there's also a Hume quote, about the nearness of desires, or something.
+}
+
+
+Assume that desire-satisfaction and satisfaction come apart.
+Question about what practical reasoning tracks.
+
+If tracking desire-satisfaction, then the task of practical reasoning is to ensure that the agent's desires are satisfied.
+This involves means-end reasoning, the recognition of desires, and resolving choice in the face of conflicting desires.
+
+If tracking satisfaction, then desires can be seen as indications of satisfaction, but which themselves can be questions, whence practical reasoning can be seen as forming desires, instead of recognising desires.
+Desires are formed as in line with what the agent expects to be satisfying, so in practical reasoning goes well, desire-satisfaction and satisfaction go together.
+
+The distinction is in whether the conditions under which an agent is satisfied are determined independently of practical reasoning, or whether practical reasoning involves the construction of such conditions.
+
+This distinction somewhat parallels the cognitive/non-cognitive distinction.
+In the cognitive case you have a belief about what's desirable, valuable, good, and so on.
+So, you have conditions for satisfaction formed by reasoning.
+While, in the non-cognitive case you typically have a state independent from reasoning, and so providing independent conditions for satisfaction.
+However, this is primarily a distinction of the type of state desire is, and not about the kind of reasoning involved.
+
+Blur the difference between recognition and construction.
+This is where the main problem arises, not with the kind of reasoning involved.
+
+If we have desire as belief, then it can be a belief about more primitive mental states.
+Or, we can focus on the dynamics of deliberation, but this is compatible with figuring out that the satisfaction conditions are so and so, etc.\ (\citeauthor{Bramble:2018aa} seems to be a nice example of this) or the relative weightings of desires (I think this is something like what \citeauthor{Schroeder:2007aa} has in mind).
+
+If we think desire is different from belief, then we have a distinct kind of reasoning.
+
+This also doesn't reduce to a objective theory of well-being.
+It's possible to identify satisfaction with pleasure, but it's not forced.
+Example of the self-torturer.
+The right combination is determined by the psychological makeup of the individual, and at each choice point they construct what \dots\ but what's problematic here is that it really seems as though this is a problem of recognition.
+
+Key difference is that on the construction view, your desires are going to change with your reasoning, while on the recognition view, it's the desires that you recognise.
+So, in temptation cases, the construction view has is that your desires change when undergoing temptation, while on the recognition view it's the relative importance of the desires which matters.
+
+This is where \citeauthor{Smith:2004aa} is interesting.
+It's the same reasoning, but additional information.
+So, we get the formation of desires, due to the recognition of new information, but the reasoning is fixed.
+
+
+
+
+
+The difficulty is that the satisfaction of an agent doesn't seem to reduce to the satisfaction of the agent's desires.
+
+
+
+
+
+
+Can argue that this is only apparent.
+Desires can be formed, and the satisfaction gained from a desire can be minimal.
+I don't deny these explanations work, and are coherent.
+
+However, view of practical reasoning that this gives rise to seems problematic.
+
+
+
+
+
+
+Desire is satisfied, but the agent is not.
+
+Desire-satisfaction and agent-satisfaction.
+
+Desire-satisfaction obtains when conditions specified by the desire are met.
+Agent-satisfaction obtains when conditions.
+
+
+\newpage
+
+Think of pro-attitudes instead.
+
+Question is the same, whether these are independent of reasoning, or whether these are the result of reasoning.
+In other words, are pro-attitudes fixed, and reasoning adjudicates between these, or does a difference in reasoning lead to a difference in pro-attitudes?
+It seems as though there's a puzzle here.
+
+In other words, is the fact that something is a pro-attitude part of the content of the state, or is it something about the relevant reasoning involved?
+Take a case in which you go from liking something to disliking it.
+A number of possible explanations here.
+1. Your pro-attitudes have changed, and the thing now satisfies your pro-attitudes, but your reasoning remains fixed.
+2. Your reasoning has changed, your pro-attitudes remain the same, so it's something about seeing how the thing fits.
+3. Your reasoning and pro-attitudes have changed.
+
+
+\newpage
+
+\section{Processes.}
+\label{sec:processes}
+
+I'm thinking something along these lines is the best way to view things.
+The pro-attitudes one has are a function of their reasoning.
+
+In the \citeauthor{Bratman:1987aa} case, you have intentions, but due to bootstrapping and so on these can't provide reasons.
+This is a problem with any sort of indirect consequentialism.
+In a sense, this is the dual of \citeauthor{Smart:1956aa}'s worry about rule-worship.
+If states are what matter, then the dynamics governing transitions between these states can't carry normative force.
+
+However, this relies on states coming first.
+We learn from \citeauthor{Rawls:1955aa} that this isn't so straightforward.
+Some states depend on process (or practices).
+This kind of picture isn't open to \citeauthor{Bratman:1987aa} as intentions are simply filters of admissibility.
+Still, there's the possibility of taking desires to be the result of practical reasoning.
+In this respect, to desire something isn't to be in a particular state.
+Rather, that an agent desires something is a static characterisation of a dynamic process.
+You have a desire because you're reasoning in a certain way, and were you to reason in a different way you may not have the same desire.
+Here, intentions can't be filters; instead they directly affect the way an agent reasons about what to do.
+
+So here we get some interesting cases.
+For example, you decide to start shopping locally, or something like this.
+Various process will change because of this, and that's the reason.
+What's troubling is that you don't know what's going to follow from this, but this is the motivation.
+It's not that this is going to lead to certain outcomes.
+
+
+
+\newpage
+
+\section{Misleading Language}
+\label{sec:misleading-language}
+
+There's a potential argument here regarding private language or something.
+The basic idea is that by appealing to the private language argument we might expect desire talk to be somewhat misleading in its linguistic form, as there's no private language and hence there's no `direct' way to refer to desires or equivalent states.
+This may be so, but I don't think it really affects the argument I'm trying to make.
+The way this would work is by arguing that if there were a private language, one would be able to express what the end to their means is.
+So, it's there, but not publicly expressible.
+
+This gestures at something like a substantive Humean-like disconnect between what one can reason about and what one desires.
+However, there's some nuance here.
+The Humean stuff can be seen as regarding the evaluation function.
+This, I think, is the standard picture.
+I don't think it's taken to mean that one's practical reasoning, e.g.\ means-end reasoning is epiphenomenal.
+This objection, then, while interesting, undercuts not only the argument here, but also a broad understanding of the nature of practical reasoning, viz.\ that such reasoning is genuine reasoning.
+
+\section{Consciousness}
+\label{sec:consciousness}
+
+One may argue that here the desire is simply not consciously recognised.
+For example, one may not realise that they have the disposition.
+I don't think this is too important, though I don't think it helps too much either.
+The issue here is that it's hard to see how dispositions amount to valuations.
+Instead, it looks as though dispositions are a good indicator that someone values something.
+There's something to be said about the idea that valuations bottom out in dispositions, but this is simply one way of understanding valuation.
+
+\section{Delegating valuations}
+\label{sec:deleg-valu}
+
+This seems intuitive.
+Example of doing what your parents tell you, for example, but there are many other cases.
+
+All this is starting to look fairly cognitive.
+I don't think there's too much of a problem with this, though I don't think a cognitive perspective is strictly necessary.
+In any case, it's not strictly cognitive in the literature usage, as there's no need to take a stance on what valuation amounts to, so long as it's somewhat independent of one's reasoning.
+
+A problem may arise if one wants to state desires in terms of occurrent beliefs, but I don't think this is really a tenable position in any case.
+
+
+
+
+
+
+
+
+\end{document}
+

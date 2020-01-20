@@ -1,0 +1,1217 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % The following section relates to theorems, etc. % % %
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defstyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont,
+% postheadspace=1em,
+% qed=\qedsymbol
+]{defsstyle}
+
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries, notebraces={}{},
+bodyfont=\normalfont\color{red},
+% postheadspace=1em,
+qed=\qedsymbol
+]{notestyle}
+
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+\declaretheorem[sibling=theorem,name=Corollary]{corollary}
+\declaretheorem[sibling=theorem,name=Lemma]{lemma}
+\declaretheorem[sibling=theorem,name=Fact]{fact}
+\declaretheorem[sibling=theorem,name=Proposition]{proposition}
+\declaretheorem[sibling=theorem,name=Definition,style=defstyle]{definition}
+\declaretheorem[sibling=theorem,name=Assumption,style=defstyle]{assumption}
+\declaretheorem[name=Definitions,numbered=no,style=defsstyle]{definitions}
+\declaretheorem[sibling=theorem,name=Example,style=defstyle]{example}
+\declaretheorem[name=Note,style=notestyle]{note}
+\declaretheorem[name=Ramble,style=notestyle]{ramble}
+\declaretheorem[name=Scenario,style=defstyle]{scenario}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+    \usepackage[usenames, dvipsnames]{xcolor}
+    % \usepackage{everysel}
+    % \EverySelectfont{\color{black}}
+    % \everymath{\color{red}}
+    % \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+\usepackage{epigraph}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{verse}
+
+
+\usepackage{titlesec}
+
+
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\newcommand{\boxarrow}{%
+  \mathrel{\mathop\Box}\mathrel{\mkern-2.5mu}\rightarrow
+}
+\newcommand{\diamondarrow}{%
+  \mathrel{\mathop\Diamond}\mathrel{\mkern-2.8mu}\rightarrow
+}
+
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\newcommand{\sem}[1]{\ensuremath{[\kern-.5mm[{#1}]\kern-.5mm]}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% \titleclass{\todopar}{straight}[\section]
+% \newcounter{todopar}
+% \renewcommand{\thetodopar}{\Alph{todopar}.}
+% \titleformat{\todopar}[runin]{\normalfont\normalsize\bfseries\color{WildStrawberry}}{\thesection.\thetodopar}{\wordsep}{}
+% \titlespacing*{\todopar} {\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\usepackage{luatexja}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Thesis Notes}
+\author{Ben Sparkes}
+% \date{ }
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item Practical reasoning.
+\item Analysis of this proceeds by identifying conditions under which static attitude ascriptions can be made, and then understanding dynamics in terms of transitions between these.
+\item Oblique attitudes highlight that agent's don't always have the resources to reason about what it is that they desire.
+\item This is something of a problem.
+\end{enumerate}
+
+\begin{enumerate}
+\item Follow the standard assumption of extant formal models.
+\item Everything is done in terms of reference and language captures what can be expressed about the underlying model.
+\item The underlying model specifies the possibilities, and how the agent's attitudes relate to these possibilities.
+\item In \emph{this} respect, the agent's attitudes do not correspond to expressions.
+\item However, we can see that something like this is required to explain why it is that content can be given to an oblique attitude, or how an agent can be satisfied without prior representation content identifying that thing as satisfactory.
+\item The question is how the resources the agent has with respect to their reasoning interacts with these.
+\item Assume that if an agent has the ability to reference a possibility then this informs their attitude to any expression that references this possibility.
+\item This is more-or-less the standard doctrine of truth conditions, and is how the extant understanding works.
+\item To resolve this problem, restrict attention to a collection of represented possibilities.
+\item Expressions are interpreted with respect to these.
+\item To do this, restrict agent's interpretation function to be defined with respect to a subset of the model.
+\item Intuitive gloss is that there will be expressions that an agent understands, in that they're able to fully determine truth conditions, but their relevance to their practical reasoning will be restricted to the possibilities considered.
+  However, there may also be expressions they don't understand, and these will fail to be interpreted (are undefined).
+\item With oblique attitudes the relevant possibilities are no longer in the represented possibilities.
+\item The attitudes are resolved when this is fixed.
+\item Think of information sets in dynamic semantics.
+\end{enumerate}
+
+
+
+
+
+
+Problem of oblique attitudes.
+Agent's have beliefs and desires regarding possibilities but the agent's do not have the resources to represent these possibilities.
+The practical reasoning of agent's, then, is partial with respect to the full range of possibilities.
+Broad question is how to understand this.
+
+We make the simplifying assumption that when a possibility is recognised, the agent is able to recognise the attitudes they have toward the possibility.
+This is a fairly strong assumption, as this means that cases in which an agent recognises that something is possible but does not recognise whether it is desirable or not are excluded from consideration.
+However, whether this is important is less clear.
+For, it's not too clear that incomprehensible cases are all that important, and one can see our analysis as skipping over the `figuring out' phase of an agent's reasoning.
+
+The analysis we propose of this is something of an extension of ordinary formal models of propositional attitudes.
+However, some additional concepts are required, along with some subtlety regarding the interpretation of the models.
+
+
+
+
+
+
+
+
+
+
+\section{Rough Outline: Framework}
+\label{sec:rough-outl-fram}
+
+Assuming that what I've been calling oblique attitudes are of interest, a follow-up question is how these are to be understood from a more formal persepective.
+% There are a number of motivations for asking this follow-up question.
+
+% First, propositional attitudes, of which oblique attitudes are a special instance, are often understood within a formal setting.
+% For example:
+% \begin{enumerate*}
+% \item To believe a proposition is often understood to reduce to that proposition being true at all worlds which you take to be indistinguishable from the actual world.
+% \item To know a proposition reduces to that proposition being true at all the worlds that you cannot distinguish from the actual world.
+% \item And, to desire a proposition is for that proposition to be true at all the worlds at which your desires are satisfied.
+% \end{enumerate*}
+% These are rough characterisations of the relevant analyses, but the basic idea is that we can grasp what some relevant attitude toward a proposition amounts to by reducing the attitude to some modal property of the agent's metal state and use propositions to indirectly characterise this property.
+% So, if this kind of reducion informs our understanding of such attitudes, it may seem troublesome if oblique attitudes required some other form of understanding.
+
+% Second, and related to the above, is that
+
+
+
+\begin{enumerate}
+\item Collection of situations in which an agent is satisfied.
+\item Practical reasoning is about those situations.
+\item We reason about these states of affairs using a language.
+\item Standard ways of looking at this need to be carefully understood.
+\item If we look at some expression that's true across every situation, it does not follow that the agent should pursue any action which makes that expression true, as it may be the case that there are other situations which make that expression true.
+\item Likewise, looking at expressions which capture some sub-collection is also problematic as the agent may then fail to reason about satisfactory situations.
+  \begin{enumerate}
+  \item Combine this with an agent's beliefs, and then there's a more significant problem.
+  \end{enumerate}
+\item So, want the best match possible.
+\item With this you can then figure out which specific act to perform.
+\end{enumerate}
+
+Oblique attitudes.
+
+Sometimes agent's fail to represent what it is that would satisfy them, but still are able to partially identify.
+
+
+
+
+
+\subsection{Background}
+\label{sec:background}
+
+The following is a rough sketch of an argument for the position that pairing total and partial interpretation (or denotation) functions `should'\nolinebreak
+\footnote{`Should' in the sense that this line of thought appears promising, though I do not yet have a clear demonstration of its usefulness.}
+provide an adequate formal perspective for understanding oblique attitudes.
+The key idea of a partial interpretation function is that the interpretation of certain terms in a given language may only be defined with respect to fragments of the model used to give meaning to those terms.
+Partial interpretation functions may therefore be used to capture what an agent is able to represent and hence the resources available to them with respect to their practical reasoning, while total interpretation functions can be used to express additional aspects of an agent's oblique attitudes.
+
+To give the basic gist of how partial interpretation functions work, take some first order language \(\mathcal{L}\) and take some model consisting of a domain \(D\) with interpretation function \(\mathcal{I}\).
+For each constant \(c \in \mathcal{L}\), \(\mathcal{I}\) will provide a referant of \(c\), each predicate \(P\) will denote a subset of \(D\), negating that predicate will return the complement of that subset and so on.
+Now, consider taking a submodel consisting of a domain \(D' \subseteq D\), an interpretation function \(\mathcal{I}'\), and a restriction \(\mathcal{L}'\) of \(\mathcal{L}\) so that if some object \(x\) is in \(D\) but not in \(D'\) then the constant \(c\) that \(\mathcal{I}_{D}\) assigns to \(x\) does not appear in the language \(\mathcal{L}'\) and otherwise \(\mathcal{L}'\) is just like \(\mathcal{L}\) and likewise \(\mathcal{I}'\) behaves just like \(\mathcal{I}\) but restricted to \(D'\).
+\(\mathcal{I}'\) is a total interperation function with respect to \(\mathcal{L}'\) and \(D'\), but we can treat \(\mathcal{I}'\) a partial interpretation function with respect to \(\mathcal{L}\) and \(D\) by treating any constatns in \(\mathcal{L}\) that do not refer to objects in \(D'\) as undefined, restricting variables to range over elements of \(D'\), complementation to be taken with respect to \(D'\) and so on.
+In other words, with respect to the partial assignment function \(\mathcal{I}'\), we act as if part of the domain \(D\) does not exist but otherwise as usual, while with respect to \(\mathcal{I}\) to consider \(D\) in full.
+
+The gist of why partial interpretations functions are useful is that it allows us to specify certain properties of an agent's propositional attitudes without being committed to the agent being able to express those properties of their attitudes.\nolinebreak
+\footnote{This is someone analogous to quantifiers in classical logic, in the sense that quantifiers take objects which are not the referent of any constant, and hence the set \(\{P(a) \mid a \text{ is a constant}\} \cup \{\exists x \lnot P(x)\}\) is satisfiable.}
+
+\subsection{Argument}
+\label{sec:argument}
+
+Two basic constraints:
+\begin{enumerate}
+\item Background constraint: the treatment of propositional attitudes should be roughly continuous with our folk theoretical understanding of such attitudes.
+\item Theoretical constraint: The appropriate semantic framework is referenetial.
+  The `meaning' of an expression is given by its truth conditions, which in turn are constraints on the possible referents of the expression.
+\end{enumerate}
+
+The background constraint requires an account of what it is for an agent to hold a particular attitude at some time, while the theoretical constraint places requirements on how this is to be understood.
+
+In particular, with some argument, I think it follows that in a case of an oblique attitude it is permissible to say that an agent desires some end, while being unable to reason about what that end is.
+(Where here and below `desire' is used in a general placeholder sense.)
+
+These two basic assumptions are intended to situate the relevant theoretical understand of what's going on.
+These are substantial assumptions in some sense, but are, I think, either relatively uncontroversial or at the very least the commitments that these assumptions lead to are fairly well recognised.
+
+A more substantial assumption comes in the form of taking the defined expressions (expressions which recieve an interpretation) in our language to capture the resources avaible to
+\begin{enumerate*}[label=(\alph*)]
+\item the agent's practical reasoning, and
+\item our reason about the agent's practical reasoning.
+\end{enumerate*}
+For, one may understand the use of a formal language to simply give a refined way of talking about the underlying model, without imbuing this language with what may appear to be psychological significance.
+Of course, the potentially controversial point here is not that the language corresponds to whatever it is that is going on inside the head of agents, but rather that such a language suitable for merely indirectly capturing practical reasoning.
+I do not think this is a particularly substantial assumption, as we are used to representing the reasoning processes of agents within a formal setting, but I feel more should be said here.
+
+Still, assuming that defined expressions correspond to available resources, the argument that a partial interpretation function is required is somewhat straightforward.
+
+For, oblique attitudes are those attitudes such that an agent does not have adequate resources to fully reason about them.
+Therefore, it cannot be the case that the agent to which the attitude belong is able to express key properties of these attitudes.
+However, we are able to express such properties.
+Therefore, no expression in a fully interpreted language will capture the fact that the agent does not have the adequate resources available to them.
+
+For, unless the agent's interpretation function fails to carve up the relevant underlying model in a sensible way (e.g.\ the interpretation function does not assign every constant to the same individual and treats all predicates a co-extensional), there will likely be some way to express important properties of their attitude which we assume they do not have the resources to do.
+In particular, while the syntax of our expressions and the agent's may differ, the syntax only has `meaning' with respect to what it refers to, and hence a divergence in the syntax of our expressions and the agent's cannot indicate the relevant failure of resources.
+(In a slogan: reconfiguration is not restriction.)
+
+So, either the agent's reasoning must exhibit some general lack of resources, or some way to restrict the scope of their resources is required.
+In cases of oblique attitudes agent's do not exhibit a general lack of resources, only a lack of resources with respect to certain desires or ends.
+And, partial interpretation functions seem to offer a way to restrict the resources available to an agent be restricting the possible referents of their expressions which does not entail a general lack of resources.
+Hence, partial interpretation function appear promising.
+
+
+
+
+\end{document}
+
+
+
+
+
+\(\lceil \phi \rfloor_{\text{ク}}\)
+
+\(\lceil \phi \rfloor_{ク}\)
+
+
+\(\lceil \phi \rfloor_{\text{i}}\)
+
+\(\lceil \phi \rfloor_{i}\)
+
+\(\lceil \phi \rfloor_{\mathcal{i}}\)
+
+
+\(\lceil \mathcal{g} \rfloor(\phi)\)
+
+\begin{quote}
+  Practical reasoning, broadly stated, is answering the question of what one is to do, rather than how things stand.
+  The most distinctive type of practical reasoning is \emph{instrumental} or \emph{means-end} reasoning; how to acheive one's goals, or satisfy one's desires.
+  However, instrumental reasoning cannot be all there is to practiacl reasoning.
+
+  Consider the last time you walked into a room and couldn't quite remember what it was that you were walking into the room for.
+  Perhaps you paced around a little, shuffled some papers, opened some draws, or attempted to recall the thoughts that led to you walking in.
+  Some reasoning led to these actions or thoughts, and this reasoning was practical.
+  That is, some time before entering the room you had answered an instance of the question of what to do, and entering the room was part of that answer.
+  However, it was entering the room was a means to some further end, and the problem you had was forgetting what that end was while at the same time recalling that entering the room was a means.
+  Hence, you found yourself reasoning about the end to you means.
+
+  If we wanted to be clever here, we could call this \emph{end-means} reasoning, but it seems to me that this is an instance of a broader phenomena.
+  Roughly stated, the phenoma invloves having some propositional attitude, but lacking the resources needed to reason with this atittude.
+
+  `Propositional attitude' is a contested term.
+  So, to be somewhat clear about what I mean, I take a propositional attitude to be an attitude together with a proposition such that the attitude belongs to some agent and the proposition specifies what that atittude is about.
+  And, the way the proposition specifies what the attitude is about is by collecting together all the relevant states of affairs that are compatible with the agent's attitude at the time of attribution.
+  In other words, propositions are possibilities and a propositional attitude states which possibilities are compatible with an agnet's attitude.
+  For example, an agnet's belief is characterised by the states of affairs that they cannot distinguish from the actual state of affairs, and an agent's desire is characterised by the states of affairs that would satisfy them.
+  Propositional attitudes, on this understanding, are a theorists tool used to characterise certain properties of agents.
+  Stating that an agent has a propositional attitude merely amounts to stating that an agent has some kind of relation (has an attitude) toward a certain collection of possibities (a proposition).
+  And, stating that an agent has an attitude toward a proposition does not necessarily require that the agent recognises that they have that attitude toward that proposition.
+  To state that an agent has an attitude toward a proposition, then, is similar to stating that an agent is in a certain location, has some gene, or is disposed to acting in a particular way.
+
+  Propositional attitudes are one thing, propositional attitude ascriptions another.
+  For an agent to have a propositional attitude requires only that the agent have some attitude toward some proposition.
+  A propositional attitude ascription requires some language for expressing attitudes and propositions.
+  Propositional attitude ascriptions, then, correspond to more commonplace statements, such as that `John believes otters are ambidextorous' or that `Jane desires that the bears in Yosemite eat well'.
+  These pair an agent (John or Jane) with an attitude (belief or desire) and a proposition (otters being ambidextorous or bears in Yoesemite eating well).
+  Propositional attitude ascriptions differ from propositional attitudes in that the ascription of a proposition does not necessarily characterise the proposition that the agent has an attitude towards.
+  Rather, a propositional attitude ascription typically only partially characterises the agent's atttiude.
+  For example, it may well be the case that otters are ambidextorous in the states of affairs John is unable to distinguish from the actual world, but John may be able to rule out some states of affairs in which otters are ambidextorous, and likewise Jane's desire may not be satisfied if the bears in Yosemite eat all the foxes in Yoesemite.
+  Still, propositional attitude ascriptions are understood here to function by referring to possible states of affairs, and hence, as with propositional attitudes, do not require that agent's recognise the proposition ascribed to them.
+  Rather, propositional attitude ascriptions allow us to partially characterise the propositional attitude of an agent.
+  Indeed, there is no guarantee that the language we use is capable of expressing all propositions and hence the proposition some agent has an attitude toward may not be directly expressible.
+  
+
+  
+  I'm interested in a certain type of non-instrumental practical reasoning.
+  
+  
+  Interested in non-instrumental practical reasoning.
+  
+\end{quote}
+
+
+
+\begin{quote}
+  Interested in practical reasoning, and in particular non-\emph{means-end} practical reasoning.
+  Could say \emph{end-means} pracitcal reasoning.
+  I don't know exactly what it is that I want to say about practical reasoning, but I have a puzzle, and I want to try to figure out what to say about the puzzle.
+  Or, better, a have a certain kind of phenomena that I find puzzling, and I want to say something constructive abbout this phenomena.
+  This is the puzzle of oblique atittudes.
+  So, what happens when you can't remember why you entered the room, went to the store, wrote the note, started the sentence, want to find enlightenment, and so on.
+  I'm interested in the mundane cases, because these really do seem pervasive, and hopefully with a good idea of what's going on with these more philosophically weightly issues can be approached.
+  For example, if there's reasoning about ends when you have the means, then perhaps an argument can be made for directly reasoning about ends and so on.
+  On my understanding of the literature at present, there's basically a divide about whether these more weighty kinds of questions are really intelligible, or whether all practical reasoning really is just \emph{means-end} reasoning.
+  The hope, however, is that we're forced to say some complex stuff about the mundane cases, and what we have to say opens up the possibility of argument for more interesting things.
+  Or that's one way to spin the project, really I just like the phenomena and it seems sufficiently overlooked that I don't have to directly argue with anyone.
+
+  So, what I want to talk about today is the kind of framework that's needed to start developing a solution.
+
+  The puzzle is about practical reasoning, and we think about practical reasoning in terms of the dynamics of propositional attitudes.
+  This, I think, is more or less uncontroversial.
+  You have some beliefs and so you'll come to form some other beliefs, or perhaps you have some probability distribution at time \(t_{i}\) which leads to some other distribution at time \(t_{i + 1}\), etc.
+  The point is that we have static descriptions of the mental lives of agents, which we take to capture something about the mental lives of those agents, and we have certain rules for updating these static descriptions.
+  What we don't do is directly capture the reasoning process of agents.
+  Psychologists or cognitive scientists may investigate such processes, but our philosophical theories do not.
+  In this sense, our philosophical theories mirror what we seem to do as the folk.
+
+  You may think there are clear counterexamples to this.
+  For example, we can give an account of what's going through an agent's mind when they're calculating the tip after a meal as we're able to describe the process of long division, multiplication, and so on.
+  This is kind of interesting as we don't typically invoke propositional attitudes, but the point still stands.
+  Shifting the mark to the next column describes a move from one state to another, it's simply a lot more fine grained than our usual explanations.
+  Transitiions between states, 
+  
+\end{quote}
+
+
+
+\begin{enumerate}
+\item The kind of cases I have in mind don't lead directly to practical empiricism, but it seems like a fairly amenable theory.
+\item Broadie's use of reasoning seems interesting, as it's about adding content, or something, but I think what I have in mind isn't really doing this.
+\item I don't seem to be holding a specificationist position, as it's the end that is being reasoned about, and it's doubtful that this reasoning is in terms of some further end, though this is a position I should consider. 
+\end{enumerate}
+
+
+Practical reasoning.
+
+Propositional atttiudes are part of the everyman's toolkit for understanding practical reasoning.
+If an agent intends some end \(e\), and believes that \(m\) is a necessary means to \(e\), then the agent will see to it that \(m\).
+Whether or not means-end coherence is a requirement of practical reasoning or merely a useful generalisation, we analyse natural language statements about propositional atttiudes by providing a formal language with referential semantics.
+In this language, intention, belief, and so on are propositional operators, and hence map propositions to other propositions.
+Propositions, understood in this paper, are the result of interpreting expressions in the formal language.
+The occurence of `proposition' in `propositional attitudes', though, can be interpereted more freely, e.g.\ language independent statement of some thought.
+
+For example, suppose we interpret the expression \(\mathsf{O}p\) with respect to possible worlds, where \(\mathsf{O}\) is a symbol for a propositional operator and \(p\) a symbol for a proposition.
+The interpretation of \(p\) is then a collection of worlds, and by referential semantics this collection of worlds is the semantic value of \(p\) in our language.
+To say instead that the interpretation of \(p\) is the collection of worlds in which \(p\) is the case would be to obscure the fact that what makes \(p\) the case in that collection of worlds is the interpretation of \(p\).
+In other words, given referential semantics the meaning of \(p\) (or any other expression) is exhausted by what it refers to.
+\(\mathsf{O}\), unlike \(p\), is a propositional operator.
+Hence, the semantic value of \(\mathsf{O}\) itself is whatever it is that operators refer to, for ease let us leave this function from possible worlds to possible worlds unspecified.
+\(\mathsf{O}p\), however, interpreted as the result of applying the referent of \(p\) to the referent of \(\mathsf{O}\), will be a proposition, and thus the semantic value of \(\mathsf{O}p\), like \(p\), is given by a collection of possible worlds.
+So, the argument of the operator specifies, more-or-less, what the relevant attitude refers to, while the value of the operator (given an argument) specifies what we refer to by claiming that an agent has that attitude toward the relevant proposition.
+The attitude itself, however, does not necessarily refer to a proposition.
+
+The important observation being made here is that the analysis of propositional attitudes by a formal language with referential semantics amounts to understanding what it is that is being referred to by the expression that an agent holds some attitude toward a proposition.
+So, at a fundamental level a succesful analysis of this kind need to little more than impart the ability to point to any instance of a propositional attitude and say \emph{that}.
+In other words, specifying an appropriate interpretation function lies at the foundation of a successful analysis of this kind.
+In part, this is why the treatment of propositional attitudes as operators illuminating.
+For, the operational characterisation of the attitude must be sufficiently general to return the appropriate reference for any instance of the attitude taking an object.\nolinebreak
+\footnote{Consider objections.
+  Case of knowledge.
+  Standard semantics.
+  Cases in which agent does not know that \(p\) do not coincide with those in which the agent knows that they don't know that \(p\).}
+
+An analysis of practical reasoning, as understood here, is an analysis of the dynamics of propositional attitudes.
+Specifically, dynamics which result in action.
+
+\begin{scenario}
+  Cheese tasting at the county fair.
+  Had some Shropshire Blue.
+  Looking at some Clava Brie.
+  Notice that my pallet could do with a cleanse.
+  Perhaps wine, but a little too much already.
+  Water.
+  And now back to the brie.
+  But brie without wine?
+\end{scenario}
+
+Dynamic stuff is happening.
+Past and current actions lead to a fresh belief.
+This leads to an end.
+In turn, means, and constraints on these.
+Constraints lead you to reevaluate the end.
+
+Your atittudes change.
+At the start you desired some brie.
+At the end, unsure.
+
+If interpretation of propositional attitude stays the same, things are too loose.
+Dynamics of formal system, tracing the dynamics of reality.
+Not referring to your reasoning.
+Static characterisation of the underlying dynamic process.
+However, dynamics governing these static characterisations, which trace the underlying dynaimc process.
+Practical reasoning happens, but it has no effect on our formal language, as there's no causal connexion.
+Doesn't need to.
+Correspondance may be weak, but we just need to ensure that dynamics applied to the language are adequately coordianted.
+
+``Pointwise analysis''
+
+Psychological realism isn't our concern, because the tools that form the basis of our analysis (propositional attitudes) don't afford us this.
+
+Still, getting to \emph{that} isn't always straightforward.
+
+\begin{scenario}
+  Cheesemaster.
+  You don't believe that it's Timothy (but it is).
+\end{scenario}
+
+Trouble is, reference and so we can't make sense of your belief.
+But all we need is the right reference, given referential semantics.
+And, we've assumed that propositional attitudes work referentially.
+
+Said nothing about what propositional attitudes are like, but if we make the assumption that what's going on in the head is a little like this model, then you've got some referential stuff.
+Hence, we can co-opt your interpretation function.
+Recall, we read backwards.
+We're assuming that we've got enough in our language to capture relevant propositions.
+So, capturing the `wrong' proposition in these circumstances.
+But, we can invoke some other function that gets it right.
+So, your attitude, but using our language.
+
+
+
+While somewhat abstract, the principles in play are straightforward.
+Our formal language is simply a collection of symbols,  which we put to use by taking them to refer to other things.
+Writing \(\mathsf{I}()\) is uninformative unless I tell you that \(\phi\) refers to a certain states of affairs, and \dots
+
+What we get from this analysis is a reduction.
+The sybols used gain this significance be referring to things.
+Our understanding of practical reasoning is in terms of states of affairs, etc.
+The situatiions in which you intend to \dots
+Unfortunately, reference isn't always clear, so we assume that there this stuff, but we're unclear on exactly what it is.
+A certain mental state, some psychic stew, a collection of dispositions, etc.
+
+This should look familair, but incomplete.
+Reference, etc.\ all of this is standard.
+But, we're just picking out states of affairs and so on.
+Made a claim about practical reasoning.
+What follows isn't clearly part of the standard toolkit, though I suspect that it is kind of what's going on.
+
+The thing to observe is that reasoning has the same strucutre.
+So, not only do we have a language which we use to give a regimented understanding of what's going on via reference.
+We also use the semantic underpinning to capture what's going on in the minds of agents.
+It's the transition between referential expressions that we understand to be reasoning.
+Dynamics of some representational system, and the representations in this system are referential.
+So, here adding a dynamic component.
+What happens still refers, we continue to hold that your intention is specified referentially, and our understanding of transitions in the system should be sound with respect to the underlying pheonema.
+However, we can use the symbolic system at our disposal to capture the strucutre of your reasoning, because we assume that there is this strong correspondance.
+
+Now we have a symbolic system that has two quite distinct roles.
+
+First, we can use symbolic systems to build structured representations of situations and express connexions between such situations.
+
+
+
+
+First, the symbolic system allows us to analyse phenomena by  structured representations of situations and 
+
+
+
+
+Second, for us to reason about the reasoning of other agents.
+These \emph{types} of reasoninig need not overlap, but the way they work is the same, which is what allows the two interpretations to coincide (semantic uniformity).
+
+Still, we don't have a reference for the symbols themselves.
+But, that's the whole thing about the correspondence and so on.
+We don't need to be directly articulating what's going on for the model to be useful.
+
+
+
+I think this is the setup that I want.
+It's interesting because there are some transitions involved, somehow you get to recognising the desire, but this isn't something that's captured in reasoning.
+But, before this there needs to be a separation, and that's what I want to argue for next.
+Well, two things.
+One, is coreference problems and stuff like that.
+This is somewhat easy, I just put in your interpretation function, everything is still referential, and the fact that we're using a different interpretation function doesn't show up in what is reference, per se.
+However, it may make a difference with respect to what is referred to.
+
+Here, a note that this isn't an argument about belief reports, etc.
+This is a more narrow account of what kind of things we can do with the standard framework, given a certain understanding of how it functions.
+
+
+
+
+
+
+\((I\phi \land B(\phi \rightarrow \psi)) \rightarrow I\psi\)
+
+
+
+Propositional attitudes.
+We've got referential semantics for our formal language.
+So, the meaning we assign to some syntax is determined by what it refers to.
+Terms refer to objects, sentences to propositions, or states of affairs.
+So, we use states of affairs to characterise mental states when using propositional attitudes.
+That is, propositional attitudes are just attitudes toward states of affairs.
+Specify exactly how the state of affairs helps us characterise a mental state.
+This doesn't necessarily caputre the mental state in full, but we then start building a profile of the agent's mental life, certain things have certain functional roles, but what goes on inside the head is tied to states of affairs, etc.
+This is how the standard reduction goes.
+Referential semantics gives us an indirect characterisation of mental states.
+
+At this point, all we have are states of affairs and connexions to the mental states of an agent.
+In particular, at this point no claims have been made about meaning, opacity, semantic innocence and the like.
+Indeed, as far as natural langauge goes, though the perspective under development here mirrors a common view, all that's being described is a what of reasoning about agents.
+
+The way in which a stronger link to semantic issues is formed is by noting that states of affairs themselves do not appear to provide the expressive power needed for characterising even commonplace ascriptions of propositional attitudes.
+
+Frege has the classic example, etc.
+
+We have a chance to diverge from semantics again.
+I'm not too interested in what we say, rather I want a framework to caputure how we reason.
+So, note that need an interpretation function.
+Now the way that I map things to the world need not be the same as the way you map things to the world.
+In other words, there are two steps to the Fregean argument.
+First, states of affairs are interpreted by us, and second, the same thing can be interpreted in a number of different ways, which has an effect on how we reason about that thing.
+We can deal with this while keeping a referential semantics, but we need to distinguish between different ways in which representations hook up to states of affairs.
+
+There's an interpretation function that we use, but there's also the interpretation function that you use and so on.
+What matters are not only the relevant states of affairs, but also how these appear to you.
+Capturing relevant properties of this relation gives us some of the additional resources we require.
+
+\[a = b \rightarrow \Box(a = b)\]
+But?
+\[f(a) = f(b) \rightarrow \Box(f(a) = f(b))\]
+Of course, as we're not evaluating the function, and this shouldn't be confused with
+\[f(a) = f(b) \rightarrow \Box(f'(a) = f'(b))\]
+Where, this is a bad example, as the function notation itself doesn't help to distinguish different cases.
+\[f(a,w) = f(b,w) \rightarrow \forall w(f(a,w) = f(b,w))\]
+Works better, esp.\ if we consider demonstratives and contexts.
+If `this' and `that' are coreferenetial, then what they refer to cannot possibly be distinct from itself, but it may well be the case that in other situations `that' and `that' refer to different things.
+
+[
+{\color{red} What's missing in the above is how the symbolic language gives us some functional characteristics.}
+So, I can't just shift the world around, without being clear on how it would move things in your reasoning around.
+
+The way we get around this is by introducing possible states of affairs, etc.
+Right, so examples from action theory, or perhaps more simply the problems of revealed preference.
+Of course, belief works too.
+Now, one may worry about extensional equivalence here.
+Relations to (possible) states of affairs may be insufficient to fully characterise what we want.
+Potential to argue with Leibniz here, and appeal to the other direction from Kripke.
+But, this isn't that helpful.
+The key idea here is that the whole way of looking at things falls apart if we can't capture the relevant difference extensionally.
+Which, really, is a note of caution.
+One could offer supporting arguments for why this should work out, but it doesn't seem worthwhile here.
+Employing the same techniques as formal semantics, etc.\ and this project looks healthy.
+
+
+
+Okay, and then there's a point about not really needing the interpretation function, but that this is a very useful way of going about things.
+]
+
+Example with \(d = i_{P}(l)\), or something.
+
+
+Separatation of states of affairs from representations we use, and in particular observe that we can get a good deal of stuff by `remapping'.
+States of affairs remain the same, but they may now hook up in a different way.
+
+
+
+
+
+
+
+
+
+First-order language, with a few enrichments.
+Have a set of agents, and corresponding to each agent we have two second-order predicates \(B\) and \(D\).
+These capture belief and desire.
+Also, for each agent \(a\) we have a function \(i_{a}\), which specifies the agent's interpretation function.
+This allows us to caputre the agent's interepretation of any term in our language.
+We can also use this to caputre certain demonstratives.
+
+Argument is that this gives us a useful way of talking about mental states, in particular belief and desire.
+Well, the argument goes in reverse, we need to make this distinction, and it turns out that this fairly straightforward extension of first-order logic does the trick.
+
+
+
+
+
+\end{document}
+
+% Interested in attitudes which:
+% \begin{itemize}
+% \item Relate the bearer of the attitude to conditions (paradigmatically a proposition or state of affairs).
+% \item Such that the agent holds that these conditions are to be satisfied.
+% \item But, such that the bearer lacks a representation of these conditions.
+% \end{itemize}
+
+% Basic setup here is that desire and belief both involve conditions.
+% Paradigmatically, a proposition, stipulating a state of affairs, though really\dots
+
+
+
+
+
+
+% Goal here is to characterise the type of mental state of interest.
+% Broadly stated, these are desire-like states which an agent recognises the existence of, but is unable to assign representation content to.
+% {\hand} `\emph{Aberrant}' states.
+
+% This will be done in two parts.
+% First, a general high-level characterisation of mental states.
+% Second, building on this high-level characterisation.
+
+% Consider basic attitudes.
+% E.g. \(\Box(---)\), here we have something like the function role of the attitude, and what it makes reference to.
+% So, two key things.
+% Its referential role, and its dynamic role.
+% Problem here is that the this description requires both roles to be specified, and in particular doesn't allow anything to be said about the dynamic role without a specification of referential role.
+% So, split these up.
+
+There are two parts to these notes.
+First, a general sketch of the broad argument to be made in a paper.
+Second, an initial attempt at characterising the type of mental state that I'm interested in.
+Both parts are very sketchy, and I'm not sure how intelligible they are, but in the coming weeks I would like to work on developing a general framework for thinking about mental states without representational content, and then, with this in hand, determine the viable range of views is with respect to desire-like states, and to what extent further arguments depend on a choice of view.
+
+\begin{enumerate}
+\item Provide a motivating example (i.e.\ case in which an agent recognises that they are desire to perform the means to some end, but are unable to specify the relevant end).
+\item Detail the `received view' of mental states/propositional attitudes.
+  \begin{enumerate}
+  \item In short, some attitude which takes a state of affairs/proposition as it's object.
+  \item Note that here we typically ignore the role of the interpretation/valuation function used to characterised the object of the mental state.
+  \end{enumerate}
+\item Distinguish the attitude (belief, desire), the state of affairs (set of possible worlds), and the interpretation function (how representations/symbolic systems refer to possible worlds).
+\item Argue that we need to separate the object of the attitude (set of possible worlds) from the interpretation that we use to represent the object and the interpretation that the agent uses to represent the object.
+  \begin{enumerate}
+  \item At least two supporting lines of thought here:
+    \begin{enumerate}
+    \item \citeauthor{Kaplan:1989ab}'s Logic of Demonstratives, where the role of context can be seen in terms of allowing the interpretation function of agent's to vary in various circumstances.
+    \item  \citeauthor{Humberstone:2013aa}'s (\citeyear{Humberstone:2013aa}) observations regarding the interpretation of propositions within the scope of modal operators.
+      (Here the broad point is that one cannot in general for a modal operator \(\Box\) introduce an `inverse image' \(\Box^{-1}\) so that for any formula \(\phi\) there exists some formula \(\phi'\) such that \(\Box^{-1}\sem{\Box\phi} = \sem{\phi'} \).
+      In other words, there's no guarantee that one can express the propositional content of a modalized expression.\nolinebreak
+      \footnote{
+        \begin{quote}
+          The reason a failure of this condition might be regarded as problematic is that if it is not satisfied then on being told, to take the doxastic case by way of example, that Sam believes that _, where the blank is filled in some specific way, one cannot, from the proposition expressed by this belief-ascription, recover the propositional object of the belief ascribed.
+          More accurately: there is no such thing as the belief ascribed by the proposition that, e.g., Sam believes that there are sometimes pigeons in Trafalgar Square.
+          Rather, there are many things we could splice into the gap in ``Sam believes that'' which result in sentences expressing the same proposition as filling it with ``there are sometimes pigeons in Trafalgar Square''.\nolinebreak
+          \mbox{ }\hfill(\citeyear[1033]{Humberstone:2013aa})
+        \end{quote}
+      }
+    \end{enumerate}
+  \item Work by Perry, Crimmins, and other may also be useful.
+  \end{enumerate}
+\item With the distinction between the attitude, it's object, and the interpretation used to characterise the object, argue that it is natural to specify the agent's interpretation function, and as such cases of representational failure can be modelled in terms of the agent's interpretation being undefined with respect to the object of the attitude.
+\item Raise issue of how we are to account for the functional role of attitudes without being able to appeal to representational content.
+\item Present viable options for desire-like attitudes which are more-or-less continuous with options where representational content is available.
+\item (Hopefully) argue that certain lessons for understanding practical reasoning follow regardless of how desire-like states are understood/show that certain conceptions of desire-like states are not viable.
+\end{enumerate}
+
+\newpage
+
+Taking a broadly functional view of mental states, the specific mental state of interest is one that
+\begin{enumerate*}
+\item takes some a certain content (e.g.\ a state of affairs, situation, or collection of conditions) as its object,
+\item has some functional role in the agent's psychology,
+\item but is such that the agent fails to represent the conditions identified by the attitude, and hence the agent is unable to directly reason with and about the attitude in terms of the conditions it identifies.
+\end{enumerate*}
+In short, of interest are propositional attitudes (broadly construed) such that the bearer of the attitude fails to directly represent the content of the attitude.
+
+The first two stipulations capture the basic characteristics of attitude ascriptions.
+For example, while it is most natural to say ``Avery believes that coffee is carcinogenic'' the same statement can be paraphrased less naturally as ``the state of affairs in which coffee is carcinogenic is believed by Avery'', specifying a first a state of affairs and second what psychological role this state of affairs has.
+
+The last stipulation specifies additional constraints on how the attitude functions with respect to the agent's psychology.
+For example, we may add to the second paraphrase ``but Avery does not know what carcinogenic means''.
+This addition is ambiguous in at least two ways,\nolinebreak
+\footnote{Note, holding fixed the conditions identified by the attitude as those in which coffee is carcinogenic rules out a reading of a third case of ambiguity in which Avery recognises the term `carcinogenic' but does not know what it refers to.
+For, here this may be read to state that Avery's belief permits situations in which `carcinogenic' refers to something other than the potential to cause cancer.}
+\begin{enumerate*}
+\item Avery may believe that coffee has the potential to cause cancer but does not recognise the term `carcinogenic'.
+\item Avery believes that drinking coffee has the potential to lead to certain situations in which we can interpret the coffee drinker has having cancer, though Avery does not have the resources to interpret such situations.
+\end{enumerate*}
+In both of these cases Avery fails to interpret the conditions identified with respect to their belief.
+And, though we are able to give a characterisation of the conditions it is important to recognise that, like Avery, we are typically limited to interpreting symbolic systems in order to do so.
+Hence, the third stipulation highlights the importance of some symbolic system with which agent's represent states of affairs.
+Still, the third stipulation picks out only the second kind of ambiguity noted above.
+For while it may be the case that an agent represents states of affairs in ways which differ from our own representation capacities, our interest lies in cases where there is a broad representation failure.
+
+In general, we shall refer to states which meet the above conditions as \emph{oblique}.
+Further, states which an agent further fails to have the capacity to represent the object of the state will be referred to as \emph{inchoate}.
+States in which the agent's interpretation of the object of the mental state differs from our own interpretation, such as in the first disambiguation above, may be referred to as \emph{aberrant}.
+
+With a general characterisation of oblique states in hand, our attention turns to cases of oblique states whose functional role has characteristic properties of desire-like states, understood broadly here as the counterparts to belief-like states.
+Given that the holders of oblique mental states fail to represent the conditions identified by the attitude, to understand the role of oblique desire-like states in reasoning requires a specification of the functional role of desire-like without appealing to the agent's interpretation of the states of affairs desired.
+
+Here, there are (at least) two distinct lines of thought which roughly trace a cognitive/non-cognitive distinction.
+On the cognitive side, the desirability of some state of affairs is established independently of the agent's psychological state, and so for an oblique desire to be present in an agent's reasoning is for the agent (roughly) to recognise that it is desirable for some state of affairs to obtain.
+On the non-cognitive side, the desirability of some state of affairs is a function of the attitude that the agent has toward that state of affairs.
+Here, the fact that the agent cannot interpret the state of affairs suggests that `undirected' affective attitudes may indicate oblique desires.
+However, both approaches may also appeal to supporting states with interpreted content to support the existence of an oblique desire-like state.
+For example, the recognised desire to perform some means to an end, such that the agent recognises the existence to the end to which the means apply, but are unable to interpret the end.
+
+
+
+
+% {\color{red}
+%   I want the following when I've got the talk of structure in place.
+%   It's that this `objective' nature of satisfaction allows us to talk about information in this way.
+% }
+% A difficulty in our talk about participation without representation is that the information available to an agent may be distinct from the information available to us when describing the agent.
+% Still, this parallels belief.
+% You may believe that it is raining in Z-land by believing that \emph{it is raining} without having any representation of Z-land given the isolated group to which you belong because your situation suitably fixes the participation of Z-land in your belief and we have the resources to make this participation explicit.
+% (\cite[cf.][]{Perry:1986aa})
+
+
+% {\color{red}
+%   The key difference, I think, between what I'm proposing and the ideas of \citeauthor{Pettit:1990aa} and \citeauthor{Schroeder:2007aa} is that for these authors desire is part of the agent's reasoning, it's something that's there.
+%   However, on the satisfaction view this isn't part of practical reasoning, it's something independent, and it's the orientation of reasoning that distinguishes it as practical.
+% }
+
+
+% On the view we endorse, practical reasoning can lead to the formation of desires through an agent reasoning that they would be satisfied were certain circumstances to obtain.
+% And, the puzzle of participation without representation reduces to a straightforward situation in which an agent is unable to infer the conditions under which they would be satisfied but has appropriate premises to expect that some aspect of a situation they are able to bring about will lead to their being satisfied.
+% {\color{red}
+%   Ah, so it's important that there's partial information.
+%   This, perhaps, links to cases of failures of introspection.
+%   Of course, failure of introspection here is something different.
+%   Though, I don't think I want to explore the issue in quite so much detail at this point in time.
+%   Right here the issue should be on some of the more Humean aspects.
+% }
+
+
+
+% {\color{red}
+%   Here I want to say something about having a desire to figure out what you desired.
+%   This can happen, but it doesn't need to, and the way I've set the case up is quite unreflective.
+%   But even if it does, this doesn't really explain anything, you have no way of representing that desire, and that's the problem.
+%   It's also that this doesn't get the satisfaction conditions correct.
+%   Either you then are satisfied when you find out, and you reform the desire or it was there all along.
+% }
+
+% \section{Desire Satisfaction}
+% \label{sec:desire-satisfaction}
+
+% There are two ways to look at the propositional account of desire.
+% The first is to see the basic attitude, and think that this is what constitutes the desire.
+% Satisfaction is then a placeholder for whatever it is that happens when the proposition desired is true.
+
+% This may derive from the old-school way of looking at things, but has been rejected by more modern Humean theories.
+% Still, it's there in guise-of-the-good type theories.
+% May also think that this is important to distinguish belief from acceptance, etc.
+% That is, what you believe and accept are both correct if the proposition is true (and there's a reference I can dig out here).
+
+% The second is to take satisfaction as basic.
+% Here, the conditions under which a proposition is true characterise the conditions under which an agent is (or expects to be) satisfied.
+% For an agent to desire a proposition is for an agent to recognise conditions under which they would be satisfied.
+% Satisfaction takes a central role.
+
+
+
+% \section{Schroeder's Taxonomy}
+% \label{sec:schroeders-taxonomy}
+
+% \begin{quote}
+%   \textbf{Standard Theory 1 (ST1)}:
+%   To desire that \(P\) is to be disposed to bring it about that \(P\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[11]{Schroeder:2004aa})
+% \end{quote}
+
+% So, good for following \citeauthor{Ryle:1949aa} where dispositional ascriptions license inferences as these don't need to attribute representations.
+
+% \begin{quote}
+%   To desire that \(P\) is to be disposed to act in ways that would tend to bring it about that \(P\) in a world in which one's beliefs, whatever they are, were true.\nolinebreak
+%   \mbox{ }\hfill(\citeyear[15]{Stalnaker:1984aa})
+% \end{quote}
+% {\color{red} correlative dispositional states of a potentially rational agent, the tendency-to-bring-about relation. But, (\citeyear[18]{Stalnaker:1984aa}) for \citeauthor{Stalnaker:1984aa} discussing the role of content. [22--23] also reinforces this.
+%     \begin{quote}
+%       It is essential to rational activities such as deliberation and investigation that the participants represent alternative possibilities, and it is essential to the role of beliefs and desires in the explanation of action that the contents of those attitudes distinguish between the alternative possibilities.\nolinebreak
+%       \mbox{ }\hfill(\citeyear[23]{Stalnaker:1984aa})
+%     \end{quote}
+%   }
+  
+% \begin{quote}
+%   \textbf{ST2}:
+%   To desire that \(P\) is to be so disposed that, if one were to believe that taking action \(A\) would be an effective method for bringing it about that \(P\), then one would take \(A\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[17]{Schroeder:2004aa})
+% \end{quote}
+
+% \begin{quote}
+%   \textbf{ST3}:
+%   To desire that \(P\) is to have a structure inside one whose biological function is to bring it about that \(P\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[18]{Schroeder:2004aa})
+% \end{quote}
+
+% {\color{red}
+%   I don't really see any reason to go through with this account.
+% }
+
+% \begin{quote}
+%   \textbf{ST4}:
+%   To desire that \(P\) is to have a mental representation that \(P\) which plays a certain causal role, namely, that of disposing one to bring it about that \(P\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[24]{Schroeder:2004aa})
+% \end{quote}
+
+% \begin{quote}
+%   A person has a desire in the directed-attention sense that \(P\) if the thought of \(P\) keeps occurring to him or her in a favorable light, that is to say, if the person’s attention is directed insistently toward considerations that present themselves as counting in favor of \(P\).\nolinebreak
+%   \mbox{ }(\citeyear[39]{Scanlon:1998aa})
+% \end{quote}
+
+% However, here \citeauthor{Scanlon:1998aa} takes this account of desire to correspond to the intuitive sense, and as such this doesn't correspond to the placeholder pro-attitude view.
+
+% \citeauthor{Scanlon:1998aa} does offer a sort of account of attitudes around (\citeyear[20]{Scanlon:1998aa}), but this is heavily idealised, and it's not clear to me what to get from this.
+% But, I guess the problem is that now fixed it's not judgement sensitive.
+
+
+% \begin{quote}
+%   \textbf{Hedonic Theory 1 (HT1)}:
+%   To desire that \(P\) is to be so disposed that one will tend to feel pleasure if it seems that \(P\), and/or displeasure if it seems that not-\(P\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[27]{Schroeder:2004aa})
+% \end{quote}
+
+% \begin{quote}
+%   \textbf{HT2}:
+%   To desire that \(P\) is to contain some structure (this being the desire) which so disposes one that one will tend to feel pleasure if it seems that \(P\), and/or displeasure if it seems that not-\(P\).\nolinebreak
+%   \mbox{ }\hfill(\citeyear[27]{Schroeder:2004aa})
+% \end{quote}
+
+
+% \begin{quote}
+%   \textbf{Reward Theory of Desire (RTD)}:
+%   To have an intrinsic (positive) desire that \(P\) is to use the capacity to perceptually or cognitively represent that \(P\) to constitute \(P\) as a reward.
+%   To be averse to it being the case that \(P\) is to use the capacity to perceptually or cognitively represent that \(P\) to constitute \(P\) as a punishment.\nolinebreak
+%   \mbox{ }\hfill(\citeyear[131]{Schroeder:2004aa})
+% \end{quote}
+
+
+
+% \section{Slaves of the Passions}
+% \label{sec:slaves-passions}
+
+% \begin{description}
+% \item[Desire]
+% For \(X\) to have a desire whose object is \(P\) is for \(X\) to be in a psychological state grounding the following disposition: when for some action \(a\) and proposition \(r\) believed by \(X\), given \(X\)'s beliefs \(r\) obviously helps to explain why \(X\)'s doing \(a\) promotes \(P\), \(X\) finds \(r\) salient, and this tends to prompt \(X\) to do \(a\), and \(X\)'s attention is directed toward considerations like \(r\).
+% \end{description}
+
+% {\color{red}
+%   Okay, I need to get clear on exactly what's going on here.
+%   I've got a distinction between \emph{how} and \emph{what} and this is good.
+%   However, it now comes to stating what's going on with motivation.
+%   The desire cannot be the reason why you act, in the sense that it's not the thing you take to be going on in your practical reasoning.
+%   Yet, if there wasn't that desire you're reasoning wouldn't happen in the way it does.
+%   So, there's a difference between the how and the what, and here there's really not even a `how' in the standard sense of the term.
+%   So, the desire only has an indirect role in your practical reasoning.
+%   It gives you the means that you currently take to be relevant in determining what to do, and it also gives the conditions under which you'll be satisfied.
+%   However, clearly it cannot be part of your deliberation.
+%   So, this is the puzzle stated.
+%   The part I need to emphasise is that when you hear the song again you're able to discharge the means, but this might require some work on motivating some of the practical reasoning.
+% }
+
+% {\color{blue}
+%   The puzzle, then, is that given this analysis, there are desires which have a role in practical reasoning which is indirect.
+%   So, we won't get a good analysis of desire if we focus on the things you reason about.
+%   In other words, an analysis of reasons for action will not provide an analysis of practical reasoning.
+%   That is, there's no complete story of practical reasoning which pieces together reasons for action with some decision procedure.
+%   So, can't take desires as `givens'.
+%   Instead, need to reason about (expected) satisfaction.
+%   That's what's going on in the scenario.
+%   You're reasoning that there's something which you expect to satisfy you to which you have the means.
+% }
+
+% {\color{green}
+%   Oh, and in cases of akrasia you're reasoning about something which you expect to satisfy you but for which you don't have the means.
+%   This, is really nice.
+%   (Though also rather sad.)
+% }
+
+% {\color{blue}
+%   Well, then, given the above relations to propositions are still the core of desire, and the idea is that having access to representational content is what allows agents to actually do things.
+%   Well, it allows us to do thing in the way we do them.
+%   The motivational component comes first, and we use practical reasoning to guide this.
+%   (This is really what deals with the problem of akrasia, and the proposal only makes sense in this context.)
+%   And, the way the argument is going is that there's a way in which we can understand motivation without resorting to a given proposition.
+%   For better or worse we can't really reason without some representation content, and the interesting thing about us is that we are able to do this.
+  
+% }
+
+
+% % What explains why you are searching through the menu at the restaurant is your desire for a particular meal.
+% % But your desire has no representational content.
+% % Had you mentioned to your partner that you'd been thinking about the particular meal they could have explained to you why you're there.
+% % Or, if you'd taken down the name of the person you talked to on the telephone you could have asked them about your request.
+% % Still, sitting as you are you can only that you desire a particular meal, but that you don't know which.
+
+
+% {\color{red} Problem is that the counterfactual isn't obviously true.
+%   For example, taking the dispositional states, there's no clear proposition that the agent stands in a relation to, but this shows that the desire has simply been corrupted.
+%   Then, it reduces to a problem of introspection.}
+
+% {\color{blue} Well, the general idea is that it seems as though this is a problem with introspection, and when we grant that introspection can fail, there's no problem with specifying various desires.
+%   So, it's the case that the puzzling desires really aren't the same desires without representational content, but that they're different desires.
+%   In short, the continuity is somewhat misplaced.}
+
+
+
+% \section{Intro}
+% \label{sec:intro}
+
+% Getting the TV channel wrong and enjoying a film.
+% This is a case where the extrinsic desire is fine, but there's a problem.
+% You think you're satisfying a desire, but really you're finding out that something else satisfies the same desire.
+% Or, two YouTube links or whatever, one copied and you fail to copy the second.
+% Either way, you now have more information about what satisfies you.
+
+% So, that's the proposal.
+% Desire something because one reasons that it may satisfy them.
+
+% In these examples you're reasoning about what would satisfy you, in the same way that you may reason about what is true when you try to recall some fact that you've forgotten.
+% However, if this is the case then desires can't be `givens'.
+
+% The key is that in these scenarios one is trying to recreate the content.
+% One deosn't use the other desires one has.
+% There's cognitive significance without content.
+% Though, this term isn't quite right.
+
+% Incohate desires.
+
+% Then, washing machine example.
+% You lose some of the relevant propositional information.
+
+% Conversely, some other example where you refine the desire into something concrete.
+% Of course, here we can speak of desires being formed, but there's an appealing symmetry.
+% Indeed, in the relevant example it's simply going to be reading through the spec sheet, desiring something with a something or other spin.
+
+
+% So, what's going on?
+% Well, either you recover the content, or you start to construct a new desire, arguably.
+
+
+% \section{Some observations}
+% \label{sec:some-observations}
+
+% Desires really aren't important for what I have in mind.
+% One can take anything they want which would serve the function of desire, so reasons for action in a broad sense.
+% The question is about the status of these.
+% And, the basic idea is that there's a problem with taking these as basic, and further understanding success conditions.
+% Taking them as basic does, for sure, allow one to state the success conditions.
+% But, this is not the way we reason.
+% It's the success conditions themselves which keep us ticking.
+% It's trying to get a handle on this.
+% And, this leads into the weak and strong theses.
+% The weak is that the have access to success conditions at a certain point in our reasoning, and additional reasoning can lead us away from these.
+% The strong is that sometimes we don't even have access to the success conditions.
+
+% This comes out in the case of belief.
+% It's the fixing the stopwatch via the pendulum and via the church.
+
+% Reasoning, then, is structuring information around all of this.
+% What I come to form regarding pro-attitudes based on this kind of stuff doesn't amount to an intention, it's not necessarily in the slightest robust, and that's part of the point (and this is how the concerns link into the earlier paper).
+% However, it does suggest that desire-belief based reasoning has a lot to say for it.
+
+% This, at least, is the start.
+% Then there's some deep question about how this works out in the case of pracitcal reasoning, which is certainly something more involved.
+
+% \section{The Idea}
+% \label{sec:idea}
+
+% The basic idea is that there's what goes on in the mind of an agent.
+% Here, it's not just beliefs and desires.
+% It's something to do with the flow of information.
+% But there's information from two distinct sources.
+% One is the world, the other is the self, so to speak.
+% Trouble is, this information is noisy.
+% But this is only part of the problem, the other part is that this information is sometimes sparse.
+% There's a difference between sailing a small boat on a lake where one can see the shore, and sailing a boat on the ocean.
+% This is like walking down a path in comparison to walking through some woods.
+% Something like this, what's interesting about these cases, in some respect, is that they're to do one's location, but I don't think this is an important feature.
+
+
+% The core of the idea is that there's transition between information states, and that there doesn't need to be a causal connexion between the information state and the world.
+
+
+% \subsection{Weak thesis}
+% \label{sec:weak-thesis}
+
+% Assuming that one forms desires and beliefs in a way which ensures that appropriate states are proper, so to speak.
+% That one can have transitions between `desire states' which can diverge from the underlying (or perhaps better put motivating) desire.
+% This, arguably, parallels cases of belief.
+
+% One way to view this week thesis is the idea that one recognises a desire to \(\phi\), but \(\phi\)ing is something in the future, and as the time of \(\phi\)ing approaches, one loses track of \(\phi\) but knows (or believes) that one of \(\psi_{i}\) will entail \(\phi\).
+% The question, then, is which \(\psi_{i}\) to choose.
+% This is a problem, and a belief will step in, but it's not a straightforward case of a means-end belief as there's a problem in determining what the end is.
+
+% One example is buying a present.
+% Or, to go with meals, remembering you ordered something that you really enjoyed, but not being able to recall the name.
+
+% You are, then, acting on a desire but you have no idea what the propositional content of that desire is.
+
+% The alternative way for accounting for this kind of case is by supposing that there's a desire for each of the toys or menu items, and your reasoning attempts to adjudicate between these.
+% But I find it hard to really understand how this works here.
+
+% The idea is to contrast the third person and the first person cases.
+
+% There's also the case where someone forms a desire, and then the beliefs on which they form this desire no longer hold.
+% Ray had faculty with boots, I had adviser and quoting Shakespeare.
+% The puzzling thing about this is that the person is able to cite the certain determinate conditions, but none of these capture the desire.
+% Any condition stated doesn't work, unless they say that they want red boots.
+% Perhaps this is the way to go, but then an instrumental desire has turned into a self-standing desire.
+% Ah, in this sense I like Shakespeare case, as what's different is that the desire looks in some sense irrational.
+% Right, and with the Shakespeare they've started quoting Milton outside the office of the new chair.
+
+% \subsection{Strong thesis}
+% \label{sec:strong-thesis}
+
+
+% The weak thesis, but also denies that there's this requirement for appropriate states.
+% In the case of belief, this is forming the attitude independently of any evidence, so the parallel is thinking I have a fix on the pendulum by looking at the church.
+
+% The strong thesis, though, is not a \emph{very} strong thesis.
+% It still allows that there are these appropriate states, in that one does get hungry, or latches on to a particular normative reason.
+
+% The problem, then, is why these should be allowed.
+% It's possible to posit further reasons, reasons `in the background' so to speak.
+% Be this as it may, this blocks the kind of reasoning that I've been describing.
+% So, what does this explain?
+% Well, it's a mix between the sort of learning theory that Dretske goes for and a more robust type of reasoning which Goldman endorses.
+
+% Potentially motivating cases here involve enhancements.
+
+
+% \subsection{Objection}
+% \label{sec:objection}
+
+% The key objection, at least to my understanding, is that it seems possible to have some instance of reasoning which is \emph{about} or \emph{concerns} satisfaction without this having some motivational component.
+% This, then, pushes the inclusion of some desire proper, which stands behind the reasoning, and explains its motivational force.
+
+% So, there's some quality of the mental which makes certain states motivationally effective.
+% And, while the above distinction does some work, it doesn't capture this distinction.
+
+% The analogy I then want is with cases in which certain recognised beliefs aren't motivationally effective.
+% That is, an argument that there's something missing in our talk of belief.
+% So, in a sense, beliefs which don't enter into the causal nexus of things, but are likewise indistinguishable from other beliefs.
+% Examples involving phobias seem to be a good candidate for this.
+% One has a very specific motivational desire.
+% But, despite believing that this thing isn't an instance of what they have a phobia toward, they still act as though it was.
+% It's quite plausible, I want to argue, that the belief isn't correctly hooked up to the causal mechanisms.
+% And, it doesn't make sense to explain this via some other desire.
+% Say, they've done this before.
+% Actually, right, the agent is there and avows all of the `right things'.
+% Further, could enrich so that these types of cases have happened before, and that eventually the belief does make it's way.
+
+
+
+
+
+% \section{Tests}
+% \label{sec:tests}
+
+% Typically we think of propositions as sets of worlds.
+% E.g.\ \(\phi = \{w_{i}, \dots, w_{k}, \dots\}\) where the it is the commonalities between \(w_{i}, \dots, w_{k}, \dots\) which determine the meaning of \(\phi\).
+% This, however, isn't the full story, as we can likewise think of propositions as \emph{tests}, functions from (sets of worlds) to truth values.
+% From a certain perspective, this is what's captured by the use of the lambda calculus.
+% One can take \(\lambda w.\phi(w) = \top\), etc.\
+
+% But, this isn't quite the full story.
+
+
+% \begin{figure}[h]
+%   \centering
+%   \begin{tikzpicture}
+%     \node[draw] (sat) {\(\mathcal{S}\)};
+
+%     \node[draw, above right=of sat, rectangle] (inf) {\(\sigma\)};
+
+%     \node[draw, left=of sat] (world) {\(\omega\)};
+
+%     \node[draw, above left=of inf] (exp) {\(\mathbb{E}\)};
+
+%     \node[above right=of inf] (ext) {};
+
+%     \node[above=of ext] (ext2) {};
+
+%     \draw[->, to path={-| (\tikztotarget)}] (sat) edge (inf);
+%     \draw[->, to path={|- (\tikztotarget)}] (world) edge (sat);
+%     \draw[->, to path={-- (\tikztotarget)}] (exp) edge (sat);
+%     \draw[->, to path={|- (\tikztotarget)}] (ext) edge (inf);
+%     \draw[->, to path={|- (\tikztotarget)}] (inf) edge (exp);
+%     \draw[to path={-- (\tikztotarget)}, dashed] (ext) edge (ext2);
+
+%   \end{tikzpicture}
+%   \caption{Cards on the table}
+%   \label{fig:cards}
+% \end{figure}
+
+
+
+\newpage
+\printbibliography
+
+\end{document}
