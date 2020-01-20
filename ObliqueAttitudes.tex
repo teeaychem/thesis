@@ -101,8 +101,18 @@
 \usepackage{tabularx}
 
 \usepackage{bussalt}
+\newcommand{\deffCenter}{\def\fCenter{\mbox{\ \(\vdash\)\ }}}
+\newcommand{\AxiomEmpty}{
+  \def\fCenter{\mbox{\ \(\mbox{ }\)\ }}
+  \Axiom\(\fCenter\)
+  \deffCenter
+}
+\deffCenter
+
 \usepackage{Oblique} % Custom package for oblique commands
 \usepackage{CustomTheorems}
+
+
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
@@ -985,8 +995,8 @@ four structural rules, more or less standard.
 \begin{prooftree}
   \def\fCenter{\mbox{\ \(\cap\)\ }}
   \Axiom\(\Gamma \fCenter\ \Delta \ne \emptyset\)
-  \RightLabel{(Start)}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
+  \RightLabel{\ruleStart}
+  \deffCenter
   \UnaryInf\(\Gamma \fCenter\ \Delta\)
 \end{prooftree}
 
@@ -994,30 +1004,27 @@ four structural rules, more or less standard.
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma \fCenter\ \Delta\)
     \def\fCenter{\mbox{\ \(\subseteq\)\ }}
     \Axiom\(\Delta \fCenter\ \Delta'\)
-    \RightLabel{(R-Mon)}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
+    \RightLabel{\ruleMonR}
+    \deffCenter
     \BinaryInf\(\Gamma \fCenter\ \Delta'\)
   \end{prooftree}
 
 \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
   \Axiom\(\Gamma \fCenter\ \Delta\)
   \def\fCenter{\mbox{\ \(\subseteq\)\ }}
   \Axiom\(\Gamma \fCenter\ \Gamma'\)
-  \RightLabel{(L-Mon)}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
+  \RightLabel{\ruleMonL}
+  \deffCenter
   \BinaryInf\(\Gamma' \fCenter\ \Delta\)
 \end{prooftree}
 \end{multicols}
 
 \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
   \Axiom\(\Gamma, \phi \fCenter \Delta\)
-  \Axiom\(\Gamma \fCenter \phi, \Delta\)\RightLabel{(Cut)}
+  \Axiom\(\Gamma \fCenter \phi, \Delta\)\RightLabel{\ruleCut}
   \BinaryInf\(\Gamma \fCenter \Delta\)
 \end{prooftree}
 
@@ -1028,73 +1035,73 @@ Collection of general propositional rules which are valid for any type of formul
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\fCenter \top\)}
+    \AxiomEmpty
+    \RightLabel{\ruleTop}
+    \UnaryInf\(\fCenter \top\)
   \end{prooftree}
 
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\bot \fCenter\)}
-  \end{prooftree}
-\end{multicols}
-
-\begin{multicols}{2}
-  \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\lnot\ast \fCenter \ast\)}
-  \end{prooftree}
-
-  \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\ast \fCenter \lnot\ast\)}
+    \AxiomEmpty
+    \RightLabel{\ruleBot}
+    \UnaryInf\(\bot \fCenter\)
   \end{prooftree}
 \end{multicols}
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\phi,\lnot\phi \fCenter \ast\)}
+    \AxiomEmpty
+    \RightLabel{\ruleNotAstL}
+    \UnaryInf\(\lnot\ast \fCenter \ast\)
   \end{prooftree}
 
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \AxiomC{}
-    \UnaryInfC{\(\ast \fCenter \phi,\lnot\phi\)}
+    \AxiomEmpty
+    \RightLabel{\ruleNotAstR}
+    \UnaryInf\(\ast \fCenter \lnot\ast\)
+  \end{prooftree}
+\end{multicols}
+
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleAstL}
+    \UnaryInf\(\phi,\lnot\phi \fCenter \ast\)
+  \end{prooftree}
+
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleAstR}
+    \UnaryInf\(\ast \fCenter \phi,\lnot\phi\)
   \end{prooftree}
 \end{multicols}
 
 
 \begin{multicols}{2}
   \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
-  \Axiom\(\lnot\Gamma \fCenter \Delta\)
+    \Axiom\(\lnot\Gamma \fCenter \Delta\)
+    \RightLabel{\ruleNotL}
   \UnaryInf\(\lnot\Delta \fCenter \Gamma\)
 \end{prooftree}
 \columnbreak
 
 \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
   \Axiom\(\Gamma \fCenter\ \lnot\Delta\)
+  \RightLabel{\ruleNotR}
   \UnaryInf\(\Delta \fCenter\ \lnot\Gamma\)
 \end{prooftree}
 \end{multicols}
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma,\phi,\psi \fCenter\ \Delta\)
     \doubleLine
+    \RightLabel{\ruleAndL}
     \UnaryInf\(\Gamma,\phi\land\psi \fCenter\ \Delta\)
   \end{prooftree}
 
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \Axiom\(\Gamma \fCenter\ \phi,\psi \Delta\)
+    \Axiom\(\Gamma \fCenter\ \phi,\psi, \Delta\)
+    \RightLabel{\ruleOrR}
     \doubleLine
     \UnaryInf\(\Gamma \fCenter\ \phi\lor\psi, \Delta\)
   \end{prooftree}
@@ -1103,15 +1110,15 @@ Collection of general propositional rules which are valid for any type of formul
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma,\phi,\psi \fCenter\ \ast, \Delta\)
     \doubleLine
+    \RightLabel{\ruleIntL}
     \UnaryInf\(\Gamma,\phi\lint\psi \fCenter\ \ast, \Delta\)
   \end{prooftree}
 
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma,\ast \fCenter\ \phi,\psi, \Delta\)
+    \RightLabel{\ruleIntR}
     \doubleLine
     \UnaryInf\(\Gamma,\ast \fCenter\ \phi\lint\psi, \Delta\)
   \end{prooftree}
@@ -1125,14 +1132,14 @@ Note these are not hold in both directions.
 
 \begin{multicols}{2}
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma,\attn{\phi} \fCenter\ \Delta\)
+    \RightLabel{\ruleAttnL}
     \UnaryInf\(\Gamma,\attn{\phi},\phi \fCenter\ \Delta\)
   \end{prooftree}
 
   \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
     \Axiom\(\Gamma \fCenter\ \attn{\phi}, \Delta\)
+    \RightLabel{\ruleAttnR}
     \UnaryInf\(\Gamma \fCenter\ \attn{\phi} \land \phi, \Delta\)
   \end{prooftree}
 \end{multicols}
@@ -1147,53 +1154,195 @@ Following \citeauthor{Jaspars:1996aa}, we introduce a single rule covering the g
 This rule is termed general as it does not depend on the constraints we place on accessibility relations.
 
 \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
   \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
-  \RightLabel{(Box-1)}
+  \RightLabel{\ruleBoxR}
   \UnaryInf\(\Box\Gamma \fCenter\ \Box\phi, \lnot\Box\Delta\)
 \end{prooftree}
 
 \begin{lemma}[Soundness]
   The general modal rule is sound.
   \begin{proof}
-    Suppose \(\Gamma,\lnot\phi \vdash \lnot\Delta\).
+    Suppose \(\Gamma \Vdash \phi, \lnot\Delta\).
 
-    For the left-to-right sub-consequence relation. And, suppose \(\Box\Gamma, \lnot\Box\phi\) holds at some world. Then, some world at which \(\lnot\phi\) is true along with \(\gamma \in \Gamma\), but then at this world some \(\delta \in \Delta\) must fail to hold, and hence \(\lnot\Box\Delta\).
+    For the left-to-right direction suppose for some \(s \in \omodel{M}\), \(\omodel{M},s \vDash \Box\gamma\) for all \(\gamma \in \Gamma\) and let \(t\) be arbitrary such that \(Rst\).
+    From the above, \(\omodel{M},t \vDash \gamma\) for all \(\gamma \in \Gamma\) and therefore \(\omodel{M},t \vDash \phi\) or \(\omodel{M},t \vDash \lnot\delta\) for some \(\delta \in \Delta\).
+    If it is the case that \(\omodel{M},v \vDash \phi\) for every \(v\) such that \(Rsv\) then clearly \(\omodel{M},s \vDash \Box\phi\), while if there is some \(v\) such that \(Rsv\) while \(\omodel{M},v \nvDash \phi\) then \(\omodel{M},v \vDash \lnot\delta\) for some \(\delta \in \Delta\) and hence \(\omodel{M},s \vDash \lnot\Box\delta\).
 
-    For the right-to-left sub-consequence relation. Suppose \(\Box\Delta\). Then, take any world, if no world then \(\Box\phi\), and if some world then either \(\phi\) is true at all, and hence \(\Box\phi\), or some \(\gamma \in \Gamma\) is false, and hence not \(\Box\Gamma\).
+    For the right-to-left direction suppose for some \(s \in \omodel{M}\), \(\omodel{M},s \Dashv \Box\phi\) and \(\omodel{M},s \Dashv \lnot\Box\delta\) for every \(\delta \in \Delta\).
+    So, \(\omodel{M},s \vDash \lnot\Box\phi\) and \(\omodel{M},s \vDash \Box\delta\) for every \(\delta \in \Delta\).
+    By the former conjunct there is some \(t \in \omodel{M}\) such that \(Rst\) with \(\omodel{M},t \vDash \lnot\phi\) and by the latter conjunct \(\omodel{M},t \vDash \delta\) for every \(\delta \in \Delta\).
+    Our assumption that \(\Gamma \Vdash \phi, \lnot\Delta\) ensure that \(\Delta, \lnot\phi \Vdash \lnot\Gamma\) and hence it must be the case that \(\omodel{M},t \vDash \lnot\gamma\) for some \(\gamma \in \Gamma\) and hence \(\omodel{M},s \Dashv \Box\gamma\) for some \(\gamma \in \Gamma\).
   \end{proof}
 \end{lemma}
 
-While \citeauthor{Jaspars:1996aa} also require the contrapositive of (Box-1), we can derive this.
-
 \begin{proposition}
-  The following rule is derivable in our system.
+  The following rules are derivable in our system:
+  \begin{multicols}{2}
     \begin{prooftree}
-  \def\fCenter{\mbox{\ \(\seq\)\ }}
-  \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
-  \RightLabel{(Box-2)}
-  \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
-\end{prooftree}
+      \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\) \RightLabel{\ruleBoxLP} \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
+    \end{prooftree}
+
+  \begin{prooftree}
+    \Axiom\(\Gamma,\phi \fCenter\ \Delta\) \RightLabel{\ruleDiaL} \UnaryInf\(\Box\Gamma,\Diamond\phi \fCenter\ \Diamond\Delta\)
+  \end{prooftree}
+\end{multicols}
+
   \begin{proof}
-    By applying the contraposition rule, changing variables used.
+    By applying the contraposition rule.
   \end{proof}
 \end{proposition}
+\citeauthor{Jaspars:1996aa} require \ruleBoxLP\ to be taken as a separate rule due to the consequence relation they use.
 
 Window-type modalities are governed by a corresponding rule.
 
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma \fCenter\ \phi, \Delta\)
+  \RightLabel{\ruleWinR}
+  \UnaryInf\(\Window\Gamma \fCenter\ \Window\lnot\phi, \lnot\Window\Delta\)
+\end{prooftree}
+
+\ruleWinR\ is structurally similar to \ruleBoxR.
+
+
+\begin{proposition}
+  \ruleWinR\ is sound.
+  \begin{proof}
+    Assume \(\lnot\Gamma \Vdash \phi, \Delta\).
+
+    For the left-to-right direction suppose for some \(s \in \omodel{M}\), \(\omodel{M},s \vDash \Window\gamma\) for all \(\gamma \in \Gamma\).
+    By the semantic clause for \(\Window\) we have for all \(t\) such that \(\lnot Rst\), \(\omodel{M}, t \vDash \lnot\gamma\) for all \(\gamma \in \Gamma\).
+    If it is the case that \(\omodel{M},v \vDash \phi\) for every \(v\) such that \(\lnot Rsv\) then clearly \(\omodel{M},s \vDash \Window\lnot\phi\).
+    And, if there is some \(v\) such that \(\omodel{M},v \nvDash \phi\), then \(\omodel{M},v \vDash \delta\) for some \(\delta \in \Delta\) from which it follows that \(\omodel{M},s \vDash \lnot\Window\delta\).
+
+    For the right-to-left direction, suppose \(\omodel{M}, s \Dashv \Window\lnot\phi\) and \(\omodel{M},s \Dashv \lnot\Window\delta\) for all \(\delta \in \Delta\).
+    Hence, \(\omodel{M},s \vDash \Kite\phi\) and \(\omodel{M},s \vDash \Window\delta\) for \(\delta \in \Delta\).
+    By the former there is some \(t \in \omodel{M}\) such that \(\lnot Rst\) with \(\omodel{M}, t \vDash \lnot\phi\) and by the latter it is also the case that \(\omodel{M},t \vDash \lnot\delta\) for each \(\delta \in \Delta\).
+    As \(\lnot\Gamma \Vdash \phi, \lnot\Delta\) we also have \(\lnot\Delta \Vdash, \lnot\phi \Vdash \Gamma\), and hence \(\omodel{M},t \vDash \gamma\) for some \(\gamma \in \Gamma\).
+    Therefore, \(\omodel{M},s \Dashv \Window\gamma\) for some \(\gamma \in \Gamma\).
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  The following rules are derivable in our system:
+  \begin{multicols}{2}
     \begin{prooftree}
-    \def\fCenter{\mbox{\ \(\seq\)\ }}
-    \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
-    \RightLabel{(Window-1)}
-    \UnaryInf\(\Window\Gamma \fCenter\ \Window\lnot\phi, \Window\Delta\)
-  \end{prooftree}
+  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+  \RightLabel{\ruleWinL}
+  \UnaryInf\(\Window\Gamma,\lnot\Window\phi \fCenter\ \lnot\Window\Delta\)
+\end{prooftree}
 
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+  \RightLabel{\ruleKitL}
+  \UnaryInf\(\Window\Gamma,\Kite\phi \fCenter\ \Kite\Delta\)
+\end{prooftree}
+  \end{multicols}
+\end{proposition}
 
-\begin{proposition}[Finiteness]
+\subsubsection{Some useful properties}
+\label{sec:some-usef-deriv}
+
+\begin{proposition}[Finiteness]\label{prop:finiteness}
   If \(\Gamma \vdash \Delta\) then there exist finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq \Delta\) such that \(\Gamma' \vdash \Delta'\).
   \begin{proof}
     By induction on the length of proofs.
     Base cases show how to find the finite sets, and then the rules only manipulate finite subsets.
+  \end{proof}
+\end{proposition}
+
+Terming finiteness `useful' may be an understatement, for without this property our method of proving completeness would fail.
+However, it does allow some useful applications.
+
+\begin{proposition}[Double negation]\label{prop:DN}\mbox{ }
+  \begin{multicols}{2}
+    \begin{prooftree}
+      \AxiomEmpty
+      \UnaryInf\(\phi \fCenter\ \lnot\lnot\phi\)
+    \end{prooftree}
+
+    \begin{prooftree}
+      \AxiomEmpty
+      \UnaryInf\(\lnot\lnot\phi \fCenter\ \phi\)
+    \end{prooftree}
+  \end{multicols}
+  \begin{proof}
+    From \ruleStart\ we can obtain \(\lnot\phi \vdash \lnot\phi\).
+    The left rule then follows by a single application of \ruleNotR\ and the right rule likewise follows from a single application of \ruleNotL.
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:DNSubst}\mbox{ }
+  \begin{multicols}{2}
+    \begin{prooftree}
+      \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
+      \doubleLine
+      \UnaryInf\(\Gamma, \lnot\lnot\phi \fCenter\ \Delta\)
+    \end{prooftree}
+
+    \begin{prooftree}
+      \Axiom\(\Gamma \fCenter\ \phi, \Delta\)
+      \doubleLine
+      \UnaryInf\(\Gamma \fCenter\ \lnot\lnot\phi, \Delta\)
+    \end{prooftree}
+  \end{multicols}
+  \begin{proof}
+    We provide proofs of the downward instances of the rules, with the upward instances being analogous, viz:
+    \begin{multicols}{2}
+      \begin{prooftree}
+        \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
+        \AxiomEmpty
+        \UnaryInf\(\lnot\lnot\phi \fCenter\ \phi\)
+        \UnaryInf\(\Gamma, \lnot\lnot\phi \fCenter\ \phi, \Delta\)
+        \BinaryInf\(\Gamma, \lnot\lnot\phi \fCenter\ \Delta\)
+      \end{prooftree}
+
+      \begin{prooftree}
+        \Axiom\(\Gamma \fCenter\ \phi, \Delta\)
+        \AxiomEmpty
+        \UnaryInf\(\phi \fCenter\ \lnot\lnot\phi\)
+        \UnaryInf\(\Gamma, \phi \fCenter\ \lnot\lnot\phi, \Delta\)
+        \BinaryInf\(\Gamma \fCenter\ \lnot\lnot\phi, \Delta\)
+      \end{prooftree}
+    \end{multicols}
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:ContapositionRules}\mbox{ }
+  \begin{multicols}{2}
+    \begin{prooftree}
+      \Axiom\(\Gamma \fCenter\ \Delta\)
+      \doubleLine
+      \UnaryInf\(\lnot\Delta \fCenter\ \lnot\Gamma\)
+    \end{prooftree}
+
+    \begin{prooftree}
+      \Axiom\(\Gamma \fCenter\ \lnot\Delta\)
+      \doubleLine
+      \UnaryInf\(\Delta \fCenter\ \lnot\Gamma\)
+    \end{prooftree}
+  \end{multicols}
+  \begin{proof}
+    If \(\Gamma \vdash (\lnot)\Delta\) then by proposition~\ref{prop:finiteness} there exist finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq (\lnot)\Delta\) such that \(\Gamma' \vdash \Delta'\).
+    We can then apply the derived rules from proposition~\ref{prop:DNSubst} in conjunction with \ruleNotL\ and \ruleNotR\ to obtain the desire entailment between \(\Gamma'\) and \(\Delta'\) before appealing to \ruleMonL\ and \ruleMonR\ to obtain any `missing' formulas.
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:AstRules}\mbox{ }
+   \begin{multicols}{2}
+    \begin{prooftree}
+      \Axiom\(\Gamma, \ast \fCenter\ \Delta\)
+      \doubleLine
+      \UnaryInf\(\Gamma, \lnot\ast \fCenter\ \Delta\)
+    \end{prooftree}
+
+    \begin{prooftree}
+      \Axiom\(\Gamma \fCenter\ \ast, \Delta\)
+      \doubleLine
+      \UnaryInf\(\Gamma \fCenter\ \lnot\ast, \Delta\)
+    \end{prooftree}
+  \end{multicols}
+  \begin{proof}
+    Through rules \ruleNotAstL, \ruleNotAstR, \ruleMonL, \ruleMonL, and \ruleCut.
   \end{proof}
 \end{proposition}
 
@@ -1202,8 +1351,8 @@ Window-type modalities are governed by a corresponding rule.
 \label{sec:completeness-ideas}
 
 Completeness follows the traditional path of showing how to construct a countermodel for any failure of derivability.
-The structural rule (T) is important here.
-For, if \(\Gamma \nvdash \Delta\), then (T) guarantees there is no \(\lambda\) such that \(\Gamma,\lambda \vdash \Delta\) and \(\Gamma \vdash \lambda,\Delta\).
+The structural rule \ruleCut\ is important here.
+For, if \(\Gamma \nvdash \Delta\), then \ruleCut\ guarantees there is no \(\lambda\) such that \(\Gamma,\lambda \vdash \Delta\) and \(\Gamma \vdash \lambda,\Delta\).
 Spelt out, this means that there's no expression \(\lambda\) which connects \(\Gamma\) and \(\Delta\) by requiring that when every expression in \(\Gamma\) is true then some expression in \(\Delta\) must also be true and if every expression in \(\Delta\) is false then some expression in \(\Gamma\) is false.
 Hence, it will be possible to expand \(\Gamma\) and \(\Delta\) to an exhaustive pair \(\Gamma'\) and \(\Delta'\) partitioning the language, which in turn will provide the basis for specifying a countermodel.
 
@@ -1223,13 +1372,6 @@ The exhaustive pair specifies a point.
 
 
 
-\begin{proposition}\label{prop:finiteness}
-  \(\Gamma \vDash \Delta\) iff \(\Gamma \vDash \ast, \Delta\) and \(\Gamma, \ast \vDash \Delta\).
-  \begin{proof}
-    From left to right, if the entailment holds, then it's got to be the case that the weakenings hold.
-And, from right to left, this relies on the relevant definitions to show that the respective instances of \(\ast\) can be eliminated.
-  \end{proof}
-\end{proposition}
 
 This allows us to split the consequence relation.
 The use of this is to observe that there only needs to be one sub-failure of entailment.
@@ -1248,7 +1390,6 @@ And, we don't need to directly deal with both sub-instances of entailment.
   If a contradiction were used, this would lead to a stronger condition.
   \begin{itemize}
   \item \(\Gamma\) is consistent iff \(\Gamma \nvdash \ast\) or \(\ast \nvdash \Gamma\).
-  \item \(\opair{\Gamma}{\Delta}\) is consistent iff either \(\Gamma\) or \(\Delta\) is consistent.
     \begin{itemize}
     \item Left consistency and right consistency, respectively.
     \end{itemize}
@@ -1259,23 +1400,21 @@ And, we don't need to directly deal with both sub-instances of entailment.
 Consistent sets will be saturated, and correspond to states.
 
 The idea of saturation is key, but the double-barrelled notion of consequence requires some generalisations, as we may need to saturate for either truth or falsity.
-\cite{Thomason:1968aa} and \cite{Aczel:1968aa} provide the foundations for saturated theories.
+\textcite{Thomason:1968aa} and \textcite{Aczel:1968aa} provide the foundations for saturated theories.
 
 \begin{definition}[Saturation]
   Given a set of formulas \(\Gamma\), we say that \(\Gamma\) is:
   \begin{itemize}
-  \item left-saturated if for all \(\Sigma\), if \(\Gamma \vdash \ast, \Sigma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
-  \item right-saturated if for all \(\Sigma\), if \(\Sigma, \ast \vdash \Gamma\) then \(\Gamma \cap \Sigma \ne \emptyset\)
+  \item Left-saturated if for all \(\Sigma\), if \(\Gamma \vdash \ast, \Sigma\) then \(\Gamma \cap \Sigma \ne \emptyset\).
+  \item Right-saturated if for all \(\Sigma\), if \(\Sigma, \ast \vdash \Gamma\) then \(\Gamma \cap \Sigma \ne \emptyset\).
   \end{itemize}
 \end{definition}
-
-Note that these dual notions of saturation correspond to the two notions of consistency.
 
 \begin{definition}[Saturators]
   \mbox{ }
   \begin{itemize}
-  \item \(\Lambda\) is a left saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Gamma \vdash \ast, \Delta\) then \(\Delta \cap \Lambda \ne \emptyset\)
-  \item \(\Lambda\) is a right saturator of \(\Gamma\) iff for all \(\Delta\) if \(\Delta, \ast \vdash \Gamma\) then \(\Delta \cap \Lambda \ne \emptyset\)
+  \item \(\Lambda\) is a left saturator of \(\Gamma\) iff for all \(\Sigma\) if \(\Gamma \vdash \ast, \Sigma\) then \(\Sigma \cap \Lambda \ne \emptyset\)
+  \item \(\Lambda\) is a right saturator of \(\Gamma\) iff for all \(\Sigma\) if \(\Sigma, \ast \vdash \Gamma\) then \(\Sigma \cap \Lambda \ne \emptyset\)
   \end{itemize}
 \end{definition}
 
@@ -1283,37 +1422,31 @@ Note that these dual notions of saturation correspond to the two notions of cons
 The Lindenbaum lemma is move involved than usual.
 A saturated pair is either left or right saturated.
 However, it may be possible for a pair to be either left or right saturated.
-For example, \(\opair{\{p\}}{\{q\}}\).
+For example, \(\{p\}\).
 Here, there are two exhaustive pairs, both of which would be fit for purpose.
 Instead of choosing, we introduce two cases of saturation.
-
-
 
 For left saturation, we immediately introduce an \(\ast\) on the right.
 This weakens the consequence relation, as desired.
 
 \begin{lemma}[Lindenbaum, left]\label{lindenbaum:left}
-  Suppose \(\Lambda\) is a left saturator of \(\opair{\Gamma}{\Delta}\), then there's a left-saturated exhaustive pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Lambda\).
-
-
+  Suppose \(\Lambda\) is a left saturator of \(\Gamma\), then there's a left-saturated set \(\Gamma^{+}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Lambda\).
   \begin{proof}
     Let \(\{\phi\}_{i_{i \in \omega}}\) be an enumeration of \(\olang{}\) such that every element of \(\Lambda\) occurs infinitely many times.\nolinebreak
 
-    Given \(\{\phi\}_{i \in \omega}\), we define a sequence \(\opair{\Gamma_{i}}{\Delta_{i}}_{i \in \omega}\) such that \(\Lambda\) is a left-saturator of each \(\opair{\Gamma_{i}}{\Delta_{i}}\), with the limit of the sequence providing the desired left-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\).
+    Given \(\{\phi\}_{i \in \omega}\), we define a sequence \(\{\Gamma_{i}\}_{i \in \omega}\) such that \(\Lambda\) is a left-saturator of each \(\Gamma_{i}\), with the limit of the sequence providing the desired left-saturated pair \(\Gamma^{+}\).
 
     \begin{align*}
-      \opair{\Gamma_{0}}{\Delta_{0}} &= \opair{\Gamma}{\Delta \cup \{\ast\}} \\
-      \opair{\Gamma_{n+1}}{\Delta_{n+1}} &=
+      \Gamma_{0} &= \Gamma \\
+      \Gamma_{n+1} &=
                                                   \begin{cases}
-                                                    \opair{\Gamma_{n} \cup \{\phi_{n}\}}{\Delta_{n}} &\text{if for all finite } \Sigma \colon  \\
-                                                    &\quad \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Gamma_{n},\phi_{n} \vdash \ast, \Sigma \\
-                                                    \opair{\Gamma_{n}}{\Delta_{n} \cup \{\phi_{n}\}}
+                                                    \Gamma_{n} \cup \{\phi_{n}\} &\text{if for all finite } \Sigma \colon \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Gamma_{n},\phi_{n} \vdash \ast, \Sigma \\
+                                                    \Gamma_{n}
                                                     &\text{otherwise} \\
                                                   \end{cases}
       \\
-      \opair{\Gamma^{+}}{\Delta^{+}} &= \opair{\bigcup_{n \in \omega}\Gamma_{n}}{\bigcup_{n\in\omega}\Delta_{n}}
+      \Gamma^{+} &= \bigcup_{n \in \omega}\Gamma_{n}
     \end{align*}
-    Note first that \(\opair{\Gamma^{+}}{\Delta^{+}}\) is exhaustive by construction.
 
     To see that \(\Gamma^{+} \subseteq \Lambda\) note that by definition:
     \begin{enumerate}[label=(\arabic*)]
@@ -1321,14 +1454,14 @@ This weakens the consequence relation, as desired.
     \end{enumerate}
     By proposition~\ref{prop:finiteness} this means that \(\Lambda\) is a saturator of each \(\Gamma_{n}\), and so by some other observation we have \(\Gamma^{+} \subseteq \Lambda\).
 
-    To establish the left-saturation of \(\opair{\Gamma^{+}}{\Delta^{+}}\) we show that:
+    To establish the left-saturation of \(\Gamma^{+}\) we show that:
     \begin{enumerate}[label=(\arabic*),resume]
     \item\label{leftLindenbaum:2} For all \(k \in \omega \colon\) if \(\Gamma_{k} \vdash \ast, \Sigma\) and \(\Sigma\) is finite, then \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
     \end{enumerate}
 
     This is where the repeated instances of a proposition in the enumeration \(\{\phi_{i}\}_{i \in \omega}\) comes into play.
     For, suppose that for some \(k\) and finite \(\Sigma\) it is the case that \(\Gamma_{k} \vdash \ast, \Sigma\) but \(\Sigma \cap \Gamma^{+} = \emptyset\).
-    By \ref{leftLindenbaum:1} we know that \(\Sigma \cap \Lambda\) is non-empty, and as each formula occurs in \(\{\phi_{i}\}_{i \in \omega}\) infinitely many times let \(\{\phi_{k_{1}}, \dots, \phi_{k_{n}}\}\) be an enumeration of \(\Sigma \cap \Lambda\) such that \(k < k_{i}\) for all \(i\) and \(k_{i} < k_{j}\) for \(i < j\).
+    By~\ref{leftLindenbaum:1} we know that \(\Sigma \cap \Lambda\) is non-empty, and as each formula occurs in \(\{\phi_{i}\}_{i \in \omega}\) infinitely many times let \(\{\phi_{k_{1}}, \dots, \phi_{k_{n}}\}\) be an enumeration of \(\Sigma \cap \Lambda\) such that \(k < k_{i}\) for all \(i\) and \(k_{i} < k_{j}\) for \(i < j\).
     Intuitively, the enumeration \(\{\phi_{k_{1}}, \dots, \phi_{k_{n}}\}\) identifies some instance of each \(\phi \in \Sigma \cap \Lambda\) which are yet to be considered at the \(k^{\text{th}}\) stage of the sequence.
 
     For each \(\phi_{k_{i}}\) it must be that \mbox{\(\Gamma, \phi_{k_{i}} \vdash \ast, \Sigma_{i}\)} for some finite \(\Sigma_{i}\) such that \(\Sigma_{i} \cap \Lambda = \emptyset\), by the construction of \(\Gamma^{+}\).
@@ -1340,13 +1473,13 @@ This weakens the consequence relation, as desired.
 
     The previous steps can be replicated for each \(\phi_{k_{i}}\), noting that \(\Gamma_{k_{i}} \subseteq \phi_{k_{i+1}}\), from which we obtain \mbox{\(\Gamma_{k_{n}} \vdash \ast, \Sigma - \{\phi_{k_{1}},\dots,\phi_{k_{n}}\}, \Sigma_{1},\dots,\Sigma_{n}\)}.
     As \(\Sigma\) is finite by assumption, and each \(\Sigma_{i}\) is also finite (of which there are a finitely many), this means the union of the sets of the right hand side of the consequence relation is finite.
-    Yet, \((\Sigma - \{\phi_{k_{1}},\dots,\phi_{k_{n}}\} \cup \Sigma_{1} \cup \dots \cup \Sigma_{n}) \cap \Lambda = \emptyset\), contradicting \ref{leftLindenbaum:1}, above.
+    Yet, \((\Sigma - \{\phi_{k_{1}},\dots,\phi_{k_{n}}\} \cup \Sigma_{1} \cup \dots \cup \Sigma_{n}) \cap \Lambda = \emptyset\), contradicting~\ref{leftLindenbaum:1}, above.
 
     So, for any finite \(\Gamma_{k}\), if \(\Gamma_{k} \vdash \ast, \Sigma\) and \(\Sigma\) is finite, then \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
 
     By proposition~\ref{prop:finiteness}, if \(\Gamma^{+} \vdash \ast, \Sigma\) then there are finite subsets \(\Gamma \subseteq \Gamma^{+}\) and \(\Sigma' \subseteq \Sigma\) such that \(\Gamma \vdash \ast, \Sigma\) and by construction of \(\Gamma^{+}\) there is some \(n \in \omega\) such that \(\Gamma_{n} \vdash \ast, \Sigma'\).
     From \label{leftLindenbaum:2} we know that \(\Sigma' \cap \Gamma^{+} \ne \emptyset\) and so \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
-    Therefore, \(\opair{\Gamma^{+}}{\Delta^{+}}\) is left-saturated.
+    Therefore, \(\Gamma^{+}\) is left-saturated.
   \end{proof}
 
 \end{lemma}
@@ -1354,24 +1487,23 @@ This weakens the consequence relation, as desired.
 For right saturation, we move our attention to the right-to-left sub-consequence relation.
 
 \begin{lemma}[Lindenbaum, right]\label{lindenbaum:right}
-  Suppose \(\Lambda\) is a right saturator of \(\opair{\Gamma}{\Delta}\), then there's a right-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Delta \subseteq \Delta^{+} \subseteq \Lambda\).
+  Suppose \(\Lambda\) is a right saturator of \(\Gamma\), then there's a right-saturated pair \(\Gamma^{+}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Lambda\).
   \begin{proof}
     The proof strategy for right-saturation is analogous to left-saturation, altered only for the corresponding change in sub-consequence relation of interest.
     \begin{align*}
-      \opair{\Gamma_{0}}{\Delta_{0}} &= \opair{\Gamma \cup \{\ast\}}{\Delta} \\
-      \opair{\Gamma_{n+1}}{\Delta_{n+1}} &=
+      \Gamma_{0} &= \Gamma \\
+      \Gamma_{n+1} &=
                                                   \begin{cases}
-                                                    \opair{\Gamma_{n}}{\Delta_{n} \cup \{\phi_{n}\}} &\text{if for all finite } \Sigma \colon\\
-                                                    &\quad \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Sigma,\ast \vdash \phi_{n},\Delta_{n} \\
-                                                    \opair{\Gamma_{n} \cup \{\phi_{n}\}}{\Delta_{n}} &\text{otherwise} \\
+                                                    \Gamma_{n} \cup \{\phi_{n}\} &\text{if for all finite } \Sigma \colon \Sigma \cap \Lambda \ne \emptyset, \text{ when } \Sigma,\ast \vdash \phi_{n},\Gamma_{n} \\
+                                                    \Gamma_{n} &\text{otherwise} \\
                                                   \end{cases}
       \\
-      \opair{\Gamma^{+}}{\Delta^{+}} &= \opair{\bigcup_{n \in \omega}\Gamma_{n}}{\bigcup_{n\in\omega}\Delta_{n}}
+      \Gamma^{+} &= \bigcup_{n \in \omega}\Gamma_{n}
     \end{align*}
-    Again, \(\opair{\Gamma^{+}}{\Delta^{+}}\) is exhaustive by construction and the following two properties can be established:
+    Again, \(\Gamma^{+}\) is exhaustive by construction and the following two properties can be established:
     \begin{enumerate}[label=(\arabic*)]
-    \item\label{rightLindenbaum:1} If \(\Sigma,\ast \vdash \Delta_{n}\) then \(\Sigma \cap \Lambda \ne \emptyset\) for all finite \(\Sigma\).
-    \item\label{rightLindenbaum:2} For all \(k \in \omega \colon\) if \(\Sigma, \ast \vdash \Delta_{k}\) and \(\Sigma\) is finite, then \(\Sigma \cap \Delta^{+} \ne \emptyset\).
+    \item\label{rightLindenbaum:1} If \(\Sigma,\ast \vdash \Gamma_{n}\) then \(\Sigma \cap \Lambda \ne \emptyset\) for all finite \(\Sigma\).
+    \item\label{rightLindenbaum:2} For all \(k \in \omega \colon\) if \(\Sigma, \ast \vdash \Gamma_{k}\) and \(\Sigma\) is finite, then \(\Sigma \cap \Gamma^{+} \ne \emptyset\).
     \end{enumerate}
   \end{proof}
 \end{lemma}
@@ -1379,77 +1511,186 @@ For right saturation, we move our attention to the right-to-left sub-consequence
 
 
 \begin{corollary}[Saturation]
-  If \(\Gamma \nvdash \Delta\) then there exists an exhaustive pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma^{+} \cap \Delta^{+} = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) and \(\Delta \subseteq \Delta^{+}\) and either
+  If \(\Gamma \nvdash \Delta\) then there exists an saturated set \(\Gamma^{+}\) such that \(\Gamma^{+} \cap \Delta = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) where either
   \begin{enumerate}
-  \item If \(\Gamma \nvdash \ast, \Delta\) then \(\opair{\Gamma^{+}}{\Delta^{+}}\) is a left-saturated pair, or
-  \item If \(\Gamma,\ast \nvdash \Delta\) then \(\opair{\Gamma^{+}}{\Delta^{+}}\) is a right-saturated pair.
+  \item \(\Gamma^{+}\) is left-saturated if \(\Gamma \nvdash \ast, \Delta\), or
+  \item \(\Gamma^{+}\) is right-saturated if \(\Delta,\ast \nvdash \Gamma\)
   \end{enumerate}
   \begin{proof}
     If \(\Gamma \nvdash \Delta\) then either \(\Gamma \nvdash \ast, \Delta\) or \(\Gamma, \ast \nvdash \Delta\).
 
     Suppose \(\Gamma \nvdash \ast, \Delta\).
-    Then, \(\Delta^{c} = \olang{} - \Delta\) is a left-saturator of \(\olang{\Gamma}{\Delta}\).
+    Then, \(\Delta^{c} = \olang{} - \Delta\) is a left-saturator of \(\Gamma\).
     For, \(\Delta^{c}\) is \emph{not} a saturator of \(\Gamma\) if and only if there is some \(\Sigma\) such that \(\Gamma \vdash \ast, \Sigma\) with \(\Sigma \cap \Delta^{c} = \emptyset\).
-    Yet, if \(\Sigma \cap \Delta^{c} = \emptyset\), then \(\Sigma \subseteq \Delta\), and so by R-Mon the previous is the case if and only if \(\Gamma \vdash \ast, \Delta\) contradicting our initial assumption.
+    Yet, if \(\Sigma \cap \Delta^{c} = \emptyset\), then \(\Sigma \subseteq \Delta\), and so by \ruleMonR\ the previous is the case if and only if \(\Gamma \vdash \ast, \Delta\) contradicting our initial assumption.
 
-    So, as \(\Delta^{c}\) is a left-saturator of \(\opair{\Gamma}{\Delta}\) and appeal to lemma~\ref{lindenbaum:left} ensures there is a left-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Delta^{c}\) and hence \(\Gamma^{+} \cap \Delta = \emptyset\).
+    So, as \(\Delta^{c}\) is a left-saturator of \(\Gamma\) and appeal to lemma~\ref{lindenbaum:left} ensures there is a left-saturated pair \(\Gamma^{+}\) such that \(\Gamma \subseteq \Gamma^{+} \subseteq \Delta^{c}\) and hence \(\Gamma^{+} \cap \Delta = \emptyset\).
 
-    Likewise, if \(\Gamma, \ast \nvdash \Delta\) then \(\Gamma^{c}\) is a right-saturator of \(\olang{\Gamma}{\Delta}\) we appeal to lemma~\ref{lindenbaum:right} to find a right-saturated pair \(\opair{\Gamma^{+}}{\Delta^{+}}\) with the desired properties.
+    Likewise, if \(\Delta, \ast \nvdash \Gamma\) then \(\Delta^{c}\) is a right-saturator of \(\Gamma\) we appeal to lemma~\ref{lindenbaum:right} to find a right-saturated pair \(\Gamma^{+}\) with the desired properties.
   \end{proof}
 \end{corollary}
 
+The following lemma shows that lemmas~\ref{lindenbaum:left} and~\ref{lindenbaum:right} amount to the same thing, and either can be indirectly used to prove the other.\nolinebreak
+\footnote{This is a version of \citeauthor{Blamey:1980aa}'s lemma III.2.15 (\citeyear[122]{Blamey:1980aa})}
+
 \begin{lemma}[Correspondence]\label{lem:correspondence}
-  \(\olang{\Gamma}{\Delta}\) is left-saturated iff \(\opair{\lnot\Delta}{\lnot\Gamma}\) is right-saturated.
+  \(\Gamma\) is left-saturated iff \(\lnot\Gamma\) is right-saturated.
   \begin{proof}
-    From left to right, if \(\olang{\Gamma}{\Delta}\) is left-saturated then, for finite \(\Sigma\), whenever \(\Gamma \vdash \Sigma\), \(\Gamma \cap \Sigma \ne \emptyset\).
+    From left to right, if \(\Gamma\) is left-saturated then, for finite \(\Sigma\), whenever \(\Gamma \vdash \Sigma\), \(\Gamma \cap \Sigma \ne \emptyset\).
     Suppose for some finite \(\Sigma'\), \(\Sigma' \vdash \lnot\Gamma\).
-    Then, \(\Gamma \vdash \lnot\Sigma'\), by {\color{red} the rule}.
+    Then, \(\Gamma \vdash \lnot\Sigma'\), by proposition~\ref{prop:ContapositionRules}.
     However, by the above this means that \(\Gamma \cap \lnot\Sigma' \ne \emptyset\), from which it follows that \(\lnot\Gamma \cap \Sigma' \ne \emptyset\), as if \(\phi \in \Gamma \cap \lnot\Sigma'\) then \(\phi \in \Gamma\) and \(\phi \in \lnot\Sigma'\) which ensures that \(\lnot\phi \in \lnot\Gamma\) and \(\lnot\phi \in \Sigma'\).
   \end{proof}
 \end{lemma}
 
-Lemma~\ref{lem:correspondence} shows that lemmas~\ref{lindenbaum:left} and~\ref{lindenbaum:right} amount to the same thing, and either can be indirectly used to prove the other.\nolinebreak
-\footnote{This is a version of \citeauthor{Blamey:1980aa}'s Lemma III.2.15 (\citeyear[122]{Blamey:1980aa})}
-However, the primary use of lemma~\ref{lem:correspondence} will be to simplify our canonical model.
+The primary use of lemma~\ref{lem:correspondence} will be to simplify our canonical model.
 For, instead of taking saturated pairs in general, we may take either left- or right-saturated pairs without loss of generality, reducing the number of cases we need to consider when establishing the relevant truth lemma.
+
+\begin{proposition}
+  If \(\Gamma\) is left-saturated then for all \(\phi,\psi \in \olang{}\):
+  \begin{enumerate}
+  \item If \(\Gamma \vdash \ast, \phi\) then \(\phi \in \Gamma\).
+  \item If \(\Gamma \vdash \ast, \phi \lor \psi\) then \(\Gamma \vdash \ast, \phi\) or \(\Gamma \vdash \ast, \psi\).
+  \end{enumerate}
+  \begin{proof}
+    Both are immediate by the definition of left saturation.
+    For if \(\Gamma \vdash \ast, \phi\) and \(\Gamma\) is left-saturated, then \(\Gamma \cap \{\phi\} \ne \emptyset\), hence \(\phi \in \Gamma\).
+    Likewise, if \(\Gamma \vdash \ast, \phi \lor \psi\) then \(\Gamma \vdash \ast, \phi, \psi\) and hence \(\Gamma \cap \{\phi,\psi\} \ne \emptyset\) and so \(\phi \in \Gamma\) or \(\psi \in \Gamma\) and hence by rules \ruleStart, \ruleMonL, and \ruleMonR, either \(\Gamma \vdash \ast,\phi\) or \(\Gamma \vdash \ast, \psi\).
+  \end{proof}
+\end{proposition}
+
+\begin{note}
+  if \(\Gamma\) is a left-saturated set, then for any formula \(\phi \in \olang{}\): \(\Gamma \vdash \ast, \phi\) iff \(\Gamma \vdash \phi\).
+\end{note}
+
+In the construction of left-saturated sets we focus on the left-to-right sub-consequence relation.
+However, once the set is left-saturated, the right-to-left sub-consequence relation must also hold as there's a witness to any entailment that will be made false.
 
 
 \subsection{The Caonical Model}
 \label{sec:caonical-model}
 
-
-\begin{definition}[Canonical Model]
-  \(\cmodel = (W,R^{+},R^{-},V)\) where:
-  \begin{itemize}
-  \item \(W\) is the set of all saturated sets.
-  \item \(\)
-  \end{itemize}
-  
-  Here, take only left-saturated pairs.
+\begin{definition}
+  Let \(\Gamma\) be a left-saturated set, we introduce the following notation to capture certain modal counterparts of \(\Gamma\).
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item \(\modcou{\Box}{\Gamma} = \{\phi \mid \Box\phi \in \Gamma \}\)
+    \item \(\modcou{\Diamond}{\Gamma} = \{\phi \mid \Diamond\phi \in \Gamma\}\)
+    \end{itemize}
+    \begin{itemize}
+    \item \(\modcou{\Window}{\Gamma} = \{\lnot\phi \mid \Window\phi \in \Gamma\}\)
+    \item \(\modcou{\Kite}{\Gamma} = \{\lnot\phi \mid \Kite\phi \in \Gamma\}\)
+    \end{itemize}
+  \end{multicols}
 \end{definition}
 
-\begin{lemma}
-  For any \(\opair{\Gamma}{\Delta}\), \(\opair{\Xi}{\Psi}\) in \(W\).
+The required interaction between Box- and Window-type modalities makes the direct construction of an \emph{oblique} canonical model difficult.
+However, by adapting a technique developed by Dimiter Vakarelov and put to use by \citeauthor{Gargov:1987aa}, we can straightforwardly construct a non-oblique canonical model which is modally equivalent to an oblique model.
+
+\begin{definition}[Canonical Model]
+  \(\cmodel = (\cmodW,\cmodBox,\cmodWin,\cmodV)\) where:
   \begin{itemize}
-  \item If \(\Box^{-}\Gamma \subseteq \Xi\) then there exists a \(\Xi' \subseteq \Xi\) such that \(\opair{\Gamma}{\Delta} R \opair{\Xi'}{\Psi'}\)
-  \item If \(\Box^{-}\Gamma \subseteq \Psi\) then there exists a \(\Psi' \subseteq \Psi\) such that \(\opair{\Gamma}{\Delta} R \opair{\Xi'}{\Psi'}\)
+  \item \(\cmodW\) is the set of all left-saturated sets.
+  \item \(\Gamma R \Delta\) iff \(\modcou{\Box}{\Gamma} \subseteq \Delta \subseteq \modcou{\Diamond}{\Gamma}\)
+  \item \(\Gamma R^{-} \Delta\) iff \(\modcou{\Window}{\Gamma} \subseteq \Delta \subseteq \modcou{\Kite}{\Gamma}\)
+  \item \(\Gamma \in \cintp{p}\) iff \(p \in \Gamma\) and \(\Gamma \in \iintp{p}\) iff \(\lnot p \in \Gamma\).
   \end{itemize}
+\end{definition}
+
+The interpretation specified for the canonical model relies on the left-saturation of \(\Gamma\), for left-saturation is truth-truth.
+If right-saturated sets were to be used, we would flip the definition to require \(\Gamma \in \cintp{p}\) iff \(\lnot p \in \Gamma\) and \(\Gamma \in \iintp{p}\) iff \(p \in \Gamma\).
+
+This lemma is used to make the truth lemma quite straightforward.
+The second pair of implications require some care, as we take the negation of any modal formula for the Winow-type modalities.
+The definitions hide this, in order to make the quantification more straightforward.
+
+\begin{lemma}
+  For any \(\Gamma\), \(\Delta\) in \(\cmodW\).
+  \begin{enumerate}[label=(\alph*)]
+  \item\label{lemmma:ext:box} If \(\modcou{\Box}{\Gamma} \subseteq \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodBox \Delta'\)
+  \item\label{lemma:ext:dia} If \(\Delta \subseteq \modcou{\Diamond}{\Gamma}\) then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodBox \Delta'\)
+  \item\label{lemma:ext:win} If \(\modcou{\Window}{\Gamma} \subseteq \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodWin \Delta'\)
+  \item\label{lemma:ext:kit} If \(\Delta \subseteq \modcou{\Kite}{\Gamma}\) then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodWin \Delta'\)
+  \end{enumerate}
+  \begin{proof}
+    Take \(\Gamma,\Delta \in \cmodW\).
+    \begin{description}
+    \item[\ref{lemmma:ext:box}] Assume \(\modcou{\Box}{\Gamma} \subseteq \Delta\).
+    Our goal is to show that:
+    \begin{enumerate}
+    \item For all finite \(\Sigma\): If \(\modcou{\Box}{\Gamma} \vdash \ast, \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\)
+    \end{enumerate}
+    For, given this we know by proposition~\ref{prop:finiteness} that \(\Delta \cap \modcou{\Diamond}{\Gamma}\) is a left-saturator of \(\modcou{\Box}{\Gamma}\).
+    Then, by lemma~\ref{lindenbaum:left} there must be some left-saturated \(\Delta^{+}\) such that \(\modcou{\Box}{\Gamma} \subseteq \Delta^{+} \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\).
+
+    So, suppose \(\modcou{\Box}{\Gamma} \vdash \ast,\Sigma\) for some finite \(\Sigma\).
+    As \(\modcou{\Box}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta = \emptyset\).
+    Rewriting, we have \(\modcou{\Box}{\Gamma} \vdash \ast, \Sigma - \Delta,\Sigma \cap \Delta\), which can be rewritten again as \(\modcou{\Box}{\Gamma} \vdash \ast, \sigma, \Sigma \cap \Delta\), where \(\sigma \coloneq \bigvee(\Sigma - \Delta)\).
+    By the application of derived rule \ruleBoxR\ we obtain \(\Gamma \vdash \ast, \Box\sigma, \Diamond(\Sigma \cap \Delta)\).
+    As \(\Gamma\) is left-saturated, it must be the case that either \(\Box\sigma \in \Gamma\) or \(\Diamond(\Sigma \cap \Delta) \in \Gamma\).
+    However, if \(\Box\sigma \in \Gamma\) then \(\sigma \in \modcou{\Box}{\Gamma}\) and so \(\sigma \in \Delta\).
+    And, as \(\Delta\) is also left-saturated from the previous we would have \(\phi \in \Delta\) for some \(\phi \in \Sigma - \Delta\).
+    This means \(\Diamond(\Sigma \cap \Delta) \in \Gamma\), which is equivalent to \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\).
+
+  \item[\ref{lemma:ext:dia}]
+    Assume \(\Delta \subseteq \modcou{\Diamond}{\Gamma}\).
+    Our goal is to show that \(\modcou{\Diamond}{\Gamma}\) is a left-saturator of \(\modcou{\Box}{\Gamma}\), for then by lemma~\ref{lindenbaum:left} there is some left-saturated set \(\Delta'\) such that \(\modcou{\Box}{\Gamma} \cup \Delta \subseteq \Delta' \subseteq \modcou{\Diamond}{\Gamma}\).
+    The accessibility of \(\Delta'\) is then guaranteed by the simple fact that \(\modcou{\Box}{\Gamma} \subseteq \modcou{\Box}{\Gamma} \cup \Delta\).
+    To do this we show:
+    \begin{enumerate}[resume]
+    \item For all finite \(\Sigma\): If \(\modcou{\Box}{\Gamma}, \Delta \vdash \ast, \Sigma\) then \(\Sigma \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\).
+    \end{enumerate}
+    Suppose \(\modcou{\Box}{\Gamma}, \Delta \vdash \ast, \Sigma\).
+    Then by proposition~\ref{prop:finiteness} then is some finite \(\Delta'\) such that \(\modcou{\Box}{\Gamma}, \Delta' \vdash \ast, \Sigma\).
+    In turn, \(\modcou{\Box}{\Gamma}, \delta' \vdash \ast, \Sigma\), where \(\delta' \coloneq \bigwedge\Delta'\).
+    So, by the derived rule \ruleDiaL\ we have \(\Gamma, \Diamond\delta' \vdash \ast, \Diamond\Sigma\).
+    And, as \(\Delta\) is left-saturated we know \(\delta' \in \Delta\), and since \(\Delta \subseteq \modcou{\Diamond}{\Gamma}\) this means \(\Diamond\delta' \in \Gamma\).
+    Combining the previous two observations, we see that \(\Gamma \vdash \ast, \Diamond\Sigma\), implying that \(\modcou{\Diamond}{\Gamma} \cap \Sigma \ne \emptyset\).
+  \end{description}
+
+  The second pair of implications follow the same strategy as the first pair.
+
+  \begin{description}
+  \item[\ref{lemma:ext:win}]
+    Assume \(\modcou{\Window}{\Gamma} \subseteq \Delta\).
+    As with the first implication, our goal is to show:
+    \begin{enumerate}[resume]
+    \item For all finite \(\Sigma\): If \(\modcou{\Window}{\Gamma} \vdash \ast, \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
+    \end{enumerate}
+    Suppose \(\modcou{\Window}{\Gamma} \vdash \ast, \Sigma\) for some finite \(\Sigma\).
+    As \(\modcou{\Window}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta \ne \emptyset\), hence \(\modcou{\Window}{\Gamma} \vdash \ast, \Sigma - \Delta, \Sigma \cap \Delta\).
+    Analogous to case~\ref{lemmma:ext:box}, rewriting and appealing to the derived rule \ruleKitL\ we obtain \(\modcou{\Window}{\Gamma} \vdash \ast, \Window\lnot\sigma, \Window(\Sigma \cap \Delta)\).
+    So, if \(\Window\lnot\sigma \in \Gamma\) then \(\sigma \in \modcou{\Window}{\Gamma}\), which cannot be the case.
+    Therefore, \(\Kite(\Sigma \cap \Delta) \in \Gamma\), which is equivalent to \(\Sigma \cap \Delta \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
+
+  \item[\ref{lemma:ext:kit}]
+    Assume \(\modcou{\Kite}{\Gamma} \subseteq \Delta\).
+    As with the second implication, our goal is to show:
+    \begin{enumerate}[resume]
+    \item For all finite \(\Sigma\): If \(\modcou{\Window}{\Gamma}, \Delta \vdash \ast, \Sigma\) then \(\Sigma \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
+    \end{enumerate}
+    Analogous to the steps the second implication, suppose \(\modcou{\Window}{\Gamma}, \Delta \vdash \ast, \Sigma\) for some finite \(\Sigma\).
+    Then by proposition~\ref{prop:finiteness} we have \(\modcou{\Window}{\Gamma}, \Delta' \vdash \ast, \Sigma\) for some finite \(\Delta' \subseteq \Delta\), and hence \(\modcou{\Window}{\Gamma}, \delta' \vdash \ast, \Sigma\) where \(\delta' \coloneq \bigwedge\Delta'\).
+    By the derived rule \ruleKitL\ we obtain \(\Gamma, \Kite\lnot\delta' \vdash \ast, \Kite\Sigma\).
+    As \(\Delta\) is left-saturated, \(\delta' \in \Delta\), and as \(\Delta \subseteq \modcou{\Kite}{\Gamma}\) this means \(\Kite\lnot\delta' \in \Gamma\).
+    So, \(\modcou{\Window}{\Gamma} \vdash \ast, \Sigma\).
+    \end{description}
+  \end{proof}
 \end{lemma}
 
 
 
-The truth lemma is split into a pair of truth lemmas, corresponding to the two sub-cases of consequence.
-Key here is that the presence of \(\ast\) on the left or right determines which of a pair is taken.
+We now establish the standard truth lemma for the canonical model.\nolinebreak
+\footnote{If our model were to include right-saturated sets, we would require an additional truth lemma establishing that\(\Gamma \vDash \phi\) iff \(\lnot\phi \in \Gamma\) and \(\Gamma \Dashv \phi\) iff \(\phi \in \Gamma\).}
 
-
-
-\begin{lemma}[Truth, left]
-  \(\Gamma \vDash \phi\) iff \(\phi \in \Gamma\) and \(\Gamma \Dashv \phi\) iff \(\lnot\phi \in \Gamma\)
+\begin{lemma}[Truth]
+  For all \(\phi \in \olang{}\) and all left-saturated sets \(\Gamma\):
+  \[\Gamma \vDash \phi\text{ iff }\phi \in \Gamma\text{ and }\Gamma \Dashv \phi\text{ iff }\lnot\phi \in \Gamma\]
+  \begin{proof}
+    
+  \end{proof}
 \end{lemma}
 
-\begin{lemma}[Truth, right]
-  \(\Delta \vDash \phi\) iff \(\lnot\phi \in \Delta\) and \(\Delta \Dashv \phi\) iff \(\phi \in \Delta\)
-\end{lemma}
 
 
 \newpage
@@ -1548,10 +1789,10 @@ The worry here is the use of point generated submodels by \citeauthor{Gargov:198
 \begin{definition}
   Given some set of formulas \(\Gamma\).
   \begin{itemize}
-  \item \(\widetilde{\Box}\Gamma \coloneq \{ \gamma \mid \Box\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Diamond}\Gamma \coloneq \{ \gamma \mid \Diamond\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Box}\lnot\Gamma \coloneq \{ \gamma \mid \Box\lnot\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Diamond}\lnot\Gamma \coloneq \{ \gamma \mid \Diamond\lnot\gamma \in \Gamma \}\)
+  \item \(\widetilde{\Box}\Gamma \coloneq \{\gamma \mid \Box\gamma \in \Gamma \}\)
+  \item \(\widetilde{\Diamond}\Gamma \coloneq \{\gamma \mid \Diamond\gamma \in \Gamma \}\)
+  \item \(\widetilde{\Box}\lnot\Gamma \coloneq \{\gamma \mid \Box\lnot\gamma \in \Gamma \}\)
+  \item \(\widetilde{\Diamond}\lnot\Gamma \coloneq \{\gamma \mid \Diamond\lnot\gamma \in \Gamma \}\)
   \end{itemize}
 \end{definition}
 
@@ -1785,5 +2026,3 @@ However, some additional concepts are required, along with some subtlety regardi
 
 
 \end{document}
-
-

@@ -34,6 +34,7 @@
 % \newcommand{\cdeno}[2]{\ensuremath{\vphantom{\overline{#1}}#1(#2)}}
 % \newcommand{\ideno}[2]{\ensuremath{\overline{#1}(#2)}}
 \newcommand{\Window}{\ensuremath{\ooalign{\hss\rule[0.125pt]{.5pt}{6.5pt}\hss\cr\Box}}}
+\newcommand{\Kite}{\ensuremath{\ooalign{\hss\rule[3.36pt]{6.5pt}{.5pt}\hss\cr\Diamond}}}
 
 \newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
 \newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
@@ -155,7 +156,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 }
 \ExplSyntaxOff
 
-% % % The two partial operators % % % 
+% % % The two partial operators % % %
 \def\lint{\mathrel{%               Interjunction
     \ooalign{\hss\land\hss\cr\lor}%
   }}
@@ -182,7 +183,7 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ldesu}{ o m }{% 
+\DeclareDocumentCommand{\ldesu}{ o m }{%
   \tl_if_empty:nTF {#2}
   {
     \IfValueTF{#1}%
@@ -304,8 +305,53 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \makeatother
 % % % % % % % % % %
 
+
+% % % Proof system % % %
+% \newcommand{\rule}{()}
+% \newcommand{\rule}{(\ensuremath{})}
+
+% Ensure the parentheses are always in the default font
+% \newcommand{\ruleParen}[1]{\textnormal{(}#1\textnormal{)}}
+% Better, make sure all text is always default
+\newcommand{\ruleParen}[1]{\normalfont (#1)}
+
+\newcommand{\ruleStart}{\ruleParen{Start}}
+\newcommand{\ruleMonR}{\ruleParen{R-Mon}}
+\newcommand{\ruleMonL}{\ruleParen{L-Mon}}
+\newcommand{\ruleCut}{\ruleParen{Cut}}
+\newcommand{\ruleTop}{\ruleParen{\ensuremath{\top}}}
+\newcommand{\ruleBot}{\ruleParen{\ensuremath{\bot}}}
+\newcommand{\ruleNotAstL}{\ruleParen{\ensuremath{\lnot\ast}-L}}
+\newcommand{\ruleNotAstR}{\ruleParen{\ensuremath{\lnot\ast}-R}}
+\newcommand{\ruleAstL}{\ruleParen{\ensuremath{\ast}-L}}
+\newcommand{\ruleAstR}{\ruleParen{\ensuremath{\ast}-R}}
+\newcommand{\ruleNotL}{\ruleParen{\ensuremath{\lnot}-L}}
+\newcommand{\ruleNotR}{\ruleParen{\ensuremath{\lnot}-R}}
+\newcommand{\ruleAndL}{\ruleParen{\ensuremath{\land}-L}}
+\newcommand{\ruleOrR}{\ruleParen{\ensuremath{\lor}-R}}
+\newcommand{\ruleIntL}{\ruleParen{\ensuremath{\lint}-L}}
+\newcommand{\ruleIntR}{\ruleParen{\ensuremath{\lint}-R}}
+\newcommand{\ruleAttnL}{\ruleParen{\ensuremath{\attn{\mbox{ }}}-L}}
+\newcommand{\ruleAttnR}{\ruleParen{\ensuremath{\attn{\mbox{ }}}-R}}
+
+\newcommand{\ruleBoxL}{\ruleParen{\ensuremath{\Box\text{-L}}}}
+\newcommand{\ruleBoxLP}{\ruleParen{\ensuremath{\Box\text{-L}'}}}
+\newcommand{\ruleDiaL}{\ruleParen{\ensuremath{\Diamond\text{-L}}}}
+\newcommand{\ruleBoxR}{\ruleParen{\ensuremath{\Box\text{-R}}}}
+
+\newcommand{\ruleWinL}{\ruleParen{\ensuremath{\Window\text{-L}}}}
+\newcommand{\ruleWinLP}{\ruleParen{\ensuremath{\Window\text{-L}'}}}
+\newcommand{\ruleKitL}{\ruleParen{\ensuremath{\Kite\text{-L}}}}
+\newcommand{\ruleWinR}{\ruleParen{\ensuremath{\Window\text{-R}}}}
+
 % % % Completeness Commands % % %
 \newcommand{\opair}[2]{\ensuremath{\left\langle #1,#2 \right\rangle}}
 
 % % % The Canonical Model % % %
 \newcommand{\cmodel}{\ensuremath{\mathfrak{M}}}
+\newcommand{\cmodW}{\ensuremath{W}}
+\newcommand{\cmodBox}{\ensuremath{R^{+}}}
+\newcommand{\cmodWin}{\ensuremath{R^{-}}}
+\newcommand{\cmodV}{\ensuremath{V}}
+
+\newcommand{\modcou}[2]{\ensuremath{{#1}^{-}{#2}}}
