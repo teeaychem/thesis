@@ -1144,7 +1144,13 @@ Note these are not hold in both directions.
   \end{prooftree}
 \end{multicols}
 
+Finally, we ensure that `classical' propositions are bivalent.
 
+\begin{prooftree}
+    \AxiomC{\(\attn{\psi} \notin \text{subf}(\phi)\)}
+    \RightLabel{\ruleClassical}
+    \UnaryInfC{\(\fCenter\ \phi,\lnot\phi\)}
+  \end{prooftree}
 
 
 \subsubsection{Modal Rules}
@@ -1160,7 +1166,7 @@ This rule is termed general as it does not depend on the constraints we place on
 \end{prooftree}
 
 \begin{lemma}[Soundness]
-  The general modal rule is sound.
+  Rule \ruleBoxR\ is sound.
   \begin{proof}
     Suppose \(\Gamma \Vdash \phi, \lnot\Delta\).
 
@@ -1176,14 +1182,18 @@ This rule is termed general as it does not depend on the constraints we place on
 \end{lemma}
 
 \begin{proposition}
-  The following rules are derivable in our system:
+  The following rules are derivable:
   \begin{multicols}{2}
     \begin{prooftree}
-      \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\) \RightLabel{\ruleBoxLP} \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
+      \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+      \RightLabel{\ruleBoxLP}
+      \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
     \end{prooftree}
 
   \begin{prooftree}
-    \Axiom\(\Gamma,\phi \fCenter\ \Delta\) \RightLabel{\ruleDiaL} \UnaryInf\(\Box\Gamma,\Diamond\phi \fCenter\ \Diamond\Delta\)
+    \Axiom\(\Gamma,\phi \fCenter\ \Delta\)
+    \RightLabel{\ruleDiaL}
+    \UnaryInf\(\Box\Gamma,\Diamond\phi \fCenter\ \Diamond\Delta\)
   \end{prooftree}
 \end{multicols}
 
@@ -1201,11 +1211,12 @@ Window-type modalities are governed by a corresponding rule.
   \UnaryInf\(\Window\Gamma \fCenter\ \Window\lnot\phi, \lnot\Window\Delta\)
 \end{prooftree}
 
-\ruleWinR\ is structurally similar to \ruleBoxR.
+\ruleWinR\ is structurally similar to \ruleBoxR, but `flipped' to account for the relation to
+inaccessible states.
 
 
 \begin{proposition}
-  \ruleWinR\ is sound.
+  Rule \ruleWinR\ is sound.
   \begin{proof}
     Assume \(\lnot\Gamma \Vdash \phi, \Delta\).
 
@@ -1223,7 +1234,7 @@ Window-type modalities are governed by a corresponding rule.
 \end{proposition}
 
 \begin{proposition}
-  The following rules are derivable in our system:
+  The following rules are derivable:
   \begin{multicols}{2}
     \begin{prooftree}
   \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
@@ -1239,6 +1250,48 @@ Window-type modalities are governed by a corresponding rule.
   \end{multicols}
 \end{proposition}
 
+In addition to the two general modal rules governing \(\Box\) and \(\Window\), we introduce two specific modal rules to ensure that the accessible states can be treated as a set.
+Here, we take the standard frame conditions to ensure any relation is both transitive and euclidean.
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleTran}
+    \UnaryInf\(\fCenter\ \Box\phi \rightarrow \Box\Box\phi\)
+  \end{prooftree}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleEucl}
+    \UnaryInf\(\fCenter\ \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
+  \end{prooftree}
+\end{multicols}
+
+\begin{proposition}
+  \(\oframe{F} \vDash \Box\phi \rightarrow \Box\Box\phi\) iff \(\oframe{F}\) is transitive.
+  \begin{proof}
+    Take an arbitrary model based on a transitive frame \(\oframe{F}\).
+    Suppose \(\Box\phi\) but \(\lnot\Box\Box\phi\).
+    Some \(t,u\) such that \(Rst\) and \(Rtu\) but \(t \nvDash \phi\).
+    However, from this it follows that \(Rsu\) and it must be the case that \(t \vDash \phi\).
+
+    Conversely, take a non-transitive frame and value the \(u\) point as the only one where \(\phi\) is false, and let the rest of the valuation be determined by what \(\phi\) requires (or, rather, perhaps this only needs to hold for propositional atoms\dots).
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  \(\oframe{F} \vDash \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\) iff \(\oframe{F}\) is euclidean.
+  \begin{proof}
+    Suppose the frame is euclidean but for some valuation the formula isn't valid.
+    Then, \(s \vDash \lnot\Box\phi\) and \(s \nvDash \Box\lnot\Box\phi\).
+    So, some accessible state \(t\) such that \(t \nvDash \phi\).
+    And, \(s \nvDash \Box\lnot\Box\phi\) so \(s \vDash \Diamond\Box\phi\).
+    Hence, some \(u\) such that \(u \vDash \Box\phi\).
+    But then as the frame is euclidean, it's got to be the case that \(Rut\), hence \(t \nvDash \phi\) and \(t \vDash \phi\).
+
+    {\color{red} Conversely, valuation such that \(t\) is the only state that doesn't make \(\phi\) true.}
+  \end{proof}
+\end{proposition}
+
+
 \subsubsection{Some useful properties}
 \label{sec:some-usef-deriv}
 
@@ -1251,9 +1304,10 @@ Window-type modalities are governed by a corresponding rule.
 \end{proposition}
 
 Terming finiteness `useful' may be an understatement, for without this property our method of proving completeness would fail.
-However, it does allow some useful applications.
+However, we introduce the property here as it allows us to derive a pair of useful rules in proposition~\ref{prop:ContapositionRules} which we build up to.
 
-\begin{proposition}[Double negation]\label{prop:DN}\mbox{ }
+\begin{proposition}\label{prop:DN}
+  The following rules are derivable:
   \begin{multicols}{2}
     \begin{prooftree}
       \AxiomEmpty
@@ -1271,7 +1325,8 @@ However, it does allow some useful applications.
   \end{proof}
 \end{proposition}
 
-\begin{proposition}\label{prop:DNSubst}\mbox{ }
+\begin{proposition}\label{prop:DNSubst}
+  The following rules are derivable:
   \begin{multicols}{2}
     \begin{prooftree}
       \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
@@ -1307,7 +1362,8 @@ However, it does allow some useful applications.
   \end{proof}
 \end{proposition}
 
-\begin{proposition}\label{prop:ContapositionRules}\mbox{ }
+\begin{proposition}\label{prop:ContapositionRules}
+  The following rules are derivable:
   \begin{multicols}{2}
     \begin{prooftree}
       \Axiom\(\Gamma \fCenter\ \Delta\)
@@ -1327,7 +1383,8 @@ However, it does allow some useful applications.
   \end{proof}
 \end{proposition}
 
-\begin{proposition}\label{prop:AstRules}\mbox{ }
+\begin{proposition}\label{prop:AstRules}
+    The following rules are derivable:
    \begin{multicols}{2}
     \begin{prooftree}
       \Axiom\(\Gamma, \ast \fCenter\ \Delta\)
@@ -1696,52 +1753,6 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
 \newpage
 
 
-\begin{definition}\mbox{ }
-  \begin{itemize}
-  \item K: \(\Box(\phi \land \psi) \rightarrow (\Box\phi \land \Box\psi)\)
-  \item D: \(\lnot\Box\bot\)
-  \item 4: \(\Box\phi \rightarrow \Box\Box\phi\)
-  \item 5: \(\lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
-  \end{itemize}
-\end{definition}
-
-\subsection{Frame Conditions}
-\label{sec:frame-conditions}
-
-Want: \(K45\) for each of the modal operators.
-That is, the operator identifies a set/equivalence relation for any accessible state.
-\(D\) should be omitted in general case, but some non-triviality condition should be able to be assumed.
-
-{\color{red} Question: Is there an implicit quantifier that these formulas hold for all formulas?
-  If so, the restriction is only going to come of the left hand side, and so specifying the counterexample with respect to an atomic formula will be fine.
-And, as the right to left direction doesn't depend on bivalence, this should work too.}
-
-\begin{proposition}[Transitivity]
-  \(\oframe{F} \vDash \Box\phi \rightarrow \Box\Box\phi\) iff \(\oframe{F}\) is transitive.
-  \begin{proof}
-    Take an arbitrary model based on a transitive frame \(\oframe{F}\).
-    Suppose \(\Box\phi\) but \(\lnot\Box\Box\phi\).
-    Some \(t,u\) such that \(Rst\) and \(Rtu\) but \(t \nvDash \phi\).
-    However, from this it follows that \(Rsu\) and it must be the case that \(t \vDash \phi\).
-
-    Conversely, take a non-transitive frame and value the \(u\) point as the only one where \(\phi\) is false, and let the rest of the valuation be determined by what \(\phi\) requires (or, rather, perhaps this only needs to hold for propositional atoms\dots).
-  \end{proof}
-\end{proposition}
-
-\begin{proposition}
-  \(\oframe{F} \vDash \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\) iff \(\oframe{F}\) is euclidean.
-  \begin{proof}
-    Suppose the frame is euclidean but for some valuation the formula isn't valid.
-    Then, \(s \vDash \lnot\Box\phi\) and \(s \nvDash \Box\lnot\Box\phi\).
-    So, some accessible state \(t\) such that \(t \nvDash \phi\).
-    And, \(s \nvDash \Box\lnot\Box\phi\) so \(s \vDash \Diamond\Box\phi\).
-    Hence, some \(u\) such that \(u \vDash \Box\phi\).
-    But then as the frame is euclidean, it's got to be the case that \(Rut\), hence \(t \nvDash \phi\) and \(t \vDash \phi\).
-
-    Conversely, valuation such that \(t\) is the only state that doesn't make \(\phi\) true.
-  \end{proof}
-\end{proposition}
-
 \begin{note}
   \([U]A \coloneq N(A,A) \coloneq \Box A \land H \lnot A\).
   Ah, this means that \(A\) holds everywhere.
@@ -1786,21 +1797,7 @@ The worry here is the use of point generated submodels by \citeauthor{Gargov:198
   Defining an equivalent formula, however, may not be possible, as only monotonic operators are available.
 \end{note}
 
-\begin{definition}
-  Given some set of formulas \(\Gamma\).
-  \begin{itemize}
-  \item \(\widetilde{\Box}\Gamma \coloneq \{\gamma \mid \Box\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Diamond}\Gamma \coloneq \{\gamma \mid \Diamond\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Box}\lnot\Gamma \coloneq \{\gamma \mid \Box\lnot\gamma \in \Gamma \}\)
-  \item \(\widetilde{\Diamond}\lnot\Gamma \coloneq \{\gamma \mid \Diamond\lnot\gamma \in \Gamma \}\)
-  \end{itemize}
-\end{definition}
 
-For the canonical model construction, set:
-\begin{enumerate}
-\item \(R\Gamma\Delta\) iff \(\widetilde{\Box}\Gamma \subseteq \Delta \subseteq \widetilde{\Diamond}\Gamma\)
-\item \(R\Gamma\Delta\) iff \(\widetilde{\Box}\lnot\Gamma \subseteq \Delta \subseteq \widetilde{\Diamond}\lnot\Gamma\)
-\end{enumerate}
 
 \newpage
 
