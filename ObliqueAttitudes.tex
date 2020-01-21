@@ -1257,56 +1257,29 @@ inaccessible states.
   \end{multicols}
 \end{proposition}
 
+The interaction between \(\Box\) and \(\Window\) is split into three additional axioms.
+Combined, these ensure the global modality \(\Global\) (where \(\Global\phi \coloneq \Box\phi \land \Window\lnot\phi\)) is an S5 modality and correspond to the standard modal axioms M, 4, and B, respectively.
 
-\begin{note}
-  I may want to change these to \(\Box\phi \vdash \Box\Box\phi\), for example.
-  This keeps the idea of treating everything on the left as a description of a state as kind of nice, and avoids the use of \(\rightarrow\).
-\end{note}
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleGlobalM}
+  \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \phi\)
+\end{prooftree}
 
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleGlobalF}
+  \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
+\end{prooftree}
 
-In addition to the two general modal rules governing \(\Box\) and \(\Window\), we introduce two specific modal rules to ensure that the accessible states can be treated as a set.
-Here, we take the standard frame conditions to ensure any relation is both transitive and euclidean.
-\begin{multicols}{2}
-  \begin{prooftree}
-    \AxiomEmpty
-    \RightLabel{\ruleTran}
-    \UnaryInf\(\fCenter\ \Box\phi \rightarrow \Box\Box\phi\)
-  \end{prooftree}
-  \begin{prooftree}
-    \AxiomEmpty
-    \RightLabel{\ruleEucl}
-    \UnaryInf\(\fCenter\ \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
-  \end{prooftree}
-\end{multicols}
-
-\begin{proposition}
-  \(\oframe{F} \vDash \Box\phi \rightarrow \Box\Box\phi\) iff \(\oframe{F}\) is transitive.
-  \begin{proof}
-    Take an arbitrary model based on a transitive frame \(\oframe{F}\).
-    Suppose \(\Box\phi\) but \(\lnot\Box\Box\phi\).
-    Some \(t,u\) such that \(Rst\) and \(Rtu\) but \(t \nvDash \phi\).
-    However, from this it follows that \(Rsu\) and it must be the case that \(t \vDash \phi\).
-
-    Conversely, take a non-transitive frame and value the \(u\) point as the only one where \(\phi\) is false, and let the rest of the valuation be determined by what \(\phi\) requires (or, rather, perhaps this only needs to hold for propositional atoms\dots).
-  \end{proof}
-\end{proposition}
-
-\begin{proposition}
-  \(\oframe{F} \vDash \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\) iff \(\oframe{F}\) is euclidean.
-  \begin{proof}
-    Suppose the frame is euclidean but for some valuation the formula isn't valid.
-    Then, \(s \vDash \lnot\Box\phi\) and \(s \nvDash \Box\lnot\Box\phi\).
-    So, some accessible state \(t\) such that \(t \nvDash \phi\).
-    And, \(s \nvDash \Box\lnot\Box\phi\) so \(s \vDash \Diamond\Box\phi\).
-    Hence, some \(u\) such that \(u \vDash \Box\phi\).
-    But then as the frame is euclidean, it's got to be the case that \(Rut\), hence \(t \nvDash \phi\) and \(t \vDash \phi\).
-
-    {\color{red} Conversely, valuation such that \(t\) is the only state that doesn't make \(\phi\) true.}
-  \end{proof}
-\end{proposition}
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleGlobalB}
+  \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
+\end{prooftree}
 
 
-\subsubsection{Some useful properties}
+\subsection{Some useful properties}
 \label{sec:some-usef-deriv}
 
 \begin{proposition}[Finiteness]\label{prop:finiteness}
@@ -1766,8 +1739,10 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
 
 \newpage
 
-\section{Canonical Model}
-\label{sec:canonical-model}
+\subsection{Additional Properties}
+\label{sec:addit-prop}
+
+
 
 On generalised models, \citeauthor{Gargov:1987aa} give a revised definition of the window modality.
 
@@ -1797,6 +1772,48 @@ The worry here is the use of point generated submodels by \citeauthor{Gargov:198
   Defining an equivalent formula, however, may not be possible, as only monotonic operators are available.
 \end{note}
 
+
+
+In addition to the two general modal rules governing \(\Box\) and \(\Window\), we introduce two specific modal rules to ensure that the accessible states can be treated as a set.
+Here, we take the standard frame conditions to ensure any relation is both transitive and euclidean.
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleTran}
+    \UnaryInf\(\fCenter\ \Box\phi \rightarrow \Box\Box\phi\)
+  \end{prooftree}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleEucl}
+    \UnaryInf\(\fCenter\ \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
+  \end{prooftree}
+\end{multicols}
+
+\begin{proposition}
+  \(\oframe{F} \vDash \Box\phi \rightarrow \Box\Box\phi\) iff \(\oframe{F}\) is transitive.
+  \begin{proof}
+    Take an arbitrary model based on a transitive frame \(\oframe{F}\).
+    Suppose \(\Box\phi\) but \(\lnot\Box\Box\phi\).
+    Some \(t,u\) such that \(Rst\) and \(Rtu\) but \(t \nvDash \phi\).
+    However, from this it follows that \(Rsu\) and it must be the case that \(t \vDash \phi\).
+
+    Conversely, take a non-transitive frame and value the \(u\) point as the only one where \(\phi\) is false, and let the rest of the valuation be determined by what \(\phi\) requires (or, rather, perhaps this only needs to hold for propositional atoms\dots).
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  \(\oframe{F} \vDash \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\) iff \(\oframe{F}\) is euclidean.
+  \begin{proof}
+    Suppose the frame is euclidean but for some valuation the formula isn't valid.
+    Then, \(s \vDash \lnot\Box\phi\) and \(s \nvDash \Box\lnot\Box\phi\).
+    So, some accessible state \(t\) such that \(t \nvDash \phi\).
+    And, \(s \nvDash \Box\lnot\Box\phi\) so \(s \vDash \Diamond\Box\phi\).
+    Hence, some \(u\) such that \(u \vDash \Box\phi\).
+    But then as the frame is euclidean, it's got to be the case that \(Rut\), hence \(t \nvDash \phi\) and \(t \vDash \phi\).
+
+    {\color{red} Conversely, valuation such that \(t\) is the only state that doesn't make \(\phi\) true.}
+  \end{proof}
+\end{proposition}
 
 
 \newpage
