@@ -313,6 +313,8 @@ Collections of situations.
   \item Each \(\fatt{} \colon S \to \wp(S)\) is a function associating to each situation a subset of situations which are compatible with the agent's attitde.
   \end{itemize}
   Attitudes may satisfy certain requirements, e.g.\ if \(t \in \fatt{u}\) then \(\fatt{t} = \fatt{u}\), etc.
+  However, we do no assume this.
+  In this respect, attitudes can be treated as standard relations.
 \end{definition}
 A frame can be augmented to include further distinguished subsets, and multiple distinguished subsets corresponding to multiple agents may be intruded.
 Frames fix the situations and what the agent `desires' and `believes' independently of the resources we have to reason about these.
@@ -633,6 +635,20 @@ An \emph{interpretation} of an oblique language is a straightforward combination
     \cintp{\attn{\phi}} &= \cappl{\phi} & \iintp{\attn{\phi}} &= \iappl{\phi}\\
   \end{align*}
 \end{definition}
+
+
+\begin{proposition}
+  The semantic clauses for \(\Box\) and \(\Window\) on relational models are as follows:
+  \begin{enumerate}
+  \item \(M,s \vDash \Box\phi\) iff \(\forall t(Rst \Rightarrow M,t \vDash \phi)\)
+  \item \(M,s \Dashv \Box\phi\) iff \(\exists t(Rst \land M,t \Dashv \phi)\)
+  \item \(M,s \vDash \Diamond\phi\) iff \(\exists t(Rst \land M,t \vDash \phi)\)
+  \item \(M,s \vDash \Window\phi\) iff \(\forall t(\lnot Rst \Rightarrow M,t \Dashv \phi)\)
+  \item \(M,s \Dashv \Window\phi\) iff \(\exists t(\lnot Rst \land M,t \vDash \phi)\)
+  \item \(M,s \vDash \Kite\phi\) iff \(\exists t(\lnot Rst \land M,t \Dashv \phi)\)
+  \end{enumerate}
+
+\end{proposition}
 
 Note, here there's no difference between the support and the application of any propositional attitude.
 This is a simplification, and we could revise the definition of an interpretation to allow for variation.
@@ -1731,10 +1747,57 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
   For all \(\phi \in \olang{}\) and all left-saturated sets \(\Gamma\):
   \[\Gamma \vDash \phi\text{ iff }\phi \in \Gamma\text{ and }\Gamma \Dashv \phi\text{ iff }\lnot\phi \in \Gamma\]
   \begin{proof}
-    
+
   \end{proof}
 \end{lemma}
 
+\begin{lemma}
+  If \(\modcou{\Global}{\Gamma} \subseteq \Delta \subseteq \modcou{\langle \circ \rangle}{\Gamma}\) then one of the relations holds.
+  \begin{proof}
+    If \(\modcou{\Box}{\Gamma} \nsubseteq \Delta\) and \(\modcou{\Window}{\Gamma} \nsubseteq \Delta\), then we get a contradiction, as for any \(\phi, \psi\) taken from \(\modcou{\Box}{\Gamma},\modcou{\Window}{\Gamma}\), we have \(\Box\phi \in \Gamma\) and \(\Window\lnot\phi \in \Gamma\).
+    So, \(\Gamma \vdash \Box\phi \land \Window\lnot\psi\).
+    Hence, \(\Gamma \vdash \Box(\phi \lor \psi) \land \Window\lnot(\phi \lor \psi)\).
+    Therefore, \(\phi \lor \psi \in \Delta\) by the assumption, and as \(\Delta\) is left-saturated either \(\phi \in \Delta\) or \(\psi \in \Delta\).
+    {\color{red} The same works with \(\langle \circ \rangle\), and hence it's a kind of correspondence between these two observations that's required.}
+
+    Suppose \(\modcou{\Box}{\Gamma} \subseteq \Delta\), we now want to show \(\modcou{\Diamond}{\Gamma} \subseteq \Delta\).
+
+    Assumptions to work with here:
+    \begin{itemize}
+    \item \(\modcou{\Global}{\Gamma} \subseteq \Delta \subseteq \modcou{\langle \circ \rangle}{\Gamma}\)
+    \item \(\modcou{\Box}{\Gamma} \subseteq \Delta\)
+    \item \(\modcou{\Window}{\Gamma} \nsubseteq \Delta\)
+      \begin{itemize}
+      \item From this, there's some \(\Window\lnot\psi \in \Gamma\) such that \(\psi \notin \Delta\)
+      \item Therefore, \(\Kite\lnot\psi \lor \Kite\lnot\bot \in \Gamma\), as either there's some inaccessible world and \(\psi\) must hold, or there's no accessible world.
+      \item \(\langle \circ \rangle\phi, \Kite\lnot\bot \vdash \Diamond\phi\) should hold, as then every state is accessible.
+      \end{itemize}
+    \item \(\Kite\lnot\phi \in \Gamma\) (for a contradiction, obtained if \(\Diamond\phi \notin \Gamma\) by left-saturation)
+    \item \(\Global\Gamma \vdash \langle \circ \rangle\delta\) for all \(\delta \in \Delta\)
+    \item \(\Delta' \vdash \phi\) for some finite \(\Delta' \subseteq \Delta\)
+    \end{itemize}
+    Need, if \(\phi \in \Delta\) then \(\Diamond\phi \in \Phi\).
+  \end{proof}
+\end{lemma}
+
+The point here is that it may be the case that some sets need to be ignored, maybe.
+And, this ensures that the point generated model is always going to have one or the other relation.
+
+However, it seems more straightforward to take the point-gererated submodel along both relations.
+This avoids the use of the global modality, and therefore I don't need to worry about correspondence.
+Doing this, however, requires the generating point itself to be accessible, and I don't yet have a proof of this.
+
+So, if I point generate by either relation, I still have a problem with \(\Gamma\), the point I'm generating from.
+However, is it then possible to add this in as an extra?
+So, either add \(\Gamma \cmodBox \Gamma\) or \(\Gamma \cmodWin \Gamma\)?
+For suppose not, then it must be the case that for some \(\phi \in \Gamma\), \(\lnot\Diamond\phi\) and \(\lnot\Kite\lnot\phi\) are both in \(\Gamma\), but rewriting this gives \(\Box\lnot\phi\) and \(\Window\phi\).
+Yet, from this it should then be the case that \(\Global \lnot\phi\).
+Yet, know that \(\Gamma\) can't make this true, by the basic axiom for \(\Global\).
+
+Intuition is that if \(\Gamma\) is neither accessible nor inaccessible, then \(\Gamma\) must make something true that it required to be false throughout the model.
+But \(\Gamma\) itself witnesses the possibility of everything it makes true.
+
+Therefore, can point generate from \(\Gamma\) and add one or the other relation to tie things off.
 
 
 \newpage
