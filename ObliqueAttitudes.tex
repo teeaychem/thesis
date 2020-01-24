@@ -1170,7 +1170,7 @@ Note these are not hold in both directions.
 Finally, we ensure that `classical' propositions are bivalent.
 
 \begin{prooftree}
-    \AxiomC{\(\attn{\psi} \notin \text{subf}(\phi)\)}
+    \AxiomC{\(\attn{\psi} \notin \text{\emph{Sub}}(\phi)\)}
     \RightLabel{\ruleClassical}
     \UnaryInfC{\(\fCenter\ \phi,\lnot\phi\)}
   \end{prooftree}
@@ -1273,8 +1273,8 @@ inaccessible states.
   \end{multicols}
 \end{proposition}
 
-The interaction between \(\Box\) and \(\Window\) is split into three additional axioms.
-Combined, these ensure the global modality \(\Global\) (where \(\Global\phi \coloneq \Box\phi \land \Window\lnot\phi\)) is an S5 modality and correspond to the standard modal axioms M, 4, and B, respectively.
+The interaction between \(\Box\) and \(\Window\) is split into five additional axioms.
+% Combined, these ensure the global modality \(\Global\) (where \(\Global\phi \coloneq \Box\phi \land \Window\lnot\phi\)) is an S5 modality and correspond to the standard modal axioms M, 4, and B, respectively.
 
 \begin{prooftree}
   \AxiomEmpty
@@ -1282,27 +1282,61 @@ Combined, these ensure the global modality \(\Global\) (where \(\Global\phi \col
   \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \phi\)
 \end{prooftree}
 
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{\ruleGlobalF}
-  \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
-\end{prooftree}
+% \begin{prooftree}
+%   \AxiomEmpty
+%   \RightLabel{\ruleGlobalF}
+%   \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
+% \end{prooftree}
 
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{\ruleGlobalB}
-  \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
-\end{prooftree}
+% \begin{prooftree}
+%   \AxiomEmpty
+%   \RightLabel{\ruleGlobalB}
+%   \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
+% \end{prooftree}
+
+Four rules to deal with the interaction between \(\Box\) and \(\Window\).
+Each of these rules relies on the non-derivability of some modal formula.
+Intuition here is any state must be either accessible or inaccessible.
+With \ruleGlobalM\ we ensure that if some formula is true at a state then its relevance to satisfaction is recognised, but \ruleGlobalM\ does not, at least straightforwardly, ensure this holds for arbitrary collections of formulas.
+
+
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomC{\(\Gamma \vdash \phi \land \psi \quad \Gamma \nvdash \Kite\lnot\phi\)}
+    \UnaryInfC{\(\Gamma \vdash \Diamond\psi\)}
+  \end{prooftree}
+  \begin{prooftree}
+     \AxiomC{\(\Gamma \vdash \phi \land \psi \quad \Gamma \nvdash \Diamond\phi\)}
+    \UnaryInfC{\(\Gamma \vdash \Kite\lnot\psi\)}
+  \end{prooftree}
+\end{multicols}
+
+
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomC{\(\Gamma \vdash \Window\lnot\phi \land \psi \quad \Gamma \nvdash \phi\)}
+    \UnaryInfC{\(\Gamma \vdash \Diamond\psi\)}
+  \end{prooftree}
+  \begin{prooftree}
+     \AxiomC{\(\Gamma \vdash \Diamond\phi \land \psi \quad \Gamma \nvdash \phi\)}
+    \UnaryInfC{\(\Gamma \vdash \Kite\lnot\psi\)}
+  \end{prooftree}
+\end{multicols}
+
+I think with these four rules I get \(\modcou{\Box}{\Gamma} \subseteq \Gamma \subseteq \modcou{\Diamond}{\Gamma}\) or the same for window.
+This is heckin' ugly, but I think it works.
 
 
 \subsection{Some useful properties}
 \label{sec:some-usef-deriv}
 
 \begin{proposition}[Finiteness]\label{prop:finiteness}
-  If \(\Gamma \vdash \Delta\) then there exist finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq \Delta\) such that \(\Gamma' \vdash \Delta'\).
+  \(\Gamma \vdash \Delta\) if and only if there exist finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq \Delta\) such that \(\Gamma' \vdash \Delta'\).
   \begin{proof}
-    By induction on the length of proofs.
+    The left-to-right direction is by induction on the length of proofs.
     Base cases show how to find the finite sets, and then the rules only manipulate finite subsets.
+
+    The right-to-left direction follows by monotonicity.
   \end{proof}
 \end{proposition}
 
@@ -1798,6 +1832,62 @@ Intuition is that if \(\Gamma\) is neither accessible nor inaccessible, then \(\
 But \(\Gamma\) itself witnesses the possibility of everything it makes true.
 
 Therefore, can point generate from \(\Gamma\) and add one or the other relation to tie things off.
+
+For sure, the \(\Global B\) axiom means that there's no way that \(\Gamma\) can be considered inaccessible.
+Right, suppose, well, how do I get a problem, more specifically.
+What does it means for a relation to be impossible.
+Well, if \(\lnot R \Gamma \Gamma\) then, \(\Gamma\) has to \dots right, then there's going to be some \(\phi \in \Gamma\) such that \(\Gamma \cup \{ \Diamond\phi \} \vdash \bot\).
+\(\lnot R- \Gamma \Gamma\) then some \(\psi \in \Gamma\), same as above.
+But then, conjoin these two things.
+And hence, the axiom gives a contradiction.
+
+So, can I be sure that \(\Delta\) still fails.
+Well, \(\Gamma \nvdash \Delta\).
+So, for every finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq \Delta\) it's the case that \(\Gamma' \nvdash \Delta'\).
+Therefore, \(\bigwedge \gamma' \nvdash \bigvee \delta'\).
+But, \(\bigwedge \gamma' \vdash \Diamond\bigwedge \gamma' \lor \Kite\lnot\bigwedge \gamma'\).
+So, we certainly can't rule out the accessibility of any finite subset of \(\Gamma\).
+Though, I can establish this a little more directly by simply taking finite subsets of \(\Gamma\) and observing the corresponding entailment.
+
+Note, it's fine if \(\Gamma\) is both accessible \emph{and} inaccessible at this stage, as I'm going to sort this out.
+What's problematic is that if it can be neither.
+
+The worry is that when beefing up \(\Gamma\), on the semantic side, one somehow makes something in \(\Delta\) true.
+As, the point is that everything in \(\Gamma\) is made true but nothing in \(\Delta\) is made true.
+But look, the truth lemma still holds, as this is established on syntactic grounds, oh no, it doesn't, because it holds with respect to that model.
+So, the truth lemma doesn't hold once I add in the additional relation(s).
+It may now be the case that \(\Gamma \vDash \phi\) but \(\phi \notin \Gamma\).
+
+Right, the 5 modality is going to ensure that we can't push the counterexample into a bunch of boxes, which seems important.
+Basically, we can reduce the lack of accessibility of \(\Gamma\) to the lack of accessibility of \(\Gamma\) from itself.
+This is a useful step, as otherwise it could be that some other world states that \(\Gamma\) cannot be accessed.
+
+As \(\Gamma \vdash \langle  \circ  \rangle\phi\) for all \(\phi \in \Gamma\), we know that \(\langle \circ \rangle\phi \notin \Delta\), else \(\Gamma \vdash \Delta\).
+
+If anything is true everywhere, then it's true at \(\Gamma\).
+And, whatever is true at \(\Gamma\) is either going to be witnessed by the (in)accessibility of \(\Gamma\) or there's going to be some (in)accessible world that's also establishing it.
+
+\begin{itemize}
+\item If \(\Box\lnot\phi \in \Gamma\) for some \(\phi \in \Gamma\) then take away the accessibility of \(\Gamma\).
+\item If \(\Window\phi \in \Gamma\) for some \(\phi \in \Gamma\) then take away the inaccessibility of \(\Gamma\).
+\end{itemize}
+Know that if \(\Box\lnot\phi \in \Gamma\) and \(\Window\phi \in \Gamma\) then \(\lnot\phi \in \Gamma\), and so it can't be the case that both of these conditions hold.
+It could, however, be the case that neither hold, but this isn't a problem at this stage.
+
+\begin{proof}
+  Suppose \(M,\Gamma \nvDash \delta\).
+  Go by complexity.
+
+  If the formula isn't modal, then this is straightforward.
+
+  \(M',\Gamma' \vDash \Box\delta\).
+  But then as \(M,\Gamma \nvDash \Box\delta\) then there's some accessible state where \(\delta\) doesn't hold in the original model, and adding in an additional relation isn't going to change this.
+
+  \(M',\Gamma' \vDash \Diamond\delta\).
+  \(M,\Gamma \nvDash \Diamond\delta\)
+\end{proof}
+
+
 
 
 \newpage
