@@ -1282,49 +1282,75 @@ The interaction between \(\Box\) and \(\Window\) is split into five additional a
   \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \phi\)
 \end{prooftree}
 
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{\ruleGlobalF}
-%   \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
-% \end{prooftree}
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleGlobalF}
+  \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
+\end{prooftree}
 
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{\ruleGlobalB}
-%   \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
-% \end{prooftree}
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleGlobalB}
+  \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
+\end{prooftree}
 
-Four rules to deal with the interaction between \(\Box\) and \(\Window\).
-Each of these rules relies on the non-derivability of some modal formula.
-Intuition here is any state must be either accessible or inaccessible.
-With \ruleGlobalM\ we ensure that if some formula is true at a state then its relevance to satisfaction is recognised, but \ruleGlobalM\ does not, at least straightforwardly, ensure this holds for arbitrary collections of formulas.
+For the reflexivity of the joint relation, I have:
+\begin{prooftree}
+  \AxiomEmpty
+  \UnaryInf\(\phi, \Window\lnot\psi \fCenter\ \psi \lor \Diamond\phi\)
+\end{prooftree}
 
-
-\begin{multicols}{2}
-  \begin{prooftree}
-    \AxiomC{\(\Gamma \vdash \phi \land \psi \quad \Gamma \nvdash \Kite\lnot\phi\)}
-    \UnaryInfC{\(\Gamma \vdash \Diamond\psi\)}
-  \end{prooftree}
-  \begin{prooftree}
-     \AxiomC{\(\Gamma \vdash \phi \land \psi \quad \Gamma \nvdash \Diamond\phi\)}
-    \UnaryInfC{\(\Gamma \vdash \Kite\lnot\psi\)}
-  \end{prooftree}
-\end{multicols}
+% Four rules to deal with the interaction between \(\Box\) and \(\Window\).
+% Each of these rules relies on the non-derivability of some modal formula.
+% Intuition here is any state must be either accessible or inaccessible.
+% With \ruleGlobalM\ we ensure that if some formula is true at a state then its relevance to satisfaction is recognised, but \ruleGlobalM\ does not, at least straightforwardly, ensure this holds for arbitrary collections of formulas.
 
 
-\begin{multicols}{2}
-  \begin{prooftree}
-    \AxiomC{\(\Gamma \vdash \Window\lnot\phi \land \psi \quad \Gamma \nvdash \phi\)}
-    \UnaryInfC{\(\Gamma \vdash \Diamond\psi\)}
-  \end{prooftree}
-  \begin{prooftree}
-     \AxiomC{\(\Gamma \vdash \Diamond\phi \land \psi \quad \Gamma \nvdash \phi\)}
-    \UnaryInfC{\(\Gamma \vdash \Kite\lnot\psi\)}
-  \end{prooftree}
-\end{multicols}
+% \begin{multicols}{2}
+%   \begin{prooftree}
+%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \nvdash \psi \quad \Delta \vdash \Window\lnot\psi \land \Some\phi\)}
+%     \UnaryInfC{\(\Delta \vdash \Diamond\phi\)}
+%   \end{prooftree}
+%   \begin{prooftree}
+%      \AxiomC{\(\Gamma \vdash \phi \quad  \Gamma \nvdash \psi \quad \Delta \vdash \Box\psi \land \langle \Some\phi\)}
+%     \UnaryInfC{\(\Delta \vdash \Kite\lnot\phi\)}
+%   \end{prooftree}
+% \end{multicols}
 
-I think with these four rules I get \(\modcou{\Box}{\Gamma} \subseteq \Gamma \subseteq \modcou{\Diamond}{\Gamma}\) or the same for window.
-This is heckin' ugly, but I think it works.
+
+% \begin{multicols}{2}
+%   \begin{prooftree}
+%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi \quad \Delta \nvdash \Diamond\phi\)}
+%     \UnaryInfC{\(\Delta \vdash \Kite\lnot\psi\)}
+%   \end{prooftree}
+%   \begin{prooftree}
+%      \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi \quad \Delta \nvdash \Kite\lnot\phi\)}
+%     \UnaryInfC{\(\Delta \vdash \Diamond\psi\)}
+%   \end{prooftree}
+% \end{multicols}
+
+% I think with these four rules I get \(\modcou{\Box}{\Gamma} \subseteq \Delta \subseteq \modcou{\Diamond}{\Gamma}\) or the same for window whenever I have the global stuff working out.
+% These are sound, and when I'm doing stuff with saturation, I may have a number of additional things, but I don't think this is going to be too much of a problem.
+% Of course, I don't get anything like decidability.
+% It's then interesting that these rules don't need to apply when \(\Delta = \Gamma\), but this doesn't give a clear way to eliminate for the general case.
+% And, all of these rules are left-to-right only, I think.
+
+% Wait, the last two rules \emph{can} be replaced.
+
+% \begin{multicols}{2}
+%   \begin{prooftree}
+%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi\)}
+%     \UnaryInfC{\(\Delta \vdash \Diamond\phi \lor \Kite\lnot\psi\)}
+%   \end{prooftree}
+%   \begin{prooftree}
+%      \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi\)}
+%     \UnaryInfC{\(\Delta \vdash \Diamond\psi \lor \Kite\lnot\phi\)}
+%   \end{prooftree}
+% \end{multicols}
+% And these are, in fact, the same rule.
+% And, these don't cover the reflexive case.
+% And, they're a little different to rule \ruleGlobalM, I think.
+% The trouble is, these two rules don't do any work, and it's only the top two rules that I actually need.
 
 
 \subsection{Some useful properties}
@@ -1513,7 +1539,7 @@ The idea of saturation is key, but the double-barrelled notion of consequence re
 \end{definition}
 
 
-The Lindenbaum lemma is move involved than usual.
+The Lindenbaum lemma is more involved than usual.
 A saturated pair is either left or right saturated.
 However, it may be possible for a pair to be either left or right saturated.
 For example, \(\{p\}\).
@@ -1605,7 +1631,7 @@ For right saturation, we move our attention to the right-to-left sub-consequence
 
 
 \begin{corollary}[Saturation]
-  If \(\Gamma \nvdash \Delta\) then there exists an saturated set \(\Gamma^{+}\) such that \(\Gamma^{+} \cap \Delta = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) where either
+  If \(\Gamma \nvdash \Delta\) then there exists a saturated set \(\Gamma^{+}\) such that \(\Gamma^{+} \cap \Delta = \emptyset\) with \(\Gamma \subseteq \Gamma^{+}\) where either
   \begin{enumerate}
   \item \(\Gamma^{+}\) is left-saturated if \(\Gamma \nvdash \ast, \Delta\), or
   \item \(\Gamma^{+}\) is right-saturated if \(\Delta,\ast \nvdash \Gamma\)
@@ -1685,8 +1711,8 @@ However, by adapting a technique developed by Dimiter Vakarelov and put to use b
   \(\cmodel = (\cmodW,\cmodBox,\cmodWin,\cmodV)\) where:
   \begin{itemize}
   \item \(\cmodW\) is the set of all left-saturated sets.
-  \item \(\Gamma R \Delta\) iff \(\modcou{\Box}{\Gamma} \subseteq \Delta \subseteq \modcou{\Diamond}{\Gamma}\)
-  \item \(\Gamma R^{-} \Delta\) iff \(\modcou{\Window}{\Gamma} \subseteq \Delta \subseteq \modcou{\Kite}{\Gamma}\)
+  \item \(\Gamma \cmodBox \Delta\) iff \(\modcou{\Box}{\Gamma} \subseteq \Delta \subseteq \modcou{\Diamond}{\Gamma}\)
+  \item \(\Gamma \cmodWin \Delta\) iff \(\modcou{\Window}{\Gamma} \subseteq \Delta \subseteq \modcou{\Kite}{\Gamma}\)
   \item \(\Gamma \in \cintp{p}\) iff \(p \in \Gamma\) and \(\Gamma \in \iintp{p}\) iff \(\lnot p \in \Gamma\).
   \end{itemize}
 \end{definition}
@@ -1715,10 +1741,10 @@ The definitions hide this, in order to make the quantification more straightforw
     \item For all finite \(\Sigma\): If \(\modcou{\Box}{\Gamma} \vdash \ast, \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\)
     \end{enumerate}
     For, given this we know by proposition~\ref{prop:finiteness} that \(\Delta \cap \modcou{\Diamond}{\Gamma}\) is a left-saturator of \(\modcou{\Box}{\Gamma}\).
-    Then, by lemma~\ref{lindenbaum:left} there must be some left-saturated \(\Delta^{+}\) such that \(\modcou{\Box}{\Gamma} \subseteq \Delta^{+} \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\).
+    Then, by lemma~\ref{lindenbaum:left} there must be some left-saturated \(\Delta^{'}\) such that \(\modcou{\Box}{\Gamma} \subseteq \Delta^{'} \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\).
 
     So, suppose \(\modcou{\Box}{\Gamma} \vdash \ast,\Sigma\) for some finite \(\Sigma\).
-    As \(\modcou{\Box}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta = \emptyset\).
+    As \(\modcou{\Box}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta \ne \emptyset\).
     Rewriting, we have \(\modcou{\Box}{\Gamma} \vdash \ast, \Sigma - \Delta,\Sigma \cap \Delta\), which can be rewritten again as \(\modcou{\Box}{\Gamma} \vdash \ast, \sigma, \Sigma \cap \Delta\), where \(\sigma \coloneq \bigvee(\Sigma - \Delta)\).
     By the application of derived rule \ruleBoxR\ we obtain \(\Gamma \vdash \ast, \Box\sigma, \Diamond(\Sigma \cap \Delta)\).
     As \(\Gamma\) is left-saturated, it must be the case that either \(\Box\sigma \in \Gamma\) or \(\Diamond(\Sigma \cap \Delta) \in \Gamma\).
@@ -1772,6 +1798,38 @@ The definitions hide this, in order to make the quantification more straightforw
   \end{proof}
 \end{lemma}
 
+\begin{lemma}
+  For any \(\Gamma \in \cmodW\), either \(\modcou{\Box}{\Gamma} \subseteq \Gamma \subseteq  \modcou{\Diamond}{\Gamma}\) or \(\modcou{\Window}{\Gamma} \subseteq \Gamma \subseteq \modcou{\Kite}{\Gamma}\)
+  \begin{proof}
+    First we show that \(\modcou{\Box}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Window}{\Gamma} \subseteq \Gamma\).
+    For suppose not.
+    Then there is some \(\Box\phi \in \Gamma\) such that \(\phi \notin \Gamma\) and some \(\Window\lnot\psi \in \Gamma\) such that \(\psi \notin \Gamma\).
+    Hence, \(\Gamma \vdash \Box\phi\) and \(\Gamma \vdash \Window\lnot\psi\).
+
+    As \(\phi \vdash \phi \lor \psi\), we know \(\Box\phi \vdash \Box(\phi \lor \psi)\) by \ruleBoxR\ and likewise as \(\lnot\lnot\psi \vdash \phi \lor \psi\) we obtain \(\Window\lnot\psi \vdash \Window\lnot(\phi \lor \psi)\) by \ruleWinR.
+    Hence, \(\Gamma \vdash \Box(\phi \lor \psi) \land \Window\lnot(\phi \lor \psi)\).
+    Therefore, by \ruleGlobalM\ we know \(\Gamma \vdash \phi \lor \psi\), but as \(\Gamma\) is left-saturated this means either \(\phi \in \Gamma\) or \(\psi \in \Gamma\) contradiction our initial assumption.
+
+    Given \(\modcou{\Box}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Window}{\Gamma} \subseteq \Gamma\) we now have two pairs of conditionals to prove:
+    \begin{enumerate}
+    \item
+      \begin{enumerate*}
+      \item If \(\modcou{\Window}{\Gamma} \nsubseteq \Gamma\) then \(\Gamma \subseteq \modcou{\Diamond}{\Gamma}\) \mbox{\quad }
+      \item If \(\Gamma \nsubseteq \modcou{\Kite}{\Gamma}\) then \(\Gamma \subseteq \modcou{\Diamond}{\Gamma}\)
+      \end{enumerate*}
+    \item
+      \begin{enumerate*}
+      \item If \(\modcou{\Box}{\Gamma} \nsubseteq \Gamma\) then \(\Gamma \subseteq \modcou{\Kite}{\Gamma}\) \mbox{\quad }
+      \item If \(\Gamma \nsubseteq \modcou{\Diamond}{\Gamma}\) then \(\Gamma \subseteq \modcou{\Kite}{\Gamma}\)
+      \end{enumerate*}
+    \end{enumerate}
+    Suppose \(\modcou{\Window}{\Gamma} \nsubseteq \Gamma\).
+    Then there is some \(\Window\lnot\psi \in \Gamma\) such that \(\psi \notin \Gamma\).
+    Hence, as \(\Gamma \vdash \Window\lnot\psi\) and \(\Gamma \vdash \phi\) for any \(\phi \in \Gamma\) we know \(\Gamma \vdash \Window\lnot\psi \land \phi\).
+    So, as we have both \(\Gamma \vdash \Window\lnot\psi \land \phi\) and \(\Gamma \nvdash \Window\lnot\psi\) we have \(\Gamma \vdash \Diamond\phi\) by rule {\color{red} the bottom left rule} which ensures that \(\Gamma \subseteq \modcou{\Diamond}{\Gamma}\).
+  \end{proof}
+\end{lemma}
+
 
 
 We now establish the standard truth lemma for the canonical model.\nolinebreak
@@ -1785,108 +1843,325 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
   \end{proof}
 \end{lemma}
 
+\newpage
+
+\subsection{Still stuck on completeness}
+\label{sec:still-stuck-compl}
+
+If I know that \(\modcou{\Box}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Window}{\Gamma}\) then I know that \(\modcou{\Diamond}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Kite}{\Gamma}\) via the rules:
+\[
+  \phi,\Window\lnot\psi \vdash \psi \lor \Diamond\phi \quad \phi,\Box\psi \vdash \psi \lor \Kite\lnot\phi
+\]
+These are sound, because if \(\phi, \Window\lnot\psi\) are true at some state, then either the state is accessible and so \(\Diamond\phi\) holds, or the state is inaccessible and \(\psi\) holds.
+Hence, when I know that one of the initial conditions obtains, I can get the other, at least with \(\Gamma\).
+
+\[\Diamond\phi \land \Diamond\Window\lnot\psi \vdash \Diamond(\phi \land \psi), \Diamond(\Window\lnot\psi \land \Kite\lnot\phi)\]
+
+From this I see that the \(\Window\lnot\psi\) state considers the \(\phi\) state either accessible or inaccessible, at least as far as the semantics goes.
+That is, if the frame does not satisfy the condition then there's a counterexample to this.
+For, take \(\phi\) to be an atom and suppose it only holds at a single state, and take some state with \(q\) holding at all inaccessible states.
+Then if the window state doesn't consider the \(p\) state accessible, the latter disjunct won't hold, and if the \(p\) state isn't accessible then \(q\) won't hold with \(p\).
+
+Same kind of frame idea and I can see
+\[
+  p \vdash \Box(\Diamond p \lor \Kite p)
+\]
+Must hold.
+
+All of this is fine, but it only shows me that I am able to rule out a frame if I have arbitrary valuations are available to me.
+This doesn't clearly establish anything about the canonical model, where I have a specific valuation.
+
+
+\[
+  \Diamond\Window\lnot\psi, \phi \vdash \ast, \psi, \Diamond\Diamond\phi
+\]
+As, the window world either considers the current world inaccessible and therefore \(\psi\) must hold, or the current world is accessible, and hence it's possible to go somewhere else and come back via the accessibility relation.
+This doesn't force any accessible saturated set to include relevant diamond formulas, but it does mean that form the root world I can't rule out adding those diamond formulas to any saturated set which doesn't consider the root inaccessible.
+
+The above can be strengthened to include additional depth.
+\[
+  \Diamond\Window\lnot\psi, \Diamond\Diamond\Window\lnot\psi, \phi \vdash \ast, \psi, \Diamond\Diamond\phi \land \Diamond\Diamond\Diamond\phi
+\]
+In fact, the number of diamonds prefixing the window modality correspond to the number of diamonds prefixing the formula true at the state plus one.
+
+So, if I can build up some accessible state to ensure that the root is accessible from it, then I can likewise build up any other accessible state which accesses the pre-built-up state.
+
+This also works for kite modalities.
+Basically, it I can access a state which requires \(\psi\) at all inaccessible states, and \(\psi\) isn't true at the present state, then I can simply substitute the \(\Window\lnot\psi\) for a \(\Diamond\phi\).
+\[
+  \Diamond\Kite\lnot\Window\lnot\psi, \phi \vdash \ast, \psi, \Diamond\Kite\lnot\Diamond\phi \quad
+  \Diamond\Diamond\Window\lnot\psi, \phi \vdash \ast, \psi, \Diamond\Diamond\Diamond\phi
+\]
+So, I get an infinite axiom schema of this form, whether I need this is unclear, but the initial cases sure seem useful.
+
+The intuition here is that walking through the diamond modalities, I'm always one optional step away from returning to the current state, and that's all that's required.
+
+So, if I have the potential to build up a saturated set, then I also see that any path I can take toward this set can be built up in a similar fashion.
+
+The following axiom captures something of the connectedness requirement, and is a generalisation of the \(.3\) axiom of normal modal logic.
+\[
+  \Diamond\phi,
+  \Some\psi
+  \vdash
+  \Diamond(\phi \land \Diamond(\psi \land \Diamond\phi)),
+  \Diamond(\phi \land \Diamond(\psi \land \Kite\lnot\phi)),
+  \Diamond(\phi \land \psi),
+  \Diamond(\phi \land \Kite\lnot(\psi \land \Diamond\phi)),
+  \Diamond(\phi \land \Kite\lnot(\psi \land \Kite\lnot\phi))
+\]
+Hence, \(\Diamond\psi\) could be replaced with \(\Some\psi\), as the fact that \(\psi\) is accessible doesn't really do much.
+
+It's possible to break down a conjunction in the somewhere modality.
+\[
+  \Some(\phi \land \psi) \vdash \Diamond\phi, \Kite\lnot\psi
+\]
+
+The \(.3\) alternative can be slightly strengthened in the case of modalities, as the `same state' case can be covered implicitly.
+
+\[
+  \Diamond(p \land \Window\lnot\psi),
+  \Diamond(r \land \Window\lnot\chi)
+  \vdash
+  \begin{cases*}
+    \Diamond(p \land \Window\lnot\psi \land \Diamond(r \land \Window\lnot\chi \land \Diamond(p \land \Window\lnot\psi))),&\\
+    \Diamond(p \land \Window\lnot\psi \land \chi \land \Diamond(r \land \Window\lnot\chi \land \Kite\lnot(p \land \Window\lnot\psi))),&\\
+\Diamond(p \land \Window\lnot\psi \land \Kite\lnot(r \land \psi \land \Window\lnot\chi \land \Diamond(p \land \Window\lnot\psi))),&\\
+\Diamond(p \land \Window\lnot\psi \land \chi \land \Kite\lnot(r \land \psi \land \Window\lnot\chi \land \Kite\lnot(p \land \Window\lnot\psi)))&\\
+  \end{cases*}
+\]
+The basic idea here can be generalised to cover both boxes and windows, and therefore, it seems reasonable to conjecture that a schema of this kind leads to a relatively straightforward proof in the case of a finite language.
+
+
+\newpage
+
+\section{A different idea}
+\label{sec:different-idea}
+
+\begin{definition}[Conditional modalities]
+  Take \(\phi,\psi \in \olang{}\).
+  \begin{enumerate}
+  \item \(M,s \vDash \phi \CBox \psi\) iff \(\forall t(Rst \land M,t \vDash \phi \Rightarrow M,t \vDash \psi)\)
+  \item \(M,s \vDash \phi \CDiamond \psi\) iff \(\exists t(Rst,M,t \vDash \phi, M,t \vDash \psi)\)
+  \item \(M,s \vDash \phi \CWindow \psi\) iff \(\forall t(\lnot Rst \land M,t \Dashv \phi \Rightarrow M,t \Dashv \psi)\)
+  \item \(M,s \vDash \phi \CKite \psi\) iff \(\exists t(\lnot Rst, M,t \vDash \phi, M,t \Dashv \psi)\)
+  \end{enumerate}
+\end{definition}
+
+
+The intuition here is that these are the same modalities but with a conditional reading.
+This is somewhat intuitive for the standard modality.
+However, for window, there doesn't seem to be a way to understand this \emph{other} than thinking of this via an instance of the non-conditional case.
+Something like, if you can access all \(\phi\) states, then you can access all \(\psi\) states.
+But it's not clear to me this is the correct reading.
+It's more like you're able to rule out \(\phi\), so if you can rule out \(\phi\) then you know that \(\psi\) is satisfactory.
+
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t((\lnot Rst \land M,t \Dashv \phi) \Rightarrow M,t \Dashv \psi)
+\]
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(M,t \not\Dashv \psi \Rightarrow  (Rst \lor M,t \not\Dashv \phi))
+\]
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot Rst \Rightarrow (M,t \Dashv \phi \Rightarrow M,t \Dashv \psi))
+\]
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot Rst \Rightarrow (M,t \not\Dashv \psi \Rightarrow M,t \not\Dashv \phi))
+\]
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot(M,t \not\Dashv \psi \Rightarrow M,t \not\Dashv \phi) \Rightarrow Rst)
+\]
+\[
+  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t((M,t \not\Dashv \psi \land M,t \Dashv \phi) \Rightarrow Rst)
+\]
+
+
+To say that every \(\phi\) state is accessible, write \(\bot \CWindow \lnot\phi\).
+But, this is a little stronger, as it gives a monotonic condition, ensuring that no matter how information develops, \(\phi\) can only every be something satisfactory.
+
+The better formulation may be:
+\[
+  M,s \vDash \lnot\phi \CWindow \psi\text{ iff }\forall t((M,t \not\Dashv \psi \land M,t \vDash \phi) \Rightarrow Rst)
+\]
+So, wherever you go, if \(\phi\) holds, then you can add \(\psi\) to this and still be satisfactory.
+This suggests I probably do want to tweak the definition so that the antecedent requires truth.
+Then, it's a more straightforward condition, if \(\phi\) holds, then adding \(\psi\) cannot lead to an unsatisfactory state, though \(\psi\) need not hold.
+\(\CBox\) then states a kind of natural consequence idea, whenever \(\phi\) holds, \(\psi\) also holds, and hence I know that if I'm considering \(\phi\) I'm also considering \(\psi\), whereas \(\CWindow\) is like a safety condition, if I'm considering \(\phi\) then I don't need to worry about \(\psi\).
+
+
+For the canonical model, take saturated sets as before, and for the relations, define:
+
+
+\begin{itemize}
+\item \(R\Gamma\Delta\) iff
+  \begin{itemize}
+  \item If \(\phi \CBox \psi \in \Gamma\) then, if \(\phi \in \Delta, \psi \in \Delta\)
+  \item If \(\phi \in \Delta\), then \(\top \CDiamond \phi \in \Gamma\)
+  \end{itemize}
+\end{itemize}
+
+Following is a generalisation of the diamond rule.
+\begin{prooftree}
+  \Axiom\(\Gamma,\phi \fCenter\ \Delta\)
+  \RightLabel{A}
+  \UnaryInf\(\phi \CBox \Gamma, \top \CDiamond \phi \fCenter\ \top \CDiamond \Delta\)
+\end{prooftree}
+This is sound, as if \(\Gamma,\phi \Vdash \Delta\), then if you're able to go to a \(\phi\) world, and you're able to build this up with \(\Gamma\), then you're going to get something in \(\Delta\).
+
+The B rule is a generalisation of the box rule.
+Basically, if \(\Gamma\) gives us some stuff, then whenever \(\Gamma\) is going to be true, either you must also see that one of the formulas always holds, or you switch around the others.
+But, if you're switching around, then it doesn't matter about the precondition working out as the failure of the box condition ensures some kind of accessibility.
+\begin{prooftree}
+  \Axiom\(\Gamma \fCenter\ \phi, \lnot\Delta\)
+  \RightLabel{B}
+  \UnaryInf\(\psi \CBox \Gamma, \fCenter\ \psi \CBox \phi, \top \CDiamond \Delta\)
+\end{prooftree}
+
+\begin{prooftree}
+  \Axiom\( \fCenter\ (\alpha \CBox \beta) \land (\gamma \CBox \delta)\)
+  \RightLabel{C}
+  \UnaryInf\( \fCenter\ (\alpha \land \gamma) \CBox (\beta \land \delta)\)
+\end{prooftree}
+
+\begin{proof}
+  Suppose there is some state \(\Delta\) such that if \(\phi \CBox \psi \in \Gamma\) and \(\phi \in \Delta\) then \(\psi \in \Delta\).
+  Take \(\Delta' = \{ \psi \mid \phi \CBox \psi \in \Gamma, \phi \in \Delta \}\).
+  \(\Delta' \subseteq \Delta\), in particular as if \(\phi \CBox \psi\) then \(\phi \CBox (\phi \land \psi)\).
+
+  Take an arbitrary finite \(\Sigma\) such that \(\Delta' \vdash \ast, \Sigma\).
+  As \(\Delta\) is saturated and \(\Delta' \subseteq \Delta\), it follows that \(\Delta \cap \Sigma \ne \emptyset\).
+  Hence, we can split \(\Sigma\) into two parts, those formulas which aren't in the expansion and those which are.
+  So, have \(\Delta' \vdash \ast, \Sigma - \Delta, \Sigma \cap \Delta\).
+  From this we get \(\Delta' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\) as \(\Sigma\) is finite.
+  Furthermore, we know that for some finite \(\Delta'' \subseteq \Delta'\) we have \(\Delta'' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\).
+  Hence, we have \(\bigwedge \Delta'' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\).
+  By the box rule, we have \(\psi \CBox \bigwedge\Delta'' \vdash \ast, \psi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\) for any \(\psi\).
+  Take \(\Phi = \{ \phi \mid \phi \CBox \xi \in \Gamma \text{ for } \xi \in \Delta'' \}\), in other words, recover the antecedents to which the formulas in \(\Delta''\) are consequents.
+  We now have \(\bigwedge\Phi \CBox \bigwedge\Delta'' \vdash \ast, \bigwedge\Phi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\).
+  By monotonicity and a rule for combining conditionals, we get \(\Gamma \vdash \ast, \bigwedge\Phi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\), and we also know that \(\Delta' \vdash \bigwedge\Phi\), but this means that \(\Gamma \vdash  \Diamond(\Sigma \cap \Delta)\), which is what we wanted to show.
+\end{proof}
+
+
+Two counterparts for the inaccessible modalities.
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
+  \RightLabel{A'}
+  \UnaryInf\(\phi \CWindow \Gamma, \bot \CKite \phi \fCenter\ \bot \CKite \Delta\)
+\end{prooftree}
+
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma \fCenter\ \phi, \Delta\)
+  \RightLabel{B'}
+  \UnaryInf\(\psi \CWindow \Gamma, \fCenter\ \psi \CWindow \lnot\phi, \bot \CDiamond \Delta\)
+\end{prooftree}
+Also the conjunction rule:
+\begin{prooftree}
+  \Axiom\( \fCenter\ (\alpha \CWindow \beta) \land (\gamma \CWindow \delta)\)
+  \RightLabel{C'}
+  \UnaryInf\( \fCenter\ (\alpha \lor \gamma) \CWindow (\beta \lor \delta)\)
+\end{prooftree}
+
+
+Some interaction.
+First, getting some of the semantics.
+\begin{prooftree}
+  \Axiom\(\Gamma \fCenter\ \phi \CBox \psi\)
+  \Axiom\(\Gamma \fCenter\ \lnot\phi \CWindow \lnot\xi\)
+  \RightLabel{G-I}
+  \BinaryInf\(\Gamma \fCenter\ \phi \CGlobal (\psi \lor \xi)\)
+\end{prooftree}
+
+A key axiom is the following.
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{G-I}
+  \UnaryInf\(\phi \CBox \psi, \gamma \CWindow \delta\fCenter\ (\phi \land \lnot\gamma) \CGlobal (\psi \lor \lnot\delta)\)
+\end{prooftree}
+For, with this it's straightforward to see that for anything accessible via the global relation, one of the box modalities must work out.
+
+% Getting the interaction for the non-conditional instances via conditionals.
+% \begin{prooftree}
+%   \AxiomEmpty
+%   \RightLabel{O}
+%   \UnaryInf\(\lnot\phi \CWindow \lnot\psi \fCenter\ \top \CDiamond \psi, \psi \CGlobal \phi\)
+% \end{prooftree}
+% Not that this is necessarily going to help in the case of the more complex accessibility relations\dots
+
+This might work as a generalisation, as if \(\psi\) can't be found, then if you're at a \(\psi\) world it's got to be inaccessible, and hence if it's also makes \(\phi\) true then it must also make \(\xi\) true.
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{O}
+  \UnaryInf\(\lnot\phi \CWindow \lnot\xi \fCenter\ \top \CDiamond \psi, (\phi \land \psi) \CGlobal \xi\)
+\end{prooftree}
+This rule is sound.
+The intuition is straightforward, if there is no accessible \(\psi\) state, then any \(\psi\) state must be inaccessible and hence if \(\phi\) holds, \(\xi\) must also hold.
+Conversely, if there is a \(\phi\) and \(\psi\) state which is not also a \(\xi\) state, then this state must be accessible (else \(\xi\) would also hold) and hence there is an accessible \(\psi\) state.
+\begin{proof}
+  Suppose \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\).
+
+  First, consider the case where \(\omodel{},s \nvDash \Diamond\psi\).
+  To see that \((\phi \land \psi) \CGlobal \xi\) suppose there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\).
+  As we know \(\omodel{},s \nvDash \Diamond\psi\) it must be the case that \(\lnot Rst\), and hence by the initial assumption we know that \(\omodel{},t \vDash \xi\).
+
+  Second, consider the case where \(\omodel{}, s \nvDash (\phi \land \psi) \CGlobal \xi\).
+  Then there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\) but \(\omodel{},t \nvDash \xi\).
+  As \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\) it cannot be the case that \(\lnot Rst\), for otherwise it would be the case that \(\omodel{},t \vDash \xi\), and so \(Rst\).
+  And, as \(\omodel{},t \vDash \psi\) it is immediate that \(\omodel{},s, \vDash \Diamond\psi\).
+\end{proof}
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{P}
+  \UnaryInf\(\phi \CBox \xi \fCenter\ \top \CKite \lnot\psi, (\phi \land \psi) \CGlobal \xi\)
+\end{prooftree}
+
+
 \begin{lemma}
-  If \(\modcou{\Global}{\Gamma} \subseteq \Delta \subseteq \modcou{\langle \circ \rangle}{\Gamma}\) then one of the relations holds.
+  If \(R\Gamma\Delta\), then \(R\Delta\Gamma\) or \(S\Gamma\Delta\).
   \begin{proof}
-    If \(\modcou{\Box}{\Gamma} \nsubseteq \Delta\) and \(\modcou{\Window}{\Gamma} \nsubseteq \Delta\), then we get a contradiction, as for any \(\phi, \psi\) taken from \(\modcou{\Box}{\Gamma},\modcou{\Window}{\Gamma}\), we have \(\Box\phi \in \Gamma\) and \(\Window\lnot\phi \in \Gamma\).
-    So, \(\Gamma \vdash \Box\phi \land \Window\lnot\psi\).
-    Hence, \(\Gamma \vdash \Box(\phi \lor \psi) \land \Window\lnot(\phi \lor \psi)\).
-    Therefore, \(\phi \lor \psi \in \Delta\) by the assumption, and as \(\Delta\) is left-saturated either \(\phi \in \Delta\) or \(\psi \in \Delta\).
-    {\color{red} The same works with \(\langle \circ \rangle\), and hence it's a kind of correspondence between these two observations that's required.}
+    There are lots of cases here.
 
-    Suppose \(\modcou{\Box}{\Gamma} \subseteq \Delta\), we now want to show \(\modcou{\Diamond}{\Gamma} \subseteq \Delta\).
+    Suppose \(\lnot R\Delta\Gamma\).
+    This could be for two reasons.
+    If there is some \(\gamma \in \Gamma\) such that \(\Diamond\gamma \notin \Delta\), then I can show \(S\Gamma\Delta\) by the O rule and \(\Some\) reasoning.
 
-    Assumptions to work with here:
-    \begin{itemize}
-    \item \(\modcou{\Global}{\Gamma} \subseteq \Delta \subseteq \modcou{\langle \circ \rangle}{\Gamma}\)
-    \item \(\modcou{\Box}{\Gamma} \subseteq \Delta\)
-    \item \(\modcou{\Window}{\Gamma} \nsubseteq \Delta\)
-      \begin{itemize}
-      \item From this, there's some \(\Window\lnot\psi \in \Gamma\) such that \(\psi \notin \Delta\)
-      \item Therefore, \(\Kite\lnot\psi \lor \Kite\lnot\bot \in \Gamma\), as either there's some inaccessible world and \(\psi\) must hold, or there's no accessible world.
-      \item \(\langle \circ \rangle\phi, \Kite\lnot\bot \vdash \Diamond\phi\) should hold, as then every state is accessible.
-      \end{itemize}
-    \item \(\Kite\lnot\phi \in \Gamma\) (for a contradiction, obtained if \(\Diamond\phi \notin \Gamma\) by left-saturation)
-    \item \(\Global\Gamma \vdash \langle \circ \rangle\delta\) for all \(\delta \in \Delta\)
-    \item \(\Delta' \vdash \phi\) for some finite \(\Delta' \subseteq \Delta\)
-    \end{itemize}
-    Need, if \(\phi \in \Delta\) then \(\Diamond\phi \in \Phi\).
+    If there's some \(\phi \CBox \psi \in \Delta\) with \(\phi \in \Gamma\) but \(\psi \notin \Gamma\), then take any \(\xi \CWindow \delta \in \Delta\) and suppose \(\lnot\xi \in \Gamma\).
+    Then, as \(\Delta \vdash \phi \CBox \psi\) and \(\Delta \vdash \xi \CWindow \delta\) we have \(\Delta \vdash (\phi \land \lnot\xi) \CGlobal (\psi \lor \lnot\delta)\), and hence it must be the case that \(\lnot\delta \in \Gamma\).
+    To get the kite part working, use rule P.
   \end{proof}
 \end{lemma}
 
-The point here is that it may be the case that some sets need to be ignored, maybe.
-And, this ensures that the point generated model is always going to have one or the other relation.
 
-However, it seems more straightforward to take the point-gererated submodel along both relations.
-This avoids the use of the global modality, and therefore I don't need to worry about correspondence.
-Doing this, however, requires the generating point itself to be accessible, and I don't yet have a proof of this.
 
-So, if I point generate by either relation, I still have a problem with \(\Gamma\), the point I'm generating from.
-However, is it then possible to add this in as an extra?
-So, either add \(\Gamma \cmodBox \Gamma\) or \(\Gamma \cmodWin \Gamma\)?
-For suppose not, then it must be the case that for some \(\phi \in \Gamma\), \(\lnot\Diamond\phi\) and \(\lnot\Kite\lnot\phi\) are both in \(\Gamma\), but rewriting this gives \(\Box\lnot\phi\) and \(\Window\phi\).
-Yet, from this it should then be the case that \(\Global \lnot\phi\).
-Yet, know that \(\Gamma\) can't make this true, by the basic axiom for \(\Global\).
 
-Intuition is that if \(\Gamma\) is neither accessible nor inaccessible, then \(\Gamma\) must make something true that it required to be false throughout the model.
-But \(\Gamma\) itself witnesses the possibility of everything it makes true.
+\begin{prooftree}
+  \Axiom\(\Gamma \fCenter\ \phi\)
+  \Axiom\(\Gamma \fCenter\ \phi \CGlobal \psi\)
+  \RightLabel{GC}
+  \BinaryInf\(\Gamma \fCenter\ \psi\)
+\end{prooftree}
 
-Therefore, can point generate from \(\Gamma\) and add one or the other relation to tie things off.
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{4ish}
+  \UnaryInf\(\phi \CGlobal \psi \fCenter\ \chi \CGlobal (\phi \CGlobal \psi)\)
+\end{prooftree}
 
-For sure, the \(\Global B\) axiom means that there's no way that \(\Gamma\) can be considered inaccessible.
-Right, suppose, well, how do I get a problem, more specifically.
-What does it means for a relation to be impossible.
-Well, if \(\lnot R \Gamma \Gamma\) then, \(\Gamma\) has to \dots right, then there's going to be some \(\phi \in \Gamma\) such that \(\Gamma \cup \{ \Diamond\phi \} \vdash \bot\).
-\(\lnot R- \Gamma \Gamma\) then some \(\psi \in \Gamma\), same as above.
-But then, conjoin these two things.
-And hence, the axiom gives a contradiction.
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{5ish}
+  \UnaryInf\(\top \CSome \psi \fCenter\ \chi \CGlobal (\top \CSome \psi)\)
+\end{prooftree}
 
-So, can I be sure that \(\Delta\) still fails.
-Well, \(\Gamma \nvdash \Delta\).
-So, for every finite \(\Gamma' \subseteq \Gamma\) and \(\Delta' \subseteq \Delta\) it's the case that \(\Gamma' \nvdash \Delta'\).
-Therefore, \(\bigwedge \gamma' \nvdash \bigvee \delta'\).
-But, \(\bigwedge \gamma' \vdash \Diamond\bigwedge \gamma' \lor \Kite\lnot\bigwedge \gamma'\).
-So, we certainly can't rule out the accessibility of any finite subset of \(\Gamma\).
-Though, I can establish this a little more directly by simply taking finite subsets of \(\Gamma\) and observing the corresponding entailment.
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{Ref-1}
+  \UnaryInf\(\phi \CWindow \psi, \lnot\phi, \chi \fCenter\ \lnot\psi, \Diamond\chi\)
+\end{prooftree}
 
-Note, it's fine if \(\Gamma\) is both accessible \emph{and} inaccessible at this stage, as I'm going to sort this out.
-What's problematic is that if it can be neither.
 
-The worry is that when beefing up \(\Gamma\), on the semantic side, one somehow makes something in \(\Delta\) true.
-As, the point is that everything in \(\Gamma\) is made true but nothing in \(\Delta\) is made true.
-But look, the truth lemma still holds, as this is established on syntactic grounds, oh no, it doesn't, because it holds with respect to that model.
-So, the truth lemma doesn't hold once I add in the additional relation(s).
-It may now be the case that \(\Gamma \vDash \phi\) but \(\phi \notin \Gamma\).
-
-Right, the 5 modality is going to ensure that we can't push the counterexample into a bunch of boxes, which seems important.
-Basically, we can reduce the lack of accessibility of \(\Gamma\) to the lack of accessibility of \(\Gamma\) from itself.
-This is a useful step, as otherwise it could be that some other world states that \(\Gamma\) cannot be accessed.
-
-As \(\Gamma \vdash \langle  \circ  \rangle\phi\) for all \(\phi \in \Gamma\), we know that \(\langle \circ \rangle\phi \notin \Delta\), else \(\Gamma \vdash \Delta\).
-
-If anything is true everywhere, then it's true at \(\Gamma\).
-And, whatever is true at \(\Gamma\) is either going to be witnessed by the (in)accessibility of \(\Gamma\) or there's going to be some (in)accessible world that's also establishing it.
-
-\begin{itemize}
-\item If \(\Box\lnot\phi \in \Gamma\) for some \(\phi \in \Gamma\) then take away the accessibility of \(\Gamma\).
-\item If \(\Window\phi \in \Gamma\) for some \(\phi \in \Gamma\) then take away the inaccessibility of \(\Gamma\).
-\end{itemize}
-Know that if \(\Box\lnot\phi \in \Gamma\) and \(\Window\phi \in \Gamma\) then \(\lnot\phi \in \Gamma\), and so it can't be the case that both of these conditions hold.
-It could, however, be the case that neither hold, but this isn't a problem at this stage.
-
-\begin{proof}
-  Suppose \(M,\Gamma \nvDash \delta\).
-  Go by complexity.
-
-  If the formula isn't modal, then this is straightforward.
-
-  \(M',\Gamma' \vDash \Box\delta\).
-  But then as \(M,\Gamma \nvDash \Box\delta\) then there's some accessible state where \(\delta\) doesn't hold in the original model, and adding in an additional relation isn't going to change this.
-
-  \(M',\Gamma' \vDash \Diamond\delta\).
-  \(M,\Gamma \nvDash \Diamond\delta\)
-\end{proof}
-
+\[
+  \psi \CDiamond \phi \dashv\vdash \top \CDiamond (\phi \land \psi) \dashv\vdash \phi \CDiamond \psi
+\]
 
 
 

@@ -36,6 +36,16 @@
 \newcommand{\Window}{\ensuremath{\ooalign{\hss\rule[0.125pt]{.5pt}{6.5pt}\hss\cr\Box}}}
 \newcommand{\Kite}{\ensuremath{\ooalign{\hss\Diamond\hss\cr\hspace*{1pt}\rule[3.36pt]{6.5pt}{.5pt}}}}
 \newcommand{\Global}{\ooalign{\hss\Box\hss\cr\hspace*{1.75pt}\raisebox{.75pt}{\circ}}}
+\newcommand{\Some}{\ooalign{\hss\Diamond\hss\cr\hspace*{1.7pt}\raisebox{1.075pt}{\circ}}}
+
+\DeclareMathOperator{\CBox}{\Box\hspace*{-1.8pt}\raisebox{.75pt}{\rightarrow}}
+\DeclareMathOperator{\CDiamond}{\Diamond\hspace*{-1.8pt}\raisebox{1.1pt}{\rightarrow}}
+\DeclareMathOperator{\CWindow}{\Window\hspace*{-1.8pt}\raisebox{.75pt}{\rightarrow}}
+\DeclareMathOperator{\CKite}{\Kite\hspace*{-1.8pt}\raisebox{1.1pt}{\rightarrow}}
+\DeclareMathOperator{\CGlobal}{\Global\hspace*{-1.8pt}\raisebox{.75pt}{\rightarrow}}
+\DeclareMathOperator{\CSome}{\Some\hspace*{-1.8pt}\raisebox{1.1pt}{\rightarrow}}
+% \newcommand{\CWindow}{\ensuremath{\ooalign{\hss\Window\hss\cr\hspace*{16pt}\raisebox{.75pt}{\rightarrow}}}}
+% \newcommand{\CKite}{\ensuremath{\ooalign{\hss\Kite\hss\cr\hspace*{16pt}\raisebox{1.1pt}{\rightarrow}}}}
 
 \newcommand{\psem}[1]{\ensuremath{\llbrack{#1}\rrbrack}}
 \newcommand{\pmes}[1]{\ensuremath{\lbflor{#1}\rbceil}}
@@ -47,10 +57,8 @@
 \newcommand{\attn}[1]{\ensuremath{\mathord{\lattn{#1}\rattn}}}
 
 \newcommand{\fint}[1]{\ensuremath{\mathcal{I}({#1})}}
-% \newcommand{\olang}[1]{\ensuremath{\mathcal{#1}}}
 \newcommand{\oframe}[1]{\ensuremath{\mathfrak{#1}}}
 \newcommand{\ointp}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\omodel}[1]{\ensuremath{\mathcal{#1}}}
 
 \renewcommand\lbrack[1][]{\ooalign{\ensuremath{#1\lfloor}\cr\ensuremath{#1\lceil}}}
 \renewcommand\rbrack[1][]{\ooalign{\ensuremath{#1\rfloor}\cr\ensuremath{#1\rceil}}}
@@ -176,6 +184,18 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
   \tl_if_empty:nTF {#1}
   {
     \mathcal{L}%
+  }
+  {
+    \mathcal{#1}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\omodel}{ m }{% Symbol for the language, with default
+  \tl_if_empty:nTF {#1}
+  {
+    \mathcal{M}%
   }
   {
     \mathcal{#1}%
