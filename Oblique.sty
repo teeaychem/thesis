@@ -2,6 +2,7 @@
 
 \usepackage{xparse} % For creating commands with complex arguments
 % \usepackage{expl3}
+\usepackage{bussalt} % For custom natural deduction rules
 
 % % % Simple Commands % % %
 \newcommand*{\oline}[1]{\overline{#1\mathstrut}} % For fixed height overlines
@@ -336,6 +337,15 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 % Better, make sure all text is always default
 \newcommand{\ruleParen}[1]{{\normalfont (#1)}}
 
+% % Custom structural changes
+\newcommand{\deffCenter}{\def\fCenter{\mbox{\ \(\vdash\)\ }}}
+\newcommand{\AxiomEmpty}{
+  \def\fCenter{\mbox{\ \(\mbox{ }\)\ }}
+  \Axiom\(\fCenter\)
+  \deffCenter
+}
+
+% % Custom rules
 \newcommand{\ruleStart}{\ruleParen{Start}}
 \newcommand{\ruleMonR}{\ruleParen{R-Mon}}
 \newcommand{\ruleMonL}{\ruleParen{L-Mon}}
@@ -371,7 +381,6 @@ v    \kern-.9\wd\@brx\usebox{\@brx}}}
 \newcommand{\ruleGlobalM}{\ruleParen{\ensuremath{\Global\text{M}}}}
 \newcommand{\ruleGlobalF}{\ruleParen{\ensuremath{\Global\text{4}}}}
 \newcommand{\ruleGlobalB}{\ruleParen{\ensuremath{\Global\text{B}}}}
-
 
 \newcommand{\ruleTran}{\ruleParen{4}}
 \newcommand{\ruleEucl}{\ruleParen{5}}
