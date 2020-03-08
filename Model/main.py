@@ -219,12 +219,33 @@ class Instance:
 
     def sampleFromHistory(self, step):
         histList = []
-        for name in self.getNodes():
+        for name in self.getNodes()[1:]:
             histList.append([name])
-        for lineIndex in range(0, len(self.history), step):
+        for lineIndex in range(1, len(self.history), step):
             for index in range(len(histList)):
-                histList[index].append(self.history[lineIndex][index])
+                histList[index].append(self.history[lineIndex][index + 1])
+        print(histList)
         return histList
+
+    def plotHistory(self, step):
+
+        fig = plt.figure()
+        ax = fig.add_subplot(1, 1, 1)
+
+        testHistory = self.sampleFromHistory(step)
+
+        legend = []
+        for index in range(len(testHistory)):
+            legend.append(testHistory[index][0])
+            # ydata = testHistory[index][1:]
+            ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:],
+                    label=testHistory[index][0])
+
+        plt.legend(legend, loc=4)
+        ax.set_xlim([0, len(testHistory[index][1:])])
+        ax.set_ylim([0, 1])
+        ax.set_title('Example')
+        plt.show()
 
 
 
@@ -233,7 +254,7 @@ test.findNode("start")
 test.addNode(Node("x", "start", "choiceOutcome", .7, 0, .7))
 test.addNode(Node("x2", "x", "outcome", 1, 3, 1))
 test.addNode(Node("y", "start", "choiceOutcome", .3, 0, .3))
-test.addNode(Node("a", "y", "outcome", 0.5, 7.5, 0.2))
+test.addNode(Node("a", "y", "outcome", 0.5, 15, 0.2))
 test.addNode(Node("b", "y", "outcome", 0.5, 2, 0.8))
 test.findNode("start").normaliseChildren()
 # test.addNode(Node("z", "x", "decorative"))
@@ -245,12 +266,13 @@ test.print()
 # test.updateStatesOfNatureFromNode(test.findNode("start"))
 print("Before")
 test.print()
-test.simpleUpdate(100)
+test.simpleUpdate(500)
 print("After")
 test.print()
 print(test.getNodes())
 print(test.calculateTotalCredences())
 print(test.getHistory())
+test.plotHistory(10)
 
 # xdata = np.random.random([2, 10])
 # print(xdata)
@@ -258,19 +280,3 @@ print(test.getHistory())
 
 
 
-fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-
-testHistory = test.sampleFromHistory(5)
-
-legend = []
-for index in range(len(testHistory)):
-    legend.append(testHistory[index][0])
-    ydata = testHistory[index][1:]
-    ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:], label=testHistory[index][0])
-
-plt.legend(legend, loc=4)
-ax.set_xlim([0, len(testHistory[index][1:])])
-ax.set_ylim([0, 1])
-ax.set_title('Example')
-plt.show()
