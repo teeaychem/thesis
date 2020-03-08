@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 print("Hello!")
 
@@ -40,6 +41,7 @@ class Instance:
     def __init__(self):
         self.initialNode = Node("start", "", "decorative", 1, 0, 1)
         self.iteration = 1
+        self.step = 0.25
         self.history = []
 
     def findNode(self, name):
@@ -47,12 +49,12 @@ class Instance:
         if result:
             return result
 
-    def findNodeHelper(self, node, argname):
-        if node.name == argname:
+    def findNodeHelper(self, node, argName):
+        if node.name == argName:
             return node
         elif len(node.children) > 0:
             for child in node.children:
-                result = self.findNodeHelper(child, argname)
+                result = self.findNodeHelper(child, argName)
                 if result:
                     return result
         else:
@@ -83,10 +85,10 @@ class Instance:
         EU = 0
         for item in table:
             EU += item[1][0] * item[1][1]
-        print(EU)
         return table
 
     def calcEUNode(self, node):
+
         table = []
         self.calcEUHelper(node, 1, table)
         EU = 0
@@ -108,10 +110,15 @@ class Instance:
 
     def updateStatesOfNatureFromNodeHelper(self, startNode, totalCredence, iteration):
         if startNode.kind == "outcome":
-            # Increasing iteration should reduce variance
-            variance = abs(startNode.probability - startNode.credence) / (.001 * iteration)
+            # Increasing iteration should reduce distance
+            distance = startNode.probability - startNode.credence
+            newCredence = startNode.credence + distance/(iteration*20) # random.uniform(max(0,(1/distance)), min(1,1/distance))
             # Currently this enforces that probability and credences are always fairly well aligned
-            startNode.credence = random.uniform(max(0, startNode.probability - variance), min(1, startNode.probability + variance))
+            startNode.credence = newCredence
+
+                 # (startNode.probability + (math.sin(iteration/10)))
+                                                           #random.uniform(max(0, startNode.probability - distance), min(1, startNode.probability + distance))))
+            #random.uniform(max(0, startNode.probability - distance), min(1, startNode.probability + distance))
         else:
             for child in startNode.children:
                 # Only change credence with choice, not outcome
@@ -139,36 +146,20 @@ class Instance:
                 childEU.append(self.simpleUpdateNode(child))
                 if child.kind == "choiceOutcome":
                     update = True
+
             statusQuo = sum(childEU)
-            # for index in range(len(childEU)):
-            #     print("cr: ", node.children[index].credence)
-            #     statusQuo += node.children[index].credence * childEU[index]
 
             if update:
-                # print("Updating", node.name)
-                # print("SQ", statusQuo)
                 # If updating, then adjust credence in choices
                 childCov = []
                 for index in range(len(childEU)):
-                    childCov.append(max(0, (childEU[index]/node.children[index].credence) - statusQuo))   #self.cov(childEU[index], statusQuo))
-                    # print("childEU", childEU[index])
-                    # print("childCov", max(0, (childEU[index]/node.children[index].credence) - statusQuo))
+                    childCov.append(max(0, (childEU[index]/node.children[index].credence) - statusQuo))
                 covSum = sum(childCov)
-                # print("childEU", childEU)
-                # print("childCov", childCov)
-                # print("CS", covSum)
 
                 for childIndex in range(len(childEU)):
-                    # print("changing: ", node.children[childIndex].name)
-                    # print("from: ", node.children[childIndex].credence)
                     childCredence = node.children[childIndex].credence
                     node.children[childIndex].credence = (childCredence + childCov[childIndex])/(1 + covSum)
-                    # print((childCredence + childCov[childIndex])/(1 + covSum))
-                    # print("to: ", node.children[childIndex].credence)
                 # Now credences are updated, recalculate EU of current node
-                # print(node.children)
-                # print(childIndex)
-                # print(node.children[childIndex])
                 return node.credence * self.calcEUNode(node.children[childIndex])
 
             else:
@@ -185,13 +176,13 @@ class Instance:
             self.updateStatesOfNatureFromNode(test.findNode("start"), self.iteration)
             # 2. update nodes 'from ends to means'
             self.simpleUpdateNode(self.initialNode)
-            self.iteration += 1
+            self.iteration += self.step
             self.history.append(self.calculateTotalCredences())
 
     def getNodes(self):
-        list = []
-        self.addSubNodeNamesToList(self.initialNode, list)
-        return list
+        nodeList = []
+        self.addSubNodeNamesToList(self.initialNode, nodeList)
+        return nodeList
 
     def addSubNodeNamesToList(self, node, list):
         list.append(node.name)
@@ -199,9 +190,9 @@ class Instance:
             self.addSubNodeNamesToList(child, list)
 
     def calculateTotalCredences(self):
-        list = []
-        self.calculateTotalCredencesHelper(self.initialNode, 1, list)
-        return list
+        credenceList = []
+        self.calculateTotalCredencesHelper(self.initialNode, 1, credenceList)
+        return credenceList
 
     def calculateTotalCredencesHelper(self, node, credence, list):
         list.append(node.credence * credence)
@@ -224,7 +215,6 @@ class Instance:
         for lineIndex in range(1, len(self.history), step):
             for index in range(len(histList)):
                 histList[index].append(self.history[lineIndex][index + 1])
-        print(histList)
         return histList
 
     def plotHistory(self, step):
@@ -241,38 +231,36 @@ class Instance:
             ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:],
                     label=testHistory[index][0])
 
-        plt.legend(legend, loc=4)
+        plt.legend(legend, loc=0)
         ax.set_xlim([0, len(testHistory[index][1:])])
         ax.set_ylim([0, 1])
         ax.set_title('Example')
         plt.show()
 
 
-
 test = Instance()
 test.findNode("start")
-test.addNode(Node("x", "start", "choiceOutcome", .7, 0, .7))
-test.addNode(Node("x2", "x", "outcome", 1, 3, 1))
-test.addNode(Node("y", "start", "choiceOutcome", .3, 0, .3))
-test.addNode(Node("a", "y", "outcome", 0.5, 15, 0.2))
-test.addNode(Node("b", "y", "outcome", 0.5, 2, 0.8))
-test.findNode("start").normaliseChildren()
-# test.addNode(Node("z", "x", "decorative"))
-# test.addNode(Node("t", "x", "decorative"))
+test.addNode(Node("neighbour", "start", "choiceOutcome", .7, 0, .7))
+test.addNode(Node("nHas", "neighbour", "outcome", .7, 4, .1))
+test.addNode(Node("~nHas", "neighbour", "outcome", .3, -6, .9))
+test.addNode(Node("shops", "start", "choiceOutcome", .3, 0, .3))
+test.addNode(Node("supermarket", "shops", "choiceOutcome", 0.5, 0, 0.8))
+test.addNode(Node("smHas", "supermarket", "outcome", 0.5, 3, 0.8))
+test.addNode(Node("~smHas", "supermarket", "outcome", 0.5, -4, 0.2))
+test.addNode(Node("market", "shops", "choiceOutcome", 0.5, 0, 0.2))
+test.addNode(Node("mHas", "market", "outcome", 0.5, 4, 0.4))
+test.addNode(Node("~mHas", "market", "outcome", 0.5, -3, 0.6))
+test.addNode(Node("organic", "shops", "choiceOutcome", 0.1, 0, 0.2))
+test.addNode(Node("oHas", "organic", "outcome", 0.5, 6, 0.3))
+test.addNode(Node("~oHas", "organic", "outcome", 0.5, -7, 0.7))
 test.print()
 # print(test.calcEUName("start"))
 # print(test.calcEUName("x"))
 # print(test.calcEUName("y"))
 # test.updateStatesOfNatureFromNode(test.findNode("start"))
-print("Before")
-test.print()
-test.simpleUpdate(500)
-print("After")
-test.print()
-print(test.getNodes())
-print(test.calculateTotalCredences())
-print(test.getHistory())
-test.plotHistory(10)
+
+test.simpleUpdate(100)
+test.plotHistory(1)
 
 # xdata = np.random.random([2, 10])
 # print(xdata)
