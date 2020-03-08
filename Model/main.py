@@ -2,7 +2,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-print("Hi")
+print("Hello!")
 
 
 class Node:
@@ -44,9 +44,8 @@ class Instance:
 
     def findNode(self, name):
         result = self.findNodeHelper(self.initialNode, name)
-        # if result:
-        #     print("found")
-        return result
+        if result:
+            return result
 
     def findNodeHelper(self, node, argname):
         if node.name == argname:
@@ -182,10 +181,11 @@ class Instance:
 
     def simpleUpdate(self, iterations):
         for i in range(0, iterations):
+            # 1. 'process information'
             self.updateStatesOfNatureFromNode(test.findNode("start"), self.iteration)
+            # 2. update nodes 'from ends to means'
             self.simpleUpdateNode(self.initialNode)
             self.iteration += 1
-            self.print()
             self.history.append(self.calculateTotalCredences())
 
     def getNodes(self):
