@@ -221,6 +221,7 @@ class Instance:
 
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
+        cmap = plt.cm.get_cmap(plt.cm.rainbow, 1000)
 
         testHistory = self.sampleFromHistory(step)
 
@@ -229,7 +230,7 @@ class Instance:
             legend.append(testHistory[index][0])
             # ydata = testHistory[index][1:]
             ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:],
-                    label=testHistory[index][0])
+                    label=testHistory[index][0], color=cmap(index*20))
 
         plt.legend(legend, loc=0)
         ax.set_xlim([0, len(testHistory[index][1:])])
