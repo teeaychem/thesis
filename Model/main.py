@@ -1,4 +1,6 @@
 import random
+import numpy as np
+import matplotlib.pyplot as plt
 
 print("Hi")
 
@@ -38,6 +40,7 @@ class Instance:
     def __init__(self):
         self.initialNode = Node("start", "", "decorative", 1, 0, 1)
         self.iteration = 1
+        self.history = []
 
     def findNode(self, name):
         result = self.findNodeHelper(self.initialNode, name)
@@ -183,6 +186,46 @@ class Instance:
             self.simpleUpdateNode(self.initialNode)
             self.iteration += 1
             self.print()
+            self.history.append(self.calculateTotalCredences())
+
+    def getNodes(self):
+        list = []
+        self.addSubNodeNamesToList(self.initialNode, list)
+        return list
+
+    def addSubNodeNamesToList(self, node, list):
+        list.append(node.name)
+        for child in node.children:
+            self.addSubNodeNamesToList(child, list)
+
+    def calculateTotalCredences(self):
+        list = []
+        self.calculateTotalCredencesHelper(self.initialNode, 1, list)
+        return list
+
+    def calculateTotalCredencesHelper(self, node, credence, list):
+        list.append(node.credence * credence)
+        for child in node.children:
+            self.calculateTotalCredencesHelper(child, credence * node.credence, list)
+
+    def getHistory(self):
+        histList = []
+        for name in self.getNodes():
+            histList.append([name])
+        for line in self.history:
+            for index in range(len(histList)):
+                histList[index].append(line[index])
+        return histList
+
+    def sampleFromHistory(self, step):
+        histList = []
+        for name in self.getNodes():
+            histList.append([name])
+        for lineIndex in range(0, len(self.history), step):
+            for index in range(len(histList)):
+                histList[index].append(self.history[lineIndex][index])
+        return histList
+
 
 
 test = Instance()
@@ -205,3 +248,29 @@ test.print()
 test.simpleUpdate(100)
 print("After")
 test.print()
+print(test.getNodes())
+print(test.calculateTotalCredences())
+print(test.getHistory())
+
+# xdata = np.random.random([2, 10])
+# print(xdata)
+
+
+
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+
+testHistory = test.sampleFromHistory(5)
+
+legend = []
+for index in range(len(testHistory)):
+    legend.append(testHistory[index][0])
+    ydata = testHistory[index][1:]
+    ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:], label=testHistory[index][0])
+
+plt.legend(legend, loc=4)
+ax.set_xlim([0, len(testHistory[index][1:])])
+ax.set_ylim([0, 1])
+ax.set_title('Example')
+plt.show()
