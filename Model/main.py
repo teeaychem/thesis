@@ -112,7 +112,7 @@ class Instance:
         if startNode.kind == "outcome":
             # Increasing iteration should reduce distance
             distance = startNode.probability - startNode.credence
-            newCredence = startNode.credence + distance/(iteration*20) # random.uniform(max(0,(1/distance)), min(1,1/distance))
+            newCredence = startNode.credence + (distance/(iteration*10))*startNode.credence # random.uniform(max(0,(1/distance)), min(1,1/distance))
             # Currently this enforces that probability and credences are always fairly well aligned
             startNode.credence = newCredence
 
@@ -221,6 +221,7 @@ class Instance:
 
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
+        # https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html for colour maps
         cmap = plt.cm.get_cmap(plt.cm.rainbow, 1000)
 
         testHistory = self.sampleFromHistory(step)
@@ -228,12 +229,11 @@ class Instance:
         legend = []
         for index in range(len(testHistory)):
             legend.append(testHistory[index][0])
-            # ydata = testHistory[index][1:]
             ax.plot([i for i in range(len(testHistory[index][1:]))], testHistory[index][1:],
                     label=testHistory[index][0], color=cmap(index*20))
 
         plt.legend(legend, loc=0)
-        ax.set_xlim([0, len(testHistory[index][1:])])
+        ax.set_xlim([0, len(testHistory[0][1:])])
         ax.set_ylim([0, 1])
         ax.set_title('Example')
         plt.show()
