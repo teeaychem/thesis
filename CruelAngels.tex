@@ -1,0 +1,2907 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Oblique Reasoning}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+% \begin{center}
+%   \includeinkscape[width=.25\linewidth]{images/Berkeley}
+% \end{center}
+
+
+\begin{scenario}
+  Snow dances and random flicker turns to rigid form as the agent regains focus. The aisle is empty, and their left hand is stretched toward an ingredient, as if ready to impart life. Heck. Forgetting the shopping list, and no forgetting consciousness. The agent is in a rough spot. And more. What were they doing? The outstretched hand suggests they were about to obtain the ingredient. No basket, so perhaps this is all the came in for. But what would the ingredient be for?
+\end{scenario}
+
+
+The agent does not have a standard case of philosophical amnesia.
+The agent knows who they are, where they are, what time it is, and so on.
+Their loss of memory concerns the end to the means they were performing when reaching for the ingredient.
+It's the kind of amnesia that amnesia that doesn't need a sophisticated Greek term; it's forgetting and it's mundane.
+I start sentences and wonder what I meant to say, stride confidently into rooms only to pace circles looking for the reason, and let an album play as I probably put it on for at least one song and maybe this tedious stuff is an necessary prelude.
+
+The cases of interest involve an agent forgetting the end to some means while either performing or recognising the means as a means to some end.
+Reaching for an ingredient, walking into a room, and starting a sentence aren't typically ends.
+
+Why these cases are interesting follows more-or-less directly from a straightforward principle about means-end reasoning.\nolinebreak
+\footnote{Elegance requires some compromise, so here let us note:
+  \begin{enumerate*}[label=\alph*)]
+  \item The principle concerns the evaluation of the means \emph{as a means to an end}.
+    If the relevant action or outcome does not depend on the end, we need not reason about it as a means.
+  \item There may be additional considerations which count in favour of the means, but there is primary dependence on the end for the same reason as before.
+  \item The relevant end is determined by the agent's reasoning.
+  \item If there are multiple ends the principle suggests either
+    \begin{enumerate*}[label=\roman*)]
+    \item all of these matter, or
+    \item there is an end the agent did not recognise when forming the means.
+    \end{enumerate*}
+  \end{enumerate*}
+}
+
+\begin{principle}\label{princple:dependence}
+  When engaging in practical reasoning, an agent's evaluation of whether a means is worthwhile primarily depends on their evaluation of the relevant end.
+\end{principle}
+
+Practical reasoning is settling the issue of what to do, and issues are settled by information.
+The evaluation of some act or outcome in part settles what to do as it the result of processing information about the act or outcome.
+However, given principle~\ref{princple:dependence} it is somewhat unclear what practical reasoning can do when the means is to a forgotten end.
+The degree to which the means is possible may be straightforward to evaluate, but the possibility of the means (as a means) is only important in so far as it helps bring about the end, and likewise whether or not the end can be brought about is relevant only in to the degree that the agent regards it as worthwhile.
+
+Intuitively, it seems that if the agent pursues the means to the end, the agent continues to evaluate the end as worthwhile, despite being unable to directly reason about what the end is.
+
+Perhaps when pacing circles I form a new end, the end of figuring out whatever the end with which I entered the room was.
+Maybe, but some subtlety is required.
+Information about the end may easily be obtained.
+A note outside the door may have listed instructions, and exiting the room to look at this note would straightforwardly achieve the end.
+I don't leave the room because figuring out whatever the end with which I entered the room was is now at best an additional means to achieving that very end and I still have the chance to make progress on that end without leaving the room --- I pace at least in part because of my commitment to the forgotten end.
+
+The idea that I can make progress on an end that I have started the means to but am no longer able to evaluate isn't absurd, but the reasoning involved seems non-standard.
+Why should I hold that pursuing the means to the forgotten end is more preferable to figuring out whatever the end with which I entered the room was?
+
+Instead of formulating a new end, perhaps a guess is made at how worthwhile the end of the means is.
+I've decide to walk into rooms before and I've decided against walking into rooms before.
+I can recall parts of how these decisions were made, and I can compare the considerations used when previously settling what to do with what my current situation.
+Means-end reasoning led me to the adoption of the means given my evaluation the end, and now through end-means reasoning I evaluate an end given my adoption of some means.
+{\color{red} May be the place to not similarities to the issues \citeauthor{Paul:2014aa} raises in \citetitle{Paul:2014aa}.}
+
+Pursuing a forgotten end on the basis of some means is absurd, perhaps.
+But it's not impossible.
+Depending on the words chosen and how much of the sentence I had formulated the words needed to finish the sentence and express the thought I had may follow quite \dots
+Well, you can fill in the rest.
+My internal Markov chain generator can be employed to complete what I started.
+I believe this tool for completing sentences may complete the sentence I began to utter and hence employ the generator is a means to the forgotten end.
+Without the being able to recall the end it's hard to say whether this is worth the effort, but it may be.
+Even if I were able to represent the end, that I evaluate it to be worthwhile does not guarantee that it will be.
+
+Broadly speaking, end-means reasoning of the kind sketched above is possible only any model of practical reasoning on which an agent forms an evaluation of actions or outcomes through reasoning.
+The difference between a forgotten end and a remembered end is relevant to the extent that a remembered end provides more resources for the relevant evaluation.
+Some reasoning led to the adoption of the means given the end, and end-means reasoning seeks the inverse of this.
+Note, it is only the \emph{evaluation} of the end through reasoning which is important.
+Whether or not the end \emph{is} worthwhile and whether \emph{this} can be changed through reasoning is a distinct matter.\nolinebreak
+\footnote{\citeauthor{Smith:2004aa} is an article I like.}
+Rather than a barrier to further reasoning, the dependence noted in principle~\ref{princple:dependence} suggests that someone engaged in end-means reasoning can take their commitment to some means as a source of information about ends.
+
+Inclined to explore some models.
+Deliberative decision theory etc. have tools for playing around with utility functions.
+However, there's some philosophy to be done.
+For, the suggestions made above conflict with a second, more-or-less natural, principle:
+
+\begin{principle}\label{principle:representation}
+  An agent is only able evaluate an action or outcome if they are able to represent it.
+\end{principle}
+
+Principle~\ref{principle:representation} can be read in a number of ways.
+
+On a weak reading, the ability to represent an action or outcome is required only in order to fix the relevant action or outcome.
+The ability to represent the forgotten end as `the forgotten end' (or through some other resource) is then sufficient to determine the action or outcome the agent is reasoning about.
+Thought of through the lens of semantics; something is required to ensure that the agent's reasoning has a reference.
+On this weak reading, however, the end is fixed by prior reasoning.
+Stakes are low when the agent is at the supermarket, or when I'm pacing around a room, but consider a more extreme case.
+
+\begin{scenario}
+  Static monitors shimmer and enamelled wood creeks as Nixon recovers consciousness. Inside an open suitcase pierced with keys is a big red button. Safety protocols have been followed, as Nixon presses down and an electrical signal \dots
+\end{scenario}
+
+
+Does Nixon evaluate a nuclear strike as worthwhile?
+The open suitcase and complete safety protocols indicate a commitment to some end; thoughts can be had before flipping the plastic cover.
+On the account of end-means reasoning given, Nixon certainly evaluated the end to which pushing the button was a means worthwhile as Nixon reasoned about pushing the button as a means to some end.
+Nixon, however, was unable to recall that the end was a nuclear strike.
+
+On a stronger reading, principle~\ref{principle:representation}, Nixon did not evaluate the nuclear strike as worthwhile, though they did evaluate the outcome of pushing the button as worthwhile.
+Yet, the end of pushing the button and a nuclear strike are the same outcome.
+Modally, the two pushing the button and a nuclear strike can come apart.
+So, with a little philosophical labour, we may argue that, as Nixon could not recall the end, Nixon did not (when pressing the button) evaluated a nuclear strike as worthwhile.
+
+Intuition may agree, but this makes no sense of Nixon's reasoning.
+When taking into consideration the open suitcase and completed safety protocols Nixon recognises that something will happen, and that they evaluated this as worthwhile before passing out.
+And, Nixon's reasoning after regaining consciousness is about whether that end is worthwhile.
+If Nixon's evaluation of `the end of pushing the button' is not the same as `launching a nuclear strike' then it unclear what Nixon is evaluating.\nolinebreak
+\footnote{Note, unlike the other scenarios, the means here do enough to uniquely determine the end.}
+There is no other way to capture what Nixon is reasoning about other than by \emph{whatever it is they've forgotten}.
+If there had been an electric fault, it would be absurd to say that Nixon evaluated the failure to launch the nuclear strike as worthwhile, though pushing the button was a means to the eventual end.
+Hence, it seems Nixon evaluated the nuclear strike as worthwhile despite being unable to represent the nuclear strike and cases of end-means reasoning run up against a strong reading of principle~\ref{principle:representation}.
+
+Whether it makes sense to say Nixon \emph{desired} the nuclear strike isn't clear.
+That Nixon represented their end as a nuclear strike may be required by the semantics of natural language desire ascription.
+Yet it seems everything but the relevant representation is present in Nixon's practical reasoning.
+
+
+
+
+\newpage
+
+
+
+
+
+
+
+
+For example, \citeauthor{Schroeder:2004aa} writes that `if the creature could not conceive of justice, say, what would enable its desire to be a desire speciﬁcally for justice?
+\dots desire cannot exist in the absence of mental representation.' (\citeauthor[132]{Schroeder:2004aa})
+
+
+
+
+
+
+
+In some aspects, the situation is the inverse to the core issue of transformative experiences highlight by \citeauthor{Paul:2014aa} (\citeyear{Paul:2014aa}).
+For in the case of transformative experiences an agent is able to reason about some outcome without being about to evaluate the degree to which it would be worthwhile if brought about.
+Here, by contrast, 
+
+
+
+
+
+
+
+\newpage
+
+
+\begin{center}
+  {\color{red} \Huge \texttt{\emph{Notes}}}
+\end{center}
+
+
+
+
+
+
+That it would not surprise us if the agent were to reach out and pick up the ingredient 
+
+
+
+
+
+Outside of the forgetting there need not be anything unusual.
+
+
+
+
+
+
+\section*{Notes}
+
+\begin{itemize}
+\item Idea that something like a profile is needed, as there's no way to choose between individual options.
+\item Right, the idea here is that there's nothing like choice involved, in some sense.
+\item More broadly, the idea is that there are cases in which something happens in the world and I can update based on this, it's a probability distribution, right.
+  And, if one is sensitive to these kinds of issues then \dots it still seems as though there's not much to be done by way of probability here.
+  For, one can't do much other than condition.
+\end{itemize}
+
+
+\begin{itemize}
+\item Is there an argument for any of this?
+\item There's intuitions about natural language, which is something else.
+\item On some understanding, the proof is with how useful the model is.
+\item Hm, basically, the problem is jumping through hoops to make sense of the opening scenario.
+\item This is then supported by the sense that can be made of other things.
+\item Also Anscombe \dots
+\end{itemize}
+
+\newpage
+
+\begin{quote}
+  If an action is being performed on the basis of reasoning about what to do, then some evaluative attitude has been established in favour of this action over other actions, and this evaluation depends on an evaluation of an end to which the action is a means.
+\end{quote}
+Here, the important thing is that this is all within the same piece of reasoning.
+The basic argument would be that you're performing the action as a means to some end, and it seems quite strange that the evaluation of the means could be independent.
+The action is a means, if its significance was not due to the evaluation of an end, then this action would be an end in itself.
+This, then, seems like a quite general truth.
+The dependency really is key, as if not, then the evaluation for the means holds regardless of the end, and so instead the means should be considered as an independent end.
+Instead, the agent has a sequence of desirable actions.
+For example, listening to music and going for a run.
+Going for a run could be a means to listen to music, if I would otherwise do something else.
+However, if I'm going to listen to music and it's also the case that I can do this while running.
+Means-end structure does not follow from piecing together a sequence of desirable actions.
+
+Of course, means-end is slightly ambiguous, but it's about some structured reasoning rather than possible dependencies, etc.
+
+So, from this dependency relation, one may think that when acting on the means to an end, an agent must be able to reason about the relevant end.
+For, else the agent cannot determine an important part of the desirability of the means.
+
+Used to thinking about idealised agents, but even if we relax assumptions about the ability to canvas all reasons for action (whether these be desires or something else), acting on a means as a means without being able to determine the reasons for the end, would be puzzling.
+
+Have cases where we forget the end but act on the means.
+So, either this link breaks down, and it's possible to act on means independent of the end, reasoning about the desirability of the end need not be direct, or there is some substitute end that can be reasoned about.
+
+The first option will not be pursued.
+Maybe there is a good argument for this, but I do not see a way to understand means-end reasoning without this dependency requirement.
+And, in the relevant cases, it really does seem as though this dependency is preserved.
+
+The third option also seems implausible.
+Sometimes there may be a substitute, but this is usually when a certain way of representing fails.
+Sometimes one goes via indirect reference, for example.
+Want to see some specific movie, and then move to a kind of definite description.
+So long as the description retains enough of the characteristics, then you're probably fine.
+In the cases of interest, the only reasonable substitute is the end to which the means is a means.
+Yet this doesn't seem to help, for there's no way to get enough information to figure out the relevant end.
+However, two cases to distinguish, as `mode of presentation' may be though to make a difference.
+Here, however, I'm assuming it does not, and if it does then this only strengthens the problem.
+\begin{itemize}
+\item The idea about a substitute end can also be rephrased in terms of the evaluation of the means being all that's required, so you forget the end, but the relevant evaluation of the means is preserved, and this does enough for you to pursue the means, as nothing in the background has changed, etc.
+\item This seems strange, though, as the dependency between means and end suggests that this can't be all that's going on.
+\item So, one could think that evaluation attaches to representation and that it's then a matter of deciding between these.
+\item I mean, in part this seems natural as it `shouldn't' be the case that there's a way to increase the desirability of means due to some decision, but this seems problematic to the degree that decisions do have this property.
+\end{itemize}
+
+\begin{itemize}
+\item Another way of stressing the core idea above is that the relevant dependency is key to understanding the reasoning, and it doesn't make sense to think that the same action which serves as the means would have been chosen were it not for the end that led to the evaluation.
+\item So, a key part of the reasoning is that there \emph{is} this dependency.
+\item And, this dependency means that you're not able to figure out the present desirability, etc.
+\item Needs to be some care here, as, for example, \citeauthor{Bratman:1987aa} argues that in the case of intention, where this kind of means-end reasoning is clear, that there's no change in the desirability of the options, and instead there's some kind of filter of admissibility.
+\item Idea of a filter is neat, and as this is independent of desire (or whatever) it's not too hard to imagine that this could be preserved.
+  \begin{itemize}
+  \item However, problem is that without the end, there doesn't seem to be a sufficient grasp on admissible options.
+  \item That is, the agent may do things that would otherwise be inadmissible in pursuit of the oblique pursuit of the end.
+  \item Right, the basic idea with the filter is that it rules out options, and so the idea that this persists can't be right, though the functional idea of a filter could remain, in the sense that there's some constraints and some reverse inference going on, but whatever the filter \emph{was} can't persist.
+  \item For example, going to the shops, filter should be that you go straight to the right section, but this doesn't happen without the end.
+  \end{itemize}
+\item So, overall idea here is that filters seem interesting because they capture some of this dependency structure, but they rely too much on a `controlling' representation.
+\end{itemize}
+
+
+So, second option.
+Rest of the paper is exploring this.
+\begin{itemize}
+\item Descriptive: what's going on, and how does this affect understanding of practical reasoning?
+\item Normative: what does rationality say about such cases?
+  \begin{itemize}
+  \item Here, one might expect there to be a whole bunch of stuff that comes into play with respect to lack of information.
+  \item That is, one starts to wonder about the quality of the information they have, rather than the mere presence of information.
+  \item In some respects, this may be the easier argument to make.
+  \item And not only quality; the way in which one is reasoning seems important too.
+  \end{itemize}
+\end{itemize}
+
+On the descriptive side, the question is about using reasons that one doesn't have direct access to.
+Normative questions are going to most likely be postponed, but to note is that this kind of reasoning doesn't seem irrational, though this may be due to the fact that these are practical issues.
+That is, question as to whether this can be transferred over to beliefs, etc.
+
+\begin{itemize}
+\item On the descriptive side, the diagrams basically explore the relation between what the agent's reasons determine and what they're able to represent.
+\item In some respects this is kind of impoverished, but this is where the focus is, you can create a hierarchy of reasons, for sure, but fix something relevant.
+\item Also referential as this makes things a lot more straightforward, likewise for the satisfactory/unsatisfactory binary distinction.
+\end{itemize}
+
+
+\begin{itemize}
+\item Parts of the descriptive argument:
+  \begin{enumerate}
+  \item Have two variables, at least, and the less information you have connecting these, the easier it is for them to come apart.
+  \end{enumerate}
+\end{itemize}
+
+
+\begin{itemize}
+\item Strong principle: the ability to evaluate means requires the ability to evaluate the end to which it is a means.
+  \begin{itemize}
+  \item This I do not think can be the case.
+  \end{itemize}
+\item Weaker: the ability to evaluate means requires the ability to have had evaluated the end to which it is a means.
+  \begin{itemize}
+  \item This I don't have an argument against.
+  \end{itemize}
+\end{itemize}
+
+
+However, it then seems as though if one is unable to evaluate the end to the means they are considering, then they cannot appropriately evaluate the means, and hence the action performed must be its own end.
+
+\section{Argument outline}
+\label{sec:argument-outline}
+
+\begin{enumerate}
+\item dependency
+\item means settle
+  \begin{enumerate}
+  \item settling is a formal notion, so there's no avoiding this, means still provide information, etc.
+  \item Note, settling is something the agent does, it doesn't necessarily correspond with what the agent ought to do.
+  \end{enumerate}
+\item no access of end
+\item settle via something else; something other than primary value
+  \begin{enumerate}
+  \item value is a formal notion here, so this idea of primary value is kind of important, as it distinguishes something of importance about means
+  \item have a problem if settling only happens in accordance with primary value
+    \begin{enumerate}
+    \item this should have some precedence, but it's not clear it does, for it's usually the case that one simply needs to argue that the alternative has greater value.
+      Should look at Smith, Bratman, and maybe others.
+    \end{enumerate}
+  \item This doesn't generalise to what the agent ought to do, as the focus here is on the agent's reasoning.
+  \end{enumerate}
+\end{enumerate}
+
+
+
+\newpage
+\maketitle
+
+
+
+
+
+
+
+
+
+\newpage
+
+\begin{center}
+  {\color{red} \Huge Old Stuff}
+\end{center}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Four kilometres to go, the second left after the traffic lights, and a right shortly after.
+Preparing the meal had been going well until \dots until \dots, well \emph{some} ingredient is missing.
+The name of the ingredient was left on the fridge, but the ingredient is in the supermarket and you're sure that you'll recognise it when you see it, and you're confident you will.
+
+Obtaining the missing ingredient is a means to cooking the meal which is in turn in service of some further end.
+Isolated, obtaining the ingredient functions as an end and the supermarket is a means to that end.
+Before you set out to the store you had a clear grasp on this end; you checked each item from the list until you came to what you have set out to obtain, and the missing item was so clear that you didn't bother to take a note.
+Nearing the supermarket, you realise this may have been a mistake.
+You could turn back, but you have a partial grasp on the end you are pursuing; going to the supermarket is a means to obtaining that ingredient, that ingredient is required to for this unspecified meal, and it was sufficiently familiar that you skipped making a note.
+Achieving the end requires that you recall what the missing ingredient is, but it does not require that you're able to do so while cycling, nor does it require that you do so by looking at your fridge.
+So long as you're able to find what you're looking for, it'll all be fine.
+% Later you return with the ingredient and prepare the meal.
+
+Abstractly, an agent had some end, formed means to this end, and the relevance of those means persisted despite the agent losing track of the end.
+The details are mundane.
+Consider stumbling with 'ums\dots' and 'ahs\dots' as you try to recall what you wanted to say while recalling the initial fragment of your utterance or the pause as you walk into a room and the next step eludes you.
+The utterance fragment and entry to the room were means to some end, and the information that those means provide often allow you to achieve the end.
+% The way in which ends can be recovered be a black box throughout this paper.
+
+The interest here is that an agent's practical reasoning can lead to them pursuing an action despite being unable to evaluate whether or not it is preferable to any other action available to them.
+More specifically, how and why certain means persist without an agent being in a position to evaluate the relevant end.
+For, intuitively, when engaging in means-end reasoning, an agent's valuation of a means primarily depends on their valuation of some end.
+So, if an agent loses track of the end, it seems they cannot track the value of means to that end.
+Is continuing to purse the means rational?
+If so, what descriptive and normative resources are required to analyse such scenarios, do these resources apply to other scenarios, and if so do they offer novel insights?
+
+\begin{itemize}
+\item Puzzle
+\item Perspective
+\item Reduction
+\end{itemize}
+
+
+{\color{red} }
+
+The goal is straightforward.
+To state what the puzzle is, to give a perspective on the puzzle, and to show the relation the puzzle bears to other topics in the philosophy of action given this perspective.
+
+The perspective offered will draw on decision theory, but decision theory is not essential to what I have to say.
+Decision theory offers a toolkit,
+
+Much like an amateur artist with poster paints and cardboard, you may not like what is produced, nor how it is produced.
+However, if the artist tries their best, then with your understanding of the medium you'll likely be able to figure out what they're getting at, and perhaps well enough to recreate with your own tools.
+
+\newpage
+
+\section{Basics}
+\label{sec:basics}
+
+
+Practical reasoning is settling the issue of what to do,\nolinebreak
+\footnote{\textcite[216]{Audi:1993aa}}
+and issues are settled by information.
+So, practical reasoning amounts to the processing of information.
+To put these sweeping statements to work, define information to be change in the likelihood of situations, and identify actions with the situations which would result from their performance.
+Practical reasoning then narrows down some distribution over actions, or collection of actions, to be performed.
+Situations are represented and evaluated, and the evaluation of a situation is typically tied to its representation.
+Two principal components of evaluation are whether a situation is possible, and whether a situation is worthwhile.
+These components constitute information, as they determine whether a possibility is made more or less likely through reasoning.
+So, what to do is settled by a distribution over situations correspond to acts.
+Perhaps what to do is settled by a unique situation, or perhaps the transition from reasoning to action is non-deterministic.
+
+This is the model of practical reasoning at work in this paper.
+It can be seen as a loosening of the folk-theoretic model which makes use of the propositional attitudes of belief and desires.
+Beliefs provide information about what is possible, desires about what is worthwhile, and propositions may represent, or be represented.
+Still, to talk of beliefs, desires, and propositions may suggest substantial commitments about the underlying metaphysics or everyday conception of practical reasoning.
+Here we are interested in pure theory; theory which has useful and widely applied instantiations, but it is only the formal features of this core that matter here.
+Likewise, information about what is possible may be captured by probabilities and what is worthwhile by utility, as in decision theory.
+
+One may colloquially say that they used the information provided by their evaluation of how they represented the situations on the menu to eliminate those situations in which they ordered a meal other than the one they chose, but forget such colloquialisms.
+Situations, representations, evaluations, and information are tools the we use to reason about scenarios and our use of these tools will is implicitly defined by the functional role we assign to them.
+The focus of this paper is information; what is used to settle the issue of what to do, or alternatively, what is used change the likelihood situations?
+The puzzle is about how means to an end can provide information without an agent being in a position to reason with the information used to establish the end.
+
+In broad strokes, folk- and decision-theory\nolinebreak
+\footnote{Game-theory, really.}
+is right.
+It's a matter of scope, really.
+
+
+
+
+
+The basic idea at work throughout this paper is simply that is \emph{situations} are represented and evaluated.
+Representations are used to reason about situations, and reasoning about whether something is possible or worthwhile is the result of combining the way in which a situation is represented with the evaluation of that situation.
+% Representations are evaluated only in so far as they are part of situations.
+Still, evaluation and representation are independent.
+
+
+\newpage
+
+\section{Representations}
+\label{sec:representations}
+
+
+
+Representations describe situations and the constituents of situations.
+There is an intuitive parallel between talking about an agent's representation of the ingredient and what the agent means by the term `the ingredient'.
+Both pick out the ingredient in some way; they both provide a tool that can be used to \emph{refer} to a constituent of situations.
+Colloquially, an agent's representation of the ingredient is something which can be used to point to something.
+Exploiting the intuitive parallel, and following the tradition of Montague Grammar, we describe the representation by means of a function.
+For example, the function from constituents of situations to truth values which returns true just in case the argument given is the ingredient ingredient, perhaps relative to some context.\nolinebreak
+\footnote{Note, we're talking about the agent's representation of the ingredient, so this is not uninformative.
+  I haven't said what the ingredient is, but once fixed we can talk about how the agent represents it.
+  To say the argument given is what the agent represents by the representation would be, and often this is all we are able to do.}
+Likewise, an agent's representation of the situations in which they obtain the ingredient is a function from situations to truth values, which returns true just in case the argument given is a situation in which the agent obtains the ingredient.
+
+This says little about what an agent's representation is, but provides us with a tool that is adequate to describe the role of representations in an agent's practical reasoning.
+
+Functions from (constituents of) situations to truth values require an argument to provide a truth value.
+Returning to the parallel between representations and meanings, the meaning of the sentence `the agent obtained the ingredient' conveys to you what a situation has to be like in order for it to be true.
+And, if you take the sentence to express something true then the meaning must be associated with some situation; convention suggests the actual situation, but perhaps we are talking about what would have happened if things went well for the agent.
+Representations, likewise, apply to (constituents of) situations.
+Situations and their constituents are distinct from representations, and hence in describing an agent's reasoning both the (constituents of) situations the agent is reasoning about and the representations they employ must be specified.
+It is possible to invert a representation of a situation to obtain those situations for which the representation holds, but it is also possible for an agent to have some independent grasp of a situation.
+
+Writing this, I am part of the actual situation, a coffee cup is beside me, and I can reason about the coffee cup because I have some representation of what it is to have a coffee cup beside me in a situation.
+I may lose the ability to represent what it is to have a coffee cup beside me, but this is independent from my access to the actual situation.
+
+A coffee cup, for me, has certain qualities that distinguish it from a regular cup; some complex of artwork, origin, weight, size, and so on ensure that the representation is so baroque that you would question whether to talk to me at a party.
+Were I to relax --- just a little --- I'd forget this complex and be happy drinking coffee from any old cup.
+I would not be able to distinguish between the different cups that can contain coffee in the way I once did, but my ability to note there is something beside me which can be represented is unaffected.
+The coffee cup is an object, independent of how I represent it, and the representation a function which is true or false of an object.
+I would lose the ability to invert the function to reason about exactly those situations in which I have a coffee cup beside me, but those situations may be accessed by other means, just as I access the actual situation by being a part of it.
+That I have a representation of a coffee cup beside me is just to say that I pick out some constituent of the actual situation in a certain way.
+
+A little formalism may help.
+\(\lambda s. P(s)\) is a function from situations to truth values, which returns true under certain conditions, and hence is a representation.
+`\(P\)' doesn't mean much to us, but it is a representation all the same.
+It is easier to write \(\lambda s. \text{Obtaining}(s)\) to indicate that the representation identifies situations in which something is obtained.
+Likewise, \(\lambda c. c = a\) is function from constituents to truth values, a returns true just in case the constituent is identical to \(a\).
+This has the potential to mislead, as it may seem to require the constituent \(a\) as part of the representation, but this is an artefact of our description of the representation.
+
+% ; \(\lambda c.c\) or borders on uninterruptible, as does using \(\lambda a.a\) to indicate that the function only returns true when \(j\) is provided as an argument.
+Borrowing from (neo-)Davidsonian event semantics, we can build complex representations by including in our description of a representation the role a particular sub-representation has.
+Figure~\ref{fig:parse:1} shows how the complex representation of agent \(a\) obtaining ingredient \(i\) may be described.
+Note the need to provide a situation and constituents.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[baseline=0pt]
+    \Tree [.{\(\lambda c_{1}\lambda c_{2}\lambda s.\text{Obtains}(s) \land \text{Agent}(s) = c_{1} \land c_{1} = a \land \text{Theme}(s) = c_{2} \land c_{2} = i\)} {\(\lambda s.\text{Obtains}(s)\)} [.{\(\lambda c_{1}\lambda c_{2}\lambda s.\text{Agent}(s) = c_{1} \land c_{1} = a \land \text{Theme}(s) = c_{2} \land c_{2} = i\)} [.{\(\lambda c\lambda s.\text{Agent}(s) = c \land c = a \)} [.{\(\lambda c\lambda s.\text{Agent}(s) = c\)} ] [.{\(\lambda c. c = a \)} ] ] [.{\(\lambda c\lambda s.\text{Theme}(s) = c \land c = a \)} [.{\(\lambda c\lambda s.\text{Theme}(s) = i\)} ] [.{\(\lambda c. c = i \)} ] ] ] ]
+  \end{tikzpicture}
+  \caption{Parse 1}
+  \label{fig:parse:1}
+\end{figure}
+
+
+Using \(\lambda x \lambda s. \text{P}(s) = x\) as shorthand for \(\lambda c \lambda s. \text{P}(s) = c \land c = x\) this can be simplified to \(\lambda a\lambda i\lambda s.\text{Obtains}(s) \land \text{Agent}(s) = a \land \text{Theme}(s) = i\).
+
+To describe the situation as put to use by an agent we use a line over the symbol indicating the relevant situation or constituent.
+For example, \(\overline{s_{@}}\) stands for the actual situation, \(\overline{a}\) for the agent, and so on.
+The expression
+\[
+  \text{Obtains}(\overline{s_{@}}) \land
+  \text{Agent}(\overline{s_{@}}) = \overline{a} \land
+  \text{Theme}(\overline{s_{@}}) = \overline{i}
+\]
+describes application of the representation of figure~\ref{fig:parse:1} to the actual situation, the agent, and the ingredient.
+The syntax of this expression does not tell us how the application is made.
+Figure~\ref{fig:rep:pic} illustrates the agent applying the representation to their actual situation and the relevant constituents, but it may also be an application of our own making as we reason about what the agent could do.
+
+\begin{figure}[ht]
+  \center
+  \begin{tikzpicture}[scale=0.7]
+    \pgfmathsetmacro\gr{1.61803}
+    \pgfmathsetmacro\by{5}
+    \pgfmathsetmacro\bx{\by*\gr}
+    \draw[rounded corners] (0,0) rectangle (\bx,\by);
+
+    \pgfmathsetmacro\wx{1.25pt}
+    \pgfmathsetmacro\wy{1.25pt}
+
+    \draw [dashed] (\bx/2,0) circle [x radius=3, y radius=1];
+
+    \pgfmathsetmacro\aX{2.5}
+    \pgfmathsetmacro\aY{2}
+    \pgfmathsetmacro\headradius{.5}
+    \pgfmathsetmacro\bodyH{1}
+    \pgfmathsetmacro\armW{\bodyH * .75}
+    \pgfmathsetmacro\armP{\bodyH*.3}
+    \pgfmathsetmacro\legH{\bodyH*.75}
+
+    \pgfmathsetmacro\aTH{\aY + \headradius * 2}
+
+    \draw (\aX,\aY + \headradius) circle [radius=\headradius];
+    \draw (\aX, \aY) to (\aX, \aY - \bodyH);
+    \draw (\aX - \armW, \aY - \armP) to (\aX + \armW, \aY - \armP);
+
+    \draw [line join=round] (\aX, \aY - \bodyH) -- ++(-45:1);
+    \draw [line join=round] (\aX, \aY - \bodyH) -- ++(-135:1);
+
+    \pgfmathsetmacro\iX{6}
+    \pgfmathsetmacro\iY{.5}
+    \pgfmathsetmacro\iRX{.25}
+    \pgfmathsetmacro\iRY{.15}
+    \pgfmathsetmacro\iH{.75}
+    \pgfmathsetmacro\lSpacing{.75}
+    \pgfmathsetmacro\lX{4}
+
+    \draw (\iX,\iY) circle [x radius=\iRX, y radius=\iRY];
+    \draw (\iX - \iRX, \iY) to (\iX - \iRX, \iY - \iH);
+    \draw (\iX + \iRX, \iY) to (\iX + \iRX, \iY - \iH);
+    \draw (\iX,\iY - \iH) circle [x radius=\iRX, y radius=\iRY];
+
+    \node (agentBrain) at (\aX, \aTH) {};
+    \node (agent) at (\aX + \headradius, \aY) {};
+    \node (situation) at (\bx/2, 1) {};
+    \node (ingredient) at (\iX, \iY) {};
+    \node (lambdaA) [] at (\lX,4) {\Large \(\lambda a\)};
+    \node (lambdaI) [] at (\lX + \lSpacing,4) {\Large \(\lambda i\)};
+    \node (lambdaS) [] at (\lX + \lSpacing*2,4) {\Large \(\lambda s\)};
+    \node (dots) [] at (\lX + \lSpacing*3,4) {\Large \(\ldots\)};
+    \draw[-, thick] (agentBrain) -- (lambdaA);
+    \draw[-, thick] (agentBrain) -- (lambdaI);
+    \draw[-, thick] (agentBrain) -- (lambdaS);
+    \draw[->, thick] (lambdaA) -- (agent);
+    \draw[->, thick] (lambdaS) -- (situation);
+    \draw[->, thick] (lambdaI) -- (ingredient);
+    \end{tikzpicture}
+  \caption{Maybe a picture helps\dots}
+  \label{fig:rep:pic}
+\end{figure}
+
+
+The convenience of this formalism so far is a clear separation between situations, constituents, and representations.
+But representations are only part of practical reasoning.
+We have seen how representations may be applied to situations and constituents, but representations may also be used to identify situations and constituents.
+For example, we may understand the statement `the agent considers the constituent they represents by the ingredient as tasty' in two different ways.
+
+First, the agent may be \emph{directly} reasoning about some constituent by applying the relevant representations to it.
+This is the kind of reasoning used in the examples above, in which an agent has some access to situations or constituents and applies the representation to these.
+Figure~\ref{ex:tasty:direct} is an example of the agent representing the constituent which they represent as the ingredient as tasty.
+
+Second, the agent may be \emph{indirectly} reasoning about some constituent by using their representation to pick out whatever constituents it applies to.
+To do so we introduce a function \(\bm{\lambda R_{c}.^{\lor}R_{c}}\), which takes a representation and returns the situations or constituents the representation applies to.\nolinebreak
+\footnote{This is `cup', `down' in GAMUT.}
+Figure~\ref{ex:tasty:indirect} is an example of the agent representing whatever it is their representation of the ingredient applies to as tasty.
+
+\begin{figure}[h]
+  \hfill
+  \begin{subfigure}{0.4\linewidth}
+    \begin{tikzpicture}[baseline=0pt]
+      \Tree [
+      .{\(\text{Tasty}(\overline{i})\)}
+        \edge[<-]; [.{\(\overline{i}\)} ]
+      [.{\(\lambda c.\text{Tasty}(c \land c = i)\)}
+        [.{\(\lambda c.T(c)\)} ]
+        [.{\(\lambda c.c = i\)} ] ]
+      ]
+    \end{tikzpicture}
+    \caption{Direct reasoning}
+    \label{ex:tasty:direct}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.4\linewidth}
+    \begin{tikzpicture}[baseline=0pt]
+      \Tree [
+      .{\(\text{Tasty}(^{\lor}(\lambda c.c = i))\)}
+      \edge[<-]; [.{\(^{\lor}(\lambda c.c = i)\)}
+          \edge[dashed]; [.{\(\lambda R_{c}.\bm{^{\lor}}R_{c}\)} ]
+          [.{\(\lambda c. c = i\)} ]
+        ]
+        [.{\(\lambda c.\text{Tasty}(c)\)} ]
+        ]
+      \end{tikzpicture}
+      \caption{Indirect reasoning}
+      \label{ex:tasty:indirect}
+  \end{subfigure}
+  \hfill
+  \caption{Parse 1}
+  \label{fig:parse:10}
+\end{figure}
+
+The function \(\bm{\lambda R_{c}.^{\lor}R_{c}}\) captures a way in which an agent can put a representation to use.
+So long as we are interested in the application or transformation of representations, we can annotate representations to describe how they agent uses them.
+
+A functions like \(\bm{\lambda R_{c}.^{\lor}R_{c}}\) describes something an agent does, but in an idealised way.
+For, as described, the function returns constituents, and as expressed these are directly applied to the agent's representation of tasty.
+Indirect reasoning then reduces to direct reasoning passing through some representation and the fact that the constituent is obtained from a particular representation does not factor in to indirect reasoning.
+
+Perhaps it is better to take the result of a function like \(\bm{\lambda R_{c}.^{\lor}R_{c}}\) to be some generic constituent specified according to the description used to generate it.\nolinebreak
+\footnote{\color{red} Look up some of Kit Fine's stuff here, and maybe other related literature.}
+For example, perhaps when reasoning indirectly about the ingredient the agent regards it as tasty only because they also represent it as having a certain property.
+If so, \(\bm{^{\lor}}(\lambda c.c = i)\) and \(\bm{^{\lor}}(\lambda c.c = i \land Pc)\) may yield different constituents affecting whether the representation \(\lambda c. \text{Tasty}(c)\) applies.
+
+Here, however, our interest is in a binary distinction between the ability to represent something and the inability to represent something.
+For our purposes it is enough that the representation is used to identify some situation or constituent in indirect reasoning as when an agent is unable to represent something it will not be possible for an agent to reason indirectly about that thing.
+
+Natural language can be contorted to capture this distinction.
+Contrast `reasoning about situations to which representation \(R\) conforms' to `reasoning about those situations conforming to representation \(R\)'.
+The former is direct reasoning, the situations are what the agent is reasoning about, and the representation aids their reasoning.
+The latter is indirect reasoning, the agent reasons about situations that are captured by the representation they are using.
+{\color{red} \dots}
+
+
+
+
+Representations can be complex, and the failure of an agent to represent some situation or constituent may be isolated.
+The agent may fail to represent the ingredient, by may retain the ability to represent the situation as one in which they obtain something.
+To describe the failure of an agent to represent a situation or constituent we will use dummy representations marked with `\(?\)'.
+For example, the expression
+\[
+  \lambda a\lambda ?\lambda s.\text{Obtains}(s) \land
+  \text{Agent}(s) = \overline{a} \land
+  \text{Theme}(s) = \text{ ? }
+\]
+may be obtained in the same way as the representation of figure~\ref{fig:parse:1}, substituting \(\lambda c.c = ?\) for \(\lambda c.c = i\) to describe the inability of the agent to represent the ingredient.
+\(\lambda c.c = ?\) yields neither true nor false for any constituent, and hence neither does the complex representation.
+This partial representation above is distinction from the representation in which the agent obtains something.
+For example,
+\[
+  \lambda a \lambda s.\text{Obtains}(s) \land
+  \text{Agent}(s) = a \land
+  \exists x(\text{Theme}(s) = x)
+\]
+picks out situations in which the agent obtains something, but does not specify what that thing is, and hence may be true of situations in which they obtain something other than the ingredient.
+
+The existential allows the agent to put the partial representation to use by filling in what blanks they have, but it doesn't do a whole lot.
+
+
+\newpage
+
+\subsection{Natural language expressions}
+\label{sec:natur-lang-expr}
+
+There's the connexion to meaning.
+It's standard to take natural language expressions to denote sets of worlds, etc.\
+So, the contrast is with direct and indirect reasoning, sort of.
+Have \(\phi(s) \land s \in \sem{\varphi}\), for example.
+
+I would defend a theory of natural expressions along the lines of the account give of representations.
+Or establish some bridges.
+This isn't too important, so long as the distinction is clear, and I'm more-or-less right about how linguistics treats this stuff.
+I mean, ignoring Fregean issues, etc.
+
+
+\newpage
+
+\subsection{Evaluation}
+\label{sec:evaluation}
+
+Situations are evaluated.
+Representations are not.
+Representations are functions from situations or constituents to truth values.
+Evaluations, likewise, are functions from situations to values.
+What an agent believes, desires, doubts, or has reason for may be reduced to an evaluation of some kind so long as these attitudes are understood to be about situations.
+To keep things simple, we consider two types of evaluation:
+\begin{enumerate*}[label=(\roman*)]
+\item what is possible, and
+\item what is worthwhile.
+\end{enumerate*}
+
+With this the basic folk- and decision-theoretic picture of practical reasoning sits in the background, though some subtlety is required.
+It is natural to state, for example, that an agent believes that the supermarket is open.
+The statement ascribes to the agent the belief that the store is open; if true the agent bears the attitude of belief to the proposition that the store is open.\nolinebreak
+\footnote{Note on context dependence? It doesn't really matter for the argument.}
+
+% Evaluations, situations, and so on are all metatheory, so beliefs, desires, and so on cannot strictly be analysed in terms of evaluations of situations.
+
+Propositions either \emph{determine} or \emph{are} sets of possibilities.
+Perhaps, following \citeauthor{Frege:1948aa}, propositions are senses; hence the agent has the attitude of belief toward something of finer grain that sets of possibilities.
+\citeauthor{Frege:1948aa} distinguishes (objective) senses from (subjective) ideas (\citeyear[39--40]{Frege:1948aa}), and hence senses do not straightforwardly correspond to representations as understood above.\nolinebreak
+\footnote{
+  \citeauthor{Frege:1948aa} writes:
+  \begin{quote}
+    The same sense is not always connected, even in the same man, with the same idea.
+    The idea is subjective: one man's idea is not that of another.
+    There result, as a matter of course, a variety of differences in the ideas associated with the same sense.
+    A painter, a horseman, and a zoologist will probably connect different ideas with the name `Bucephalus.'\nolinebreak
+    \mbox{ }\hfill(\citeyear[39]{Frege:1948aa})
+  \end{quote}
+  {\color{red} Also a reference to `Thought'}
+  
+  And a more through treatment of \citeauthor{Frege:1948aa}'s position as understood here is given by \textcite{May:2006aa}.
+}
+That the agent has the attitude of belief toward a sense can then be taken as a statement of how the agent relates to some common way of identifying situations.
+So, an agent may evaluate some situation as possible and that some sense refers to the same situation can license the attribution of the agent's belief to that sense, but `belief' used in this way is something distinct from the evaluation itself.
+It's the evaluation that is of interest here, and hence for an agent to believe a proposition in this way (to have an attitude of belief toward a sense) is beyond the scope of this paper.
+
+\citeauthor{Richard:1990aa} (\citeyear[78--85]{Richard:1990aa}) argues against the suggested doubling of belief.
+%In our terminology, for an ascription of belief to be true, it must be the case that the agent evaluates the situations referred to by the relevant proposition as possible.
+%The account of belief ascription offered by \citeauthor{Richard:1990aa}
+and  introduces `Russellian annotated matrices' (RAMs) which behave similarly to the account of representations above.
+Quite roughly, a belief ascription is true just in case the RAM associated with the situations in ascribing belief to the agent match the representations used by the agent to reason about the same situations. (\citeyear[181--190]{Richard:1990aa})
+\begin{itemize}
+\item The associated of a RAM requires some kind of representation.
+\item This is a problem, as there may be no relevant representation.
+\item {\color{red} I.e.\ when reasoning directly about a situation.}
+\end{itemize}
+
+Perry's distinction between belief states and the contents of belief may help.
+Belief states are ways of believing, and the particular way in which an agent evaluates a situation as worthwhile matters either to the truth of felicity of a belief ascription.
+In a sense, this generalises \citeauthor{Richard:1990aa}.
+So long as there is some way of communicating the underlying belief state, then everything is fine.
+But this amounts to leaving open whatever it is that belief is.
+Propositions are now sets of possibilities, but we need an account of what determines these.
+
+\citeauthor{Frege:1948aa}, \citeauthor{Richard:1990aa}, and Perry do not exhaust the debate over propositional attitudes, but the positions attributed are more-or-less exhaustive.
+On the \citeauthor{Frege:1948aa}an picture the semantics of attitude ascription is distinct from whatever ensures the truth of the relevant ascription.
+On \citeauthor{Richard:1990aa}'s picture there is a tight connexion between the semantics of ascription and the underyling attitudes.
+And, Perry holds that the semantics of ascription defers to the underlying attitudes, whatever they may be.
+
+Upshot is that the relationship between attitude ascription and an agent's reasoning varies, and caution is required if one takes the ascription of an attitude to reveal something about an agent's reasoning.
+No account of the semantics of language straightforwardly follows from the account of representation and reasoning given here.
+
+% Roughly, an agent believes a situation just in case they evaluate it as possible and an agent desires a situation just in case they evaluate it as worthwhile.
+% Keep in mind that situations are distinct from representations.
+% For example, that the agent believes that the supermarket is open may be considered shorthand for saying that for all the situations the agent evaluates as possible, their representation of the supermarket being open is true.\nolinebreak
+% \footnote{
+%   Standard semantics, \(M,s \vDash \text{B}_{a}\phi\) iff \(\forall t\colon R_{a}st, M,t \vDash \phi\).
+%   \(M,s \vDash \phi\) iff \(s \in v(\phi)\) but consider \(\phi(s) = \top\).
+%   This is kind of like update semantics, and that's a fairly good way to think about things.
+%   Alternatively, \(D(s) \subseteq \sem{\phi}\).
+%   This is where things are complex, and issues with language arise.
+%   \(\sem{\phi}\) is a set of worlds, and so don't fit a representation.
+%   Hm, there should be a section here.
+% }
+
+The basic principle is that whether a situation is possible is a property of the situation.
+% and does not necessarily depend on the agent's representation of a situation.
+An agent may reason about a situation via a representation.
+And, how a situation is represented or reasoned about may be required for attitude ascription.
+However, evaluation is of situations, and representations are how agent's reason about situations.
+{\color{red} I feel I should have either some condensed argument or a pointer forward to future argument here.
+  Or, perhaps move the discussion about attitude ascription to later \dots}
+
+The supermarket is open or closed regardless of whether the agent represents it as open or closed, and it is worthwhile for the agent to obtain the ingredient regardless of whether they are able to represent it.
+
+
+
+\newpage
+
+\begin{itemize}
+\item Question: How important is it that there are cases in which one is able to evaluate a situation without being able to represent it?
+\end{itemize}
+I think, fairly important.
+What representations are is tricky here, but intuitively they're the stuff that's used to describe situations when reasoning about them.
+Descriptive, right, they don't merely identify situations, they provide detail.
+This isn't sense-data, etc.
+I don't sense a cat, a bunch of stuff happens and I've got a pointer to the cat, and I combine this with representational abilities to note that, yeah, that's a cat.
+
+The distinction is best viewed on the intuition that something one has to do some purely mental work to think about something, and other time it's enough to have some worldly access to it.
+It's easier to say what's so good about some meal when you're able to taste it, rather than figuring out some intricacies of how you represent it.
+
+Parallel: You don't need to figure out whether a pane of glass extending down in a doorway \dots is going to collide to believe that you've won; the world is going to do the work for you.
+But you have to do a whole bunch of stuff if you're representing it.
+
+
+
+
+
+
+Only able to desire what one is able to represent.
+
+\citeauthor{Schroeder:2004aa} suggests this is required to explain existing desires.
+Likewise\nolinebreak
+\footnote{Note to Ray}, one may also use this to explain the absence of desires.
+
+
+\begin{enumerate}
+\item Desire determines situations
+\item What makes these desirable isn't a matter of how they're represented.
+
+\item Evaluation of what is worthwhile (desire, reasons, etc.) tracks some property of situations; whether they are worthwhile. (This may be subjective, etc.)
+\item In order to evaluate a situation, it must be possible to reason about the situation.
+\item Representations aren't required for this, though they may be used in most cases.
+\end{enumerate}
+
+Stronger role for representations.
+
+\begin{enumerate}
+\item In order to evaluate a situation, it must be possible to represent the situation.
+\item One can only evaluate what one can represent.
+\end{enumerate}
+
+Rephrase, one can only desire what one can represent.
+
+\begin{center}
+  \begin{enumerate}[label=]
+  \item Can't represent \(\phi\) \qquad Desire \(\phi\)
+  \item Desire \(\phi\) iff represent \(\phi\).
+  \item Don't desire \(\phi\) \qquad Can represent \(\phi\)
+  \end{enumerate}
+\end{center}
+
+There's something here.
+At least three ways of disambiguating desire.
+First, there's what is worthwhile.
+Second, evaluation of what is worthwhile, and then there's \emph{how} and \emph{what}.
+
+I think it's unclear what \citeauthor{Schroeder:2004aa} thinks for the quote.
+Most likely evaluations, but \dots
+
+
+What's the upshot here?
+That it doesn't make sense to think of desire as being about situations?
+There's always a representation involved, and hence \dots
+
+
+
+
+
+
+
+
+First, talking about evaluations.
+What is or isn't worthwhile may be independent of these.
+This is the part I care about.
+Once you have this, you also have that.
+So, reason about situations by representations, and this gets the coreference stuff figured out fairly well, I think.
+
+
+
+
+
+
+
+But, need to figure out a little more what representations are.
+Those situations that are evaluated as worthwhile?
+Well then the thesis is almost trivial.
+
+
+
+This is kind of puzzling.
+The situation is what is evaluated, so can't rely on the representation picking out something in the situation.
+Representations give clues.
+But, situations can have much richer structures than we represent.
+
+Ingredient.
+
+Agent has no representation of caffeine.
+The sweet succulence of the synthesised, sucrose saturated semiliquid seems worthwhile.
+The slight stimulation \dots
+
+Simple example is strange sensation is stomach.
+Here, could go with I think a suggestion of \citeauthor{Pettit:1991aa} in which you desire to get rid of the feeling.
+
+
+
+
+
+
+
+Basic cases of co-reference.
+
+
+
+
+
+
+So far, okay.
+This get's to the example of \citeauthor{Schroeder:2004aa} with the frog, or whatever.
+
+From here, if an agent is unable to represent the situation, they can't track it.
+Hence, they can't desire it, because desire requires the ability to track situations.
+
+
+
+\newpage
+
+
+
+
+
+Situations and properties of situations may be interdependent, it may be only be possible for the agent to obtain the ingredient if they have the able to represent it in the appropriate way when they see it in the aisle, and preparing the meal may only be worthwhile for the agent in order to for them to form a representation of what the meal is.
+Still, it is the possibility of the situation that is important, and the agent's ability to represent the meal is itself a situation; the agent's ability to represent the ingredient is important only in so far as it allows the agent to bring about the situation in which the ingredient has been obtained.
+Similarly, it does not follow that the agent's ability to represent themselves representing the meal is worthwhile.
+Situations in which some way of representing the meal is itself may be worthwhile, but these are not the same as situations in which the meal is worthwhile.
+
+\begin{figure}[t!]
+  \hfill
+  \begin{subfigure}{0.4\linewidth}
+      \begin{tikzpicture}[scale=.5]
+    \pgfmathsetmacro\gr{1.61803}
+    \pgfmathsetmacro\by{5pt}
+    \pgfmathsetmacro\bx{\by*\gr}
+
+    \draw[rounded corners, dashed] (0,0) rectangle (\by,\bx);
+
+    \pgfmathsetmacro\wx{1.25pt}
+    \pgfmathsetmacro\wy{1.25pt}
+    \pgfmathsetmacro\hx{4.4pt}
+    \pgfmathsetmacro\hy{2.7pt}
+
+  \end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\linewidth}
+  \begin{tikzpicture}[scale=.5]
+    \pgfmathsetmacro\gr{1.61803}
+    \pgfmathsetmacro\by{5pt}
+    \pgfmathsetmacro\bx{\by*\gr}
+
+    \draw[rounded corners] (0,0) rectangle (\by,\bx);
+
+    \pgfmathsetmacro\wx{1.25pt}
+    \pgfmathsetmacro\wy{1.25pt}
+    \pgfmathsetmacro\hx{4.4pt}
+    \pgfmathsetmacro\hy{2.7pt}
+  \end{tikzpicture}
+\end{subfigure}
+\hfill
+
+\caption*{Practical example: cut out box on left and soak in some something to make it translucent, and then lay over the (yet to be drawn) image on the right, you can try to figure out whether it's a good drawing, even though the representation is murky.}
+\end{figure}
+
+An alternative, and quite sensible, position is the opposite: Representations are evaluated, situations are not, and evaluations are functions from representations to values.
+
+At a high level, little separates these positions.
+A situation or representation is evaluated, these evaluations are used in reasoning about what to do, and some feedback process allow an agent to update how they evaluate situations, or representations.
+If situations are evaluated, representations of situations are used by an agent to aid their reasoning about situations and hence evaluation is not completely independent of representation.
+Conversely, if representations are evaluated then as representations are representations \emph{of} situations, situations are indirectly evaluated.
+
+Evaluation of representations may seem to have an advantage, as it is common to evaluate parts of situations.
+For example, one may evaluate the presence of a plant in their garden as worthwhile, but not where it is presently located.
+Both the presence of the plant and it's location are part of a situation, and it may seem odd that an agent can evaluate the situation with the plant in its present location positively is some respect and negatively in some other.
+Alternatively, there is nothing odd about separating a representation of the presence of the plant from a representation of its current location.
+The notion of a situation, however, is metatheoretical.
+Situations may be parts of other situations, and hence the presence of the plant and its current location may be treated as separate situations, evaluated positively and negatively, respectively, which inform the evaluation of the broader satiation.
+
+The ability for an agent to reason about the presence of the plant separately from its current location is what matters, and this is ordinary, even if mysterious.
+The plant, its presence, and its current location are independent of your representations of those things, and as you are able to evaluate them just as you are able to reason about them.
+The representations of the plant, its presence, and its current location aid reasoning about those things.
+You've categorised the plant, the object, you don't care about the soil it is in, you can predict when it is going to bloom, you have a handle on the boundaries of its present location, and where else it can be moved to ensure its presence is felt.
+
+
+Before you have a way of representing the plant you may evaluate the situation as worthwhile in some respects and not others.
+The representation then allows you to figure out the subtleties of your evaluation.
+
+\begin{itemize}
+\item The independence allow you to correct things.
+\item The TV show example.
+  \begin{itemize}
+  \item Friend tells you to watch something, you get the channel wrong, but you like what you see.
+    On finding this out you update the representation of the situation you found worthwhile, but there's no change in what you found worthwhile.
+  \end{itemize}
+\item Also, evaluation without being able to represent what the ingredient is.
+\end{itemize}
+
+
+There are consequences of this view.
+
+\citeauthor{Sinhababu:2017aa} (\citeyear{Sinhababu:2017aa}) outlines a theory of desire on which situations appear to be desired, and representations influence the effect of desire on reasoning.
+Two of the five properties of desire \citeauthor{Sinhababu:2017aa} outlines are particularly relevant, the Motivational and Hedonic Aspects, those which \citeauthor{Sinhababu:2017aa} would offer for a conceptual analysis of desire (\citeyear[32]{Sinhababu:2017aa}):
+\begin{quote}
+  The Motivational Aspect: \quad
+  Desire that E combined with belief that one could increase E's probability by A-ing motivates one to A, proportional to the desire's strength times the increase in subjective probability of E.
+  (With belief that A-ing would reduce E's probability, it likewise motivates one not to A.)\nolinebreak
+  \mbox{ }\hfill(\citeyear[23]{Sinhababu:2017aa})
+\end{quote}
+
+\begin{quote}
+  The Hedonic Aspect: \quad
+  Desire that E combined with increasing subjective probability of E or vivid sensory or imaginative representation of E causes pleasure roughly proportional to the desire's strength times the increase in probability or the vividness of the representation.
+  (With decreasing subjective probability of E or vivid sensory or imaginative representation of not-E, it likewise causes displeasure.)\nolinebreak
+  \mbox{ }\hfill(\citeyear[28]{Sinhababu:2017aa})
+\end{quote}
+The Hednoic Aspect is not concerned with representations of representations, and \citeauthor{Sinhababu:2017aa} notes that `E, the object of desire, is something propositional like a state of affairs' (\citeyear[24]{Sinhababu:2017aa}), hence the Motivational aspect concerns situations.
+
+This is puzzling.
+Consider a standard case of co-reference.
+Suppose an agent has submitted a paper to a journal and received some feedback.
+The paper needs some work, and reviewer two was particularly unhappy.
+And, before submitting the paper a colleague had provided some useful comments.
+Intuitively, the agent desires additional feedback from the colleague before resubmitting, but not from reviewer two.
+
+Following the Hedonic Aspect, the agent is pleased when they represent themselves as sending an email to their colleague, but would not be pleased if they were to represent themselves as sending an email to reviewer two.
+The colleague and reviewer two are the same individual, and as the agent fails to recognise they have two ways of representing this individual, the pleasure and displeasure associated with these representations may come apart.
+Yet, \citeauthor{Sinhababu:2017aa}'s Motivational Aspect references only the situation desired, hence the agent desires feedback from the individual, whether represented as a colleague or as reviewer two.
+To explain why the agent is only motivated to send an email to the individual when represented as their colleague it seems the agent must believe that their representations of sending an email to their colleague and to reviewer two are of different situations.
+Yet, as the desire is of a situation, the strength associated with the desire must be indifferent to the way the situation is represented.
+Somehow, on \citeauthor{Sinhababu:2017aa}'s account, the agent will be equally motivated to send an email to their colleague and reviewer two with respect to what they desire, though the motivation may diverge on the basis of their beliefs.\nolinebreak
+\footnote{It may be tempting to distinguish between feedback from the colleague in their capacity as a colleague and in their capacity as a review, or something of the sort.
+  Perhaps this works for the example, but this is doubtful as a general strategy.}\nolinebreak
+\(^{\text{,}}\)\nolinebreak
+\footnote{It seems \citeauthor{Sinhababu:2017aa} may take propositions to be sentential objects of a kind, looking at fn.\ 7 on p.\ 179 of `Advantages of Propositionalism', but this also gets confusing.
+Something should be added in any case, basic thought is that these are representations, and if so skip to the discussion of \citeauthor{Railton:2012aa}.}
+
+The upshot is that if it is situations that are evaluated as worthwhile --- if situations are desired --- then the link between evaluation and motivation is not as straightforward as \citeauthor{Sinhababu:2017aa}'s Motivational Aspect would suggest.
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{images/railton.png}
+
+  \captionsetup{singlelinecheck=off,font=small}
+  \caption*{
+    \textbf{Desire that \emph{p}} (second version) \newline
+    A degree of \emph{positive affect} (attraction, liking) toward a representation \emph{p} functions to elicit and regulate a degree of \emph{positive expectation} (affective forecast) and \emph{positive motivation} (striving, wanting) toward maintaining or bringing about the act or state of affairs that \emph{p} portrays; and this \emph{degree of positive affect} is subsequently modulated by whether the actual experience of performing, realizing, or moving toward \emph{p} is better than, worse than, or in conformity with, the affective expectation of it.\nolinebreak
+    \mbox{ }\hfill(\cite[35,36]{Railton:2012aa})
+  }
+  \captionsetup{singlelinecheck=on,font=normal}
+  \caption{\citeauthor{Railton:2012aa}'s Prospective Theory of Desire}
+\end{figure}
+
+\citeauthor{Railton:2012aa}'s Prospective Theory of Desire (\citeyear{Railton:2012aa}) illustrates how to connect evaluations of representations and motivation.
+On the Prospective Theory evaluations of what is worthwhile are understood as degrees of positive affect toward representations which elicit and regulate degrees of positive expectation and motivation toward bringing about the represented situation which are in turn modulated by actual experiences associated with the representation (\citeyear[36]{Railton:2012aa}).
+
+There may be conflicted feelings the agent will have about their colleague when they find out who reviewer two is.
+On \citeauthor{Railton:2012aa}'s theory, the degree of positive affect toward situations represented as involving you colleague and reviewer two may be modulated to converge, at least with respect to the role of the individual in the situation.
+So long as you recognise that your colleague and reviewer two are the same individual, then the distinct representations will be modulated according to the same states of affairs.
+No doubt, the difficulty of reconciling your evaluation of the individual as a colleague and review two can be cited in support of this view.
+
+Still, the same principle holds when evaluating situations via representations.\nolinebreak
+\footnote{Something like the de dicto/de re distinction here, but I'll have said something about this above, eventually.
+This links up to direct/indirect reasoning.}
+An agent may be mistaken in thinking that they are reasoning about different situations if their reasoning about those situations is indirect, and there is no reason to suppose that it is easy for an agent to reconcile that the two representations are of the same situation.
+The caveat is that if reasoning is about situations then there is an important conflict given diverging evaluations; the agent evaluates one thing in multiple ways.
+Bracketing the possibility of multiple dimensions of evaluation\nolinebreak
+\footnote{For example \cite{Dietrich:2013ac}}\nolinebreak
+, if the situation occurs it \emph{is} worthwhile to some degree, and as the agent's evaluation is of this, their diverging evaluations cannot be consistently maintained.
+
+\subsection{Some objections, maybe}
+\label{sec:some-object-maybe}
+
+
+Obtaining the ingredient is worthwhile.
+Going to the supermarket is no less worthwhile than when you were able to represent what the ingredient was.
+As evaluation is about situations, and can hold independently of representations, the change in the agent's representational capacities does not imply a change in their evaluation of situations.
+
+\begin{itemize}
+\item Objection: the evaluation only depends on it being the ingredient required to prepare the meal, and you are still able to represent this aspect of the relevant situations.
+\item Reply: If this were the case, the agent would be able to reason about the situations as before.
+  However, there's no clear way for the agent to compare to alternatives, such as substitutes.
+  The evaluation does not simply depend on the ingredient being required, but on what else can be done.
+  What the meal ends up being depends on the ingredients used, and this means that the ability to represent the ingredient is required in order to reason some detail about the end.
+
+  This may be reformulated as an objection.
+\end{itemize}
+
+
+\begin{itemize}
+\item Objection: there's no clear way to compare, and hence it seems the evaluation of the situations can't be the same.
+\item Reply: The ability to represent the ingredient is important, and the simple thing to say here is that with additional representational capabilities, the agent is able to refine the indirect reasoning about these situations.
+  If the agent were to re-evaluate the situations, it is likely their evaluation would be different.
+  However, the agent settled what to do, and they are not required to re-evaluate.
+\end{itemize}
+
+
+This is the important piece of the puzzle.
+The agent settled what to do through some reasoning, reasoning in which they had the ability to represent certain aspects of situations that they are no longer able to.
+They settled what to do, and this is simply a course action; bringing about certain situations.
+As the agent is unable to represent the ingredient, their confidence in their ability to carry out the course of action may be lessened.
+However, so long as they are confident in their prior reasoning about what was worthwhile, their inability to replicate their prior reasoning does not imply that their evaluation is void.
+Their evaluation was via representations, but about situations, situations are independent from how they are represented, and hence there is no change in what the agent evaluated.
+
+% Objection: Transparency.
+% It seems intuitive that one can introspect to determine what they evaluate as worthwhile, just as one can introspect to figure out what they believe.
+% \textcite{Ashwell:2013aa} analyses transparency as involving two parts:
+% \begin{quote}
+%   \begin{enumerate}[label=(\arabic*)]
+%   \item \emph{Transparency of the self}: In investigating my mental states, I do not attend to my mental states or behaviour, except insofar as these ﬁgure in the content of the mental state.
+%   \item \emph{Content-directedness}: In order to investigate whether I have a mental state with content p, I direct my attention (in thought) towards p being the case.\nolinebreak
+%     \mbox{ }(\citeyear[247]{Ashwell:2013aa})
+% \end{enumerate}
+% \end{quote}
+
+
+Objection: If evaluation changes with representational capacities, then it's not the same as desire.
+So, the above arguments are mistaken.
+There are a few ways to generate this objection.
+For example, it seems evaluations, at least when being made, are clear to the agent and so there's no space for `subconscious' evaluations, akin to `subconscious' desires.
+Alternatively, as evaluations are something that an agent comes to by processing some information, it seems sensible to say that desires are this information.
+(More work to do on figuring this out\dots)
+Reply: The important part about \citeauthor{Sinhababu:2017aa} and \citeauthor{Railton:2012aa} is how their accounts of desire settled the issue of what to do.
+\citeauthor{Sinhababu:2017aa} talks of strength and \citeauthor{Railton:2012aa} of positive affect, and the agent may be mistaken about these, but this parallels the idea that the agent may fail to process some information when evaluating a situation.
+
+This gets messy.
+There's a confusion about whether desire captures what would be worthwhile or the evaluation of what would be worthwhile.
+There's also a confusion about the degree to which there's something independent of one's settling the issue of what to do that can influence the agent's action.
+(E.g.\ a `subconscious' desire may show that the agent's reasoning missed out something important, but have no other effect. Or, the desire may `cause' the agent to do something else.)
+The first is addressed by something like the above, the second is about akrasia, and should be put in a separate section.
+Roughly, there's no need to make this distinction, as this can be explained by competing evaluations made with different resources.
+
+
+% Reply: This is interesting.
+% Stated above that the connexion between evaluation and motivation isn't straightforward.
+% Consider \citeauthor{Sinhababu:2017aa} and \citeauthor{Railton:2012aa} again.
+% \citeauthor{Sinhababu:2017aa} has vivid representations which can influence the base desire, and \citeauthor{Railton:2012aa} has the actual experience.
+% Broadly put, there is the motivational aspect which can be influenced by something else, some representation aspect.
+
+
+
+
+% Consider the case in which an agent relies on a previous evaluation of a situation which used representational resources they no longer have.
+% The agent's evaluation of the situation is not transparent.
+% This is why the agent may not be able to reason about alternatives, etc.
+
+
+\newpage
+
+
+
+
+Note, this sort of thing doesn't require representations.
+Representations give you a particular way to reason about situations, but there's always going to be a way in which you reason about situations.
+The key thing is that what matters is the thing that's distinct from how you're reasoning about it.
+The evaluation draws on this, but this isn't a part of what is evaluated.
+Analogy \dots 
+
+
+
+
+It can't go directly, one may have different sources of evaluation, but that's not what's going on here.
+
+
+\newpage
+
+
+The standard semantics for propositional attitudes provides a template from evaluations that depend on representations.
+
+For example, belief is a function from a world, agent, and a proposition to a truth value.
+From the world and agent we obtain those worlds the agent regards as possible.
+If propositions are sets of worlds, `belief' returns true just in case each world is regarded as possible.
+And if propositions are functions from worlds to truth values, a set of worlds is obtained by taking those worlds for which the proposition is true and the same test is applied.
+
+Propositions as functions from worlds to truth value are structurally the same as representations of situations.
+Hence, take the function described above, and apply to a representation to get an evaluation of a situation as possible.
+
+This is only part of the story, as the representation is essential here.
+The representation is used to generate the situations up for evaluation.
+An instance of indirect reasoning.
+It is straightforward to observe that there is no way for an agent to evaluate a situation with the function given other than via some representation.
+
+The function can be broken up.
+Introduce the \(^{\lor}\) function, and see that it straightforwardly applies to sets of situations.
+
+General principle here.
+If you have a representation, or something like this, then so long as you can take the extension then the basic form can be seen in terms of direct reasoning.
+That is, there's always a way use representations by adapting resources used to reason directly about situations and constituents, with the exception of those tools used to obtain the extension of representations.
+
+
+Conversely, it's always possible to find a `representation' of situations or constituents by taking the relevant characteristic function.
+No choice of formalism provides arguments for free.
+The distinction between situations and constituents and characteristic functions of those marks, for us, a distinction in types of thing.
+If this distinction is kept, the possibility of using characteristic functions is uninteresting.
+If, however, one wishes to argue that this allows all reasoning to be reduced to representations, the observation deserves some attention.
+The standard semantics for propositional attitudes cannot carry over.
+
+Taking evaluations to apply to representations isn't a commitment to idealism.
+The question is what practical reasoning is about, and, well, whether it really makes sense \dots to \dots say that evaluation attaches to representations.
+One may say that the evaluation of representations is fundamental.
+The basic idea is that this is what one has access to, that there are instances when one is able to correlate one's attitude toward representations with what is going on.
+A useful way of putting this idea is from \citeauthor{Schroeder:2004aa}:
+\begin{quote}
+  The asymmetry explained by RTD is the fact that, while we can comfortably imagine a creature able to conceive but not desire (a “thinking machine” or a purely contemplative god, say), we cannot equally imagine a creature able to desire but not conceive. Intuition rebels at the latter: if the creature could not conceive of justice, say, what would enable its desire to be a desire speciﬁcally for justice?
+  \dots
+  desire cannot exist in the absence of mental representation.\nolinebreak
+  \mbox{ }\hfill\citeauthor[132]{Schroeder:2004aa}
+\end{quote}
+\citeauthor{Schroeder:2004aa} doesn't think that the reward is associated with the representation, but what matters for reasoning is the evaluation of the representation, because without this there seems to be no way for an agent to desire anything.
+
+These are variations on a sensible position.
+Evaluating representations is within the mind.
+This allows agents to make rational mistakes, and to explain why they are mistakes.
+There's no mystery about what the agent is evaluating (representation specifies this).
+No one is committed to idealism.
+We can see why transparency fails.
+
+There are intuitive cases in which one represents a situation but is wrong about whether the situation is worthwhile.
+
+This is the interesting one.
+I have this representation, and I don't think it's worthwhile, then it happens, and it was pretty good.
+It seems there must be at least two ways in which a situation is worthwhile, as represented and as it actually is.
+It can't always be that when reasoning about the situation, there is some mistake in figuring out the situations that it represents.
+
+Also, get an explanation of the standard co-reference problems.
+
+Time to square a circle.
+It is the evaluation of situations, and there's just one sense of evaluation.
+The problem is that inverting a representation is hard, and a representation typically captures a general kind of situation.
+(If there's some generic stuff here, things get a little more complex, but I think that's fine.)
+Basically, it's the money's paw problem.
+The situation comes about, and it is or is not worthwhile contrary to previous evaluation of situations falling under the relevant representation.
+
+\emph{Sampling.}
+
+
+
+
+
+\begin{quote}
+  Hume describes how desire's effects on attention shape practical reasoning. Desire, ``making us cast our view on every side, comprehends whatever objects are connected with its original one by the relation of cause and effect. Here then reasoning takes place to discover this relation; and according as our reasoning varies, our actions receive a subsequent variation'' (2.3.3).
+  Attention drives the reasoning that happens when desire makes us ``cast our view'' on the causes and effects of its object.
+  \textcite[35]{Sinhababu:2017aa}
+\end{quote}
+
+\citeauthor{Ashwell:2013aa} argues that appearances of value are needed to account for transparency, and I hope this argument is good.
+The point is that one can audit their attitude toward a representation, regardless of their ability to evaluate the situations that it points to.
+
+This is where talk of reasons kicks in, because people seem to be quite on board with reasons being mistaken.
+Aha, and Schroeder also gives up transparency.
+
+
+\begin{quote}
+  Reward Theory of Desire (RTD): To have an intrinsic (positive) desire that P is to use the capacity to perceptually or cognitively represent that P to constitute P as a reward.
+  To be averse to it being the case that P is to use the capacity to perceptually or cognitively represent that P to constitute P as a punishment.\nolinebreak
+  \mbox{ }\hfill\citeauthor[131]{Schroeder:2004aa}
+\end{quote}
+
+For Scanlon taking something to be a reason is the important thing.
+In other words, taking something to be a consideration that counts in favour of something.
+This gets messy, I think.
+Because, \dots well, presumably it's situations or whatever that are worthwhile, this much seems implicit.
+There are a few notes to this idea.
+So, the situation can, in a sense, count in favour of something, such as an action to bring it about, but this isn't the relation.
+For, a consideration is an attitude.
+Something counting in favour of something is a matter of the agent reasoning in a certain way.
+Scalon argues that there need to be standards for arriving at conclusions about reasons \dots
+Ah, no, I think this should be fine.
+It's a kind of tertinary relation.
+Scanlon takes something being a reason as primitive, hence it seems fair to use this as a way to understand what makes something worthwhile.
+Scanlon also employs the idea of reasons \emph{simpliciter}, which means that a simple relation is also possible.
+
+The idea here is that representations etc. are the important thing.
+
+
+\begin{quote}
+  Using Buridan's Ass to explain the difference.
+  \dots Or, one may say Buridan's donkey is being an ass \dots
+\end{quote}
+
+
+
+Simple way to get a situation is to go through a representation.
+This is a familiar idea.
+Basically what happens with propositional attitudes, at least formally.
+
+\begin{itemize}
+\item Take a representation, and check to see that it holds of every worthwhile situation.
+\end{itemize}
+Or, take a representation and check to see whether there is some worthwhile situation that it does not capture.
+
+
+
+Even though the agent only has a representation, this is enough.
+Who knows exactly how this works, but it seems relatively satisfactory.
+
+
+% This isn't the whole picture, though.
+% Situations are evaluated, and the above works because representations can be used to reason about those situations that they represent.
+% Agent may reason directly about a situation.
+
+% \[
+%   \text{Worthwhile}(\overline{s_{@}})
+% \]
+
+% This is more-or-less implicit above.
+% Representation of the evaluation is as a simple relation, but this can be indexed.
+
+% Subtleties, as depending on how evaluation happens, one can get different things.
+% I.e., if one takes a representation first, or what is worthwhile.
+% These achieve the same thing, but one shouldn't be overlooked.
+
+% This helps motivate the window operator.
+% No, no more than anything else.
+
+
+
+
+
+
+
+Representing situations and constituents is only part of the story.
+Evaluating situations is also an important part of practical reasoning.
+
+\begin{itemize}
+\item Evaluation of whether a situation is worthwhile.
+\item \(\text{Worthwhile}(\lambda s f(s))\).
+\item The representation is taken as an argument.
+\item However, what use the representation is put to is unspecified.
+\item \(\text{Worthwhile}\) could be a function from representations to truth values.
+  \begin{itemize}
+  \item Here, whether or not something is worthwhile depends on how it is represented.
+  \end{itemize}
+\item Alternatively, \(\text{Worthwhile}\) takes a representation and applies this to all the situations that the agent regards as worthwhile.
+  \begin{itemize}
+  \item Here, \(\text{Worthwhile}\) is akin to the standard semantics for an attitude like \(\text{Desire}\).
+    One looks to see which situations the representation needs to be true of in order from it to represent something desirable (or worthwhile) and ensures that the representation does in fact hold of these states.
+  \end{itemize}
+\item The second understanding is what I need, but more still needs to be said because the agent's connexion to the worthwhile situations isn't specified.
+\item One may think that it's given by a certain collection of representations, etc.
+\item More importantly, it is only a function of representations.
+  So, if an agent is able to reason about a particular set of situations but is only able to represent these as part of a larger set, then there's no way to state the situations in the set they're reasoning about are worthwhile.
+  The effort to separate situations from representations is groundwork to make sense of this, more is needed to be done, but the key idea is that the agent may put a representation to work on certain sets of situations, and there isn't a straightforward way to capture whether these are worthwhile for the agent under the current proposal if the agent isn't able to represent the set.
+\end{itemize}
+
+
+\newpage
+
+
+Practical reasoning, situations as the output.
+So, these had some representation.
+Therefore, even if the agent can't pick out the ingredient, by their previous reasoning these are situations in which they obtain the ingredient.
+
+\newpage
+
+
+
+
+
+
+The existential is the result of putting the partial representation to use by filling in the blanks \dots
+
+From our position as observers, we can fill in the blanks.
+Bold face text is to be thought of as a kind of annotation.
+The agent is there, looking at the ingredient, but they don't know how to reason about it.
+{\color{red} This is confusing as I haven't set things up some that the agent is obtaining the ingredient.}
+
+\[
+  \text{Obtains}(\overline{s_{@}}) \land
+  \text{Agent}(\overline{s_{@}}) = \overline{a} \land
+  \exists x(\text{Theme}(\overline{s_{@}}) = x \bm{\land x = \overline{i}})
+\]
+
+
+
+% \begin{figure}[h]
+%   \centering
+%   \begin{tikzpicture}[baseline=0pt]
+%     \Tree [.{\(\lambda a\lambda i\lambda s.\text{Obtains}(s) \land \text{Agent}(s) = a \land \text{Theme}(s) = i\)} {\(\lambda s.\text{Obtains}(s)\)} [.{\(\lambda a\lambda i\lambda s.\text{Agent}(s) = a \land \text{Theme}(s) = i\)} [.{\(\lambda a\lambda s.\text{Agent}(s) = a\)} [.{\(\lambda c\lambda s.\text{Agent}(s) = c\)} ] [.{\(\lambda c. c = a \)} ] ] [.{\(\lambda i\lambda s.\text{Theme}(s) = i\)} [.{\(\lambda c\lambda s.\text{Theme}(s) = c\)} ] [.{\(\lambda c. c = i \)} ] ] ] ]
+%   \end{tikzpicture}
+%   \caption{Parse 2}
+%   \label{fig:parse:2}
+% \end{figure}
+
+
+
+
+\newpage
+
+\mbox{ }
+
+\newpage
+
+
+Unlike natural language, there is no interpretation of syntax.
+To illustrate, the natural language expression `the agent obtained the ingredient' can be parsed as follows:
+
+
+
+
+
+
+
+
+
+This parsing is non-standard in order to draw further comparisons below.
+The interpretation, however, is straightforward.
+The lambda expressions at certain nodes denote functions, but there are nodes which denote either situations or constituents of situations.
+From a semanticists point of view, functions, situations, and constituents of situations are all the result of an interpretation which maps syntax to situations and their constituents.
+The interpretation is what matters, as the interpretation specifies what the syntax is about.
+
+Representations, by contrast, have no syntax.
+They are functions from (constituents of) situations to truth values.
+And they are akin to functions denoted by interpretations.
+This is the source of the parallel between meanings and representations, if the meaning of a sentence is understood as restricting the interpretation of a natural language expression to the function it denotes.
+
+What an agent represents by `the agent obtained the ingredient' can be parsed as follows:
+
+\begin{tikzpicture}[baseline=0pt]
+  \Tree [.{Obtains(s) ag(s) = a pat(s) = i}
+  {Obtains(s)}
+    [.{ag(s) = a pat(s) = i}
+      [.{ag(s) = a} a b ]
+      [.{pat(s) = i} a b ]
+    ]
+  ]
+\end{tikzpicture}
+
+The root is a complex function obtained from more basic representations.
+It is not applied to any constituents or situations, but will return a truth value when these are provided as arguments.
+When these are provided the representation is put to use with constituents and situations typically provided by some independent faculty.
+
+
+Evocative to write \(\lnot j \lambda i\lambda s.\) to highlight that this function returns true only given these specific constituents as arguments.
+
+
+
+
+
+
+
+
+The interpretation of 'agent' is a function from constituents of situations to a function from situations to truth values.
+The lambda expression makes this clear.
+Likewise, the interpretation of `\(a\)' is a constituent of situations, and hence the interpretation of `\(\text{ag}(s) = a\)' is a function from situations to truth values.
+At each node, the syntactic expression is interpreted to yield a value obtained by composing the results of the node's children.
+
+
+Here's the tree.
+
+
+
+
+
+
+
+
+The lambda expression describe functions, and it is these functions which parallel representations.
+However, there are terminal nodes which require a situation or some constituent of a situation.
+
+
+
+
+The representation:
+
+\[
+\lambda s \lambda e_{1} \lambda e_{2}. \text{Obtains}(s) \land \text{ag}(s,e_{1}) \land \text{obj}(s,e_{2})
+\]
+
+
+Picks out certain situations and constituents of those situations.
+Those situations in which something is obtained, etc.
+The function doesn't take arbitrary entities.
+Indeed, it's easier to say.
+
+\[
+\lambda s. \text{Obtains}(s) \land \text{ag}(s,j) \land \text{obj}(s,i)
+\]
+
+To make it clear that only \(j\) and \(i\) yield a true description of the situation, though the representation permits many ways in which \(j\) may obtain \(i\).
+
+The point here is that the representation has been partially applied.
+It is more common to suppose that there's an assignment.
+This is where things are a little tricky.
+Because, representations are the assignment.
+This is important.
+To the latter formulation we could write \dots
+\(i(j) = j\)
+and
+\(i(i) = i\)
+and so on.
+Strip all of this away, the assignment is what's being described.
+Right, this is helpful.
+Usually, when doing this kind of stuff, one does get a function of sorts.
+
+
+
+
+
+
+
+
+
+
+Representations are essential to practical reasoning because they allow an agent to process information about which situations are possible and worthwhile, but this information is about situations and as such does not necessarily depend on representations.
+Hence, the inability of an agent to represent a situation in some way does not necessarily prevent the agent from reasoning about their evaluation of that situation.
+
+
+
+
+\newpage
+
+
+
+
+The terminology of situations, representations, evaluations, and so on is used to describe the roles played by basic concepts in the model of practical reasoning at work in this paper.
+As such, the terminology is independent of the model itself, whatever it is.
+So long as the role described can be satisfied by the relevant concept; situations may be possible worlds, representations Humean impressions, evaluations Rylean dispositions, and so on.
+
+For our purposes, representations are treated as a formal language.
+A representation is some object whose interpretation is a situation or some part of a situation.
+For example, using standard formal notation we may write:
+\[
+  \lambda s(
+  \text{ReqIng}(\attn{m},\attn{q})
+  \land \text{In}(\attn{q}, \attn{\text{\emph{smk}}})
+  % \land \text{Obtain}(s, a, q))
+  )(s)
+\]
+to pick out the situations in which whatever the agent represents by  \(\attn{q}\) is the required ingredient for the meal represented by \(\attn{m}\) in the situation and what is represented by \(\attn{q}\) is in the supermarket.
+The \(\attn{\space}\)-brackets surrounding objects delegates the interpretation of the objects to the agent.
+This is cumbersome, but useful.
+For example, we can write
+\[
+  \forall s(
+  (
+  \attn{\text{ReqIng}}(\attn{m},\attn{q})
+  \land \text{In}(\attn{q}, \attn{\text{\emph{smk}}})
+  )
+  \rightarrow
+  (
+  % \land \text{Obtain}(s, a, q)
+  \text{ReqIng}(\attn{m},r)
+  \land \attn{q} \ne r
+  )
+  )
+\]
+to express that \(r\) is the ingredient required for what the agent represents by `\(m\)' and what the agent represents by `\(q\)' is not \(r\).
+Here, the interpretation of what an required ingredient is also shifted to avoid stating that both \(\attn{q}\) and \(r\) are required ingredients; as things stand \(\attn{q}\) may or may not be required.
+Perhaps the agent has things mixed up, or maybe they understand a required ingredient differently to us and we're focusing on the wrong representations.
+Likewise, the conditional ensures that there are no situations for which \(\attn{q} = r\).
+
+The above expressions find any situation that conforms to some collection of representations.
+We can also start with a situation and state those representations which it points to.
+For example, the expression:
+\[
+  [\exists x(
+  \attn{\text{ReqIng}}(\attn{m},\attn{x})
+  \land \attn{\text{In}}(\attn{x}, \attn{\text{\emph{smk}}})
+  % \land \attn{\text{Can-obtain}}(s_{1}, \attn{a}, \attn{x})
+  )](s_{1})
+\]
+states that of situation \(s_{1}\) there exists some object which the agent represents by \(\attn{x}\) which is required ingredient for \(\attn{m}\), it is in \(\attn{\emph{smk}}\).
+Note, that the second occurrence of the existential is interpreted by the agent.
+Hence, the agent has some representation of the ingredient, but we do not state what that is.
+
+Representations are interpreted in reasoning, and so agents do reason about situations, but the interpretation of representations cannot be overlooked.
+When the agent in the scenario loses their ability to represent the ingredient it is their inability to use representations to point to the appropriate situations which is at issue.
+Perhaps the agent lacks the representation as an object, and without the object to interpret they cannot point to the situation, but it may be also be the case that it is their ability to interpret the object that falters.
+The agent in the scenario may have used some improvised representation for the ingredient which they are unable to interpret.
+The definite description `the ingredient required to prepare the meal' is an example of the second case.
+If the agent were able to interpret the description, they would be able to pick out situations in which they obtain the ingredient.
+
+Take `\(?\)' to capture `the ingredient required to prepare the meal' as used by the agent in their reasoning after losing their ability to represent the ingredient.
+Then, the expression
+\[
+  [
+  \text{ReqIng}(\attn{m},\attn{?})
+  \land \text{In}(s_{1}, \attn{?},
+  \attn{\text{\emph{smk}}})
+  ]
+  % \land \attn{\text{Obtain}}(s_{1}, \attn{a}, \attn{?})
+  (s_{1})
+\]
+does not pick out any situation as the agent is unable to interpret the object `\(?\)'.
+The expression does not hold of \(s_{1}\), nor does it hold of any other situation.
+To make clear that there is a required ingredient in \(s_{1}\) that the agent is unable to represent we could write:
+\[
+  [
+  \text{ReqIng}(\attn{m},r) \land \lnot\exists x(\attn{x} = r)
+  ](s_{1})
+\]
+there is no part of \(s_{1}\) that the agent is able to represent identical to \(r\).
+
+Switching between different interpretations allows us to capture different ways a situation is represented and to be clear on how the situation is being represented; either by us or by an agent.
+
+Whether a situation is possible or worthwhile is a matter of the situation.
+Hence, to express that obtaining ingredient \(\attn{q}\) would be worthwhile for an agent \(a\) in situation \(s_{1}\) we write
+\[
+  [
+  \forall s(\text{Obtain}(a, \attn{q}) \rightarrow \text{Worthwhile}(a,s))
+  ](s_{1})
+  .
+\]
+The interpretation of `\(\text{Worthwhile}\)' depends on the situation,
+
+
+For a more standard treatment of evaluations, the interpretation of `\(\text{Worthwhile}\)' would take as an argument the interpretation of an expression.
+For example
+\[
+[\text{Worthwhile}(a, \text{Obtain}(\attn{q}))](s_{1})
+\]
+This ties what is worthwhile to expressions, and so a change in what is represented will result in a change in the interpretation of what is worthwhile.
+This is something I want to avoid\dots
+If interpretations are fixed, however, these are pretty much equivalent.
+
+{\color{red} Davidson, Lewis.}
+
+
+
+The paper is about interaction between these roles.
+
+
+
+
+
+
+For an agent to reason about a situation is as straightforward as picking some fresh variable to stand for that situation, and what the agent is able to represent will allow the agent to narrow which situations are picked out by that variable.
+
+Evaluating a variable is no easy task.
+
+As the range of potential situations narrows, the evaluation of whether those situations are possible or worthwhile becomes easier.
+An agent may be unable to be sure whether going to the movies would be worthwhile, but may be sure that going to see a particular film would be.
+
+
+
+
+
+
+
+Instead of saying that an agent has evaluates some represented situations in a particular way, it is often easier to say that the agent has an attitude toward some represented situations.
+This may be glossed to say that the agent has some attitude toward some proposition.
+To illustrate the simple idea given this gloss, consider a basic formal account of propositional attitudes.
+The statement that \emph{agent A has attitude \(\alpha\) toward proposition \(\phi\)} can be understood to say that there is a pair of functions \(f\) and \(g\) such that \(f\) maps propositions to situations, \(g\) maps situations to some marker stating whether or not the agent has the attitude toward the situation, and when the situations returned by applying \(\phi\) to \(f\) are marked by \(g\).
+
+Formally, let \(S\) be a set of situations and \(\mathsf{Prop}\) a set of propositions, and take \(+\) and \(-\) to mark whether the agent has some attitude.
+Then, \(f \colon \mathsf{Prop} \to \wp(S)\) and \(g \colon \wp(S) \to \{+,-\}\) and hence \((g \circ f) \colon \mathsf{Prop} \to \{+,-\}\).
+We can then state that, \emph{agent A has attitude \(\alpha\) toward proposition \(\phi\)} holds if and only if \((g \circ f)(\phi) = +\).
+
+Typically the situations the agent has an attitude toward are determined relative to a situation.
+\(g\) is then taken maps situations to the set of situations the agent has the attitude toward, and the statement holds if and only if \(g(s) \subseteq f(\Phi)\), for \(s \in S\).
+Informally; all the situations the agent has the attitude toward at \(s\) are \(\phi\) situations.
+In this case, \(f\) and \(g\) cannot be composed, but it remains the case that attitudes are toward situations and propositions represent situations.\nolinebreak
+\footnote{
+  For propositions to serve the role of representations here, the term `proposition' must be used to refer to the syntactic objects which make up our formal language (such as `\(\phi\)'), not the semantic objects which are used to interpret the language (sets of situations).
+}
+Still, given a situation, the set of situations the agent has the attitude toward is fixed.
+There is no additional argument for propositions, and hence the agent's attitude toward a proposition is fixed by the attitude the agent has toward the set of situations given by the interpretation of the proposition.
+
+This simple idea is important because it allows for an agent to evaluate situations independently of their representational capabilities.
+The role of representations is to provide the agent with a way to directly reason about situations, but wiggling what the agent is (and isn't) able to represent does not require wiggling the evaluations the agent holds towards situations.
+An agent may represent a situation, and reason it to be possible and worthwhile, then lose the ability to represent it.
+And, as the evaluation of the situation may be independent of the representation, it does not follow that the situation is neither possible nor worthwhile given their inability to represent it.
+
+To illustrate, figure~\ref{fig:supermarket:ex} contains two sketches of what the agent is able to reason about.
+In both figures the leaf captures the situations that are valuable to the agent, those in which they obtain the ingredient, while the hand captures those situations they are able to reason about as means to obtaining the ingredient.
+In subfigure~\ref{fig:supermarket:ex:able} the agent is able to represent the ingredient, and hence they are able to represent their means as likely to succeed.
+In subfigure~\ref{fig:supermarket:ex:unable}, by contrast, the agent is unable to represent the ingredient, and it is unable to ensure success to the same degree with what they are able to represent.\nolinebreak
+\footnote{
+  Intuitively, think of the hand in subfigure~\ref{fig:supermarket:ex:unable} as capturing those situations in which the agent goes to the supermarket, and the hand in subfigure~\ref{fig:supermarket:ex:able} as capturing those situations in which the agent goes to the appropriate aisle in the supermarket.
+}
+\begin{figure}[ht]
+  \hfill
+  \begin{subfigure}[h]{0.4\linewidth}
+    \begin{tikzpicture}[scale=.5]
+      \pgfmathsetmacro\gr{1.61803}
+      \pgfmathsetmacro\by{5pt}
+      \pgfmathsetmacro\bx{\by*\gr}
+
+      \draw[rounded corners] (0,0) rectangle (\bx,\by);
+
+      \pgfmathsetmacro\wx{1.25pt}
+      \pgfmathsetmacro\wy{1.25pt}
+      \pgfmathsetmacro\hx{4.4pt}
+      \pgfmathsetmacro\hy{2.7pt}
+
+      \draw [line join=round] (\wx * 2, \wy * 2.78) -- ++(100.52:9.493pt) -- ++(125.31:7.843pt) -- ++(145.78:4.031pt) -- ++(-173.09:4.432pt) -- ++(44.58:12.917pt) -- ++(-66.37:11.643pt) -- ++(-31.94:13.356pt) -- ++(-21.71:30.999pt) -- ++(3.04:15.088pt) -- ++(-22.52:11.836pt) -- ++(-45.00:26.210pt) -- ++(-57.61:45.793pt) -- ++(-38.74:14.701pt) -- ++(-31.76:3.293pt) -- ++(178.32:22.676pt) -- ++(-179.72:54.934pt) -- ++(145.20:19.950pt) -- ++(120.74:8.3pt) -- ++(136.85:8.773pt) -- (\wx * 2.6, \wy * 1.3) -- ++(120:26.43pt) -- ++(80:4.21pt) -- cycle;
+
+      \draw [line join=round] (\wx * 2.05, \wy * 3.075) -- ++(-55.18:5.604pt) -- ++(-38.29:4.841pt) -- (\wx * 3.3, \wy * 1.8) -- ++(-46.66:19.524pt) -- (\wx * 3.7, \wy * 1.4) -- ++(-18.55:32.698pt) -- ++(-45.00:.849pt);
+
+      \draw [line join=round, dashed, fill=white, scale=.6] (\hx,\hy) -- ++(123.46:13.784pt) -- ++(98.57:14.864pt) -- ++(68.43:13.872pt) -- ++(15:5.797pt) -- ++(40.95:16.021pt) -- ++(36.96:12.140pt) -- ++(25.73:12.210pt) -- ++(-6.34:6.339pt) -- ++(-151.16:16.059pt) -- ++(28.65:20.854pt)-- ++(-23.13:11.200pt) -- ++(-162.37:29.380pt) -- ++(17.66:30.329pt) -- ++(-20.22:8.099pt) -- ++(-53.56:8.080pt) -- ++(-86.42:1.603pt) -- ++(155.50:16.155pt) -- ++(-153.67:16.595pt) -- ++(25.33:16.595pt) -- ++(-24.50:16.155pt) -- ++(-24.10:21.800pt) -- ++(-37.95:6.341pt) -- ++(-113.40:7.301pt) -- ++(-156.43:6.001pt) -- ++(171.21:9.815pt) -- ++(154.50:14.403pt) -- ++(-177.99:5.704pt) -- ++(-130.91:19.849pt) -- ++(-86.05:5.814pt) -- ++(-24.68:12.216pt) -- ++(22.17:5.831pt) -- ++(43.90:7.355pt) -- ++(26.15:12.478pt) -- ++(-24.44:3.625pt) -- ++(-68.20:7.739pt) -- ++(-121.18:8.884pt) -- ++(-136.08:3.748pt) -- ++(-164.99:27.022pt) -- ++(-152.43:12.748pt) -- ++(-179.51:11.700pt) -- ++(150.58:15.269pt) -- ++(136.04:3.890pt) -- cycle;
+    \end{tikzpicture}
+    \caption{Able to represent the ingredient.}
+    \label{fig:supermarket:ex:able}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.4\linewidth}
+    \begin{tikzpicture}[scale=.5]
+      \pgfmathsetmacro\gr{1.61803}
+      \pgfmathsetmacro\by{5pt}
+      \pgfmathsetmacro\bx{\by*\gr}
+      \draw[rounded corners] (0,0) rectangle (\bx,\by);
+
+      \pgfmathsetmacro\wx{1.25pt}
+      \pgfmathsetmacro\wy{1.25pt}
+
+      \draw [line join=round, dashed] (\wx,\wy) -- ++(123.46:13.784pt) -- ++(98.57:14.864pt) -- ++(68.43:13.872pt) -- ++(15:5.797pt) -- ++(40.95:16.021pt) -- ++(36.96:12.140pt) -- ++(25.73:12.210pt) -- ++(-6.34:6.339pt) -- ++(-151.16:16.059pt) -- ++(28.65:20.854pt)-- ++(-23.13:11.200pt) -- ++(-162.37:29.380pt) -- ++(17.66:30.329pt) -- ++(-20.22:8.099pt) -- ++(-53.56:8.080pt) -- ++(-86.42:1.603pt) -- ++(155.50:16.155pt) -- ++(-153.67:16.595pt) -- ++(25.33:16.595pt) -- ++(-24.50:16.155pt) -- ++(-24.10:21.800pt) -- ++(-37.95:6.341pt) -- ++(-113.40:7.301pt) -- ++(-156.43:6.001pt) -- ++(171.21:9.815pt) -- ++(154.50:14.403pt) -- ++(-177.99:5.704pt) -- ++(-130.91:19.849pt) -- ++(-86.05:5.814pt) -- ++(-24.68:12.216pt) -- ++(22.17:5.831pt) -- ++(43.90:7.355pt) -- ++(26.15:12.478pt) -- ++(-24.44:3.625pt) -- ++(-68.20:7.739pt) -- ++(-121.18:8.884pt) -- ++(-136.08:3.748pt) -- ++(-164.99:27.022pt) -- ++(-152.43:12.748pt) -- ++(-179.51:11.700pt) -- ++(150.58:15.269pt) -- ++(136.04:3.890pt) -- cycle;
+
+      \draw [line join=round] (\wx * 2, \wy * 2.78) -- ++(100.52:9.493pt) -- ++(125.31:7.843pt) -- ++(145.78:4.031pt) -- ++(-173.09:4.432pt) -- ++(44.58:12.917pt) -- ++(-66.37:11.643pt) -- ++(-31.94:13.356pt) -- ++(-21.71:30.999pt) -- ++(3.04:15.088pt) -- ++(-22.52:11.836pt) -- ++(-45.00:26.210pt) -- ++(-57.61:45.793pt) -- ++(-38.74:14.701pt) -- ++(-31.76:3.293pt) -- ++(178.32:22.676pt) -- ++(-179.72:54.934pt) -- ++(145.20:19.950pt);
+
+      \draw [line join=round] (\wx * 2.6, \wy * 1.3) -- ++(136.85:8.773pt) -- ++(120.74:8.3pt);
+
+      \draw [line join=round] (\wx * 2.05, \wy * 3.075) -- ++(-55.18:5.604pt) -- ++(-38.29:4.841pt);
+
+      \draw [line join=round] (\wx * 3.3, \wy * 1.8) -- ++(-46.66:19.524pt);
+
+      \draw [line join=round] (\wx * 3.7, \wy * 1.4) -- ++(-18.55:32.698pt) -- ++(-45.00:.849pt);
+    \end{tikzpicture}
+    \caption{Unable to represent the ingredient.}
+    \label{fig:supermarket:ex:unable}
+  \end{subfigure}
+  \hfill
+  \caption{Two sketches. Situations within regular lines are worthwhile, and the agent is able to represent situations within dashed lines.}
+  \label{fig:supermarket:ex}
+\end{figure}
+
+
+
+
+
+
+
+Whether the agent is able to pursue a situation that is possible and worthwhile without the ability to represent it is a different matter.
+
+
+
+
+The opening scenario illustrates how this may be the case, and the puzzle is providing the details.
+
+
+
+
+
+This is no argument, merely the expression of an idea.
+Perhaps you think that representations are evaluated and that some other model is required.
+In that case the goal of this paper is to convince you that the simple idea should not be dismissed out of hand as it provides the foundation for understanding various mundane features of our practical reasoning.
+
+If you're onboard, then areas to be explored, or mistakes to be corrected.
+
+
+
+
+Referential theories of meaning, belief.
+
+
+
+
+
+
+
+
+In the opening scenario, the agent had the end of preparing a meal; some reasoning led them to evaluate preparing a meal as both possible and worthwhile.
+Noticing that they lacked an ingredient, they saw obtaining that ingredient as possible and worthwhile.
+Obtaining the ingredient may not have been necessary, for perhaps a substitute ingredient could have been used.
+Still, if there was a substitute this either was not possible, or was not as worthwhile as obtaining the missing ingredient.
+Hence, obtaining the ingredient became a means by which they would prepare the meal.
+The agent reasoned that going to the supermarket would be possible and worthwhile and so elaborated on their means to preparing the meal.
+To keep things simple, background the preparation of the meal, and take obtaining the ingredient as an end to which going to the supermarket is a means.\nolinebreak
+\footnote{
+  Preparing the meal was likely in the service of some prior end, and so long as we assume such prior ends remain in force we need not complicate matters with a complex hierarchy of means, likewise we omit additional reasoning about getting to the shops.
+
+  Treating the preparation of the meal as a background constraint is simply a convenience.
+We would keep the preparation of the meal along with other situations in the foreground if we were to consider adjacent scenarios in which the agent may deviate from preparing the meal.}
+The agent, then, has the end of obtaining some specific ingredient, and a means to that end.
+
+{
+  \color{red}
+  % Focus on this means-end relationship;
+  Going to the supermarket is a non-necessary, partially specified, means to the agent's end of obtaining the ingredient.
+  The means is non-necessary as the ingredient may be obtained somewhere else.
+  The agent decided against alternative means in their prior reasoning, and may decide in favour of alternative means if they engage in further reasoning, possibly given new information.
+  And, the means is partial as at the supermarket the agent will need to settle further instances of what to do in order to obtain the ingredient.
+  The agent has not, for example, placed an order that they are picking up.
+  Still, `partially specified' and `non-necessary' are two adjectives, among many describing means, which point to the role of ends in the dynamics of practical reasoning.
+  An agent's ability to represent an end is important for understanding why the adopted the present means, evaluating alternative means to their end while pursing the means, and for settling further instances of what to do.
+
+  If the agent in the scenario does not lose the ability to  represent the ingredient, the story is straightforward.
+  If an alternative means arises one the way to the supermarket they evaluate whether that alternative would better serve their end of obtaining the ingredient.
+  And, supposing the agent continues to the supermarket, they then search for the ingredient by settling further instances of what to do with what information they can draw from their representation of the ingredient.
+  At the current level of generality way in which the representation of the ingredient aids the role of the agent's end in their practical reasoning seems straightforward to predict.
+
+  Without the ability to represent the ingredient the dynamics of the agent's practical reasoning do seem difficult to predict.
+  This difficulty may be eased, in part, by adding details to the scenario.
+  To simplify, let us suppose that the only concern is the partiality of the agent's means.
+
+  Now, suppose the supermarket is small, far from home, and soon to close.
+  The agent checked to see that the ingredient was in stock, and the agent is confident in their ability to recognise whatever the ingredient is when they see it.
+  Turning back would delay preparation, and as the agent is confident that a search of supermarket will yield the ingredient, the delay likely outweighs the risk that the agent fails to perform an exhaustive search.
+  It seems likely the agent continues to the supermarket.
+
+  Alternatively, suppose that the agent takes their inability to represent the ingredient to signify that the ingredient, whatever it is, must be obscure,
+  So, they are unlikely to find the ingredient in the large supermarket with many unorganised aisles.
+  The supermarket is likely a bust, and so it would be unsurprising to see the agent returning home.
+
+  Or, perhaps the agent reasons that their inability to represent the ingredient will pass, and that they only need to reconsider what to do if they're still at a loss when taking the right.
+  For now the agent will continue to the supermarket, and we can predict again when we know whether the agent has the ability when they make the turn.
+
+  {\color{green} The more we say, the easier things are to predict, but nothing depends directly on the representation.
+    The end still has a role, and we're talking about the agent's reasoning, similar things to say about alternatives.}
+
+  In the first two cases the agent reasons about the ingredient, and in the last the agent postpones reasoning about the ingredient.
+  Many other cases are possible, and it is no surprise that additional details ease prediction.
+  The details sketched, however, are noteworthy because they build on the agent's prior reasoning --- the agent's reasoning is about whether they can successful pursue the means to an end they are unable to represent.
+  
+  
+
+  The details given, however, are not the standard inputs to practical reasoning.
+
+  The agent cannot audit whether the end remains valuable.
+  This isn't too important here, but the examples highlight that this can matter.
+
+}
+
+
+
+In the scenario the agent settled the issue of what to do in favour of going to the supermarket.
+At the supermarket the agent can settle further issues by appeal to the information they used when they settled to obtain the ingredient.
+In a sense the issue of what to do is never settled, but only in the sense that one cannot settle on a largest natural number.
+The problem arises when the agent lacks information they once had.
+Forgetting the ingredient, the agent can no longer rule out situations in which they leave the supermarket without the ingredient they require, though they remain able to rule out situations in which the leave the supermarket without any ingredient.
+
+\subsection{what is the puzzle?}
+\label{sec:puzzle-puzzle-puzzle}
+
+The puzzle is about how the agent settles what to do without being able to represent the end to their means; the ingredient.
+There are two possibilities, either the agent's prior reasoning continues to provide information, or it does not.
+
+On the assumption that the agent's prior reasoning continues to provide information, distinguish between
+\begin{enumerate*}[label=\roman*)]
+\item \emph{coasting} in which the agent's prior reasoning settling what to do, and
+\item \emph{estimating} in which the agent uses their prior reasoning serving as a resources for reasoning further about what to do.
+\end{enumerate*}
+Perhaps the agent notices their inability to represent the ingredient but defers reasoning as going to the store still provides a way of settling what to do for the time being.
+Or, perhaps, the agent considers their capacity to recognise whatever the ingredient is and their likelihood of being in a position to recognise it in order to see whether or not so other action settles what to do given their present representational resources.
+
+Whether by coasting or estimating, the agent uses information that they no longer have access to in order to settle what to do.
+If reasoning is deferred, then as the agent initially settled what to do by reasoning about whether obtaining the specific ingredient at the store was possible and worthwhile, the role of this information in settling the issue when open persists.
+Or, if the agent's prior reasoning is used as a resource, and if the outcome of further deliberation depends on this resource, then the outcome of the agents reasoning will be connected to this inaccessible information.
+
+Alternatively, on the assumption that the agent's prior reasoning does not continue to provide information; the agent reasons about what they can represent (at least with regards to the ingredient) and settles what to do based on this.
+
+Each of the strategies above seem permissible, as the scenario stands.
+And, the scenario may be further refined to suggest one option over the other.
+For example:
+\begin{itemize}
+\item {\color{red} If the store is large, and there are other smaller stores which are closer, then perhaps this indicates that the ingredient is less common, and hence less easily recognised.}
+\item {\color{red} Likewise if neighbour was likely to have the ingredient but the agent did not want to talk to them.}
+\item {\color{red} Perhaps temporary lapses in ability to represent are common, or maybe not.}
+\item {\color{blue} All this helps determine whether or not an option is possible or worthwhile, and this is what matters in settling the issue of what to do.}
+\item {\color{red} Another way of putting this is that prior deliberation encodes reasons\dots}
+\item \end{itemize}
+
+
+\begin{center}
+  [\dots]
+\end{center}
+
+If you are not yet suspicious about coasting and estimating, perhaps you should be.
+For, any action which results from the agent settling what to do by either of these strategies will depend on information that the agent no longer has access to.
+Without the ability to represent the ingredient, if the agent were to resettle what to do from scratch (so to speak) they would not be able to reconstruct their prior reasoning.
+
+I have not provided a sufficiently detailed way of understanding practical reasoning to give an illustration of the background worry, yet.
+Still, consider by analogy belief as modelled by credences.
+\begin{quote}
+  Suppose that you have certain background credences.
+  That an eagle is a bird, eagles can fly, and that birds can typically fly.
+  Form credence that this thing is an eagle.
+  Hence, it's a bird, and that it can fly.
+  Now, forget that it's an eagle, and you have only that it's a bird and it can fly.
+  The credence you have in whether the bird can fly given your background credences now changes, if you are to go via the information you have.
+\end{quote}
+
+  \begin{table}[h]
+    \centering
+    \begin{tabularx}{1.0\linewidth}[h]{cccc}
+      Cr & E & B & F \\
+      .8 & 1 & 1 & 1 \\
+      .01 & 1 & 1 & 0 \\
+      0 & 1 & 0 & 1 \\
+      0 & 1 & 0 & 0 \\
+      .05 & 0 & 1 & 1 \\
+      .01 & 0 & 1 & 0 \\
+      .02 & 0 & 0 & 1 \\
+      .01 & 0 & 0 & 0 \\
+    \end{tabularx}
+  \end{table}
+Here, assume that the background credences aren't affected by the information, if this is relaxed the problem is harder.
+In the simple case where states which are distinguished by \(E\) are collapsed, there is a small but non-negligible change to the conditional credence.
+\(Cr(F \mid E \land B) \approx .99\), \(Cr(F \mid B) \approx .93\).
+The question is whether \(Cr'(F \mid B) = Cr(F \mid E \land B)\) or whether \(Cr'(F \mid B) = Cr(F \mid B)\).
+\(Cr'\) is just the credence of the agent at some future point in time, underlying state credences don't change, but these get `filtered through' the states that the agent is able to distinguish between.
+
+Reconstruction is ambitious, but serves as the ideal for the more commonplace and mundane idea of \emph{auditing}.
+The background picture of practical reasoning endorsed above takes practical reasoning to be the processing of information, but placed no substantial constraints on what information may be.
+Implicit in the discussion of whether the agent's prior reasoning is able to provide information is the idea that whether or not something counts as information depends on the use that the agent puts that something to, and hence whether something provides information is not an intrinsic property of that thing (whatever it is).
+Hence, some process determines whether something counts as information, and the idea of auditing is that once something has been granted the status of information, that status is retained.
+
+
+
+
+
+
+
+
+Beliefs are transparent, at least according to many.
+Desires may, or may not be.
+The ability for an agent to audit their information is important\dots
+
+The thing is, a settlement of what to do is a function of other things.
+Right, in this sense it can be decomposed, at least in principle.
+But, here it cannot, as the requirements for its decomposition are missing.
+
+Analogy to the case of belief, with justification, but there justification is something diachronic, and here it's often assumed that practical reasoning is not.
+The information and reasoning are what matter, at least with respect to settling the issue, not how these relate to other things.
+
+If the above is right, then this is too naive.
+
+\subsubsection{Illustration with coherence}
+\label{sec:illustr-with-coher}
+
+Basic idea is that there are cases where coherence is difficult to motivate.
+
+
+
+
+\emph{Coherence.}
+
+
+
+
+
+
+For, the agent still has some representation of their prior deliberation, they can recall that going to the shops is a means and that they are after some ingredient.
+However, the agent has no way to continue nor verify their prior reasoning.
+
+
+Going for representations won't help, though.
+
+
+
+\subsection{No redescription of ends}
+\label{sec:no-redescr-ends}
+
+
+
+Going to the supermarket is a means to the end of obtaining some ingredient, and is worthwhile primarily because obtaining the ingredient is worthwhile.
+However, that that the agent requires \emph{some} ingredient doesn't make the supermarket more worthwhile than any of the other shops which sell ingredients, neighbours, or using a substitute.
+For sure, at one point information was used to rule out situations such as these, but without that information the supermarket may appear less worthwhile than some other alternative.
+{\color{red} More here, additional problem is that you can't really evaluate these options, as you can't represent the end.
+  Though, part of the point here is that this is with the substitute end.}
+
+{\color{green} Generalising a little, the puzzle here is complementary to questions raised by the idea of transformative experiences.
+  There, you have a representation without being able to assign a value to it, while here you have some value without being able to represent it.
+  Specifically, however, the puzzle relies on the value having been used in practical reasoning.
+  Perhaps unrecognised value is puzzling in general --- I am inclined to think so --- but this is a little more delicate, as there's something like complete ignorance here.}\nolinebreak
+\footnote{
+  Useful here to note that \citeauthor{Paul:2014aa}'s recommendation doesn't work, same for the `super bayesian' approach from \citeauthor{Pettigrew:2020aa}.
+}
+
+
+\begin{itemize}
+\item Two options.
+  \begin{enumerate}
+  \item Keep what you have, using it either as a way to settle the issue, or as input to further reasoning.
+  \item Ignore prior reasoning.
+  \end{enumerate}
+\end{itemize}
+
+
+
+\subsection{Getting to what generates the puzzle}
+\label{sec:gett-what-gener}
+
+A form of bootstrapping is nearby.\nolinebreak
+\footnote{Footnote about the bootstrapping problem as it applies to intention, here the situation is somewhat similar, but in terms of either continuing to perform the action, or in terms of further deliberation.}
+For, if the agent arrives at the supermarket, then the information the agent uses may settle what to do in favour of actions involving the supermarket.
+However, that an action can influence an agent's evaluation of further actions is familiar.
+Buridan's Ass need only take one step toward a bale in order to resolve it's parallel evaluations of the two equidistant and otherwise-seemingly-identical bales of hay.
+Hence, whether further actions can be `bootstrapped' in a problematic way is derivative of whether the agent acts rationally by continuing to the supermarket.
+
+In a different and more familiar sense, the agent may `bootstrap' going to the supermarket by using their prior adoption of the act as a means to some end to support going to the supermarket.
+Analogous to bootstrapping in the case of intention, taking prior reasoning as a source of information may allow an agent to generate further `information' that would otherwise be unavailable.
+For example, if an agent holds that the adoption of a means provides information that the end to the means is possible and more worthwhile than any other end, then the agent can discount any other end from settling what to do.
+To see how this can be problematic, consider the following principle:\nolinebreak
+\footnote{I take this principle to be fairly uncontroversial \dots
+  \begin{quote}
+    the value of the means derives from the value of the ends \dots
+    If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.\nolinebreak
+  \mbox{ }\hfill(\cite[2]{Raz:2005aa})
+\end{quote}
+
+\begin{quote}
+  Consider cases of means-end rationality, that is, cases in which I form a desire to perform the means to an end because I have a background desire for that end and a belief that the means is a means to that end.\nolinebreak
+  \mbox{ }\hfill(\cite[84]{Smith:2004aa})
+\end{quote}
+
+\begin{quote}
+  Most objectives and activities derive their value from the means-ends relationships which connect them with objectives or activities that are valued in themselves.
+  By a process of anticipation, the value inhering in the desired end is transferred to the means.\nolinebreak
+  \mbox{ }\hfill(\cite[61]{Simon:1997aa})
+\end{quote}
+
+\begin{quote}
+  Desire–Belief Theory of Reasoning: Desire that [means] is created as the conclusion of reasoning if and only if the reasoning combines desire that [end] with belief that [means] would raise [end]'s probability.
+  It is eliminated as the conclusion of reasoning if and only if the reasoning eliminates such a combination.\nolinebreak
+  \mbox{ }\hfill(\cite[2]{Sinhababu:2017aa})
+\end{quote}
+
+\begin{quote}
+  The instrumental value of a means is not to be counted as additional to the intrinsic value of the end.
+  (Otherwise, we would be obliged to pursue our ends as circuitously as possible, so as to accumulate the most instrumental value along the way.)
+  Since the value of a means is not additional to that of the end, turning a misfortune into a means of learning a lesson doesn’t produce any more value than that inherent in the lesson itself, a value not necessarily greater than that of any alternative lesson one might have learned.\nolinebreak
+  \mbox{ }\hfill(\cite[65]{Velleman:2000ab})
+\end{quote}
+
+\begin{quote}
+  The ``will'' to attain an end is being transmitted to (use of) the means deemed necessary for its attainment.
+  This principle of ``transmission of intention from ends to means'' is basically identical, it seems, with a principle which Kant thought analytically (logically) true and which he expressed in the following words:
+  ``Who wills the end, wills (so far as reason has decisive influence on his actions) also the means which are indispensably necessary and in his power.''\nolinebreak
+  \mbox{ }\hfill(\cite[40]{Von-Wright:1972aa})
+\end{quote}
+}
+\begin{principle}\label{princip:dependency}
+  When engaging in means-end reasoning, an agent's evaluation of a means primarily depends on their evaluation of the end to that means.
+\end{principle}
+The information used by an agent in settling a means derives from the information used in settling the end of that means.
+So, to use the adoption of the means as information to settle what to do in favour of an end reduces to taking the information about the end as sufficient to settle what to do independent of any other option.\nolinebreak
+\footnote{
+  Roughly, at least.
+  \begin{center}
+    [Caveats]
+  \end{center}
+}
+
+The above account of bootstrapping coincides with \citeauthor{Bratman:1987aa}'s (\citeyear{Bratman:1987aa}) account of bootstrapping, if we assume that agent forms an intention to perform the means to the end and require (in line with \citeauthor{Bratman:1987aa}'s account) that adopting an intention amounts to an agent `filtering out' options incompatible with that intended.
+
+{\color{red} Problem here is that there's got to be more, as whether or not the means is likely isn't derived from the end\dots}
+
+This early account of intention differs from later account in which intentions do provide information.
+
+This would avoid the kind of bootstrapping at hand, at the cost of analysing any taken means as intended.
+Not only would bootstrapping be avoided, but a potential (perhaps partial) perspective on oblique reasoning is provided, for so long as the means is intended, norms of (non-)reconsideration may ensure that the agent does not need to do any reasoning to settle the issue of what to do---no reasoning is required.
+The problem here is that we are talking about means in general; perhaps the agent intends to go obtain the ingredient, as a means to preparing the meal and this may constrain the admissibility of other options, but it is doubtful that going to the supermarket as a means to obtaining the ingredient is supported by an attitude as robust as intention.
+That the agent is on the way to the supermarket doesn't clearly constrain alternative ways to settle what to do.
+For example, a few drops of rain may lead them to try to closest corner shop, or to return to the list of ingredients on the fridge.
+
+Broadly, then, let us stipulate that in the cases of interest the agent recognises that are other ways in which they may settle what to do other than the action they are currently performing.
+This allows the non-trivial application of the following principle:
+% The end is the boot, the means the strap, and the `information' generated is the irrelevance of other ways in which what to do may be settled.
+% Alternatively, no `information' is generated an the agent violates a principle governing the scope of their reasoning:
+\begin{principle}\label{princip:global}
+  Whether something settles the issue of what to do depends on evaluation of alternatives.
+  (Something about settling being comparative.)
+\end{principle}
+
+Bootstrapping is problematic enough, and then you can't even represent which boot you're putting on!
+{\color{red} Aside, the discussion applies to when other parts of evaluation fail.
+Representation is something of a special case, it's not more general, though.}
+
+Putting principles~\ref{princip:dependency} and~\ref{princip:global} together, whether some means settles what to do depends on how the end to the means compares to the agent's evaluation of alternatives.
+Therefore, if an agent isn't able to evaluate the end to some means, then the agent cannot settle what to do in favour of the means.
+And, it seems, if an agent cannot represent the end to their means, then they cannot evaluate that end without either generating illicit information or failing to engage in practical reasoning.
+From this one may slip to the conclusion that an agent can only engage in practical reasoning with what they can represent, and that if an agent cannot represent the end to their means they cannot appropriately reason about their means \emph{as a means to some end}.
+Perhaps one may even go so far as to claim that an agent must abandon any reasoning premised on the oblique end, and resettle the issue of what to do from scratch with the information that is available to them.
+
+\begin{principle}\label{princip:rep-index}
+  An agent's evaluation is indexed to what they are able to represent.
+\end{principle}
+
+
+
+This is rejected, and gives rise to the notion of an \emph{oblique evaluation}.
+
+Rejecting principle~\ref{princip:rep-index} 
+
+
+
+\begin{itemize}
+\item What is meant by `reasoning' here?
+\item If we're thinking in terms of settling the issue from scratch, then there's something of an issue, but this isn't the case.
+\item Deliberation is something a little more narrow.
+\end{itemize}
+
+
+
+\subsection{Separation}
+\label{sec:separation}
+
+\begin{principle}\label{princip:separation}
+  Whether something is worthwhile or possible is not necessarily a function of its representation.
+\end{principle}
+In other terms, a theory of practical reasoning in which it is possible to separate whether or not something is worthwhile from whether or not it is represented is required in order to model {\color{blue} oblique reasoning}.
+Perhaps `required' is an overstatement, and there is some way to recast the phenomena of interest so that representation is essential to evaluation.
+The primary argument in favour of principle~\ref{princip:separation} is simply some pre-theoretic understanding of what goes on in daily life, filtered through philosophical education.
+At bedrock is the intuition that obtaining the specific ingredient remains worthwhile to the agent despite their inability to represent and reason directly about it because were they to represent or reason directly about it they would evaluate it as worthwhile.
+It may be that the lesson to draw from this counterfactual is that the agent would \emph{reevaluate} obtaining the specific ingredient as worthwhile, as whether or not something is worthwhile is only fixed relative to some evaluation.
+If so, treat talk of the separation of whether something is represented and worthwhile as lose talk for the presumption of the counterfactual holding.
+The key move that principle~\ref{princip:separation} blocks is a move from lack of representation to lack of relevance in an agent's practical reasoning.
+
+If the counterfactual does not persuade you to grant principle~\ref{princip:separation}, consider two other types of case.
+
+First, in contrast to regaining representational resources, agent's may recognise the value in forming such resources to identify what it is that's worthwhile.
+A gentle example is noticing the role of some ingredient in a meal; as it stumbles across your taste buds, mixed with other stimulants, you figure there might be something separable and worthwhile recreating, so you look at the recipe and experiment to find what the ingredient is and how to make it perform that role in other meals.
+Here, through the process of experimenting you form the representation and are able to use this to guide further reasoning.\nolinebreak
+\footnote{Less gentle, hermeneutical lacunas.}
+Likewise, {\color{blue} being unable to represent.
+  No idea how to do represent something, because it is worthwhile not to be able to.
+  There's surely a story about this, basically the end of inception, \dots though this may be hard to make sense of \dots}
+
+Second, complexity.
+Dealing with bounded agents, clearly.
+Complexity, recognising that the trade-off isn't worth being able to represent the difference.
+The fact that the difference is so minute means that one ignores this.
+
+This can be linked to intentions, etc.\ so if you go in for filtering, then the problem arises again.
+
+
+The upshot is that evaluations apply to \emph{propositions} rather than \emph{representations}.
+This is a familiar idea in the case of beliefs, and if take desire, then it applies to desire to, or whatever (collection of) attitude(s) are used to determine what is worthwhile.
+It's often simpler to run representations and propositions together, and one may wish to for Fregean reasons.
+Conflicting beliefs and conflicting desires.
+This phenomena presents a problem, as it suggests that perhaps one should tie what is worthwhile to representation, as otherwise there's no clear sense in which the proposition can be coherently evaluated.
+Simple argument is that there is a problem with conflicting evaluations of the same proposition.
+It happens with belief, and it happens with desire, and this can be explained by taking evaluations to be of propositions.
+The objection here is basically a denial of the premise, and not some independent principle.
+The difficulty is how to capture this in the theory, but the motivating concern here arises from what to do with the lack of representations, not the overabundance of representations.
+So, don't need to tackle both puzzles.
+
+Does this provide a backdoor?
+The agent can't represent the particular ingredient, but they can represent that obtaining some ingredient is worthwhile.
+Clearly the existential representation can't support the same specific evaluation, but should it not be the case that the existential if a function of all of its possible instantiating?
+No, nothing changes.
+
+Here, no need to appeal to anything other than what your judgements would be were you able to represent.
+Transformative experience stuff can be used to bolster the ideas here, or changes in utility, but you don't need to accept anything so strong.
+Structurally, of course, similar problems arise, as one can see different time-slices as having different representational capacities, and hence different values, but this doesn't rely on anything about value, other than relevance without representation.
+
+So, 
+Something is `worthwhile' as a matter of theory.
+Claiming that this is not necessarily a function of how it is represented matters for the implementation of this theory.
+Reason for thinking that this should be incorporated by any implementation.
+And, this is probably compatible.
+
+If you have some kind of view in which what is worthwhile is independent, then surely you're fine.
+Here, something like well-being.
+
+Guise of the good,
+
+If you reject \emph{the guise of the good} then perhaps you also think that you have grounds for rejecting the theory I have employed, as the evaluation of something as `worthwhile' seems to be something only a square\nolinebreak
+\footnote{Cf.\ \textcite{Velleman:1992aa}.}
+could make use of.
+
+
+Dispositions, clearly fine, so long as these aren't dispositions toward representations.
+
+
+
+\begin{itemize}
+\item Key premise here is that an agent can only reason about what they can represent.
+\item Two step argument against this:
+  \begin{enumerate}
+  \item Whether something is worthwhile or possible is not necessarily a function of its representation.
+    \begin{itemize}
+    \item Something is `worthwhile' as a matter of theory.
+      Claiming that this is not necessarily a function of how it is represented matters for the implementation of this theory.
+      The two-part argument here is that
+      \begin{enumerate*}[label=\alph*)]
+      \item you should implement a , and
+      \item this is compatible with most ways of understanding what being `worthwhile' amounts to.
+      \end{enumerate*}
+
+    \end{itemize}
+  \item Situations resolve the issue of what to do, not representations of those.
+  \end{enumerate}
+\end{itemize}
+
+
+
+
+Unfortunately, even if an agent is unable to represent the end to some means, the may still obliquely evaluate the end.
+
+To obliquely evaluate an end is to evaluate it without being able to directly reason about it, here due to being unable to represent it.
+The two components of our simple model of evaluation are whether the end is possible and whether the end is worthwhile.
+
+Oblique reasoning about possibilities will be set aside.
+In part because I take reasoning about whether something is worthwhile to be the more general case, but primarily because \textcite{Perry:1997aa} has illustrated the phenomenon far better than I am able to.
+In short, whether something is possible is a matter of how things are, and how things are depend on how other things are.
+Being unable to represent the ingredient will not remove it from the shelf in the supermarket, nor increase its price beyond affordability, and an agent may be confident in their ability to recognise something even if they cannot represent it to themselves.
+
+Oblique reasoning about whether something is worthwhile
+
+
+
+
+Simple conditional: If you recognise the ingredient, you will obtain it.
+
+Different example: Spicy meal.
+
+
+\begin{itemize}
+\item Argument:
+  \begin{itemize}
+  \item For an end to be worthwhile does not require that the end be represented.
+  \item This is neat, it's nothing like a rejection of a Humean position, and to see this note that there are cases where something isn't represented, but it still makes sense to class as worthwhile.
+  \item Consider example of like a spicy meal, you've got the whole thing, but there's something that hits you, and stuff that you don't like.
+    You know that there's a recipe, and the thing is to figure out which part of the recipe is desirable.
+  \item Another, case of something mislabelled.
+    E.g., listening to the `wrong' show on the radio.
+    Ah, now that there's something worthwhile, and you seek some representation of it.
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+The agent needs information that the end remains possible and more worthwhile than any alternatives.
+That the end remains more worthwhile than any alternative assumes the end remains worthwhile, which is reasonable, and a consideration of the alternatives.
+Here, going somewhere else cannot be straightforwardly evaluated, as neighbours, etc.\ relies on being able to represent the ingredient.
+
+
+
+\vfill
+
+
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro\gr{1.61803}
+    \pgfmathsetmacro\by{5pt}
+    \pgfmathsetmacro\bx{\by*\gr}
+    \draw[rounded corners] (0,0) rectangle (\bx,\by);
+
+    \pgfmathsetmacro\wx{1.25pt}
+    \pgfmathsetmacro\wy{1.25pt}
+
+    \draw [line join=round] (\wx,\wy) -- ++(123.46:13.784pt) -- ++(98.57:14.864pt) -- ++(68.43:13.872pt) -- ++(15:5.797pt) -- ++(40.95:16.021pt) -- ++(36.96:12.140pt) -- ++(25.73:12.210pt) -- ++(-6.34:6.339pt) -- ++(-151.16:16.059pt) -- ++(28.65:20.854pt)-- ++(-23.13:11.200pt) -- ++(-162.37:29.380pt) -- ++(17.66:30.329pt) -- ++(-20.22:8.099pt) -- ++(-53.56:8.080pt) -- ++(-86.42:1.603pt) -- ++(155.50:16.155pt) -- ++(-153.67:16.595pt) -- ++(25.33:16.595pt) -- ++(-24.50:16.155pt) -- ++(-24.10:21.800pt) -- ++(-37.95:6.341pt) -- ++(-113.40:7.301pt) -- ++(-156.43:6.001pt) -- ++(171.21:9.815pt) -- ++(154.50:14.403pt) -- ++(-177.99:5.704pt) -- ++(-130.91:19.849pt) -- ++(-86.05:5.814pt) -- ++(-24.68:12.216pt) -- ++(22.17:5.831pt) -- ++(43.90:7.355pt) -- ++(26.15:12.478pt) -- ++(-24.44:3.625pt) -- ++(-68.20:7.739pt) -- ++(-121.18:8.884pt) -- ++(-136.08:3.748pt) -- ++(-164.99:27.022pt) -- ++(-152.43:12.748pt) -- ++(-179.51:11.700pt) -- ++(150.58:15.269pt) -- ++(136.04:3.890pt) -- cycle;
+
+
+    \draw [line join=round, dashed] (\wx * 2, \wy * 2.78) -- ++(100.52:9.493pt) -- ++(125.31:7.843pt) -- ++(145.78:4.031pt) -- ++(-173.09:4.432pt) -- ++(44.58:12.917pt) -- ++(-66.37:11.643pt) -- ++(-31.94:13.356pt) -- ++(-21.71:30.999pt) -- ++(3.04:15.088pt) -- ++(-22.52:11.836pt) -- ++(-45.00:26.210pt) -- ++(-57.61:45.793pt) -- ++(-38.74:14.701pt) -- ++(-31.76:3.293pt) -- ++(178.32:22.676pt) -- ++(-179.72:54.934pt) -- ++(145.20:19.950pt);
+
+    \draw [line join=round, dashed] (\wx * 2.6, \wy * 1.3) -- ++(136.85:8.773pt) -- ++(120.74:8.3pt);
+
+    \draw [line join=round, dashed] (\wx * 2.05, \wy * 3.075) -- ++(-55.18:5.604pt) -- ++(-38.29:4.841pt);
+
+    \draw [line join=round, dashed] (\wx * 3.3, \wy * 1.8) -- ++(-46.66:19.524pt);
+
+    \draw [line join=round, dashed] (\wx * 3.7, \wy * 1.4) -- ++(-18.55:32.698pt) -- ++(-45.00:.849pt);
+  \end{tikzpicture}
+  \caption{Heck, logical space! The hand capture those situations in which you go the supermarket, and the leaf those situations in which you obtain the ingredient.}
+  \label{fig:ls:supermarket}
+\end{figure}
+
+
+\newpage
+
+\section{Landscape}
+\label{sec:landscape}
+
+Weak instance: redescription.
+If ends are viewed extensionally, then redescription is possible, but an agent need only reason about an end under a particular representation.
+Distinguish between representations and propositions.
+In the kind of scenarios, there is some representation that captures the proposition.
+
+Slightly stronger: context.
+Representations need not fully capture propositional end.
+This is the kind of stuff talked about by \citeauthor{Perry:1986aa} in the case of belief.
+Here, the representation is partial, but sufficient, combination with context.
+Context does supplement means, as you don't have a way to establish further means to the end.
+
+Oblique: direct reasoning fails, but you have indirect information about the end.
+Cases of interest are characterised by information about means derived from the end.
+There may be others.
+
+Freudian: end constrains independent of an agent's reasoning (ends which go beyond reasoning).
+In \citeauthor{Velleman:2000ab}'s terminology, it is `ungoverned by reason'.
+\begin{quote}
+  This flaw in the standard model is papered over, in some versions, by a characterization of desire itself as entailing the grasp of a justification for acting.
+  Engagement of the agent’s rationality is thus claimed to be inherent in the very nature of desire.\nolinebreak
+  \mbox{ }\hfill(\cite[9]{Velleman:2000ab})
+\end{quote}
+There's also an example from Russell, somewhere.
+(Alternatively, Russell could be used for the first type of instance.)
+Interest is in autonomous practical reasoning, but it's easier to leave this qualification implicit.
+Return to the question of how to understand this divide.
+
+\newpage
+
+
+\section{The Model}
+\label{sec:model}
+
+\begin{quote}
+  The output of decision-making under this variant is the formation of a preference ordering over the options available in a choice; this then leads directly to choice and action.
+  (\citeyear[138]{Pettit:2006aa})
+\end{quote}
+
+Settling the issue of what to do doesn't require the selection of an act, it may involve the selection of multiple acts, as the information available may not be able to distinguish one act as `better' than any other act.
+
+Think of this as a profile.
+These are the acts available to you, and you rank them in some way.
+The profile then settles the issue.
+Can think of profiles as ranking acts, etc.
+Here, think of this ranking as encoded by a probability distribution.
+If the agent is uncertain about which act to perform, then there are multiple acts, and a distribution captures something like the degree to which performing the act they are confident in performing the act.
+Something like this.
+It's the agent's confidence in the respective action at that point in deliberation.
+What deliberation gives is a way to update, this is clearest in a game theoretic setting, where there's feedback between the acts of the agent and any adversary, but the adversary isn't anything special, as long as the probability of the state of nature, so to speak, isn't fixed, then deliberation is going to be fair game.
+
+For this kind of deliberation to make sense though, using randomness to settle the issue of what to do must be a possibility, as the way this works is to suppose that you're going to go by the distribution and then see if some other distribution would do better.
+This may seem unsatisfactory, and there are questions about autonomy or whatever.
+
+
+In particular, suppose we have a bounded agent, and that further reasoning is going to lead to more information about the states of nature.
+See this as changes in the probability of states.
+
+
+
+
+Probability distribution rather than a ranking as this allows a straightforward view of what deliberation amounts to.
+It's refining this profile, which is done by revising distribution.
+Here there's Jeffrey, Skyrms, Joyce, Arntzenius, etc.\
+However, there's no clear consensus here.
+\begin{itemize}
+\item Think in terms of decision theory.
+\item If you've got the decision theoretic problem, then you can find a pure strategy, at least for the specific decision --- problems in a game theoretic setting where you extend this over multiple decision --- so the probability distribution can't do better.
+\item However, this only shows that the distribution is never mandated.
+\item Something more is required, but at this point deliberation ends.
+\item The kind of reasoning that's of interest is where deliberation is still open.
+\item ``I try to plan, \dots but that isn't my basic mode, really.
+  I improvise.
+  It’s my greatest talent.
+  I prefer situations to plans, you see \dots'' - Wintermute
+\item We could try to get into the weeds here, but let's try to figure out whether the soil beneath us is fertile enough to sustain any form of life first.
+\end{itemize}
+
+Take \emph{deliberation} to capture this process.
+\begin{itemize}
+\item What you need is to figure out how to settle the issue.
+\item What's possible and worthwhile guides you in figuring this out, but they aren't required for the issue to be settled, all that's needed for this is a profile; some determination of how to act.
+\end{itemize}
+
+\begin{itemize}
+\item Whether or not this has a chance of making sense will depend on what you think the conclusion of practical reasoning is.
+\item I \emph{don't} think it goes beyond the mind.
+\end{itemize}
+
+Freeze deliberation.
+The decision theoretic picture makes it clear what's going on here.
+Consider, by analogy, seeing someone flip a coin.
+You'll update, and start to see the possibility of a bias.
+They stop, and now what?
+Well, the full bayesian picture will allow you to build in all your uncertainty to what you're deliberating about, so it's unclear without some further specification.
+Have the tosses done enough to outweigh your priors about silver coins, do you still think it likely that your hallucinating, and so on.
+
+
+
+Now, bootstrapping can be re-expressed in terms of taking evidence about one's deliberation, etc.\
+And, the point is to deny that this is the case.
+The agent has not stopped deliberating, what is given is the present state of deliberation, and this is fixed.
+
+\newpage
+
+\section{Further Reasoning \& Reconsideration}
+\label{sec:further-reasoning-}
+
+The core idea is that this looks a lot like the problem of reconsideration, familiar from the contemporary understanding of intention.
+
+\begin{itemize}
+\item Can the problem be reduced?
+  \begin{itemize}
+  \item This seems doubtful.
+  \item With intentions there is an attitude, and this does a lot of the work.
+  \item There may be a parallel, and this may be strengthened by arguing that in most cases the issue of further reasoning is going to be governed by some subrational process.
+    However, I'm not clear on exactly how this argument should go.
+    Subrational processes, sure, in the sense that most reasoning could be reduced to some subrational process, but I don't hold rationality to be \emph{that} strong, I take this to be reasoning all the same; the processing of information, and hence I don't quite understand the story of intention.
+  \item This doesn't count against the reduction, then, given this understanding of what's in the `rational domain'.
+  \item The bigger issue is that of an attitude.
+    \begin{itemize}
+    \item With intention, reconsideration is fixed by the attitude, to some degree, there's a kind of common coordinator, and it's not clear that the same holds here, in particular because this coordinator takes the attitude itself to do the work.
+    \end{itemize}
+  \item Well, the big distinction here is that with intention reconsideration is \emph{possible}, or at least taken to be possible, while here it is not.
+  \end{itemize}
+\item Is there any attitude that could do the work?
+  \begin{itemize}
+  \item Perhaps the ties to intentions aren't sufficiently close.
+    But this doesn't rule out defining an attitude and then placing coherence constraints on this.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Derived Value}
+\label{sec:derived-value}
+
+
+\begin{itemize}
+\item Natural thing to say here is that there's some kind of derived value that aims to keep track of primary value.
+\item This is really the core idea, and it's a familiar idea, especially in the case of intentions.
+\item But no intentions here, at least not in any robust sense.
+\end{itemize}
+
+
+\newpage
+
+
+
+Obliqueness.
+Constraint on answers to the question of what to do.
+Partial information about this constraint through partial answers to the question.
+Without full information about the constraint, can't be sure whether something counts as an answer.
+However, partial information allows for some reasoning to take place.
+In this sense, the constraint, or end, is oblique.
+
+Two ways in which partial information helps.
+\begin{enumerate*}[label=\arabic*.]
+\item compatible propositions, and
+\item compatible valuations of those propositions.
+\end{enumerate*}
+So, in the case of the shops, you can rule out propositions which don't involve obtaining an ingredient.
+And, perhaps ingredients which don't align with the meal you're preparing.
+Both can cause trouble.
+For example, you may consider a narrow range of propositions.
+If you search only for basic ingredients and what you require is partially pre-prepared.
+Or, if you're following a new recipe and you rely on your valuations based on the some mistaken preconception.
+Without access to the constraint to guide your reasoning, you have a harder time satisfying the constraint.
+However, in the converse direction, access to a constraint does not guarantee that you will satisfy it.
+Mistakes happen, and even if you aware that your end is to win a game of football, a lack of information can lead you to play cricket instead.
+The broad importance of partial information is that it allows you to do some reasoning.
+The issue is why the information you have counts as information.
+
+First two scenarios were relatively straightforward.
+You retained information of some broader constraint, the meal, and the need for the ingredient wasn't likely to resolve itself.
+Likewise, utterances are typically quick to come and go, and if thoughtful the point you wished to make most likely still stands.
+Third scenario is under-specified to the point of being opaque.
+Perhaps you had been working in the study and noticed a draft, you recalled opening the window, but as you walk from your office someone closes it.
+Perhaps your spouse had picked up your keys for you, or perhaps it has already been painted by your co-worker.
+In these types of cases, the constraint on your reasoning has been satisfied, but without access to the constraint you do not recognise this.
+Checking for drafts, patting your trousers, or looking over your contract may be natural things to do based on inclinations you have, and may indeed aid in similar scenarios, but here they have no value.
+
+Whether or not the constraint is in place matters.
+And it does so in part because of this principle:
+
+To this need to add:
+\begin{principle}\label{princip:determinable}
+  \begin{itemize}
+  \item Something is a candidate for settling the issue of what to do only if it can be evaluated.
+  \item Something settles the issue of what to do only if it is evaluated.
+  \end{itemize}
+
+\end{principle}
+Given \autoref{princip:determinable}, to settle the issue of what to does requires the processing of information.
+An agent may settled what to do by arbitrary choice if their reasoning is inconclusive, but not if the choice amounts to the flip of some multi-dimensional coin.
+Settling what to do is necessary for an agent to act as the result of reasoning, but not to act.
+
+
+is relatively weak.
+It does not state that something settling to the issue of what to do amounts to it's evaluation, and so falls short of the standard Humean principle.
+
+
+
+These two principles together entail that when an end is oblique, reasoning premised on means to the oblique end is indeterminate.
+Note, there's no contagion; it may be that if certain answers are indeterminate, then all reasoning is indeterminate, if one needs to be able to compare.
+If not, then one could argue that you only need to compare to determinable answers, but then this suggests that these potential answers should be ignored.
+No doubt there is some threshold, but it doesn't seem to be this.
+
+\begin{principle}
+  Something can be used to settle to the issue of what to do only if it is determinable whether or not it settles the issue.
+\end{principle}
+There's a better way of putting the idea here.
+Something about the ability to evaluate, if you can't evaluate, then you can't figure out what information is being provided, and so you can't use it as an answer.
+This kind of seems right, perhaps talk of primary value\dots
+Idea is that the lack of information really is a stumbling block, and that when some information is missing, hm, some notion of `essential' information \dots
+Ah, so this doesn't say anything about what makes something an answer, it just needs to be determinable, and the idea is that in these oblique cases this fails.
+
+\begin{principle}
+  Whether or not to perform an action as a means cannot be determined without being able to evaluate the end it is a means to.
+\end{principle}
+
+Answers resolve questions, but resolution is a little broader,
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+Means-end reasoning answers to the question of what to do by identifying means to some end which constrains what can be done.
+In this sense, means-end reasoning is narrow and contrasts with a broader sense of means-end reasoning that includes reasoning about those constraints on the question of what to do.
+Perhaps there are no cases of `pure' means-end reasoning in the narrow sense.
+For, it may be that there is always some way in which any potential answer to the question of what to do can be considered as a genuine answer.
+The distinction is to keep track of when we can treat some end as fixed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+Central idea is that the evaluation of options is not necessarily made on the basis of information available to an agent.
+
+We're familiar with the idea that there may be a distinction between an agent's `true' evaluation and some ersatz evaluation that guides their practical reasoning (perhaps worth noting that ersatz can be seen as arising from failures of transparency).
+For example, in cases of akrasia, weakness of will, and so on.
+However, the argument here is that there doesn't even need to be a ersatz evaluation for an agent to engage in practical reasoning.
+Parts of an agent's evaluation may be inaccessible but still guide an agent's reasoning.
+{\color{red} (This I think is new, or fairly under-explored. The standard understanding of practical reasoning is a special case, and the more general case is kind of interesting.)}
+
+On the logic side, develop a formalism to capture the background structure.
+This doesn't account for the specific reasoning, but it does something to set up a framework for explaining the basic principles and suggesting how the basic idea can be extend to decision theoretic contexts, etc.
+
+
+This doesn't directly reduce to a kind of cognitivism, though it comes close.
+Roughly, if cognitivism holds, then the central thing is belief about what's `good', and one can view this all in terms of a cognitivist structure, in which one's means are providing evidence of a kind, but I don't think it follows that this is the way to do the work.
+Rather, it's a familiar gloss.
+But, you need more to get the cognitivist picture going\dots
+Unless, of course, the picture is that cognitivist just amounts to there being reasoning involved, and hence in contrast to a kind of struct Humean position.
+
+Perhaps useful to contrast Broome's ``core type'' of reasoning in `Rationality through reasoning', as this involves language of a kind, etc.
+
+Reflection principles!
+
+
+\section{Notes on the interpretation}
+\label{sec:notes-interpretation}
+
+Here, the basic idea is that there's some kind of evaluative function that's specifying beliefs and desires, and the modal is picking up something of a threshold.
+This can be seen as binary, etc.\ but the important thing is that there's nothing to special about the set of situations.
+Either these are those for which the valuation is `true', or there's some relevant threshold, etc.\ but more generally the same evaluative principle can be applied to other states, and with this I can reason about means, ends, and the like from the perspective of desires, beliefs, and more.
+It's in this sense that these are propositional attitudes.
+Again, this goes back to the idea of tests, which I don't think fits into the broad picture that I'm trying to motivate here, but \dots
+
+This probably contrasts to the \(O\phi \coloneq G \rightarrow \phi\) approach, as here there's an explicit proposition that's the good, and it's the logical relation this has to other states which is important.
+So, no propositional attitude, at least on a fairly natural interpretation.
+
+
+
+\newpage
+
+A stack of articles is at rest on my desk.
+The yellow post-it note stating ``for research idea'' indicates that the stack was put to rest.
+Some time ago I fixed some end, some research idea, and the articles were assembled as means to that end.
+Some thing interrupted my performance of the means, and I can not now recall the idea to which the articles were a means to pursuing.
+However, the organisation of the stack and light annotation to some pages suggest I may be able to recall the research idea by working through the stack.
+
+My reasoning about whether to read the articles is an instance of mundane scenarios in which the instrumentalist means-end structure of practical reasoning is inverted.
+In these scenarios, an agent recognises means to some end, but does not have the resources to reason about the end.
+And, in turn, the agent recognises that their present evaluation of the means may diverge from their evaluation of the means were they to have to the resources to reason about the end.
+Without the ability to reason about the research idea, I lack the ability to appropriately evaluate working through the stack.
+For, were I able to reason about the research idea that the stack of papers were a means to, I would be able to evaluate the idea and in turn of whether to work through the stack.
+If were to no longer view the idea as viable it may be that I should pursue some other activity, while if I still regard the idea as viable I have an activity set out for me.
+
+Let us term this end-means reasoning.
+End-means reasoning is not the strict inverse of standard means-end reasoning.
+For, means-end reasoning typically proceeds from some recognised end to recognised means, while end-means reasoning requires some representational lacuna.
+The stack of articles were a means to finding something sensible to say about cases of end-means reasoning, working through the stack was valuable given this end, and I reasoned that this end was worthwhile pursuing despite my inability to reason about it directly.
+And, we are here because I was successful in reconstructing the end after pursuing the means to it.
+
+What I have to say about end-means reasoning is fairly straightforward.
+We are agents with bounded resources, and some of these bounds relate to the possibilities we are able to reason about.
+Cases of end-means reasoning arise when changes in our representational resources lead to the inability to recognise possibilities that was previously identified as an end, though the resources required to represent chosen means toward that end persist.
+This lack of representational resources then indicates to the agent that the evaluative judgements they can make may diverge from those they would make given additional representational resources, but their recognition of the specified means as means allows them to indirectly reason about the evaluative judgements they may make given additional representational resources.\nolinebreak
+\footnote{TODO: Simplify this! The key point is that the agent's practical reasoning isn't premised on their current evaluative judgements.
+  In this respect, the issue is very similar to the way I've been thinking about cases of temptation.
+  An agent attempts to reason about what their `more refined' evaluative judgements would be.
+  This is also super close to what Smith does with ideal advisers, but without the ideal part (and I think for a fairly different application).
+}
+
+In this respect, end-means reasoning is an instance of \emph{oblique} reasoning; reasoning which goes beyond the representational resources that you have at your disposal.
+\begin{center}
+  [More to say here\dots]
+\end{center}
+
+The goal is to make this sketch into a precise analysis.
+In doing so I hope to show that cases of end-means reasoning can complement whatever your understanding of practical reasoning is.
+In turn, I hope that your understanding of practical reasoning helps shed light on normative and descriptive aspects of end-means reasoning.
+This assumes that your understanding of practical reasoning does not rule out the possibility of end-means reasoning, but beyond this the specific account of end-means reasoning I give is meant to be illustrative.
+The analysis is framed in terms of more-or-less well explored formal treatments of folk theory.
+I will explain and augment this framework as required, but I expect you to translate the analysis to any other framework as you see fit.
+
+
+Aim to show some degree of continuity!
+
+
+\begin{center}
+  [\textbf{Structure of the paper.}]
+\end{center}
+
+\newpage
+
+The important idea with these types of cases isn't the way reasoning is structured, but how ends function, I think.
+In that, with the record store case, the supermarket case, and so on, the broad instrumentalist picture of practical reasoning can be preserved.
+The end is still fixed, and so you can have the `end' of completing the means, but this won't have much actionable content.
+The thing is that this isn't really a new end, rather this is a redescription of the same end, and something like this is always going to be possible with the kind of cases I've set up.
+Hence, the claim that the reasoning is different is due to the relative importance of the means, etc.
+In standard cases, you can always reevaluate the means with respect to the end that they're a means to, whereas here, there's no way to figure out whether they should be developed/reformed etc.
+
+What's important, is that there's no straightforward way to evaluate the actions compatible with your means.
+In this respect, the relevant reasoning can't be weighing up reasons for an against, etc.\ because there's no way to recognise those reasons, speaking loosely.
+Similarly, perceived desirability and so on seem problematic.
+From a different point of view, there's some full evaluation function, and the agent only has restricted access to it.
+
+So, an idea is that this is a special case of weakness/strength of the will.
+For, in these cases the desirability of the means may drop below the desirability of other courses of action.
+However, you see that there's something missing in your evaluation, and you may still pursue the means.
+
+In terms of reasons, there's the contrast between considering all of the reasons for and against an action, and considering those which are `available' to you.
+And, in the cases I'm thinking of, you're not interested in all the reasons for and against, but you're still interested in reasons which go beyond what are available to you.
+
+In part, this is because the reasons that are no longer available to you did impact your evaluation of actions, and you still have some information about this.
+
+So, the general perspective on practical reasoning that I want to pursue here is one in which evaluative judgements are foundational but do not exhaust practical reasoning.
+And, approaching this from the perspective of propositional attitudes gives something very coarse grained.
+It allows one to kind of see how the partiality is functioning, but if the relevant judgements rely on any kind of comparative notion, then the model won't have the resources to capture this.
+Exploring the more fine grained comparisons doesn't look too straightforward, either.
+One way of doing this, though, would be to assume that there's an evaluative function on situations.
+For if this is the case, then the evaluation of complex expressions can be treated compositionally, and hence a more fine grained evaluation can be tied to a partial denotation.
+
+With these examples, what needs to be stressed is that you're not relying on your current evaluative judgement regarding the means that you have selected.
+Rather, you're relying on some other evaluative judgement.
+Hence, there's some kind of end-means reasoning, in terms of how one's evaluative judgements are being formed.
+Usually, the evaluation of means proceeds from the evaluation of ends, but here it's almost the other way round.
+
+% Due to the means-end structure of the relevant reasoning here, it's not clear that this straightforwardly hooks up to issues about incomplete preferences.
+% For, on my understanding, this primarily concerns how to make evaluative judgements, whereas here it seems as though no explicit evaluative judgement is required, or going to be of any substantial help, as the appropriate evaluation of the options available to you is there, but inaccessible.
+
+% The way I'm thinking about means and ends seems to be close to how \citeauthor{Bratman:1987aa} thinks about intentions.
+% Roughly, the specification of an end narrows down one's desires, but this isn't given by one's desires, etc.\ so it can't simply be a mental state on par with desire.
+
+
+
+\newpage
+
+
+\newpage
+
+
+
+Record store case.
+
+Means-end reasoning turns into end-means reasoning.
+There's some collection of possibilities which would satisfy you.
+This collection of possibilities is fixed independently of the resources available to you with regards to your practical reasoning.
+
+Two possible resolutions.
+
+You hear the song again you now have the resources.
+You remember what it is.
+The only difference here is that in the latter case the relevant possibility has not been actualised.
+
+The puzzle here is about your attitudes.
+For, our understanding of practical reasoning is in terms of propositional attitudes.
+The dynamics of practical reasoning is built on the foundation of these, but the dynamics we appeal to don't directly hook into the world.
+Instead, we have a kind of point-wise analysis.
+The underlying dynamics belong to the realm of psychology or cognitive science.
+Hence, task is to capture the attitudes so that dynamics can be built.
+
+A simple picture of practical reasoning fails here.
+Desire cannot both determine what the agent recognise and what would satisfy them.
+These two functions need to be distinguished in order for us to capture the base phenomena.
+
+In broad outline, we propose that the natural characterisation of the phenomena is roughly correct.
+Oblique attitudes arise because agent's form attitudes with respect to certain possibilities, but then lack the resources to reason about these possibilities.
+This is somewhat in line with the work of \citeauthor{Simon:1997aa} and others, but the key is not satisficing.
+Rather, the key limitation for understanding oblique cases is the representation capacity of agents.
+
+Demonstratives are a neat way of capturing this.
+
+This is complementary to many extant analyses of practical reasoning.
+For, simply condition these accounts with respect to represented possibilities.
+However, this observation raises questions about the relevant dynamics, which will involve changes to represented possibilities.
+Present purpose is to make room for explorations here.
+
+Related to interpersonal problems where you cannot communicate the possibilities you're after.
+Monkey's Paw is a great illustration of this.
+
+The restricted possibilities do not coincide with beliefs.
+Often there will be rough co-extensionality, but this isn't required.
+Representation is a weak notion.\nolinebreak
+\footnote{Sort of like common ground, if the analogy turns out to be somewhat elegant.}
+
+
+This is where the broad philosophical argumentation end.
+For, the analysis we propose makes a number of assumptions that will not be shared by all.
+Goal is to provide foundations for further investigation, and to capture the phenomena in a way that can inferace with other approaches to pracitcal reasoning.
+
+First is a commitment to a naive formal theory of the folk.
+Possibilities are possible worlds, and a regimented language is adopted for reasoning about possible worlds.
+Further, the semantics of this formal language are referential, the meaning of an expression is capture by its truth conditions, and truth conditions do not necessarily coincide with cognitive significance.
+
+Perhaps cognitive significance is the key.
+This shows the reference of expressions are not transparent in reasoning.
+Indeed, viewed in a certain way this is part of the account, but ordinary language isn't our focus.
+Expressions in the language capture aspects of the underlying model, and we do not give these a psychological interpretation.
+Rather, they allow us as theoreticians to reason about the model in view of the relative imperfections of such a language.
+By this I mean that we often can't characterise the beliefs and desires of an agent.
+This is shown by \citeauthor{Humberstone:2013aa}.
+Indeed, we can see that the independent specification of beliefs and desires is something of a virtue and not a mere theoretical quirk.
+What we skip over is the recognition of belief/desire.
+There are important questions here, but the level of generality at which the framework is specified means that these finer details cannot be brought into focus.
+
+So, perspective is that we use the language to capture relevant possibilities.
+Terms correspond to these, and if you squint this is how regular language seems to work, but our claims are limited here.
+
+This is what we mean by resources.
+Possibilities that can be captured.
+This gives a fairly clear picture of how to understand means-end reasoning.
+Constrain possibilities by specifying an end, and further restrict the means.
+
+These are substantial assumptions, but a fairly widely held.
+We hope any reader that wishes to reject an approach of this kind is sufficiently familiar with the broad underpinnings so as to be able to draw general insights from the specifics we provide.
+
+The interplay between language and model, then, already raises questions of expressivity.
+This is interesting, with respect to specifying ends, but doesn't help with end-means reasoning.
+This is where the idea of represented possibilities is key.
+
+Filter evaluation of expressions through possibilities represented by the agent.
+Expression will be filtered through a restricted range of possibilities, and some expressions may go uninterpreted.
+For this we need a second interpretation function.
+
+Return to issues relating to beliefs.
+
+
+
+
+
+
+
+
+Somewhere near closing, highlight relevance to Frege-cases, which can be dealt with through `divergent' interpretation functions.
+This goes beyond the scope of the paper, but is a useful insight.
+
+
+
+
+
+\newpage
+
+\begin{enumerate}
+\item Practical reasoning.
+\item Analysis of this proceeds by identifying conditions under which static attitude ascriptions can be made, and then understanding dynamics in terms of transitions between these.
+\item Oblique attitudes highlight that agent's don't always have the resources to reason about what it is that they desire.
+\item This is something of a problem.
+\end{enumerate}
+
+\begin{enumerate}
+\item Follow the standard assumption of extant formal models.
+\item Everything is done in terms of reference and language captures what can be expressed about the underlying model.
+\item The underlying model specifies the possibilities, and how the agent's attitudes relate to these possibilities.
+\item In \emph{this} respect, the agent's attitudes do not correspond to expressions.
+\item However, we can see that something like this is required to explain why it is that content can be given to an oblique attitude, or how an agent can be satisfied without prior representation content identifying that thing as satisfactory.
+\item The question is how the resources the agent has with respect to their reasoning interacts with these.
+\item Assume that if an agent has the ability to reference a possibility then this informs their attitude to any expression that references this possibility.
+\item This is more-or-less the standard doctrine of truth conditions, and is how the extant understanding works.
+\item To resolve this problem, restrict attention to a collection of represented possibilities.
+\item Expressions are interpreted with respect to these.
+\item To do this, restrict agent's interpretation function to be defined with respect to a subset of the model.
+\item Intuitive gloss is that there will be expressions that an agent understands, in that they're able to fully determine truth conditions, but their relevance to their practical reasoning will be restricted to the possibilities considered.
+  However, there may also be expressions they don't understand, and these will fail to be interpreted (are undefined).
+\item With oblique attitudes the relevant possibilities are no longer in the represented possibilities.
+\item The attitudes are resolved when this is fixed.
+\item Think of information sets in dynamic semantics.
+\end{enumerate}
+
+
+
+\end{document}
