@@ -1,0 +1,260 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+\usepackage{luatexja-ruby}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{The Relationship Between Rationality and Normativity}
+\author{Ben Sparkes}
+% \date{ }
+
+\begin{document}
+
+\maketitle
+
+As this is a short paper, I'm going to sketch a problem Ive been thinking about, and then outline how it may relate to rationality and normativity.
+I'm not confident on how to frame the core issue; broadly put it may be about reducing the (normative or otherwise) requirements of rationality to the inputs/outputs of reasoning.
+I take the normativity of rationality to concern reasoning---roughly, how an agent is required, permitted, or ought to reason.
+I am interested in how the normativity of rationality is characterised, not in what the normativity of rationality amounts to.
+
+For example, \citeauthor{Lord:2017aa} holds:
+\begin{quote}
+  \emph{\textbf{Reasons Responsiveness}}: Rationality consists in correctly responding to the objective normative reasons one possesses.\nolinebreak
+  \mbox{ }\hfill(\citeyear[1121]{Lord:2017aa})
+\end{quote}
+
+Read, perhaps naively, this reduces the dynamics of reasoning to the normative reasons that serve as inputs to the agent's reasoning.
+Perhaps there are multiple ways in which an agent can correctly respond to the object reasons in their possession, but I take it that whatever these are follows directly from the reasons themselves.
+
+Similarly, \citeauthor{Broome:2013aa} takes rationality to be a system of requirements and permissions, and examples of this system govern attitudes.
+For example, a requirement:
+\begin{quote}
+  \emph{No Contradictory Intentions}. Necessarily, if you are within the jurisdiction of rationality, rationality requires of you that, if you intend to F, you do not intend not to F.\nolinebreak
+  \mbox{ }\hfill(\citeyear[136]{Broome:2013aa})
+\end{quote}
+And a permission:
+\begin{quote}
+  \begin{itemize}[label=]
+  \item Rationality permits \emph{N} that
+  \item \emph{N} does not believe \emph{q}, and
+  \item \emph{N} believes that if \emph{p} then \emph{q}, and
+  \item \emph{N} does not believe \emph{p}, and
+  \item \emph{N}'s not believing \emph{p} is based on \emph{N}'s not believing \emph{q} and \emph{N}'s believing that if \emph{p} then \emph{q}.\nolinebreak
+  \mbox{ }\hfill(\citeyear[280--281]{Broome:2013aa})
+  \end{itemize}
+\end{quote}
+Again, perhaps naively, one may take attitudes to be the inputs and outputs of reasoning, and the system indirectly constrains reasoning as a dynamic process through the static snapshots of these attitudes.
+
+I do not wish to go into details nor attribute specific views to either \citeauthor{Lord:2017aa} or \citeauthor{Broome:2013aa}.
+These examples are provided to illustrate two distinct, though similar, ways of giving a static analysis of a dynamic phenomena.
+The concern I have is that the reasons possessed by an agent, or the attitudes of an agent, or whatever the inputs to reasoning are taken to be, aren't sufficient for such a reduction.
+And, as such something more is needed than the requirements and permissions such as those given above.
+
+The basis of the concern is the relatively mundane phenomena of forgetting.
+An agent does some reasoning, takes inputs in the form of attitudes or reasons, and produces certain outputs.
+In the case of practical reasoning, the output of interest here is \emph{settling what to do}.\nolinebreak
+\footnote{I do not take an action to be the output of practical reasoning.
+  Settling what to do may be thought of as an intention, but given the many uses the term can be put to, I prefer to avoid this terminology.}
+
+\paragraph*{}
+
+Consider a scenario in which an agent is preparing a meal and realises that they don't have any ingredient.
+Some reasoning follows.
+After determining they have no suitable substitute and that their neighbours will be of no help, they set out for the shops, specifically the supermarket, as they take it that they will be able to obtain the ingredient there.
+On the way, perhaps at a traffic light, they wonder why they didn't have the ingredient, and at this moment realise that they are unable to represent what the ingredient is.
+Furthermore, they have left the recipe listing the ingredient on their fridge.
+So, the agent has an end, obtaining the ingredient,\nolinebreak
+\footnote{In serve of some further end, e.g.\ preparing the meal.}
+and a means to that end, going to the supermarket, and although the agent is able to represent the means to the end, they are unable to represent the end---at least while stuck at the traffic light without the recipe.
+
+Here, there seem to be at least three permissible ways in which the agent's reasoning could continue.
+The agent could:
+\begin{enumerate}[label=\roman*)]
+\item\label{exFor:i} postpone any further reasoning about what to do,
+\item\label{exFor:ii} reason about what to do given their partial representation of the end as `some ingredient' and other resources available to them,
+\item\label{exFor:iii} revise what to do based on ends that they are able to represent.
+\end{enumerate}
+The distinction between~\ref{exFor:ii} and~\ref{exFor:iii} may be subtle.
+In~\ref{exFor:ii} the agent may use the fact that they're going to the supermarket, that they didn't use a substitute and so on to determine whether or not to continue to the supermarket.
+In~\ref{exFor:iii}, the agent abandons their prior reasoning and starts over.\nolinebreak
+\footnote{Consider examining your answers at the end of a test.
+You may use the notes in the margin to help check your answer, or you may try to solve the problem from scratch.}
+
+Each of the three options seem permissible given the bare-bones description of the scenario, but I suspect the scenario can be enriched to make all but one intuitively rational.
+For example, consider varying the agent's general ability to recognise the ingredient they're unable to represent.
+
+If recognition is fairly certain, the agent may be irrational to waste resources resettling what to do; their current means will lead them to wandering the supermarket and they will likely obtain the ingredient.
+If recognition is less certain, their partial representation may help determine whether they are likely to recognise the ingredient while pursuing their current means; perhaps they would have written the name on their hand were the ingredient obscure.
+If recognition is unlikely, perhaps they should reassess what to do.
+
+The point here is that the prior dynamics of the agent's reasoning seem to have some relevance to the rationality of the agent's present dynamics while at the traffic light.
+However, as the agent cannot represent the ingredient, they likewise cannot represent the prior dynamics.
+What seems to matter, the prior reasoning, is something that cannot be an input to the agent's present dynamics except in so far as the agent's present reasoning is a continuation of their prior reasoning.
+
+The agent has, in the memory, a way to settle the issue of what to do.
+However, the agent has no complete access to the attitudes, reasons, nor reasoning that settled the issue.
+Speaking in terms of attitudes, it may be that the steady hand of a surgically trained practical theoretician could show that the agent's memory is available by some attitude, and the combination of this attitude along with the agent's other attitudes is all that is required to determine what rationality requires of the agent.
+
+On at least one understanding of attitudes this must be possible.
+For, the agent is able to represent what they have stored in memory, and if attitudes are identified with some functional role of their objects in the agent's reasoning, then as the agent's memory serves some function the agent must have an attitude toward how they settled what to do.
+While this is possible, it does not follow that this is enlightening.
+For, there is no guarantee of a unified functional role.
+
+The idea is that an agent's reasoning is a dynamic process, which is not separable into discrete episodes for which the agent's attitudes serve as inputs and outputs.
+Finely individuating attitudes based on their role in reasoning provides a partial static characterisation of this dynamic process.
+Taken to an extreme this reduces the dynamic phenomena to a static one.\nolinebreak
+\footnote{The not-quite-perfect analogy here is with Turing Machines.
+  If you take a universal Turing Machine, then you can write down whatever you want on tape, the more specific Turing Machine along with the relevant input.
+  The universal Machine is, more-or-less, uninteresting.
+  What's typically of interest is a Machine that works with a certain range of inputs, as then one can distinguish between what is given to the Machine and what the Machine does with the input.
+The problem with this analogy is that Turing Machines take an single input at some point in time and then provides a single output at some other, while the inputs and outputs of (practical) reasoning, as understood here, extend across time.}
+Generalising back to talk of inputs and outputs, the extreme of this static reduction ensures that the dynamics of reasoning amounts to nothing more than primitive and unanalysable transitions between inputs and outputs.
+The concern here is not about whether this can be done, nor whether it is useful to do.
+Static reduction of this kind seems to me a useful tool, and I am not aware of how to analyse any dynamic process other than by specifying transitions between static states.
+
+\paragraph*{}
+
+The concern is about how attitudes or possessed reasons fit into this kind of dynamic-to-static reduction.
+For, intuitions about the scenario suggest (and ideally a more developed argument would show) that rationality cannot straightforwardly be reduced to reasons that are possessed by, or the attitudes of, an agent so long as these are conceived of as independent from the dynamics of reasoning.
+
+Ideally there should be some static characterisation of the agent's prior reasoning that can be used to inform judgements of rationality in combination with the inputs to that reasoning given a fixed point of evaluation, but the sketch of the argument above hopefully highlights why doing this in terms of attitudes or reasons is problematic; one needs to keep separate the profile of the agent's reasoning and what the agent reasons about.
+
+The first option raises a problem for the quick response that the agent's prior reasoning can be taken as an input to their present reasoning in the form of a belief.
+For, it is not straightforward that the agent needs to reasoning in order for the agent to postpone further reasoning, either consciously or subconsciously.
+Roughly, as reasoning is a dynamic processes, and in the practical case what matters is settling what to do, it may well be the case that in initially settling what to do the agent sets in to motion dynamics by which they do not further reasoning.
+
+This quick response does not work so well for the remaining pair of options.
+It may seem a belief (or some other attitude/reason) regarding prior reasoning could be sufficient.
+And, one may argue that independent of worries regarding how the contents of the belief may be specified, it is plain commonsense that the agent has beliefs about their prior reasoning.
+Further, as some static characterisation seems plausible I am committed to the possibility of such a belief.
+Maybe!
+However, the worry is not with what the agent is able to reason with.
+The worry is about the ability for us, as theoreticians or members of the folk being able to reduce that belief (or whatever it is) and the role it has down to some other belief (attitude, or reason) that captures the relevant dynamic information and also serves as input to the agent's reasoning.
+Recall, I took a naive reading of the examples taken from \citeauthor{Lord:2017aa} and \citeauthor{Broome:2013aa} on which reasons or attitudes served as the inputs to reasoning.
+While these naive readings may have been unfaithful, I take it there is an intuitive sense on which rationality is only a matter of indirect constraints on the dynamic process of reasoning, and it is this that I am puzzled by.
+The alternative, I suggest, is to see the influence of past reasoning as influencing the dynamics of the agent's present reasoning, rather than something separable that can be reasoned about.
+I doubt I have done enough to make this idea fully intelligible here, but perhaps you see the gist of what I'm attempting to get at.
+
+\paragraph*{ }
+
+To illustrate the upshot of this distinction, consider \citeauthor{Bratman:2007ab}'s (\citeauthor{Bratman:1999ac,Bratman:2007ab}) discussion of akrasia.
+Here, roughly, an agent values after dinner work, but also wine with their meal.
+Prior to eating, the agent reasons that a single glass of wine is preferable, but after the first glass of wine the agent considers a second.
+Skipping over certain details, on \citeauthor{Bratman:2007ab}'s analysis, if the agent forms an intention to drink a single glass, then whether or not the agent drinks a second glass is a matter of resolving the intention between their (present) intention and their (present) preference for a second glass.
+If the agent's preference for a second glass wins out, \citeauthor{Bratman:2007ab}'s argument for the priority of intention provides an explanation for why the agent was akratic, and why the agent acted irrationality.
+
+Alternatively, one may consider the agent's decision to drink a single glass as the result of prior practical reasoning stored in memory.
+The agent's prior preference does not necessarily have preference over their present preference, but the agent may suspect that their reasoning after the first glass is compromised in some way.
+If the agent was able to reason as before, then presumably they would retain their preference for a single glass, but as they have a preference for a second something has changed, and that this change is a compromise follows from their recognition of how their reasoning (as a dynamic processes) changes after wine.
+
+Similar to the supermarket scenario, we can distinguish two instances of the agent reasoning about what to do and deference to prior reasoning over present can be motivated--- either by additional resources (representation of what the missing ingredient is) or by some qualitative assessment of the reasoning performed (not being tipsy).
+And, in both cases the agent is not capable of reasoning in second instance as they did in the first.
+Yet, it seems that the agent's prior and present reasoning can matter to assessment of their rationality.
+Tipsiness impaired reasoning isn't all too uncommon, but on the other hand one can often undervalue their current reasoning and default to some routine.\nolinebreak
+\footnote{Consider \citeauthor{Davidson:1969aa}'s discussion of brushing teeth rather than falling asleep when the latter is judged best.}
+If what matters for judgements of rationality is the agent's prior reasoning, then as the agent only has access to the output of their prior reasoning then rationality goes beyond whatever inputs are available to the agent in their present reasoning.
+However, while rationality may go beyond what is accessible to the agent, as the present dynamics are a continuation of the past and so it does not follow from this that rationally goes beyond the agent's mind.
+Rationality may well still supervene on the metal given this sketch, so long as the mental is not confined to what the agent is able to access.
+
+\vfill
+\printbibliography
+
+\end{document}
