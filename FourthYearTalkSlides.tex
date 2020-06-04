@@ -1,0 +1,878 @@
+\documentclass[noamssymb, compress, handout]{beamer} % amssymb is incompatible with mtpro2
+
+\usetheme{Antibes}
+\usecolortheme{beaver}
+
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+   % \usepackage{bm}% Access to bold math symbols
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Source Code Pro}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+
+   % % mtpro2 fix from:
+   % https://tex.stackexchange.com/questions/374353/no-room-for-a-new-count
+   \makeatletter
+   \let\alloc@latex\alloc@
+   \def\alloc@#1#2#3#4{\newcount}% the current \newcount doesn't use \alloc@
+   \makeatother
+   % % %
+   \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+% % % % % % % % % % % % % % %
+
+% \usepackage[inline]{enumitem}
+% \setlist[itemize]{noitemsep}
+% \setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+% \setlist[enumerate]{noitemsep}
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+% % % Color % % %
+% \usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+\usecolortheme[named=fuchsia]{structure}
+\colorlet{structure}{fuchsia}
+\usestructuretemplate{\color{structure}}{}
+% % % % % % % % % %
+
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\insertmainframenumber
+}
+
+\setbeamercovered{transparent}
+
+% https://tex.stackexchange.com/questions/28654/beamer-table-of-contents-display-all-subsections-below-section
+\AtBeginSection[]
+{
+\begin{frame}[noframenumbering]
+  \frametitle{Structure}
+  \setbeamertemplate{navigation symbols}{ }
+  \tableofcontents[
+  currentsection,
+  % hideothersubsections,
+  % sectionstyle=show/hide,
+  % subsectionstyle=show/shaded,
+  ]
+
+\end{frame}
+}
+
+
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \institute{Stanford}
+% \date{2014}
+
+
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+  \setbeamertemplate{navigation symbols}{ }
+  \titlepage
+\end{frame}
+
+
+\section*{Overview}
+\label{sec:overview}
+
+\begin{frame}
+  \frametitle{Overview}
+
+  \begin{itemize}
+  \item Argue against the idea that settling on means requires an agent reasons from ends to means.
+  \item Argue for the idea that settling on means requires an agent to take a means-end relation to exist.
+  \end{itemize}
+
+  \begin{itemize}
+  \item Provide something of an argument for the idea, and show how it may be put to work.
+  \end{itemize}
+\end{frame}
+
+
+\section{Means-end schema}
+\label{sec:schema}
+
+% \begin{frame}
+%   \frametitle{Schema}
+
+%   \begin{center}
+%     An agent is rationally permitted to settle on a means (as a means)
+
+%     \mbox{ }
+
+%     \emph{Only if}
+
+%     \mbox{ }
+
+%     The agent [\underline{does something with}] a means-end relation from an end they have which supports taking the relevant means.
+%   \end{center}
+% \end{frame}
+
+
+\begin{frame}
+  \frametitle{The means-end Schema}
+
+  % \begin{block}<1->
+  %   {\footnotesize An agent is rationally permitted to settle on a means (as a means) \emph{only if} \newline The agent [\underline{?}] a means-end relation from an end they have which supports taking the means.}
+  % \end{block}
+  \begin{block}<1->{The Schema}
+    An agent is \textcolor<3>{fuchsia}{rationally permitted to settle on a means (as a means)}
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent [\textcolor<5>{fuchsia}{does something with}] \textcolor<4>{fuchsia}{a means-end relation from an end they have which supports taking the relevant means}.
+  \end{block}
+
+  \onslide<2-5>{Three parts to this schema:}
+  \begin{enumerate}%[label=\alph*., noitemsep]
+  \item<3-5> \textcolor<3>{fuchsia}{An agent being rationally permitted to settle on a means (as a means).}
+  \item<4-5> \textcolor<4>{fuchsia}{A means-end relation from an end the agent has which supports taking the means.}
+  \item<5-5> \textcolor<5>{fuchsia}{A link the agent has to the specified means-end relation.}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reasoning}
+
+  \begin{block}{Reasoning}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means \emph{by reasoning via the relation}.
+  \end{block}
+
+  \begin{itemize}
+  \item Agent is required to connect means to end.
+  \item Many cases of reasoning satisfy this requirment.
+    \begin{itemize}
+    \item I have the end of waking up, and I combine all sorts of information I have about myself and coffee to settle on drinking a cup.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+  \begin{frame}
+    \frametitle{Taking}
+
+  \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+
+  \begin{itemize}
+  \item An existential-like requirement that does not require the agent to connect the means to the end.
+  \item Some cases of reasoning may satisfy this requirement.
+    \begin{itemize}
+    \item At some point I purchased a collection of Ligeti recordings, and I have no idea why, but it wasn't an acident and so I will listen to them.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{I will argue \emph{for}:}
+
+  \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{I will argue \emph{against}:}
+
+  \begin{block}{Reasoning}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{No entailment between the principles}
+
+  \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+
+
+  {\Large \mbox{ }\hfill \(\not\Uparrow\) \qquad \(\not\Downarrow\) \hfill\mbox{ }}
+
+    \begin{block}{Reasoning}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{reasons via}}  a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Possible entailment from `reasoning' to `taking'}
+
+  \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+
+  {\Large \mbox{ }\hfill\(\Uparrow\)\hfill\mbox{ }}
+
+    \begin{block}{Taking (by reasoning via)}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means \textcolor{fuchsia}{\emph{(by reasoning via the relation)}}.
+  \end{block}
+\end{frame}
+
+
+\section{Argument}
+\label{sec:argument}
+
+
+\subsection{Negative part}
+\label{sec:negative}
+
+\begin{frame}
+  \frametitle{Negative argument}
+
+  \begin{enumerate}
+  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
+  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
+
+  \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
+
+  \begin{itemize}
+  \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
+  \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\subsubsection{Scenario}
+\label{sec:case}
+
+\begin{frame}
+  \frametitle{Professor Oblique}
+
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      {\addtolength{\leftmargini}{-2\labelsep}
+      \begin{itemize}
+      \item<1-> It is Saturday morning and Professor Oblique has some time for uninterrupted research.
+      \item<2-> While the coffee is brewing Oblique decides to read some papers as a means to making progress on their research project.
+      \item<3-> Oblique logs on to their computer, and on the desktop is a folder named `papers'. Inside the folder is an unorganised collection of academic papers.
+      \end{itemize}
+      }
+    \end{column}
+    % \hspace{-50pt}
+    \vrule{}
+    \begin{column}{0.3\textwidth}
+      {
+        \footnotesize
+        \begin{itemize}
+        \item<2-> End of making progress on research.
+        \item<3-> Papers on desk.
+        \item[] {\color{white} Papers do not seem to be a means to the end.}
+        \item[] {\color{white} The papers were gathered for some end.}
+        \item[] {\color{white} Many possible ways the end \emph{could} be research progress.}
+        \item[] {\color{white} The papers are read.}
+        \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Professor Oblique}
+
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      {\addtolength{\leftmargini}{-2\labelsep}
+        \begin{itemize}
+        \item<1-> Simply reading a paper is not a means to Oblique's end of making progress on their research project.
+          \begin{itemize}
+          \item<2-> Some papers are read because they may point to new projects.
+          \item<2-> Other papers are to be discussed with colleagues
+          \item<2-> Certain papers are part of syllabi, etc.
+          \item<2-> The papers \emph{may} be a means to Oblique's end.
+            So, Oblique skims a few abstracts.
+          \end{itemize}
+        \item<3-> From the abstracts Oblique reads, it is unclear to Oblique that reading the papers would contribute to making progress on their research project.
+        \end{itemize}
+      }
+    \end{column}
+    % \hspace{-50pt}
+    \vrule{}
+    \begin{column}{0.3\textwidth}
+      {
+        \footnotesize
+        \begin{itemize}
+        \item End of making progress on research.
+        \item Papers on desk.
+        \item<3-> Papers do not seem to be a means to the end.
+        \item[] {\color{white} The papers were gathered for some end.}
+        \item[] {\color{white} Many possible ways the end \emph{could} be research progress.}
+        \item[] {\color{white} The papers are read.}
+        \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Professor Oblique}
+
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      {\addtolength{\leftmargini}{-2\labelsep}
+      \begin{itemize}
+      \item<1-> Oblique is sure that the papers in the folder can only be of interest as a means to some end, as they of no intrinsic interest.
+      \item<2-> Further, the computer is not autonomous and Oblique is the only user.
+      \item<3-> Oblique recognises that at some point in time they must have downloaded the papers, created the folder, and placed the papers in the folder --- the papers are not, for example, in a catch-all downloads folder.
+      \end{itemize}
+      }
+    \end{column}
+    % \hspace{-50pt}
+    \vrule{}
+    \begin{column}{0.3\textwidth}
+      {
+        \footnotesize
+        \begin{itemize}
+        \item End of making progress on research.
+        \item Papers on desk.
+        \item Papers do not seem to be a means to the end.
+        \item<3-> The papers were gathered for some end.
+        \item[] {\color{white} Many possible ways the end \emph{could} be research progress.}
+        \item[] {\color{white} The papers are read.}
+        \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Professor Oblique}
+
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      {\addtolength{\leftmargini}{-2\labelsep}
+      \begin{itemize}
+      \item<1-> Oblique reasons that they placed the papers in the folder as the result of some instance of practical reasoning.
+      \item<2-> The most plausible explanation is that these papers were set aside because Oblique took them to be a means to making progress on their research project.
+        \begin{itemize}
+        \item<3-> Maybe the papers were cited in other papers that Oblique had been reading.
+        \item<3-> Or, perhaps the papers cited papers that Oblique had been reading.
+        \item<3-> Alternatively, the papers may have been recommends by PhilPapers, Google Scholar, etc.
+        \end{itemize}
+      \end{itemize}
+    }
+  \end{column}
+  % \hspace{-50pt}
+  \vrule{}
+  \begin{column}{0.3\textwidth}
+    {
+      \footnotesize
+      \begin{itemize}
+      \item End of making progress on research.
+      \item Papers on desk.
+      \item Papers do not seem to be a means to the end.
+      \item The papers were gathered for some end.
+      \item<3-> Many possible ways the end \emph{could} be research progress.
+      \item[] {\color{white} The papers are read.}
+      \end{itemize}
+    }
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Professor Oblique}
+
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      {\addtolength{\leftmargini}{-2\labelsep}
+        \begin{itemize}
+        \item<1-> Although Oblique is unable reason through the relation, they take a relation to exist.
+        \item<2-> The coffee finishes brewing, and Oblique beings reading a paper in the folder.
+        \end{itemize}
+      }
+    \end{column}
+    % \hspace{-50pt}
+    \vrule{}
+    \begin{column}{0.3\textwidth}
+      {
+        \footnotesize
+        \begin{itemize}
+        \item End of making progress on research.
+        \item Papers on desk.
+        \item Papers do not seem to be a means to the end.
+        \item The papers were gathered for some end.
+        \item Many possible ways the end \emph{could} be research progress.
+        \item<2-> The papers are read.
+        \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Professor Oblique Summary}
+
+  \begin{itemize}
+  \item End of making progress on research.
+  \item Papers on desk.
+  \item Papers do not seem to be a means to the end.
+  \item The papers were gathered for some end.
+  \item Many possible ways the end \emph{could} be research progress.
+  \item The papers are read.
+  \end{itemize}
+
+  \hozlinedash
+
+  \begin{itemize}
+  \item The example motivates what I think is going on.
+  \item Some more work is needed to establish this in general.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Negative argument (recap)}
+
+  \begin{enumerate}
+  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
+  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
+
+  \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
+
+  \begin{itemize}
+  \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
+  \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{I have argued \emph{against}:}
+
+  \begin{block}{Reasoning}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+
+  \begin{itemize}
+  \item[\hand] Professor Oblique read some papers as a means to making progress on their research even though Oblique could not see how the papers would serve to make progress.
+  \end{itemize}
+\end{frame}
+
+
+
+\subsection{Positive part}
+\label{sec:positive}
+
+\begin{frame}
+  \frametitle{I now will argue \emph{for}:}
+
+  \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+\end{frame}
+
+\subsubsection{Two principles}
+\label{sec:two-principles}
+
+\begin{frame}
+
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+  \item\label{settle:worthwhile} For an agent to be rationally permitted to settle on an action, the agent must take the action to be worthwhile.
+    % \begin{itemize}
+    % \item Principle: Rationally settling on an action is explained by the action being considered both possible and worthwhile by the agent, perhaps in comparison to the same attributes to other actions.
+    % \end{itemize}
+  \item\label{m-e:dependence} If a rational agent considers a means \emph{only} as a means then: \newline Taking the means to be worthwhile amounts to taking the means to be part of a means-end relation with an end they take to be worthwhile.
+    % \begin{itemize}
+    % \item Principle: Whether a means (as a means) is worthwhile wholly depends on whether the end to the means is worthwhile.
+    %   % \nolinebreak \mbox{ }\hfill(From \ref{m-e:dependence}, special case)
+    % \end{itemize}
+  \item[C\(_{\text{II}}\).] \label{together} If an agent is rationally permitted to settle on a means as a means, the agent must take there to be some relevant means-end relation from an end the agent has which supports taking the relevant means.
+    \begin{itemize}
+    \item By \ref{settle:worthwhile} the agent takes the means to be worthwhile.
+    \item And, by \ref{m-e:dependence} this can only be because the agent takes the means to be part of a means-end relation with a worthwhile end.
+    \end{itemize}
+  \end{enumerate}
+
+  (Note: Still not quite right.)
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Premise 3 / Settling Principle}
+
+  \begin{enumerate}
+    \setcounter{enumi}{2}
+  \item For an agent to be rationally permitted to settle on an action, the agent must take the action to be worthwhile.
+    \begin{itemize}
+    \item Principle: Rationally settling on an action is explained by the action being considered both possible and worthwhile by the agent, perhaps in comparison to the same attributes to other actions.
+    \end{itemize}
+  \end{enumerate}
+
+  \begin{itemize}
+  \item Standard idea about belief and desire, etc.
+  \item Taking as worthwhile is an abstraction of the desire part of this.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Premise 4 / Means-end principle}
+
+  \begin{enumerate}
+    \setcounter{enumi}{3}
+  \item If a rational agent considers a means \emph{only} as a means then taking the means to be worthwhile amounts to taking the means to be part of a means-end relation with a worthwhile end.
+    \begin{itemize}
+    \item Principle: Whether a means (as a means) is worthwhile wholly depends on whether the end to the means is worthwhile.
+    \end{itemize}
+  \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{itemize}
+  \item Key idea: the two principles are fairly common.
+  \item The relations are necessary, and do some work.
+  \item The conclusion does not rely on the agent being able to reason about the relevant end, as was the case with Oblique.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{I have argued \emph{for}:}
+    \begin{block}{Taking}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+  \end{block}
+\end{frame}
+
+\section{Summary}
+\label{sec:summary}
+
+
+\begin{frame}
+  \frametitle{The schema}
+
+
+
+  \begin{itemize}
+  \item Somewhat weak necessary condition.
+    
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Two principles}
+
+  \begin{itemize}
+  \item Principle: Rationally settling on an action is explained by the action being considered both possible and worthwhile by the agent, perhaps in comparison to the same attributes to other actions.
+  \item Principle: Whether a means (as a means) is worthwhile wholly depends on whether the end to the means is worthwhile.
+  \end{itemize}
+
+  \hozlinedash
+
+  \begin{itemize}
+  \item If an agent is settled on a means (as a means), these ensure that an agent takes there to be supporting means-end structure.
+  \item Necessary, but perhaps not sufficient.
+  \end{itemize}
+
+  \begin{itemize}
+  \item Two important questions:
+    \begin{enumerate}
+    \item Is there an intermediate position which is more informative about the role of means-end relations in practical reasoning?
+    \item How could the argument be generalised to cover cases in which an agent evlauates a means along multiple dimensions?
+    \end{enumerate}
+  \end{itemize}
+
+ \end{frame}
+
+
+ \begin{frame}
+  \frametitle{Nixon}
+
+  {\rmfamily
+    Static monitors shimmer and enamelled wood creeks as Nixon recovers consciousness.
+
+    A big red button is inside an open suitcase pierced with keys.
+
+    Safety protocols have been followed.
+
+    Nixon presses down and an electrical signal \dots
+  }
+
+  \pause
+  \hozlinedash
+
+  \begin{itemize}
+  \item<+-> Did Nixon evaluate a nuclear strike as worthwhile?
+    \begin{itemize}
+    \item<+-> Setted on the means, so by settling principle Nixon took this to be worthwhile.
+    \item<+-> And, this commits Nixon to the evaluation of the end as worthwhile.
+    \item<+-> Nixon, however, was unable to recall that the end was a nuclear strike!
+      \begin{itemize}
+      \item<+-> Different representations of the same outcome.
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+\section{Future work}
+\label{sec:future-work}
+
+
+\subsection{Akrasia}
+\label{sec:akrasia}
+
+\begin{frame}
+  \frametitle{Akrasia}
+
+  \begin{itemize}
+  \item[\hand] Why think that in cases where an agent \emph{can} reason from an end to a means that the agent \emph{must} settle on the means they are able to reason to?
+  \end{itemize}
+
+  Here's something of an inductive argument (needs work).
+
+\begin{enumerate}
+\item Settling on means requires an appropriate means-end relation.
+\item Sometimes an agent may have a `bad grasp' on the relevant means-end relations or recognise their inability to adequately reason from ends to means.
+\item Sometimes it is permissible for an agent to rely on means-end relations they are unable to reason though and hence settle on a means that they are unable to reason to.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Akrasia}
+
+  {\rmfamily
+    After dinner work and enjoyable meals.
+
+    A single glass of wine makes the meal more enjoyable and does not obstruct later work.
+
+    However, after the first glass, you can only make sense of having another.
+
+    Any lost productivity can be made up for elsewhere, but this dinner must end at some point.
+  }
+
+  \hozlinedash
+
+  Example, involving reasoning.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Akrasia}
+
+  `How possible'.
+\end{frame}
+
+
+\subsection{Additional scenarios}
+\label{sec:final-case}
+
+\begin{frame}
+  \frametitle{Multiple agents}
+
+  % \begin{quote}
+    {\rmfamily
+    Outside his house he found Piglet, jumping up and down trying to reach the knocker.
+
+    ``Hallo, Piglet,'' he said.
+
+    ``Hallo, Pooh,'' said Piglet.
+
+    ``What are \emph{you} trying to do?''
+
+    ``I was trying to reach the knocker,'' said Piglet. ``I just came round---''
+
+    ``Let me do it for you,'' said Pooh kindly.
+    So he reached up and knocked at the door.}\linebreak
+    \mbox{ }\hfill\mbox{(\cite[77--78]{Milne:2009aa})}
+  % \end{quote}
+\end{frame}
+
+
+\appendix
+
+\begin{frame}[noframenumbering]
+  \frametitle{References}
+  \printbibliography
+\end{frame}
+
+\begin{frame}
+  \frametitle{More cases}
+
+  Persistent objects:
+\begin{itemize}
+\item I drink Yakult because I had \emph{something} in mind when I bought a months worth.
+\item I still won't open some bottle of whisky because I'm saving it for some purpose.
+\item You see a gift for a friend in a store but have to go to a meeting, and after you end up searching the store for the gift.
+  \begin{itemize}
+  \item \dots and sometimes you might come across the gift again but are sure that you found something better.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Supermarket}
+
+  {\rmfamily
+
+    Snow dances and random flicker turns to rigid form as the agent regains focus.
+
+    The supermarket aisle is empty, and their left hand is stretched toward an item as if ready to impart life.
+
+    \emph{Crikey}!
+
+    Forgetting the shopping list, and now forgetting consciousness.
+
+    What were they doing?
+
+    Their position suggests they were about to obtain the item.
+
+    No basket. So, perhaps this is all they came in for.
+
+    But what would the item be for?  What is the item a means to?
+
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Relating the principles}
+
+  \begin{block}{Taking (by reasoning)}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{Only if}\hfill\mbox{ }
+    \newline
+    The agent \emph{takes there to be}  a means-end relation from an end they have which supports taking the relevant means \emph{(by reasoning via the relation)}.
+  \end{block}
+
+  \begin{enumerate}
+  \item An entailment is not required for the argument.
+  \item Requiring an entailment would not help the argument.
+    \begin{itemize}
+    \item `Taking' would hold in all the cases in which `reasoning' does, but this would say nothing about the cases in which `reasoning' fails.
+    \end{itemize}
+  \item There may be good reason to `taking' and `reasoning' which would break the entailment.
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Types of cases (aside)}
+
+  Professor Oblique is reasoning about an end, and considers a means (initially to some end) on the basis of a persistent object, but is unable to reason from the means to the end.
+  \begin{itemize}
+  \item Three paramaters to vary:
+    \begin{enumerate}
+    \item Whether the agent is able to reason about the end.
+    \item Whether the agent is able to reason about the means-end relation.
+    \item Whether the agent is able to recall information about the end/means/means-end relation `internally' or `externally'
+    \end{enumerate}
+  \item Example questions:
+    \begin{itemize}
+    \item Are there cases in which an agent recognises a means, but is unable to recall what the means is an end to, but would easily be able to reason from the end to the means were they able to recall the end?
+    \item Could an agent rationally settle on a means if they have neither an end nor a candidate means-end relation?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
