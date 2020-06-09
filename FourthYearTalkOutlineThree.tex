@@ -10,12 +10,19 @@
 \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
    \usepackage{bm}% Access to bold math symbols
    % \usepackage[onlytext]{MinionPro}
-   \usepackage[no-math]{fontspec}
+      \usepackage[no-math]{fontspec}
    \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-   \setmainfont[Ligatures=TeX]{Minion 3}
-   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
-   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   \setmainfont[Ligatures=TeX,Scale=MatchLowercase]{Source Serif Pro}
+   \setsansfont[Ligatures=TeX,Scale=MatchLowercase,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Source Code Pro}
+
+   % \usepackage[no-math]{fontspec}
+   % \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   % \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   % \setmainfont[Ligatures=TeX]{Minion 3}
+   % \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   % \setmonofont[Scale=0.8]{Atlas Typewriter}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
    \usepackage{microtype}
 % % % % % % %
@@ -151,6 +158,9 @@
   %\vspace{-10pt}
 }
 
+\newcommand{\schemaName}[1]{\textsf{#1}}
+\newcommand{\dependencePrinciple}[0]{\textsf{Dependence Principle}}
+
 \usepackage{contour}
  % \usepackage{pdfrender}
 
@@ -164,10 +174,11 @@
 \begin{document}
 % \pagestyle{empty}
 
-\maketitle
-
 \tableofcontents
 
+\newpage
+
+\maketitle
 
 \hozlinedash
 
@@ -177,6 +188,14 @@
 \end{itemize}
 
 \hozlinedash
+
+\begin{itemize}[noitemsep]
+\item I like to think of the philosophy of action as providing a toolbox for understand the practical agency.
+\item Inside the toolbox we have beliefs, desires, intentions, reasons, means-end relations, the Instrumental Principle, and so on.
+\item One of these tools is representing an agent's reasoning when settling on an action (in part) as a means as process which starts with an end and establishes that the action is a means to the end.
+\item If there are cases where this tool fails, what is required, and can what is required be used to enrich our understanding of other cases?
+\end{itemize}
+
 
 
 \newpage
@@ -253,6 +272,59 @@ There are three key parts to this schema:
 \subsubsection{Reasoning}
 \label{sec:reasoning}
 
+\begin{beamerblock}{\schemaName{Reasoning}}
+  A rational agent is permitted to settle on an action (in part) as a means
+  \newline
+  \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+  \newline
+  the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the action.
+\end{beamerblock}
+
+\hozlinedash
+
+\citeauthor{Broome:2002aa} opens \citetitle{Broome:2002aa} with the following example (of practical reasoning):
+
+\begin{quote}
+  You might reason like this:
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*)]
+  \item\label{Broome:1a} I am going to buy a boat \hfill (1a)
+  \end{enumerate}
+
+  and
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*), resume]
+  \item\label{Broome:1b} For me to buy a boat, a necessary means is to borrow money \hfill (1b)
+  \end{enumerate}
+  so
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*), resume]
+  \item\label{Broome:1c} I shall borrow money. \hfill (1c)
+  \end{enumerate}
+
+\end{quote}
+
+\citeauthor{Broome:2002aa} goes on to say:
+
+\begin{quote}
+  [This reasoning] it gets as close to action as reasoning can.
+  Your reasoning process is a particular type of practical reasoning.
+  It is \emph{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
+\end{quote}
+
+\begin{itemize}[noitemsep]
+\item Instrumental reasoning is concerned with taking appropriate means to an end.
+\item \citeauthor{Broome:2002aa} puts emphasis of this type of reasoning being \emph{instrumental} reasoning.
+\item My interest is whether emphasis can be placed on the copula; whether this kind of reasoning \emph{is} instrumental reasoning.
+  \begin{itemize}
+  \item If so, \schemaName{Reasoning} would seem to hold, as the agent reason from an end \ref{Broome:1a} to a means \ref{Broome:1c} by a means end relation \ref{Broome:1b}.
+  \end{itemize}
+\end{itemize}
+
+\hozlinedash
+
+
 In some instances of practical reasoning agents reason from an end they have to a means.
 
 For example:
@@ -261,14 +333,6 @@ For example:
 \item When I settled on drinking the cup of coffee \emph{strictly} as a means, all that mattered was whether it would serve my end of feeling alert.
 \end{itemize}
 
-\begin{beamerblock}{Reasoning}
-  A rational agent is permitted to settle on an action (in part) as a means
-  \newline
-  \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-  \newline
-  the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the action.
-\end{beamerblock}
-
 \begin{itemize}
 \item The relevant reasoning may take various forms, the key is that an end and a means-end relation supporting the end are used by the agent (in their reasoning) to settle on an end.
 \end{itemize}
@@ -276,7 +340,7 @@ For example:
 
 
 
-The `only if' direction of \citeauthor{Sinhababu:2017aa}'s \emph{Desire–Belief Theory of Reasoning} may be seen as an instance of `Reasoning':
+The `only if' direction of \citeauthor{Sinhababu:2017aa}'s \emph{Desire–Belief Theory of Reasoning} may be seen as an instance of \schemaName{Reasoning}:
 
 \begin{quote}
   The Desire–Belief Theory of Reasoning: Desire is affected as the conclusion of reasoning if and only if desire that E is combined with belief that M would raise E’s probability, constituting desire that M.\nolinebreak
@@ -297,8 +361,8 @@ The relevant missing premise is that an agent is rationally permitted to settle 
 \item As I purchased the recordings and my music tastes have not substantially changed in some time, I may listen to these in pursuit of the end I had in mind when purchasing them.
 \end{itemize}
 
-\begin{beamerblock}{Taking}
-  A rational agent is permitted to settle on an action (in part) as a means
+\begin{beamerblock}{\schemaName{Taking}}
+  A rational agent is rationally permitted to settle on an action (in part) as a means
   \newline
   \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
   \newline
@@ -321,15 +385,15 @@ The relevant missing premise is that an agent is rationally permitted to settle 
 
 The argument is split into two parts:
 \begin{enumerate*}[label=\roman*., ref=(\roman*)]
-\item\label{position:Against} \textbf{Against} `Reasoning'.
-\item\label{position:For} \textbf{For} `Taking'.
+\item\label{position:Against} \textbf{Against} \schemaName{Reasoning}.
+\item\label{position:For} \textbf{For} \schemaName{Taking}.
 \end{enumerate*}
 
 \subsubsection{Negative part overview}
 \label{sec:negat-part-overv}
 
-The negative argument is establishing a counterexample to `Reasoning'.
-This is given by a scenario where the antecedent of `Reasoning' is satisfied and the consequent is not.
+The negative argument is establishing a counterexample to \schemaName{Reasoning}.
+This is given by a scenario where the antecedent of \schemaName{Reasoning} is satisfied and the consequent is not.
 
 \begin{enumerate}[label=N\arabic*., ref=(N\arabic*)]
 
@@ -485,8 +549,8 @@ Illustration of case supporting premises \ref{scenarios:exist} and \ref{scenario
 
 
 \begin{itemize}
-\item The case supports premises \ref{scenarios:exist} and~\ref{scenarios:persmissible}, and in a counterexample to `Reasoning'.
-\item The case also provides some non-deductive support for `Taking', but it is only an instance of the general claim made by `Taking'.
+\item The case supports premises \ref{scenarios:exist} and~\ref{scenarios:persmissible}, and in a counterexample to \schemaName{Reasoning}.
+\item The case also provides some non-deductive support for \schemaName{Taking}, but it is only an instance of the general claim made by \schemaName{Taking}.
 \end{itemize}
 
 
@@ -503,6 +567,9 @@ The first part of the argument establishes that the agent takes there to be a me
 % \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
 % \item A rational agent is permitted to settle on an action (in part) as a means only if the agent \emph{takes there to be a means-end relation supporting the means (and has an evaluation of the end)}.
 % \end{enumerate}
+
+{\color{red} Rewrite is needed, similar structure but streamline.
+Evaluation -> Relation -> Taking.}
 
 \hozlinedash
 
@@ -547,7 +614,7 @@ And, if the agent takes the (possibly partial) role of the means to work in esta
 \item[\ref{premise:means-req-eval}] A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
 \end{enumerate}
 
-I take premise~\ref{X:premise:means-req-eval} to be fairly uncontroversial.
+I take premise~\ref{premise:means-req-eval} to be fairly uncontroversial.
 
 A rational agent settles on an action as the result of some practical reasoning about the action (and other actions), and the agent's evaluation of the action is just the result of their reasoning about the action.
 
@@ -618,6 +685,15 @@ And, principle~\ref{principle:dependence} has precedent:
   I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.\nolinebreak
   \mbox{ }\hfill\mbox{\hfill(T2.3.3)}
 \end{quote}
+
+\citeauthor{Hume:2011aa} may be saying more, but I take it the passage captures the \dependencePrinciple.
+To illustrate further, \citeauthor{Smith:2015ab} provides the following summary of the passage:
+
+\begin{quote}
+  [Hume's] idea is that, since we form instrumental desires when we exercise our capacity to be instrumentally rational, bringing our non-instrumental desures and means-end beliefs together in a way that makes them apt for jointly causing behaviours, it follows that instrumental desires are best thought of as \emph{amalgams} of non-instrumental desires and means-end beliefs.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[35]{Smith:2015ab})}
+\end{quote}
+
 
 \begin{itemize}
 \item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
@@ -710,10 +786,33 @@ The second part of the argument builds on the first and establishes that the age
   A rational agent is permitted to settle on an action only if the agent evaluates the action as worthwhile.
 \end{principle}
 
-\begin{itemize}
-\item \citeauthor{Davidson:1963aa} quote supports this.
-\item Similar for \citeauthor{Anscombe:1957aa} and \citeauthor{Quinn:1993aa}, perhaps.
-\end{itemize}
+\hozlinedash
+
+For example, \citeauthor{Davidson:1963aa} writes:
+
+\begin{quote}
+  A reason rationalizes an action only if it leads us to see something the agent saw, or thought he saw, in his action---some feature, consequence, or aspect of the action the agent wanted, desired, prized, held dear, thought dutiful, beneficial, obligatory, or agreeable.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[686]{Davidson:1963aa})}
+\end{quote}
+
+\begin{quote}
+  Whenever someone does something for a reason, therefore, he can be characterized as
+  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+  \item\label{davidson:a} having some sort of pro attitude toward actions of a certain kind, and
+  \item\label{davidson:b} believing (or knowing, perceiving, noticing, remembering) that his action is of that kind.
+  \end{enumerate*}
+  % \nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[686--686]{Davidson:1963aa})}
+\end{quote}
+
+If an agent has a pro-attitude toward an action, the agent evaluated whether it was worthwhile.
+
+
+\citeauthor{Anscombe:1957aa} example, also \citeauthor{Quinn:1993aa}.
+
+With \citeauthor{Anscombe:1957aa} the agent insists that the value the saucer of mud.
+
+\hozlinedash
 
 I doubt principle~\ref{principle:settling-strong} holds in general.
 Worry that an agent is unable to make comparisons between the relevant actions, or that the agent is unable to evaluate any action.
@@ -739,16 +838,6 @@ In the cases of interest, a plausible alternative can be leveraged to ensure tha
 \newpage
 
 
-
-
-
-
-
-\hozlinedash
-
-
-\newpage
-
 \section{Summary}
 \label{sec:summary}
 
@@ -757,7 +846,7 @@ The link an agent has to a means-end relation is the focus here.
 
 What makes the choice permissible was left out.
 
-The `Taking' instance of the schema can be strengthened and refined.
+The \schemaName{Taking} instance of the schema can be strengthened and refined.
 
 
 Fix the end, the either the agent takes an action (in part) as a means to the end or the agent does not take the action (in part) as a means to the end.
@@ -773,8 +862,8 @@ More complex conditions may certainly be required.
 
 
 \begin{itemize}
-\item[\hand] Cases where `Taking' seems important and `Reasoning' cannot hold.
-\item Motivate appeal to `Taking' in other cases where alternative explanations can be given.
+\item[\hand] Cases where \schemaName{Taking} seems important and \schemaName{Reasoning} cannot hold.
+\item Motivate appeal to \schemaName{Taking} in other cases where alternative explanations can be given.
 \end{itemize}
 
 
@@ -786,31 +875,7 @@ More complex conditions may certainly be required.
 \item Cases of conflicting evaluations are like cases of conflicting beliefs, where the conflict is due to some overlooked entailment.
 \end{itemize}
 
-\citeauthor{Broome:2002aa}:
 
-\begin{quote}
-  You might reason like this:
-
-  \mbox{}\quad I am going to buy a boat \hfill (1a)
-
-  and
-
-  \mbox{}\quad For me to buy a boat, a necessary means is to borrow money \hfill (1b)
-
-  so
-
-  \mbox{}\quad I shall borrow money. \hfill (1c)
-
-  \begin{center}
-    [\dots]
-  \end{center}
-
-  I shall call reasoning that concludes with the forming of an intention `intention reasoning'.
-  Intention reasoning is \emph{practical} reasoning; it gets as close to action as reasoning can.
-  Your reasoning process is a particular type of practical reasoning.
-  It is \emph{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.\nolinebreak
-  \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
-\end{quote}
 
 \begin{quote}
   If you intend an end, you must be able to reason correctly about how to bring it about, and you must be able to do this even if you have no reason to intend the end.\nolinebreak
@@ -819,14 +884,31 @@ More complex conditions may certainly be required.
 
 \newpage
 
-\section{Future work}
-\label{sec:future-work}
+\section{Closing scenarios}
+\label{sec:closing-scenarios}
 
-\subsection{Akrasia}
-\label{sec:akrasia}
+\subsection{Nixon}
+\label{sec:nixon}
 
-\subsection{Additional scenarios}
-\label{sec:additional-scenarios}
+\begin{scenario}[Nixon]
+  Static monitors shimmer and enamelled wood creaks as Nixon recovers consciousness.
+  A big red button is inside an open suitcase pierced with keys.
+  Safety protocols have been followed.
+  Nixon presses down and an electrical signal \dots
+\end{scenario}
+
+The electric signal launches a nuclear strike.
+
+\hozlinedash
+
+\begin{itemize}[noitemsep]
+\item On one reading Nixon takes the open suitcase and followed safety protocols as information to settle on pressing the big red button as a means.
+\item On this reading, Nixon evaluates the nuclear strike as worthwhile, as Nixon evaluated pressing the button as a means to be worthwhile.
+\item Alternatively, Nixon may have settled on pressing the big red button because they had no choice, given that the relevant safety protocols had been followed.
+\end{itemize}
+
+\subsection{Piglet and Pooh}
+\label{sec:piglet-pooh}
 
 
 \begin{scenario}[under the name of Sanders]\mbox{ }
@@ -845,7 +927,7 @@ More complex conditions may certainly be required.
 
 \begin{center}
   \begin{tikzpicture}
-    \def\svgwidth{.5\linewidth}
+    \def\svgwidth{.25\linewidth}
     \node[anchor=south west,inner sep=0] (image) at (0,0) {\includeinkscape{images/pandpf}};
   \end{tikzpicture}
 \end{center}
@@ -929,7 +1011,7 @@ Features:
 \subsection{Possible entailment}
 \label{sec:possible-entailment}
 
-\begin{beamerblock}{Taking (by reasoning via)}
+\begin{beamerblock}{\schemaName{Taking (by reasoning via)}}
     An agent is rationally permitted to settle on a means (as a means)
     \newline
     \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
@@ -938,12 +1020,12 @@ Features:
   \end{beamerblock}
 
 \begin{itemize}
-\item If `\emph{reasons via}' is replaced by `\emph{takes the to be by reasoning via}', then \ref{schemaInstance:i} entails \ref{schemaInstance:ii}.
+\item If `\emph{reasons via}' is replaced by `\emph{takes the to be by reasoning via}', then \schemaName{Reasoning} entails \schemaName{Taking}.
 \item I think this is a natural reading of `\emph{reasons via}'.
 \item However:
   \begin{itemize}
-  \item A logical connexion between \ref{schemaInstance:i} and~\ref{schemaInstance:ii} is not required for the argument I will make, so I will not build it into the respective positions.
-  \item Making the logical connexion would not help the argument. For, \ref{schemaInstance:ii} would hold in all the cases that \ref{schemaInstance:i} holds, but this would say nothing about the cases in which \ref{schemaInstance:i} fails.
+  \item An entailment from \schemaName{Reasoning} to \schemaName{Taking} is not required for the argument I will make, so I will not build it into the respective positions.
+  \item Making the logical connexion would not help the argument. For, \schemaName{Taking} would hold in all the cases that \schemaName{Reasoning} holds, but this would say nothing about the cases in which \schemaName{Reasoning} fails.
   \item There may be good reason to more sharply distinguish the two ways in which an agent may be linked to means-end relations.
   \end{itemize}
 \end{itemize}
@@ -960,7 +1042,7 @@ Features:
   So, Oblique reads the papers.
 \end{scenario}
 
-\begin{itemize}
+\begin{itemize}[noitemsep]
 \item Oblique does not have the information required to establish a means-end relation from their end of making progress on their research to the means of reading the papers in the folder.
 \item So, Oblique is unable to reason via any particular means-end relation.
 \item However, it may be that the collection of specific means-end relations forms a complex means-end relation, and Oblique is able to reason via the complex means-end relation to reading the papers.
@@ -982,7 +1064,7 @@ Features:
 \end{scenario}
 
 Features:
-\begin{itemize}
+\begin{itemize}[noitemsep]
 \item Agent uses situational information to infer that they have a means, and to settle on the means.
 \item The agent is unable to recall the end to the means.
 \item However, it seems likely that if the agent were able to recall the end, they would be able to reason to the means.
@@ -1015,29 +1097,7 @@ So, I can't reason from the what in which I'm committed to play to the particula
 \newpage
 
 
-For example, \citeauthor{Davidson:1963aa} writes:
 
-\begin{quote}
-  A reason rationalizes an action only if it leads us to see something the agent saw, or thought he saw, in his action---some feature, consequence, or aspect of the action the agent wanted, desired, prized, held dear, thought dutiful, beneficial, obligatory, or agreeable.\nolinebreak
-  \mbox{}\hfill\mbox{(\citeyear[686]{Davidson:1963aa})}
-\end{quote}
-
-\begin{quote}
-  Whenever someone does something for a reason, therefore, he can be characterized as
-  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
-  \item\label{davidson:a} having some sort of pro attitude toward actions of a certain kind, and
-  \item\label{davidson:b} believing (or knowing, perceiving, noticing, remembering) that his action is of that kind.
-  \end{enumerate*}
-  % \nolinebreak
-  \mbox{}\hfill\mbox{(\citeyear[686--686]{Davidson:1963aa})}
-\end{quote}
-
-If an agent has a pro-attitude toward an action, the agent evaluated whether it was worthwhile.
-
-
-\citeauthor{Anscombe:1957aa} example, also \citeauthor{Quinn:1993aa}.
-
-With \citeauthor{Anscombe:1957aa} the agent insists that the value the saucer of mud.
 
 
 \end{document}
