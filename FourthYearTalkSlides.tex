@@ -18,7 +18,7 @@
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
    \setmainfont[Ligatures=TeX,Scale=MatchLowercase]{Source Serif Pro}
    \setsansfont[Ligatures=TeX,Scale=MatchLowercase,BoldFont={* Semibold}]{Source Sans Pro}
-   \setmonofont[Scale=0.8]{Source Code Pro}
+   \setmonofont[Scale=MatchLowercase]{Source Code Pro}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
    % \usepackage{microtype}
 
@@ -41,9 +41,9 @@
   bibstyle=authoryear,
   citestyle=authoryear-comp,
   uniquename=false,%allinit,
-  % giveninits=true,
+  giveninits=true,
   backref=false,
-  hyperref=true,
+  % hyperref=true,
   url=false,
   isbn=false,
   useprefix=true,
@@ -67,23 +67,27 @@
 
 \usepackage{setspace}
 
+% % %
 \usepackage{dashrule}
-
-\newcommand{\hozline}[0]{%
+\newcommand{\hozline}[0]{
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
-  %\vspace{-10pt}
-  % \noindent\rule{\textwidth}{.1pt}
 }
-
-\newcommand{\hozlinedash}[0]{%
+\newcommand{\hozlinedash}[0]{
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
-  %\vspace{-10pt}
 }
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+\newcommand{\citeline}[0]{\btVFill\vspace{-8pt}\noindent\hdashrule[0.5ex][c]{.25\textwidth}{.1pt}{}\vspace{-8pt}}
+%https://tex.stackexchange.com/questions/347228/footnote-without-numbering-and-without-indention-in-beamer-class
+\newcommand\citenote[1]{%
+  \tikz[remember picture,overlay]
+  \draw (current page.south west) +(1in + \oddsidemargin,0.5em)
+  node[anchor=south west,inner sep=0pt]{\parbox{\textwidth}{%
+      \rlap{\rule{10em}{0.4pt}}\raggedright\scriptsize#1}};
+}
+% % %
 
 \usepackage{tikz}
 \usepackage{svg}
-\usepackage[off]{svg-extract}
-\svgsetup{clean=true}
 
 % % % Color % % %
 % \usepackage[usenames, dvipsnames]{xcolor}
@@ -126,9 +130,7 @@
 \title{Means-end reasoning and means-end relations}
 \author{Ben Sparkes}
 % \institute{Stanford}
-% \date{2014}
-
-
+% \date{}
 
 \begin{document}
 
@@ -155,11 +157,8 @@
 \label{sec:schema}
 
 \begin{frame}
-  \frametitle{The means-end Schema}
+  \frametitle{The means-end schema}
 
-  % \begin{block}<1->
-  %   {\footnotesize An agent is rationally permitted to settle on a means (as a means) \emph{only if} \newline The agent [\underline{?}] a means-end relation from an end they have which supports taking the means.}
-  % \end{block}
   \begin{block}<1->{The Schema}
     \textcolor<3>{fuchsia}{A rational agent} is \textcolor<4>{fuchsia}{permitted to settle on an action (in part) as a means}
     \newline
@@ -180,31 +179,27 @@
 \begin{frame}
   \frametitle{Example}
 
-  \citeauthor{Broome:2002aa}:
+  \begin{quote}
+    You might reason like this:\newline
+    \mbox{}\quad \textcolor<4>{fuchsia}{I am going to buy a boat} \hfill (1a)\newline
+    and\newline
+    \mbox{}\quad \textcolor<5>{fuchsia}{For me to buy a boat, a necessary means is to borrow money} \hfill (1b)\newline
+    so\newline
+    \mbox{}\quad \textcolor<3>{fuchsia}{I shall borrow money.} \hfill (1c)%\newline
+    % \mbox{}\hfill\mbox{\scriptsize\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+  \end{quote}
 
-\begin{quote}
-  You might reason like this:
+  \hozlinedash
 
-  \mbox{}\quad I am going to buy a boat \hfill (1a)
+  \begin{block}<2->{The Schema}
+    A rational agent is \textcolor<3>{fuchsia}{permitted to settle on an action (in part) as a means}
+    \newline
+    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+    \newline
+    the agent [\textcolor<6>{fuchsia}{does something with}] \textcolor<5>{fuchsia}{a means-end relation from} \textcolor<4-5>{fuchsia}{an end they have} \textcolor<5>{fuchsia}{which supports taking the relevant means}.
+  \end{block}
 
-  and
-
-  \mbox{}\quad For me to buy a boat, a necessary means is to borrow money \hfill (1b)
-
-  so
-
-  \mbox{}\quad I shall borrow money. \hfill (1c)
-
-  \begin{center}
-    [\dots]
-  \end{center}
-
-  I shall call reasoning that concludes with the forming of an intention `intention reasoning'.
-  Intention reasoning is \emph{practical} reasoning; it gets as close to action as reasoning can.
-  Your reasoning process is a particular type of practical reasoning.
-  It is \emph{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.\nolinebreak
-  \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
-\end{quote}
+  \citenote{\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
 \end{frame}
 
 \begin{frame}
@@ -227,8 +222,29 @@
   \end{itemize}
 \end{frame}
 
-  \begin{frame}
-    \frametitle{Taking}
+
+\begin{frame}
+  \frametitle{Example}
+
+  \begin{quote}
+    I am going to buy a boat \hfill (1a)\newline
+    For me to buy a boat, a necessary means is to borrow money \hfill (1b)\newline
+    I shall borrow money. \hfill (1c)
+  \end{quote}
+
+  \hozlinedash
+
+  \begin{quote}
+    Your reasoning process is a particular type of practical reasoning.
+    It \textcolor<2>{fuchsia}{\emph<2>{is}} \emph<1>{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.%\nolinebreak
+    % \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
+  \end{quote}
+\citenote{\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Taking}
 
   \begin{block}{Taking}
     A rational agent is permitted to settle on an action (in part) as a means
@@ -283,7 +299,7 @@
     the agent \textcolor{fuchsia}{\emph{reasons via}}  a means-end relation from an end they have which supports taking the relevant means.
   \end{block}
 
-  {\Large \mbox{ }\hfill \(\not\Uparrow\) \qquad \(\not\Downarrow\) \hfill\mbox{ }}
+  {\Large \mbox{ }\hfill \(\textcolor{fuchsia}{\not}\hspace{-4pt}\Uparrow\) \qquad \(\textcolor{fuchsia}{\not}\hspace{-4pt}\Downarrow\) \hfill\mbox{ }}
 
   \begin{block}{Taking}
     A rational agent is permitted to settle on an action (in part) as a means
@@ -428,8 +444,8 @@
   \frametitle{Negative argument (recap)}
 
   \begin{enumerate}
-  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
-  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
+  \item There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
+  \item And, in these cases the agent is rational in settling on the means.
 
   \item[C\(_{\text{i}}\)] `Reasoning' does not hold.
     % \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
@@ -448,26 +464,10 @@
       the agent \textcolor{fuchsia}{\emph{reasons via}}  a means-end relation from an end they have which supports taking the relevant means.
     \end{block}
   }
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{I have argued \emph{against}:}
-
-  \begin{block}{Reasoning}
-    A rational agent is permitted to settle on an action (in part) as a means
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means.
-  \end{block}
-
   \begin{itemize}
-  \item[\hand] Oblique settled on taking the item as a means to some end without being able to recall the end, and hence without being about to reason via a means-end relation from the end to taking the item.
+  \item<2>[\hand] Oblique settled on taking the item as a means to some end without being able to recall the end, and hence without being about to reason via a means-end relation from the end to taking the item.
   \end{itemize}
 \end{frame}
-
-
 
 \subsection{Positive part}
 \label{sec:positive}
@@ -603,69 +603,58 @@ For, if an agent regards the action (in part) as a means, this commits the agent
 
 The principle is part of what it is for an action to be evaluated as a means.
 
-
-\citeauthor{Raz:2005aa} in \citetitle{Raz:2005aa} writes:
-\begin{quote}
-    the value of the means derives from the value of the ends \dots
-    If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.\nolinebreak
-  \mbox{ }\hfill(\cite[2]{Raz:2005aa})
-\end{quote}
-
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{Dependency principle}
-
-  \begin{block}{Dependency principle}
-    Whether a means is worthwhile depends on whether the end to the means is worthwhile.
-  \end{block}
-
-The principle is part of what it is for an action to be evaluated as a means.
-
-\citeauthor{Hume:2011aa} in \citetitle{Hume:2011aa} writes:
-
-\begin{quote}
-  I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.\nolinebreak
-  \mbox{ }\hfill\mbox{\hfill(T2.3.3)}
-\end{quote}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Dependency principle}
-
-  \begin{block}{Dependency principle}
-    Whether a means is worthwhile depends on whether the end to the means is worthwhile.
-  \end{block}
-
-The principle is part of what it is for an action to be evaluated as a means.
-
-
+\hozlinedash
+\only<+>{
 \begin{itemize}
 \item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
   \begin{itemize}
   \item The agent settles on the action (in part) as a means, and nothing follows if the agent does not consider the action (in part) as a means.
   \end{itemize}
 \end{itemize}
+}
+\only<+>{
+\citeauthor{Raz:2005aa}:
+\begin{quote}
+    the value of the means derives from the value of the ends \dots
+    If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.%\nolinebreak
+  % \mbox{ }\hfill(\cite[2]{Raz:2005aa})
+\end{quote}
+\citenote{\fullcite{Raz:2005aa}\newline}
+}
+\only<+>{
+  \citeauthor{Hume:2011aa} writes:
+
+  \begin{quote}
+    I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.%\nolinebreak
+    % \mbox{ }\hfill\mbox{\hfill}
+  \end{quote}
+  \citenote{\fullcite[(T2.3.3)]{Hume:2011aa}}
+}
+\only<+>{
+\begin{itemize}
+\item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
+  \begin{itemize}
+  \item The agent settles on the action (in part) as a means, and nothing follows if the agent does not consider the action (in part) as a means.
+  \end{itemize}
+\end{itemize}
+}
+\btVFill
 \end{frame}
 
 \begin{frame}
   \frametitle{Part 1 (recap)}
 
   \begin{enumerate}
-\item\label{premise:permit-eval-means} A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
+\item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
     \begin{itemize}
     \item By premises \ref{premise:means-req-eval} and~\ref{premise:able-eval-means} and noting that permissibility requires ability.
     \end{itemize}
   \begin{enumerate}
-  \item\label{premise:means-req-eval} A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
+  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
     \begin{itemize}
     \item For an rational agent to take an action (in part) as a means requires the agent evaluates the action.
     \end{itemize}
-  \item\label{premise:able-eval-means} A rational agent is \emph{able} to evaluate an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
+  \item A rational agent is \emph{able} to evaluate an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
     \begin{itemize}
     \item Whether an action is worthwhile (as a means) depends on whether the end to the means is worthwhile.
     \end{itemize}
@@ -738,7 +727,7 @@ The principle is part of what it is for an action to be evaluated as a means.
   \item A rational agent is permitted to settle on an action (in part) as a means only if the agent \emph{takes there to be a means-end relation supporting the means (and has an evaluation of the end)}.
   \item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means and \emph{evaluates the end positively}.
   \end{enumerate}
-  
+
   \begin{itemize}
   \item The first part establishes that the agent takes there to be a means-end relation from an end supporting the relevant means.
   \item The second part builds on the first and establishes that the agent has the relevant end.
@@ -833,27 +822,33 @@ The principle is part of what it is for an action to be evaluated as a means.
 \begin{frame}
   \frametitle{Multiple agents}
 
-    \begin{tikzpicture}
+  \begin{tikzpicture}
     \def\svgwidth{1\linewidth}
     \node[inner sep=0, opacity=0.25] (image) at (.25,-.75) {\includeinkscape{images/pandpf}};
     \node[align=left, font={\rmfamily}] at (0,1) {
       Outside his house he found Piglet, jumping up and down trying to\\ reach the knocker.\\
 
-    ``Hallo, Piglet,'' he said.\\
+      ``Hallo, Piglet,'' he said.\\
 
-    ``Hallo, Pooh,'' said Piglet.\\
+      ``Hallo, Pooh,'' said Piglet.\\
 
-    ``What are \emph{you} trying to do?''\\
+      ``What are \emph{you} trying to do?''\\
 
-    ``I was trying to reach the knocker,'' said Piglet. ``I just came round---''\\
+      ``I was trying to reach the knocker,'' said Piglet. ``I just came round---''\\
 
-    ``Let me do it for you,'' said Pooh kindly.\\
-    So he reached up and knocked at the door.};
+      ``Let me do it for you,'' said Pooh kindly.\\
+      So he reached up and knocked at the door.};
   \end{tikzpicture}
+
+  \citenote{\citeauthor{Milne:2009aa} (\citeyear{Milne:2009aa}) \citetitle{Milne:2009aa}. With Decorations by Ernest H.\ Shepard.}
 \end{frame}
 
 
 \appendix
+% Remove structure slides between sections
+\AtBeginSection[]
+{
+}
 
 \begin{frame}[noframenumbering]
   \frametitle{References}
@@ -899,6 +894,7 @@ The principle is part of what it is for an action to be evaluated as a means.
   }
 \end{frame}
 
+\section{Relating the principles}
 
 \begin{frame}
   \frametitle{Relating the principles}
@@ -921,6 +917,7 @@ The principle is part of what it is for an action to be evaluated as a means.
   \end{enumerate}
 \end{frame}
 
+\section{Types of cases}
 
 \begin{frame}
   \frametitle{Types of cases (aside)}
@@ -943,7 +940,7 @@ The principle is part of what it is for an action to be evaluated as a means.
 
 
 
-\subsection{Akrasia}
+\section{Akrasia}
 \label{sec:akrasia}
 
 \begin{frame}
