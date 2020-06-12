@@ -1,4 +1,5 @@
 \documentclass[noamssymb,
+graphics,
 % compress,
 % handout,
 ]{beamer} % amssymb is incompatible with mtpro2
@@ -6,6 +7,7 @@
 \usetheme{Antibes}
 \usecolortheme{fuchsia}
 
+\setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{enumerate items}[default]
 
 \usepackage[T1]{fontenc}
@@ -67,8 +69,8 @@
 
 \usepackage{setspace}
 
-
 \newcommand{\schemaName}[1]{\textsf{#1}}
+\newcommand{\principleName}[1]{\textsf{#1}}
 \newcommand{\dependencePrinciple}[0]{\textsf{Dependence Principle}}
 % % %
 \usepackage{dashrule}
@@ -172,10 +174,10 @@
 
   \onslide<2-5>{Four parts to this schema:}
   \begin{enumerate}%[label=\alph*., noitemsep]
-  \item<3-6> \textcolor<3>{fuchsia}{A rational agent}
-  \item<4-6> \textcolor<4>{fuchsia}{The agent being permitted to settle on an action (in part) as a means.}
-  \item<5-6> \textcolor<5>{fuchsia}{A means-end relation from an end the agent has which supports taking the means.}
-  \item<6-6> \textcolor<6>{fuchsia}{A link between the agent has to the specified means-end relation.}
+  \item<3-> \textcolor<3>{fuchsia}{A rational agent}
+  \item<4-> \textcolor<4>{fuchsia}{The agent being permitted to settle on an action (in part) as a means.}
+  \item<5-> \textcolor<5>{fuchsia}{A means-end relation from an end the agent has which supports taking the means.}
+  \item<6-> \textcolor<6->{fuchsia}{\emph<7>{A link between the agent has to the specified means-end relation.}}
   \end{enumerate}
 \end{frame}
 
@@ -188,21 +190,22 @@
     and\newline
     \mbox{}\quad \textcolor<5>{fuchsia}{For me to buy a boat, a necessary means is to borrow money} \hfill (1b)\newline
     so\newline
-    \mbox{}\quad \textcolor<3>{fuchsia}{I shall borrow money.} \hfill (1c)%\newline
-    % \mbox{}\hfill\mbox{\scriptsize\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+    \mbox{}\quad \textcolor<3>{fuchsia}{I shall borrow money.} \hfill (1c)
   \end{quote}
-
   \hozlinedash
+  \onslide<2->{\vspace{-10pt}
+    \begin{block}{The Schema}
+      A rational agent is \textcolor<3>{fuchsia}{permitted to settle on an action (in part) as a means}
+      \newline
+      \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+      \newline
+      the agent
+      \only<-5>{[does something with]}
+      \only<6->{\textcolor{fuchsia}{reasons via}} \textcolor<5>{fuchsia}{a means-end relation from} \textcolor<4-5>{fuchsia}{an end they have} \textcolor<5>{fuchsia}{which supports taking the relevant means}.
+    \end{block}
 
-  \begin{block}<2->{The Schema}
-    A rational agent is \textcolor<3>{fuchsia}{permitted to settle on an action (in part) as a means}
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent [\textcolor<6>{fuchsia}{does something with}] \textcolor<5>{fuchsia}{a means-end relation from} \textcolor<4-5>{fuchsia}{an end they have} \textcolor<5>{fuchsia}{which supports taking the relevant means}.
-  \end{block}
-
-  \citenote{\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+    \citenote{\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+  }
 \end{frame}
 
 \begin{frame}
@@ -229,13 +232,25 @@
 \begin{frame}
   \frametitle{Example}
 
+  \only<1>{
   \begin{quote}
     I am going to buy a boat \hfill (1a)\newline
     For me to buy a boat, a necessary means is to borrow money \hfill (1b)\newline
     I shall borrow money. \hfill (1c)
   \end{quote}
-
   \hozlinedash
+}
+\only<2>{
+  \vspace{-28pt}
+  \begin{block}{Reasoning}
+    A rational agent is permitted to settle on an action (in part) as a means
+    \newline
+    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+    \newline
+    the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means \emph{by reasoning via the relation}.
+  \end{block}
+  \hozlinedash
+}
 
   \begin{quote}
     Your reasoning process is a particular type of practical reasoning.
@@ -257,14 +272,29 @@
     the agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
   \end{block}
 
-  \begin{itemize}
-  \item An existential-like requirement that does not require the agent to connect the means to the end.
-  \item Some cases of reasoning may satisfy this requirement.
+  \only<2>{
     \begin{itemize}
-    \item At some point I purchased a collection of Ligeti recordings, and I have no idea why, but it wasn't an acident and so I will listen to them.
+    \item An existential-like requirement that does not require the agent to reason to the means from an end.
+    \item Some cases of reasoning may satisfy this requirement.
+      \begin{itemize}
+      \item At some point I purchased a collection of Ligeti recordings, and I have no idea why, but it wasn't an acident and so I will listen to them.
+      \end{itemize}
     \end{itemize}
-  \end{itemize}
+  }
+  \only<3>{
+    \vspace{-10pt}
+    \begin{exampleblock}{}
+      \begin{itemize}
+        \setlength\itemsep{-.1em}
+      \item On your desk is a stack of papers.
+      \item You recognise that you created the stack for some end, but you cannot recall what that end is.
+      \item You are confident that the end remains relevant to you, and you begin to work through the stack.
+      \item As you work through the stack, you begin to recall the research project that led you to forming the stack.
+      \end{itemize}
+    \end{exampleblock}
+  }
 \end{frame}
+
 
 \begin{frame}
   \frametitle{I will argue \emph{for}:}
@@ -349,16 +379,19 @@
 \begin{frame}
   \frametitle{Negative argument}
 
+  {%
+  \setbeamertemplate{enumerate item}{N\arabic{enumi}.}
   \begin{enumerate}
   \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
   \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
 
-  \item[C\(_{\text{i}}\)] \schemaName{Reasoning} does not hold.
+  \item \schemaName{Reasoning} does not hold.
     % \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
     \begin{itemize}
     \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
     \end{itemize}
   \end{enumerate}
+  }
 
   \hozlinedash
   {\footnotesize
@@ -446,16 +479,19 @@
 \begin{frame}
   \frametitle{Negative argument (recap)}
 
+  {%
+  \setbeamertemplate{enumerate item}{N\arabic{enumi}.}
   \begin{enumerate}
-  \item There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
-  \item And, in these cases the agent is rational in settling on the means.
+  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
+  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
 
-  \item[C\(_{\text{i}}\)] \schemaName{Reasoning} does not hold.
+  \item \schemaName{Reasoning} does not hold.
     % \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
     \begin{itemize}
     \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
     \end{itemize}
   \end{enumerate}
+  }
 
   \hozlinedash
   {\footnotesize
@@ -491,284 +527,271 @@
 \label{sec:two-principles}
 
 \begin{frame}
-    \frametitle{Positive Argument}
+  \frametitle{Positive Argument}
+  \only<1>{
 
+    {%
+      \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+      \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+      \begin{enumerate}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent evaluates the action as a means}, and
+        \item \emph{the evaluation supports settling on the action as a means}.
+        \end{enumerate}
+      \item \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+        \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
+        \end{enumerate}
+      \end{enumerate}
+    }
+  }
+  \only<2>{
+    {%
+      \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+      \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+      \begin{enumerate}
+        \setcounter{enumi}{2}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+        \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
+        \end{enumerate}
+      \end{enumerate}
+    }
+    \hozlinedash
+    {%\footnotesize
+      \begin{block}{Taking}
+        A rational agent is permitted to settle on an action (in part) as a means
+        \newline
+        \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+        \newline
+        the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
+      \end{block}
+    }
+  }
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Evaluation}
+  \begin{block}{Principle: Evlauation}
+    An agent evaluates an action if and only if the agent evaluates
     \begin{enumerate}
-    \item A rational agent is permitted to settle on an action (in part) as a means only if the agent \emph{takes there to be a means-end relation supporting the means (and has an evaluation of the end)}.
-    \item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means and \emph{evaluates the end positively}.
+    \item whether the action is possible, and \hfill \only<2->{(\(\approx\)\emph{mind-to-world})}
+    \item whether the action is worthwhile. \hfill \only<2->{(\(\approx\)\emph{world-to-mind})}
     \end{enumerate}
-    \begin{itemize}
-    \item The first part establishes that the agent takes there to be a means-end relation from an end supporting the relevant means.
-    \item The second part builds on the first and establishes that the agent has the relevant end.
-    \end{itemize}
+  \end{block}
+  \btVFill
+  \only<3->{
+    The `if and only if' of principle \principleName{Evaluation} does not exclude other considerations contributing to an agent's evaluation of an action, but these are not required.
 
-    % \hozlinedash
-    % {\footnotesize
-    % \begin{block}{Taking}
-    %   A rational agent is permitted to settle on an action (in part) as a means
-    %   \newline
-    %   \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    %   \newline
-    %   the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
-    % \end{block}
-    % }
+    \begin{itemize}
+    \item[\hand] This does not commit the agent to evaluating the action \emph{as} possible and worthwhile.
+    \end{itemize}
+  }
+  \btVFill
 \end{frame}
 
-
-
 \begin{frame}
-  \frametitle{Part 1}
+  \frametitle{Premise P1}
 
-  \begin{enumerate}
-\item\label{premise:permit-eval-means} A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
+  {%
+    \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+    \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+    \begin{enumerate}
+    \item A rational agent is permitted to settle on an action (in part) as a means only if
+      \begin{enumerate}
+      \item \emph{the agent evaluates the action as a means}, and
+      \item \emph{the evaluation supports settling on the action as a means}.
+      \end{enumerate}
+    \end{enumerate}
+  }
+  \hozlinedash
+  \btVFill
+  \only<2>{
     \begin{itemize}
-    \item By premises \ref{premise:means-req-eval} and~\ref{premise:able-eval-means} and noting that permissibility requires ability.
+    \item The role of the action as a means \emph{does some work} in establishing that settling on the action is permissible.
+    \item The role of the action as a means counts in favour of the action; it positively contributes to settling the issue of acting.
+      \begin{itemize}
+      \item Consider Oblique in the supermarket, if they did not consider the action as a means, they would not settle on purchasing the item.
+      \end{itemize}
     \end{itemize}
-  \begin{enumerate}
-  \item\label{premise:means-req-eval} A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
-    \begin{itemize}
-    \item For an rational agent to take an action (in part) as a means requires the agent evaluates the action.
-    \end{itemize}
-  \item\label{premise:able-eval-means} A rational agent is \emph{able} to evaluate an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
-    \begin{itemize}
-    \item Whether an action is worthwhile (as a means) depends on whether the end to the means is worthwhile.
-    \end{itemize}
-  \end{enumerate}
-\end{enumerate}
-
+  }
+  \only<3>{
+    \begin{example}
+      I reason that settling on listing to Taeko Ohnuki's \emph{Sunshower} in part as a means to relaxing to be permissible.
+      Relaxing then does some work in my reasoning, even if I would have reasoned that listing to \emph{Sunshower} would be permissible based on how nice it sounds.
+      If I reasoned that listing to \emph{Sunshower} would be permissible based only on how nice it sounds, then I would not have settling on the action in part as a means to relaxing.
+    \end{example}
+  }
+  \btVFill
 \end{frame}
 
-
-
 \begin{frame}
-  \frametitle{Premise 1.1}
-
-  \begin{itemize}
-  \item[1.\ref{premise:means-req-eval}] A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
-  \end{itemize}
-
-
-
-  I take premise~\ref{premise:means-req-eval} to be fairly uncontroversial.
-
-  A rational agent settles on an action as the result of some practical reasoning about the action (and other actions), and the agent's evaluation of the action is just the result of their reasoning about the action.
-
+  \frametitle{Premise P2}
+  {%
+    \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+    \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+    \begin{enumerate}
+      \setcounter{enumi}{1}
+    \item \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+    \end{enumerate}
+  }
   \hozlinedash
 
-  To expand on the content of the premise a little further:
-
-  An evaluation of the action, roughly, is the result of reasoning about whether the action is a) possible, and b) worthwhile.
-
-
-  In folk-theoretic terms, an evaluation of an action consists in a belief about whether the action can be performed and whether the action is desirable.
-  Alternatively, an evaluation of an action may be cast in terms a weighing of reasons for an against the action.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Premise 1.1}
-
-  There is, however, some room for controversy.
-
-For example, there may be cases in which an agent is unable to evaluate a collection of actions but is rational on settling on one of those actions.
-To illustrate: You must hang out with either My Melody or Dear Daniel, and without any additional information you may be unable to evaluate these alternatives but be rational when settling on hanging out with My Melody (or Dear Daniel).
-
-This is where the restriction of the agent settling on the action (in part) as a means does some work.
-For, if an agent regards the action (in part) as a means, this commits the agent to having evaluated the action in some way the reflects on how they are settling on the action.
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Premise 1.2}
-
-  \begin{enumerate}
-  \item[1.\ref{premise:able-eval-means}] A rational agent is \emph{able} to evaluate an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
-  \end{enumerate}
-
-  \hozlinedash
-
-  Subargument:
-
-  \begin{enumerate}
-  \item If an action is evaluated (in part) as a means, then the role of the action as a means is part of the evaluation of the action.
-  \item Hence, the evaluation of the action as a means can be isolated.
-  \item Part of the evaluation of an action is whether the action is worthwhile.
-  \item Whether a means is worthwhile depends on whether the end to the means is worthwhile.
-  \item The evaluation requires the evaluation of some action or outcome which functions as an end and a means-end relation from the end to the means.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Dependency principle}
-
-  \begin{block}{Dependency principle}
-    Whether a means is worthwhile depends on whether the end to the means is worthwhile.
+  \begin{block}{Principle: Means-end relation}
+    An action is (in part) a means only if it is part of a supporting means-end relation.
   \end{block}
 
-The principle is part of what it is for an action to be evaluated as a means.
+  \begin{block}{Principle: Means-end dependence}
+    Whether an action is worthwhile as a means depends on whether the end is possible and worthwhile.
+  \end{block}
 
-\hozlinedash
-\only<+>{
-\begin{itemize}
-\item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
-  \begin{itemize}
-  \item The agent settles on the action (in part) as a means, and nothing follows if the agent does not consider the action (in part) as a means.
-  \end{itemize}
-\end{itemize}
-}
-\only<+>{
-\citeauthor{Raz:2005aa}:
-\begin{quote}
-    the value of the means derives from the value of the ends \dots
-    If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.%\nolinebreak
-  % \mbox{ }\hfill(\cite[2]{Raz:2005aa})
-\end{quote}
-\citenote{\fullcite{Raz:2005aa}\newline}
-}
-\only<+>{
-  \citeauthor{Hume:2011aa} writes:
+\end{frame}
 
-  \begin{quote}
-    I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.%\nolinebreak
-    % \mbox{ }\hfill\mbox{\hfill}
-  \end{quote}
-  \citenote{\fullcite[(T2.3.3)]{Hume:2011aa}}
-}
-\only<+>{
-\begin{itemize}
-\item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
-  \begin{itemize}
-  \item The agent settles on the action (in part) as a means, and nothing follows if the agent does not consider the action (in part) as a means.
-  \end{itemize}
-\end{itemize}
-}
+\begin{frame}
+  \frametitle{Means-end relation}
+
+  \begin{block}{Principle: Means-end relation}
+    An action is (in part) a means only if it is part of a supporting means-end relation.
+  \end{block}
+  \btVFill
+  \vspace{-10pt}
+
+  To understand an action as a means is to understand the action supports achieving something in some way.
+That something is the end.
+And, that the means achieves the end in some way establishes the relation.
+
 \btVFill
 \end{frame}
 
 \begin{frame}
-  \frametitle{Part 1 (recap)}
+  \frametitle{Means-end dependence}
 
-  \begin{enumerate}
-\item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
-    \begin{itemize}
-    \item By premises \ref{premise:means-req-eval} and~\ref{premise:able-eval-means} and noting that permissibility requires ability.
-    \end{itemize}
-  \begin{enumerate}
-  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent evaluates the action.
-    \begin{itemize}
-    \item For an rational agent to take an action (in part) as a means requires the agent evaluates the action.
-    \end{itemize}
-  \item A rational agent is \emph{able} to evaluate an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means (and has an evaluation of the end).
-    \begin{itemize}
-    \item Whether an action is worthwhile (as a means) depends on whether the end to the means is worthwhile.
-    \end{itemize}
-  \end{enumerate}
-\end{enumerate}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Part 2}
-
-  \begin{enumerate}
-    \setcounter{enumi}{1}
-\item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means and evaluates the end positively.
-  \begin{itemize}
-  \item By premises~\ref{premise:means-req-expand} and~\ref{premise:permit-eval-means}.
-  \end{itemize}
-  \begin{enumerate}
-  \item\label{premise:means-req-expand} A rational agent evaluates an action (in part) as a means only if the role of the action as a means is a non-redundant and positive part of the agent’s evaluation of the action.
-  % \begin{itemize}
-  % \item Specification of the role of the means in the agent's evaluation of an action (in part) as a means.
-  % \end{itemize}
-  \end{enumerate}
-\end{enumerate}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{Premise 2.1}
-
-  \begin{enumerate}
-  \item[2.\ref{premise:means-req-expand}] A rational agent evaluates an action (in part) as a means only if the role of the action as a means is a non-redundant and positive part of the agent’s evaluation of the action.
-  \end{enumerate}
-
-  \hozlinedash
-\end{frame}
-
-\begin{frame}
-  \frametitle{Premise 2.1, redundancy}
-
-  \begin{itemize}
-  \item An agent is irrational if they are permitted to settle on an action (in part) as a means while taking the role of the action as a means is as redundant.
-  \item The role of the action as a means is redundant if the agent's evaluation of the action would be the same were the action not considered a means.
-  \item The irrationality is due to the divergence between the agent's evaluation and characterisation of the action, given the agent's characterisation.
-  \begin{itemize}
-  \item The agent's evaluation of the action is independent of the action being (in part) a means, while their characterisation of the action depends on the action being (in part) a means.
-  \end{itemize}
-\item This does not entail the agent would be irrational for settling on the \emph{action}.
-  For, the form of irrationality is the divergence between evaluation and characterisation.
-  A rational agent's characterisation of an action must broadly reflect it's functional profile.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Premise 2.1, has}
-
-  \begin{itemize}
-  \item By redundancy, the means has a role, and from similar reasoning the end counts in favour.
-  \item Roughly, if the end did not count in favour of the action, then the agent would not settle on the end as a means.
-  \item The agent may note the consequence, but this would not be part of what establishes the action as permissible.
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Positive Argument (recap)}
-
-  \begin{enumerate}
-  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent \emph{takes there to be a means-end relation supporting the means (and has an evaluation of the end)}.
-  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means and \emph{evaluates the end positively}.
-  \end{enumerate}
-
-  \begin{itemize}
-  \item The first part establishes that the agent takes there to be a means-end relation from an end supporting the relevant means.
-  \item The second part builds on the first and establishes that the agent has the relevant end.
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Positive Argument (recap)}
-
-  \begin{enumerate}
-  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent \emph{takes there to be a means-end relation supporting the means (and has an evaluation of the end)}.
-  \item A rational agent is permitted to settle on an action (in part) as a means only if the agent takes there to be a means-end relation supporting the means and \emph{evaluates the end positively}.
-  \end{enumerate}
-
-  \hozlinedash
-  {\footnotesize
-  \begin{block}{Taking}
-    A rational agent is permitted to settle on an action (in part) as a means
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
+  \begin{block}{Principle: Means-end dependence}
+    Whether an action is worthwhile as a means depends on whether the end is possible and worthwhile.
   \end{block}
+  \btVFill
+  \vspace{-10pt}
+  \only<+>{
+    Three are two key parts this principle:
+    \begin{enumerate}
+    \item The evaluation of end as possible.
+    \item The evaluation of end as worthwhile
+    \end{enumerate}
+
+    \begin{itemize}
+    \item If the end is not possible, then the means is not worthwhile.
+    \item If the end is not worthwhile, then the relevant action is not worthwhile as a means.
+    \end{itemize}
   }
+  \only<+>{
+
+    \begin{quote}
+      the value of the means derives from the value of the ends \dots
+      If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.
+    \end{quote}
+    \citenote{\fullcite{Raz:2005aa}\newline\mbox{}}
+  }
+  \only<+>{
+    \begin{quote}
+      I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.
+    \end{quote}
+    \citenote{\fullcite{Hume:2011aa}}
+  }
+  \btVFill
 \end{frame}
 
 \begin{frame}
-  \frametitle{I have argued \emph{for}:}
-    \begin{block}{Taking}
-    A rational agent is permitted to settle on an action (in part) as a means
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
-  \end{block}
+  \frametitle{Premise P3}
+  {%
+    \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+    \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+    \begin{enumerate}
+      \setcounter{enumi}{2}
+    \item A rational agent is permitted to settle on an action (in part) as a means only if
+      \begin{enumerate}
+      \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+      \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
+      \end{enumerate}
+    \end{enumerate}
+  }
+  \hozlinedash
+  \btVFill
+  \only<2>{
+    \begin{enumerate}
+    \item In order for the agent to evaluate the action as a means the agent must take there to be a means-end relation supporting the means and evaluates the end.
+    \item The evaluation supports settling on the action as a means, then the evaluation supports settling on the action as a means to the end.
+    \end{enumerate}
+
+    The agent `has' the end as the evaluation of the end supports settling on the action as a means (to the end).
+    The agent's evaluation of the end does work in establishing actions as permissible.
+  }
+  \only<3>{
+    {\footnotesize
+      \begin{block}{Taking}
+        A rational agent is permitted to settle on an action (in part) as a means
+        \newline
+        \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+        \newline
+        the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
+      \end{block}
+    }
+  }
+  \btVFill
 \end{frame}
+
+\begin{frame}
+  \frametitle{Positive Argument (recap)}
+  \only<1>{
+    {%
+      \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+      \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+      \begin{enumerate}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent evaluates the action as a means}, and
+        \item \emph{the evaluation supports settling on the action as a means}.
+        \end{enumerate}
+      \item \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+        \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
+        \end{enumerate}
+      \end{enumerate}
+    }
+  }
+  \only<2>{
+    {%
+      \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
+      \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
+      \begin{enumerate}
+        \setcounter{enumi}{2}
+      \item A rational agent is permitted to settle on an action (in part) as a means only if
+        \begin{enumerate}
+        \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+        \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
+        \end{enumerate}
+      \end{enumerate}
+    }
+    \hozlinedash
+    {\footnotesize
+      \begin{block}{Taking}
+        A rational agent is permitted to settle on an action (in part) as a means
+        \newline
+        \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+        \newline
+        the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
+      \end{block}
+    }
+  }
+
+\end{frame}
+
 
 \section{Summary}
 \label{sec:summary}
