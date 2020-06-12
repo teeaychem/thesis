@@ -1,5 +1,5 @@
 \documentclass[10pt]{article}
-% \usepackage[margin=1in]{geometry}
+\usepackage[margin=1.25in]{geometry}
 % \newcommand\hmmax{0}
 % \newcommand\bmmax{0}
 % % % Fonts% %
@@ -10,12 +10,19 @@
 \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
    \usepackage{bm}% Access to bold math symbols
    % \usepackage[onlytext]{MinionPro}
-   \usepackage[no-math]{fontspec}
+      \usepackage[no-math]{fontspec}
    \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-   \setmainfont[Ligatures=TeX]{Minion 3}
-   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
-   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   \setmainfont[Ligatures=TeX,Scale=MatchLowercase]{Source Serif Pro}
+   \setsansfont[Ligatures=TeX,Scale=MatchLowercase,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Source Code Pro}
+
+   % \usepackage[no-math]{fontspec}
+   % \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   % \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   % \setmainfont[Ligatures=TeX]{Minion 3}
+   % \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   % \setmonofont[Scale=0.8]{Atlas Typewriter}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
    \usepackage{microtype}
 % % % % % % %
@@ -60,11 +67,7 @@
 
 % % % Red Math % % %
 \usepackage[usenames, dvipsnames]{xcolor}
-% \usepackage{everysel}
-% \EverySelectfont{\color{black}}
-% \everymath{\color{red}}
-% \everydisplay{\color{black}}
-\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+\definecolor{fuchsia}{HTML}{Fe4164}%Neon Fuchsia %{F535AA}%Neon Pink
 % % % % % % % % % %
 
 \usepackage{pifont}
@@ -86,8 +89,8 @@
 
 \usepackage{multicol}
 
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+% \setcounter{secnumdepth}{4}
+% \setcounter{tocdepth}{4}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning}
@@ -97,6 +100,32 @@
 \usetikzlibrary{tikzmark}
 \usetikzlibrary{patterns}
 
+\usepackage{tcolorbox} % For beamer style boxes
+\tcbuselibrary{skins,breakable}
+
+
+% \definecolor{darkred}{rgb}{0.8,0,0}
+\newenvironment{beamerblock}[1]{%
+  \tcolorbox[standard,%
+  no shadow,
+  % skin=beamermiddle,
+  noparskip,
+  % breakable,
+  colback=white,
+  colframe=black,
+  colbacktitle=white,
+  coltitle=black,
+  colupper=black,
+  size=small,
+  boxrule=.125mm,
+  fonttitle=\bfseries,
+  sharp corners=all,
+  % colbacklower=LimeGreen!75!LightGreen,%
+  title=#1]}%
+{\endtcolorbox}
+
+
+
 
 \usepackage{graphicx} % for images (png/jpeg etc.)
 \usepackage{caption} % for \caption* command
@@ -104,89 +133,965 @@
 
 \usepackage{tabularx}
 
-\usepackage{bussalt}
-
 \usepackage{Oblique} % Custom package for oblique commands
 \usepackage{CustomTheorems}
 
 \usepackage{svg}
-\usepackage[off]{svg-extract}
-\svgsetup{clean=true}
 
-
-
+% % % % % % % % % % % % % % % % % %
 \usepackage{dashrule}
-
 \newcommand{\hozline}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
   %\vspace{-10pt}
   % \noindent\rule{\textwidth}{.1pt}
 }
-
 \newcommand{\hozlinedash}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
   %\vspace{-10pt}
 }
+% % % % % % % % % % % % % % % % % %
+
+\newcommand{\schemaName}[1]{\textsf{#1}}
+\newcommand{\dependencePrinciple}[0]{\textsf{Dependence Principle}}
 
 \usepackage{contour}
  % \usepackage{pdfrender}
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-\title{Fourth Year Talk Outline}
+\title{Means-end relations and means-end reasoning}
 \author{Ben Sparkes}
-% \date{ }
+% \date{June}
 
 
 \begin{document}
-\pagestyle{empty}
+% \pagestyle{empty}
 
-\noindent \textbf{I will be arguing}:
-\begin{enumerate}[label=\roman*.]
-\item Against the position that an agent is permitted to settle on a means only if the agent settling on those means as the result of their reasoning from some end to those means.
+\tableofcontents
 
-\item For the position that what permits the agent to settle on a means is the agent's recognition of the existence of a means-end relationship (from an end the agent has) which supports taking the relevant means.
+\newpage
+
+\maketitle
+
+
+
+\hozlinedash
+
+% \begin{itemize}
+% \item Practical reasoning.
+% \item What is required, from a rational agent's point of view, for the agent to be permitted to settle on an action.
+% \item `Rational' is a difficult adjective, pre-theoretic or intuitive judgement; narrows down phenomena of interest.
+% \item Familiar idea, reasoning from ends to means.
+% \end{itemize}
+
+% \hozlinedash
+
+\begin{itemize}[noitemsep]
+\item I like to think of the philosophy of action as providing a toolbox for understand the practical agency.
+\item Inside the toolbox we have beliefs, desires, intentions, reasons, means-end relations, the Instrumental Principle, and so on.
+\item One of these tools is representing an agent's reasoning when settling on an action (in part) as a means as a process which includes starting with an end and establishing that the action is a means to the end.
+\item If there are cases where this tool fails for understanding some instance of practical agency, what is required?
+  And can the replacement tool be used to enrich our understanding of other cases of practical agency?
+\end{itemize}
+
+\hozlinedash
+
+\begin{enumerate}[label=\Alph*, ref=(\Alph*)]
+\item It is \emph{not} the case that in order for an agent to settle on an action (in part) as a means the agent needs to \emph{reason via} a means-end relation from an end they have supporting that action.
+\item It is the case that in order for an agent to settle on an action (in part) as a means the agent needs to \emph{takes there to be} a means-end relation from an end they have supporting that action.
 \end{enumerate}
 
-\noindent\textbf{Argument:}
+\hozlinedash
+
+\begin{itemize}[noitemsep]
+\item The purpose of the talk is to convince you of these two claims.
+\item Putting the positive claim to work will be left for some other time, perhaps the Q\&A!
+\item My goal is establish the positive claim so that you can have some fun putting it to work.
+\item I want \emph{you} to apply the positive claim to your favoured theory or model of practical reasoning and show \emph{me} the interesting stuff it can do!
+\item Though, so long as things go okay today, I'll do \emph{some} of this work in the thesis\dots
+\end{itemize}
+
+
+\newpage
+
+\section{A Means-end schema}
+\label{sec:means-end-schema}
+
+
+\begin{itemize}
+\item A significant part of practical reasoning is connecting means to ends.
+\item In particular, when a rational agent settles on an action as a means (as a means), then it seems there must be a means-end relation from an end the agent has which supports the means.
+\end{itemize}
+
+\begin{beamerblock}{Means-end schema}
+  A rational agent is permitted to settle on an action (in part) as a means
+  \newline
+  \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+  \newline
+  the agent [{does something with}] a means-end relation from an end they have which supports taking the action.
+\end{beamerblock}
+
+There are four key parts to this schema:
+\begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+\item A rational agent.
+\item The agent being permitted to settle on a means.
+  \begin{itemize}
+  \item The relevant action does not need to exclusively be a means.
+  \end{itemize}
+\item A means-end relation from an end the agent has which supports taking the means.
+\item The link the agent has to the specified means-end relation.
+\end{enumerate}
+
+\begin{itemize}
+\item[\hand] As the schema is the form of a necessary condition, the interest is in what restrictions can be placed on rationally permissible settling by filling in how the link the agent has to the means-end relation.
+  \begin{itemize}
+  \item More can be said about what makes an actions rationally permissible.
+    However, bracketing this issue produces a quite general claim about means-end relations.
+  \item {\color{red} Strengthening the schema with a constraint such as there is \dots}
+  \item The use of `rationality' here is relatively weak.
+    For present purposes a rational agent is one who we are able to make pre-theoretic sense of.
+  \end{itemize}
+\item Note, however, the condition that the means is settled on \emph{as a means}.
+  The purpose of this restriction is to narrow attention to instances of settling where an end is irrelevant to an agent's settling on a means.
+  \begin{example}
+    Kale is high in vitamin K, and an agent may eat kale because they enjoy the taste or as a means to correcting a vitamin K deficiency.
+    \begin{itemize}
+    \item If the agent likes the taste of kale and the vitamin content is irrelevant to them, then they may settle on eating kale, but it will not be as a means, even though they may be aware of its benefits.
+    \item If the agent settles on eating kale regardless of its taste and texture for its vitamin K content, then the agent settles on eating kale as a means.
+    \end{itemize}
+  \end{example}
+\end{itemize}
+
+
+\begin{itemize}
+\item For the moment I take this schema to be intuitive.
+  Later in the talk I will provide an argument for a specific instance of it.
+\end{itemize}
+
+
+% \begin{quote}
+%   But is not anything wantable, or at least any perhaps attainable thing?
+%   It will be instructive to anyone who thinks this to approach someone and say:
+%   `I want a saucer of mud' or `I want a twig of mountain ash'.
+%   He is likely to be asked what for; to which let him reply that he does not want it \emph{for} anything, he just wants it.
+%   It is likely that the other will then perceive that a philosophical example is all that is in question, and will pursue the matter no further; but supposing that he did not realise this, and yet did not dismiss our man as a dull babbling loon, would  he not try to find out in what aspect the object desired is desirable?
+%   Does it serve as a symbol?
+%   Is there something delightful about it?
+%   Does the man want to have something to call his own, and no more?
+%   Now if the reply is: `Philosophers have taught that anything can be an object of desire; so there can be no need for me to characterise these objects as somehow desirable; it merely so happens that I want them' then this is fair nonsense.\nolinebreak
+%   \mbox{ }\hfill\mbox{(\citeyear[70--71]{Anscombe:1957aa})}
+% \end{quote}
+
+\hozlinedash
+
+\newpage
+
+\subsection{Two instances of the means-end schema}
+\label{sec:two-instances-means}
+
+\subsubsection{Reasoning}
+\label{sec:reasoning}
+
+\begin{beamerblock}{\schemaName{Reasoning}}
+  A rational agent is permitted to settle on an action (in part) as a means
+  \newline
+  \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+  \newline
+  the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the action.
+\end{beamerblock}
+
+\hozlinedash
+
+In some instances of practical reasoning agents reason from an end they have to a means.
+For example, \citeauthor{Broome:2002aa} opens \citetitle{Broome:2002aa} with the following example (of practical reasoning):
+
+\begin{quote}
+  You might reason like this:
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*)]
+  \item\label{Broome:1a} I am going to buy a boat \hfill (1a)
+  \end{enumerate}
+
+  and
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*), resume]
+  \item\label{Broome:1b} For me to buy a boat, a necessary means is to borrow money \hfill (1b)
+  \end{enumerate}
+  so
+
+  \begin{enumerate}[label={\color{white} (1\alph*)}, ref=(1\alph*), resume]
+  \item\label{Broome:1c} I shall borrow money. \hfill (1c)
+  \end{enumerate}
+
+\end{quote}
+
+\citeauthor{Broome:2002aa} goes on to say:
+
+\begin{quote}
+  [This reasoning] it gets as close to action as reasoning can.
+  Your reasoning process is a particular type of practical reasoning.
+  It is \emph{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
+\end{quote}
+
+\begin{itemize}[noitemsep]
+\item Instrumental reasoning is concerned with taking appropriate means to an end.
+\item \citeauthor{Broome:2002aa} puts emphasis of this type of reasoning being \emph{instrumental} reasoning.
+\item My interest is whether emphasis can be placed on the copula; whether this kind of reasoning \emph{is} instrumental reasoning.
+  \begin{itemize}[noitemsep]
+  \item If so, \schemaName{Reasoning} would seem to hold, as the agent reason from an end \ref{Broome:1a} to a means \ref{Broome:1c} by a means end relation \ref{Broome:1b}.
+  \end{itemize}
+\end{itemize}
+
+\hozlinedash
+
+\begin{itemize}
+\item More generally, the relevant reasoning may take various forms.
+  The key is that an end and a means-end relation supporting the end are used by the agent (in their reasoning) to settle on an end.
+\end{itemize}
+
+The `only if' direction of \citeauthor{Sinhababu:2017aa}'s \emph{Desire–Belief Theory of Reasoning} may be seen as an instance of \schemaName{Reasoning}:
+
+\begin{quote}
+  The Desire–Belief Theory of Reasoning: Desire is affected as the conclusion of reasoning if and only if desire that E is combined with belief that M would raise E’s probability, constituting desire that M.\nolinebreak
+  \mbox{ }\hfill\mbox{(\citeyear[2,39]{Sinhababu:2017aa})}
+\end{quote}
+Here \citeauthor{Sinhababu:2017aa} takes A, E, and M to suggest ``action'', ``end'', and ``means'' (\citeyear[2]{Sinhababu:2017aa}).
+The relevant missing premise is that an agent is rationally permitted to settle on an action only if the agent desires the action.
+
+
+\hozlinedash
+
+\subsubsection{Taking}
+\label{sec:taking}
+
+\begin{beamerblock}{\schemaName{Taking}}
+  A rational agent is rationally permitted to settle on an action (in part) as a means
+  \newline
+  \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+  \newline
+  the agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the action.
+\end{beamerblock}
+
+\hozlinedash
+
+In some instances of practical reasoning agents seem to settle on actions (in part) as means without being able to reason from an end to the means.
+
+Two sketches:
+
+\begin{enumerate}[label=\Alph*., ref=(\Alph*)]
+\item \begin{itemize}[noitemsep]
+  \item On your desk is a stack of papers.
+  \item You recognise that you created the stack for some end, but you cannot recall what that end is.
+  \item You are confident that the end remains relevant to you, and you begin to work through the stack.
+  \item As you work through the stack, you begin to recall the research project that led you to forming the stack.
+  \end{itemize}
+
+\item \begin{itemize}[noitemsep]
+  \item In my music library is a collection of Ligeti recordings.
+  \item I cannot recall why I purchased these, but I had some end in mind when I did --- the purchase was no accident.
+  \item As I purchased the recordings and my music tastes have not substantially changed in some time, I may listen to these in pursuit of the end I had in mind when purchasing them.
+  \end{itemize}
+\end{enumerate}
+
+\begin{itemize}
+\item This is an existential-like requirement that does not require the agent to connect the means to an end.
+\item This is compatible with \schemaName{Reasoning}, and I think it is natural to understand \schemaName{Reasoning} as entailing \schemaName{Taking}.
+\end{itemize}
+
+\hozlinedash
+
+\newpage
+
+\section{Argument}
+\label{sec:argument}
+
+\subsection{Argument overview}
+\label{sec:argument-overview}
+
+The argument is split into two parts:
+\begin{enumerate}[label=\roman*., ref=(\roman*)]
+\item\label{position:Against} A negative part \textbf{against} \schemaName{Reasoning}.
+\item\label{position:For} A positive part \textbf{for} \schemaName{Taking}.
+\end{enumerate}
+
+\hozline
+
+\subsubsection{Negative part overview}
+\label{sec:negat-part-overv}
+
+The negative argument is establishing a counterexample to \schemaName{Reasoning}.
+This is given by a scenario where the antecedent of \schemaName{Reasoning} is satisfied and the consequent is not.
+
+\hozlinedash
+
+\begin{enumerate}[label=N\arabic*., ref=(N\arabic*)]
+\item\label{scenarios:exist} There are cases in which agents recognise an action as a means without being able to reason from an end they have to action \dots
+\item\label{scenarios:persmissible} \dots and in these cases the agent is rational in settling on the means.
+\item[NC.]\label{scenario:no-reasoning} It is not the case that:
+  An agent is rationally permitted to settle on a means (as a means)  \emph{only if} the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means.
+\end{enumerate}
+
+\hozline
+
+\subsubsection{Positive part overview}
+\label{sec:posit-part-overv}
+
+The positive argument for \schemaName{Taking} is made in three steps.
+\begin{itemize}[noitemsep]
+\item First, establish that for a rational agent it is permissible to settle on an action (in part) as a means only if the role of the action as a means does some work.
+\item Second, establishing that for the means to do some work there must be a supporting means-end relation and evaluation of the end.
+\item Third, the two initial premises are combined to form an instance of \schemaName{Taking}.
+\end{itemize}
+
+\hozlinedash
+
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+\item\label{premise:positive:evaluate-means} A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item\label{premise:positive:evaluate-means:evaluate} \emph{the agent evaluates the action as a means}, and
+  \item\label{premise:positive:evaluate-means:supports} \emph{the evaluation supports settling on the action as a means}.
+  \end{enumerate}
+\item\label{premise:positive:principle-dependency} \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+\item\label{premise:positive:evaluate-end} A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+  \item \emph{the evaluation supports settling on the action as a means to the end}.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*), resume]
+\item[PC.] It is the case that:
+  An agent is rationally permitted to settle on a means (as a means) \emph{only if} the agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+\end{enumerate}
+
+
+
+\newpage
+
+\subsection{Negative part}
+\label{sec:negative-part}
+
+
+% Illustration of case supporting premises \ref{scenarios:exist} and \ref{scenarios:persmissible}.
+
+\hozlinedash
+
+\begin{enumerate}[label=N\arabic*., ref=(N\arabic*)]
+\item There are cases in which agents recognise an action as a means without being able to reason from an end they have to action.
+\item And, in these cases the agent is rational in settling on the means.
+\item[NC.] It is not the case that:
+  An agent is rationally permitted to settle on a means (as a means)  \emph{only if} the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means.
+\end{enumerate}
+
+\hozlinedash
+
+\begin{scenario}[Supermarket]
+  Oblique regains consciousness after a moment of darkness.
+  They are in a supermarket, and their hand is stretched toward an item on a shelf.
+  Oblique is unable to recall why they are in the supermarket and is unable to recognise what the item on the shelf would be for.
+  Oblique does not have a shopping list.
+  However, Oblique's outstretched hand indicates to them that they were about to purchase the item, and so they do.
+\end{scenario}
+
+
+\begin{itemize}
+\item Oblique is unable to recall the end that led them to reaching for an item in the supermarket, and does not consider specific candidate ends.
+\item Instead, Oblique reasons that the item on the shelf is a means to some end, that they understood how the item supported the relevant end, and that the relation of support continues to hold.
+\item It would make no sense for Oblique to purchase the item if Oblique did not see it as a means to some end.
+\item Implausible to assume that Oblique could generate plausible means-end relations as shopping in the supermarket may be highly unusual for them.
+\end{itemize}
+
+
+
+
+\hozlinedash
+
+\begin{itemize}
+\item Oblique appears rationally permitted to settle on reading a paper in the folder (as a means).
+  This is because:
+  \begin{itemize}
+  \item Oblique considers reading a paper only as a means to some end.
+  \item There are many means-ends relations from Oblique's end of making progress on their research project which could support taking the means.
+  \item Oblique takes it to be that (at least) one of the possible means-end relations holds.
+  \end{itemize}
+\item Oblique is unable to reason via an particular means-end relation from their end of making progress on their research to reading a paper in the folder.
+\end{itemize}
+
+
+\begin{itemize}
+\item The case supports premises \ref{scenarios:exist} and~\ref{scenarios:persmissible}, and in a counterexample to \schemaName{Reasoning}.
+\item The case also provides some non-deductive support for \schemaName{Taking}, but it is only an instance of the general claim made by \schemaName{Taking}.
+\end{itemize}
+
+
+\newpage
+
+\subsection{Positive part}
+\label{sec:positive-part}
+
+\hozlinedash
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+\item A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent evaluates the action as a means}, and
+  \item \emph{the evaluation supports settling on the action as a means}.
+  \end{enumerate}
+\item \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+\item A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+  \item \emph{the evaluation supports settling on the action as a means to the end}.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*), resume]
+\item[PC.] It is the case that:
+  An agent is rationally permitted to settle on a means (as a means)  \emph{only if} the agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means.
+\end{enumerate}
+
+\hozlinedash
+
+\subsection{Preliminaries}
+\label{sec:preliminaries-2}
+
+\begin{restatable}[Evaluation]{principle}{principleEvaluation}\label{principle:evaluation}
+  An agent evaluates an action if and only if the agent evaluates
+  \begin{enumerate}[noitemsep]
+  \item whether the action is possible, and
+  \item whether the action is worthwhile.
+  \end{enumerate}
+\end{restatable}
+
+The `if and only if' of principle~\ref{principle:evaluation} does not exclude other considerations contributing to an agent's evaluation of an action, but these are not required.
+
+\begin{itemize}
+\item[\hand] This does not commit the agent to evaluating the action \emph{as} possible and worthwhile.
+\end{itemize}
+
+In folk-theoretic terms, an evaluation of an action consists in a belief about whether the action can be performed and whether the action is desirable.
+Alternatively, an evaluation of an action may be cast in terms a weighing of reasons for an against the action.
+Distinguish between what \emph{can} be done and what \emph{should} be done.
+Etc.
+
+\newpage
+
+\subsection{Premise~\ref{premise:positive:evaluate-means}}
+\label{sec:positive:evaluate-means}
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+\item A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent evaluates the action as a means}, and
+  \item \emph{the evaluation supports settling on the action as a means}.
+  \end{enumerate}
+\end{enumerate}
+
+\hozlinedash
+
+
+The first premise of the positive part of the argument establishes that a rational agent is permitted to settle on an action (in part) as a means only if the role of the action as a means does some work in establishing the action as permissible.
+
+The separation of the premise into a static part and a dynamic part; what there is and how it is used.
+These parts will be argued for at the same time.
+
+\hozlinedash
+
+
+The agent evaluates whether the action is possible and whether the action is worthwhile.
+
+\begin{itemize}[noitemsep]
+\item The role of the action as a means counts in favour of the action; it positively contributes to settling the issue of acting.\nolinebreak
+\footnote{This is in more-or-less in line with \citeauthor{Hieronymi:2011aa}'s account of acting for a reason:
+  \begin{quote}
+    \dots whenever an agent acts for reasons, the agent, in some sense, takes certain considerations to settle the question of whether so to act, therein intends so to act, and executes that intention in action.
+    \begin{center}
+      [\dots]
+    \end{center}
+    I propose, then, that we explain an event that is an action done for reasons by appealing to the fact that the agent took certain considerations to settle the question of whether to act in some way, therein intended so to act, and successfully executed that intention in action.
+    \cite[421]{Hieronymi:2011aa}
+  \end{quote}
+  However, whether the agent intended to act, and whether the agent successfully executes that intention is unimportant at present.
+}
+\item If the role of the action as a means doesn't do any work, then the action is not settled on (in part) as a means.
+\end{itemize}
+
+\begin{itemize}[noitemsep]
+\item What is required for an evaluation to positively contribute depends on the details of what it is to be permitted to settle on an action.
+\item The key idea is that the evaluation does some positive work in the agent being permitted to settle on the action.
+  \begin{itemize}
+  \item Either the evaluation of the action as possible or the evaluation of the action as worthwhile would be lessened were the role of the action as a means not considered.
+  \item Consider Oblique in the supermarket, if they did not consider the action as a means, they would not settle on purchasing the item.
+  \end{itemize}
+\item The work the evaluation does may be redundant, in that the agent may upon further reasoning ignore the role of the action as a means and still be permitted to settle on the action.
+  What matters is that the role of the action as a means does some work in the relevant instance of settling.
+\end{itemize}
+
+
+\begin{example}
+  I reason that settling on listing to Taeko Ohnuki's \emph{Sunshower} in part as a means to relaxing to be permissible.
+  Relaxing then does some work in my reasoning, even if I would have reasoned that listing to \emph{Sunshower} would be permissible based on how nice it sounds.
+  If I reasoned that listing to \emph{Sunshower} would be permissible based only on how nice it sounds, then I would not have settling on the action in part as a means to relaxing.
+\end{example}
+
+\begin{example}
+  The role of running a marathon as a means to wearing down your running shoes does not contribute to settling on running the marathon, and so it would be impermissible for you to settle on running the marathon (in part) as a means to wearing down your running shoes.\nolinebreak
+  \footnote{Inspired by an example given by \citeauthor{Bratman:1987aa} in \citetitle{Bratman:1987aa} that I like. }
+\end{example}
+
+There may be cases in which an agent is permitted to settle on an action \emph{not} as the result of some reasoning about the action.
+However, in these cases the action cannot be settled on (in part) as a means, so long as the agent is rational.
+For, in these cases the agent settles without reasoning, and hence any role for the action as a means is not part of what establishes the action as permissible.
+
+\begin{example}
+  You must hang out with either My Melody or Dear Daniel, and without any additional information you may be unable to evaluate these alternatives.
+  Still, you may be rational when settling on hanging out with My Melody (or Dear Daniel).
+  However, you would not be rational to settling on hanging out with My Melody (or Dear Daniel) as a means (in part).
+\end{example}
+
+
+
+\hozlinedash
+
+How the action is evaluated is not important, as premise~\ref{premise:positive:evaluate-means} is a general claim about the permissible settling on an action (in part) as a means.
+However, premise~\ref{premise:positive:evaluate-means} may be easier to follow with an example of settling.
+
+Either informs whether the action is possible.
+\begin{itemize}
+\item Investing money.
+  As a means makes it possible.
+\end{itemize}
+Or informs whether the action is worthwhile.
+\begin{itemize}
+\item Taking a shower, as a means to getting clean.
+\end{itemize}
+
+
+\begin{itemize}
+\item Simple view is that the action is evaluated as possible and as sufficiently worthwhile.
+\end{itemize}
+
+\begin{itemize}[noitemsep]
+\item[\hand] What is required for an action to be sufficiently worthwhile depends on the details of what it is to be permitted to settle on an action.
+  \begin{itemize}
+  \item In general not much can be said.
+  \end{itemize}
+  \begin{itemize}[noitemsep]
+  \item This doesn't mean that the agent evaluates the action positively!
+    The agent could be making the best of a bad situation\dots
+  \item[\hand] For present purposes it is safe to assume the simple view that the agent takes the action to be (more) worthwhile (than any other action available to them).\nolinebreak
+    \footnote{
+      This simple view does not hold under all (maybe most) accounts of what it is for an action to be worthwhile.
+      \begin{example}
+        If you think that an agent is permitted to settle on an action just in case the agent maximises expected utility and utility is a measure of how worthwhile an action is, then there are cases in which the action with the greatest expected utility is not the action with the most utility.
+        For example, take two actions \(A_{1}\) and \(A_{2}\).
+        The utility of \(A_{1}\) is \(8\) and the utility of \(A_{2}\) is \(10\),
+        However, the probability of \(A_{1}\) is \(0.9\) and the probability of \(A_{2}\) is \(0.1\).
+        It follows that the expected utility of \(A_{1}\) is \(7.2\) and the expected utility of \(A_{2}\) is \(1\), hence the agent would not be permitted to settle on \(A_{2}\) even though it has greater utility.
+      \end{example}
+    }
+  \end{itemize}
+\item If the agent's evaluation of the action as a means does not support taking the action as a means, then the agent is not permitted to settle on the action as a means.
+\end{itemize}
+
+\hozlinedash
+
+\citeauthor{Davidson:1963aa} writes:
+
+\begin{quote}
+  A reason rationalizes an action only if it leads us to see something the agent saw, or thought he saw, in his action---some feature, consequence, or aspect of the action the agent wanted, desired, prized, held dear, thought dutiful, beneficial, obligatory, or agreeable.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[686]{Davidson:1963aa})}
+\end{quote}
+
+\begin{quote}
+  Whenever someone does something for a reason, therefore, he can be characterized as
+  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+  \item\label{davidson:a} having some sort of pro attitude toward actions of a certain kind, and
+  \item\label{davidson:b} believing (or knowing, perceiving, noticing, remembering) that his action is of that kind.
+  \end{enumerate*}
+  % \nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[686--686]{Davidson:1963aa})}
+\end{quote}
+
+\hozlinedash
+
+% \citeauthor{Anscombe:1957aa} example, also \citeauthor{Quinn:1993aa}.
+
+% With \citeauthor{Anscombe:1957aa} the agent insists that the value the saucer of mud.
+
+% \hozlinedash
+
+
+% \begin{itemize}
+% \item[\hand] This isn't quite enkrasia, but it's close.
+% \item Though enkrasia is all about intentions, so\dots
+% \end{itemize}
+
+
+\newpage
+
+\subsection{Premise~\ref{premise:positive:principle-dependency}}
+\label{sec:premise-2}
+
+Premise~\ref{premise:positive:principle-dependency} states what it required for an agent to evaluate an action as a means.
+
+\hozlinedash
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+  \setcounter{enumi}{1}
+\item \emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
+\end{enumerate}
+
+
+
+\hozlinedash
+
+If an agent evaluation an action then, by principle~\ref{principle:evaluation}, the agent evaluates whether the action is possible and whether the action is worthwhile.
+To establish premise~\ref{premise:positive:principle-dependency} we need to show that if an agent evaluates an action as a means then the agent evaluates whether the end is possible and whether the end is worthwhile.
+
+% \principleEvaluation*
+
+\hozlinedash
+
+The key to establishing premise~\ref{premise:positive:principle-dependency} are two conceptual truths, stated by principles~\ref{principle:relation} and~\ref{principle:dependence}.
+
+\begin{restatable}[Means-end relation]{principle}{principleRelation}\label{principle:relation}
+  An action is (in part) a means only if it is part of a supporting means-end relation.
+\end{restatable}
+
+\begin{restatable}[Means-end dependence]{principle}{principleMEdependence}\label{principle:dependence}
+  Whether an action is worthwhile as a means depends on whether the end is possible and worthwhile.
+\end{restatable}
+
+
+Principle~\ref{principle:relation} is bedrock.
+To understand an action as a means is to understand the action supports achieving something in some way.
+That something is the end.
+And, that the means achieves the end in some way establishes the relation.
+\begin{itemize}[noitemsep]
+\item The means may not straightforwardly establish the end.
+  \begin{itemize}[noitemsep]
+  \item For example, the means may only make the end more likely, or may only partial establish the end, etc.
+  \end{itemize}
+\end{itemize}
+
+Principle~\ref{principle:dependence} assume the means-end relation stated by principle~\ref{principle:relation} and focuses on what it is for something to be a evaluated as a means.
+It is a conceptual truth because it details (part of) what it \emph{is} for an action to be evaluated as a means.
+
+Three are two key parts this principle:
+\begin{enumerate}
+\item The evaluation of end as possible.
+\item The evaluation of end as worthwhile
+\end{enumerate}
+
+\begin{itemize}
+\item If the end is not possible, then the means is not worthwhile.
+\item If the end is not worthwhile, then the relevant action is not worthwhile as a means.
+\end{itemize}
+
+\begin{itemize}
+\item If you object to the end needing to be possible, then you should also be committed to the means not needing to be possible.
+\item The argument then goes through with a modification to principle~\ref{principle:evaluation} stating that an agent only needs to evaluate whether an action is worthwhile in order for them to settle on the action.
+\end{itemize}
+
+
+
+
+
+
+% irrationality
+
+
+% \begin{enumerate}
+% \item If an action is evaluated (in part) as a means, then the role of the action as a means is part of the evaluation of the action.
+% \item Hence, the evaluation of the action as a means can be isolated.
+% \item Part of the evaluation of an action is whether the action is worthwhile.
+% \item Whether a means is worthwhile depends on whether the end to the means is worthwhile.
+% \item The evaluation requires the evaluation of some action or outcome which functions as an end and a means-end relation from the end to the means.
+% \end{enumerate}
+
+Principle~\ref{principle:dependence} is part of what it is for an action to be evaluated as a means.
+And, principle~\ref{principle:dependence} has precedent:
+
+\citeauthor{Raz:2005aa} in \citetitle{Raz:2005aa} writes:
+\begin{quote}
+    the value of the means derives from the value of the ends \dots
+    If there are reasons to take the means, they must be none other than the reasons to pursue the ends, or at least they must derive from them.\nolinebreak
+  \mbox{ }\hfill(\cite[2]{Raz:2005aa})
+\end{quote}
+
+\citeauthor{Hume:2011aa} in \citetitle{Hume:2011aa} writes:
+
+\begin{quote}
+  I may will the performance of certain actions as means of obtaining any desired good; but as my willing of these actions is only secondary, and founded on the supposition, that they are causes of the proposed effect; as soon as I discover the falshood of that supposition, they must become indifferent to me.\nolinebreak
+  \mbox{ }\hfill\mbox{\hfill(T2.3.3)}
+\end{quote}
+
+\citeauthor{Hume:2011aa} may be saying more, but I take it the passage captures the \dependencePrinciple.
+To illustrate further, \citeauthor{Smith:2015ab} provides the following summary of the passage:
+
+\begin{quote}
+  [Hume's] idea is that, since we form instrumental desires when we exercise our capacity to be instrumentally rational, bringing our non-instrumental desures and means-end beliefs together in a way that makes them apt for jointly causing behaviours, it follows that instrumental desires are best thought of as \emph{amalgams} of non-instrumental desires and means-end beliefs.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[35]{Smith:2015ab})}
+\end{quote}
+
+
+\begin{itemize}
+\item[\hand] Not a requirement that the agent evaluates an action by its (expected) outcome.
+  \begin{itemize}
+  \item The agent settles on the action (in part) as a means, and nothing follows if the agent does not consider the action (in part) as a means.
+  \end{itemize}
+\end{itemize}
+
+\hozlinedash
+
+\citeauthor{Kant:1948aa} in \citetitle{Kant:1948aa} states something close to the converse of principle~\ref{principle:dependence}:\nolinebreak
+\footnote{\citeauthor{Kant:1948aa} took this to be analytic:
+  \begin{quote}
+    So far as willing is concerned, this proposition is analytic: for in my willing of an object as an effect there is already conceived the causality of myself as an acting cause---that is, the use of means; and from the concept of willing an end the imperative merely extracts the concept of actions necessary to this end.\nolinebreak
+    \mbox{ }\hfill(\citeyear[81]{Kant:1948aa})
+  \end{quote}
+}
+
+\begin{quote}
+  Who wills the end, wills (so far as reason has a decisive influence on his actions) also the means which are indispensably necessary and in his power.\nolinebreak
+  \mbox{ }\hfill\mbox{(\citeyear[80--81/Ak 417]{Kant:1948aa})}
+\end{quote}
+
+\hozlinedash
+
+\newpage
+
+
+\subsection{Premise~\ref{premise:positive:evaluate-end}}
+\label{sec:premise:positive:evaluate-end}
+
+Premise~\ref{premise:positive:evaluate-end} is primarly the result of applying what is established in premise~\ref{premise:positive:principle-dependency} to premise~\ref{premise:positive:evaluate-means:evaluate}.
+
+\hozlinedash
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+\setcounter{enumi}{2}
+\item A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
+  \item \emph{the evaluation supports settling on the action as a means to the end}.
+  \end{enumerate}
+\end{enumerate}
+
+\hozlinedash
+
+From premise~\ref{premise:positive:evaluate-means:evaluate} we have that:
+
+\begin{enumerate}[label=P\arabic*., ref=(P\arabic*)]
+\item A rational agent is permitted to settle on an action (in part) as a means only if
+  \begin{enumerate}[label=P\arabic{enumi}\alph*., ref=(P\arabic{enumi}\alph*)]
+  \item \emph{the agent evaluates the action as a means}, and
+  \item \emph{the evaluation of the end supports settling on the action as a means (to the end)}.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}[label=\alph*., ref=(\alph*)]
+\item In order for the agent to evaluate the action as a means the agent must take there to be a means-end relation supporting the means and evaluates the end.
+\item The evaluation supports settling on the action as a means, then the evaluation supports settling on the action as a means to the end.
+  \begin{itemize}
+  \item The agents evaluation of the means supports settling on the action, but then the action must be sufficiently worthwhile, but as whether the means is worthwhile depends on whether the end is possible and worthwhile, the agent must take the end to be possible and sufficiently worthwhile.
+    This is what it is for an end to support settling on an action as a means.
+  \end{itemize}
+\end{enumerate}
+
+
+The agent `has' the end as the evaluation of the end supports settling on the action as a means (to the end).
+The agent's evaluation of the end does work in establishing actions as permissible.
+
+\newpage
+
+
+\subsection{Agent has the relevant end.}
+\label{sec:posessed-end}
+
+\hozlinedash
+
+\begin{itemize}
+\item {\color{red} If a rational agent does not have an end, then the agent is not permitted to settle on an action (in part) as a means to that end.}
+  \begin{itemize}
+  \item I'm riding the BART to some station, it's a means to some station along the way, but I don't take this to be part of my evaluation for the action.
+  \end{itemize}
+\item An agent is irrational if they are permitted to settle on an action (in part) as a means while taking the role of the action as a means is as redundant.
+\item The irrationality is due to the divergence between the agent's evaluation and characterisation of the action, given the agent's characterisation.
+  \begin{itemize}
+  \item The agent's evaluation of the action is independent of the action being (in part) a means, while their characterisation of the action depends on the action being (in part) a means.
+  \end{itemize}
+\item This does not entail the agent would be irrational for settling on the \emph{action}.
+  For, the form of irrationality is the divergence between evaluation and characterisation.
+  A rational agent's characterisation of an action must broadly reflect it's functional profile.
+  \begin{itemize}
+  \item Case of belief.
+    Agent takes \(\phi\) as primitive, and is irrational if they believe \(\phi\) on the basis of \(\psi\).
+  \end{itemize}
+\end{itemize}
+
+
+\hozlinedash
+
+
+
+\subsection{Summary}
+\label{sec:summary-1}
+
+Here's the quick version.
+If a rational agent takes themselves to be permitted to settle on an action (in part) as a means, then the agent takes the (possibly partial) role of the means to do work in establishing the permissibility of the action.
+
+This is about what the agent is committed to by their taking the action (in part) as a means.
+This does not say anything about the permissibility of the action if the agent did not consider it a means.
+
+And, if the agent takes the (possibly partial) role of the means to work in establishing the permissibility of the action, the agent is committed to there being a means-end relation which supports taking the means and a positive evaluation of the relevant end.\nolinebreak
+\footnote{Multiple ends is an interesting case, as there the role may be spread, but it's still going to be non-trivial.}
+
+\newpage
+
+
+\section{Summary}
+\label{sec:summary}
+
+
+The link an agent has to a means-end relation is the focus here.
+
+What makes the choice permissible was left out.
+
+The \schemaName{Taking} instance of the schema can be strengthened and refined.
+
+
+Fix the end, the either the agent takes an action (in part) as a means to the end or the agent does not take the action (in part) as a means to the end.
+
+In the cases of interest, if the agent does not settle on the action as a means to the forgotten end, then it is unclear how they could settle on the action.
+I do not think it is required that the agent settles on the means (without being able to reason via the relevant means-end relation).
+
+
+`Support' allows for some nuance in the understanding of means-end relations.
+For a toy example, a means-end relation may hold so long as taking the means makes the end more likely than not doing the means, but for a means-end relation to support taking the means may require more than a \emph{mere} increase in likelihood.
+More complex conditions may certainly be required.
+
+
+
+\begin{itemize}
+\item[\hand] Cases where \schemaName{Taking} seems important and \schemaName{Reasoning} cannot hold.
+\item Motivate appeal to \schemaName{Taking} in other cases where alternative explanations can be given.
+\end{itemize}
+
+\begin{itemize}
+\item Cases of conflicting evaluations are like cases of conflicting beliefs, where the conflict is due to some overlooked entailment.
+\end{itemize}
+
+
+
+\begin{quote}
+  If you intend an end, you must be able to reason correctly about how to bring it about, and you must be able to do this even if you have no reason to intend the end.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[96]{Broome:2002aa})}
+\end{quote}
+
+\hozlinedash
 
 \begin{enumerate}
-
-\item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
-
-\item\label{scenarios:persmissible} And, in these cases it is permissible for the agent to settle on the means.
-
-\item[C\(_{\text{i}}\).]\label{scenario:no-reasoning} In order for an agent to be permitted in settling on a means it cannot, in general, by required that the agent settling on those means is the result of their reasoning from an end they have to those means.
-
-  \begin{itemize}
-  \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
-  \end{itemize}
-
-\item\label{settle:worthwhile} For an agent to be permitted to settle on an action, the action must be worthwhile for the agent.
-
-  \begin{itemize}
-  \item Principle: Settling on an action is (primarily) explained by the action being considered both possible and worthwhile by the agent, perhaps in comparison to the same attributes to other actions.
-  \end{itemize}
-
-\item\label{m-e:dependence} If an agent considers a means only as a means, there is no other way in which the means can be worthwhile other than as the means to an end.
-
-  \begin{itemize}
-  \item Principle: Whether a means (as a means) is worthwhile wholly depends on whether the end to the means is worthwhile.
-    %\nolinebreak \mbox{ }\hfill(From \ref{m-e:dependence}, special case)
-  \end{itemize}
-
-\item\label{together} If an agent is permitted to settle on a means as a means, there existence of is some relevant means-end relation is required for the explanation of why this is permissible.
-  \begin{itemize}
-  \item For, by \ref{settle:worthwhile} the means is worthwhile.
-  \item And by \ref{m-e:dependence} this is only because there is an end which is worthwhile.
-  \end{itemize}
-\item[C\(_{\text{ii}}\).] For the cases described in \ref{scenarios:exist}, the agent must take their settling on the means to be supported by a means-end relation they are unable to reason about.
-  \begin{itemize}
-  \item By \ref{scenarios:exist} and \ref{scenarios:persmissible} these are cases in which it is permissible for an agent settles on means without being able to reason from an end to those means.
-  \item  And, from \ref{settle:worthwhile} to \ref{together} a means-end relation is required for the agent to settle on those means.
-  \end{itemize}
-
+\item Idea is that in settling on an action there's not too much reasoning.
+\item Instead, in the background agent reasons about means-end relations, sort of like a database, and draws on this.
+\item Often able to make explicit how we're drawing from this.
+\item Separate settling on an action from reasoning about means-end relations.
+\item Memory!
+\item Akrasia, conflicting updates.
 \end{enumerate}
+
+\newpage
+
+\section{Closing scenarios}
+\label{sec:closing-scenarios}
+
+\subsection{Nixon}
+\label{sec:nixon}
+
+\begin{scenario}[Nixon]
+  Static monitors shimmer and enamelled wood creaks as Nixon recovers consciousness.
+  A big red button is inside an open suitcase pierced with keys.
+  Safety protocols have been followed.
+  Nixon presses down and an electrical signal \dots
+\end{scenario}
+
+The electric signal launches a nuclear strike.
+
+\hozlinedash
+
+\begin{itemize}[noitemsep]
+\item On one reading Nixon takes the open suitcase and followed safety protocols as information to settle on pressing the big red button as a means.
+\item On this reading, Nixon evaluates the nuclear strike as worthwhile, as Nixon evaluated pressing the button as a means to be worthwhile.
+\item Alternatively, Nixon may have settled on pressing the big red button because they had no choice, given that the relevant safety protocols had been followed.
+\end{itemize}
+
+\subsection{Piglet and Pooh}
+\label{sec:piglet-pooh}
+
+
+\begin{scenario}[under the name of Sanders]\mbox{ }
+
+  \noindent Outside his house he found Piglet, jumping up and down trying to reach the knocker.\newline
+  ``Hallo, Piglet,'' he said.\newline
+  ``Hallo, Pooh,'' said Piglet.\newline
+  ``What are \emph{you} trying to do?''\newline
+  ``I was trying to reach the knocker,'' said Piglet.
+  ``I just came round---''\newline
+  ``Let me do it for you,'' said Pooh kindly.
+  So he reached up and knocked at the door.
+
+  \mbox{ }\hfill\mbox{(\cite[77--78]{Milne:2009aa})}
+\end{scenario}
+
+\begin{center}
+  \begin{tikzpicture}
+    \def\svgwidth{.25\linewidth}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includeinkscape{images/pandpf}};
+  \end{tikzpicture}
+\end{center}
+
+\hozlinedash
+
+Summary:
+\begin{itemize}[noitemsep]
+\item Piglet has the end of talking to Pooh, and knocking on Pooh's door is a (partial) means to this.
+\item While Piglet is attempting to perform the means, Pooh appears.
+\item Pooh recognises that Piglet is attempting to knock on the door as a means to some end.
+\item In addition, Pooh sees that they are able to aid Piglet in perform the means.
+\item Pooh does not pause to understand what end Piglet has by knocking on the door.
+\end{itemize}
+
+Features:
+\begin{itemize}[noitemsep]
+\item It is plausible that both Pooh and Piglet are able to reason from ends to means in support of their actions.
+  \begin{itemize}[noitemsep]
+  \item Pooh has the end of helping Piglet, and
+  \item Piglet has the end of talking to Pooh.
+  \end{itemize}
+\item As Pooh's end is helping Piglet, it seems Pooh takes there to be a means-end relation which supoprts knocking on their door.
+\item However, Pooh's failure to understand Piglet's end results in Pooh not recognising that the means Piglet was engaged in are made redundant by their presence (though Piglet does realise this).
+\end{itemize}
+
+
+
+% \begin{itemize}
+% \item If \ref{position:Against} is correct then the `reasoning' instance of the schema does not apply to all instance of practical reasoning.
+
+% \item And, if \ref{position:For} is correct then the `taking' instance of the schema applies to some instances of practical reasoning.
+
+% \item I will suggest, but not argue, that the `taking' instance of the schema applies to all instances of practical reasoning.
+% \end{itemize}
+
+% \hozlinedash
+
+\newpage
+
+
+\printbibliography
+
 
 % Steps \ref{scenarios:exist} -- \ref{scenario:no-reasoning}
 
@@ -217,4 +1122,176 @@
 %   \end{itemize}
 % \end{enumerate}
 
+
+\newpage
+
+\section{Additional Notes}
+\label{sec:additional-notes}
+
+
+\subsection{Possible entailment}
+\label{sec:possible-entailment}
+
+\begin{beamerblock}{\schemaName{Taking (by reasoning via)}}
+    An agent is rationally permitted to settle on a means (as a means)
+    \newline
+    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+    \newline
+    The agent \textcolor{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have which supports taking the relevant means \textcolor{fuchsia}{(by reasoning via the relation)}.
+  \end{beamerblock}
+
+\begin{itemize}
+\item If `\emph{reasons via}' is replaced by `\emph{takes the to be by reasoning via}', then \schemaName{Reasoning} entails \schemaName{Taking}.
+\item I think this is a natural reading of `\emph{reasons via}'.
+\item However:
+  \begin{itemize}
+  \item An entailment from \schemaName{Reasoning} to \schemaName{Taking} is not required for the argument I will make, so I will not build it into the respective positions.
+  \item Making the logical connexion would not help the argument. For, \schemaName{Taking} would hold in all the cases that \schemaName{Reasoning} holds, but this would say nothing about the cases in which \schemaName{Reasoning} fails.
+  \item There may be good reason to more sharply distinguish the two ways in which an agent may be linked to means-end relations.
+  \end{itemize}
+\end{itemize}
+
+\subsection{More scenarios}
+\label{sec:more-scenarios}
+
+
+\begin{scenario}[Professor Oblique]
+  Professor Oblique has the end of making progress on their research.
+  On the desktop of Oblique's computer is a older containing a handful of papers.
+  Oblique reads the abstract of each paper, and is unable to establish that their end of making progress on their research supports reading the papers in the folder.
+  Still, Oblique reasons that they downloaded the papers with the end of making progress on their research.
+  So, Oblique reads the papers.
+\end{scenario}
+
+\begin{itemize}[noitemsep]
+\item Oblique does not have the information required to establish a means-end relation from their end of making progress on their research to the means of reading the papers in the folder.
+\item So, Oblique is unable to reason via any particular means-end relation.
+\item However, it may be that the collection of specific means-end relations forms a complex means-end relation, and Oblique is able to reason via the complex means-end relation to reading the papers.
+\item Consider, by analogy, lottery tickets.
+  Confident that each ticket will lose, but also confident that some ticket will win.
+\item Alternatively, the presence of the papers indicates to Oblique the existence of a supporting means-end relation, and Oblique takes that relation to hold.
+\end{itemize}
+
+
+\begin{scenario}[Supermarket, dramatic]
+  Snow dances and random flicker turns to rigid form as the agent regains focus.
+  The supermarket aisle is empty, and their left hand is stretched toward an item as if ready to impart life.
+  \emph{Crikey}!
+  Forgetting the shopping list, and now forgetting consciousness.
+  What were they doing?
+  Their position suggests they were about to obtain the item.
+  No basket. So, perhaps this is all they came in for.
+  But what would the item be for? What is the item a means to?
+\end{scenario}
+
+Features:
+\begin{itemize}[noitemsep]
+\item Agent uses situational information to infer that they have a means, and to settle on the means.
+\item The agent is unable to recall the end to the means.
+\item However, it seems likely that if the agent were able to recall the end, they would be able to reason to the means.
+\end{itemize}
+
+
+
+\subsection{Shared Agency}
+\label{sec:shared-agency}
+
+Basic idea is that agent's can be in a position of evaluating ends as worthwhile, even though they are unable to grasp the relevant end.
+
+Shared agency.
+Shared intentions.
+Variant in which certain members are unable to grasp the relevant end but plan to `mesh'.
+
+Example with large groups.
+Phenomena occurs in two places.
+Only able to see part of what the group is doing, and take there to be some end.
+Participation in the group also commits to the same end.
+
+May doubt that there are sufficiently stable ends for this to arise.
+
+Orchestra.
+Conductor has an end, a way in which they want the orchestra to play.
+As a chellist I'm commited to this.
+However, I don't have access to the conductors mind.
+So, I can't reason from the what in which I'm committed to play to the particulars of my playing.
+
+
+\subsection{Different accounts of settling}
+\label{sec:diff-acco-settl}
+
+The simple version of settling requires an agent to evaluate an action as worthwhile.
+
+\begin{principle}[Settling, strong]\label{principle:settling-strong}
+  A rational agent is permitted to settle on an action only if the agent evaluates the action as worthwhile.
+\end{principle}
+
+I doubt principle~\ref{principle:settling-strong} holds in general.
+Principle~\ref{principle:settling} is slightly weaker than principle~\ref{principle:settling}.
+
+\begin{principle}[Settling]\label{principle:settling}
+  A rational agent is permitted to settle on an action \(a_{s}\) only if
+  \begin{enumerate}[noitemsep]
+  \item the agent has an expectation with regards to \(a_{s}\) and the agent does not expect any other action available to them to be more worthwhile than \(a_{s}\), or
+  \item the agent has no expectation regarding any action available to them.
+  \end{enumerate}
+\end{principle}
+
+Principle~\ref{principle:settling} requires that in order for an agent to settle on an action, there must be no other action which they expect to be worthwhile or that the agent has no expectation for any action.
+
+\begin{principle}[Settling with a baseline]\label{principle:settling-baseline}
+  A rational agent is permitted to settle on an action \(a_{s}\) only if for every action \(a_{o}\), if the agent's expectation of the worthwhileness of \(a\) is above some baseline then the agent does not expect \(a_{i}\) to be more worthwhile \(a_{s}\).
+\end{principle}
+
+Principle~\ref{principle:settling-baseline} builds in a baseline, so that if the agent only has expectations with respect to a certain collection of acts available to them, and all these acts fall below a baseline, then the agent is permitted to settle on any act.
+In the cases of interest, a plausible alternative can be leveraged to ensure that agent evaluates the end as worthwhile.
+
+\begin{principle}[Settling]\label{principle:settling}
+  A rational agent is permitted to settle on an action \(a_{s}\) only if
+  \begin{enumerate}[noitemsep]
+  \item the agent's expectation of \(a_{s}\) is above some baseline, and for no other available action above the baseline does the agent expect the action to be more worthwhile than \(a_{s}\), or
+  \item the agent has no expectation regarding any action available to them.
+  \end{enumerate}
+\end{principle}
+
+
 \end{document}
+
+
+
+% \begin{itemize}
+% \item It is Saturday morning and Professor Oblique has some time for uninterrupted research.
+% \item While the coffee is brewing Oblique decides to read some papers as a means to making progress on their research project.
+% \item Oblique logs on to their computer, and on the desktop is a folder named `papers'. Inside the folder is an unorganised collection of academic papers.
+% \item[]
+% \item Simply reading a paper is not a means to Oblique's end of making progress on their research project.
+%   \begin{itemize}
+%   \item Some papers are read because they may point to new projects.
+%   \item Other papers are to be discussed with colleagues
+%   \item Certain papers are part of syllabi, and so on.
+%   \item Still, the papers in the folder may be a means for Oblique to make progress on their research project.
+%   \item So, Oblique skims a few abstracts.
+%   \end{itemize}
+% \item[]
+% \item From the abstracts Oblique reads, it is unclear to Oblique that reading the papers would contribute to making progress on their research project.
+% \item However, Oblique is sure that the papers in the folder can only be of interest as a means to some end, as they of no intrinsic interest.
+% \item Still, the papers do not seem to point to new projects, nor do these seem to be the kind of papers their colleagues would be reading, and so on.
+% \item[]
+% \item So, Oblique is unable to reason from their end of making progress on their research project to reading the papers in the folder as a means.
+% \item And, Oblique is confident that the papers can only be of interest as a means to some end.
+% \item[]
+% \item Further, the computer is not autonomous and Oblique is the only user.
+% \item Oblique recognises that at some point in time they must have downloaded the papers, created the folder, and placed the papers in the folder --- the papers are not, for example, in a catch-all downloads folder.
+% \item[]
+% \item The coffee finishes brewing, and Oblique beings to read a paper in the folder.
+% \item[]
+% \item In settling on the paper, Oblique reasoned that they placed the folders in the paper for some reason --- as the result of some instance of practical reasoning.
+% \item And, the most plausible explanation is that they set these papers aside because they took them to be a means to making progress on their research project.
+% \item[]
+% \item There are many ways in which the papers could stand in a means-end relation to their end of making progress on their research project:
+%   \begin{itemize}
+%   \item Perhaps the papers in the folder were cited in a papers that Oblique had been reading.
+%   \item Or, perhaps the papers in the folder cited papers that Oblique had been reading.
+%   \item Alternatively, the papers may have been recommends by a service such as PhilPapers or Google Scholar.
+%   \end{itemize}
+% \item And although Oblique is unable reason through the relation, they take it to be that a relation exists, and it was on this basis they began reading.
+% \end{itemize}
