@@ -4,11 +4,14 @@ graphics,
 % handout,
 ]{beamer} % amssymb is incompatible with mtpro2
 
+
+
 \usetheme{Antibes}
 \usecolortheme{fuchsia}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{bibliography item}{}
 
 % \usepackage{relsize,etoolbox}% http://ctan.org/pkg/{relsize,etoolbox}
 % \AtBeginEnvironment{quote}{\smaller}% Step font down one size relative to current font.
@@ -26,7 +29,7 @@ graphics,
    \setmonofont[Scale=MatchLowercase]{Source Code Pro}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
    % \usepackage{microtype}
-
+   \newfontfamily\myfont[Ligatures=TeX,Scale=MatchLowercase]{AdornS Pomander Bold}
    % % mtpro2 fix from:
    % https://tex.stackexchange.com/questions/374353/no-room-for-a-new-count
    \makeatletter
@@ -87,7 +90,7 @@ graphics,
 \newcommand{\citeline}[0]{\btVFill\vspace{-8pt}\noindent\hdashrule[0.5ex][c]{.25\textwidth}{.1pt}{}\vspace{-8pt}}
 %https://tex.stackexchange.com/questions/347228/footnote-without-numbering-and-without-indention-in-beamer-class
 \newcommand\citenote[1]{%
-  \pgfsetfillopacity{0.5}
+  \pgfsetfillopacity{0.33}
   \tikz[remember picture,overlay]
   \draw (current page.south west) +(1in + \oddsidemargin,0.5em)
   node[anchor=south west,inner sep=0pt]{\parbox{\textwidth}{%
@@ -96,12 +99,61 @@ graphics,
 % % %
 
 \usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{fit}
+\usetikzlibrary{fadings,patterns}
+
+
+% https://tex.stackexchange.com/questions/227871/how-to-place-a-color-gradient-text-node-inside-a-tikzpicture-absolute-positioni
+%******************************************************************
+%
+% Defining a new coordinate system for the page:
+%
+% --------------------------
+% |(-1,1)    (0,1)    (1,1)|
+% |                        |
+% |(-1,0)    (0,0)    (1,0)|
+% |                        |
+% |(-1,-1)   (0,-1)  (1,-1)|
+% --------------------------
+\makeatletter
+\def\parsecomma#1,#2\endparsecomma{\def\page@x{#1}\def\page@y{#2}}
+\tikzdeclarecoordinatesystem{page}{
+    \parsecomma#1\endparsecomma
+    \pgfpointanchor{current page}{north east}
+    % Save the upper right corner
+    \pgf@xc=\pgf@x%
+    \pgf@yc=\pgf@y%
+    % save the lower left corner
+    \pgfpointanchor{current page}{south west}
+    \pgf@xb=\pgf@x%
+    \pgf@yb=\pgf@y%
+    % Transform to the correct placement
+    \pgfmathparse{(\pgf@xc-\pgf@xb)/2.*\page@x+(\pgf@xc+\pgf@xb)/2.}
+    \expandafter\pgf@x\expandafter=\pgfmathresult pt
+    \pgfmathparse{(\pgf@yc-\pgf@yb)/2.*\page@y+(\pgf@yc+\pgf@yb)/2.}
+    \expandafter\pgf@y\expandafter=\pgfmathresult pt
+}
+\makeatother
+%******************************************************************
+
+\newcommand\shadetext[2][]{%
+  \setbox0=\hbox{{\special{pdf:literal 7 Tr }#2}}%
+  \tikz[baseline=0]\path [#1] \pgfextra{\rlap{\copy0}} (0,-\dp0) rectangle (\wd0,\ht0);%
+}
+% % % % % % % % % % % %
+
+
+
+
 \usepackage{svg}
 
 % % % Color % % %
 % \usepackage[usenames, dvipsnames]{xcolor}
 % \usepackage{everysel}
 \definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+\definecolor{olga}{HTML}{eebdda}
+\definecolor{adam}{HTML}{96d3e6}
 \usecolortheme[named=fuchsia]{structure}
 \colorlet{structure}{fuchsia}
 \usestructuretemplate{\color{structure}}{}
@@ -122,27 +174,102 @@ graphics,
 % https://tex.stackexchange.com/questions/28654/beamer-table-of-contents-display-all-subsections-below-section
 \AtBeginSection[]
 {
-\begin{frame}[noframenumbering]
-  \frametitle{Structure}
-  \setbeamertemplate{navigation symbols}{ }
-  \tableofcontents[
-  currentsection,
-  % hideothersubsections,
-  % sectionstyle=show/hide,
-  % subsectionstyle=show/shaded,
-  subsubsectionstyle=hide,
-  ]
-\end{frame}
+  {
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[noframenumbering]
+      \frametitle{Structure}
+      \setbeamertemplate{navigation symbols}{ }
+      \tableofcontents[
+      currentsection,
+      % hideothersubsections,
+      % sectionstyle=show/hide,
+      % subsectionstyle=show/shaded,
+      subsubsectionstyle=hide,
+      ]
+    \end{frame}
+  }
 }
 
-
+\makeatletter
+\newlength\beamerleftmargin
+\setlength\beamerleftmargin{\Gm@lmargin}
+\makeatother
 
 \title{Means-end reasoning and means-end relations}
 \author{Ben Sparkes}
 % \institute{Stanford}
-% \date{}
+\date{June 17, 2020}
 
 \begin{document}
+\tikzstyle{every picture}+=[remember picture]
+\def\beamertemplatetransparentcoveredmedium{\setbeamercovered{transparent=70}}
+\beamertemplatetransparentcoveredmedium
+
+{
+  \setbeamertemplate{navigation symbols}{}
+  \begin{frame}[plain, noframenumbering]
+    \hspace*{-\beamerleftmargin}%
+    % \frametitle{Congratulations}
+    % \begin{center}
+    %   {\myfont\Huge Congratulations!}
+    % \end{center}
+    {\tikz[remember picture,overlay]
+      \node[scale=2.75] at (.5\paperwidth,.25) {\myfont \shadetext[left color=adam, right color=olga]{\space Congratulations!\space}};
+    }
+    \only<1>{
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.275\linewidth, 3em)
+        node[anchor=south west,inner sep=0pt, opacity=1]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/kitty-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.575\linewidth, 3em)
+        node[anchor=south west,inner sep=0pt, opacity=1]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/daniel-colour}};
+      }
+    }
+    \only<2>{
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.415\linewidth, 2.8em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/daniel-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.42\linewidth, 3em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/kitty-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.415\linewidth, 2.8em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/daniel-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.42\linewidth, 3em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/kitty-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.415\linewidth, 2.8em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/daniel-colour}};
+      }
+      {
+        \tikz[remember picture,overlay]
+        \draw (current page.south west) +(.42\linewidth, 3em)
+        node[anchor=south west,inner sep=0pt, opacity=.5]{\def\svgwidth{.3\linewidth}
+          \includeinkscape{images/kitty-colour}};
+      }
+    }
+  \end{frame}
+}
 
 \begin{frame}[noframenumbering]
   \setbeamertemplate{navigation symbols}{ }
@@ -155,17 +282,19 @@ graphics,
 
 \begin{frame}
   \frametitle{Overview}
-
   \begin{itemize}
   \item Means-end reasoning and means-end relations.
+  \item \only<1>{When is a rational agent permitted to settle on an action (in part) as a means?}
+  \only<2->{What connexion holds between a rational agent and a means-end relation when they agent is permitted to settle on an action (in part) as a means?}
   % \item Understand how means-end relations are used in practical reasoning.
-  \item Two claims:
- \begin{enumerate}
-\item<2,4> It is \textcolor<2->{fuchsia}{\emph{not}} the case that in order for an agent to settle on an action (in part) as a means the agent needs to \textcolor<2->{fuchsia}{\emph{reason via}} a means-end relation from an end they have supporting that action.
-\item<3,4> It \textcolor<3->{fuchsia}{\emph{is}} the case that in order for an agent to settle on an action (in part) as a means the agent needs to \textcolor<3->{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have supporting that action.
-\end{enumerate}
+  \only<3->{
+    \begin{enumerate}
+    \item<2,4> It is \textcolor<2->{fuchsia}{\emph{not}} the case that the agent needs to \textcolor<2->{fuchsia}{\emph{reason via}} a means-end relation from an end they have supporting that action.
+    \item<3,4> It \textcolor<3->{fuchsia}{\emph{is}} the case that the agent needs to \textcolor<3->{fuchsia}{\emph{takes there to be}} a means-end relation from an end they have supporting that action.
+    \end{enumerate}
 \only<1-3>{%\color{white}
 \item[] {\color{white} Goal is to highlight that an agent taking there to be a means-end relation is always available as an explanatory resource, and to motivate the use of this resource by showing that a recognised resource fails in certain cases.}
+}
 }
 \only<4>{
 \item Goal is to highlight that an agent taking there to be a means-end relation is always available as an explanatory resource, and to motivate the use of this resource by showing that a recognised resource fails in certain cases.
@@ -281,31 +410,40 @@ graphics,
   \frametitle{Example}
 
   \only<1>{
-  \begin{quote}
-    I am going to buy a boat \hfill (1a)\newline
-    For me to buy a boat, a necessary means is to borrow money \hfill (1b)\newline
-    I shall borrow money. \hfill (1c)
-  \end{quote}
-  \hozlinedash
-}
-\only<2>{
-  \vspace{-28pt}
-  \begin{block}{Reasoning}
-    A rational agent is permitted to settle on an action (in part) as a means
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means \emph{by reasoning via the relation}.
-  \end{block}
-  \hozlinedash
-}
-
-  \begin{quote}
-    Your reasoning process is a particular type of practical reasoning.
-    It \textcolor<2>{fuchsia}{\emph<2>{is}} \emph<1>{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.%\nolinebreak
-    % \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
-  \end{quote}
-  \citenote{\fullcite{Broome:2002aa}}%\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}}
+    \begin{quote}
+      I am going to buy a boat \hfill (1a)\newline
+      For me to buy a boat, a necessary means is to borrow money \hfill (1b)\newline
+      I shall borrow money. \hfill (1c)
+    \end{quote}
+    \hozlinedash
+  }
+  \only<2->{
+    \vspace{-28pt}
+    \begin{block}{Reasoning}
+      A rational agent is permitted to settle on an action (in part) as a means
+      \newline
+      \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+      \newline
+      the agent \textcolor{fuchsia}{\emph{reasons via}} a means-end relation from an end they have which supports taking the relevant means \emph{by reasoning via the relation}.
+    \end{block}
+    \hozlinedash
+  }
+  \only<1-2>{
+    \begin{quote}
+      Your reasoning process is a particular type of practical reasoning.
+      It \textcolor<2>{fuchsia}{\emph<2>{is}} \emph<1>{instrumental} reasoning, which means it is concerned with taking an appropriate means to an end.%\nolinebreak
+      % \mbox{}\hfill\mbox{(\citeyear[86]{Broome:2002aa})}
+    \end{quote}
+    \vspace{13pt}
+    \citenote{\fullcite{Broome:2002aa}}%\citeauthor{Broome:2002aa} (\citeyear{Broome:2002aa}) \citetitle{Broome:2002aa}
+  }
+  \only<3>{
+    \begin{quote}
+      \emph{Desire–Belief Theory of Reasoning:}\newline
+      Desire is affected as the conclusion of reasoning if and \textcolor{fuchsia}{only if} desire that E is combined with belief that M would raise E's probability, constituting desire that M.
+    \end{quote}
+    \citenote{\fullcite{Sinhababu:2017aa}}
+  }
 \end{frame}
 
 \begin{frame}
@@ -323,9 +461,7 @@ graphics,
     \begin{itemize}
     \item An existential-like requirement that does not require the agent to reason to the means from an end.
     \item Some cases of reasoning may satisfy this requirement.
-      % \begin{itemize}
-      % \item At some point I purchased a collection of Ligeti recordings, and I have no idea why, but it wasn't an accident and so I will listen to them.
-      % \end{itemize}
+      \vspace{+64.5pt}
     \end{itemize}
   }
   \only<3>{
@@ -335,8 +471,8 @@ graphics,
         \setlength\itemsep{-.1em}
       \item On your desk is a stack of papers.
       \item You recognise that you created the stack for some end, but you cannot recall what that end is.
-      \item You are confident that the end remains relevant to you, and you begin to work through the stack.
-      \item As you work through the stack, you begin to recall the research project that led you to forming the stack.
+      \item You are confident that the end remains relevant to you, and you begin to read the papers.
+      \item As you read, you begin to recall the research project that led you to forming the stack.
       \end{itemize}
     \end{exampleblock}
   }
@@ -429,9 +565,8 @@ graphics,
   {%
   \setbeamertemplate{enumerate item}{N\arabic{enumi}.}
   \begin{enumerate}
-  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
-  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
-
+  \item\label{scenarios:exist} There are cases in which rational agents are permitted to settle on an action (in part) as means without being able to reason from an end they have to the action.
+  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the action (in part) as a means.
   \item \schemaName{Reasoning} does not hold.
     % \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
     \begin{itemize}
@@ -462,7 +597,7 @@ graphics,
     % \begin{spacing}{1.3}
     \begin{itemize}
       % \setbeamertemplate{itemize items}{}
-      \item Oblique regains consciousness after a moment of darkness.%\newline
+      \item Oblique regains awareness after drifting off for a second.%\newline
       \item They are in a supermarket, and their hand is stretched toward an item on a shelf.%\newline
       \item Oblique is unable to recall why they are in the supermarket and is unable to recognise what the item on the shelf would be for.%\newline
       \item Oblique does not have a shopping list.%\newline
@@ -474,7 +609,7 @@ graphics,
     % \begin{spacing}{1.3}
     \begin{itemize}
       % \setbeamertemplate{itemize items}{}
-      \item Oblique regains consciousness after a moment of darkness.%\newline
+      \item Oblique regains awareness after drifting off for a second.%\newline
       \item They are in a supermarket, and their hand is stretched toward an item on a shelf.%\newline
       \item Oblique is unable to recall why they are in the supermarket and is unable to recognise what the item on the shelf would be for.%\newline
       \item[\hand] Oblique does not have a shopping list.%\newline
@@ -506,14 +641,14 @@ graphics,
   \begin{itemize}
   \item<+-> Oblique's outstretched hand provides information that purchasing the item was something they settled on.
   \item<+-> Oblique is unable to settle on purchasing the item given what they are able to reason about.
-  \item<+-> Two ideas:
+  \item<+-> Two ways to motivate that Oblique was permitted to settle on purchasing the item:
     \begin{enumerate}
     \item<+> It seems absurd to send Oblique all the way home to look at the shopping list they left on their fridge.
     \item<+-> Purchasing the item is supported by a means-end relation.
       \begin{itemize}
       \item<+-> If Oblique settled on the purchasing the item, this was supported by a means-end relation and some end.
       \item<.-> So, purchasing the item was supported by a means-end relation and some end Oblique had.
-      \item<.-> And, as Oblique only lost consciousness for a moment they reason that the relevant means-end relation and end continue to hold.
+      \item<.-> And, as Oblique only nodded off for a moment they reason that the relevant means-end relation and end continue to hold.
       \end{itemize}
     \end{enumerate}
   \end{itemize}
@@ -544,9 +679,8 @@ graphics,
   {%
   \setbeamertemplate{enumerate item}{N\arabic{enumi}.}
   \begin{enumerate}
-  \item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
-  \item\label{scenarios:persmissible} And, in these cases the agent is rational in settling on the means.
-
+    \item There are cases in which rational agents are permitted to settle on an action (in part) as means without being able to reason from an end they have to the action.
+  \item And, in these cases the agent is rational in settling on the action (in part) as a means.
   \item \schemaName{Reasoning} does not hold.
     % \item[C\(_{\text{I}}\).]\label{scenario:no-reasoning} In order for an agent to be rationally permitted in settling on a means it cannot be required that the agent reasons via a means-end relation from an end they have which supports taking the relevant means.
     \begin{itemize}
@@ -587,6 +721,7 @@ graphics,
 
 \begin{frame}
   \frametitle{Positive Argument}
+  \tikzstyle{na} = [baseline=-.5ex]
   \only<1-5>{
     \setbeamertemplate{enumerate item}{P\arabic{enumi}.}
     \setbeamertemplate{enumerate subitem}{P\arabic{enumi}\alph{enumii}.}
@@ -594,18 +729,19 @@ graphics,
     \item \onslide<1,2>{A rational agent is permitted to settle on an action (in part) as a means \textcolor<2>{fuchsia}{only if}}
       \onslide<1,4->{
       \begin{enumerate}
-      \item \textcolor<4>{fuchsia}{\emph{the agent evaluates the action as a means}}, and
-      \item \textcolor<5>{fuchsia}{\emph{the evaluation supports settling on the action (as a means)}}.
+      \item\tikz[na] \node[coordinate, xshift=-3em] (a1) {}; \textcolor<4>{fuchsia}{\emph{the agent evaluates the action as a means}}, and
+      \item\tikz[na] \node[coordinate, xshift=-3em] (b1) {}; \textcolor<5>{fuchsia}{\emph{the evaluation supports settling on the action (as a means)}}.
       \end{enumerate}
       }
-    \item \onslide<1,3,4->{\emph{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}}
+    \item \onslide<1,3,4->{An evaluation of an action as a means requires a supporting means-end relation and evaluation of the end.}
     \item \onslide<1,2>{A rational agent is permitted to settle on an action (in part) as a means \textcolor<2>{fuchsia}{only if}}
       \onslide<1,4->{
       \begin{enumerate}
-      \item \textcolor<4>{fuchsia}{\emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}}, and
-      \item \textcolor<5>{fuchsia}{\emph{the evaluation of the end supports settling on the action as a means to the end}}.
+      \item\tikz[na] \node[coordinate, xshift=-3em] (a2) {}; \textcolor<4>{fuchsia}{\emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}}, and
+      \item\tikz[na] \node[coordinate, xshift=-3em] (b2) {}; \textcolor<5>{fuchsia}{\emph{the evaluation of the end supports settling on the action as a means to the end}}.
       \end{enumerate}
       }
+    \item \schemaName{Taking} holds.
     \end{enumerate}
   }
   \only<6>{
@@ -618,6 +754,7 @@ graphics,
       \item \emph{the agent takes there to be a means-end relation supporting the means and evaluates the end}, and
       \item \emph{the evaluation of the end supports settling on the action as a means to the end}.
       \end{enumerate}
+    \item \schemaName{Taking} holds.
     \end{enumerate}
     \hozlinedash
     \begin{block}{Taking}
@@ -628,6 +765,10 @@ graphics,
       the agent \textcolor{fuchsia}{\emph{takes there to be}}  a means-end relation from an end they have which supports taking the relevant means.
     \end{block}
   }
+  \begin{tikzpicture}[overlay]
+    \path[->]<4> (a1) edge [very thick, draw=fuchsia, bend right=75] (a2);
+    \path[->]<5> (b1) edge [very thick, draw=fuchsia, bend right=75] (b2);
+  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -640,26 +781,32 @@ graphics,
     \end{enumerate}
   \end{block}
   \btVFill
-  \only<3>{
+  \only<2>{
     \begin{itemize}
     \item If an agent is permitted to settle on an action \emph{on the basis of some reasoning about the action}, the action is evaluated.
-    \item The `if and only if' of principle \principleName{Evaluation} does not exclude other considerations contributing to an agent's evaluation of an action, but these are not required.
+    \item The `if and only if' of \principleName{Settling} does not exclude other considerations contributing to an agent's evaluation of an action, but these are not required.
       \begin{itemize}
       \item[\hand] This does not commit the agent to evaluating the action \emph{as} possible and worthwhile.
       \end{itemize}
     \end{itemize}
   }
-  \only<4->{
+  \only<3->{
     \vspace{-5pt}
-  \begin{quote}
-    We want something to happen, and we believe that some behavior of ours would constitute or produce or at least promote its happening.
-    These two attitudes jointly cause the relevant behavior\dots %,
-    % and in doing so they manifest the causal powers that are partly constitutive of their being, respectively, a desire and a belief.
-
-    Because these attitudes also justify the behavior that they cause, that behavior eventuates not only \emph{from causes} but \emph{for reasons}.
-    % And whatever we do for reasons is consequently of our making.
-  \end{quote}
-  \citenote{\fullcite{Velleman:2000ab}}
+    \begin{quote}
+      Belief and desire \dots\space are correlative dispositional states of a potentially rational agent.
+      To desire that \emph{P} is to be disposed to act in ways that would tend to bring it about that \emph{P} in a world in which one's beliefs, whatever they are, were true.
+      To believe that \emph{P} is to be disposed to act in ways that would tend to satisfy one's desires, whatever they are, in a world in which \emph{P} (together with one’s other beliefs) were true.
+    \end{quote}
+    \citenote{\fullcite{Stalnaker:1984aa}}
+  % \begin{quote}
+  %   We want something to happen, and we believe that some behavior of ours would constitute or produce or at least promote its happening.
+  %   % These two attitudes jointly cause the relevant behavior\dots %,
+  %   % and in doing so they manifest the causal powers that are partly constitutive of their being, respectively, a desire and a belief.
+  %   \dots
+  %   Because these attitudes also justify the behavior that they cause, that behavior eventuates not only \emph{from causes} but \emph{for reasons}.
+  %   % And whatever we do for reasons is consequently of our making.
+  % \end{quote}
+  % \citenote{\fullcite{Velleman:2000ab}}
   }
   \btVFill
 \end{frame}
@@ -714,12 +861,12 @@ graphics,
   }
   \hozlinedash
   \onslide<2>{
-    \begin{block}{Principle B: Means-end relation}
+    \begin{block}{Principle B: Relation}
       An action is (in part) a means only if it is part of a supporting means-end relation.
     \end{block}
   }
   \onslide<3>{
-    \begin{block}{Principle C: Means-end dependence}
+    \begin{block}{Principle C: Dependence}
       Whether an action is worthwhile as a means depends on whether the end is possible and worthwhile.
     \end{block}
   }
@@ -728,7 +875,7 @@ graphics,
 \begin{frame}
   \frametitle{Means-end relation}
 
-  \begin{block}{Principle 2: Means-end relation}
+  \begin{block}{Principle B: Relation}
     An action is (in part) a means only if it is part of a supporting means-end relation.
   \end{block}
   \btVFill
@@ -745,7 +892,7 @@ graphics,
 \begin{frame}
   \frametitle{Means-end dependence}
 
-  \begin{block}{Principle 3: Means-end dependence}
+  \begin{block}{Principle C: Dependence}
     Whether an action is worthwhile as a means depends on whether the end is possible and worthwhile.
   \end{block}
   \btVFill
@@ -889,30 +1036,57 @@ graphics,
 
 \end{frame}
 
-\section{Future work}
+\section{Applications}
 \label{sec:future-work}
+
+\begin{frame}
+  \frametitle{Applications}
+
+  \begin{enumerate}
+  \item Akraisa
+  \item Ethics
+  \item Shared agency
+  \end{enumerate}
+\end{frame}
 
 \begin{frame}
   \frametitle{Akrasia}
 
   \begin{itemize}
   \item Acting against one's better judgement.
-  \item Case in which there is divergence between what an agent is permitted to settle on given the means-end relations they are able to reason via, and what the agent is permitted to settle on given the means-end relations they take there to be.
+  \item Consider a case in which there is divergence between
+    \begin{enumerate}[a.]
+    \item what an agent is permitted to settle on given the means-end relations they are able to reason via, and
+    \item what the agent is permitted to settle on given the means-end relations they take there to be.
+    \end{enumerate}
   \end{itemize}
-
-  \onslide<2>{
+  \only<1>{
     \hozlinedash
+    \vspace{-15pt}
     \begin{itemize}
-    \item A second glass of wine and abstaining.
-    \item End of after-dinner work, but can't reason from this.
-    \item Doubt reasoning?
+    \item[]
+    \item[]
+    \item[]
+    \item[]
     \end{itemize}
   }
   \only<2>{
-    \tikz[remember picture,overlay]
-    \draw (current page.south east) +(-.5\linewidth, -0.1em)
-    node[anchor=south west,inner sep=0pt, opacity=0.25]{\def\svgwidth{.5\linewidth}
-      \includeinkscape{images/wine}};
+    \hozlinedash
+    \vspace{-15pt}
+    \begin{itemize}
+    \item A second glass of wine and abstaining.
+    \item Able to reason from end of enjoying meal to a second glass.
+    \item Unable to reason from end of after-dinner work to abstaining.
+    \item Perhaps the agent doubts the quality of their means-end reasoning?
+    \end{itemize}
+
+    {
+      \tikz[remember picture,overlay]
+      \draw (current page.south east) +(-.5\linewidth, 2.2em)
+      node[anchor=south west,inner sep=0pt, opacity=0.25]{\def\svgwidth{.5\linewidth}
+        \includeinkscape{images/wine}};
+    }
+    \citenote{\fullcite{Bratman:2007ab}}
   }
 \end{frame}
 
@@ -947,13 +1121,12 @@ graphics,
     \begin{itemize}
     \item Gaslighting.
       \begin{itemize}
-      \item Pettigrew: agents lack an important concept or a body of evidence that would allow the agent to internally justify beliefs.
-      \item Agent has a lose grasp of a concept, and second guesses their ability to apply it to reach a conclusion.
-      \item ``the efficacy of [gaslighting] relies on the targets responding to their evidence by forming or retaining only those beliefs that are internally justified''
+      % \item Pettigrew: agents lack an important concept or a body of evidence that would allow the agent to internally justify beliefs.
+      % \item Agent has a lose grasp of a concept, and second guesses their ability to apply it to reach a conclusion.
+      % \item ``the efficacy of [gaslighting] relies on the targets responding to their evidence by forming or retaining only those beliefs that are internally justified''
       \item Agent lacks resources that would allow the agent to reason from an end to a means.
       \item Prevent agent from settling on a means by requiring an agent to reason from an end to means in order for the means to be permissible.
       \end{itemize}
-    \item Hermenutical lacunas.
     \end{itemize}
     % \hozlinedash
     % \begin{itemize}
@@ -970,18 +1143,22 @@ graphics,
 \begin{frame}
   \frametitle{Shared agency}
   \begin{itemize}
-  \item Rowing.
-  \item Rearward-facing systems.
-  \item coxed pair.
-  \item Seated rower moving the boat in the direction opposite that which the rower faces.
-  \item Coxswain coordinates the rower.
-  \item Perhaps the rower isn't clear on the end, but takes there to be a shared end.
+  \item Rat and Mole have the shared end of reaching the shore.
+  \item Rat is rowing and Mole is the coxswain.
+    \begin{itemize}
+    \item Mole can see obstacles, but cannot control the boat.
+    \item Rat cannot see obstacles, but can control the boat.
+    \end{itemize}
+  \item Mole observes and obstacle, and tells Rat to turn.
+  \item Rat cannot observe the obstacle.
+  \item Given Mole's instruction, Rat takes there to be a means-end relation that supports turning.
+  \item Perhaps Rat and Mole's ends are not aligned, and Rat turns the other direction!
   \end{itemize}
 
   {
     \tikz[remember picture,overlay]
-    \draw (current page.south east) +(-.55\linewidth, 0em)
-    node[anchor=south west,inner sep=0pt, opacity=0.25]{\def\svgwidth{.55\linewidth}
+    \draw (current page.south east) +(-.5\linewidth, 0em)
+    node[anchor=south west,inner sep=0pt, opacity=0.25]{\def\svgwidth{.5\linewidth}
       \includeinkscape{images/witw}};
   }
 \end{frame}
@@ -1003,9 +1180,9 @@ graphics,
   }
   {
     \tikz[remember picture,overlay]
-    \draw (current page.south west) +(.125\linewidth, 2em)
+    \draw (current page.south west) +(5em, 2em)
     node[anchor=south west,inner sep=0pt, opacity=0.25]{
-      \def\svgwidth{1\linewidth}
+      \def\svgwidth{.9\linewidth}
       \includeinkscape{images/pandpf}};
   }
   % \citenote{\citeauthor{Milne:2009aa} (\citeyear{Milne:2009aa}) \citetitle{Milne:2009aa}. With Decorations by Ernest H.\ Shepard.}
@@ -1014,6 +1191,20 @@ graphics,
 
 
 \appendix
+
+\section*{Thanks!}
+
+\begin{frame}[noframenumbering]
+  \frametitle{}
+  {
+    \tikz[remember picture,overlay]
+    \draw (current page.south west) +(0, .5)
+    node[anchor=south west,inner sep=0pt, opacity=0.5]{\def\svgwidth{1.2\linewidth}
+      \includeinkscape{images/e-c}};
+  }
+\end{frame}
+
+
 % Remove structure slides between sections
 \AtBeginSection[]
 {
@@ -1027,19 +1218,19 @@ graphics,
   }
 \end{frame}
 
-\begin{frame}
-  \frametitle{More cases}
+% \begin{frame}
+%   \frametitle{More cases}
 
-  Persistent objects:
-\begin{itemize}
-\item I drink Yakult because I had \emph{something} in mind when I bought a months worth.
-\item I still won't open some bottle of whisky because I'm saving it for some purpose.
-\item You see a gift for a friend in a store but have to go to a meeting, and after you end up searching the store for the gift.
-  \begin{itemize}
-  \item \dots and sometimes you might come across the gift again but are sure that you found something better.
-  \end{itemize}
-\end{itemize}
-\end{frame}
+%   Persistent objects:
+% \begin{itemize}
+% \item I drink Yakult because I had \emph{something} in mind when I bought a months worth.
+% \item I still won't open some bottle of whisky because I'm saving it for some purpose.
+% \item You see a gift for a friend in a store but have to go to a meeting, and after you end up searching the store for the gift.
+%   \begin{itemize}
+%   \item \dots and sometimes you might come across the gift again but are sure that you found something better.
+%   \end{itemize}
+% \end{itemize}
+% \end{frame}
 
 
 \begin{frame}
@@ -1079,44 +1270,44 @@ graphics,
     Nixon presses down and an electrical signal \dots
   }
 
-  \pause
-  \hozlinedash
+  % \pause
+  % \hozlinedash
 
-  \begin{itemize}
-  \item<+-> Did Nixon evaluate a nuclear strike as worthwhile?
-    \begin{itemize}
-    \item<+-> Settled on the means, so by settling principle Nixon took this to be worthwhile.
-    \item<+-> And, this commits Nixon to the evaluation of the end as worthwhile.
-    \item<+-> Nixon, however, was unable to recall that the end was a nuclear strike!
-      \begin{itemize}
-      \item<+-> Different representations of the same outcome.
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
+  % \begin{itemize}
+  % \item<+-> Did Nixon evaluate a nuclear strike as worthwhile?
+  %   \begin{itemize}
+  %   \item<+-> Settled on the means, so by settling principle Nixon took this to be worthwhile.
+  %   \item<+-> And, this commits Nixon to the evaluation of the end as worthwhile.
+  %   \item<+-> Nixon, however, was unable to recall that the end was a nuclear strike!
+  %     \begin{itemize}
+  %     \item<+-> Different representations of the same outcome.
+  %     \end{itemize}
+  %   \end{itemize}
+  % \end{itemize}
 \end{frame}
 
-\section{Relating the principles}
+% \section{Relating the principles}
 
-\begin{frame}
-  \frametitle{Relating the principles}
+% \begin{frame}
+%   \frametitle{Relating the principles}
 
-  \begin{block}{Taking (by reasoning)}
-    A rational agent is permitted to settle on an action (in part) as a means
-    \newline
-    \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
-    \newline
-    the agent \emph{takes there to be}  a means-end relation from an end they have which supports taking the relevant means \emph{(by reasoning via the relation)}.
-  \end{block}
+%   \begin{block}{Taking (by reasoning)}
+%     A rational agent is permitted to settle on an action (in part) as a means
+%     \newline
+%     \mbox{ }\hfill\emph{only if}\hfill\mbox{ }
+%     \newline
+%     the agent \emph{takes there to be}  a means-end relation from an end they have which supports taking the relevant means \emph{(by reasoning via the relation)}.
+%   \end{block}
 
-  \begin{enumerate}
-  \item An entailment is not required for the argument.
-  \item Requiring an entailment would not help the argument.
-    \begin{itemize}
-    \item \schemaName{Taking} would hold in all the cases in which \schemaName{Reasoning} does, but this would say nothing about the cases in which \schemaName{Reasoning} fails.
-    \end{itemize}
-  \item There may be good reason to \schemaName{Taking} and \schemaName{Reasoning} which would break the entailment.
-  \end{enumerate}
-\end{frame}
+%   \begin{enumerate}
+%   \item An entailment is not required for the argument.
+%   \item Requiring an entailment would not help the argument.
+%     \begin{itemize}
+%     \item \schemaName{Taking} would hold in all the cases in which \schemaName{Reasoning} does, but this would say nothing about the cases in which \schemaName{Reasoning} fails.
+%     \end{itemize}
+%   \item There may be good reason to \schemaName{Taking} and \schemaName{Reasoning} which would break the entailment.
+%   \end{enumerate}
+% \end{frame}
 
 % \section{Types of cases}
 
@@ -1159,19 +1350,19 @@ graphics,
 
 % \end{frame}
 
-\begin{frame}
-  \frametitle{An instance of \schemaName{Reasoning}}
+% \begin{frame}
+%   \frametitle{An instance of \schemaName{Reasoning}}
 
-The `only if' direction of \citeauthor{Sinhababu:2017aa}'s \emph{Desire–Belief Theory of Reasoning} may be seen as an instance of \schemaName{Reasoning}:
-\vspace{10pt}
-\begin{quote}
-  The Desire–Belief Theory of Reasoning: Desire is affected as the conclusion of reasoning if and only if desire that E is combined with belief that M would raise E’s probability, constituting desire that M.
-\end{quote}
-\vspace{10pt}
-Here \citeauthor{Sinhababu:2017aa} takes A, E, and M to suggest ``action'', ``end'', and ``means''.
-% The relevant missing premise is that a rational agent is permitted to settle on an action only if the agent desires the action.
+% The `only if' direction of \citeauthor{Sinhababu:2017aa}'s \emph{Desire–Belief Theory of Reasoning} may be seen as an instance of \schemaName{Reasoning}:
+% \vspace{10pt}
+% \begin{quote}
+%   The Desire–Belief Theory of Reasoning: Desire is affected as the conclusion of reasoning if and only if desire that [end] is combined with belief that [means] would raise [end]'s probability, constituting desire that [means].
+% \end{quote}
+% \vspace{10pt}
+% Here \citeauthor{Sinhababu:2017aa} takes A, E, and M to suggest ``action'', ``end'', and ``means''.
+% % The relevant missing premise is that a rational agent is permitted to settle on an action only if the agent desires the action.
 
-\citenote{\fullcite{Sinhababu:2017aa}}
-\end{frame}
+% \citenote{\fullcite{Sinhababu:2017aa}}
+% \end{frame}
 
 \end{document}
