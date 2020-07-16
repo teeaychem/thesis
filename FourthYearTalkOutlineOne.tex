@@ -1,0 +1,220 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+% \setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+% \setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Fourth Year Talk Outline}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+\pagestyle{empty}
+
+\noindent \textbf{I will be arguing}:
+\begin{enumerate}[label=\roman*.]
+\item Against the position that an agent is permitted to settle on a means only if the agent settling on those means as the result of their reasoning from some end to those means.
+
+\item For the position that what permits the agent to settle on a means is the agent's recognition of the existence of a means-end relationship (from an end the agent has) which supports taking the relevant means.
+\end{enumerate}
+
+\noindent\textbf{Argument:}
+
+\begin{enumerate}
+
+\item\label{scenarios:exist} There are cases in which agents recognise a means (as means) without being able to reason from an end they have to those means.
+
+\item\label{scenarios:persmissible} And, in these cases it is permissible for the agent to settle on the means.
+
+\item[C\(_{\text{i}}\).]\label{scenario:no-reasoning} In order for an agent to be permitted in settling on a means it cannot, in general, by required that the agent settling on those means is the result of their reasoning from an end they have to those means.
+
+  \begin{itemize}
+  \item From \ref{scenarios:exist} and~\ref{scenarios:persmissible}.
+  \end{itemize}
+
+\item\label{settle:worthwhile} For an agent to be permitted to settle on an action, the action must be worthwhile for the agent.
+
+  \begin{itemize}
+  \item Principle: Settling on an action is (primarily) explained by the action being considered both possible and worthwhile by the agent, perhaps in comparison to the same attributes to other actions.
+  \end{itemize}
+
+\item\label{m-e:dependence} If an agent considers a means only as a means, there is no other way in which the means can be worthwhile other than as the means to an end.
+
+  \begin{itemize}
+  \item Principle: Whether a means (as a means) is worthwhile wholly depends on whether the end to the means is worthwhile.
+    %\nolinebreak \mbox{ }\hfill(From \ref{m-e:dependence}, special case)
+  \end{itemize}
+
+\item\label{together} If an agent is permitted to settle on a means as a means, there existence of is some relevant means-end relation is required for the explanation of why this is permissible.
+  \begin{itemize}
+  \item For, by \ref{settle:worthwhile} the means is worthwhile.
+  \item And by \ref{m-e:dependence} this is only because there is an end which is worthwhile.
+  \end{itemize}
+\item[C\(_{\text{ii}}\).] For the cases described in \ref{scenarios:exist}, the agent must take their settling on the means to be supported by a means-end relation they are unable to reason about.
+  \begin{itemize}
+  \item By \ref{scenarios:exist} and \ref{scenarios:persmissible} these are cases in which it is permissible for an agent settles on means without being able to reason from an end to those means.
+  \item  And, from \ref{settle:worthwhile} to \ref{together} a means-end relation is required for the agent to settle on those means.
+  \end{itemize}
+
+\end{enumerate}
+
+% Steps \ref{scenarios:exist} -- \ref{scenario:no-reasoning}
+
+% Premises~\ref{scenarios:exist} and~\ref{scenarios:persmissible} are separated because
+
+% Premise~\ref{scenario:no-reasoning} is the position that I am denying.
+
+
+% The fourth premise states that means-end relations are necessary for settling on a means to be permissible.
+
+% \newpage
+
+% \noindent  \textbf{Suggestion}: See cases of practical reasoning in which an agent reasons from an end to a means as either
+%   \begin{enumerate*}
+%   \item constructing, or
+%   \item checking
+%   \end{enumerate*}
+%   the relevant means-end relations.
+% \linebreak
+
+% \noindent Two questions:
+
+% \begin{enumerate}[label=\alph*)]
+% \item How does the conclusion relate to more complex cases, such as those involving shared activity, or gaslighting.
+% \item Are there cases in which an agent is able to reason from ends to means, but settles what to do based on means-end relations that they are not able to reason about.
+%   \begin{itemize}
+%   \item Reasoning from ends to means, a further glass of wine settles what to do, but as the agent recognises they are tipsy, they take some water instead.
+%   \end{itemize}
+% \end{enumerate}
+
+\end{document}

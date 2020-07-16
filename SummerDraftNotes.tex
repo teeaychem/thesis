@@ -1,0 +1,290 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Minion 3}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Myriad Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+
+\begin{quote}
+  Basic idea is that process information to determine what is possible and worthwhile.
+  Processing information is costly, and there's a trade-off between the cost of processing more information and the difference that this information would provide.
+  Memory allows agents to cache the results of processing information, the same infomation doesn't need to be processed every time an agent figures out whether they have an attitude.
+\end{quote}
+
+Does this suggest a different reading of the shopping scenario?
+That is, the agent does process information, but it's non-standard.
+It's information about an attitude they had.
+This contrasts to forming the attitude.
+
+This is a difficulty.
+The way things are set up, the attitude towards the means isn't straightforwardly cached.
+Rather, it's arrived at by reasoning through contextual information.
+This, is something that's difficult to avoid.
+Especially if I'm tempted by Memento as an example.
+
+Note: Memento may be beliefs, rather than means, so treat this carefully.
+(Also, `notes' are a really useful thing to think about.)
+
+Main idea is that attitudes are formed on the basis of information.
+Sometimes the information available to an agent changes.
+The puzzle in the supermarket case is that the `canonical' source of information is gone; the agent can't recall the end, and so can't reason to the act as a means.
+The question is then whether alternative sources of information can `support' the agent's evaluation of the act as a means.
+Indeed, it's unclear from what the agent can reason from that the act is worthwhile as a means.
+
+Consider an anaology to belief.
+Agent has a document saying that the person they are interviewing has blue eyes, but opposite them is a person who seems to have brown eyes.
+The agent can't reconstruct the research that went into the document, nor can the agent inspect whether the person that they're interviewing is wearing contacts, etc.
+Same problem.
+What the agent is able to reason from given the beliefs they're formed from the interview supports one thing, and what there is something that the agent is unable to reconstruct the reason for which suggests another.
+
+In the case of belief, the question reduces to the kind of evidential support that the interviewer takes from their perception and from the document.
+In the case of worthwhile, it seems to be the same.
+The shopping list (supposing the agent has a shopping list, but can't reconstruct it from relevant ends) is like the document.
+The issue is how this informs the agent of what is worthwhile.
+
+Perhaps first principles, etc, but this isn't feasible for agent's like us.
+
+This doesn't suggest anything about what ends are.
+Desires, etc.
+The point is that information about ends can be constrained, and that agent may be uncertain.
+This is kind of like Pettigrews suggestion of taking a bunch of evaluation functions and having a probability distribution over these.
+It's one way to get a formal model of what's going on.
+
+For the philosophy of action, the insight is that information is important.
+In particular, attitudes themselves can't be all there is.
+
+Right, the thing is that the ability to derive the means from an end is a signficant piece of information.
+So, unable to do this, there's always going to be the possibility of a big change. (Maybe, this needs more thought.)
+
+(Failures of completeness kind of fall under this issue, though one may think that there's no comparison to be made.)
+
+\maketitle
+
+Outline
+
+\begin{itemize}
+\item The puzzle
+\item Caching
+\item Applications
+\item Summary
+\end{itemize}
+
+The goal of the paper is to present a puzzle, sketch a solution, and highlight the general use of the solution.
+The solution is a way of thinking about attitudes.
+No commitment to homunculi, though how the alternative works, that's a different matter.
+The point is that if you build in the relevant robustness to intentions, then you can build in vary degrees into other attitudes.
+
+The puzzle is about cases where an agent is unable to reason from an end to a means, but performs the means.
+There are two elements to the puzzle.
+\begin{itemize}
+\item No reasoning
+\item End is unlike others
+\end{itemize}
+The solution involves splitting attitudes into two kinds.
+Direct- and cached-.
+
+Well, there are certain items to draw from the puzzle itself, such as the role of means-end reasoning.
+
+Intentions can be seen as a special case.
+There's no need to see intentions in this way, but it is possible.
+
+
+Analogy:
+Evaluating an equation.
+You've got an integral, or something, and you go through some method of solving this.
+At the end, you write down the answer.
+At this point in time, what supports the answer is the working out.
+You leave this, and then come back to it.
+Now, when you come back, you have the solution, but you don't have the working out.
+
+Initially, the evidence is the working out, more-or-less.
+No longer have this information.
+
+
+
+Outline:
+
+Information loss and information gain.
+
+In the background, attitudes are held/formed on the basis of information.
+
+Memory isn't the focus, it has a role in both gain and loss.
+Perhaps everything can be covered by memory, but I don't think this is important.
+
+Interested in what happens to an attitude when there's a change in the supporting information.
+
+
+
+Parallels between testimony and memory.
+The interesting thing about the means-end application is the role of the end.
+This isn't the same as belief.
+What you think about belief will likely inform, though.
+
+Ah, but the local vs.\ extended theories of rationality are important.
+Distinction between whether the shopping list indicates a means because it was written, or whether this is something that's up for debate at each instance.
+It is, not clear, whether this is important.
+The point I'm interested in is where there's reevaluation.
+The difference is whether this reduces to revision or `acceptance' (for lack of a better term).
+The details may matter here, but it doesn't presuppose too much.
+
+The connexion to epistemology has use in that it shows there's no clear answer to these issues, and canvases a number of ways to think about what could be going on.
+
+
+\section{Externalism}
+\label{sec:externalism}
+
+Ray points out that there's an possibility of an agent being permitted to take an action without being able to do the relevant means end reasoning.
+This is something I haven't covered.
+And, what I argued for in my fourth year talk doesn't take this idea into account.
+However, it doesn't rule this idea out.
+
+The subtlety is that the condition I argued for relied on the agent recognising the action as a means.
+
+So, I didn't consider the possibility of the agent being justified without any internal recognition, but this is (in part) because it's hard to make sense of this, given that the agent settles on the action (in part) as a means.
+
+Perhaps there's an argument that an agent can still be justified in taking the action without regarding it as a means, but this possibility isn't something I have a good grasp on how to make sense of.
+
+It seems like a position on which the agent's reasoning doesn't really matter all that much.
+Whatever the agent values is fixed, means flow from this, and so long as the agent performs the relevant means, everything is fine.
+
+One reason why this might be important to think about is the focus I have on reasoning.
+If reasoning doesn't matter, then one could question whether there's an interesting story to be told.
+Maybe there are some examples from epistemology.
+
+\end{document}

@@ -1,0 +1,468 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+
+\begin{quote}
+  Basic idea is that process information to determine what is possible and worthwhile.
+  Processing information is costly, and there's a trade-off between the cost of processing more information and the difference that this information would provide.
+  Memory allows agents to cache the results of processing information, the same information doesn't need to be processed every time an agent figures out whether they have an attitude.
+\end{quote}
+
+
+\begin{note}
+  The thing I'm interested in is whether the persistence of attitudes can be reduces to the formation of attitudes.
+  Practical case is potentially interesting because there's this in-built dependency.
+  Think of intentions, the reduction seems to be assumed.
+  And, this complicates the story about the formation of attitudes if the reduction fails.
+\end{note}
+
+Difference with epistemic stuff is that memory might not count as evidence for practical attitudes.
+Right, with memory there's interest in what \emph{was} the case, lists and so on aren't necessarily instances of memory.
+Lists are somewhat forward looking.
+So, the parallel isn't particularly clear, though the positions may parallel.
+For example, form the list, does it hold until I have reason to doubt it?
+This is also where proofs differ, as these are `timeless'!
+
+\maketitle
+
+\begin{note}
+  Perhaps the agent can do some expected utility type stuff, but whether this is any better than the information that they have is unclear.
+\end{note}
+
+\begin{enumerate}
+\item Central case
+\item `Analysis'
+\item `Dilemma' (two ways on the standard picture)
+  \begin{itemize}
+  \item Agent seems rational: belief
+  \item Potential explanation of `evidence' is problematic, as this assumes the existence of the end.
+  \end{itemize}
+\item Information loss and information gain
+  \begin{itemize}
+  \item There is both information loss and information gain.
+    Information loss is clear, information gain less so.
+    The basis of the information is the same, nothing new is added, but given that there is a change, some bases provide distinct information.
+    Well, this doesn't seem essential, the agent always has the shopping list.
+  \end{itemize}
+\item Parallels
+\end{enumerate}
+
+Rationality.
+I understand this in terms of modelling, but this isn't standard.
+It seems \citeauthor{Titelbaum:2013aa} might be a good resource, as \citeauthor{Titelbaum:2013aa} uses the Bayesian approach for modelling.
+
+
+Can see the problem in two ways:
+\begin{enumerate}
+\item The means persists unless there is some reason to suspect that there is some reason to think that the shopping list is unreliable.
+\item The shopping list provides information that needs to be supported.
+\end{enumerate}
+
+Whether there's an entailment from memory to fact.
+
+So, if going by the first, then need an argument that inability to derive means is an indication that the means is no longer valuable.
+This isn't clear.
+The ability to represent is difficult.
+
+If going by the second, then there is a problem, because it seems the relevant support cannot be obtained, unless there's an alternative way to estalbish this.
+
+(I don't think I'm comitted to anything at present, the taking relation happens on both, it's whether this relation exists or whether the relation needs to be constructed.
+However, it may be that the presentation given favours the latter, which is a problem.)
+
+Presence of reasons to doubt veresus absence of reasons to trust. (\cite[703]{Weatherson:2015aa})
+
+It seems as though intention may be able to some of the work here.
+For, intention may be the thing that secures the need for presence of reasons to doubt.
+Right, it's possible that there's no single attitude, and the shopping list could flip between the two.
+It's not clear why this would be the case, though.
+For, it isn't clear what work the division would do.
+
+
+
+\newpage
+
+\section{Anscombe}
+\label{sec:anscombe}
+
+Anscombe highlights two ways in which a shopping list can be used, and does so by distinguishing between two kinds of mistake.
+
+\begin{quote}
+  Let us consider a man going round a town with a shopping list in his hand.
+  Now it is clear that the relation of this list to the things he actually buys is one and the same whether his wife gave him the list or it is his own list; and that there is a different relation when a list is made by a detective following him about.
+  If he made the list itself, it was an expression of intention; if his wife gave it him, it has the role of an order.
+  What then is the identical relation to what happens, in the order and the intention, which is not shared by the record?
+  It is precisely this:
+  if the list and the things that the man actually buys do not agree, and if this and this alone constitutes a \emph{mistake}, then the mistake is not in the list but in the man's performance (if his wife were to say: `Look, it says butter and you have bought margarine', he would hardly reply: `What a mistake! we must put that right' and alter the word on the list to `margarine'); whereas if the detective’s record and what the man actually buys do not agree, then the mistake is in the record.\nolinebreak
+  \mbox{}\hfill\mbox(\citeyear[56]{Anscombe:1957aa})
+\end{quote}
+
+\citeauthor{Anscombe:1957aa} goes on to note that there are other things that can happen, such as the revision of intention, or a mistake in adding certain items to the list, and so on.
+
+Anscombe uses `tackle for catching sharks' to illustrate a mistake in constructing the list.
+\begin{quote}
+  If I go out in Oxford with a shopping list including `tackle for catching sharks', no one will think of it as a mistake in performance that I fail to come back with it.\nolinebreak
+  \mbox{}\hfill\mbox(\citeyear[56]{Anscombe:1957aa})
+\end{quote}
+
+Shopping list can be seen as a metaphor, but shopping lists are also quite common.
+A few things happen:
+\begin{enumerate}
+\item Recall the reasoning with which the item was put on the shopping list.
+\item Pick up the item without thought.
+\item Fail to recall the reasoning with which the item was put on the shopping list.
+\end{enumerate}
+
+The first and second cases are straightforward to understand.
+Means-end reasoning and intentions.
+The third is less straightforward.
+
+
+
+
+Suppose the shopping list has only a single direction of fit, then it doesn't seem as though the shopping list can inform the agent about what would be beneficial for them to do.
+It seems it can only be a report on their past wishes.
+So, it seems the agent would use the shopping list to aid their reconstruction of a piece of means-end reasoning.
+
+\newpage
+
+\citeauthor{Anscombe:1957aa} introduced shopping lists.
+Metaphor.
+Lists, really, as there's a shopping list and a list of shopping.
+Not much has been said about shopping lists themselves.
+
+In part, not much needs to be said.
+
+However, cases where there the agent is unable to do the reasoning.
+
+
+
+Absence of a pro-attitude doesn't entail that the situation is not worthwhile.
+Didn't realise X = Y, etc.\
+(This is likely important to have at the start, as it highlights the way I'm thinking about the lack of reasoning, and failure of reasoning is not the only thing.
+There are more complex cases, such as temptation, but these aren't part of the main cases.)
+
+\section{Scenario}
+\label{sec:scenario}
+
+Shopping lists are mundane, and the philosophy of action has a number of resources to explain these.
+However, cases of a shopping list in which the agent is unable to do means-end reasoning and the item does not have the status of an intention.
+Shopping list is interesting because the actions are almost always a means.
+It is rare that the purchasing of the item is of intrinsic value.
+Sometimes this is the same, comfort shopping happens.
+
+\begin{itemize}
+\item Store
+\item Shopping list
+\item Ingredient
+\item Wonder about what you had planned
+\item Can't reconstruct means-end reasoning
+\item Is it rational for the agent to purchase the ingredient?
+  \begin{itemize}
+  \item Not ideal rationality, etc.
+    It seems the agent already fails this, as they've forgotten something.
+  \end{itemize}
+\end{itemize}
+
+\section{Ways in}
+\label{sec:ways}
+
+\subsection{Instrumental requirement}
+\label{sec:instr-requ}
+
+This is usually a conditional, and not a bi-conditional.
+This is kind of surprising.
+Could see this similar to conditionalization.
+Abstract away from information loss, and so there's no need to consider cases in which the means may persist without the ability to do the relevant reasoning.
+This isn't an argument, though.
+And, it's a difficult position.
+The idealising assumption limits the applicability of this, and we do so well with the shopping list in most cases.
+
+\section{Arguments}
+\label{sec:arguments}
+
+\subsection{Ideal Agent}
+\label{sec:ideal-agent}
+
+\begin{note}
+  \citeauthor{Hume:2011aa} might be a nice example here, as \citeauthor{Hume:2011aa} does talk about the recognition of failure.
+  At least, this motivates the basic idea.
+\end{note}
+
+Argument for a ideally rational agent.
+Means requires some end.
+Agent has end available, or not end.
+And, not hindered in the reasoning.
+So, if the agent can't do it, it's irrational.
+Something like this.
+
+Three assumptions:
+\begin{enumerate}
+\item The agent is in possession of all relevant information.
+\item The agent makes no mistakes in their reasoning.
+\item The agent's reasoning is effective --- if there's a relation they'll find it.
+\end{enumerate}
+
+As the issue is the existence of a supporting means-end relation, the agent has the relevant information to establish this.
+The agent will only reason via a genuine means-end relation.
+The agent will not miss a genuine means-end relation.
+So, if the agent is unable to reason via, then a relation does not exist.
+
+Without these assumptions, a relation may exist.
+Lack the relevant information, so unable to identify.
+Make a mistake.
+Miss a possibility.
+This doesn't show that the agent is rational.
+It's interesting that there's a lack of relation, so making a mistake is not about establishing something.
+It's different to mistakenly reasoning to a means.
+Still, can bracket this out.
+But it's interesting.
+For example, mistake that a proof won't work, so find something else.
+This doesn't seem to suggest that there's something problematic with the result, though a mistake in the proof would.
+
+\begin{note}
+  The three conditions seem to be necessary and sufficient for the agent's inability to reason for an end to an action as a means to be informative about the absence of a relation.
+  Parallels to doxastic attitudes may help here, esp.\ wrt.\ proofs.
+\end{note}
+
+
+\subsection{End}
+\label{sec:end}
+
+Perhaps there's some way to argue that the agent doesn't have the relevant end.
+
+Cases where an agent has an end but is unable to reason to means, and the agent does have the end.
+So, the ability to reason to the means doesn't seem to be part of what it is for an agent to have an end.
+
+In certain cases, it does seem as though the issue may be that the agent lacks the ability to represent the end.
+However, inferring from this that the agent does not have the end is difficult.
+At a conference, want to meet someone.
+Two descriptions, etc.\ note to self that the person is wearing etc.\ and then forget that the two descriptions match the same person.
+Clear that you want to meet X, see X as Y, note doesn't distinguish between X and Y.
+
+
+\subsection{Verification}
+\label{sec:verification}
+
+Idea is that an agent needs to be able to verify, or something.
+Reasoning via means-end relations verifies, at least from the agent's perspective.
+
+
+
+\section{?}
+
+\begin{itemize}
+\item Shopping list
+  \begin{itemize}
+  \item What does the shopping list do?
+    \begin{itemize}
+    \item Focusing options for practical (means-end) reasoning.
+    \item Avoiding the need to redo means-end reasoning.
+      \begin{itemize}
+      \item This is how intentions in \textcite{Bratman:1987aa} work, more-or-less
+      \end{itemize}
+    \item Information about what is worthwhile.
+      \begin{itemize}
+      \item This is a weaker version of \citeauthor{Bratman:1987aa}'s intentions.
+      \item Need some argument for this, maybe.
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+Many things could be happening with an item that one can't reason to.
+Cannot reason from ends to means to be sure that purchasing the item on the shopping list would be worthwhile.
+This is the key part, the failure of means-end reasoning is the point of interest.
+To say that the agent is unsure whether purchasing the item on the shopping list would be worthwhile isn't necessarily the same thing.
+If means-end reasoning is required, then there's a case for this, but there is a straightforward difference.
+Simple analogy, I did not prove a formula was a theorem by a syntactic proof, but it does not follow from this that I did not prove the theorem (I may have used a semantic proof).
+
+Perhaps there's a case to be made.
+Need that means-end reasoning and permissibility align.
+A result of this would be that either there's an end the agent reasons from, or the agent is irrational.
+Here, assuming that the agent is reasoning, as intentions, etc.
+So, result of reasoning only if end to means.
+
+Shopping lists are interesting because the reasoning is often quite easy to reconstruct.
+\citeauthor{Anscombe:1957aa} has the example of bait for shark fishing.
+
+Not all shopping lists are like this.
+
+
+\subsubsection{Nails and bin bags}
+\label{sec:nails-bin-bags}
+
+{\color{red}
+  Different items would be nice.
+  Maybe apples instead of bin bags.
+}
+
+Bin bags: evaluate what it would be to have bin bags and what it would be like not to have bin bags.
+Probability distribution, and done.
+This seems like a paradigm case of re-evaluating.
+Whatever the prior reason was, a new reason can be found.
+
+Nails of a certain length:
+Well, less clear.
+Nails of the correct length, for sure.
+And, the distribution is then over whether the length written down is the correct length.
+Is there more?
+The correct length isn't really something that can be used to do any work.
+Can't reason to the particular length.
+Means-end reasoning fails, though it gets close.
+Situation is that the nails of the specified length are more expensive than those slightly longer and slightly shorter.
+
+
+\subsection{Ingredient}
+\label{sec:ingredient}
+
+This seems like the best example.
+It's on the shopping list, but it's unfamiliar.
+Can't reconstruct the means-end reasoning.
+Indeed, it's striking and so you make the attempt because you're interested in recalling what you had planned.
+And now you're unable to continue.
+
+
+\newpage
+
+\printbibliography
+
+\end{document}
