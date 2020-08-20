@@ -1,0 +1,562 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+\usepackage{xfrac}
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\section{Sketch}
+\label{sec:sketch}
+
+% \begin{enumerate}
+% \item \(0K\) cases
+% \item Argument
+%   \begin{enumerate}
+%   \item The agent doesn't have warrant for inferring that \(\phi\) holds.
+%     \begin{itemize}
+%     \item This is due to the agent needing to assume that the companions response falls into the relevant class.
+%     \end{itemize}
+%   \item However, the agent does have warrant for inferring that the agent has warrant for \(\phi\).
+%     \begin{itemize}
+%     \item This is due to the fact that there are no defeaters for this.
+%     \end{itemize}
+%   \item If the agent has warrant for \(\phi\), then the agent is under pressure to accept \(\phi\).
+%     The agent is non-ideal, and must decide how to allocate the resources available to them.
+%   \item The key question is whether the agent has a way out of this problem.
+%   \item Testimony/Conditionals suggest a possibility.
+%     \begin{itemize}
+%     \item Core idea is that the agent takes something else to be authoritative.
+%     \item Agent has warrant, and this complicates things.
+%     \item For it doesn't seem as though the agent can avoid responding to what they are warranted to be confident in.
+%     \item This part of the argument is inconclusive, I think, as there may be a way, and the agent being in a tough spot by not having reasons may motivate the agent granting authority.
+%     \end{itemize}
+%   \end{enumerate}
+% \end{enumerate}
+
+Case:
+
+\begin{itemize}
+\item The case involves repeated instances of an agent and a companion reasoning from premises to a conclusion by certain rules of inference.
+\item The case is divided into multiple scenarios.
+\item Between each scenario the rules are fixed, but the premises and conclusion differ.
+\item Both the agent and the companion are aware that they share the same premises.
+\item The question in each scenario is whether the conclusion follows from the premises given the rules.
+\item For simplicity, assume the relation between the premises and conclusion is decidable and deductive, and so the conclusion either follows from the premises or does not, but the agent and their companion have bounded resources, and hence may not be able to decide whether or not the conclusion follows.
+\item So, in each scenario both the agent and the companion settle on either `yes', `no', or `maybe' as an answer to the question of whether or not the conclusion follows from the premises given the rules.
+\item For the initial \(n\) iterations of the scenario the agent is informed on the companions answer only after the agent has settled on their own answer.
+\item In the final iteration the agent is informed on the companion's answer after some effort has been made on behalf of the agent to settle on an answer, but the agent has not yet settled.
+\item For the initial \(n\) iterations of the scenario the agent and their companion have settled on the same answer.
+\item On the final iteration of the scenario the companion settles on `yes' (though nothing depends on this).
+\end{itemize}
+
+For an illustration, one may consider the agent and companion playing multiple games of chess and asking whether a winning strategy for either player exists, or attempting syntactic proofs in propositional logic, etc.
+
+\begin{itemize}
+\item The claim is that the agent should have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that the conclusion follows from the premises.
+\item This is due to the fact that there is \(\left(\sfrac{1}{3}\right)^{n}\) chance that the agent and companion would have produced matching answers by chance.
+\item However, the agent cannot directly reason to this degree of confidence, as the agent has only established the reliability of the companion with respect to questions that the agent has also settled on an answer to.
+\item Hence, for the agent to have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that the conclusion follows from the premises the agent must assume that they are able to reason to the same answer as the companion.
+  \begin{itemize}
+  \item This seems to be an instance of the reference class problem, but is also motivated by \citeauthor{Wright:2003aa}'s \emph{information-dependence template} which is potentially more general.
+  \item Noting the need of some kind of uniformity principle, such as the current question of whether the conclusion follows from the premises belong to the same class as previous instances of the question helps to highlight that the scope of this problem depends on what kind of uniformity principles one accepts.
+    \begin{itemize}
+    \item For example, if one assumes that nature is uniform, then it will not follow that one needs to assume they are able to witness a raven in order to infer that it is black.
+    \end{itemize}
+  \end{itemize}
+\item Still, it seems permissible for the agent to assume that they are able to reason to the same answer as the companion.
+  \begin{itemize}
+  \item I.e.\ that the question belongs to the same class of problems for which the agent has confidence that the answers match.
+  \end{itemize}
+\item Yet, it then follows that the agent is able to reason to the conclusion independently of the answer provided by the companion.
+\item This results in pressure on the agent to have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that the conclusion follows from the premises on the basis of information available to the agent without the agent being able (without further reasoning) to provide the reason for why the conclusion follows from the premises.
+\end{itemize}
+
+Assuming the agent does not have the resources to continue reasoning it is then up to the agent to determine whether they fail to match the ideals of rationality by either
+\begin{enumerate*}[label=(\alph*)]
+\item failing to \emph{accept} a proposition with confidence in line with the confidence that they have, given the resources that are available to them, or
+\item failing to \emph{establish} a proposition with confidence in line with the confidence that they have, given the resources that are available to them.
+\end{enumerate*}
+
+In short, either the agent fails to match their confidence to the support they take to be available to them, or the agent fails to provide a reason for why the support they have available to them establishes a certain proposition.
+
+\begin{itemize}
+\item The difficulty raised by the case is that it seems that the agent cannot avoid confidence that they can reason to a proposition, and hence should have confidence that the proposition holds, while simultaneously lacking access to the reasoning that shows the proposition holds.
+\item In other cases it may be that the agent should fail to have confidence that the proposition holds due to the importance of providing the relevant reason(ing).
+\end{itemize}
+
+\begin{itemize}
+\item The parallel to previous work on means-end reasoning is to assume that the case can be adapted to involve the agent and their past self as the companion, and hence the agent may be confident that a certain action is worthwhile as a means without being able to cite the means-end reasoning from ends to means.
+  \begin{itemize}
+  \item In this respect, the idea that that pressure for the agent to have confidence that performing the action as a means follows from reasoning that the agent is capable of doing avoids potential concerns about alienation, etc.
+  \item Further, this tension only arises if the agent is confident that the relevant ends have not changed.
+  \item In a sense the agent may have a means-end belief, but the agent may not be able to cite the reason for the means-end belief (or reason from the end to the means), and this I find sufficiently interesting.
+  \end{itemize}
+\end{itemize}
+
+The key question (apart from whether there's hope for this argument to work) is whether the agent can cite some reason for their confidence that the conclusion follows from the premises.
+For, although the agent is under pressure to have confidence that the conclusion does follow from the premises, it does not follow that the agent is require to provide this on the basis of their own reasoning.
+\begin{itemize}
+\item In particular, can the agent cite their companion as a source of testimony?
+\end{itemize}
+
+\begin{itemize}
+\item I do not think that the agent is able to cite their companion as a source of testimony.
+\item For, either
+  \begin{enumerate}
+  \item testimony does not offer the same confidence that the conclusion follows from the premises,
+  \item testimony requires the reliability of the companion, and hence faces the same issues as above.
+  \end{enumerate}
+\item At this point the argument that the agent cannot cite \emph{some} reason for confidence that the conclusion follows from the premises still needs some work.
+\item Still, it is hard to see what could discharge the relevant pressure other than the agent reasoning from the support they assume they have and hence so long as this holds the agent fails ideal rationality in a somewhat interesting way.
+\end{itemize}
+
+To summarise:
+
+\begin{itemize}
+\item If I can get the above argument to work, then I have a way to generate cases in which an agent is under pressure to adopt confidence in a proposition from resources that they recognise they have while simultaneously lacking the ability to specify how/why those resources support the proposition.
+\item To support this I need an argument that the agent cannot discharge this pressure by offering some other reason to have confidence in the proposition, and it is unclear that testimony can do this.
+\end{itemize}
+
+\newpage
+
+
+
+\section{Overview}
+\label{sec:overview}
+
+Bounded Zero-K Cases are the foundation of the paper.
+Bounded Zero-K Cases are a variant of Zero-Knowledge proofs.
+Zero-knowledge proofs are a way for a verifier to establish that some proposition through interaction with a prover in such that the interaction between the prover and the verifier allow the verifier to establish that some proposition holds to an arbitrary degree of certainty without gaining (guaranteed) knowledge that the proposition holds.\nolinebreak
+\footnote{There are some additional constraints that are not too relevant for introductory remarks.}
+Bounded Zero-K Cases, I will argue, are a for an agent to interact with a companion to establish to an arbitrary degree of certainty that the agent is able to reason to a proposition given the resources available to the agent, without establishing how to reason to the proposition.
+
+The issue raises by Bounded Zero-K Cases is that if an agent is able to reason to a proposition given the resources available to the agent, without establishing how to reason to the proposition, then the agent is under pressure to accept the proposition with confidence in proposition to their confidence that the resources available to the them without the reasoning from and with the resources they have to the proposition.
+Furthermore, the cited pressure on the agent is \emph{internal}.
+The agent is able to appeal to their companion to establish that then agent is able to reason to a proposition given the resources available to the agent, but the agent is not able to appeal to their companion to directly support that their confidence in the proposition.
+In other words, the pressure to the agent to accept the relevant proposition with confidence is due to the confidence that the agent has that the relevant resources to reason to the proposition are available to the agent.
+
+The tension created as the result of the above mentioned pressure is that of accepting that a proposition holds on the basis of available resources without reasoning through how those resources support the proposition.
+In certain cases this tension is unavoidable due to the costs involved in resource use for bounded agents, and it is up to the agent to determine whether they fail to match the ideals of rationality by either
+\begin{enumerate*}[label=(\alph*)]
+\item failing to accept a proposition with confidence in line with the confidence that they have given the resources that are available to them, or
+\item failing to establish a proposition with confidence in line with the confidence that they have given the resources that are available to them.
+\end{enumerate*}
+
+I then focus on cases in which an agent fails to match the ideals of rationality by failing to establish a proposition with confidence in line with the confidence that they have given the resources that are available to them.
+I argue that certain patterns in human agency conform to this failure, and that the dynamics of this failure are worthwhile exploring.
+
+\section{Zero-Knowledge Cases}
+\label{sec:zero-knowledge-cases}
+
+\subsection{Standard Zero-Knowledge Cases}
+\label{sec:stand-zero-knowl}
+
+\begin{itemize}
+\item Verifier
+\item Prover
+\item Proposition
+\end{itemize}
+
+The goal of the prover is to establish that \(\phi\) is true.
+
+The general method is for the verifier and prover to repeat a situation in which the verifier can only guarantee a certain outcome if \(\phi\) is true, but for which the relevant outcome has a change of occurring if \(\phi\) is not true.
+
+To illustrate, Fido wishes to establish that they are able to distinguish between squeaky toys and soft toys.
+That is, \(\phi\) is the claim that Fido is able to distinguish between squeaky and soft toys, and Fido has the role of proving this proposition.
+The difficulty is that Fido is shy, and will not perform this feat in front of you, then verifier.
+Still, we have available to use a collection of toys which are either squeaky or soft and a corridor with a bend that ensures one end of the corridor cannot be seen from the other.
+So, I propose that you, I, and Fido start at one end of the corridor.
+You will then a squeaky and a soft toy to the other end of the corridor, return, and upon returning instruct Fido to bring back either a squeaky toy or a soft toy.
+Fido will then go to the other end of the corridor and return with a toy.
+
+There is a even chance of Fido returning with the requested type of toy if Fido is picking at random.
+However, if Fido is picking which type of toy to return with at random, then there is only a one in four chance that Fido returns with the correct toy given two consecutive instances of the described situation.
+And, in general, there is a \(\left(\sfrac{1}{2}\right)^{n}\) chance that Fido returns the correct toy on \(n\) consecutive instances of the scenario if Fido is picking at random.
+Therefore, assuming that Fido returns with the correct type of toy given \(n\) instances of the situation, your confidence that Fido can distinguish between squeaky and soft toy should be (at least roughly) \(1 - \left(\sfrac{1}{2}\right)^{n}\) for a sufficiently large \(n\).
+
+Still chance, so cannot be certain.
+Therefore, if knowledge requires certainly you do not know that Fido is able to distinguish between squeaky and soft toys.
+Still, it may be that you do have a claim to knowledge if Fido can distinguish between squeaky and soft toys.
+I do not wish to take a stand on this, and focus on the degree to which you can be confident in accepting \(\phi\).
+
+And, because Fido's successful performance may be coincidence, I cannot use Fido's performance as the basis to infer something else with certainty.
+
+You won't let me choose the toys because Fido and I may have worked out a sequence in advance, etc.
+
+Core idea is statistical likelihood.
+
+\subsection{Bounded Zero-K Cases}
+\label{sec:bounded-zero-k}
+
+\begin{itemize}
+\item Agent
+\item Companion
+\item Bundle
+  \begin{itemize}
+  \item Premises
+  \item Rules
+  \item Conclusion
+  \end{itemize}
+\end{itemize}
+
+Bounded Zero-K Cases rely on the same idea of statistical likelihood.
+May be seen as a particular kind of zero-knowledge proof or as a variant, depending on what kinds of propositions are permitted in zero-knowledge proofs.
+For, instead of a proposition that is true or false, we consider a collection of resources; premises, rules, and a conclusion, and the issue is whether the conclusion follows from the premises, given the rules.
+Corresponding to this complexity, three potential answers are possible; yes, no, and maybe.
+
+As with Standard Zero-Knowledge Cases the agent interacts with their companion.
+However, in contrast to Standard Zero-Knowledge Cases the agent whether a conclusion follows from given premises by given rules.
+Scenarios are identified with a pairing of a premise and a conclusion, and the rules stay fixed between scenarios.
+In each scenario the agent attempts to determine whether the conclusion follows from the premises by the given rules, and likewise asks their companion whether the conclusion follows from the premises by the given rules.
+If the companion picks a possible answer by change, there is a one in three chance that the agent and the companion settle on the same answer to whether or not the conclusion follows from the premises (yes, no, or maybe), and hence there is a \(\left(\sfrac{1}{3}\right)^{n}\) chance that the agent and the companion settle on the same answer given \(n\) consecutive instances of the scenario.
+Therefore, assuming \(n\) consecutive scenarios in which the agent and companion settle on the same answer, the agent have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that they and their companion are matched in their ability to reason from premises to conclusion given the rules.
+
+For a concrete application, consider the agent and companion are playing chess, both the agent and companion have full view of the chess board, both the agent and the companion have a clear grasp on the rules of chess, and each instance of the scenario concerns whether a winning strategy exists given the arrangement of pieces on the board, given the rules of chess.
+Further, prior to repeated scenarios neither the agent nor the companion are aware of each other's ability to reason about chess, and neither agent not companion communicates except by asking whether a winning strategy exists or providing an answer to whether a winning strategy exists.
+
+Now, assume that \(n\) consecutive instances of the scenario both the agent and the companion have settled on the same answer, it is the agent's turn, and the agent has asked their companion whether their companion has a winning strategy.
+The agent's companion responds that they do have a winning strategy, but the agent has not yet found the winning strategy.
+
+It seems the agent should have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that a wining strategy for the companion exists, but the agent is unable to identify what the winning strategy is.
+However, this inference is not quite so straightforward.
+The agent should have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that that a wining strategy for the companion exists \emph{only if} the agent is able to reason from the state of the chess board to the winning strategy.
+
+For, given in the previous \(n\) scenarios the agent has also reasoned from the state of the board to an answer to whether a winning strategy exists.
+To illustrate, suppose on the present iteration of the scenario the companion had open up a book containing various classic games of chess.
+If so, the companions answer may be premised on the description of the result of a matching board in the book, and the agent's confidence in whether a wining strategy for the companion exists would depend (in part) on the confidence of the agent that the companion's answer is drawn from the book and the agent's confidence in the support that the book provides for answering whether a winning strategy exists.
+
+Hence, the companion's answer supports confidence that that a wining strategy for the companion exists to the degree that the agent and companion have produced the same answers only if the agent assumes that the situation is one in which the agent would reason to the same answer.
+
+In other words, if the agent has confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that a wining strategy for the companion exists, then this entails that the agent has confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that the agent is able to reason from the state of the board to the winning strategy.
+
+\begin{note}
+  I realise the argument as written is not quite correct, as it not clear that the agent's confidence that the winning strategy belongs to the class of strategies that the agent is able to reason to should match the agent's confidence that the agent and their companion share the same reasoning abilities.
+\end{note}
+
+With the above insight in hand, it may be noted that the potential line of reasoning under consideration is may be seen as an instance of \citeauthor{Wright:2003aa}'s \emph{information-dependence template}:
+
+\begin{quote}
+  A body of evidence, \emph{e}, is an information-dependent warrant for a particular proposition \emph{p} if whether \emph{e} is correctly regarded as warranting \emph{p} depends on what one has by way of collateral information, \emph{I}.
+  [\dots]
+  Such a relationship is always liable to generate examples of transmission failure: it will do so just when the particular \emph{e}, \emph{p}, and \emph{I} have the feature that needed elements of the relevant \emph{I} are themselves entailed by \emph{p} (together perhaps with other warranted premises.)
+  In that case, any warrant supplied by \emph{e} for \emph{p} will not be transmissible to those elements of \emph{I}.
+  Warrant is transmissible in such a case only if a rational thinker could cite as her ground for accepting \emph{I} the fact that she has warrant for \emph{p}, supplied by \emph{e}, together with the entailment.
+  No rational thinker could do that if the warrant for \emph{p} supplied by \emph{e} originally depends on prior and independent warrant for \emph{I}.\linebreak
+  \mbox{}\hfill\mbox{(\citeyear[59]{Wright:2003aa})}
+\end{quote}
+
+The upshot is that barring any defeats, the agent should have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that they have the resources to reason to a winning strategy for their companion.
+Still, if the agent has confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that they have the resources to reason to a winning strategy for their companion, then it seems to follow from \emph{this} that the agent should have confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that their companion has a winning strategy for their companion.
+For, whether or not the agent's companion has a winning strategy does not depend on whether the agent reasons to the winning strategy or not.
+Hence, it seems the agent is under pressure to accept that the agent has a winning strategy given the resources available to them.
+
+\begin{note}
+  It seems that the problem may be recast in terms of the reference class problem, but I have not worked through the basics of the reference class problem yet\dots
+
+  For, following \textcite{Hajek:2007aa}:
+  \begin{quote}
+    The reference class problem arises when we want to assign a probability to a single proposition, \emph{X}, which may be classified in various ways, yet its probability can change depending on how it is classified.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[565]{Hajek:2007aa})}
+  \end{quote}
+  So, if the winning strategy belongs to the class of strategies that the agent is able to reason to, then the agent should be confident that a winning strategy exists, and if it does not then it seems the agent should not be confident.
+\end{note}
+
+
+\section{Tension}
+\label{sec:tension}
+
+In BZK cases, it seems that the agent should be confident to the degree that their companion correctly decides when the relevant conclusion follows from the available premises and rules.
+
+
+% \section{Testimony}
+% \label{sec:testimony}
+
+% Perhaps the agent could appeal to their companion as a source of testimony.
+
+% \begin{itemize}
+% \item The BZK Cases do not require that the companion is an agent.
+% \item Appealing to testimony based on the reliability of the companion runs into the same problem as the agent reasoning directly to confidence of (at least roughly) \(1 - \left(\sfrac{1}{3}\right)^{n}\) that their companion has a winning strategy for their companion.
+% \item If \textcite{Baker:2018aa} is right about testimony requires Strong B-P, and if this applies to confidence just as it does to belief, then it seems the agent has pressure against regarding the companions' statement as testimony, because the agent cannot undermine their claim to confidence that that they have the resources to reason to a winning strategy.
+% \end{itemize}
+
+% \begin{quote}
+%   \textbf{Strong B-P}: When challenged to produce the evidence that justifies her belief that \emph{p}, \emph{A} can acknowledge that she is unable to do so by herself, without help from her source, without thereby undermining her claim to know that \emph{p}.\nolinebreak
+%   \mbox{}\hfill\mbox{}(\citeyear[8]{Baker:2018aa})
+% \end{quote}
+
+
+% \section{Conditionals}
+% \label{sec:conditionals}
+
+% Perhaps it can be argued that the agent gains confidence that a conditional leading from the companions statement direct to the claimed state can be applied.
+% For example, something of the form:
+% \begin{quote}
+%   If the companion claims \(\phi\), then \(\phi\) holds.
+% \end{quote}
+% And, so as the antecedent of the conditional holds, then the consequent of the conditional holds with confidence in proportion to the agent's confidence in the conditional.
+
+% This proposal faces the same issues as the direct inference to \(\phi\) holding in proportion to the agent's confidence of the reliability of their companion.
+% For the agent's confidence in the conditional is likewise requires the background assumption that the agent can reason to \(\phi\) given the resources available to them.
+% If the agent does not assume that they are able to reason to \(\phi\), then the agent is unable to use the information they have regarding the agent's reliability with respect to statements that the agent can reason to in order to apply the conditional.
+
+% \begin{quote}
+%   It is natural to analyze partial knowledge as knowledge of conditionals.
+%   The ten year old child knows the spoken version of `If the spelling dictionary spells the month after January as F-e-b-r-u-a-r-y, then that spelling is correct'.
+%   Consulting the spelling dictionary gives him knowledge of the antecedent of the conditional.
+
+%   Much of our learning from conditionals runs as smoothly as this example suggests.
+%   Knowledge of the conditional is conditional knowledge (that is, conditional upon learning the antecedent and applying the inference rule modus ponens: If P then Q, P, therefore Q).\nolinebreak
+%   \mbox{}\hfill\mbox{(\citeyear{Sorensen:2020aa})}
+% \end{quote}
+
+% \section{Expertise}
+% \label{sec:expertise}
+
+% Potential paradox.
+% For, it seems there may be no way to rely on testimony of experts.
+% Idea is to generalise the BZK Cases to reasoning more generally.
+% If the agent has no way to verify the expertise of their companion except by assuming that they are able to reason to the same conclusion given the resources that they have, then in cases of expertise it seems the agent should be confident that they have the expertise required to reason to the statements of the companion.
+
+% Intuitively, however, agent's are not under any kind of internal pressure to accept to statements of companions with expertise.
+
+% Expertise is not secured by verifying propositions in which the agent's and the experts companions overlap.
+
+% \textcite{Hardwig:1985aa} makes this point, and suggests that in cases of expertise agent's cede authority to companions with expertise.
+
+% Broadly, the idea is that in cases of testimony the support for the agent's confidence does not rest (solely) on the resources available to the agent.
+% It is in this sense that experts have authority, and the resources required to support the testified proposition go beyond those available to the agent.
+
+
+
+% This also comes out in the case of conditionals.
+% If it's a raven, then it's black.
+% It seems as though I verify that the conclusion holds whenever the antecedent holds, and that there are no cases in which the antecedent holds and the consequent does not.
+% However, because the confidence is based in my verifying that ravens are back, it seems for any instance in which I move from the non-observation based claim that something is raven to that thing being black, that I must assume that I would verify.
+% This seems problematic in the sense that it is not clear that the conditional needs to be `grounded' in my ability to verify.
+
+
+\section{Alternative sources of support/Testimony}
+\label{sec:altern-sourc-supp}
+
+So, question is whether there is some other way for the agent to reason to \(\phi\).
+The key idea here is that even though there is pressure for the agent to have some degree of confidence in \(\phi\), this pressure does not necessarily require that the agent does not establish \(\phi\) by some means other than reasoning to \(\phi\) given the information that the agent has.
+
+Example: Agent is offered \$100 to believe \(\psi\), but the agent also has received testimony that \(\psi\).
+It would be epistemically problematic for the agent to believe \(\psi\) based on obtaining \$100, though perhaps practically rational.
+Still, this does not prevent the agent from believing \(\psi\) on the basis of testimony.
+
+Testimony is a natural idea.
+For the agent may appeal to the testimony of their companion in support of \(\phi\), and this does not clearly rest on the agent's assumed support for \(\phi\).
+
+Appealing to testimony is not so straightforward.
+
+It is not clear that the agent's support for considering the companion's statement that \(\phi\) is distinct from the reasoning given in support of the agent being confident that they have the resources to reason to \(\phi\).
+If this is the case, testimony offers no solution.
+This is not the only view of testimony, but I doubt that appealing to testimony is viable.
+
+The following argument is no conclusive, but hopefully demonstrates there is tension.
+The strategy is to appeal to an argument made by \textcite{Lackey:2008aa} in support of the dilemma that either testimony does not further the goal of acquiring true beliefs, or testimony reduces to the kind of evidential features sketched above.
+If this holds, then appealing to testimony cannot discharge the pressure placed on the agent to accept the statement of their companion on the basis of the resources available to the agent.
+A wrinkle in appealing to \citeauthor{Lackey:2008aa}'s argument is a proposal made by \textcite{Baker:2018ab} which provides a way in which testimony may be social while avoiding the two horns of \citeauthor{Lackey:2008aa}'s dilemma.
+However, I argue that the proposal made by \citeauthor{Baker:2018ab} does not help the our agent.
+
+\begin{note}
+  My understanding of \citeauthor{Lackey:2008aa}'s argument is based on reading \textcite{Baker:2018ab}.
+\end{note}
+
+\citeauthor{Baker:2018ab} propose \emph{Strong Buck-Passing}:
+
+\begin{quote}
+  \textbf{Strong B-P}: When challenged to produce the evidence that justifies her belief that \emph{p}, \emph{A} can acknowledge that she is unable to do so by herself, without help from her source, without thereby undermining her claim to know that \emph{p}.\nolinebreak
+  \mbox{}\hfill\mbox{}(\citeyear[8]{Baker:2018aa})
+\end{quote}
+
+Strong Buck-Passing avoids \citeauthor{Lackey:2008aa}'s dilemma by routing the relevant justification for a claim believed through testimony, in part, through the testifier.
+That is, \citeauthor{Lackey:2008aa}'s dilemma assumes that all relevant justification is filtered through the agent and hence testimony either fails to further the goal of acquiring true belief or reduces to the reliability of the testifier.
+And, in contrast, Strong Buck-Passing extends justification beyond the speaker.
+
+The issue with Strong Buck-Passing in the case of the agent and their companion is that it does not seem as though the agent can acknowledge that they are unable to produce the evidence that justifies their belief that their opponent has a winning strategy, because the agent's confidence that their companion has a winning strategy is premised on their possessing the relevant evidence.
+For sure, the agent may `pass the buck' with respect to \emph{how to identify} the winning strategy, but the existence of the winning strategy does not depend on it's identification.
+
+\section{Different Class Principles}
+\label{sec:diff-class-princ}
+
+An important premise is that the agent takes the question to belong to the class of questions that the agent is able to determine the answer to.
+
+I do not, yet, have a strong argument for this.
+And, there are viable alternatives.
+For example, the agent may take the companion's ability to extend to a super-class of questions, and the established reliability may show that the companion is fairly good on this super-class, and the agent's inability to reason shows that the question likely does not belong to the sub-class.
+
+The trouble is, it seems as though the agent should be fairly confident, at least without extensive reasoning, that the question does not belong to the overlap.
+
+Broadly put, it seems the pressure placed on the agent is a result of the agent's confidence that the companion is correct combined with the agent's confidence that the question belongs to the class of questions that the agent is able to determine the answer to.
+
+If the question doesn't belong to the overlap between the agent and the companion, then it's not clear what the agent's confidence should be.
+If it does, then it is fairly clear.
+So, it seems everything hinges on the agent's confidence that the question belong to the overlapping class.
+
+Hence, the agent's confidence is likely lower than their confidence that the conclusion follows from the premises \emph{given} that the question belong to the overlapping class, but could still be high.
+And, perhaps the pressure is proportional to this degree.
+
+If this is the case, then there may be the possibility of the agent appealing to the authority of the agent, but the difference is likely insubstantial, perhaps.
+Well, it seems that in the case almost epistemic peers, conflicting results\dots are difficult.
+The companion is slightly better, but not by a lot, and the agent and the companion have conflicting results.
+So, more-or-less standard peer disagreement.
+And, it's not clear what to say in these cases, I think.
+There chance that the companion is mistaken may be roughly the difference in status, so some conciliation follows, but potentially not enough to undermine the agent's confidence in their own results.
+
+\section{Epistemic Peers}
+\label{sec:epistemic-peers}
+
+Heck, it looks as though the agent and the companion are epistemic peers, based on the convergence of their answers, though this is not assumed.
+
+\section{Going `Full Social'}
+\label{sec:going-full-social}
+
+Idea is that in these cases there's no pressure because there's no principled distinction between what follows from the support available to the agent and the support available to the companion.
+Not that this sketch is quite right, but there should be some way to deny the basic premise that I'm appealing to regarding the importance of the \emph{agent's support} that works along these lines.
+(Some kind of extended mind ideas.)
+The difficulty is that while this may work in some cases, the scenario is quite general, and seems to work with the agent's past self, or with duplicates, and in particular with non-evidential states such as desires.
+
+\newpage
+
+\printbibliography
+
+
+\end{document}

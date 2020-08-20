@@ -1,0 +1,318 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+It is unclear whether the agent in the shopping list scenario is rational.
+There are many things that could influence our judgements of rationality.
+For example, the age of the shopping list, the agent's history of forgetting things, whether or not the agent is able to recall ends for other items on the list, on so on.
+The question I am interested in is not whether the agent in the shopping list scenario \emph{is} rational, but whether the agent in the shopping list example \emph{might be} rational.
+
+Broadly stated, the question is:
+
+If an agent recognises that they settled on an action as a means to some end, and is unable to reason from an end to the means, is it possible for the agent to be rational in performing the means?
+
+If `yes', then it is not the case that an agent is rational in performing a action as means only if the agent settles on the action as the result of reasoning from an end to the means.
+
+In the cases of interest the agent recognises that they had settled on performing the action as a means to some end, and reasons that whether or not performing the action as a means is worthwhile depends on whether the end is worthwhile.
+This, I think, suggests that (as a necessary condition) in order for the agent to be rational, the agent must be think the end is worthwhile and think that a means-end relation holds between the action and the relevant end.
+
+My current task is to figure out whether this confidence is sufficient for the agent to act rationally.
+
+
+
+Below are notes on sets of notes.
+The first provides a slightly different example.
+The second attempts to establish a symmetric example with belief.
+
+\section{Variation}
+\label{sec:variation}
+
+Consider gifts.
+A close friend has a gift for the agent.
+The specifics of the gift are left to the reader, so long as they satisfy the following constraints:
+\begin{enumerate}
+\item\label{gift:means} The gift requires the agent to perform an action as a means.
+\item\label{gift:relation} The agent is unable to reason from an end they have to the means.
+\end{enumerate}
+
+For example, the gift may be an idea contained in a book.
+The agent is required to read the book in order to grasp the idea, and the agent is unable to establish that the book would be (or not be) worth reading by the information that the book provides about it's contents.
+Or, perhaps the gift is a unique taste, and the agent is required to consume part of a meal in order to experience the taste, and the meal is not immediately appealing (nor unappealing).
+
+The question is whether the agent can rationally perform the means required to receive the gift without reasoning from an end they have to performing the required means.
+
+The idea here is that the may agent `outsource' their means-end reasoning to their close friend.
+That is, the agent may reason as follows:
+\begin{enumerate}
+\item My close friend has a good understanding of what I think is worthwhile.
+\item My close friend reasoned from information about what I think is worthwhile to the gift.
+\item So, it is likely that the gift is worthwhile.
+\item If the gift is worthwhile and there is a means-end relation between the gift and the required action, then it is worthwhile to perform the action as a means.
+\item So, it is worthwhile to perform the action as a means.
+\end{enumerate}
+
+This scenario may be contrasted to the agent explaining something that they think is worthwhile to their friend and their friend recommending the action as a means to what they think is worthwhile.
+In this contrasting case the agent may not be able to reason from whatever they think is worthwhile to performing the action as a means, but their friend states a specific means end relation, while in the present scenario the information about the specific end the agent's friend has reasoned from is not provided to the agent.
+
+There are various ways in which the agent could potentially reason from an end they recognise to performing the means required to receive the gift.
+For example, the agent may have the end of pleasing their friend, performing actions that close friends think would lead the agent to something the agent considers worthwhile, and so on.
+
+It is, of course, possible to assume that the agent has the end of performing actions that close friends think would lead the agent to something the agent considers worthwhile.
+This, however, is not part of the reasoning given above, reformulated with this end the agent would reason as follows:
+
+\begin{enumerate}
+\item My close friend has a good understanding of what I think is worthwhile.
+\item I have the end of performing actions that close friends think would lead me to something I consider worthwhile.
+\item So, it is worthwhile to perform the action as a means.
+\end{enumerate}
+
+In the agent's initial reasoning there is no appeal to an end the agent has \emph{other} than the end identified by the agent's friend.
+The agent's friend does not inform the agent of which end the friend has identified, and it is assumed that the agent would not be able to reason from this to performing the action as a means even if the agent considers the relevant end when thinking about the means.
+
+So, while there may be alternative explanations for why the agent may be rational in performing the means, the question is whether there is something problematic with the suggested reasoning.
+That is, the task, is to demonstrate that the reasoning sketched above could not support the agent rationally performing the action as a means.
+
+In the reasoning, it seems the agent takes their confidence that the relevant end is worthwhile to justify performing the means.
+What is distinctive about the agent's reasoning is that the agent cannot specify what this justification is.
+
+\citeauthor{Smith:2004aa} presents a sceptical, \citeauthor{Hume:2011aa}an argument against practical reasoning of this form, regardless of whether the agent is able to identify the appearance of justification or otherwise.
+\begin{quote}
+  \dots in the practical case we cannot remain faithful to the idea that the rationality of a psychological transition must have something to do with the possibility of there being reasons for making that psychological transition.
+
+  \dots
+
+  There is no such thing as means-end rationality: talk of ``means-end reasoning'' remains an oxymoron.
+  There is simply the human habit of forming desires for means on the basis of desires for ends and beliefs about means, a habit that is underwritten by neither reasons nor rationality.\nolinebreak
+  \mbox{}\hfill\mbox{\citeyear[88]{Smith:2004aa}}
+\end{quote}
+
+If means-end reasoning is an oxymoron, then the question of whether the agent is rational or not based on some means-end reasoning is mistaken.
+And, if means-end reasoning is not an oxymoron, then this sceptical argument is too strong to isolate the kind of reasoning suggested above as irrational.
+
+As \citeauthor{Smith:2004aa} notes, appeal to coherence relations does not require transmission of justification and may be compatible with \citeauthor{Hume:2011aa}'s sceptical arguments to the letter.
+However, coherence relations may also be functionally equivalent to transmissions of justification and may therefore be incompatible with the spirit of \citeauthor{Hume:2011aa}'s sceptical arguments.
+
+Bracketing scepticism, then either way (whether by transmission of justification or by relations of coherence) the task is to find a problem with the agent's reasoning.
+
+\section{Creating a similar example with belief}
+\label{sec:creat-simil-example}
+
+I suspect that the puzzle about the agent's reasoning isn't due to the agent engaging in means-end reasoning.
+The focus on means-end reasoning and means-end relations is useful because it is clear that the agent can settle on the means if they are aware of a means-end relation between the means and an end they have.
+I'm less clear on intuitions about this kind of dependency relation in the case of belief.
+Still, with some work I think a similar case can be constructed.
+(I very much doubt this is the best case nor the simplest, and it's certainly not particularly realistic, but it does seem straightforward enough to puzzle over.)
+
+The basic idea is to build a scenario based on illustrations of zero-knowledge proofs.
+I'll start with the idea of these proofs, and then build the relevant scenario.
+
+\subsection{Illustration of zero-knowledge proofs}
+\label{sec:illustr-zero-knowl}
+
+\citeauthor{Quisquater:1989aa} provide a simple example titled `The Strange Cave of Ali Baba'.
+What follows is a rough outline.
+
+We have a cave with a single entrance.
+The entrance leads to a passage which forks, and both forks lead to the same door.
+So, if you enter the cave and take the left fork and pass through the door you'll arrive back at the fork.
+Likewise, if you enter the cave and take the right fork and pass through the door you'll arrive back at the fork.
+The door, however, is guarded by a password.
+Agent \(A\) claims to know the password for the door, and agent \(B\) wishes to establish this.
+Agent \(A\) could tell agent \(B\) the password, but agent \(A\) does not want to reveal the password to agent \(B\).
+Perhaps agent \(A\) doesn't want agent \(B\) to know the password, or perhaps agent \(A\) is worried that someone might overhear them saying the password to agent \(B\), these details aren't too important.
+What matters is that agent \(A\) can demonstrate that they know the password without revealing what it is.
+
+The method is straightforward.
+Agent \(A\) enters the cave and takes either the left or right fork, after allowing agent \(A\) enough time to have taken a one of the forks, agent \(B\) then enters the cave.
+Agent \(B\) then loudly shouts which fork they want agent \(A\) to appear from chosen at random.
+If agent \(A\) has taken the fork agent \(B\) wants them to appear from, then agent \(A\) retraces their steps, but if agent \(A\) has taken the alternative fork then agent \(A\) must pass through the door which requires the password.
+
+So, if agent \(A\) knows the password, then agent \(A\) will always be able to appear from the fork agent \(B\) requests, and if not then on each trip to the cave there is a 50\% chance that agent \(A\) will be unable to appear from the fork agent \(B\) requests.
+Hence, the two agents can enter and exit the cave as many times as agent \(B\) requires in order to be confident that agent \(A\) knows the password, but agent \(B\) is never informed by agent \(A\) of what the password is.
+
+It seems to me clear to me that by following this method agent \(B\) can form a justified belief that agent \(A\) knows the password.
+
+\subsection{Scenario and discussion}
+\label{sec:scenario-2}
+
+In the case of means-end reasoning the agent has information that some action is a means, but is unable to recall the means-end relation that they used to establish the action as a means.
+In the case of belief it's unclear that an agent forgetting the way in which they formed a belief should lead the agent to be puzzled about whether or not they have the belief.
+Further, in the case of means-end reasoning the puzzle is whether the agent can adopt the means, and so for an appropriate parallel it seems I need a case in which an agent is unsure of what justification they have for a belief, but may still be rational in forming the belief.
+So, the basic idea of the scenario is to adopt the illustration of zero-knowledge proofs given above to provide the information that they had justification for a belief without revealing what that information is.
+
+Suppose we have an agent who has a passion for co-reference.
+The agent has two endless list of failures and instance of co-reference in the form of a pair of names.
+One of lists contains pairs the agent is aware of their justification for whether or not the pair of names is an instance of co-reference.
+The other list contains pairs for which the agent is unaware of their justification for whether or not the pair of names is an instance of co-reference.
+The agent's considers that they may have justification for an instance of co-reference, but is unable to identify whatever that justification is.
+The question is whether the agent has justification for believing this particular instance of co-reference.\nolinebreak
+\footnote{Similar to the case of means-end reasoning, the issue is not that the agent cannot possibly reason from the missing information to the belief/means, but that they are unable to in the context of the scenario.}
+
+However, the agent has a companion who claims they keep track of whether the agent has justification for each of beliefs about co-reference that the agent has.
+As the agent has an endless list of failures and instances of co-reference for which they are aware of whether or not they are justified.
+Therefore, so long as the agent's companion correctly identifies which pair belongs to which list, the agent can be as confident as they wish that their companion is reliable (in line with the illustration of the sketch of zero-knowledge proofs given above).
+
+Assuming the agent's companion does keep track of whether or not the agent has justification, then what is the agent to conclude from the agent's companion claiming that they have justification for the instance of co-reference that the agent is unsure about?
+
+It seems the agent has a justified belief that their companion keeps track of whether or not the agent has justification, and that the agent therefore can come to have a justified belief that they have justification for the instance of co-reference that the agent is unsure about.
+Therefore, it seems that the agent can come to have the belief that the pair of names is co-referential, yet the agent is (in the context of the scenario) unaware of what that justification is.
+
+Perhaps there is a way to block the inference from the agent (recognisably) justified belief that they have (unrecognised) justification for believing the instance of co-reference to the belief that the instance of co-reference is true, but I'm not sure what would support this.
+
+The simple way out is to argue that the agent's companion cannot answer `yes' to the agent's question of whether or not the agent has justification for the instance of co-reference they are unsure about.
+This, however, does not seem reasonable.
+I reason from some premises to a conclusion, and write this reasoning to paper, but I am undecided on whether I have a proof of the conclusion from the premises.
+Peer review responds that the reasoning is indeed a proof.
+It does not seem as though my failure to be able to verify my own reasoning cancelled the justification it provided for the conclusion, and likewise self-confidence would not have provided justification.
+The difficulty isn't with justification, but my recognition of the justification I have.
+Still, the scenario seems puzzling all the same.
+
+(As an aside --- though possibly mentioned above ---, the scenario here is, I think, different from the case of an agent remembering that they proved a theorem, as in the case of memory it seems the belief that the theorem was proved persists.
+It may be possible to recast the scenario so that the agent's companion is their memory, and the agent gains confidence in their memory by comparing what they remember to what they are currently able to verify, but it seems to me that there's an intuitive difference between this and straightforward remembering that something is the case/something was marked as a means.)
+
+It seems the underlying problem is the same, as the lists of instances of co-reference can be replaced with actions, and belief and justification with means and means-end relations.
+And, if the underlying problem is the same and the case with belief is also somewhat puzzling, then perhaps the specifics of practical rationality aren't too important with respect to providing a positive argument.
+
+\newpage
+
+\printbibliography
+
+\end{document}

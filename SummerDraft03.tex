@@ -1,0 +1,1142 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+ % \usepackage{pdfrender}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\section{Sketch}
+\label{sec:sketch}
+
+\begin{enumerate}
+\item \(0K\) cases
+\item Argument
+  \begin{enumerate}
+  \item The agent doesn't have warrant for inferring that \(\phi\) holds.
+    \begin{itemize}
+    \item This is due to the agent needing to assume that the companions response falls into the relevant class.
+    \end{itemize}
+  \item However, the agent does have warrant for inferring that the agent has warrant for \(\phi\).
+    \begin{itemize}
+    \item This is due to the fact that there are no defeaters for this.
+    \end{itemize}
+  \item If the agent has warrant for \(\phi\), then the agent is under pressure to accept \(\phi\).
+    The agent is non-ideal, and must decide how to allocate the resources available to them.
+  \item The key question is whether the agent has a way out of this problem.
+  \item Testimony/Conditionals suggest a possibility.
+    \begin{itemize}
+    \item Core idea is that the agent takes something else to be authoritative.
+    \item Agent has warrant, and this complicates things.
+    \item For it doesn't seem as though the agent can avoid responding to what they are warranted to be confident in.
+    \item This part of the argument is inconclusive, I think, as there may be a way, and the agent being in a tough spot by not having reasons may motivate the agent granting authority.
+    \end{itemize}
+  \end{enumerate}
+\end{enumerate}
+
+
+
+
+\newpage
+
+
+\section{Argument Outline}
+\label{sec:argument-outline}
+
+\begin{itemize}
+\item \(0K\) case.
+  \begin{itemize}
+  \item Agent, companion, proposition, and statistics.
+  \item Agent is confident that \(\phi\) holds.
+  \end{itemize}
+\item Either the companion is a source of testimony, or the companion is not.
+\item The companion is not a source of testimony.
+  \begin{itemize}
+  \item In the \(0K\) case, in order for the companion to be reliable, the agent must assume that they have warrant for \(\phi\).
+  \item This is because the agent's confidence in the companions reliability is based on correctly deciding issues to which the agent has warrant, and in particular has reasoned from the warrant they possess to the relevant conclusion.
+  \item Therefore, concluding that \(\phi\) holds, requires the agent to assume that they have warrant.
+
+  \item In certain cases the companion may be a source of testimony, but this is not an essential part of the scenario.
+  \end{itemize}
+\end{itemize}
+
+There is pressure to respond to `evidence', and can do so for cheap.
+This is for sure part of the puzzle, as it explains in part why there's pressure for confidence that \(\phi\).
+No denying that the agent would be better off if they were to reason, but this won't change whether or not \(\phi\) holds.
+
+
+
+
+After the propositional warrant for \(\phi\) is recognised, the pressure for the agent to be confident that \(\phi\) is suitably internal, and it is up to the agent to determine how to allocate their resources.
+\begin{itemize}
+\item Not believing \(\phi\) suggests that warrant is not sufficient form confidence in \(\phi\), and the agent must determine what it is that warrant alone lack.
+\item Believing \(\phi\) leaves the agent responsible for believing \(\phi\), but without the ability to cite reasons in support of \(\phi\).
+  \begin{itemize}
+  \item The agent's companion explains, but does not provide reason for, believing \(\phi\).
+  \end{itemize}
+\end{itemize}
+
+The agent cannot, given the argument present above, cite the authority or testimony of the companion.
+What is puzzling to me is that this, in part, seems driven by normative considerations.
+The issue is whether the agent is permitted to rely on testimony that a proposition holds when the agent possess the relevant warrant for the proposition holding.
+In some cases this may be expected.
+I will cite the testimony of an expect in order to convince a layperson (who does not consider me an expert), even though I consider the warrant that I can provide to be sound.
+However, in this case I cite the testimony of the expert in order to provide warrant for the layperson's belief, and not as warrant for my belief.
+
+There's a diachronic issue.
+For, the agent does not treat the companion as a source of warrant, except for the case in which the agent fails to reason.
+Still, it seems the agent's failure provides a clear rationale for treating the companion's statement\dots
+
+
+\subsection{Testimony}
+\label{sec:testimony-1}
+
+The basic idea is that the agent can and \emph{should} cite the companion as the source of their confidence.
+\url{https://plato.stanford.edu/entries/epistemic-paradoxes/} gives an example of this:
+\begin{quote}
+  It is natural to analyze partial knowledge as knowledge of conditionals. The ten year old child knows the spoken version of ‘If the spelling dictionary spells the month after January as F-e-b-r-u-a-r-y, then that spelling is correct’. Consulting the spelling dictionary gives him knowledge of the antecedent of the conditional.
+\end{quote}
+Hence, the idea is that the agent has built up enough information to be able to apply the conditional.
+I've (in sketch) argued that this doesn't work, because the antecedent only applies in cases where the agent has been able to verify.
+The difference is that I think the \(0K\) case doesn't allow the agent to be confident in this kind of extension, where the agent forms the kind of conditional given in the argument above.
+And, there is a difference in that it would seem that it is usually the case that one does not \emph{only} test the dictionary against certain words that one knows the spelling of, and that one is assumed to lack warrant for the correct spelling.
+Not that this is clear, given that one often checks a spelling in the dictionary, despite likely having sufficient warrant, though it's also not clear that this case is different --- checking a dictionary in this way also seems suspect.
+
+Well, then, part of the puzzle may be that there is no independent source of justification for granting authority to the companion.
+This is the basis on which I have my argument above, and distinguishes the \(0K\) case from the dictionary case.
+In the dictionary case there is some additional evidence that the dictionary has greater evidential support than the agent.
+
+And, it may be argued that in cases of testimony one is entitled to grant that the testifier is in a position of greater evidential authority.
+
+Still, the agent does not have anything other than the particular failure to grant the companion authority.
+
+And, it seems as though the agent has `evidence' that they are not at an epistemic disadvantage.
+
+Agent defers, but companion is not better, in general.
+The companion \emph{may} be better, but the support available to the agent suggests this is not the case.
+
+It seems as though there's a general rule that can't appeal to testimony if it does not rely on resources that are unavailable to the agent.
+
+
+
+\section{Core idea}
+\label{sec:core-idea}
+
+
+Agent, bounded, forms attitude toward some proposition \(\phi\) on the basis of their confidence in their potential to reason to \(\phi\) from other attitudes they hold, so long as the attitude does not depend on reasoning.
+
+Core idea is that reasoning has a cost, and that verifying is easier than proving.
+So, if when the agent is able to pay the cost, the agent also makes an additional investment to determine whether the result of reasoning can also be obtained by verifying the result of some other process, then the agent can come to have confidence in that process.
+
+In this respect, the role of such propositions is limited, as reliance without verification will invalidate support.
+
+Bounded agents, so there are a number of difficult points.
+As agent doesn't do the reasoning, assume they hold attitudes they do not in fact have.
+Assume here that the agent does have the attitudes.
+Interested in the form of reasoning, and \emph{validating} this, not \emph{soundating} this.
+
+Key issue is whether there is a role for attitudes not based on reasoning.
+
+That is, the potential insight is that something no relevant reasoning takes place.
+
+
+
+First part of the paper provides a general method, provides some illustrations, and clarifies some aspects of the idea.
+\begin{enumerate}
+\item \(0K\) cases
+\item Testimony
+\item No dependence on particular attitudes, etc.\
+\end{enumerate}
+
+Second part of the paper deals with various issues.
+\begin{enumerate}
+\item Reject on the basis of the role of reasoning.
+  \begin{itemize}
+  \item So long as it's the property, not the reasoning, then without idealisation this is good enough.
+  \end{itemize}
+\item Certain attitudes instead (e.g.\ intentions).
+\item Reduction to a kind of inference.
+  \begin{itemize}
+  \item This is the key objection, because the claim is that the agent doesn't do anything that really counts as reasoning.
+  \item This is not at all obvious, and is the biggest concern at the moment.
+  \item The agent certainly does do some reasoning, as the agent moves from the result of the test to confidence\dots
+  \end{itemize}
+\end{enumerate}
+
+Third part of the paper explores a few applications.
+\begin{enumerate}
+\item Intentions
+\item Temptation.
+\item ?
+\end{enumerate}
+
+\section{\(0K\) cases}
+\label{sec:0k-cases}
+
+\begin{itemize}
+\item Agent \(A\) and companion \(C\).
+\item Information \(\Phi\)
+\item Some consequence relation \(\vDash\)
+\item Collection of propositions \(P = \{p_{1},\dots,p_{n},\dots\}\)
+\item Collection of successful or unsuccessful entailment \(E = \{\Phi \vDash p_{1}, \Phi \vDash p_{2}, \Phi,\dots \nvDash p_{k}, \dots, \Phi \vDash p_{j}, \dots\}\)
+\item Subset of \(E\) that \(A\) has verified \(E_{A} = \{\Phi \vDash p_{1}, \Phi \nvDash p_{4}, \Phi,\dots \nvDash p_{k}, \Phi \vDash p_{k+10}, \dots\}\)
+\item Instances of entailment that \(A\) would like to be confident of \(?_{A} = \{\Phi \vDash p_{2}, \Phi \vDash p_{3}, \dots, \Phi \vDash p_{k+1},\dots\}\)
+\end{itemize}
+
+\begin{itemize}
+\item \(A\) uses \(E_{A}\) to gain confidence in \(C\)'s ability to reason from \(\Phi\) to elements of \(P\) via \(\vDash\).
+\item \(A\) proportions their confidence in \(C\)'s ability to reason from \(\Phi\) to elements of \(P\) via \(\vDash\) by testing \(C\) on instances of \(E_{A}\).
+\item \(A\) randomly distributes elements of \(?_{A}\) throughout their interaction with \(C\).
+\end{itemize}
+
+\begin{itemize}
+\item If \(C\) correctly identifies instances of \(E_{A}\), then, without evidence to the contrary, \(A\) can become arbitrarily confident in \(C\)'s ability to identify instances of \(E\), the superclass of which \(A\) has verified a subset.
+\item Hence, \(A\) can use \(C\)'s response to elements of \(?_{A}\) to be confident in whether elements of \(P\) are supported or unsupported by \(\Phi\) via \(\vDash\).
+\end{itemize}
+
+\section{Reasoning}
+\label{sec:reasoning}
+
+\begin{itemize}
+\item Agent recognises that the \(0K\) case applies to a particular proposition.
+\item Agent reasons that the proposition (conclusion) holds.
+\item So, from this perspective there's nothing particularly unusual going on.
+\item However, the prover also engages in some reasoning, from premises to the proposition.
+\item And, the agent does not engage in the reasoning that the prover engages in.
+\item So, there are instances of reasoning here.
+  \begin{enumerate}
+  \item The reasoning of the agent/verifier.
+  \item The reasoning of the prover.
+  \end{enumerate}
+\item The verifier has no information about the reasoning of the prover, or at least no way of reconstructing the information.
+\item Is the reasoning of the prover relevant to the verifier's confidence in the proposition?
+  Or, is it simply that the verifier is indeed a verifier?
+\end{itemize}
+
+Whether the prover's reasoning is relevant is the key question, and if I have an argument for this, then things look much better.
+
+Proof case.
+The verifier comes to believe a particular conditional, and this is because\dots on the one had the prover constitutes a proof.
+On the other hand, the prover `guarantees' the existence of a proof.
+
+One issue is that if the confirmation gained by the verifier on the basis of the results of the prover is really no different, and that there's nothing important about the reasoning from the premises to the conclusion, then in general there doesn't seem to be anything distinctive about reasoning.
+Hence, there's no particular interest in reasoning itself.
+That is, reasoning is significant only to the extent that it extends the information that the agent has, or something like this.
+
+What seems distinctive is that \emph{in principle} the reasoning can be done by the agent.
+Indeed, the prover is `trusted' on the basis of the agent's own reasoning, and in many cases may be (a different time-slice of) the agent.
+In a sense, one may think that there's some kind of authority.
+Perhaps in the case of practical reasoning this is more clear?
+It's not simply that there is evidence that this is worthwhile, but it seems that I would in fact reason that this is worthwhile.
+
+Someone like Hedden(? time-slice person) would perhaps think that there's nothing interesting about reasoning, and therefore that there is no interesting issue raised here.
+That is, so long as it's the property of the conclusion that's important, and this doesn't require reasoning, then it's safe to conclude (somehow?) that the potential for the agent to do the reasoning is irrelevant.
+
+So, Easwaren has this idea of transferability, which is something along the lines of not needed to appeal to authority, and \emph{this} is something that the \(0K\) cases seem to have.
+The agent doesn't know what the reasoning is, but the agent does not need to grant authority to the prover, as the agent could reason to conclusion themselves.
+This, in part, seems to be why there's not so much pressure for the agent to take the prover's claim to the conclusion as on par with evidence.
+
+Hum, it's really tempting to cite this in the case of practical reasoning.
+The agent's authority seems to do work in making something worthwhile.
+
+Authority seems really important, and the key idea may be that even though these states do not have authority by default, so to speak, they also do not (essentially) rely on the authority of a distinct agent.
+The key is that the verifier \emph{could} do the reasoning, and therefore \emph{could} `authorise' the conclusion.
+
+In other words, the agent is not giving up their autonomy in forming the attitude, in some sense.
+And, so it seems as though there should be normative pressures which fall on the agent that would not otherwise fall on the agent if there were to form the conclusion on the basis of evidence.
+
+Why didn't you think for yourself?
+vs.\
+Why didn't you reason through things more carefully?
+
+This can be applied to the chess example.
+It seems as though there is a difference between the \(0K\) case in which the agent plays with a friend and the case in which an agent plays with a computationally unbounded program or when playing against a Grand-master, etc.
+In the latter, the agent has evidence that they cannot win, and they can appeal to this evidence in the case of resigning.
+In the \(0K\) case, the agent also has evidence, but it does not seem as though the evidence excuses the agent.
+The warrant for the attitude rests on the agent, intuitively, and this is because the agent could have reasoned to this.
+
+The difficulty is that it does not seem as though the companion serves as a source of evidence.
+It doesn't seem as though the agent can point to the reliability of the companion to excuse a (false) belief formed on the basis of a statement made by the companion.
+This contrasts with cases in which it does seem as though the agent can point to the reliability of a companion, as in the case of a Grand-master.
+
+The burden of authority rests on the agent.
+And, the burden can be met because the agent \emph{could} resolve whether the companion's statement is true or false, given sufficient resources.
+This is a highly imprecise conditional, and where more thought appears to be required.
+The intuitive idea is that the agent has evidence that the could resolve whether the companion's statement is true or false, because the agent relied on their ability to resolve similar questions in order to establish the companion as reliable.
+Whether the conditional is strictly true is less important than whether the agent takes the conditional to be true.
+So, the agent may be also be at fault for their confidence in their ability to reason, but this does not affect the rational dynamics of the agent.
+The agent is confident that they could reason, and therefore cannot excuse a mistake on the basis of the reliability of their companion.
+This is analogous to the agent's use of a heuristic.
+The agent is responsible for the failure of a heuristic, and cannot excuse themselves on the basis of the reliability of the heuristic.
+
+Why doesn't the agent consider their companion an authority?
+One response is to claim that the agent cannot do so, as there is nothing to support the companions status as an authority.
+This doesn't seem right, as it would seem there are many cases where authority is granted while the agent is able to do the relevant reasoning.
+Asking for directions to a classroom on campus, for example.
+Instead, perhaps the agent would lose their ability to check the reliability of the companion.
+This can't be right either, as the agent will still be able to reason through certain cases and determine whether their confidence in the reliability of the companion is appropriate.
+Resigning would not be an autonomous act.
+This is something, though incredibly murky.
+For, it is unclear what makes the act autonomous, except in that it is based on the information available to the agent, but evidence that there is a winning strategy would presumably be part of the information available to the agent.
+It's very unclear why the agent would not resign autonomously in the case of a Grand-master making the same observation.
+However, there remains something to this.
+The idea is that the agent resigns not on the basis of evidence of a winning strategy, but on the basis of what they are able to reason to.
+The agent is somewhat pathetic in this case, as they did not reason.
+Yet, at the same time their pity is courageously self-inflicted as they do not allow themselves to be excused.
+The responsibility lies with the agent.
+But it's still unclear why the agent does this, and whether there's anything sensible.
+Except, the agent humbles themselves to their information, and grants their reasoning as inadequate.
+
+Agent recognises their limitations in forming the belief.
+To grant authority to the companion would be to ignore one's limitations, it would ignore the failure of the agent to do the reasoning they are able to.
+
+Heck, authority seems key.
+If the agent reasons with the resources that they have, then they need to grant authority to the companion, as the companion now provides information.
+The contrast is that if the agent reasons, then the agent avoids appealing to the companion as an authority, as the companion no longer provides information (or something like this, whatever is going on in the mathematical proof cases).
+To avoid appealing to the companion as an authority, then, it seems as though the agent needs to reason.
+What I need is for the agent to be able to avoid appealing the companion as an authority without doing the reasoning.
+And, with the important caveat of this making sense.
+The agent is confident that they have the relevant resources, they can see the board and are confident in their application of the rules, and that the winning strategy is not, in principle, out of their depth.
+The agent hasn't found the winning strategy, but this can require an exhaustive search.
+So, it doesn't follow from this that the agent does not have the resources.
+Does the agent need to treat the companion as an authority to believe that there is a winning strategy?
+The agent is confident that the companion is \emph{not} providing information that the agent is unable to obtain.
+Possible that in order for the agent to be rational that the agent does need to grant the companion authority.
+
+
+\begin{note}
+  A distinction between propositional and doxastic justification isn't quite right here, as we're interested in reasoning.
+  And, it seems that reasoning is related to doxastic justification.
+  So, it seems as though the companion (or a heuristic) is a proxy for `full' doxastic justification.
+\end{note}
+
+\newpage
+
+
+Different instances of reasoning:
+\begin{enumerate}
+\item Reasoning from the basics.
+  \begin{itemize}
+  \item Idea here is that this is what you'd do if you were fully rational, this, in some sense, fixes what the agent \emph{could} do.
+  \end{itemize}
+\item Using a relation.
+  \begin{itemize}
+  \item Here, this is a kind of selective reasoning, which avoids the need to reason from basics.
+    The relation is some sense captures some key information that indicates whether the result of prior reasoning continues to hold or not.
+  \end{itemize}
+\item \(0K\), in these cases there's no reasoning, and one only has the confidence in the result of prior reasoning.
+\end{enumerate}
+
+What doesn't fit neatly into the above is information about conditionals.
+In some cases, it looks as though this information is added to the basics, especially when the conditional has some kind of necessity attached.
+However, other times these seem to capture some relevance of reasoning.
+These two are different, and can both be illustrated with the shop assistant.
+You need eggs in order to bake that kind of cake, versus in most cases eggs would be purchased.
+Actually, this holds for all kinds of means-end relations, so it's probably best to indicate this independently.
+
+\section{Puzzle, warrant, etc.}
+\label{sec:puzzle-warrant-etc}
+
+The agent can form a conditional such as ``if the companion says \(\phi\) then \(\phi\) is highly probable'' or whatever.
+Then, the agent is able to do some standard reasoning.
+The agent has enough to determine that the antecedent of the conditional is true, and then extends their knowledge by applying modus ponens, or something like this.
+
+However, it does not seem as though the agent gains any additional warrant.
+This is because the application of the antecedent of the conditional is premised on the agent's ability to reason to \(\phi\).
+The agent has only established that the companion is able to reason to conclusions that the agent is able to reason to, and the agent doesn't have any additional information to support the claim that the companion is an epistemic authority.
+For sure, the agent \emph{could} treat the companion as an epistemic authority, but it is not clear that this is required, or justified.
+
+So, if this is correct, then the agent becomes confident that \(\phi\) holds, but the warrant for \(\phi\) is not transmitted via the companion's statement in conjunction with a conditional.
+
+So, then, whatever warrant the agent has is grounded in the information available to them.
+And, as this is propositional, reasoning isn't going to change the relevant warrant, at least not with respect to the proposition.
+
+The propositional warrant is independent of the companions testimony, but the doxastic warrant is dependent on the companions testimony.
+
+Something like this.
+It does seem as though the agent becomes confident that they have warrant, but that the companion's statement fails to provide any \emph{additional} warrant, precisely because the agent must assume that they possess the relevant warrant in order for the companion to be reliable.
+
+Hence, the agent learns what they have warrant \emph{for}, but does not gain any additional warrant in doing so.
+This is the key feature, I think.
+The agent does some reasoning, and appeals to the companion, but the warrant does not depend on the companion.
+The authority is the agent's, and the responsibility is the agent's.
+
+The agent is not \emph{merely} remembering, nor is the agent relying on testimony.
+Everything is defeasible, but as far as truth goes, the agent's reasoning is fine.
+
+In the practical case, then, the idea is that means-end reasoning establishes warrant, and this is what the agent do not do in the relevant case.
+Instead, the agent establishes that there is warrant, but does not fix what that warrant is.
+
+So, the warrant lies with the agent, and this is what grounds their confidence, though this does not by itself determine the relevant proposition.
+It seems the agent is fine, in some respects.
+The agent is not ideally rational, that is clear, as it is the failure of the agent to reason that generates the issue.
+Still, although the agent is not ideally rational, there is sense to be made of the agent and their reasoning.
+
+Reasoning would introduce additional aspects to the warrant that the agent has, and would potentially do more to secure the conclusion, etc.
+
+Agent isn't entitled to the conclusion, because some reasoning is required.
+There need to be reasons why the conclusion follows, but the agent does not have those reasons.
+
+\newpage
+
+\section{Dependence relations}
+\label{sec:dependence-relations}
+
+Basically, non-monotonic conditionals.
+Things that are information sensitive.
+Practical and doxastic reasoning share these.
+
+With these kinds of conditions, it's fairly straightforward to see how the reasoning in the \(0K\) cases can go wrong.
+However, this is similarly true of reasoning with the relevant conditionals, if the agent does not consider all of the information that is available to the agent.
+
+So, these kind of conditionals are a good compromise.
+Don't need all of the information, and mitigate difficult information.
+
+This kind of thing that be built into the scenarios, however.
+Case where the companion only answers yes if the proposition has the relevant property.
+Heck, I'm only going to write something down on the shopping list if I've thought about it in some detail.
+
+\newpage
+
+Key idea is that, in contrast to standard thoughts in bounded rationality, reasoning isn't the issue.
+
+\section{Changing information and changing resources}
+\label{sec:chang-inform-chang}
+
+Part of why the \(0K\) cases are interesting is because there don't need to be a change in information.
+Instead, there needs only be a change in the reasoning that the agent can do, and it is not clear that this can be reduced to information, on the basis of familiar worries from Carrol, etc.
+So, it is possible to keep the relevant premises fixed and available, but limit what the agent is able to do.
+(In particular, this is my preferred reading on the temptation case.)
+
+Well, this is one way of looking at things.
+And, it seems useful to look at things in this way as this highlights some distinctive properties of \(0K\) cases.
+However, this rules out potential issues, such as the interplay between varying information and varying resources.
+
+\section{All-out judgements}
+\label{sec:all-out-judgements}
+
+This is part of the puzzle I have with Davidson and Bratman.
+For, in cases of temptation it's not clear whether the all-out judgement includes possible deferral to prior instances of reasoning.
+For example, it may be clear to me that if I reason from the `evidence' that is currently available to me, that a second glass of wine would be best, but if I consider my past reasoning then it may be that I have greater confidence in \emph{that} instance of reasoning, and hence abstain.
+In this way, it is similar to following the advice of an authority.
+``Ho, buddy, I'm sure that the blue water slide looks more appealing than the green one, but those looks are deceiving.''
+
+\section{Testimony}
+\label{sec:testimony}
+
+There may be overlap with instances of testimony, but this overlap is \emph{partial} at most.
+\begin{enumerate}
+\item The companion need not directly communicate with the agent.
+  That is, the companion does not need to produce speech-acts such as assertion.
+  Consider a game of chess, where the agent has enough capital and luck to develop confidence in whether an certain (involuntary) response from an opponent reveals the strength of the opponents strategy.
+\item The agent's potential to reason from the premises to the conclusion is important.
+  In testimony, the testifier may provide arbitrary information, and in particular information that the agent could not obtain.
+  For example, the testifiers reasoning process.
+  In this respect, it seems that information gained by testimony is potentially basic, in that the information does not need to depend on premises available to the agent.
+  For example, suppose the agent and testifier are tracking the location of a bird and each has a limited, but partially overlapping range of sight.
+  The bird may move from being in the range of sight of both the agent and testifier to being in range only of the testifier.
+  The agent then loses the ability to reason from information they have (without testimony) to the location of the bird, but agent may come to believe the location of the bird given testimony from the testifier.
+  In \(0K\) cases, by contrast, there is a problem if the agent does not hold the relevant premises.
+  Consider the shopping list.
+  If star fruit is no longer worthwhile for the agent, then it would be a mistake for the agent to purchase star fruit.
+\end{enumerate}
+
+In other words, an analysis of \(0K\) cases may benefit from the literature on testimony, but it is unclear that \(0K\) cases can be reduced to instances of testimony.
+For example, a reliabilist approach to testimony may be able to explain aspects of the agent's attitude toward the conclusion given that both \(0K\) cases and the reliabilist approach both rely on statistical facts the support the confidence that the agent may have in the conclusion.
+Yet, the agent's confidence in the conclusion constitutes a puzzle because the agent is confident that they would be able to reason from premises and reasoning processes that are available to them, and the truth of the conclusion does not inform the agent of how this may be done, and this does not seem to be an essential component of instances of testimony.
+
+There is perhaps a broader point to be made here.
+For, it seems that the conclusion in \(0K\) cases doesn't quite count as evidence, as the conclusion depends on premises, and hence stands and falls with those premises.
+If it were evidence, then it would be independent of these premises.
+
+\section{Time-slice Epistemology}
+\label{sec:time-slice-epist}
+
+\textcite[172]{Moss:2015aa}:
+
+\begin{enumerate}
+\item What is rationally permissible or obligatory for you at some time is entirely determined by what mental states you are in at that time.
+  This supervenience claim governs facts about the rationality of your actions, as well as the rationality of your full beliefs and your degreed belief states.
+\item The fundamental facts about rationality are exhausted by these temporally local facts.
+  There may be some fact about whether you are a rational person, for instance.
+  But this fact is a derivative fact, one that just depends on whether your actions and opinions at various times are rational for you at those times.
+\end{enumerate}
+
+Question about whether \(0K\) cases are compatible with time-slice.
+For, the difference is between what you may be able to reason to and what you are able to reason to.
+Can assume that the relevant facts are fixed, and so on.
+Yet, it's not clear that one needs a diachronic norm to have greater confidence in past instances of reasoning.
+
+Right, it's certainly not clear that these kinds of cases are incompatible with time-slice epistemology, and it is perhaps best to think in these terms, and then there's a clear parallel between the companion as a distinct `synchronically present and `diachronically' present as a past self.
+
+Thought: time-slice, ok, an, right, current reasoning, but this seems to be important, that, ah, something about the agent's reasoning in the current time slice as authoritative, as somehow providing greater authority over previous reasoning, else the agent is going to be constrained by some diachronic norm.
+That is, in the time-slice case, it seems there's no other option than for the agent to prioritise their present reasoning.
+There, simply put, is nothing else.
+
+
+\newpage
+
+In this paper I consider cases in which an agent can be confident that a conclusion follows from some premises, but does not reason from the premises to the conclusion.
+
+Intuitive instances of scenarios in which an agent can be confident that a conclusion follows from some premises, but does not reason from the premises to the conclusion are easy to come by.
+For example, it is not unusual to find a statement of premises and a conclusion in the problem sets of a logic textbook, and for the reader to be confident that the conclusion does follow from the premises, but to be stumped by what the proof involves.
+Similarly, an agent may be confident that purchasing an item on their shopping list is a means to some end the have, but is unable to reason from their ends to the purchasing the item as a means.
+
+First task is to simplify.
+
+\section{Type of scenario}
+\label{sec:type-scenario}
+
+Agent, premises, and a conclusion.
+
+In order to the agent to become confident that the conclusion follows from the premises without reasoning from the premises to the conclusion we introduce a companion.
+The role of the companion is to answer questions asked by the agent.
+The agent could directly ask the companion whether the conclusion follows from the premises, but without any additional information there is no way for the agent to distinguish the companions answer from a guess.
+However, grant two additional assumptions.
+First, assume the agent has a large enough stock of questions to which the agent knows the answer (and the agent also knows that they know the answer).
+Second, assume that the agent is confident that the companions answer to whether the conclusion follows from the premises will be truthful given correct answers to the stock of questions to which the agent knows the answer.
+
+Given the two assumptions, the agent can use the stock of questions to which the know the answer to establish confidence that the companions' answer to whether the conclusion follows from the premises is truthful.
+For, if the companion answers the stock of question to which the agent knows the answer correctly, then the agent can be confident that the companions answer to whether the conclusion follows from the premises is truthful.
+
+Of course, if the agent fails to answer a the stock of questions to which the agent knows the answer correctly then the agent may not be confident in the companions answer to the question of whether the conclusion follows from the premises, but our interest is in the successful case.
+And, the agent's confidence in the companions answer to whether the conclusion follows from the premises will be truthful given correct answers to the stock of questions to which the agent knows the answer should be carefully considered.
+For example, if the companion is aware that the agent does not know the answer to whether the conclusion follows from the premises and is keen to mislead the agent, then the companion may choose to answer whether the conclusion follows from the premises in a deliberately misleading way.
+Likewise, if the companion is aware of the confidence that the agent requires, the companion may deliberately manufacture their answers to be as misleading as possible given the agent's threshold.
+
+It is, then, perhaps best to assume that the companion is unaware of what the agent is up to, to assume that the agent requires truthful answers to every question they ask, to assume that the agent randomly places the question of whether the conclusion follows from the premises within the stock of questions to which the agent knows the answer, and so on.
+So, if the companion correctly answers the stock of questions to which the agent knows the answer, the agent can be confident that the companions' answer to whether the conclusion follows from the premises is truthful.
+And, without any additional tricks on behalf of the agent, the agent will only become confident \emph{that} the conclusion does follow from the premises or \emph{that} the conclusion does not follow from the premises.
+The agent will not have established \emph{how} the conclusion follows from the premises, or \emph{why} the conclusion does not follow from the premises.
+
+This method is not novel.
+It forms the basis of cryptographic `zero-knowledge proofs' or `zero-knowledge protocols'.
+The term `zero-knowledge' indicates that no knowledge is gained by the agent.
+
+For, knowledge is required to be factive and the agent is not guaranteed knowledge of whether the conclusion follows from the premises even if they become confident that the companion always answers the agents questions correctly.
+The agent is not guaranteed knowledge because the companion may have correctly guessed the answer to each of the questions the agent knows the answer to and incorrectly guessed whether the conclusion follows from the premises, and the agent cannot know something that if false (so long as knowledge is factive).
+The likelihood of the companion making such a precise (and incorrect guess) can be made arbitrary small given a sufficiently large stock of questions the agent knows the answer to, but remains possible.
+Therefore, the agent cannot strictly come to know that the conclusion follows from the premises.
+
+The interaction between the agent and the companion is zero-knowledge is the sense that the companions response is indistinguishable from chance.
+For example, suppose the agent knows that the companion can answer yes to some particular question if and only if the companion is on their third cup of coffee.
+Then, if the companion answers yes to the particular question, the agent would be able to know that the companion is on their second cup of coffee, as the companion would not be free to guess the answer to the particular question.
+So, if the interaction between the agent and the companion is `zero-knowledge' not only in the sense that the agent cannot be certain that the companions answer to whether the conclusion follows from the premises is correct, but also in the sense that the agent cannot use their interaction with the companion to know anything beyond the companions response to the questions asked.
+In this respect, the `zero-knowledge' aspect of zero-knowledge proofs is not of particular interest, so long as the agent is not informed of how the conclusion follows from the premises.
+
+Note, in addition, that the above observation does not undermine any knowledge the agent already has, the only requirement is that a chance event may happen.
+And, if the agent obtains a sufficient degree of confidence in the companions answers and the companion truthfully answers whether the conclusion follows from the premises then they agent \emph{may} be said to know whether the conclusion follows from the premises.
+For example, on a simple reliabilist account of knowledge it may be that the companion is a reliable source of information.
+Whether the agent can know whether or not the conclusion follows from the premises on the basis of interaction with the companion is an interesting question.
+However, for the purposes of this paper we assume only that the agent becomes arbitrarily confident in whether or not the conclusion follows from the premises.
+Our interest is in what the agent can do with their confidence in whether or not the conclusion follows from the premises given that the agent does not reason from the premises to the conclusion.
+
+% With a little more flair, consider the possibility of the companion being a demon who is able to roll back time and change any answer they give.
+% With eternal recurrence the demon will be able to ensure that the agent is convinced that the demon's answers are truthful as it is possible for the demon to correctly guess each stock question that the agent knows the answer to.
+% Therefore, even if the companion/demon's
+
+\subsection{Illustrative story}
+\label{sec:illustrative-story}
+
+As a graduate student I was required to design a Turing Machine from scratch that would return the result of multiplying two numbers.
+The assignment asked for a design, and did not require an explanation.
+It is something of an understatement to say that there are various ways in which such a Turing Machine can be designed, and complexity that can result from tasking a graduate student with the seemingly simple problem of correctly adding a number to itself a certain number of times with the limited resources afforded to a Turning Machine should not be underestimated either.
+When the professor returned out failures, they informed us that they always marked the assignment by running the student's Turning Machines on two standard inputs, and the Turning Machines invariably failed on one of the two inputs.
+Well, I suspect that success on two inputs was not enough to achieve a passing grade on the problem, but none of us made it to three.
+In any case, the point is that I was the companion, the professor the agent, the schematic a premise, and successful multiplication the conclusion.
+The professor did not need to reason from the schematic I provided to failure by identifying the fault in my schematic because the schematic I provided failed an instance of multiplication that the professor knew the answer to.
+I doubt success on the two standard inputs would have been enough for a passing grade, but I am sure that success on a handful of inputs would have satisfied the professor, and that putting the schematic to work to establish confidence that the Turing Machine would multiply was fair easier than reasoning directly from the schematic.
+If the machine had worked, the professor would have become sufficiently confident that it worked, but they would not have cared to understand why it worked.
+More importantly, I became sufficiently confident that the Turning Machine provided by the schematic worked based on a handful of inputs I tested before submitting the assignment without understanding why the Turning Machine worked, and I was convinced that the Turing Machine did not work when I attempted the input that the machine failed.
+
+
+\subsection{Example using chess}
+\label{sec:example-using-chess}
+
+\begin{itemize}
+\item A game of chess has some nice properties:
+  \begin{itemize}
+  \item The rules are relatively straightforward, and so it's not too difficult to assume that each player has all the resources needed to reason about any potential move they can make.
+  \item The pieces on the board can be seen by both players.
+  \item It is very difficult in practice to reason through all the possible moves.
+  \end{itemize}
+\item Putting this to work, assume two friends \(A\) and \(B\) are learning how to play chess together, and are particularly interested in improving their mid game.
+\item On a players turn, they can ask their friend whether there is a winning strategy for either \(A\) or \(B\) within some number of moves.
+\item \(A\) is significantly better at finding winning strategies than \(B\), and \(B\) comes to be confident that this is the case by asking \(A\) whether there is a winning strategy whenever \(B\) determines whether or not there is a winning strategy.
+\item As the players are friends, there is no incentive for either to mislead the other player, etc.
+  The goal is to build experience of the mid game, rather than to win.
+\item If there is a winning strategy, then as the players are interested in their mid game, there isn't too much point in finishing the game.
+\item Suppose it is the turn of \(B\), \(B\) has asked \(A\) whether \(A\) has a winning strategy and \(A\) has told be that \(A\) does have a winning strategy, but \(B\) has not been able to figure out what it is.
+\item Is it permissible for \(B\) to resign the game?
+  \begin{itemize}
+  \item Here, \(B\) is confident that given the resources available to them that they could reason to a winning strategy for \(A\).
+    However, \(B\) has not yet been able to reason from the position of the pieces on the board and the rules of chess to the winning strategy for \(A\).
+  \end{itemize}
+\end{itemize}
+
+% \section{Related examples}
+% \label{sec:related-examples}
+
+\section{Basing relations}
+\label{sec:basing-relations}
+
+Following the SEP article, the epistemic basing relation may be worth looking into.
+Quoting from the introduction:
+\begin{quote}
+  The epistemic basing relation is the relation which holds between a reason and a belief if and only if the reason is a reason for which the belief is held. It is generally thought to be a necessary, but not sufficient, condition for a belief’s being justified that the belief be based on a reason.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear{Korcz:2019aa})}
+\end{quote}
+
+The key question is whether, in the kind of scenarios I'm thinking about, the companions answer to the agent's question(s) is (part) of the reason for which the belief is held.
+
+\subsection{Moser}
+\label{sec:moser}
+
+\begin{quote}
+  S’s believing or assenting to P is based on his justifying propositional reason Q \(=_{\text[df]}\) S’s believing or assenting to P is causally sustained in a nondeviant manner by his believing or assenting to Q, and by his associating P and Q.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[157]{Moser:1991aa})}
+\end{quote}
+
+\begin{quote}
+  S occurrently satisfies an association relation between E and P \(=_{\text[df]}\) (i) S has a \emph{de re} awareness of E’s supporting P, and (ii) as a nondeviant result of this awareness, S is in a dispositional state whereby if he were to focus his attention only on his evidence for P (while all else remained the same), he would focus his attention on E.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[141--142]{Moser:1991aa})}
+\end{quote}
+
+It is not clear to me how the agents in the chess example satisfy \citeauthor{Moser:1991aa}'s association relation.
+Agent \(B\) seems \emph{de re} aware that the position of the pieces on the chess board and the rules of chess support \(B\) having a winning strategy.
+However, it seems as though \(B\) may focus not only on the position of pieces on the board and the rules, but also on \(A\)'s response to \(B\)'s question.
+Yet, it also seems plausible that \(B\) could consider that only the position of the pieces on the board and the rules matter, and hence only focus on these.
+
+\subsection{McCain}
+\label{sec:mccain}
+
+\begin{quote}
+  A person S’s belief that p at time t is based on her reasons R if and only if at t:
+  \begin{enumerate}
+  \item each \(r_{i} \in R\) is a direct cause of S’s believing that p, and
+  \item each \(r_{i} \in R\) is an actual cause of S’s believing that p, and
+  \item It is not the case that intervening to set the values of all direct causes of S’s believing that p, other than the members of R, to zero will result in S’s not believing that p when every \(r_{i} \in R\) is held fixed at its actual value.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[364]{McCain:2012aa})}
+  \end{enumerate}
+\end{quote}
+
+On \citeauthor{McCain:2012aa}'s account, \(B\)'s confidence that \(A\) has a winning strategy cannot be based solely on the state of board and the rules of chess as the state of the board and the rules are neither the direct nor actual cause of \(B\)'s confidence.
+
+\subsection{Note}
+\label{sec:note}
+
+The observation here is that the types of cases I've been thinking about may be compatible with some accounts of the basing relation and incompatible with others.
+For my understanding of the SEP article, \citeauthor{Moser:1991aa}'s account of the basing relation no longer considered a plausible candidate, so the potential compatibility with \citeauthor{Moser:1991aa}'s account is probably not too interesting, but exploring viable contemporary accounts may perhaps yield some insights.
+
+\subsection{Lehrer's Gypsy-Lawyer example}
+\label{sec:lehrers-gypsy-lawyer}
+
+I've attached a summary of the case at the end of the PDF, the (potentially) interesting observation is that the cases I've been thinking about are almost the inverse of \citeauthor{Lehrer:1971aa}'s example.
+
+\citeauthor{Korcz:2019aa}, in the SEP article on basing relations, notes that the idea behind \citeauthor{Lehrer:1971aa}'s example is to combine an intuition that the layer is justified in holding a belief with the intuition that there is some fault in the way the lawyer formed the belief.
+
+So, in \citeauthor{Lehrer:1971aa}'s example, the lawyer forms a belief in a suspicious way and then reasons to the belief in a non-suspicious way from the evidence that the lawyer has.
+This is contrasted to agent \(B\) in the chess example obtaining confidence that \(A\) has a winning move in a non-suspicious way without \(B\) reasoning from the evidence available to \(B\).
+
+\section{Engel's distinction between doxastic and personal justification}
+\label{sec:engels-dist-betw}
+
+\citeauthor{Engel:1992aa} observes that justification is often formulated in one of two ways:
+
+\begin{enumerate}[label=(JR\arabic*), ref=(JR\arabic*), leftmargin=\parindent*3]
+\item\label{ej:1} S knows that p \emph{only if} S is epistemically justified in believing that p.
+\item\label{ej:2} S knows that p \emph{only if} S's belief that p is epistemically justified.
+\end{enumerate}
+
+\citeauthor{Engel:1992aa} suggests that the apparent synonymy between~\ref{ej:1} and \ref{ej:2} suggests (what \citeauthor{Engel:1992aa} terms) the ``equivalency thesis'':
+
+\begin{enumerate}[label=(ET), leftmargin=\parindent*3]
+\item S is epistemically justified in believing that p \emph{iff} S's belief that p is epistemically justified.
+\end{enumerate}
+
+\citeauthor{Engel:1992aa} argues that the equivalency thesis is false, and argues that~\ref{ej:1} and \ref{ej:2} rely on two different kinds of justification,~\ref{pj} and \ref{dj} (\citeyear[136]{Engel:1992aa}), respectively:
+
+\begin{enumerate}[label=(PJ), ref=(PJ), leftmargin=\parindent*3]
+\item\label{pj} Personal justification is a normative notion in terms of which \emph{persons} are evaluated from the epistemic point of view.
+\end{enumerate}
+
+\begin{enumerate}[label=(DJ), ref=(DJ), leftmargin=\parindent*3]
+\item\label{dj} Doxastic justification is a normative notion in terms of which \emph{beliefs} are evaluated from the epistemic point of view.
+\end{enumerate}
+
+\citeauthor{Engel:1992aa} then goes on to propose analyses of \ref{pj} and \ref{dj}.
+
+For personal justification, \citeauthor{Engel:1992aa} suggests that personal justification is a matter of epistemic responsibility, which \citeauthor{Engel:1992aa} relates to notions of epistemic praise and blame.
+
+\begin{enumerate}[label=(PJ), ref=(PJ), leftmargin=\parindent*3]
+\item[(PJ\('_{\text{j}}\))] S is personally justified in believing that p iff S has come to believe that p in an epistemically responsible fashion.
+\item[(PJ\('_{\text{u}}\))] S is personally unjustified in believing that p iff S has been epistemically irresponsible in coming to believe that p.
+\end{enumerate}
+
+By contrast, doxastic justification is analysed in terms of whether the proposition is likely to be true, and \citeauthor{Engel:1992aa} appeals to objective probability in characterising this.
+
+\begin{enumerate}[label=(DJ), ref=(DJ), leftmargin=\parindent*3]
+\item[DJ\('\)] S's belief B is doxastically justified iff B has a sufficiently high objective probability of being true.
+\end{enumerate}
+
+The analysis \citeauthor{Engel:1992aa} proposes aren't obviously correct to me, but the distinction between personal and doxastic justification does seem useful as there is an intuitive difference between whether an agent's belief is justified and whether an agent is justified in holding a belief.
+\cite{BonJour:1980aa}'s case of a completely reliable clairvoyant (also discussed by \citeauthor{Engel:1992aa}) makes a compelling case for this.
+
+For cases in cases built in the style of zero-knowledge proofs such as the chess example, I wonder whether there is a way to develop the distinction between personal and doxastic justification to allow that the agent is doxastically, but not personally, justified.
+That is, the agent can be confident that some proposition is true, but it would not be epistemically responsible for the agent to believe the proposition.
+
+Consider the game of chess again, and assume that \(B\) is confident that there is no winning strategy for \(A\) within a certain number of moves based on \(A\)'s answer to \(B\)'s question of whether \(A\) has a winning strategy.
+It seems that while \(B\) may be confident that \(A\) does not have a winning strategy within a certain number of moves, \(B\) cannot put their confidence in this proposition to much use.
+For, without \(B\) finding a series of moves that do not result in a loss, \(B\) cannot be confident that any particular move would not grant \(A\) a winning strategy.
+
+In broader terms, if \(B\) does not link their confidence that \(A\) does not have a winning strategy to other beliefs that \(B\) holds, then it is unclear from \(B\)'s perspective how to reason with the proposition that \(A\) does not have a winning strategy.
+
+The chess case may not be best suited to this point, so let me try a slightly different example.
+
+Suppose I have evidence about Tweety, and I come to be confident through interacting with a companion that I have evidence that Tweety is a bird.
+I then subsequently learn that Tweety is unable to fly.
+It seems that without identify the evidence that I have regarding Tweety, it is unclear whether I should be (more) confident that Tweety is a flightless bird or not a bird.
+Further, suppose I start to examine the information I can recall about Tweety and it seems I should be (more) confident that Tweety is not a bird.
+Yet, in examining the information I had it is not clear to me that I had sufficient evidence to be confident that Tweety is a bird.
+Does this suggest that the companion made a mistake, or that I had failed to identify a key piece of evidence.
+And, if I have failed to identify a key piece of evidence, would this evidence require me to retain my confidence that Tweety is a bird even in light of the new information?
+
+The concern is that even though I may have been able to confident that I have evidence that Tweety is bird, and hence had (something like) doxastic justification for the proposition, I did not integrate the proposition with my other beliefs, and as such I may not be (something like) personally justified in using the proposition in further reasoning.
+
+However, in contrast to the above concern it seems as though, in the chess game, if \(B\) is confident that \(A\) has a winning strategy then \(B\) would not be irrational to resign in order to for \(A\) and \(B\) to more quickly start a new game in order to gain more mid-game experience.
+A key difference here is that whatever evidence \(B\) has of the existence of a winning strategy for \(A\) is relatively isolated --- that is, unlike the Tweety case the game of chess is relatively isolated and (intuitively) does not `interact' with other propositions that \(B\) is confident in.
+
+
+% Suppose I have started a job at a security firm and I have become confident in my adviser's ability to check my work.
+% Every time I have verified that I have secured a location, my adviser has agreed, and when I have intentionally left a flaw this has been discovered by my adviser.
+% On the last job, however, I did not verify that I secured the location, but my adviser reported to me that the location is secure.
+% Security is never absolute, and an intruder breaks into the premises the following day.
+% There are two relevant possibilities.
+% First, the intruder may have access to new technology and developing new countermeasures are required.
+% Or, second, I had some mistake in securing the location.
+% If I did secure the premises then I can be confident that the intruder had access to new technology.
+% And, if I did not secure the premises it is more likely than not that I made a mistake.
+% Of course, an investigation will settle the issue one way or the other, but the difficulty is that prior to result of an investigation it isn't clear 
+
+
+
+\newpage
+
+\begin{quote}
+  suppose a series of eight grisly murders has been committed, all the available evidence indicates that the lawyer’s client committed the first seven of those murders, and everyone believes that he committed the eighth murder as well. However, the lawyer, being a practicing member of the gypsy religion, has absolute faith in the cards. The cards indicate that his client is innocent of the eighth murder, and the lawyer comes to believe this on the basis of his faith in the cards. The lawyer then re-examines the evidence and finds a very complicated line of reasoning showing that his client is innocent of the eighth murder. The lawyer recognizes that the complicated line of reasoning shows that his client is innocent. However, due to the grisly nature of the case, the lawyer (and everyone else) strongly desires to believe that the murderer of all eight victims has been found. Thus, the lawyer’s belief that the complicated line of reasoning is correct lacks the overwhelming emotional conviction needed to
+  overcome the lawyer’s desire, and thus cannot cause the lawyer to believe that his client is innocent of the eighth murder. It is only his unshakable faith in the cards that is sufficient to cause the lawyer to believe that his client is innocent. Nonetheless, since the lawyer takes the line of reasoning seriously, it seems reasonable to believe that the complicated line of reasoning could give the lawyer knowledge that his client is innocent.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear{Korcz:2019aa})}
+\end{quote}
+
+\newpage
+
+Not testimony.
+Interaction, but there's not necessarily any telling, at least not intentional telling.
+Companion may be completely unaware of what's going on.
+
+
+Interest: premises and conclusions.
+Easy in the case of logical propositions.
+But, beliefs and desires.
+
+Extent to which folk understanding is continuous with intuitions regarding idealised cases\dots things are quite unclear.
+To the extent that there's some compatibility, can start to develop some ideas.
+
+\section{The premises and the conclusion}
+\label{sec:premises-conclusion}
+
+You can ask the companion whatever you want.
+This is particularly interesting for causal relations.
+E.g.\ in instances of the basing relation.
+Causal dependence via the companion.
+Perhaps this isn't so easy, and it's deviant, but messy.
+
+\section{Similar cases}
+\label{sec:similar-cases}
+
+\cite{Lehrer:1971aa} does something similar, though in this case the agent then goes on to form a belief.
+
+
+
+\section{Types of Justification}
+\label{sec:types-justification}
+
+\textcite{Engel:1992aa} distinguishes between \emph{personal} and \emph{doxastic} justification.
+This distinction isn't quite sufficient, as if the agent is justified, then it doesn't seem as though this is an instance of personal justification, nor is it the case that the agent is necessarily doxastically justified, at least on \citeauthor{Engel:1992aa}'s reading of these terms.
+
+\section{Problems}
+\label{sec:problems}
+
+\subsection{Bootstrapping}
+\label{sec:bootstrapping}
+
+For belief in proposition, use this to support problematic beliefs, etc.
+
+\section{Wiggling}
+\label{sec:wiggling}
+
+Dependency stuff is really important.
+Compare cases in which an agent provides a relation, but doesn't tell the agent how to establish the relation.
+Same confidence, but now the agent is able to connect, and their confidence in the conclusion wiggles with the agent's confidence in the premises and the agent's confidence in the relation.
+
+
+\newpage
+
+\section{Means-end relations and means-end reasoning}
+\label{sec:means-end-relations}
+
+The key distinguishing feature is that means-end relations can be used in various instances of reasoning, whereas instances of means-end reasoning can't be.
+Basic idea is that means-end reasoning is non-monotonic.
+And, as with most non-monotonic consequence relations, an instance of the consequence relation doesn't provide the agent with a conditional.
+If one has an instance of the consequence relation, then there is, in general, no telling what happens with variations to the premises, but with a conditional one does have some robustness.
+
+
+Question: What's the value of reasoning from some premises to a conclusion.
+In the case of both belief and desire, we're often willing to accept a premise-conclusion relation without being able to establish the relevant relation.
+For example, testimony, etc.
+Seems there's something about the relation itself.
+Might think that can only come to desire/believe given a relation.
+This isn't quite right.
+
+The use of the example is that the lack of reasoning can be made to be the only thing.
+For, given that the agent has enough information, the agent can come to be sure that the proposition has whatever properties are required, relative to the information the agent has, etc.
+(There are some potentially interesting constraints here.)
+
+
+\section{Zero-knowledge proofs}
+\label{sec:zero-knowl-proofs}
+
+The basic idea is that the agent learns nothing other than the truth of the statement that is proved.
+It is often the case that \emph{only} the agent learns the truth of the statement being proved.
+For example, it may be required that a third party would be unable to determine whether the agent and their companion collaborated to give the impression that the agent learnt the truth of a statement.
+
+Main instance of the case is where the agent asks if they have evidence.
+This might restrict the application to certain kinds of propositions, etc, but this seems fine for now.
+The agent then learns that they have evidence, and then the question is about their belief.
+Evidence doesn't imply truth, etc, so it can't be that the agent can reason that if evidence then true, and therefore believe.
+Agent's belief \emph{wouldn't} be justified, but this doesn't seem right.
+The agent's belief wouldn't be justified on the basis of reasoning from the evidence, but \dots this isn't what's going on.
+The comparison to problems sets in logic books is really interesting.
+However, in these cases, it's not clear that I do have the evidence, as part of the role of the problem is to test whether I've fully understood the material, and if I can't solve the problem, the suggestion is that I've got some work to do.
+
+
+
+\begin{itemize}
+\item The agent only comes to believe the \emph{truth} of the proposition.
+  \begin{itemize}
+  \item As there's a chance that the companion was not truthful, knowledge may be barred.
+  \item The agent doesn't gain information about \emph{why} the proposition is true.
+  \end{itemize}
+\item Typically, \emph{only} the agent will come to believe the truth of the proposition.
+  \begin{itemize}
+  \item This is because the agent coming to believe the truth of the proposition relies on the agent resolving their own uncertainty.
+  \item A spectator, like the companion, will be unable to determine the role of the agent's questions in resolving the agent's uncertainty.
+  \item Further, a spectator may be unable to determine whether the agent and their companion determined the exchange in advance.
+  \item This, in turn, suggests that the agent will not, in general, be able to convince anyone else of the truth of the proposition.
+  \end{itemize}
+\end{itemize}
+
+
+\section{Issues}
+\label{sec:issues}
+
+One may say that the belief formed is irresponsible because there's no conditional available.
+It is potentially quite sensitive, and this is a problem, because the sensitivity cannot be `traced' to the relevant premises.
+This kind of idea feels like a relevant objection in the case of practical reasoning.
+Unlike memories, it's not clear that the relevant belief is/was `integrated' into the agent's overall system of beliefs.
+
+
+
+
+\newpage
+
+
+
+\section{Variation}
+\label{sec:variation}
+
+Consider gifts.
+A close friend has a gift for the agent.
+The specifics of the gift are left to the reader, so long as they satisfy the following constraints:
+\begin{enumerate}
+\item\label{gift:means} The gift requires the agent to perform an action as a means.
+\item\label{gift:relation} The agent is unable to reason from an end they have to the means.
+\end{enumerate}
+
+For example, the gift may be an idea contained in a book.
+The agent is required to read the book in order to grasp the idea, and the agent is unable to establish that the book would be (or not be) worth reading by the information that the book provides about it's contents.
+Or, perhaps the gift is a unique taste, and the agent is required to consume part of a meal in order to experience the taste, and the meal is not immediately appealing (nor unappealing).
+
+The question is whether the agent can rationally perform the means required to receive the gift without reasoning from an end they have to performing the required means.
+
+The idea here is that the may agent `outsource' their means-end reasoning to their close friend.
+That is, the agent may reason as follows:
+\begin{enumerate}
+\item My close friend has a good understanding of what I think is worthwhile.
+\item My close friend reasoned from information about what I think is worthwhile to the gift.
+\item So, it is likely that the gift is worthwhile.
+\item If the gift is worthwhile and there is a means-end relation between the gift and the required action, then it is worthwhile to perform the action as a means.
+\item So, it is worthwhile to perform the action as a means.
+\end{enumerate}
+
+This scenario may be contrasted to the agent explaining something that they think is worthwhile to their friend and their friend recommending the action as a means to what they think is worthwhile.
+In this contrasting case the agent may not be able to reason from whatever they think is worthwhile to performing the action as a means, but their friend states a specific means end relation, while in the present scenario the information about the specific end the agent's friend has reasoned from is not provided to the agent.
+
+There are various ways in which the agent could potentially reason from an end they recognise to performing the means required to receive the gift.
+For example, the agent may have the end of pleasing their friend, performing actions that close friends think would lead the agent to something the agent considers worthwhile, and so on.
+
+It is, of course, possible to assume that the agent has the end of performing actions that close friends think would lead the agent to something the agent considers worthwhile.
+This, however, is not part of the reasoning given above, reformulated with this end the agent would reason as follows:
+
+\begin{enumerate}
+\item My close friend has a good understanding of what I think is worthwhile.
+\item I have the end of performing actions that close friends think would lead me to something I consider worthwhile.
+\item So, it is worthwhile to perform the action as a means.
+\end{enumerate}
+
+In the agent's initial reasoning there is no appeal to an end the agent has \emph{other} than the end identified by the agent's friend.
+The agent's friend does not inform the agent of which end the friend has identified, and it is assumed that the agent would not be able to reason from this to performing the action as a means even if the agent considers the relevant end when thinking about the means.
+
+So, while there may be alternative explanations for why the agent may be rational in performing the means, the question is whether there is something problematic with the suggested reasoning.
+That is, the task, is to demonstrate that the reasoning sketched above could not support the agent rationally performing the action as a means.
+
+In the reasoning, it seems the agent takes their confidence that the relevant end is worthwhile to justify performing the means.
+What is distinctive about the agent's reasoning is that the agent cannot specify what this justification is.
+
+\citeauthor{Smith:2004aa} presents a sceptical, \citeauthor{Hume:2011aa}an argument against practical reasoning of this form, regardless of whether the agent is able to identify the appearance of justification or otherwise.
+\begin{quote}
+  \dots in the practical case we cannot remain faithful to the idea that the rationality of a psychological transition must have something to do with the possibility of there being reasons for making that psychological transition.
+
+  \dots
+
+  There is no such thing as means-end rationality: talk of ``means-end reasoning'' remains an oxymoron.
+  There is simply the human habit of forming desires for means on the basis of desires for ends and beliefs about means, a habit that is underwritten by neither reasons nor rationality.\nolinebreak
+  \mbox{}\hfill\mbox{\citeyear[88]{Smith:2004aa}}
+\end{quote}
+
+If means-end reasoning is an oxymoron, then the question of whether the agent is rational or not based on some means-end reasoning is mistaken.
+And, if means-end reasoning is not an oxymoron, then this sceptical argument is too strong to isolate the kind of reasoning suggested above as irrational.
+
+As \citeauthor{Smith:2004aa} notes, appeal to coherence relations does not require transmission of justification and may be compatible with \citeauthor{Hume:2011aa}'s sceptical arguments to the letter.
+However, coherence relations may also be functionally equivalent to transmissions of justification and may therefore be incompatible with the spirit of \citeauthor{Hume:2011aa}'s sceptical arguments.
+
+Bracketing scepticism, then either way (whether by transmission of justification or by relations of coherence) the task is to find a problem with the agent's reasoning.
+
+\section{Creating a similar example with belief}
+\label{sec:creat-simil-example}
+
+I suspect that the puzzle about the agent's reasoning isn't due to the agent engaging in means-end reasoning.
+The focus on means-end reasoning and means-end relations is useful because it is clear that the agent can settle on the means if they are aware of a means-end relation between the means and an end they have.
+I'm less clear on intuitions about this kind of dependency relation in the case of belief.
+Still, with some work I think a similar case can be constructed.
+(I very much doubt this is the best case nor the simplest, and it's certainly not particularly realistic, but it does seem straightforward enough to puzzle over.)
+
+The basic idea is to build a scenario based on illustrations of zero-knowledge proofs.
+I'll start with the idea of these proofs, and then build the relevant scenario.
+
+\subsection{Illustration of zero-knowledge proofs}
+\label{sec:illustr-zero-knowl}
+
+\citeauthor{Quisquater:1989aa} provide a simple example titled `The Strange Cave of Ali Baba'.
+What follows is a rough outline.
+
+We have a cave with a single entrance.
+The entrance leads to a passage which forks, and both forks lead to the same door.
+So, if you enter the cave and take the left fork and pass through the door you'll arrive back at the fork.
+Likewise, if you enter the cave and take the right fork and pass through the door you'll arrive back at the fork.
+The door, however, is guarded by a password.
+Agent \(A\) claims to know the password for the door, and agent \(B\) wishes to establish this.
+Agent \(A\) could tell agent \(B\) the password, but agent \(A\) does not want to reveal the password to agent \(B\).
+Perhaps agent \(A\) doesn't want agent \(B\) to know the password, or perhaps agent \(A\) is worried that someone might overhear them saying the password to agent \(B\), these details aren't too important.
+What matters is that agent \(A\) can demonstrate that they know the password without revealing what it is.
+
+The method is straightforward.
+Agent \(A\) enters the cave and takes either the left or right fork, after allowing agent \(A\) enough time to have taken a one of the forks, agent \(B\) then enters the cave.
+Agent \(B\) then loudly shouts which fork they want agent \(A\) to appear from chosen at random.
+If agent \(A\) has taken the fork agent \(B\) wants them to appear from, then agent \(A\) retraces their steps, but if agent \(A\) has taken the alternative fork then agent \(A\) must pass through the door which requires the password.
+
+So, if agent \(A\) knows the password, then agent \(A\) will always be able to appear from the fork agent \(B\) requests, and if not then on each trip to the cave there is a 50\% chance that agent \(A\) will be unable to appear from the fork agent \(B\) requests.
+Hence, the two agents can enter and exit the cave as many times as agent \(B\) requires in order to be confident that agent \(A\) knows the password, but agent \(B\) is never informed by agent \(A\) of what the password is.
+
+It seems to me clear to me that by following this method agent \(B\) can form a justified belief that agent \(A\) knows the password.
+
+\subsection{Scenario and discussion}
+\label{sec:scenario-2}
+
+In the case of means-end reasoning the agent has information that some action is a means, but is unable to recall the means-end relation that they used to establish the action as a means.
+In the case of belief it's unclear that an agent forgetting the way in which they formed a belief should lead the agent to be puzzled about whether or not they have the belief.
+Further, in the case of means-end reasoning the puzzle is whether the agent can adopt the means, and so for an appropriate parallel it seems I need a case in which an agent is unsure of what justification they have for a belief, but may still be rational in forming the belief.
+So, the basic idea of the scenario is to adopt the illustration of zero-knowledge proofs given above to provide the information that they had justification for a belief without revealing what that information is.
+
+Suppose we have an agent who has a passion for co-reference.
+The agent has two endless list of failures and instance of co-reference in the form of a pair of names.
+One of lists contains pairs the agent is aware of their justification for whether or not the pair of names is an instance of co-reference.
+The other list contains pairs for which the agent is unaware of their justification for whether or not the pair of names is an instance of co-reference.
+The agent's considers that they may have justification for an instance of co-reference, but is unable to identify whatever that justification is.
+The question is whether the agent has justification for believing this particular instance of co-reference.\nolinebreak
+\footnote{Similar to the case of means-end reasoning, the issue is not that the agent cannot possibly reason from the missing information to the belief/means, but that they are unable to in the context of the scenario.}
+
+However, the agent has a companion who claims they keep track of whether the agent has justification for each of beliefs about co-reference that the agent has.
+As the agent has an endless list of failures and instances of co-reference for which they are aware of whether or not they are justified.
+Therefore, so long as the agent's companion correctly identifies which pair belongs to which list, the agent can be as confident as they wish that their companion is reliable (in line with the illustration of the sketch of zero-knowledge proofs given above).
+
+Assuming the agent's companion does keep track of whether or not the agent has justification, then what is the agent to conclude from the agent's companion claiming that they have justification for the instance of co-reference that the agent is unsure about?
+
+It seems the agent has a justified belief that their companion keeps track of whether or not the agent has justification, and that the agent therefore can come to have a justified belief that they have justification for the instance of co-reference that the agent is unsure about.
+Therefore, it seems that the agent can come to have the belief that the pair of names is co-referential, yet the agent is (in the context of the scenario) unaware of what that justification is.
+
+Perhaps there is a way to block the inference from the agent (recognisably) justified belief that they have (unrecognised) justification for believing the instance of co-reference to the belief that the instance of co-reference is true, but I'm not sure what would support this.
+
+The simple way out is to argue that the agent's companion cannot answer `yes' to the agent's question of whether or not the agent has justification for the instance of co-reference they are unsure about.
+This, however, does not seem reasonable.
+I reason from some premises to a conclusion, and write this reasoning to paper, but I am undecided on whether I have a proof of the conclusion from the premises.
+Peer review responds that the reasoning is indeed a proof.
+It does not seem as though my failure to be able to verify my own reasoning cancelled the justification it provided for the conclusion, and likewise self-confidence would not have provided justification.
+The difficulty isn't with justification, but my recognition of the justification I have.
+Still, the scenario seems puzzling all the same.
+
+(As an aside --- though possibly mentioned above ---, the scenario here is, I think, different from the case of an agent remembering that they proved a theorem, as in the case of memory it seems the belief that the theorem was proved persists.
+It may be possible to recast the scenario so that the agent's companion is their memory, and the agent gains confidence in their memory by comparing what they remember to what they are currently able to verify, but it seems to me that there's an intuitive difference between this and straightforward remembering that something is the case/something was marked as a means.)
+
+It seems the underlying problem is the same, as the lists of instances of co-reference can be replaced with actions, and belief and justification with means and means-end relations.
+And, if the underlying problem is the same and the case with belief is also somewhat puzzling, then perhaps the specifics of practical rationality aren't too important with respect to providing a positive argument.
+
+\newpage
+
+\printbibliography
+
+\end{document}
