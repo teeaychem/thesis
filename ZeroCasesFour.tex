@@ -1,0 +1,358 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage{luatexja}
+
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+\usepackage{xfrac}
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,%allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[enumerate]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\makeatletter
+\newcommand{\clabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,positioning,calc}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+% \usepackage{pdfrender}
+
+\usepackage{extarrows}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Means-end reasoning and means-end relations}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:introduction}
+
+If you're not interested in the phenomenon, then might still want to see how favoured theories apply, or check whether there's no trouble.
+
+
+So, I think there's something of interest here because one often assumes that the link is what reasoning is.
+An individual could not arrive at the conclusion if they did not reason from the premises.
+If this is the case, then the companion is essential, as it is the companion that provides the link.
+However, in many respects the companion is not essential, and the attitude has all the properties one would associate with the attitude if it had been reasoned to.
+The agent may not have established the attitude in the way we would wish an ideal agent to, but we're not ideal agents.
+
+For sure, if the agent can go through the companion, then there's nothing interesting.
+This doesn't seem to be the case, however.
+
+\section{Scenarios}
+\label{sec:scenarios}
+
+Quick sketch of the three scenarios I've been thinking about:
+
+\begin{scenario}[Chess]
+  Agent and companion play multiple rounds of chess, and agree on judgements about the existence of winning strategies.
+  Companion lets slip that they are confident that a winning strategy exists given the current state of the board and the rules of chess.
+  Agent is confident that they can settle on whether or not there is a winning strategy, and as the companion is confident that a winning strategy exists, the agent is also confident that a winning strategy exists.
+\end{scenario}
+
+\begin{scenario}[Morse]
+  Morse and Lewis are detectives who are equally matched and have complied a dossier about a case together.
+  Morse has some free time, and Lewis is busy.
+  Morse leaves a message on Lewis' answering machine stating that Morse has been reviewing the dossier and is confident that Smith is guilty.
+  Lewis is confident that the dossier supports the guilt of Smith.
+\end{scenario}
+
+\begin{scenario}[Shopping]
+  Agent is shopping in a supermarket and has an end.
+  On the shopping list is an item.
+  The agent cannot immediately recall how the item relates to the end, but is confident that they put the item on the shopping list in service of the end.
+  The agent is confident that purchasing the item is worthwhile means to the end, but they are not sure how.
+\end{scenario}
+
+In each of the cases the agent has some body of information, and has some additional information which states that some proposition follows from the body of information.
+The agent is confident that they could, independently of the additional information, reason from the body of information to the proposition which they have been informed follows.
+
+I am interested in defending the claim that the agent's attitude toward the proposition which follows from the body of information is (in part) based on the body of information.
+For, then, these are scenarios in which an agent forms an attitude toward a proposition (in part) on the basis of information they have without reasoning from the information to the adoption of the attitude toward the proposition.
+
+The quick argument for this is that in each of these scenarios the relevance of the additional information which states that some proposition follows from the body of information is relevant only if the agent has the appropriate attitude toward the body of information.
+So, as the additional information only states what follows from the body of information, the agent must appeal to the support that the body of information provides for the attitude that they adopt toward the proposition to be supported.
+However, as the agent has relied on the additional information in order to recognise that the proposition follows, the agent is not aware of how the body of information supports the proposition.
+
+More detail is required to adequately state what is going on in these situations, but it is plausible that we often find ourselves in situations which have (something sufficiently like) this structure, and understanding these types of situations may help develop our understanding of creatures like us.
+
+A straightforward question is the rational status of agents in situations like these.
+For, it seems intuitive that an agent holding an attitude based on a body of information without being aware of how the body of information supports the proposition is not ideally rational.
+Unfortunately, I do not think that the relevant structural features are sufficient to support general remarks about the rational status of the agent's in the scenarios if ideal rationality is not required.
+
+\subsection{Similar kind of scenario}
+\label{sec:simil-kind-scen}
+
+\begin{scenario}[Clocksmith]
+  In the hallway between classes is an old clock.
+  As the clock is old it has a tendency to be inaccurate.
+  The agent is aware that a clocksmith comes by every now and again to correct the clock.
+  The agent is also aware that the clocksmith does so by setting the clock to the same time as the clocksmith's digital watch.
+  The agent exits a class and sees the clocksmith walking away, looks at the clock, and forms the belief that it's three thirty.
+  The agent's belief is not based on the clock accurately displaying three thirty as the time, but on the clocksmith having an accurate digital watch and that the clock has been recently serviced to display the same time as the time on the clocksmith's digital watch.
+\end{scenario}
+
+Here, the agent does not have a body of information with which to determine the time, but similar to the previous scenarios the clock is providing information about what a distinct body of information supports, namely what the clocksmith's digital watch states the time as.
+
+\section{Constructive and non-constructive support}
+\label{sec:constr-non-constr}
+
+Intuitive idea is that the additional body of information provides non-constructive support for the proposition, and the agent reasoning from the body of information would provide constructive support.
+
+For, in each of the cases the agent is confident that the proposition follows from the body of information that they have given reasoning that the agent is able to do.
+Hence, the agent does not need any additional information or further capabilities as a reasoner to show that the body of information supports the proposition.
+
+The distinction between constructive and non-constructive support rests on the idea that bodies of information stands in structural relations to other propositions.
+Constructive support shows the structural relations between the body of information and relevant proposition, while non-constructive support establishes that some relation exists.
+
+% Structure comes from the Latin \emph{struere} `to build'
+% Constructive comes from the Latin \emph{constructuere}, from \emph{con-} `together' + \emph{relation} `to build' (i.e. the bringing together of objects to build).
+
+The distinction between constructive and non-constructive support is similar to the idea of a constructive proof in logic/mathematics.
+In the chess scenario there are clear parallels to the idea of a constructive proof.
+For, in the chess scenario the agent is confident that a winning strategy exists, but is unable to provide a witnessing strategy.
+And, were the agent to reason from the state of the board and the rules of chess the agent would be able to provide a witnessing strategy.
+However, in the Morse and shopping scenarios the relevant proposition contains neither an existential nor a disjunction.
+In the Morse scenario Lewis is confident that the individual Smith is guilty, and in the shopping scenario the agent is confident that it is worthwhile to purchase a particular item.
+Therefore, it is difficult to cast these scenario in terms of providing a witness for the supported proposition.
+Yet, similar to constructive implication, where \(A \rightarrow B\) requires demonstrating how to construct \(B\) from \(A\).
+
+\begin{note}
+  I think something a long these line is the right thing to focus on.
+  It's possible to appeal to distinct rational pressures, correctly responding to reasons, some notion of understanding, and so on, but each of these idea brings in additional commitments that aren't necessarily required to state the phenomena, and may be best left as resources for supporting judgements about the scenarios.
+
+  Understanding, in particular, is interesting as it's not clear that there's a variation on the Morse scenario where Lewis does not understand why Smith is guilty, but would understand how the evidence supports the guilt of Smith.
+  For example, Smith may be involved in some kind of financial fraud and the dossier lists a number of statutes which linked together based on formal features implicate Smith.
+  And, Lewis may be able to piece together the formal features of the statues, but have no idea what these ensure Smith is guilty of.
+\end{note}
+
+\subsection{D.E.\ Over}
+\label{sec:d.e.-over}
+
+I've been reading through a collection of papers by \citeauthor{Over:1983ab} who discusses some connexions between knowledge, reasoning, and constructive mathematics.
+Unfortunately these papers are quite old, weren't discussed, and tie constructive knowledge/reasoning to being able to provide the reference of a proposition (which is difficult to extend to the cases I'm interested in, as it seems to me the issue I'm dealing with is providing the support for a proposition).
+Still, of note is that \citeauthor{Over:1983ab} describes a very similar scenario to what I've been thinking about.
+
+\begin{quote}
+  \begin{enumerate}[label=(\arabic*)]
+    \setcounter{enumi}{8}
+  \item Someone in the identity parade murdered Bexley.
+  \end{enumerate}
+
+  \mbox{}\hfill\vdots\hfill\mbox{}
+
+  Suppose, however, that the police have constructive knowledge that (9) is true.
+  They may be able to pick out the murderer straightaway; and they would then certainly have predicative or \emph{de re} knowledge.
+  They must at least have a procedure that leads to the murderer in a finite time, such as checking the finger prints of all the suspects in the parade.
+  Again, they certainly have predicative knowledge if they have followed the procedure to its end and pointed out the guilty party.
+  But suppose they have the procedure but do not follow it?
+  They know that the murderer is in the identity parade, that they have his finger prints, and that they could, with a little trouble, separate him from the rest; but for some reason they do not do this.
+  Do they have predicative knowledge that (9) is true?
+  That is, do they know of someone in the identity parade, that he murdered Bexley?
+  It does seem natural to say that they do, although this may involve some extension of our admittedly vague understanding of predicative knowledge.
+  The police in this case are in a much stronger position than someone who simply has \emph{de dicto} or propositional knowledge that (9) is true; the police are much closer to central cases of predicative or \emph{de re} knowledge.\nolinebreak
+  \mbox{}\hfill\mbox{(\citeyear[143--144]{Over:1983ab})}
+\end{quote}
+
+Unfortunately, \citeauthor{Over:1983ab} does not discuss the case in greater detail, nor does \citeauthor{Over:1983ab} discuss a similar case in any of the connected papers I have looked through (\citeyear{Millican:1990aa,Over:1987aa,Over:1986aa,Over:1985aa,Over:1983ab,Over:1983aa}).
+And, as mentioned above, \citeauthor{Over:1983ab}'s interest in connecting constructive knowledge/reasoning to the \emph{de re}/\emph{de dicto} distinction makes linking \citeauthor{Over:1983ab}'s discussion to my scenarios difficult.
+
+\section{No general lessons about rationality}
+\label{sec:no-general-lessons}
+
+Present two scenarios which have the same structure as the main scenarios, but where intuitions about rationality conflict.
+
+\begin{scenario}[Superman]
+  Agent is tasked with purchasing shoes for Superman, and is confident that Superman has size 11 feet.
+  The agent is also confident that superman is Clark Kent is Superman.
+  The agent mentions these two beliefs to a companion, and the companion remarks that although they assumed that Clark Kent had size 13 feet, it follows from what the agent has said that Clark Kent has size 11 feet.
+  The agent, on the basis of the companion pointing out that Clark Kent having size 11 feet follows from the belief that the agent has, forms the belief that Clark Kent has size 11 feet.
+\end{scenario}
+
+I suspect that agent in the superman scenario cannot be interpreted as a rational agent.
+For, it seems as though it should be clear to the agent that from their belief that Clark Kent is Superman and their belief that Superman has size 11 feet that Clark Kent has size 11 feet.
+
+\begin{scenario}[Calculator]
+  Agent is filing taxes, and needs to know the result of multiplying two numbers.
+  The multiplication is not hard, and the agent is a competent mathematician.
+  However, not wishing to spend more time than necessary on their taxes, the agent asks a companion what the result of the multiplication is, and writes in the companions answer.
+\end{scenario}
+
+It seems hard to fault the agent in this case, even though multiplying the two numbers may be no less obvious than substituting Clark Kent for Superman in the contrasting case.
+The agent has some body of information, that two numbers multiplied would give a required value and a background grasp of mathematics, and is capable of determining the required value without any additional information, but relies on a companion informing them of what the required value is.
+
+\subsection{Notes on ideal rationality}
+\label{sec:notes-ideal-rati}
+
+It seems intuitive that an ideal agent would not rely on non-constructive support for any given proposition that they hold an attitude toward.
+For, without limitations there is no barrier to the ideal agent establishing constructive support for the proposition.
+
+This argument may be a little too quick, however.
+For, if it is possible for an ideal agent to have a body of evidence without yet having constructive support for the propositions supported by that body of evidence, then scenarios may be constructed which prevent the agent from obtaining anything but non-constructive support.
+
+\begin{scenario}[Secrets]
+  Suppose we have an ideal agent and a non-companion who are on a mission together.
+  The agent and companion have been given a dossier, and some reasoning is required to extract a password to a door from the dossier.
+  The companion has extracted the password by some reasoning, but before the agent is able to extract the password they discover that some non-capable adversary is able to read their mind.
+  Hence, if the ideal agent reasons to the password the non-ideal adversary will have access to the password, but if the ideal agent does not reason to the password there is a good chance that the non-ideal adversary will not discover what the password is.
+  However, just as the adversary is non-ideal, the ideal agent's companion is also non-ideal, and the ideal agent would like to be arbitrarily confident that the non-ideal companion has successfully extracted the password.
+  Luckily, a backup plan has been prepared.
+  [The cave example again, noting also that the adversary can't be sure that the agent and companion hadn't prepared the sequence in advance.]
+\end{scenario}
+
+\section{Buchak}
+\label{sec:buchak}
+
+\textcite{Buchak:2014aa} discusses ``the problem of naked statistical evidence'' in the context of the case of the green and yellow buses and argues that belief cannot be reduced to credence.
+
+I'm inclined to think, possibly due to this being suggested to me, that there's no need to frame my cases in terms of statistical evidence, and instead see statistical evidence as a way of generating non-constructive support for a proposition.
+However, to the extent that it is possible to construct cases involving statistical evidence, then \citeauthor{Buchak:2014aa}'s argument that belief and credence are distinct offers a way to understand the different kind of support available to the agent, and \citeauthor{Buchak:2014aa}'s discussion of the norms associated with blame may provide some explanation of judgements about (as subset of) the kind of cases I've been thinking of.
+
+So, at the very least, \citeauthor{Buchak:2014aa}'s paper is an additional connexion to broader literature, and there is the possibility of generalising some of \citeauthor{Buchak:2014aa}'s discussion.
+
+\section{Middlemarch}
+\label{sec:middlemarch}
+
+\begin{note}
+  A little more searching, and I think I found the passage\dots
+\end{note}
+
+\begin{quote}
+  Rosamond played admirably.
+  Her master at Mrs.\ Lemon's school (close to a county town with a memorable history that had its relics in church and castle) was one of those excellent musicians here and there to be found in our provinces, worthy to compare with many a noted Kapellmeister in a country which offers more plentiful conditions of musical celebrity.
+  Rosamond, with the executant's instinct, had seized his manner of playing, and gave forth his large rendering of noble music with the precision of an echo.
+  It was almost startling, heard for the first time.
+  A hidden soul seemed to be flowing forth from Rosamond's fingers; and so indeed it was, since souls live on in perpetual echoes, and to all fine expression there goes somewhere an originating activity, if it be only that of an interpreter.
+  Lydgate was taken possession of, and began to believe in her as something exceptional.
+  After all, he thought, one need not be surprised to find the rare conjunctions of nature under circumstances apparently
+  unfavorable: come where they may, they always depend on conditions that are not obvious.
+  He sat looking at her, and did not rise to pay her any compliments, leaving that to others, now that his admiration was deepened.\nolinebreak
+  \mbox{}\hfill\mbox{(Chapter XVI.)}
+\end{quote}
+
+\newpage
+
+\printbibliography
+
+\end{document}
