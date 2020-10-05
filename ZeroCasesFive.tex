@@ -50,7 +50,7 @@
 % % % % % % % % % % % % % % %
 
 \usepackage[inline]{enumitem}
-\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
 \setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
 \setlist[enumerate]{noitemsep}
 
@@ -88,6 +88,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{bending,arrows,positioning,calc}
+\usetikzlibrary{arrows.meta}
 \usepackage{tikz-qtree} %for simple tree syntax
 % \usepgflibrary{arrows} %for arrow endings
 % \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
@@ -133,17 +134,107 @@
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-\title{Means-end reasoning and means-end relations \\ Asynchronous effects}
+\title{Asynchronous effects}
 \author{Ben Sparkes}
 % \date{ }
 
 
 \begin{document}
 
+\maketitle
+
+\section{Basic Idea}
+\label{sec:basic-idea}
+
+An agent reasoning from some body of information \(\Phi\) to a proposition \(\psi\) is a process.
+Abstracting away from the details of how the agent reasons from \(\Phi\) to \(\psi\), the process can be though of as an application of some function \(f\) such that \(f(\Phi) = \psi\).
+
+% In simple cases an agent may perceive their reasoning as the result of a simple, single, process.
+% For example, an agent may represent the addition of two numbers.
+% However, in many cases an agent reasoning from some body of information to a proposition may be the result of composing many distinct processes, some of which can be seen as reasoning from some part of the body of information to intermediate propositions which are in turn used in additional processes to reach the proposition that concludes the agent's reasoning.
+% Syntactic derivations in a first-order proof system provides a model of how agents may reason about truth-functional statements describing a domain of individuals, where rules such as conjunction introduction or universal elimination identify simple processes that can be composed to provide a proof.
+% Whether or not any given first-order proof system provides an accurate, useful, information, and so on \dots, model of certain kinds of truth function statements can be questioned.
+% And, whether or not an agent's reasoning from \(\{Pa \land Pb \rightarrow Qc, Pa, Pb\}\) to  \(Qc\) is a single process involving a generalised form of \emph{modus ponens} or the combination of conjunction introduction and conditional elimination may have no clear answer.
+% Even so, to the extent that reasoning is the process of transforming some input to some output we can abstract from the details of what the process involves a speak of the inputs and outputs of some function.
+
+In many cases \emph{that} \(f(\Phi) = \psi\) is novel information.
+Most may have memorised that \(2 + 2 = 4\), but that \(1204 + 256 = 1280\) is a discovery made with some effort.
+Some may go on to memorise that \(1204 + 256 = 1280\) and hence avoid the effort of discovering the result of adding \(1024\) and \(256\) again and would cite their initial reasoning to support their appeal to the equality in future instances of reasoning.
+Others may quickly forget and rediscover the result of adding \(1024\) and \(256\) as needed.
+Still, that a some instance of reasoning establishes a winning strategy for a game of chess, that the contents of a dossier demonstrates an individuals guilt, or that purchasing starfruit is a means to an end is typically novel information.
+
+Our interest is in cases where an agent comes to be confident that some reasoning from a body of information would establish a certain proposition.
+Abstractly, the agent comes to be confident that there exists some process \(f\) such that \(f(\Phi) = \psi\); the agent is confident that \(\exists f(f(\Phi) = \psi)\).
+More specifically, the agent comes to be confident that they themselves are able to reason from \(\Phi\) to \(\psi\) by some process.
+Hence, the agent is not only confident that some reasoning can be done; the agent is also confident that they can do the reasoning.
+
+\begin{figure}[h]
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[
+      ->,
+      >=stealth',
+      % auto,
+      node distance=0cm, every text node part/.style={align=center},
+      ]
+
+      \node [] (c) at (0,0) {};
+      \node [] (d) at (-3,0) {};
+      \node [] (e) at (3,0) {};
+      \node [] (f) at (0,-2.1) {};
+
+      \node (1) at (0,-.1) {\(\{\exists f (f\Phi = \psi)\} \cup \Phi\)};
+      \node (2) at (0,-2) {\(\psi\)};
+
+      \draw [->] (1.270) to [] node[left] {\(g\)} (2.90);
+    \end{tikzpicture}
+    \caption{Incorporeal \\ Gather up the resources along with the existential.}
+    \label{fig:non-constructive}
+  \end{subfigure}
+  % \hfill
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[
+      ->,
+      >=stealth',
+  % auto,
+      node distance=0cm, every text node part/.style={align=center},
+      ]
+
+      \node [] (c) at (0,0) {};
+      \node [] (d) at (-3,0) {};
+      \node [] (e) at (3,0) {};
+      \node [] (f) at (0,-2.1) {};
+
+      \node (1) at (0,-.1) {\(\Phi\)};
+      \node (2) at (0,-2) {\(\psi\)};
+
+      \node (x) at (-2,-1.05) {\(\exists f(f\Phi = \psi)\)};
+
+      \draw [->] (1.270) to [] node[left] (3) {\(\future{f}\)} (2.90);
+
+      \node (4) [left of=3, xshift=-2cm] {}; % {\(\exists f (f\Phi = \psi)\)};
+      \draw [-{Circle[open]}] (x.0) to [] (3.180);
+
+    \end{tikzpicture}
+    \caption{Speculative \\ Use the existential to secure a promise of a witness.}
+    \label{fig:speculative}
+  \end{subfigure}
+\end{figure}
+
+\begin{note}
+  The key difference between the two patterns of reasoning is the use of the guarantee that there is some way to reason from \(\Phi\) to \(\psi\).
+\end{note}
+
 \section{Introduction}
 \label{sec:introduction}
 
-If you're not interested in the phenomenon, then might still want to see how favoured theories apply, or check whether there's no trouble.
+\begin{note}
+  Identify and provide a framework.
+  Intuitively, some instances are permissible and others impermissible.
+  Will not make any strong normative claims, and instead sketch how the framework can be used to make an argument.
+  (Basically, in the superman case no way to fulfil promise, while in the taxes case there is.)
+\end{note}
 
 
 So, I think there's something of interest here because one often assumes that the link is what reasoning is.
@@ -161,6 +252,8 @@ So termed due to features of mundane promises, and connexion to computer science
 
 The key is that there's really nothing substantive about the idea of a promise.
 It is, more-or-less a structural idea.
+
+
 
 \section{Chess}
 \label{sec:chess}
@@ -207,21 +300,69 @@ Of course, the chance that the companion's random response coincides with the ho
 So, the interaction between the agent and the companion over the previous games may be cited by the agent to support their confidence that a winning strategy exists.
 The agent's line of reasoning from the companion responding `yes' to the question of whether a winning strategy exists to the agent's confidence to the existence of a winning strategy may, then, involve a claim that the companion is responding truthfully.
 
-\begin{itemize}
+\begin{enumerate}[label=(C\arabic*)]
 \item The companion responds truthfully to questions of whether a winning strategy exists.
-\end{itemize}
+\end{enumerate}
 
-The support for this is, roughly
+The primary support for this is, roughly
 
-\begin{itemize}
+\begin{enumerate}[label=(S\arabic*)]
 \item In all prior games the companion, given the question of whether a winning strategy exists asked by the agent, the companion responded in the same way that the agent would have responded if the agent were truthfully responding to the same question.
-\end{itemize}
+\end{enumerate}
+
+\hozline
+
+Additional support may be available to the agent.
+For example, after settling on a winning strategy the agent and companion may have continued the respective game of chess and demonstrated that the player for whom a winning strategy was claimed to exist was able to secure a win.
+However, whether any additional support of this kind is significant is unclear.
+
+For, in order for the demonstration of a win to provide significant additional support for the claim that the companion responds truthfully in addition to the agent reasoning to a winning strategy for the player, the agent would need to doubt their ability to correctly identify winning strategies to some significant degree.
+And yet, if the agent doubts their ability to correctly identify strategies to some significant degree then it seems difficult for the agent to be confident that they or their opponent made no unforced errors in the demonstration of the relevant winning strategy, and therefore the agent should likewise doubt that the win for the player was in fact the demonstration of a winning strategy.
+
+This quick are ignores various subtleties, such as the possibility of the agent and companion settling on different strategies, and the companions demonstration of a victory highlighting flaws in the strategy the agent settled on.
+Still, we may assume that the agent did not learn that they were mistaken in any of their claims to the existence of a winning strategy.
+And, hence we can stipulate (if needed) that the agent has a sufficiently high degree of confidence in their own ability to correctly identify winning strategies in order to simplify and focus on the primary piece of supported cited above.
+
+\hozline
+
+So,
+
+\begin{enumerate}[label=(C\arabic*)]
+\item It is unlikely that the agent is not responding truthfully.
+\end{enumerate}
+
+Hence, as:
+
+\begin{enumerate}[label=(C\arabic*)]
+\item The companion answered `yes'
+\end{enumerate}
+
+Then by the above:
+
+\begin{enumerate}[label=(C\arabic*)]
+\item A winning strategy exists.
+\end{enumerate}
+
+However,
+
+\begin{enumerate}
+\item In all prior games the companion, the agent has only received an answer to the question of whether a winning strategy exists from the companion after the agent has settled on an answer.
+\end{enumerate}
 
 So,
 
 \begin{itemize}
-\item In all prior games the companion, the agent has only asked the question of whether a winning strategy exists after the agent has settled on an answer.
+\item Something of a biconditional.
 \end{itemize}
+
+
+
+\begin{enumerate}[label=(C\arabic*)]
+\item It is likely that the agent can reason to a winning strategy.
+\end{enumerate}
+
+There is some wiggle room, however given the plausibility of the biconditional it is unlikely that the agent is confident that the companion is responding truthfully \emph{and} that the companion is unable to reason to a winning strategy.
+
 
 % It is plausible that the companion is unaware of whether or not the agent was able to find a winning strategy, found a winning strategy, or determined that no winning strategy existed for the player.
 % Hence, the companion's response may be independent of whether or not the agent settled on an answer, and so agent's confidence may be close to the agent's confidence that the companion has not been bluffing.
@@ -229,10 +370,18 @@ So,
 % Perhaps the agent and the companion have equal abilities, but the companion defaults to a random response if a question falls outside
 % Or, perhaps the companion has figured out the extent of the agent's abilities, and perhaps there is something different about the way in which the agent asked the question, and hence the companion has decided to bluff, with the hope that the agent will resign the game.
 
-The problem for the agent is that their previous interaction supports the existence of a winning strategy on the basis of the agent settling.
+Therefore, for the agent is that their previous interaction supports the existence of a winning strategy on the basis of the agent settling.
 
-\subsection{Truthful}
-\label{sec:truthful}
+
+
+
+\subsubsection{Incorporeal}
+\label{sec:incorporeal}
+
+\begin{note}
+  Also to emphasise is that both the types of reasoning considered here can be seen as `time-slice' reasoning.
+  This, then, allows a contrast to the distributed reasoning of promises.
+\end{note}
 
 If the agent is concerned with the reliability of the companion, then the agent needs some way to project the companions reliability with respect to questions for which the agent also settles to questions for which the agent does not settle.
 
@@ -245,8 +394,170 @@ These questions can be answered, and the agent may have expectations regarding t
 
 Here, the proposition is whether the companion's response is truthful.
 
-\subsection{Speculation}
-\label{sec:speculation-1}
+Here, that the agent can reason may be important, as it narrows down the reference class to which the companion's statement belongs.
+However, the agent makes no commitment to provide reasoning as a witness to their ability to reason to the existence of a winning strategy.
+
+
+
+\begin{itemize}
+\item It is possible to reason from the board and the rules of chess to the existence of a winning strategy.
+  \begin{itemize}
+  \item No need for the agent and companion to be similarly matched.
+  \end{itemize}
+\item It is possible for the agent to reason from the board and the rules of chess to the existence of a winning strategy.
+  \begin{itemize}
+  \item Assumes that the agent and companion are similarly matched.
+  \item It is unclear whether the agent's confidence that \emph{they} are able to reason to a winning strategy is relevant.
+  \item The agent's reasoning is premised on confidence that there exists a witnessing processes, but the agent's reasoning only appeals to certain properties that a witnessing processes satisfies.
+    \begin{itemize}
+    \item The primary property is that the witnessing process demonstrates the existence of a winning strategy.
+    \item Other properties are that the reasoning of the companion is a witness, and that the agent could provide a (perhaps distinct) witness.
+    \item These latter properties are secondary because the agent only needs to be confident that a winning strategy exists.
+    \item In short, the agent's reasoning that a winning strategy exists depends only on the existence of a witness.
+    \item The possibility for the agent to reason is a byproduct of the support for the existence of a winning strategy that the agent appeals to.
+  \item Perhaps the agent makes an attempt to reason to a winning strategy given their confidence that they \emph{can} reason to such a strategy, etc.
+  \item Counterfactually, the agent could have entered the arrangement of pieces on the board into a chess program, or consulted a grand master.
+  \item Of course, the way in which the agent establishes confidence does matter, and the details of the agent's reasoning would change in each of these counterfactual cases.
+    However, the broad structure would remain the same: There is a way to demonstrate that a winning strategy follows from the arrangement of the pieces on the board and the rules of chess, and the existence of a winning strategy does not depend on demonstrating that it exists, therefore confidence that there is a demonstration of a winning strategy supports confidence that a winning strategy exists.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+
+\subsubsection{Weights}
+\label{sec:weights}
+
+\begin{note}
+  Important to note here where the uncertainty fits in.
+  \begin{itemize}
+  \item The uncertainty is part of what supports the agent settling on a particular action.
+  \end{itemize}
+\end{note}
+
+\begin{itemize}
+\item Agent considers outcome of actions given the existence or non-existence of a winning strategy, and uses their confidence of the existence of a winning strategy to weigh the possible outcomes.
+\item In short, decision theoretic reasoning.
+\item The idea that the agent considers their ability to reason to a winning strategy is reflected in outcomes.
+\item Grant that the structure of the agent's reasoning is rational, and must argue over evaluation of outcomes.
+\item If the agent recognises some tension, then it can only be due to their evaluation of outcomes.
+  \begin{itemize}
+  \item Incommensurability between different norms, or a different perspective (i.e.\ what would happen in the ideal case).
+  \end{itemize}
+\item Puzzle about how the possibility to reason fits into the evaluation of outcomes.
+  \begin{itemize}
+  \item I do not doubt that some explanation can be given, but it doesn't seem straightforward.
+  \item And, it seems as though there may be some complexity in the agent's reasoning.
+  \end{itemize}
+\item Decision theoretic reasoning is not the only model of reasoning, so propose considering other options.
+\end{itemize}
+
+\hozlinedash
+
+It is plausible that the agent reasons in this way.
+However, this struggles to make sense of the potential attempt of the agent to demonstrate that they could reason to a winning strategy.
+For, any decision is made given uncertainty.
+Could assume that the agent considers the possibility, that this is encoded into the decision tree.
+Some time has passed, hence the additional assumption that the agent remains committed.
+
+Possibility that there's nothing to criticise the agent for.
+Or, at the very least nothing to criticise given the agent's perspective
+
+\hozlinedash
+
+Possible that this explains intuition.
+For, this starts to mix doxastic and non-doxastic issues.
+That is, from an idealised doxastic point of view, it seems clear that the agent would do better by attempting to resolve any uncertainty that they have over the existence of a winning strategy, and perhaps especially so given that the agent is also confident that they are able to do so.
+
+
+
+
+
+
+
+\subsubsection{Assumption}
+\label{sec:assumption}
+
+\begin{note}
+  Possible that the agent is sufficiently confident that the agent assumes a winning strategy exists.
+  \begin{itemize}
+  \item Simple contrast to `weights' in that the agent's uncertainty is no longer part of what supports the agent settling on a particular action.
+  \item The uncertainty is ignored when reasoning from the existential, the board, and the rules of chess.
+  \item However, this is now the only place to fault the agent, as if the assumption is granted then the agent's reasoning looks fine.
+    \begin{itemize}
+    \item So, this offers a little more flexibility, but still seems limited, as there doesn't seem to be much to say about the assumption.
+    \item The agent retrospectively demonstrating can be seen as an attempt to license this, but this doesn't change their reasoning.
+    \end{itemize}
+  \end{itemize}
+\end{note}
+
+\begin{itemize}
+\item Simple motivation is the threshold view of belief.
+  \begin{itemize}
+  \item Can assume that the agent has arbitrarily high confidence, so on the assumption that there is some threshold, assume that the agent passes this.
+  \end{itemize}
+\item Agent simplifies and assumes the existence of a winning strategy, and decides what to do based on this.
+\item The agent may be able to provide reasons for doing so.
+\item That the agent may fill in the reasoning at some later point in time, however, is irrelevant.
+\item The agent's assumption, if licensed, is licensed on the basis of the agent's present situation.
+  \begin{itemize}
+  \item Suppose the agent resigns, and then later demonstrates that there was a winning strategy.
+  \item This may excuse, but does not affect, the agent's reasoning given the assumption.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Speculative}
+\label{sec:speculative}
+
+\begin{note}
+  Here, first emphasis is on the agent's confidence that they are able to reason to the conclusion, paired with the observation that the above types of reasoning do not structurally depend on this, as they only deal with the existential.
+\end{note}
+
+\begin{note}
+  There's the possibility of background norms, which should be noted somewhere.
+  \begin{itemize}
+  \item This links back to the idea that there's some pressure for the agent to reason to the conclusion.
+  \item And, the promise does something odd here, as the agent doesn't completely ignore this pressure, but they do not immediately respond to it.
+  \end{itemize}
+\end{note}
+
+
+\begin{note}
+  \begin{itemize}
+  \item Somewhat between the two types of incorporeal reasoning.
+  \item As in the case of making an assumption, the agent uncertainty is ignored when reasoning, but in contrast the uncertainty continues to support the agent's reasoning, as the agent needs this to be low in order to guarantee the promise.
+  \item Here, there's a clearer view of the puzzle, because the agent considers reasoning to the conclusion.
+    \begin{itemize}
+    \item This is an important contrast, as the two types of reasoning above do not depend on the agent having confidence that they are able to reason to the conclusion.
+    \end{itemize}
+  \item Whether the agent is really able to act with the promise provides a clearer view of the puzzle.
+  \item For, if the agent makes the promise and fulfils it, then there's no problem in principle, in the same way that one trades futures.
+  \item However, one may think that making the promise isn't permissible in this case, and that the agent needed to do the reasoning.
+  \end{itemize}
+\end{note}
+\begin{itemize}
+\item Agent creates a future with an associate promise.
+\item Agent's confidence that there exists some reasoning from the board and the rules of chess to a winning strategy is reflected in the agent's confidence that the promise can be fulfilled.
+\item Agent now assumes that they have demonstrated the existence of a winning strategy by the promised reasoning.
+  \begin{itemize}
+  \item This is not the same as reasoning, esp.\ clear as reasoning will provide additional information, such as specific moves.
+  \end{itemize}
+\item So, as the agent assumes they have demonstrated the existence of a winning strategy, the reasoning is similar to simply assuming the existential is true.
+\item However, it differs in that the agent does not ignore the possibility of being false.
+\item 
+\end{itemize}
+
+\begin{itemize}
+\item In contrast to incorporeal certainty, the agent providing some reasoning would not be retroactive justification.
+\end{itemize}
+
+\begin{itemize}
+\item Judgements given the promise of a future are complex.
+\item Suppose the agent resigns, and the later demonstrates that there was a winning strategy.
+\item The action of resigning was taken under the risk that the promise would not be fulfilled.
+\item However, the promise was later fulfilled, and hence met the conditions set out by the promise.
+\item Of course, the agent is unlikely to fulfil the promise, and this complicates matters further, as this doesn't invalidate the agent's promise; only a failure to demonstrate that they could have reasoned would do so.
+\end{itemize}
+
 
 There is a different proposition, whether the agent would have determined that a winning strategy exists.
 Things are more straightforward.
@@ -254,6 +565,77 @@ The agent has often received the companion's response prior to settling, and it 
 It is likely that a truthful interpretation of the companion's response reveals the answer that the agent would have settled on.
 
 And, the agent has a high degree of confidence that the companion is truthful if the agent has settled on an answer.
+
+The agent is confident that they could reason to a winning strategy.
+There are two key thoughts here.
+First, that the agent can do some reasoning.
+Second, what they result of the reasoning would be.
+
+Though the agent has not reasoned to the existence of a winning strategy, the agent adopts an attitude toward the existence of a winning strategy on the basis of the reasoning they are confident that they are able to do.
+With some caveats, the agent has the same attitude toward the existence of a winning strategy that the agent would have if they were to reason to the existence of a winning strategy by some witness for the reasoning from the state of the board and the rules of chess to a winning strategy.
+
+\subsubsection{Key features}
+\label{sec:key-features}
+
+The agent is confident that there exists a way to reason from the arrangement of pieces on the board and the rules of chess to a winning strategy.
+
+
+
+\begin{enumerate}
+\item Transfer of risk
+\item Promise
+\end{enumerate}
+
+
+\subsubsection{Why?}
+\label{sec:why}
+
+\begin{itemize}
+\item Well, the distinguishing feature is that \(\psi\) is now treated as the result of reasoning.
+\end{itemize}
+
+\begin{itemize}
+\item Decision is made under an assumption that is uncertain.
+  \begin{itemize}
+  \item Here, then, the agent puts uncertainty to the background.
+  \end{itemize}
+\item Decision is made under uncertainty.
+  \begin{itemize}
+  \item The uncertainty is in the foreground.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item One clear difference is that in the speculative case the agent may go back to reason, and whatever conclusions the agent drew will likely continue to hold, as these were drawn on the assumption of the agent reasoning to the existence of a winning strategy.
+\item In contrast, if the agent reasons from confidence of existence alone, then whatever attitude the agent forms will continue to hold.
+\end{itemize}
+
+\begin{itemize}
+\item The outcome may be the same, and one may argue that there shouldn't be a distinction.
+\item However, this isn't obvious.
+\item Imagine taking the agent to an interrogation room.
+  \begin{itemize}
+  \item Here, the agent works to demonstrate the existence of a winning strategy, and hence fill in their reasoning.
+  \item By contrast, if the agent had reasoned from the existence, then they would not need to do this.
+  \item Note, that the agent wouldn't invoke the existential in the reasoning that they would provide.
+  \item And, even if reasoning by a promised future ensures that there is some line of reasoning from the existential, it's not clear that these are equally accessible.
+  \end{itemize}
+\item If focusing on the resignation, there's no too much of interest.
+\item If focusing on justification there is a difference.
+\end{itemize}
+
+\begin{itemize}
+\item Two important ideas.
+  \begin{enumerate}
+  \item Adoption of risk
+  \item A guarantee to mitigate some of this risk.
+  \end{enumerate}
+\item These are the two distinguishing features.
+  \begin{itemize}
+  \item The promise doesn't do everything, and in some aspects it's not different to assuming the existential.
+    However, there are distinguishing features that suggest this is of some interest, and in what follows the interaction between these two features and their relative emphasis is key.
+  \end{itemize}
+\end{itemize}
 
 
 \subsection{Reference Classes}
@@ -272,6 +654,41 @@ This is \textcite{Hajek:2007aa}.
 \subsection{Abstraction}
 \label{sec:abstraction}
 
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[
+  ->,
+  >=stealth',
+  % auto,
+  node distance=0cm, every text node part/.style={align=center},
+  ]
+
+  \node (1) [] {Board \\ and \\ Rules};
+  \node (2) [right of=1, xshift=3.5cm] {Agent \\ can \\ settle};
+  \node (3) [right of=2, xshift=3.5cm] {Comp.\ \\ is \\ correct};
+  \node (4) [right of=3, xshift=3.5cm] {Winning \\ strategy \\ exists};
+
+  % \draw [->] (1.0) to [bend right=25] (2.180);
+  % \draw [->] (2.0) to [bend left=25] (3.180);
+  % \draw [->] (3.0) to [bend right=25] (4.180);
+
+  \draw [->] (1.0) to [bend left=25] node[below] {\(c\)} node[above] {\(g\)} (2.165);
+  \draw [->] (2.345) to [bend right=25] node[below] {\(c\)} node[above] {\(g\)} (3.195);
+  \draw [->] (3.15) to [bend left=25] node[below] {\(c\)} node[above] {\(g\)} (4.180);
+
+  \draw [dashed, ->] (1) to [bend left=35] node[below] (bSH) {\(h\)} node[above] (aSH) {\(s\)} (4);
+  \node (x) [right of=bSH, xshift=.45cm, opacity=.25] {\(\&\mbox{ }c\)};
+  % \draw [dotted, ->] (1) to [bend left=70] node[below] (bSC) {\(c\)} node[above] {\(s\)} (4);
+  \draw [dashed, ->] (1) to [bend right=35] node[below] {\(c\)} node[above] (aGC) {\(g\)} (4);
+
+  \draw [dotted, ->] (2) to [bend left=25] node[right] {\(c\)} node[left] {\(g\)} (bSH);
+  % \draw [dotted, ->] (aSH) to [bend right=5] (bSC);
+  \draw [dotted, -] (aGC) to [bend left=25] (2);
+\end{tikzpicture}
+\caption{Main relations}
+\label{fig:dynamics}
+\end{figure}
+
 \begin{note}
   The general form of the agent's reasoning.
 \end{note}
@@ -287,9 +704,9 @@ Some process \(g\) uses the existence of a process \(f\) that would yield \(\psi
 \]
 The question is whether there is anything to be said about \(g\).
 I think there is something to be said, and I will use the term \emph{speculation}.
-Broadly stated, \(g\) involves the agent introducing an expression \(f_{P}\) that promises refer to some \(f\) such that \(f(\Phi) = \psi\).
-For, if the agent is confident that there exists some \(f\) such that \(f(\Phi) = \psi\) then it is possible for \(f_{P}\) to refer to one such function.
-And, given \(f_{P}\) the agent applies \(f_{P}\) to \(\Phi\) to obtain \(\psi\).
+Broadly stated, \(g\) involves the agent introducing an expression \(\future{f}\) that promises refer to some \(f\) such that \(f(\Phi) = \psi\).
+For, if the agent is confident that there exists some \(f\) such that \(f(\Phi) = \psi\) then it is possible for \(\future{f}\) to refer to one such function.
+And, given \(\future{f}\) the agent applies \(\future{f}\) to \(\Phi\) to obtain \(\psi\).
 
 \subsection{Application}
 \label{sec:application}
@@ -300,6 +717,11 @@ And, given \(f_{P}\) the agent applies \(f_{P}\) to \(\Phi\) to obtain \(\psi\).
 \section{Other scenarios}
 \label{sec:other-scenarios}
 
+\subsection{Morse}
+\label{sec:morse-1}
+
+
+
 \begin{scenario}[Morse]
   Morse and Lewis are detectives who are equally matched and have complied a dossier about a case together.
   Morse has some free time, and Lewis is busy.
@@ -307,12 +729,47 @@ And, given \(f_{P}\) the agent applies \(f_{P}\) to \(\Phi\) to obtain \(\psi\).
   Lewis is confident that the dossier supports the guilt of Smith.
 \end{scenario}
 
+\begin{note}
+  \begin{itemize}
+  \item One of the interesting features of the Morse scenario is that while Lewis forms a promise, it's not clear that Lewis needs to be the one to fulfil the promise.
+    It could be that Morse and Lewis have an established relationship, and when Morse informs Lewis that there is a case, Morse is taking on the responsibility of providing a reference to a promised future.
+  \item On the other hand, in contrast to the Chess case, the relation to action is much clearer in the Morse case.
+  \end{itemize}
+\end{note}
+
+More and Lewis, well.
+\begin{itemize}
+\item Morse can be seen as providing testimony that \(\exists f(f\Phi = \psi)\).
+  \begin{itemize}
+  \item Is this testimony that \(\psi\)?
+  \item Possibly, because Morse has \(\Psi\), and it's would not be possible for Morse to deny \(\psi\) if pressed.
+  \item And this isn't how testimony usually works.
+  \item Indeed, could make things more complex, assuming that only Lewis has certified some of the evidence.
+  \item Hence, Morse may not be in a position to straightforwardly testify that \(\psi\).
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Shopping}
+\label{sec:shopping}
+
 \begin{scenario}[Shopping]
   Agent is shopping in a supermarket and has an end.
   On the shopping list is an item.
   The agent cannot immediately recall how the item relates to the end, but is confident that they put the item on the shopping list in service of the end.
   The agent is confident that purchasing the item is worthwhile means to the end, but they are not sure how.
 \end{scenario}
+
+\begin{note}
+  \begin{itemize}
+  \item Here, the key is an additional promise, and a shift in focus.
+  \item For, the reasoning from the ends to the means does not seem too difficult, and hence it's specifying the ends which is key.
+  \end{itemize}
+\end{note}
+
+
+\subsection{Overview of additional cases}
+\label{sec:overv-addit-cases}
 
 In each of the cases the agent has some body of information, and has some additional information which states that some proposition follows from the body of information.
 The agent is confident that they could, independently of the additional information, reason from the body of information to the proposition which they have been informed follows.
@@ -422,6 +879,11 @@ And, in the clocksmith example, the clock is also a promise, that if the agent w
 \subsection{Logic}
 \label{sec:logic}
 
+\begin{note}
+  Here I'm only dealing with the reasoning, so there's no discussion of justification and so on.
+  All that's happening is an account of the reasoning that's going on in the case of promises.
+\end{note}
+
 This about some rules governing existentials.
 Standard idea is to take a fresh constant, and show that something follows from this.
 The existential guarantees that the term refers, but have no idea what to, and the fresh constant is used with the promise that it is referential.
@@ -497,11 +959,12 @@ Straying further from standard proof systems, introduce a function and bind this
   \UnaryInfC{\(\exists fP(fa)\)}
 \end{prooftree}
 
-In these examples, \(a\) and \(f_{P}\) are fresh, and \(\psi\) is inferred on the basis of these, and because no assumptions are made regarding \(a\) and \(f_{P}\), one can be sure that \(P\) holds of some transformation of \(a\).
+In these examples, \(a\) and \(\future{f}\) are fresh, and \(\psi\) is inferred on the basis of these, and because no assumptions are made regarding \(a\) and \(\future{f}\), one can be sure that \(P\) holds of some transformation of \(a\).
 
 Deductive system, hence the need to discharge assumptions.
 
 Abstracting further, bind function and apply to something.
+\(n B\) denotes the binding of the future \(n\).
 
 \begin{prooftree}
   \AxiomC{\(\exists f (f\Phi = \psi)\)}
@@ -520,8 +983,8 @@ Abstracting further, bind function and apply to something.
 
   \RightLabel{\scriptsize \(=\) E}
   \BinaryInfC{\(\psi\)}
-  \RightLabel{\scriptsize 1 \(\exists\) E}
-  \UnaryInfC{\(\psi\)}
+  % \RightLabel{\scriptsize 1 \(\exists\) E}
+  % \UnaryInfC{\(\psi\)}
 \end{prooftree}
 
 The idea remains the same, use the guarantee of reference to reason with a specific instance with a referring term.
@@ -591,7 +1054,31 @@ So, because the promise is about what the agent can do, there's no appeal to add
 \label{sec:supermarket}
 
 
+\begin{prooftree}
+  \AxiomC{\(\exists f \exists X(fX = \psi)\)}
+  \AxiomC{}
+  \RightLabel{\scriptsize(1)}
+  \UnaryInfC{\(\future{f}\)}
+  \RightLabel{\scriptsize 1 B}
+  \BinaryInfC{\(\future{f}X = \psi\)}
+  \AxiomC{}
+  \RightLabel{\scriptsize (2)}
+  \UnaryInfC{\(\future{X}\)}
+  \RightLabel{\scriptsize 2 B}
+  \BinaryInfC{\(\future{f}\future{X} = \psi\)}
 
+  \AxiomC{}
+  \RightLabel{\scriptsize(1)}
+  \UnaryInfC{\(\future{f}\)}
+  \AxiomC{}
+  \RightLabel{\scriptsize (2)}
+  \UnaryInfC{\(\future{X}\)}
+  \RightLabel{\scriptsize 1 2 FA}
+  \BinaryInfC{\(\future{f}\future{X}\)}
+
+  \RightLabel{\scriptsize \(=\) E}
+  \BinaryInfC{\(\psi\)}
+\end{prooftree}
 
 
 \subsection{Speculation}
