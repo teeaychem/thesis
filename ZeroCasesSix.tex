@@ -106,6 +106,7 @@
 
 \usepackage{Oblique} % Custom package for oblique commands
 \usepackage{CustomTheorems}
+\usepackage{FuturePromisedEvents}
 
 \usepackage{svg}
 \usepackage[off]{svg-extract}
@@ -130,10 +131,7 @@
 \usepackage{extarrows}
 
 % % % My commands % % %
-\newcommand{\future}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\futpro}{\ensuremath{\mathcal{p}}}
-\newcommand{\futin}{\ensuremath{\Sigma}}
-\newcommand{\futout}{\ensuremath{\chi}}
+
 % % % % % % % % % % % %
 
 \usepackage[hidelinks,breaklinks]{hyperref}
@@ -336,53 +334,123 @@
 \item Neo-davidsonian.
 \end{itemize}
 
-Our interest is in reasoning as a \emph{process} of drawing conclusions from premises.
-
-`Reasoning' is a verbal noun.
-
+Our interest is in reasoning as a \emph{process} of drawing a conclusion from premises.
+The use of the term `reasoning' in English does not uniquely capture this process.
+To illustrate, there are at least two distinct readings of the following:
 \begin{enumerate}
-\item Morse was reasoning from the case file to Woodthorpe's guilt. (process)
-\item The reasoning from the case file to Woodthorpe's guilt by Morse. (an instance of the process)
+\item\label{reasoning:reading:amb} Lewis thought about Morse's reasoning from the case file to the guilt of Woodthorpe.
 \end{enumerate}
 
-In the first some process was taking place.
-In the second, identify the thing that is Morse's reasoning.
-Both instance understood in terms of events or processes.
-It is this understand of reasoning that is important for us.
-
-Some care is needed, though.
-
+On a `factive' reading, Lewis is thinking about the state of affairs in which reasoning from the case file to the guilt of Woodthorpe has been done by Morse.
+In an attempt to force the factive reading, we could create an independent \emph{that}-clause for Morse's reasoning, and state \emph{that} Morse's reasoning is a fact.
 \begin{enumerate}
-\item Morse's reasoning from the case file to the guilt of Woodthorpe happened earlier today.
-\item It is true that Morse reasoned from the case file to the guilt of Woodthorpe happened earlier today. (Perfective aspect and past tense mix-up here.)
+\item[\ref{reasoning:reading:amb}\(_{f}\).] It is a fact that Morse's reasoning from the case file to the guilt of Woodthorpe happened, and Lewis is thinking about that fact.
+\end{enumerate}
+Morse's reasoning may have been a process, but on a factive reading Morse's reasoning the role of the process limited to making a certain fact true.
+
+% \begin{enumerate}
+% \item Morse's reasoning from the case file to the guilt of Woodthorpe happened earlier today.
+% \item It is true that Morse reasoning from the case file to the guilt of Woodthorpe happened earlier today. (Perfective aspect and past tense mix-up here --- `reasoned' is more natural.)
+% \end{enumerate}
+
+% Here, assigning a complex predicate to Morse.
+% The predicate implies that some process took place, but this is really a straightforward proposition that is true or false.
+% The `that' clause formulation helps make this clear.
+% Even if an event (or process) is implied, that Morse reasoned is more-or-less a fact rather than an event.
+
+On an `active' reading, Lewis is thinking about the action, event, or process of Morse reasoning from the case file to the guilt of Woodthorpe.
+Similar to the forced factive reading, to ensure an active we may attempt to explicitly state that Morse's was a process.
+\begin{enumerate}
+\item[\ref{reasoning:reading:amb}\(_{a}\).] Morse's reasoning from the case file to the guilt of Woodthorpe was a process, and Lewis is thinking about that process.
 \end{enumerate}
 
-Here, assigning a complex predicate to Morse.
-The predicate implies that some process took place, but this is really a straightforward proposition that is true or false.
-The `that' clause formulation helps make this clear.
-Even if an event (or process) is implied, that Morse reasoned is more-or-less a fact rather than an event.
+% \begin{enumerate}
+% \item Morse was reasoning from the case file to Woodthorpe's guilt. (process)
+% \item The reasoning from the case file to Woodthorpe's guilt by Morse. (an instance of the process)
+% \end{enumerate}
+
+% In the first some process was taking place.
+% In the second, identify the thing that is Morse's reasoning.
+% Both instance understood in terms of events or processes.
+% It is this understand of reasoning that is important for us.
+
+This distinction between fact and event is part of the motivation for \citeauthor{Davidson:2001aa}'s treatment of events.
+An event need not consist of some fact.
+(\citeyear[116]{Davidson:2001aa})
 
 \begin{itemize}
-\item Brutus hugged Caesar.
-  \[\exists e(\text{hug}(e) \land \text{agent}(e) = \text{Brutus} \land \text{patient}(e) = \text{Caesar})\]
+\item Active reading is the one of interest.
+\item This is not to say that the active reading is required.
+\item Rather, things are simpler if we keep to a particular reading, and the active reading is useful.
+\end{itemize}
+
+\begin{itemize}
+\item Neo-Davidsonian event semantics.
+\item Events are things, and ascribe properties to events.
+\item Neo-Davidsonian due to the use of thematic roles to identify and situate that participants of the event.
+\end{itemize}
+
+
+
+\begin{itemize}
+\item ``Morse's reasoning from the case file to the guilt of Woodthorpe'' is structurally similar to ``Brutus hugged Caesar''.
+\item ``Brutus hugged Caesar'' is analysed with\dots
+  The event predicate `hug'.
+  As `hug' is a transitive verb there is an `agent', a participant who hugs, and a `patient', a participant who is hugged.
+  \[
+    \exists e(\everb{hug} \land \eagent{Brutus} \land \epatient{Caesar})
+  \]
+  Our treatment of reasoning is structurally similar.
+  An event predicate `reason' indicates that the event is a process of reasoning and the thematic role `agent' identifies the reasoner, and as the agent reasons from premises to a conclusion we introduce to additional thematic roles termed `in' and `out' for the premises and conclusion, respectively.
+  \[
+    \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagentm{a})
+  \]
+  Informally, the above captures \(a\)'s reasoning from \(\Sigma\) to \(\chi\).
+  Propositions take the role of `in' and `out', with \(\Sigma\) standing for the conjunction of propositions which are the premises of an agent's reasoning, \(\chi\) for the proposition which is the conclusion of the agent's reasoning.
+  \[
+    \exists e(\everb{reason} \land \ein{\text{Case file}} \land \eout{\text{Guilt of Woodthorpe}} \land \eagent{\text{Morse}})
+  \]
+  \[
+    \exists e
+    \left(
+      \begin{array}{l}
+        \everb{reason} \land \\
+        \ein{\text{Case file}} \land \\
+        \eout{\text{Guilt of Woodthorpe}} \land \\
+        \eagent{\text{Morse}}
+      \end{array}
+    \right)
+  \]
 \item Brutus did not only hug Caesar.
 \item Brutus hugged and tickled Caesar.
-  \[\exists e(\text{hug}(e) \land \text{tickle}(e) \land \text{agent}(e) = \text{Brutus} \land \text{patient}(e) = \text{Caesar})\]
+  \[
+    \exists e(\everb{hug} \land \everb{tickle} \land \eagent{\text{Brutus}} \land \epatient{\text{Caesar}})
+  \]
 \item No changes in the (thematic) roles of the participants, more detail added.
 \item And, not a separate event, the hugging was also a tickling, Brutus did not hug and also tickle.
   Could do the same thing with a the novel-predicate \(\text{tickle-hug}\).
-  \[\exists e(\text{tickle-hug}(e) \land \text{agent}(e) = \text{Brutus} \land \text{patient}(e) = \text{Caesar})\]
+  \[
+    \exists e(\everb{tickle-hug} \land \eagent{Brutus} \land \epatient{Caesar})
+  \]
 \item Same with reasoning.
   \begin{itemize}
   \item Also have two roles: in and out.
   \item Often introduce a function.
   \item Method may also be important, though for the most part this will not be of direct interest.
-    \[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi)\]
+    \[
+      \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi})
+    \]
   \item If we want to attribute the reasoning to an agent
-    \[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \text{agent}(e) = \text{Brutus})\]
+    \[
+      \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagent{Brutus})
+    \]
   \item Fill in some details\dots
-    \[\Sigma = \{\exists e(\text{cry}(e) \land \text{agent}(e) = \text{Caesar})\}\]
-    \[\chi = \text{Ought}(\exists e(\text{hug}(e) \land \text{agent}(e) = \text{Brutus} \land \text{patient}(e) = \text{Caesar}))\]
+    \[
+      \Sigma = \{\exists e(\everb{cry} \land \eagent{Caesar})\}
+    \]
+    \[
+      \chi = \text{Ought}(\exists e'(\everb[e']{hug} \land \eagent[e']{Brutus} \land \epatient[e']{Caesar}))
+    \]
     So, Brutus reasoned from Caesar crying to the proposition that Brutus ought to hug Caesar.
   \item Functions aren't \emph{pure}.
     May be side effects.
@@ -391,11 +459,15 @@ Even if an event (or process) is implied, that Morse reasoned is more-or-less a 
   \end{itemize}
 \item Reasoning and some additional descriptions of the reasoning.
 \item Brutus reasoned, at a coarse level of description, via the categorical imperative.
-  \[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \text{agent}(e) = \text{Brutus} \land \text{method}(e) = \text{Categorical imperative})\]
+  \[
+    \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagent{Brutus} \land \emethod{Categorical imperative})
+  \]
 \item For the most part, ignore method.
 \item Function, however, is useful.
   Abstracting away from the details, there's a function.
-  \[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \exists f(\text{func}(e) = f))\]
+  \[
+    \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}))
+  \]
   This function may be partial; defined for \(\Sigma\) and \(\chi\).
   However, whatever that function is, it can potentially be instantiated in other instances of reasoning.
 \item Function is an abstract characterisation of the process, and independent of any particular instance of reasoning.
@@ -411,11 +483,15 @@ Even if an event (or process) is implied, that Morse reasoned is more-or-less a 
   \end{itemize}
 \end{itemize}
 
-\[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \exists f(\text{func}(e) = f))\]
+\[
+  \exists e(\text{reason}(e) \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}))
+\]
 
 So, promise the function and project a future, and then describe Lewis' reasoning as
 
-\[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \text{func}(e) = \future{f})\]
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}})
+\]
 
 This isn't a standard case of reasoning, as \(\future{f}\) is a future.
 Lewis can't properly reason via \(\future{f}\) as Lewis doesn't really know what this function is.
@@ -430,13 +506,19 @@ And, as it's an unfulfilled promise, we know that there's very little going on.
 
 Some time later, the agent does some additional work, and reasons from \(\Sigma\) to \(\chi\), and provides a witness.
 
-\[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \text{func}(e) = \underline{\future{f}})\]
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\underline{\future{f}}})
+\]
 
 The future now has a witness.
 
-\[\text{promise}(f,f\Sigma = \chi)\]
+\[
+  \text{promise}(f,f\Sigma = \chi)
+\]
 
-\[\text{future}(\text{promise}(f,f\Sigma = \chi)) = \future{f}\]
+\[
+  \text{future}(\text{promise}(f,f\Sigma = \chi)) = \future{f}
+\]
 
 
 {\color{red}
@@ -457,7 +539,9 @@ The future now has a witness.
   However, even if there's little of interest, there's still something.
 \end{note}
 
-\[\exists e(\text{reason}(e) \land \text{in}(e) = \Sigma \land \text{out}(e) = \chi \land \text{func}(e) = \future{f} \land \text{method}(e) = \text{speculate})\]
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}} \land \emethod{speculate})
+\]
 
 \subsection{Key inference}
 \label{sec:key-inference}

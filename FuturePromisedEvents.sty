@@ -1,0 +1,162 @@
+\ProvidesPackage{FuturePromisedEvents}
+\usepackage{xparse}
+
+
+% % Futures and promises
+\newcommand{\future}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\futpro}{\ensuremath{\mathcal{p}}}
+\newcommand{\futin}{\ensuremath{\Sigma}}
+\newcommand{\futout}{\ensuremath{\chi}}
+
+% % Event semantics
+
+\newcommand{\eagenttext}{\text{\textbf{agent}}}
+\newcommand{\epatienttext}{\text{\textbf{patient}}}
+\newcommand{\eintext}{\text{\textbf{in}}}
+\newcommand{\eouttext}{\text{\textbf{out}}}
+\newcommand{\efunctiontext}{\text{\textbf{func}}}
+\newcommand{\emethodtext}{\text{\textbf{method}}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\everbm}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\text{V}(#1) = }%
+    {\text{V}(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\text{#2}(#1)}%
+    {\text{#2}(e)} %
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\everb}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\text{V}(#1) = }%
+    {\text{V}(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\text{\text{#2}}(#1)}%
+    {\text{\text{#2}}(e)} %
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eagent}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\eagenttext(#1) = }%
+    {\eagenttext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\eagenttext(#1) = \text{#2}}%
+    {\eagenttext(e) = \text{#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eagentm}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\eagenttext(#1) = }%
+    {\eagenttext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\eagenttext(#1) = {#2}}%
+    {\eagenttext(e) = {#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epatient}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\epatienttext(#1) = }%
+    {\epatienttext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\epatienttext(#1) = \text{#2}}%
+    {\epatienttext(e) = \text{#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ein}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\eintext(#1) = }%
+    {\eintext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\eintext(#1) = {#2}}%
+    {\eintext(e) = {#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eout}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\eouttext(#1) = }%
+    {\eouttext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\eouttext(#1) = {#2}}%
+    {\eouttext(e) = {#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\efunc}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\efunctiontext(#1) = }%
+    {\efunctiontext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\efunctiontext(#1) = {#2}}%
+    {\efunctiontext(e) = {#2}}%
+  } %
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\emethod}{ o m }{%
+  \tl_if_empty:nTF {#2} %
+  {
+    \IfValueTF{#1}%
+    {\emethodtext(#1) = }%
+    {\emethodtext(e) = }%
+  } %
+  {
+    \IfValueTF{#1}%
+    {\emethodtext(#1) = \text{#2}}%
+    {\emethodtext(e) = \text{#2}}%
+  } %
+}
+\ExplSyntaxOff
