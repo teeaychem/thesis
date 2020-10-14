@@ -15,8 +15,8 @@
    \usepackage[no-math]{fontspec}
    \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-   \setmainfont[Ligatures=TeX]{Source Serif Pro}
-   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={* Semibold}]{Source Sans Pro}
+   \setmainfont[Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
    \setmonofont[Scale=0.8]{Atlas Typewriter}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
    \usepackage{microtype}
@@ -280,6 +280,12 @@
 \end{itemize}
 
 \begin{itemize}
+\item That the case file is an object is unimportant.
+\item If needed, assume that Lewis (and Morse) have memorised the collection of propositions which constitutes the case file.
+\item Lewis and Morse are bounded agents, so they have not necessarily have attitudes toward anything that follows from the case file.
+\end{itemize}
+
+\begin{itemize}
 \item More can be said about the details.
 \item For now, turn to an broad characterisation.
 \item Goal is to provide an abstract account of the main features, allowing us to reason about the general features of these types of cases.
@@ -299,7 +305,7 @@
 \begin{itemize}
 \item Main feature of cases of interest:
   \begin{enumerate}
-  \item An agent is confident that some piece of reasoning would demonstrate that a particular conclusion follows from some support.
+  \item An agent is confident that some reasoning demonstrates that a particular conclusion follows from some support.
   \end{enumerate}
 \end{itemize}
 
@@ -379,8 +385,9 @@ An event need not consist of some fact.
 (\citeyear[116]{Davidson:2001aa})
 
 \begin{itemize}
-\item Active reading is the one of interest.
-\item This is not to say that the active reading is required.
+\item Active reading is of primary interest.
+\item Our approach is to capture factive aspects of reasoning by abstraction from active readings.
+\item This is not to say that the active reading is strictly required.
 \item Rather, things are simpler if we keep to a particular reading, and the active reading is useful.
 \end{itemize}
 
@@ -406,10 +413,18 @@ An event need not consist of some fact.
     \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagentm{a})
   \]
   Informally, the above captures \(a\)'s reasoning from \(\Sigma\) to \(\chi\).
-  Propositions take the role of `in' and `out', with \(\Sigma\) standing for the conjunction of propositions which are the premises of an agent's reasoning, \(\chi\) for the proposition which is the conclusion of the agent's reasoning.
-  \[
-    \exists e(\everb{reason} \land \ein{\text{Case file}} \land \eout{\text{Guilt of Woodthorpe}} \land \eagent{\text{Morse}})
-  \]
+  {\color{red} Typically} take propositions for the role of `in' and `out', with \(\Sigma\) standing for a set of propositions\nolinebreak
+  \footnote{Here, note that propositions include events.
+    This is why Parson's terminology is avoided.
+
+    Also, may want a conjunction of propositions, but then there's some difficulty distinguishing between \(\{\phi,\psi\}\) and \(\{\phi \land \psi\}\).
+    Not building a rigorous formal system.
+    Issues of object language and metalanguage, beyond the scope of the paper, really.
+  Still, could introduce `premise marking parenthesis' to distinguish between \([\phi] \land [\psi]\) and \([\phi \land \psi]\) if desired.}
+  which are the premises of an agent's reasoning, \(\chi\) for the proposition which is the conclusion of the agent's reasoning.
+  % \[
+  %   \exists e(\everb{reason} \land \ein{\text{Case file}} \land \eout{\text{Guilt of Woodthorpe}} \land \eagent{\text{Morse}})
+  % \]
   \[
     \exists e
     \left(
@@ -421,30 +436,41 @@ An event need not consist of some fact.
       \end{array}
     \right)
   \]
-\item Brutus did not only hug Caesar.
-\item Brutus hugged and tickled Caesar.
-  \[
-    \exists e(\everb{hug} \land \everb{tickle} \land \eagent{\text{Brutus}} \land \epatient{\text{Caesar}})
-  \]
-\item No changes in the (thematic) roles of the participants, more detail added.
-\item And, not a separate event, the hugging was also a tickling, Brutus did not hug and also tickle.
-  Could do the same thing with a the novel-predicate \(\text{tickle-hug}\).
-  \[
-    \exists e(\everb{tickle-hug} \land \eagent{Brutus} \land \epatient{Caesar})
-  \]
-\item Same with reasoning.
+% \item Brutus did not only hug Caesar.
+% \item Brutus hugged and tickled Caesar.
+%   \[
+%     \exists e(\everb{hug} \land \everb{tickle} \land \eagent{\text{Brutus}} \land \epatient{\text{Caesar}})
+%   \]
+% \item No changes in the (thematic) roles of the participants, more detail added.
+% \item And, not a separate event, the hugging was also a tickling, Brutus did not hug and also tickle.
+%   Could do the same thing with a the novel-predicate \(\text{tickle-hug}\).
+%   \[
+%     \exists e(\everb{tickle-hug} \land \eagent{Brutus} \land \epatient{Caesar})
+%   \]
+% \item Same with reasoning.
   \begin{itemize}
-  \item Also have two roles: in and out.
-  \item Often introduce a function.
-  \item Method may also be important, though for the most part this will not be of direct interest.
+  \item We introduce a function in order to capture the fact that there was reasoning from \(\Sigma\) to \(\chi\).
+  \item A function is something which relates an input to an output, and the type of reasoning we are interested in is characterised by an input (premises) and an output (conclusion).
+  \item Hence, some event of reasoning from premises \(\Sigma\) to a conclusion \(\chi\) ensures the existence of a function defined for input \(\Sigma\) and output \(\chi\).
     \[
-      \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi})
+      \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}) \land \eagentm{a})
     \]
-  \item If we want to attribute the reasoning to an agent
+  \item This captures the factive aspect at a coarse grain.
+  \item The function is a static object, characterised by inputs and outputs.
+  \item The existential captures our lack of information about whether it is possible for the agent to reason in the same way from different premises to a (not necessarily) different conclusion.
+
+  \item The event entails
     \[
-      \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagent{Brutus})
+      \exists f(f\Sigma = \chi)
     \]
-  \item Fill in some details\dots
+    This may not specify a unique function, as only a single in-out pair constrains the possible witnesses of the existentially quantified function.
+    To take a simple example, \(\exists f(f(2,2) = 4)\) can be witnessed by addition, multiplication, exponentiation, the constant function which always yields \(4\), and so on.
+
+    When Lewis considers Morse's reasoning, the existence of a function is the relevant factive information, with additional background information which we omit for simplicity.
+  \end{itemize}
+
+  \begin{itemize}
+  \item Example with Brutus as with Lewis there's a lack of information.
     \[
       \Sigma = \{\exists e(\everb{cry} \land \eagent{Caesar})\}
     \]
@@ -459,8 +485,27 @@ An event need not consist of some fact.
   \end{itemize}
 \item Reasoning and some additional descriptions of the reasoning.
 \item Brutus reasoned, at a coarse level of description, via the categorical imperative.
+\item Stated in full\dots
   \[
-    \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \eagent{Brutus} \land \emethod{Categorical imperative})
+    \exists e
+    \left(
+      \begin{array}{l}
+        \everb{reason} \land \\
+        \ein{\exists e'(\everb[e']{cry} \land \eagent[e']{Caesar})} \land \\
+        \eout{\text{Ought}
+        \left(\exists e''\left(
+        \begin{array}{l}
+          \everb[e'']{hug} \land \\
+          \eagent[e'']{Brutus} \land \\
+          \epatient[e'']{Caesar}
+        \end{array}
+        \right)
+        \right)
+        } \land \\
+        \eagent{Brutus} \land \\
+        \emethod{Categorical imperative}
+      \end{array}
+    \right)
   \]
 \item For the most part, ignore method.
 \item Function, however, is useful.
@@ -474,6 +519,10 @@ An event need not consist of some fact.
 \item Function carries additional information.
   \begin{itemize}
   \item Potentially defined for other premises and conclusions.
+    \[f(2,2) = 4.
+      f = +
+      f = \times
+    f = \exp\]
   \item Specifying the method provides some clues to what these could be, but these two things are more or less independent.
   \item Function can have multiple methods, may be no relevant characterisation of method, characterisation of method may be too coarse grained to specify a particular function.
   \end{itemize}
@@ -483,93 +532,109 @@ An event need not consist of some fact.
   \end{itemize}
 \end{itemize}
 
+
+The central elements are:
+
 \[
   \exists e(\text{reason}(e) \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}))
 \]
 
-So, promise the function and project a future, and then describe Lewis' reasoning as
+\begin{itemize}
+\item Reasoning is understood as an event, and to abstract to a function which relates the input to the output.
+\end{itemize}
 
-\[
-  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}})
-\]
+\hozlinedash
 
-This isn't a standard case of reasoning, as \(\future{f}\) is a future.
-Lewis can't properly reason via \(\future{f}\) as Lewis doesn't really know what this function is.
-In some sense, the promise should be part of the ins of the reasoning.
-But then the reasoning stated above can be seen as \emph{part} of the agent's reasoning.
-Well, this is one way of thinking about things.
-The other is to understand \(\future{f}\) as a particular kind of polymorphic function.
-As it occurs here, it's a future, so the agent reasons with a future, and this doesn't really do anything in particular.
+\begin{itemize}
+\item This is similar to \textcite{Marr:1982aa}
+\item This is also a simple view, and things can get messy.
+  Especially if dealing with non-monotonic or ecological reasoning, where there may be no easy way to exhaustively capture the ins and outs of reasoning as a process.
+\end{itemize}
 
-So, here, the type of the function tells us something about what the reasoning is.
-And, as it's an unfulfilled promise, we know that there's very little going on.
-
-Some time later, the agent does some additional work, and reasons from \(\Sigma\) to \(\chi\), and provides a witness.
-
-\[
-  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\underline{\future{f}}})
-\]
-
-The future now has a witness.
-
-\[
-  \text{promise}(f,f\Sigma = \chi)
-\]
-
-\[
-  \text{future}(\text{promise}(f,f\Sigma = \chi)) = \future{f}
-\]
-
-
-{\color{red}
-  Lewis can't reach back in time and provide the reasoning.
-  However, Lewis can create something that refers to the reasoning that they will do.
-  So, this refers, and has some important constraints.
-  And, hence, \dots
-}
-
-\begin{note}
-  Strictly speaking, on the understanding proposed, Lewis \emph{does} reason from \(\Sigma\) to \(\chi\).
-  For, Lewis forms an attitude toward \(\chi\) based on their attitudes toward \(\Sigma\).
-  Lewis' reasoning is based on the promise that their reasoning can witness a certain function.
-  Lewis does not do work to demonstrate \(\chi\) on the basis of \(\Sigma\).
-  However, Lewis promises the work.
-  Function is just a collection of key-value pairs, and so the two components of reasoning are asynchronously distributed.
-  So, with the promise there's little process to speak of.
-  However, even if there's little of interest, there's still something.
-\end{note}
-
-\[
-  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}} \land \emethod{speculate})
-\]
+\hozlinedash
 
 \subsection{Key inference}
 \label{sec:key-inference}
 
-\begin{note}[Name]
-  Call this type of reasoning \emph{derivative}.
+\begin{itemize}
+\item Lewis is confident that Morse has reasoned from the case file to the guilt of Woodthorpe.
+\item Lewis arrests Woodthorpe without reasoning from the case file to the guilt of Woodthorpe.
+\item Lewis is confident that Woodthorpe is guilty.
+\item Morse has no provided testimony that Woodthorpe is guilty, and we are assuming that Lewis does not coerce Morse's report on their reasoning as testimony.
+\item Where does this confidence come from?
+\item Lewis is confident of the status of the evidence in the case file.
+\item Lewis cites this if questioned.
+\item Suggestion is that Morse's reasoning from the case file to the guilt of Woodthorpe traces a relation between the case file and the guilt of Woodthorpe that is independent of Morse's reasoning for the case file to the guilt of Woodthorpe.
+\item Relation of propositional support.
+\item Morse's reasoning establishes doxastic support.
+\item So, Lewis' confidence in the case file ensures that Lewis has support for the guilt of Woodthorpe.
+\item Without reasoning from the case file, Lewis does not have doxastic support on the basis of the case file.
+\end{itemize}
 
-  There's a few ways in which this works
+\begin{enumerate}
+\item Because of the fact that Morse reasoned.
+\item Because Lewis will reason.
+\end{enumerate}
+
+
+\begin{itemize}
+\item \(\exists f(f\Sigma = \chi), \Sigma\), hence \(\chi\).
+\item \(\chi\) is obtained by an application of the function to \(\Sigma\).
+\item The function captures the fact that Morse reasoned from the case file to the guilt of Woodthorpe.
+\item So, by appealing to the witnessing instance, Lewis appeals to the relation of propositional support which holds between the case file and the guilt of Woodthorpe.
+\item If Woodthorpe is guilty, then Woodthorpe is guilty \emph{independently} of any demonstration of Woodthorpe's guilt from the case file.
+\item Lewis is confident that Woodthorpe is guilty, but it's the ability to demonstrate Woodthorpe's guilt that allows Lewis to make an arrest.
+\item Demonstration of Woodthorpe's guilt is obtained by an application of the function.
   \begin{itemize}
-  \item Derivations, as these don't establish anything new.
-  \item The reasoning doesn't do anything too important.
-  \item Based on some relation that holds between the premises and the conclusion.
-  \item Hence, based on some other source.
-  \item The conclusion follows independently of the reasoning.
+  \item Lewis is unable to provide additional information about how the function is witnessed, but this doesn't prevent Lewis' use of the function.
+  \item {\color{red} This is difficult.}
+    \begin{itemize}
+    \item Lewis uses the fact that Morse reasoned to indirectly reason from the case file to Woodthorpe's guilt by the same relation of support that Morse's reasoning appealed to.
+    \item Lewis, if pressed, could say they are confident that the case file demonstrates Woodthorpe's guilty, though they cannot at present provide a demonstration, but Morse's reasoning witnesses the demonstration.
+      Along with a note about how Lewis did not (yet) have the opportunity to themselves demonstrate.
+      No, Morse did not tell Lewis that Woodthorpe is guilty, but Morse did not need to, for the fact that Morse reasoned ensures a the possibility of a demonstration, and the ability to provide a demonstration of guilt is sufficient to arrest.
+      If one also needed the demonstration, then a whole bunch of people should not have been arrested.
+      The lack of direct testimony does not prevent Lewis from appealing to the case file that Lewis has and the testimony that one can reason from this to the guilt of Woodthorpe.
+    \end{itemize}
+  \item This is similar to first-order reasoning involving statements about quantified objects.
+  \item \(\exists xPx, \forall x(Px \rightarrow Qx) \vdash \exists x Qx\)
   \end{itemize}
-\end{note}
+\item \(\exists f(f\Sigma = \chi) \approx \Sigma \Rightarrow \chi\).
+\item And, \(\Sigma, \Sigma \Rightarrow \chi \vdash \chi\).
+\item If the evidence in the case file is sound, then Woodthorpe is guilty.
+\item On the one hand, the appeal to an existential may be seen as an artefact of how we understand reasoning.
+  On the other hand, the use of a conditional obscures the fact that Lewis is drawing on Morse's reasoning.
+\item Regardless, Lewis appeals to more than the relation of propositional support that holds between the case file and the guilt of Woodthorpe.
+\item Lewis appeals to the process of Morse's reasoning as a witness.
+\end{itemize}
+
+\begin{itemize}
+\item In both cases, indirect application of the function.
+\item \(\exists f(f\Sigma = \chi), \Sigma\), hence \(\chi\).
+\item Lewis is confident that there is an appropriate witness, which is part of why this works.
+\item If Morse was known to read tea leaves, then the function would still exist, but it would not have relevant witness.
+\item These aspects aren't captured in the bare existential quantification, instead how Lewis' reasoned to the existential.
+\item 
+\end{itemize}
+
+
+Lewis is confident that Morse's reasoning from the case file to the guilt of Woodthorpe happened.
+Hence, Lewis is confident that some reasoning from the case file demonstrates the guilt of Woodthorpe.
+The key feature of Morse's reasoning is that the guilt of Woodthorpe does not depend on Morse's reasoning.
+If Woodthorpe is guilty, then Woodthorpe is guilty \emph{indenedently} of whether Morse reasons from the case file to Woodthorpe's guilt.
+In this sense Morse's reasoning demonstrates Woodthorpe's guilt.
+
+Not all reasoning demonstrates a conclusion that is independent of reasoning.
+For example, in the process of reasoning from the case file Morse may have reflected on the activity they were engaged in and noted that they were demonstrating the guilt of Woodthorpe.
+Here, the intermediate conclusion that Morse is demonstrating the guilt of Woodthorpe \emph{depends} on the activity that Morse is engaged in.
+
+
 
 \begin{note}[Observation]
 There's an important difference between the mere existential and the use of a future.
 \end{note}
 
 \begin{note}
-  Reasoning goes from premises to conclusion.
-  There's some way to transition from attitudes toward the premises to attitudes toward the conclusion.
-  So, abstractly can think of a function.
-  Function is in the foreground, and a relation in the background.
-  The reasoning is licensed due to some relation between the premises and the conclusion.
-
   This relation is clear in the case of propositional logic and decidability.
   \(\Phi \vdash \psi\) can be read as stating that there is a relation, or that there is a function.
 
@@ -782,7 +847,7 @@ So long as \(\chi\) does not depend on the application of some function, then so
     \begin{itemize}
     \item \textcite{Koenig:2016aa} and \textcite{Link:1997aa} make this connexion.
     \item \textcite[117]{Davidson:2001aa} uses addition as an example!
-      \[\exists x(x \text{ consists in the fact that } 2 + 2 = 5)\]
+      \[\exists x(x \text{ consists in the fact that } 2 + 3 = 5)\]
 
       \begin{quote}
         `\(2 + 3 = 5\)' becomes `\((\exists x) (x \text{ consists in the fact that } 2 + 3 = 5)\)'.
@@ -798,7 +863,7 @@ So long as \(\chi\) does not depend on the application of some function, then so
 
 Agent is confident that:
 
-\[\exists p(\text{in}(p) = \Sigma \land \text{out}(p) = \chi \land \exists f(\text{func}(p) = f))\]
+\[\exists p(\ein[p]{\Sigma} \land \eout[p]{\chi} \land \exists f(\efunc[p]{f}))\]
 
 This allows the agent to be confident that:
 
@@ -819,18 +884,6 @@ This allows the agent to be confident that:
 \item Flexibility allows specification of method, and so on.
 \item Parallels also suggest lines of philosophical interest, esp.\ understanding reasoning in terms of mental events/actions.
 \end{itemize}
-
-\begin{itemize}
-\item Obtaining function is now straightforward.
-\item From
-  \[\exists p(\text{in}(p) = \Sigma \land \text{out}(p) = \chi)\]
-  One has the ins and outs of a function, hence introduce an existential to capture whatever the function is.
-  \[\exists p(\text{in}(p) = \Sigma \land \text{out}(p) = \chi \land \exists f(\text{func}(p) = f))\]
-  And then as one has the ins and outs, extract the function with argument and value specified.
-  \[\exists f(f\Sigma = \chi)\]
-\end{itemize}
-
-
 
 \hozline
 
@@ -894,63 +947,69 @@ This allows the agent to be confident that:
   And, this corresponds to two different types of promises.
 \end{note}
 
+\hozlinedash
+
+So, promise the function and project a future, and then describe Lewis' reasoning as
+
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}})
+\]
+
+This isn't a standard case of reasoning, as \(\future{f}\) is a future.
+Lewis can't properly reason via \(\future{f}\) as Lewis doesn't really know what this function is.
+In some sense, the promise should be part of the ins of the reasoning.
+But then the reasoning stated above can be seen as \emph{part} of the agent's reasoning.
+Well, this is one way of thinking about things.
+The other is to understand \(\future{f}\) as a particular kind of polymorphic function.
+As it occurs here, it's a future, so the agent reasons with a future, and this doesn't really do anything in particular.
+
+So, here, the type of the function tells us something about what the reasoning is.
+And, as it's an unfulfilled promise, we know that there's very little going on.
+
+Some time later, the agent does some additional work, and reasons from \(\Sigma\) to \(\chi\), and provides a witness.
+
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\underline{\future{f}}})
+\]
+
+The future now has a witness.
+
+\[
+  \text{promise}(f,f\Sigma = \chi)
+\]
+
+\[
+  \text{future}(\text{promise}(f,f\Sigma = \chi)) = \future{f}
+\]
+
+
+{\color{red}
+  Lewis can't reach back in time and provide the reasoning.
+  However, Lewis can create something that refers to the reasoning that they will do.
+  So, this refers, and has some important constraints.
+  And, hence, \dots
+}
+
+\begin{note}
+  Strictly speaking, on the understanding proposed, Lewis \emph{does} reason from \(\Sigma\) to \(\chi\).
+  For, Lewis forms an attitude toward \(\chi\) based on their attitudes toward \(\Sigma\).
+  Lewis' reasoning is based on the promise that their reasoning can witness a certain function.
+  Lewis does not do work to demonstrate \(\chi\) on the basis of \(\Sigma\).
+  However, Lewis promises the work.
+  Function is just a collection of key-value pairs, and so the two components of reasoning are asynchronously distributed.
+  So, with the promise there's little process to speak of.
+  However, even if there's little of interest, there's still something.
+\end{note}
+
+\[
+  \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \efunc{\future{f}} \land \emethod{speculate})
+\]
+
+
 \newpage
 
 \section{Less old notes}
 \label{sec:less-old-notes}
-
-
-\begin{itemize}
-\item The details can vary.
-\item Example with addition, maybe.
-  \begin{itemize}
-  \item \(2 + 2 = 4\) tells us a little about the way in which \(4\) was obtained from \(2\) and \(2\).
-    This is different from \(2 \times 2 = 4\), and different from \(2^{2} = 4\), etc.
-    However, it doesn't go into detail on how addition was made.
-    Can specify this in some more detail, etc.\
-  \end{itemize}
-\end{itemize}
-Process witnesses/instantiates the function/algorithm.
-
-\begin{itemize}
-\item This is similar to \textcite{Marr:1982aa}
-\item This is also a simple view, and things can get messy.
-  Especially if dealing with non-monotonic or ecological reasoning, where there may be no easy way to exhaustively capture the ins and outs of reasoning as a process.
-\end{itemize}
-
-
-\begin{itemize}
-\item This is an explicit representation, and allows functions, algorithms, and processes to all be distinct entities.
-  \[\exists f \exists a \exists p \exists S \exists c(fS = c \land f \multimap p \land f \triangleright a)\]
-\item Can ignore certain elements, such as the algorithm.
-  \[\exists f \exists p(f\futin = \futout \land f \multimap p)\]
-\item If the algorithm is ignored, can think of the process as implicitly specifying the function, and hence could simplify.
-  \[\exists p(p\futin = \futout)\]
-  \begin{itemize}
-  \item Possible to introduce additional notation to directly link processes and algorithms here.
-  \end{itemize}
-\item Likewise, may assume that a function of the relevant kind is always witnessed by some process, and so adopt:
-  \[\exists f(f\futin = \futout)\]
-\item Here, can put algorithm back in.
-  \[\exists f \exists a(f\futin = \futout \land f \triangleright a)\]
-\item For simplicity, adopt the assumption that functions of the appropriate kind are witnessed by processes, and same for algorithms.
-\item I have nothing interesting to say about how the process of reasoning works.
-\item And, most of the time not too interested in the algorithm, so focus on:
-  \[\exists f(f\futin = \futout)\]
-\end{itemize}
-
-\begin{note}
-  In these cases our interest is in witnessing the reasoning.
-  Enthymematic reasoning is related.
-  Can imagine the agent quantifying over parts of some processes.
-  However, if the agent is not interested in filling in the enthymematic parts of the reasoning, then this is distinct.
-  For sure, there is no requirement on what form the process takes, so long as it does the work for the agent.
-  In other words, the reasoning does not need to be complete, but whatever the reasoning is, the agent is interested in all of it.
-\end{note}
-
-
-
-
 
 
 \subsection{Logic}
@@ -1484,18 +1543,6 @@ The agent is confident that there exists a way to reason from the arrangement of
 \end{itemize}
 
 
-% \subsection{Reference Classes}
-% \label{sec:reference-classes}
-
-% There's no requirement that the agent reasons in this way, but I take it to be permissible.
-% Not clear that an ideal Bayesian agent would do better, as there's the reference class problem.
-% There are a number of potential reference classes, and the agent's confidence may vary between these.
-% And, the agent, roughly, is thinking that they are good reason to treat a certain reference class as indicative.
-% This is \textcite{Hajek:2007aa}.
-
-% \begin{note}
-%   So, the argument is that this is a plausible reference class for the agent to appeal to.
-% \end{note}
 
 \newpage
 
