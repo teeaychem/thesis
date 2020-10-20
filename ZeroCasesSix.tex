@@ -471,7 +471,8 @@ An event need not consist of some fact.
 \hozlinedash
 
 \begin{itemize}
-\item We introduce a function in order to capture the fact that there was reasoning from \(\Sigma\) to \(\chi\).
+\item We introduce a function in order to capture the fact that there was reasoning from \(\Sigma\) to \(\chi\).\nolinebreak
+  \footnote{\textcite[117]{Davidson:2001aa} considers an example involving the addition of 2 and 3 as an event.}
 \item A function is something which relates an input to an output, and the type of reasoning we are interested in is characterised by an input (premises) and an output (conclusion).
 \item Broadly stated, the specification of a function captures the factive aspect of reasoning at coarse grain.
 \item Hence, some event of reasoning from premises \(\Sigma\) to a conclusion \(\chi\) ensures the existence of a function defined for input \(\Sigma\) and output \(\chi\).
@@ -487,7 +488,23 @@ An event need not consist of some fact.
       \end{array}
     \right)
   \]
-\item For example, I may ask you what the median {\color{red} number of characters in a Shakespeare play?}
+  \item The existential captures our lack of information about whether it is possible for the agent to reason in the same way from different premises to a (not necessarily) different conclusion.
+\item The event entails
+  \[
+    \exists f(f\Sigma = \chi)
+  \]
+  This may not specify a unique function, as only a single in-out pair constrains the possible witnesses of the existentially quantified function.
+  To take a simple example, \(\exists f(f(2,2) = 4)\) can be witnessed by addition, multiplication, exponentiation, the constant function which always yields \(4\), and so on.
+  \[
+    f(2,2) = 4.
+    f = +
+    f = \times
+    f = \exp
+  \]
+  When Lewis considers Morse's reasoning, the existence of a function is the relevant factive information, with additional background information which we omit for simplicity.
+\item This function may be partial; defined for \(\Sigma\) and \(\chi\).
+  However, whatever that function is, it can potentially be instantiated in other instances of reasoning.
+\item For example with a known function, I may ask you what the median {\color{red} number of characters in a Shakespeare play} is.
     \[
     \exists e
     \left(
@@ -505,118 +522,88 @@ An event need not consist of some fact.
 \item We term the bare statement of a function relating some input to some output from some process of reasoning a \emph{mention} of the function.
 \item The mention of a function contrasts with the \emph{use} of the function in the process of reasoning that function is abstracted from.
 \item If inclined to think of reasoning as a rule governed activity, then this is the distinction between mentioning a rule and being guided by the rule.
+\item \textcite{Simchen:2001aa} is quite nice.
 \end{itemize}
 
-\hozlinedash
-
 \begin{itemize}
-\item But this is not all.
-\item The function is also characterised by which pieces of reasoning is can be identified with.
-\item Understand function as capturing the fact.
-  \begin{itemize}
-  \item So, on the one hand there's some reference for the function, perhaps some set theoretic representation.
-  \item However, there's also witnessing reasoning.
-  \item {\color{red} So}, in the same way \(i(f) = \{ \langle \Sigma_{i}, \chi_{i} \rangle \}\) we have \(d(i) = \{ e_{i} \}\).
-  \item For an analogy, sold tickets to a raffle.
-  \item When we talk about the tickets, there are the physical tickets, but there are also the individuals who have purchased the tickets.
-    ``Ticket \#517 won the raffle'' versus ``Smith won the raffle''.
-    A ball drops with a number, and this is what makes a winning ticket, hence the winning ticket was ticket \#517.
-    Difficult to say ``Ticket \#517 won the raffle and Smith won the raffle'', because of conflicting interpretations.
-    Not the same as ``Smith won the raffle and Smith won the raffle'', without some effort.
-    Same problem as ``Ticket \#157 is a term and ticket \#157 is a ticket''.
-    (That is, the standard use mention distinction, and this is one way to understand the different uses that I'm attributing to functions.)
-  \end{itemize}
-\item {\color{blue}
-    This is really important, and needs to be stressed.
-    For, when Lewis reasons to the guilt of Woodthorpe, they focus on the abstract function, more-or-less.
-    However, when Lewis promises reasoning, they're interested in providing a demonstration.
-  }
-\end{itemize}
-
-\hozlinedash
-
-\begin{itemize}
-\item The existential captures our lack of information about whether it is possible for the agent to reason in the same way from different premises to a (not necessarily) different conclusion.
-\item The event entails
-  \[
-    \exists f(f\Sigma = \chi)
+\item The distinction between the mention and the use of a function related to a process of reasoning is important for understanding Lewis' reasoning.
+\item To give a quick example \dots
+\item Propositional logic.
+\item Agent reasons from \(\alpha \rightarrow \beta\) to \(\lnot \beta \rightarrow \lnot\alpha\) via contraposition.
+      \[
+    \exists e
+    \left(
+      \begin{array}{l}
+        \everb{reason} \\
+        \ein{\alpha \rightarrow \beta} \\
+        \eout{\lnot \beta \rightarrow \lnot\alpha} \\
+        \efunc{\text{Contraposition}}
+      \end{array}
+    \right)
   \]
-  This may not specify a unique function, as only a single in-out pair constrains the possible witnesses of the existentially quantified function.
-  To take a simple example, \(\exists f(f(2,2) = 4)\) can be witnessed by addition, multiplication, exponentiation, the constant function which always yields \(4\), and so on.
-
-  When Lewis considers Morse's reasoning, the existence of a function is the relevant factive information, with additional background information which we omit for simplicity.
-\end{itemize}
-
-\begin{itemize}
-\item Example with Brutus as with Lewis there's a lack of information.
-  \[
-    \Sigma = \{\exists e(\everb{cry} \land \eagent{Caesar})\}
-  \]
-  \[
-    \chi = \text{Ought}(\exists e'(\everb[e']{hug} \land \eagent[e']{Brutus} \land \epatient[e']{Caesar}))
-  \]
-  So, Brutus reasoned from Caesar crying to the proposition that Brutus ought to hug Caesar.
-\item Functions aren't \emph{pure}.
-  May be side effects.
-  For example, Brutus may come to believe that Caesar is sad, and this could be treated as part of the conclusion of Brutus' reasoning.
-  Or it can be seen as a side effect, something which happens because of Brutus' reasoning.
-\end{itemize}
-
-\hozlinedash
-
-\begin{itemize}
-\item Reasoning and some additional descriptions of the reasoning.
-\item Brutus reasoned, at a coarse level of description, via the categorical imperative.
-\item Stated in full\dots
+\item This description does not state how the agent contraposed \(\alpha \rightarrow \beta\).
+  However, by identifying the function we can be sure that if the agent reasoned from some other premise of the same form, e.g.\ \(\gamma \rightarrow \delta\), then the agent would have obtained the contrapositive; \(\lnot \delta \rightarrow \lnot \gamma\).
+\item The appeal of propositional reasoning is that there is a conventional way to mention the agent's reasoning.
+\item \((\alpha \rightarrow \beta) \rightarrow (\lnot \beta \rightarrow \lnot\alpha)\).
   \[
     \exists e
     \left(
       \begin{array}{l}
         \everb{reason} \\
-        \ein{\exists e'(\everb[e']{cry} \land \eagent[e']{Caesar})} \\
-        \eout{\text{Ought}
-        \left(\exists e''\left(
-        \begin{array}{l}
-          \everb[e'']{hug} \\
-          \eagent[e'']{Brutus} \\
-          \epatient[e'']{Caesar}
-        \end{array}
-        \right)
-        \right)
-        } \\
-        \eagent{Brutus} \\
-        \emethod{Categorical imperative}
+        \ein{\{\alpha \rightarrow \beta, (\alpha \rightarrow \beta) \rightarrow (\lnot \beta \rightarrow \lnot\alpha)\}} \\
+        \eout{\lnot \beta \rightarrow \lnot\alpha} \\
+        \efunc{\text{Modus ponens}}
       \end{array}
     \right)
   \]
-\item For the most part, ignore method.
-\item Function, however, is useful.
-  Abstracting away from the details, there's a function.\nolinebreak
-  \footnote{\textcite[117]{Davidson:2001aa} considers an example involving the addition of 2 and 3 as an event.}
-  \[
-    \exists e(\everb{reason} \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}))
-  \]
-  This function may be partial; defined for \(\Sigma\) and \(\chi\).
-  However, whatever that function is, it can potentially be instantiated in other instances of reasoning.
-\item Function is an abstract characterisation of the process, and independent of any particular instance of reasoning.
-\item Function carries additional information.
-  \begin{itemize}
-  \item Potentially defined for other premises and conclusions.
-    \[f(2,2) = 4.
-      f = +
-      f = \times
-    f = \exp\]
-  \item Specifying the method provides some clues to what these could be, but these two things are more or less independent.
-  \item Function can have multiple methods, may be no relevant characterisation of method, characterisation of method may be too coarse grained to specify a particular function.
-  \end{itemize}
-  \begin{itemize}
-  \item Sometimes specify the particular functions, and sometimes add in method too.
-  \item Premises and conclusion have the same role.
-  \end{itemize}
+\item Convention encodes the complexities of explaining how a conditional captures the fact of some reasoning.
+\item Avoid this for the rest of the paper, but useful to illustrate.
 \end{itemize}
 
+\hozlinedash
 
-The central elements are:
+\begin{itemize}
+\item Functions aren't \emph{pure}.
+  May be side effects.
+\end{itemize}
+
+\hozlinedash
+
+
+
+
+The central elements are:\nolinebreak
+\footnote{
+  \begin{itemize}
+  \item This is similar to \textcite{Marr:1982aa}
+  \item Reasoning and some additional descriptions of the reasoning.
+  \item Brutus reasoned, at a coarse level of description, via the categorical imperative.
+  \item Stated in full\dots
+    \[
+      \exists e
+      \left(
+        \begin{array}{l}
+          \everb{reason} \\
+          \ein{\exists e'(\everb[e']{cry} \land \eagent[e']{Caesar})} \\
+          \eout{\text{Ought}
+          \left(\exists e''\left(
+          \begin{array}{l}
+            \everb[e'']{hug} \\
+            \eagent[e'']{Brutus} \\
+            \epatient[e'']{Caesar}
+          \end{array}
+          \right)
+          \right)
+          } \\
+          \eagent{Brutus} \\
+          \emethod{Categorical imperative}
+        \end{array}
+      \right)
+    \]
+  \item Function can have multiple methods, may be no relevant characterisation of method, characterisation of method may be too coarse grained to specify a particular function.
+  \item For the most part, ignore method.
+  \end{itemize}
+}
 
 \[
   \exists e(\text{reason}(e) \land \ein{\Sigma} \land \eout{\chi} \land \exists f(\efunc{f}))
@@ -624,12 +611,13 @@ The central elements are:
 
 \begin{itemize}
 \item Reasoning is understood as an event, and to abstract to a function which relates the input to the output.
+\item Functions for facts.
+\item Use and mention of a function.
 \end{itemize}
 
 \hozlinedash
 
 \begin{itemize}
-\item This is similar to \textcite{Marr:1982aa}
 \item This is also a simple view, and things can get messy.
   Especially if dealing with non-monotonic or ecological reasoning, where there may be no easy way to exhaustively capture the ins and outs of reasoning as a process.
 \end{itemize}
@@ -1762,58 +1750,6 @@ However, the agent makes no commitment to provide reasoning as a witness to thei
 \end{itemize}
 
 \hozlinedash
-
-It is plausible that the agent reasons in this way.
-However, this struggles to make sense of the potential attempt of the agent to demonstrate that they could reason to a winning strategy.
-For, any decision is made given uncertainty.
-Could assume that the agent considers the possibility, that this is encoded into the decision tree.
-Some time has passed, hence the additional assumption that the agent remains committed.
-
-Possibility that there's nothing to criticise the agent for.
-Or, at the very least nothing to criticise given the agent's perspective
-
-\hozlinedash
-
-Possible that this explains intuition.
-For, this starts to mix doxastic and non-doxastic issues.
-That is, from an idealised doxastic point of view, it seems clear that the agent would do better by attempting to resolve any uncertainty that they have over the existence of a winning strategy, and perhaps especially so given that the agent is also confident that they are able to do so.
-
-
-
-
-
-
-
-\subsubsection{Assumption}
-\label{sec:assumption}
-
-\begin{note}
-  Possible that the agent is sufficiently confident that the agent assumes a winning strategy exists.
-  \begin{itemize}
-  \item Simple contrast to `weights' in that the agent's uncertainty is no longer part of what supports the agent settling on a particular action.
-  \item The uncertainty is ignored when reasoning from the existential, the board, and the rules of chess.
-  \item However, this is now the only place to fault the agent, as if the assumption is granted then the agent's reasoning looks fine.
-    \begin{itemize}
-    \item So, this offers a little more flexibility, but still seems limited, as there doesn't seem to be much to say about the assumption.
-    \item The agent retrospectively demonstrating can be seen as an attempt to license this, but this doesn't change their reasoning.
-    \end{itemize}
-  \end{itemize}
-\end{note}
-
-\begin{itemize}
-\item Simple motivation is the threshold view of belief.
-  \begin{itemize}
-  \item Can assume that the agent has arbitrarily high confidence, so on the assumption that there is some threshold, assume that the agent passes this.
-  \end{itemize}
-\item Agent simplifies and assumes the existence of a winning strategy, and decides what to do based on this.
-\item The agent may be able to provide reasons for doing so.
-\item That the agent may fill in the reasoning at some later point in time, however, is irrelevant.
-\item The agent's assumption, if licensed, is licensed on the basis of the agent's present situation.
-  \begin{itemize}
-  \item Suppose the agent resigns, and then later demonstrates that there was a winning strategy.
-  \item This may excuse, but does not affect, the agent's reasoning given the assumption.
-  \end{itemize}
-\end{itemize}
 
 \subsection{Speculative}
 \label{sec:speculative}
