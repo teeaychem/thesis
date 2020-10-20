@@ -400,6 +400,8 @@ This distinction between fact and event is part of the motivation for \citeautho
 An event need not consist of some fact.
 (\citeyear[116]{Davidson:2001aa})
 
+\hozlinedash
+
 \begin{itemize}
 \item Active reading is of primary interest.
 \item Our approach is to capture factive aspects of reasoning by abstraction from active readings.
@@ -413,7 +415,7 @@ An event need not consist of some fact.
 \item Neo-Davidsonian due to the use of thematic roles to identify and situate that participants of the event.
 \end{itemize}
 
-
+\hozlinedash
 
 \begin{itemize}
 \item ``Morse's reasoning from the case file to the guilt of Woodthorpe'' is structurally similar to ``Brutus hugged Caesar''.
@@ -431,7 +433,7 @@ An event need not consist of some fact.
   Informally, the above captures \(a\)'s reasoning from \(\Sigma\) to \(\chi\).
   {\color{red} Typically} take propositions for the role of `in' and `out', with \(\Sigma\) standing for a set of propositions\nolinebreak
   \footnote{Here, note that propositions include events.
-    This is why Parson's terminology is avoided.
+    This is why \citeauthor{Parsons:1990aa}'s terminology is avoided.
 
     Also, may want a conjunction of propositions, but then there's some difficulty distinguishing between \(\{\phi,\psi\}\) and \(\{\phi \land \psi\}\).
     Not building a rigorous formal system.
@@ -464,80 +466,105 @@ An event need not consist of some fact.
 %     \exists e(\everb{tickle-hug} \land \eagent{Brutus} \land \epatient{Caesar})
 %   \]
 % \item Same with reasoning.
-  \begin{itemize}
-  \item We introduce a function in order to capture the fact that there was reasoning from \(\Sigma\) to \(\chi\).
-  \item A function is something which relates an input to an output, and the type of reasoning we are interested in is characterised by an input (premises) and an output (conclusion).
-  \item Hence, some event of reasoning from premises \(\Sigma\) to a conclusion \(\chi\) ensures the existence of a function defined for input \(\Sigma\) and output \(\chi\).
-    \[
-      \exists e
-      \left(
-        \begin{array}{l}
-          \everb{reason} \\
-          \ein{\Sigma} \\
-          \eout{\chi} \\
-          \exists f(\efunc{f}) \\
+\end{itemize}
+
+\hozlinedash
+
+\begin{itemize}
+\item We introduce a function in order to capture the fact that there was reasoning from \(\Sigma\) to \(\chi\).
+\item A function is something which relates an input to an output, and the type of reasoning we are interested in is characterised by an input (premises) and an output (conclusion).
+\item Broadly stated, the specification of a function captures the factive aspect of reasoning at coarse grain.
+\item Hence, some event of reasoning from premises \(\Sigma\) to a conclusion \(\chi\) ensures the existence of a function defined for input \(\Sigma\) and output \(\chi\).
+  \[
+    \exists e
+    \left(
+      \begin{array}{l}
+        \everb{reason} \\
+        \ein{\Sigma} \\
+        \eout{\chi} \\
+        \exists f(\efunc{f}) \\
           \eagentm{a}
-        \end{array}
-      \right)
-    \]
-  \item Broadly stated, the specification of a function captures the factive aspect of reasoning at coarse grain.
-  \item An agent reasoned from \(\Sigma\) to \(\chi\) entails that there exists a function mapping \(\Sigma\) to \(\chi\).
-  \item \(\exists f(f\Sigma = \chi)\).
-  \item For example, I may ask you what the median {\color{red} number of characters in a Shakespeare play?}
-
-    \hozlinedash
-
-  \item This captures the factive aspect at a coarse grain.
-  \item The function is a static object, characterised by inputs and outputs.
-    \begin{itemize}
-    \item But this is not all.
-    \item The function is also characterised by which pieces of reasoning is can be identified with.
-    \item Understand function as capturing the fact.
-      \begin{itemize}
-      \item So, on the one hand there's some reference for the function, perhaps some set theoretic representation.
-      \item However, there's also witnessing reasoning.
-      \item {\color{red} So}, in the same way \(i(f) = \{ \langle \Sigma_{i}, \chi_{i} \rangle \}\) we have \(d(i) = \{ e_{i} \}\).
-      \item For an analogy, sold tickets to a raffle.
-      \item When we talk about the tickets, there are the physical tickets, but there are also the individuals who have purchased the tickets.
-        ``Ticket \#517 won the raffle'' versus ``Smith won the raffle''.
-        A ball drops with a number, and this is what makes a winning ticket, hence the winning ticket was ticket \#517.
-        Difficult to say ``Ticket \#517 won the raffle and Smith won the raffle'', because of conflicting interpretations.
-        Not the same as ``Smith won the raffle and Smith won the raffle'', without some effort.
-        Same problem as ``Ticket \#157 is a term and ticket \#157 is a ticket''.
-        (That is, the standard use mention distinction, and this is one way to understand the different uses that I'm attributing to functions.)
-      \end{itemize}
-    \item {\color{blue}
-        This is really important, and needs to be stressed.
-        For, when Lewis reasons to the guilt of Woodthorpe, they focus on the abstract function, more-or-less.
-        However, when Lewis promises reasoning, they're interested in providing a demonstration.
-      }
-    \end{itemize}
-  \item The existential captures our lack of information about whether it is possible for the agent to reason in the same way from different premises to a (not necessarily) different conclusion.
-
-  \item The event entails
+      \end{array}
+    \right)
+  \]
+\item For example, I may ask you what the median {\color{red} number of characters in a Shakespeare play?}
     \[
-      \exists f(f\Sigma = \chi)
-    \]
-    This may not specify a unique function, as only a single in-out pair constrains the possible witnesses of the existentially quantified function.
-    To take a simple example, \(\exists f(f(2,2) = 4)\) can be witnessed by addition, multiplication, exponentiation, the constant function which always yields \(4\), and so on.
+    \exists e
+    \left(
+      \begin{array}{l}
+        \everb{reason} \\
+        \ein{\text{List of character counts in Shakespeare's plays}} \\
+        \eout{32.5} \\
+        (\efunc{\text{median}}) \\
+        \eagentm{a}
+      \end{array}
+    \right)
+  \]
+\item An agent reasoned from \(\Sigma\) to \(\chi\) entails that there exists a function mapping \(\Sigma\) to \(\chi\).
+\item \(\exists f(f\Sigma = \chi)\) or \(\text{mean}(\text{List of character counts in Shakespeare's plays}) = 32.5\).
+\item We term the bare statement of a function relating some input to some output from some process of reasoning a \emph{mention} of the function.
+\item The mention of a function contrasts with the \emph{use} of the function in the process of reasoning that function is abstracted from.
+\item If inclined to think of reasoning as a rule governed activity, then this is the distinction between mentioning a rule and being guided by the rule.
+\end{itemize}
 
-    When Lewis considers Morse's reasoning, the existence of a function is the relevant factive information, with additional background information which we omit for simplicity.
-  \end{itemize}
+\hozlinedash
 
+\begin{itemize}
+\item But this is not all.
+\item The function is also characterised by which pieces of reasoning is can be identified with.
+\item Understand function as capturing the fact.
   \begin{itemize}
-  \item Example with Brutus as with Lewis there's a lack of information.
-    \[
-      \Sigma = \{\exists e(\everb{cry} \land \eagent{Caesar})\}
-    \]
-    \[
-      \chi = \text{Ought}(\exists e'(\everb[e']{hug} \land \eagent[e']{Brutus} \land \epatient[e']{Caesar}))
-    \]
-    So, Brutus reasoned from Caesar crying to the proposition that Brutus ought to hug Caesar.
-  \item Functions aren't \emph{pure}.
-    May be side effects.
-    For example, Brutus may come to believe that Caesar is sad, and this could be treated as part of the conclusion of Brutus' reasoning.
-    Or it can be seen as a side effect, something which happens because of Brutus' reasoning.
+  \item So, on the one hand there's some reference for the function, perhaps some set theoretic representation.
+  \item However, there's also witnessing reasoning.
+  \item {\color{red} So}, in the same way \(i(f) = \{ \langle \Sigma_{i}, \chi_{i} \rangle \}\) we have \(d(i) = \{ e_{i} \}\).
+  \item For an analogy, sold tickets to a raffle.
+  \item When we talk about the tickets, there are the physical tickets, but there are also the individuals who have purchased the tickets.
+    ``Ticket \#517 won the raffle'' versus ``Smith won the raffle''.
+    A ball drops with a number, and this is what makes a winning ticket, hence the winning ticket was ticket \#517.
+    Difficult to say ``Ticket \#517 won the raffle and Smith won the raffle'', because of conflicting interpretations.
+    Not the same as ``Smith won the raffle and Smith won the raffle'', without some effort.
+    Same problem as ``Ticket \#157 is a term and ticket \#157 is a ticket''.
+    (That is, the standard use mention distinction, and this is one way to understand the different uses that I'm attributing to functions.)
   \end{itemize}
+\item {\color{blue}
+    This is really important, and needs to be stressed.
+    For, when Lewis reasons to the guilt of Woodthorpe, they focus on the abstract function, more-or-less.
+    However, when Lewis promises reasoning, they're interested in providing a demonstration.
+  }
+\end{itemize}
+
+\hozlinedash
+
+\begin{itemize}
+\item The existential captures our lack of information about whether it is possible for the agent to reason in the same way from different premises to a (not necessarily) different conclusion.
+\item The event entails
+  \[
+    \exists f(f\Sigma = \chi)
+  \]
+  This may not specify a unique function, as only a single in-out pair constrains the possible witnesses of the existentially quantified function.
+  To take a simple example, \(\exists f(f(2,2) = 4)\) can be witnessed by addition, multiplication, exponentiation, the constant function which always yields \(4\), and so on.
+
+  When Lewis considers Morse's reasoning, the existence of a function is the relevant factive information, with additional background information which we omit for simplicity.
+\end{itemize}
+
+\begin{itemize}
+\item Example with Brutus as with Lewis there's a lack of information.
+  \[
+    \Sigma = \{\exists e(\everb{cry} \land \eagent{Caesar})\}
+  \]
+  \[
+    \chi = \text{Ought}(\exists e'(\everb[e']{hug} \land \eagent[e']{Brutus} \land \epatient[e']{Caesar}))
+  \]
+  So, Brutus reasoned from Caesar crying to the proposition that Brutus ought to hug Caesar.
+\item Functions aren't \emph{pure}.
+  May be side effects.
+  For example, Brutus may come to believe that Caesar is sad, and this could be treated as part of the conclusion of Brutus' reasoning.
+  Or it can be seen as a side effect, something which happens because of Brutus' reasoning.
+\end{itemize}
+
+\hozlinedash
+
+\begin{itemize}
 \item Reasoning and some additional descriptions of the reasoning.
 \item Brutus reasoned, at a coarse level of description, via the categorical imperative.
 \item Stated in full\dots
@@ -736,6 +763,15 @@ Hence, Lewis possesses the same means as Morse, and were Lewis to reason in that
 The slight snag is that restricted to Lewis' perspective because we have no stated whether or not Lewis and Morse are equally matched.
 This doesn't matter.
 We are interested in Lewis' reasoning, not whether Lewis is correct that Woodthorpe is guilty.
+
+\hozlinedash
+
+\begin{itemize}
+\item Lewis makes the move that Carrol's tortoise refuses to make.
+\item ``the permissibility of the transition from p to q depends on the existence of a licence specifying that such a transition is indeed permissible''
+\end{itemize}
+
+\hozlinedash
 
 
 \begin{itemize}
