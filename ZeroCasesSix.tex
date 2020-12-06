@@ -3289,7 +3289,7 @@ The issue is whether an agent can not judge that \(\chi\) holds on the basis of 
 
 \hozlinedash
 
-\newpage
+% \newpage
 
 Idea is that the following conditional holds:
 
@@ -3353,13 +3353,22 @@ For, the agent may exercise their ability to reason from a different set of prem
 \item For, if \ref{reason-hold} is true, then there is are mental states/dependencies that that an agent can not hold.
 \end{itemize}
 
-\newpage
+% \newpage
 
 Given \ref{r:1} and \ref{r:2} it is then straightforward to establish the desired conditional:
 
 \begin{enumerate}
 \item[\ref{r:1}] If an agent can [reason from \(\Sigma\) to \(\chi\)], then the agent is not able to exercise their ability to reason and fail to establish that \(\chi\) holds on the basis of \(\Sigma\).
 \item[\ref{r:2}] If an agent can not [judge that \(\chi\) holds on the basis of \(\Sigma\)], then the agent is able to exercise their ability to reason and fail to establish that \(\chi\) holds on the basis of \(\Sigma\).
+  \begin{itemize}
+  \item {
+      \color{red}
+      Note, this is compatible with the agent having insufficient premises to establish that \(\chi\) follows from \(\Sigma\).
+      In other words, it does not require the agent to demonstrate that \(\Sigma \nvDash \chi\).
+      In the sense that failing to show that \(\Sigma \vDash \chi\) leaves open the possibility that \(\Sigma \vDash \chi\).
+      And, this should be the case, as the agent may not be able to fully work through all the consequences.
+    }
+  \end{itemize}
 \item[\ref{p:can}.] Agent can [reason from \(\Sigma\) to \(\chi\)].
   \begin{enumerate}[ref=\alph*.]
   \item[\ref{p:can-not}.] Agent can not [judge that \(\chi\) holds on the basis of \(\Sigma\)].
@@ -3414,64 +3423,272 @@ And hence by the argument of section~\ref{sec:obtaining-G1}:
 \item[\ref{goal}\(_{v}\).] If an agent can witness the event of reasoning from \(\Sigma\) to \(\chi\) then it is not the case that the agent ought not to be in a state of holding \(\chi\) on the basis of \(\Sigma\).
 \end{enumerate}
 
-\newpage
 
-\subsection{Different senses of `can'}
-\label{sec:different-senses-can}
-
-{
-  \color{red}
-  Part of the problem here is the framing of general ability, which is \emph{not} what I am after.
-  I am interested in whether the agent can do the reasoning given the information available to them, and hence the focus is only on the reasoning that the agent can do.
-}
+\subsubsection{Messy}
+\label{sec:messy}
 
 \begin{itemize}
-\item Ought \(\phi\) implies can \(\phi\).
-\item If an agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\) then the agent can judge that \(\chi\) holds on the basis of \(\Sigma\).
+\item A real difficulty in the sketch given is that there are a whole bunch of ways to read `can'.
+\item On the one hand, there is the `can' of available options.
+  This is a `can' that is insensitive to rationality.
+  For, on this sense of `can', an agent `can' believe two contradictory propositions.
+\item Interested in a sense of `can' that is sensitive to rationality, 
+\item Hence, for simplicity replace `can' with `has the ability to' in the cases of interest.
+\item Or perhaps `is able to'.
+\item Maybe `has the option to'.
 \end{itemize}
 
-\begin{itemize}
-\item Given that `can' is ambiguous, it is possible that different ways of reading `can' will restrict what the agent ought to do in different ways.
-\item For example:
-  \begin{enumerate}
-  \item\label{oic:strong} If an agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\), then it is not the case that the agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\).
-  \item\label{oic:weak} If an agent does not have the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\), then it is not the case that the agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\).
+\begin{enumerate}
+\item[\ref{oic:instance}.] If an agent ought not [judge that \(\chi\) holds on the basis of \(\Sigma\)] then the agent is able to not [judge that \(\chi\) holds on the basis of \(\Sigma\)].
+\item[\ref{p:can}.] Agent is able to reason from \(\Sigma\) to \(\chi\).
+  \begin{enumerate}[ref=\alph*.]
+  \item[\ref{p:oughtnot}.] Agent ought not [judge that \(\chi\) holds on the basis of \(\Sigma\)].
+  \item[\ref{p:can-not}.] Agent is able to not [judge that \(\chi\) holds on the basis of \(\Sigma\)]. \hfill (\ref{oic:instance} \& \ref{p:oughtnot})
+  \item[\ref{reason-hold}.] If an agent is able to [reason from \(\Sigma\) to \(\chi\)] then it is not the case that agent is able to not [judge that \(\chi\) holds on the basis of \(\Sigma\)].
+  \item\label{dbot} It is not the case that the agent is able to not [judge that \(\chi\) holds on the basis of \(\Sigma\)].
+  \mbox{ }\hfill (\ref{p:can-not} \& \ref{reason-hold})
+  \item\label{dbott} \(\bot\) \hfill (\ref{p:can-not} \& \ref{dbot})
   \end{enumerate}
-\end{itemize}
+\item[\(\lnot\)\ref{p:oughtnot}.] It is not the case that the agent ought not hold \(\chi\) on the basis of \(\Sigma\).\linebreak
+  \mbox{ }\hfill (\ref{p:oughtnot} -- \ref{dbott})
+\end{enumerate}
 
 \begin{itemize}
-\item The difficulty here is that I endorse a general ought implies can principle, and to the extent that \ref{oic:strong} seems plausible, \ref{oic:weak} likewise seems plausible.
-\item For, in the case of \ref{oic:weak} it does seems as though if an agent ought to judge that \(\chi\) follows from \(\Sigma\) only if the agent has the opportunity and ability to reason from \(\Sigma\) to \(\chi\) given the context in which the ought statement is taken to hold.
-\end{itemize}
-
-\begin{itemize}
-\item For an issue to arise:
-  \begin{enumerate}
-  \item The same sense of ought applies to both \ref{oic:strong} and \ref{oic:weak}.
-    \begin{itemize}
-    \item For, if there are different senses of ought in \ref{oic:strong} and \ref{oic:weak}, respectively, then it seems there would need to be some more general sense of ought to adjudicate between the different respective senses of ought.
-    \end{itemize}
-  \item It is the case that the agent ought to judge that \(\chi\) follows from \(\Sigma\).
-  \item And, either:
-    \begin{enumerate}
-    \item\label{oic:strong-a} The agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
-    \item\label{oic:weak-a} The agent does not have the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
-    \end{enumerate}
-    For either of \ref{oic:strong-a} and \ref{oic:weak-a} is sufficient to deny that it ought to be the case that the agent ought to judge that \(\chi\) follows from \(\Sigma\).
-  \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-\item It is difficult to consider cases in which an agent ought to judge that \(\chi\) follows from \(\Sigma\) without having the ability and opportunity to reason from \(\Sigma\) to \(\chi\).
-\item Likewise, it is difficult to consider cases in which the agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\) but has the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
+\item An agent ought not [judge that \(\chi\) holds on the basis of \(\Sigma\)] in the actual situation only if the agent is able to not [judge that \(\chi\) holds on the basis of \(\Sigma\)] in the actual situation.
+\item Agent can reason from \(\Sigma\) to \(\chi\) in the actual situation.
+\item If agent has the ability to reason from \(\Sigma\) to \(\chi\) in the actual situation then it is not the case that the agent is able to not judge that \(\chi\) holds on the basis of \(\Sigma\) in the actual situation.
   \begin{itemize}
-  \item Some care is required in understanding the specific opportunity and ability, for if information factors into the understanding of opportunity, then there may well be cases in which the agent does not have the general ability to judge due to the required information being highly restricted, but does have the ability given special access.
-    \begin{itemize}
-    \item However, if opportunity involves information in this way and general ability does not, 
-    \end{itemize}
-  \item Possible exceptions are cases in which an agent takes some kind of stimulant which allows them to reason 
+  \item Not something that I am able to do, because one can line up the relevant defeaters fairly easily, viz.\ the way I would reason from \(\Sigma\) to \(\chi\).
   \end{itemize}
 \end{itemize}
+
+\begin{itemize}
+\item So, the semantics of can that I want to appeal to involves generating a defeating scenario.
+\item If there is a reasonable defeating scenario, then one can claim that the agent does not have the ability.
+\item In other words, the agent has the ability if there is a way out of any potential defeater.
+\item So:
+  \begin{enumerate}
+  \item Can \(\phi\) iff not (restricted) possible to force \(\lnot\phi\).
+  \item Can \(\lnot\phi\) iff not (restricted) possible to force \(\phi\).
+  \end{enumerate}
+  The point here is that if the agent can reason from \(\Sigma\) to \(\chi\) then it is (restricted) possible to force judging \(\phi\) on the basis of \(\Sigma\).
+\item Negated:
+  \begin{enumerate}
+  \item Not can \(\phi\) iff (restricted) possible to force \(\lnot\phi\).
+  \item Not can \(\lnot\phi\) iff (restricted) possible to force \(\phi\)
+  \end{enumerate}
+  This is why the notion of can is quite strong.
+  Because, the forcing is a kind of existential.
+\item It's not clear that \(C\phi \lor C\lnot\phi\) holds.
+  For, it may be possible to force \(\phi\) and force \(\lnot\phi\).
+  Consider the agent at the dartboard.
+  \(\phi\) is the agent hitting the dartboard.
+  Need to be able to force a miss and to force a hit.
+  The dart is magnetised, and a person is standing behind the dartboard with a giant magnet.
+  If the throw is off target, the person behind moves the magnet behind the dartboard.
+  If the throw is on target, the person behind moves the magnet away from the dartboard.
+  So, it is not true that the agent can hit the dartboard, and it is also not true that the agent can miss the dartboard.
+\item Still, there's something unintuitive here.
+  For, it's not possible to force that it rains on Monday, and it's not possible to fore that it doesn't rain on Monday.
+  This seems like a category mistake.
+  As, interested in the completion of events for which the agent is a participant.
+\end{itemize}
+
+\begin{itemize}
+\item This isn't quite right, though.
+\item For, the agent can reason from \(\Sigma\) to \(\chi\), which is true just is case it is not possible to force the agent to \dots
+\end{itemize}
+
+
+\begin{enumerate}
+\item Ought \(\lnot\) (judge \(\Sigma \vDash \chi\)) \(\rightarrow\) \(\langle \text{Can} \rangle\) \(\lnot\) (judge \(\Sigma \vDash \chi\))
+\item \([\text{Can}]\) (Reason \(\Sigma \vDash \chi\))
+\item \(\langle \text{Can} \rangle\) \(\lnot\) ( judge \(\Sigma \vDash \chi\))
+\item \([\text{Can}]\) (Reason \(\Sigma \vDash \chi\)) \(\rightarrow\) \([\text{Can}]\) (judge \(\Sigma \vDash \chi\))
+\item \([\text{Can}]\) (Reason \(\Sigma \vDash \chi\)) \(\rightarrow\) \(\lnot\langle \text{Can} \rangle\lnot\) (judge \(\Sigma \vDash \chi\))
+\item \(\lnot\langle \text{Can} \rangle\lnot\) (judge \(\Sigma \vDash \chi\))
+\item \(\lnot\) Ought \(\lnot\) (judge \(\Sigma \vDash \chi\))
+\end{enumerate}
+
+\begin{enumerate}
+\item \(\langle \text{Can} \rangle \phi\) iff not (restricted) possible to force \(\lnot\phi\)
+\item \([\text{Can}] \phi\) iff (restricted) possible to force \(\phi\)
+\end{enumerate}
+
+\begin{itemize}
+\item So, two distinct, but related, uses of can are appealed to here.
+\item However, I'm not so sure that this is a problem.
+\item The natural language argument is really difficult, because it's super hard to distinguish these uses.
+\item Still, that's a regular natural language problem.
+\item And, intuitively different things are meant by the relevant instance of can.
+\item So, the difficulty is in showing the relation between the two uses.
+\item Right, as for sure it needs to be the case that one is the dual of the other!
+  \begin{itemize}
+  \item This really is the central point of the argument, viewed in this way.
+  \item Hence, why the semantics of can is particularly important here.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item \([\text{Can}]\)'t (make) me go clubbing.
+  \begin{itemize}
+  \item Not possible to force me to go clubbing
+  \end{itemize}
+\item \(\langle \text{Can} \rangle\)'t come into this club.
+  \begin{itemize}
+  \item Possible to force that you aren't in this club.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item Sam \([\text{Can}]\) win the race. (If they put in the effort.)
+\item Sam \(\langle \text{Can} \rangle\) win the race. (If they get lucky.)
+\end{itemize}
+
+\begin{itemize}
+\item Sam \([\text{Can}]\)'t
+\item \item Sam \(\langle \text{Can} \rangle\)'t
+\end{itemize}
+
+Something like the following seems to be what I want.
+
+\begin{itemize}
+\item \([\text{Can}]\phi\) iff \(\exists e((e \rightarrow \phi) \land \forall d(e \rightarrow \lnot d))\)
+  \begin{itemize}
+  \item There's a way that makes \(\phi\) true such that all defeaters are blocked.
+  \end{itemize}
+\item \(\langle \text{Can} \rangle\phi\) iff \(\forall e((e \rightarrow \lnot\phi) \rightarrow \exists d(e \land d))\)
+  \begin{itemize}
+  \item For all ways that make \(\phi\) false, there's a defeater that blocks the event.
+  \end{itemize}
+\end{itemize}
+
+Here, the duality works out, though it is complex.
+The diamond-can is read something along the lines of ``there's nothing stopping the agent'' while the box-can is something like ``it is not possible to stop the agent''.
+
+\begin{itemize}
+\item \([\text{Can}]\phi\) iff \(\exists e\)
+  \begin{enumerate}
+  \item \(e\) has culminated in \(\phi\), or
+  \item \(e\) is progressing to \(\phi\) and for all stages, if \(e + e'\) stops the culmination, then there's \(e''\) at that stage such that \(e''\) continues the progression.
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\item So, one picks where the defeater is, and this is avoided.
+\item This is still a little too messy.
+\item The basic idea is that this is the sense in which a seed can grow into a flower.
+\end{itemize}
+
+
+\begin{itemize}
+\item \(\nvDash [\text{Can}]\) go under par
+  \begin{itemize}
+  \item Because there are some circumstances that I don't have an answer for.
+  \item No path that guarantees I go under.
+  \end{itemize}
+\item \(\nvDash \langle\text{Can}\rangle\) go under par
+  \begin{itemize}
+  \item Because there's no way to ensure the circumstances that I don't have an answer for obtain.
+  \item No path that forces me a go over.
+  \item So in other words, there is a path, but it is sensitive to defeaters.
+  \item For, if you can't guarantee \(\lnot\phi\) then it can't be that every path ends in \(\lnot\phi\), else one can pick any path one wants to obtain \(\lnot\phi\).
+  \item Hence, the `can' is somewhat implicit in this formulation.
+  \item Furthermore, it makes additional sense with negation, where nothing is required of the agent.
+  \item It may be that case that most instance of not doing something are read with this sense of can.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item The intuition here seems okay, but the details are difficult to figure out.
+\item Still, it seems something.
+\item For, there is something of a link to the progressive.
+\item For, if an agent is Ving, then the agent can V.
+  \begin{itemize}
+  \item However, this seems to be the weak sense of can, in that there is a continuation.
+  \item Because, one can say that agent is Ving, but if I \dots then the agent will be forced to stop.
+  \end{itemize}
+\item This might not really hold.
+\item Szabo has the example of `enumerating the primes' in the progressive, which seems true, but there's no way for an agent to complete the event of enumerating the primes.
+  \begin{itemize}
+  \item Example of this use by Kleene.
+  \item One may argue that Kleene isn't talking about agents, but it's unclear why an agent would be part of the semantics of the modal, and not an additional parameter which helps to restrict the modal.
+  \end{itemize}
+\item However, if one opts for a stage-by-stage analysis, then it may be true, in a sense, that the agent can enumerate the primes, so long as there's a way to generate the next prime.
+\end{itemize}
+
+\begin{itemize}
+\item If the two sense of `can' don't require completion, then it may be possible to apply the same sense of completion to both, without interfering with the duality.
+\item Basically, this suggests a way to keep the logical form simple.
+\end{itemize}
+
+\begin{itemize}
+\item You cannot not go to the office
+  \begin{enumerate}
+  \item \(\lnot \langle \text{Can} \rangle \lnot\) go to the office
+  \item \([\text{Can}]\) go to the office
+  \end{enumerate}
+\item There's some kind of obligation modal hidden here, intuitively.
+\item Still, basic idea is that there is no permitted action that blocks going to the office.
+\item Hence, there's always an action that progresses going to the office.
+\item Other examples:
+  \begin{itemize}
+  \item Cannot not work.
+  \item Cannot not see (\dots password or grid).
+  \item I cannot not read this in Frasier's voice.
+  \item Quote by Charlotte Brontë: “I write because I cannot NOT write.”
+  \item I cannot not choose. (Sarte?)
+  \item I cannot not vote.
+  \end{itemize}
+\item In most of these, it seems that \(\phi\)ing is always something that's available, and in some cases this gets strengthened with the idea that therefore \(\phi\)ing must be done.
+  Perhaps with the idea being that if \(\phi\)ing could not be done, then \(\phi\)ing wouldn't be available in the relevant sense.
+\end{itemize}
+
+\begin{itemize}
+\item Maybe:
+  \begin{enumerate}
+  \item \([\text{Can}]\phi\) iff \(\exists e(e \Vdash \phi \land \forall e'\exists e''(e + e' + e'' \vDash \phi))\)
+  \end{enumerate}
+  This is quite strong.
+  For, it ensures that there is an event, for which \(\phi\) is in progress, no matter how this event proceeds, there's a way to continue such that \(\phi\) remains in progress.
+  To make this false, one either needs to ensure that \(\phi\) doesn't get started, or to find some continuation that blocks \(\phi\) from progressing.
+  The lack of restriction on \(e'\) is useful, insofar as this includes cases where the agent stops progressing with \(\phi\), so long as the course is corrected.
+\item The problem is that the dual then requires that the agent can `break out' of any problematic event, which is a little strong also.
+\item Though this is difficult.
+\item For, if it only applies when the agent is in a bad spot, then it seems right that there must be something the agent is able to do that breaks them out of the bad spot.
+  \begin{enumerate}
+  \item \(\langle \text{Can} \rangle \phi\) iff \(\forall e(e \Vdash \lnot\phi \rightarrow \exists e'\forall e''(e + e' + e'' \nvDash \lnot\phi))\)
+  \end{enumerate}
+  The difficulty here is the quantifiers and so on.
+\item And, part of the problem here is the relevant verb.
+\item `Solve the maze' is problematic, because it has some completion, whereas `solving the maze' does not.
+  So, perhaps the lack of completion makes things particularly tricky here.
+\item Here, then, take the modal and claim that it holds throughout a culminating sequence.
+\item With this idea:
+  \begin{enumerate}
+  \item \([\text{Can}]\phi\) iff \(\exists e[e \Vdash \phi \land \forall e'\exists e''(e + e' + e'' \vDash \phi)]\)
+  \end{enumerate}
+  Would then require that \(\phi\) holds throughout the sequence.
+  Still a mess.
+  The logical form isn't right.
+  And, this is likely because FOL isn't going to play easy with the kind of idea here.
+  For, the attempt is to express something like a recursive function, where the internals of the function are duals.
+  And the intuition here seems okay.
+  For, box-can if there's a sure way to keep going so that things work out.
+  And diamond-can if there's no sure way to keep going so that things don't work out.
+  Or, there's a \dots
+\end{itemize}
+
+\begin{itemize}
+\item Potentially something like:
+  \[
+    \exists e \forall d(e \subseteq d \rightarrow \exists d' \subseteq d \colon e \subseteq d' \subseteq e' \vDash \phi).
+  \]
+  So, there's an event, such that for all extensions, there is some initial part of that extension where the agent can do something so that, well, this same predicate remains true, perhaps.
+\end{itemize}
+
+\newpage
+
 
 \subsection{Notes}
 \label{sec:notes-1}
@@ -3488,15 +3705,25 @@ And hence by the argument of section~\ref{sec:obtaining-G1}:
 \item If an agent can [reason from \(\Sigma\) to \emph{right}] then it is not the case that the agent can not [hold \emph{right} on the basis of \(\Sigma\)].
 \item It is not the case that the agent can not [hold \emph{left} on the basis of \(\Sigma\)].
 \item It is not the case that the agent can not [hold \emph{right} on the basis of \(\Sigma\)].
+\item It is not the case that the agent can:
+  \begin{enumerate}
+  \item not [hold \emph{left} on the basis of \(\Sigma\)], and
+  \item not [hold \emph{right} on the basis of \(\Sigma\)]
+  \end{enumerate}
+\item So, the agent is not able to `reject' \emph{left} nor is the agent able to `reject' \emph{right}.
+\item In short, because the agent is able to reason that the left bale of hay is a means to their end, and likewise that the right bale of hay is a means to their end, the agent is not able to hold that the left bale of hay is not a means to their end, and likewise for the right bale of hay.
+\item The agent would be mistaken for thinking that the premises that they hold determine one of the two bales of hay, and also mistaken for ruling out either bale of hay.
 \end{itemize}
 
 \begin{itemize}
-\item In short, the agent must make a choice, as whether to take the left or the right bale of hay is not determined by the premises that the agent holds.
-\item And, furthermore, the agent would be mistaken for thinking that the premises that they hold determine one of the two bales of hay.
+\item The supermarket case is of particular interest.
+\item For, one may assume that what is written on the shopping list is the result of a choice, and there are other items that would satisfy the same end.
+\item Therefore, without some further restrictions (e.g.\ an intention), it cannot be claimed that the agent ought to purchase the item on their shopping list over any other item that would be a means to the relevant end.
   \begin{itemize}
-  \item This is the key point.
-    For, a core assumption of the argument is that \(\chi\) follows from \(\Sigma\) independently of the agent's reasoning, and this is not the case when choice is involved.
+  \item Assuming, here, that, if it is permissible for an agent to hold that an action is a(n available) means to an end, then it is permissible for the agent to perform the action as a means to the end.
   \end{itemize}
+\item If this is right, then it seems that for an agent to exclude an option in cases of means-end reasoning, the agent must be sure that the option is not a means to their end.
+\item However, this does not restrict the agent from choosing a particular end from an incomplete collection of recognised ends.
 \end{itemize}
 
 \subsubsection{Implication}
@@ -3563,23 +3790,41 @@ Where these conditionals are relativised to the issue of whether \(\chi\) follow
 \item In the Morse and Lewis scenario, for example, if Lewis is unable to provide a demonstration in time, then Lewis may be unable to arrest Woodthorpe, though Lewis may still hold Woodthorpe to be guilty on the basis of the evidence.
 \end{itemize}
 
+\hozlinedash
+
 \begin{itemize}
 \item Misleading evidence is a more difficult case.
+\item The worry is that an agent may be permitted to hold that \(\chi\) follows from \(\Sigma\) while their evidence strongly (and misleadingly) supports that \(\chi\) does not follow from \(\Sigma\).
+\end{itemize}
+
+\begin{itemize}
 \item This turns on the way in which the evidence is misleading.
 \item If the misleading evidence prevents the agent from establishing \(\chi\) on the basis of \(\Sigma\), then it's not clear that the agent is able to reason to \(\chi\) on the basis of \(\Sigma\).
 \item On the other hand, if the misleading evidence makes reasoning from \(\Sigma\) to \(\chi\) particularly difficult, then things are less clear.
-  In a sense, this is a case of epistemic temptation.
+  \begin{itemize}
+  \item To argue for this one needs a case in which:
+    \begin{enumerate}
+    \item \(\chi\) follows from \(\Sigma\).
+    \item\label{mle:2} The agent is able to reason from \(\Sigma\) to \(\chi\).
+    \item\label{mle:3} An agent has misleading evidence that \(\chi\) does not follow from \(\Sigma\).
+    \item\label{mle:4} The agent ought to hold that \(\chi\) does not follow from \(\Sigma\).
+    \end{enumerate}
+  \item I doubt that \ref{mle:2} and \ref{mle:4} can both be true.
+    For it \ref{mle:2} is true, then the evidence in \ref{mle:3} cannot be conclusive, else the agent would not be able to reason from \(\Sigma\) to \(\chi\).
+    And, it seems that if \ref{mle:2} and \ref{mle:4} are both true, then the agent ought to ignore some sound piece of reasoning.
+  \end{itemize}
+  % In a sense, this is a case of epistemic temptation.
 \end{itemize}
 
-\subsection{The state and futures}
-\label{sec:state}
+% \subsection{The state and futures}
+% \label{sec:state}
 
-\begin{itemize}
-\item The state of the agent holding isn't a standard kind of mental state.
-\item This is where ideas about futures come in.
-\item For applications that don't need the demonstration, the result is held and can be used.
-\item For applications that do need the demonstration, the agent's `can' do the reasoning.
-\end{itemize}
+% \begin{itemize}
+% \item The state of the agent holding isn't a standard kind of mental state.
+% \item This is where ideas about futures come in.
+% \item For applications that don't need the demonstration, the result is held and can be used.
+% \item For applications that do need the demonstration, the agent's `can' do the reasoning.
+% \end{itemize}
 
 
 \newpage
@@ -3683,6 +3928,338 @@ This doesn't seem right, perhaps.
 \item Hence, agent does the reason, etc.\ and holds \(\chi\) on the basis of \(\Sigma\), but no long has the ability nor the opportunity, so it seems it cannot be the case that the agent ought to hold \(\chi\) on the basis of \(\Sigma\).
 \item Yet, if \dots something about belief and evidence \dots then it seems the agent ought to hold \(\chi\) on the basis of \(\Sigma\).
 \end{itemize}
+
+\subsection{Different senses of `can'}
+\label{sec:different-senses-can}
+
+{
+  \color{red}
+  Part of the problem here is the framing of general ability, which is \emph{not} what I am after.
+  I am interested in whether the agent can do the reasoning given the information available to them, and hence the focus is only on the reasoning that the agent can do.
+}
+
+\begin{itemize}
+\item Ought \(\phi\) implies can \(\phi\).
+\item If an agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\) then the agent can judge that \(\chi\) holds on the basis of \(\Sigma\).
+\end{itemize}
+
+\begin{itemize}
+\item Given that `can' is ambiguous, it is possible that different ways of reading `can' will restrict what the agent ought to do in different ways.
+\item For example:
+  \begin{enumerate}
+  \item\label{oic:strong} If an agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\), then it is not the case that the agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\).
+  \item\label{oic:weak} If an agent does not have the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\), then it is not the case that the agent ought to judge that \(\phi\) holds on the basis of \(\Sigma\).
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\item The difficulty here is that I endorse a general ought implies can principle, and to the extent that \ref{oic:strong} seems plausible, \ref{oic:weak} likewise seems plausible.
+\item For, in the case of \ref{oic:weak} it does seems as though if an agent ought to judge that \(\chi\) follows from \(\Sigma\) only if the agent has the opportunity and ability to reason from \(\Sigma\) to \(\chi\) given the context in which the ought statement is taken to hold.
+\end{itemize}
+
+\begin{itemize}
+\item For an issue to arise:
+  \begin{enumerate}
+  \item The same sense of ought applies to both \ref{oic:strong} and \ref{oic:weak}.
+    \begin{itemize}
+    \item For, if there are different senses of ought in \ref{oic:strong} and \ref{oic:weak}, respectively, then it seems there would need to be some more general sense of ought to adjudicate between the different respective senses of ought.
+    \end{itemize}
+  \item It is the case that the agent ought to judge that \(\chi\) follows from \(\Sigma\).
+  \item And, either:
+    \begin{enumerate}
+    \item\label{oic:strong-a} The agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
+    \item\label{oic:weak-a} The agent does not have the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
+    \end{enumerate}
+    For either of \ref{oic:strong-a} and \ref{oic:weak-a} is sufficient to deny that it ought to be the case that the agent ought to judge that \(\chi\) follows from \(\Sigma\).
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\item It is difficult to consider cases in which an agent ought to judge that \(\chi\) follows from \(\Sigma\) without having the ability and opportunity to reason from \(\Sigma\) to \(\chi\).
+\item Likewise, it is difficult to consider cases in which the agent does not have the general ability to judge that \(\phi\) holds on the basis of \(\Sigma\) but has the specific opportunity and ability to judge that \(\phi\) holds on the basis of \(\Sigma\).
+  \begin{itemize}
+  \item Some care is required in understanding the specific opportunity and ability, for if information factors into the understanding of opportunity, then there may well be cases in which the agent does not have the general ability to judge due to the required information being highly restricted, but does have the ability given special access.
+    \begin{itemize}
+    \item However, if opportunity involves information in this way and general ability does not,
+    \end{itemize}
+  \item Possible exceptions are cases in which an agent takes some kind of stimulant which allows them to reason
+  \end{itemize}
+\end{itemize}
+
+\newpage
+
+\section{Can}
+\label{sec:can-1}
+
+\begin{itemize}
+\item Assumption is that the agent's reasoning traces some consequence relation \(\vDash\).
+\item And, this consequence relation is such that \(\vDash\) and \(\nvDash\) are incompatible.
+\item If \(\Sigma \vDash \chi\) then it is not the case that \(\Sigma \nvDash \chi\).
+  \begin{itemize}
+  \item Contraposed:
+  \item If \(\Sigma \nvDash \chi\) then it is not the case that \(\Sigma \vDash \chi\).
+  \end{itemize}
+\item Does not assume that if it is not the case that \(\Sigma \nvDash \chi\) then \(\Sigma \vDash \chi\).
+\item This really doesn't say too much, as \(\Sigma \nvDash \chi\) iff it is not the case that \(\Sigma \vDash \chi\).
+\item Hence, the requirement amounts to \(\phi \rightarrow \lnot\lnot\phi\).
+\item But don't assume that \(\lnot\lnot\phi \rightarrow \phi\), so something intuitionistic is okay.
+\end{itemize}
+
+\begin{itemize}
+\item Idea is that, in some sense, \(\Sigma \vDash \chi\) in the actual world.
+\item This should be okay.
+\item Because, if monotonic, then nothing can go wrong, and if non-monotonic, then it should still be the case that the entailment holds even if there's a way to expand the premises such that \(\Sigma' \nvDash \chi\).
+\item Hence, unlike some instance of `can' modals, there's going to be some kind of factive constraint.
+\item Or, better, \(\Diamond\phi \rightarrow \Box\phi\), as this would sit more neatly with the standard semantics.
+\item In other words, one can't mess with the consequence relation when searching for a witness.
+\item This might be contentious, depending on how the consequence relation is understood, but on the other hand it might be fair to assume this as a further constraint on relevant consequence relations.
+\item Of course, it's even easier to say that the consequence relation must satisfy the requirements of an \(S5\) modality.
+  \begin{enumerate}
+  \item \(\Diamond\phi \rightarrow \Box\phi\)
+  \item \(\Box\phi \rightarrow \phi\)
+  \item \(\Diamond\Diamond\phi \rightarrow \Diamond\phi\)
+  \end{enumerate}
+\item If this isn't satisfied, then the consequence relation is too weak to be of interest.
+\item However, this doesn't say too much, as one may have the choice between selecting worlds first or selecting consequence relation first.
+\item I think that the worlds first is appropriate, so this will rule out certain consequence relations.
+\item However, I also don't think that this rules out too much, as it's really hard to think of interesting consequence relations which don't satisfy this constraint, esp.\ as the agent should be able to witness the event in the actual world, so to speak.
+\item This is the familiar idea, for most modals of this kind, that the laws remain fixed.
+\item There are ways to break this assumption, but it's something of a default assumption in the premises.
+\end{itemize}
+
+\begin{itemize}
+\item So, \(\Sigma \vDash \chi\) holds in the actual world, and all relevant accessible worlds.
+\item And, therefore \(\Sigma \nvDash \chi\) does not hold.
+\item And, given this an the \(S5\) axioms, this pair also holds for any world in which one wants a witness.
+\item Therefore, if the agent can reason, then there is a consequence relation, and it's not possible for the agent to witness \(\Sigma \nvDash \chi\) because there's no accessible world in which this holds.
+\end{itemize}
+
+\begin{itemize}
+\item This is unlike other instance of `can', where \(S5\) constraints won't hold.
+\item Hence, the relevant issue is whether the agent can \emph{complete} the instance of reasoning.
+\item To contrast, it may be the case that one can go to the beach and one can go to the fair.
+  Therefore, it is possible for one to go to the beach, but from this is does not follow that one necessarily goes to the beach.
+  Else, it would be necessary that one goes to both the beach and the fair.
+  This is more explicit if one can go the beach and one can not go to the beach.
+\end{itemize}
+
+\begin{itemize}
+\item What's also needed is that \(\Sigma \nvDash \chi\) is not due to failure.
+\item Plausibly, one is only interested in success cases of the verb.
+\item For, the agent being unable to reason from \(\Sigma\) to \(\chi\) is not the same that the agent being able to reason that \(\Sigma \nvDash \chi\).
+\item Whether or not \(\Sigma \vDash \chi\) could be outside of what the agent is able to do.
+\end{itemize}
+
+\begin{itemize}
+\item Roughly speaking there are three distinct possibilities.
+  \begin{enumerate}
+  \item\label{reason:out:1} Agent establishes that \(\chi\) holds on the basis of \(\Sigma\)
+  \item\label{reason:out:2} Agent establishes that \(\chi\) does not hold on the basis of \(\Sigma\)
+  \item\label{reason:out:3} Agent fails to establish whether or not \(\chi\) holds on the basis of \(\Sigma\)
+  \end{enumerate}
+\item Exactly one of the above holds if the agent does some reasoning.
+\item Fourth may be:
+  \begin{enumerate}[resume]
+  \item Agent does not reason.
+  \end{enumerate}
+  However, this isn't too interesting, and may be a case of \ref{reason:out:3}.
+\end{itemize}
+
+\begin{itemize}
+\item The following three conditionals are equivalent:
+  \begin{enumerate}
+  \item \(C(\Sigma \vDash \chi) \rightarrow \lnot C \lnot (\Sigma \vDash \chi)\)
+  \item \(C(\Sigma \vDash \chi) \rightarrow \lnot C (\Sigma \nvDash \chi)\)
+  \item \(C(\Sigma \nvDash \chi) \rightarrow \lnot C (\Sigma \vDash \chi)\)
+  \end{enumerate}
+  Hence, only need to argue for one instance to establish exclusion on demonstrating entailment or non-entailment.
+\end{itemize}
+
+\begin{itemize}
+\item This is a mistake.
+\item I'm interested in cases where the agent is prevented from judging that \(\chi\) holds on the basis of \(\Sigma\).
+\item This, in turn, is distinct from the agent judging that \(\chi\) does not hold on the basis of \(\Sigma\).
+\item For example, it may be the case that the agent can not judge that \(\chi\) holds on the basis of \(\Sigma\) due to some lack of evidence.
+\end{itemize}
+
+\newpage
+
+\section{Something puzzling}
+\label{sec:something-puzzling}
+
+\begin{itemize}
+\item In order for it to be permissible for the agent to judge that \(\chi\) holds on the basis of \(\Sigma\), it need only be the case that the agent can not judge that \(\chi\) does not hold on the basis of \(\Sigma\).
+\item For, the idea is that if the agent ought not then the agent can not.
+\item So, if the agent can't provide a counterexample, then the agent can hold\dots
+\item This, is remarkably weak, because it holds even when the agent is unable to demonstrate that \(\chi\) does follow from \(\Sigma\).
+\item And, this seems unintuitive.
+\item For, there are many things that I cannot demonstrate to not be the case.
+\item For example, it seems I can hold arbitrary propositions about what's going on in other peoples minds, in some sense.
+\item Is this right?
+\item Ought not then can not.
+\item Not can not, so not ought not.
+\item Yes, this is odd.
+\item So, not reason to think something is true, but also not can not demonstrate that it does not follow.
+\end{itemize}
+
+\begin{itemize}
+\item Alternative, is to hold that if one ought not do something then one can do something else.
+\item Ought \(\lnot\phi\) then can \(\phi\).
+\item not can \(\phi\) then not ought not \(\phi\).
+\item Not what I want.
+\item Ought \(\lnot\phi\) then not can \(\phi\).
+\item This would also work.
+\item If an agent ought to not hold \(\chi\) on the basis of \(\Sigma\), then it is not the case that the agent can hold \(\chi\) on the basis of \(\Sigma\).
+\end{itemize}
+
+\begin{itemize}
+\item Worry, roughly, is that I need a strong sense of can, and hence a fairly strong sense of ought.
+\item But, this is fine.
+\item For, I need the sense of ought work in the ought implies can statement, so I need any sense of ought that's going to say that holding the conclusion on the basis of the premises ought not be done.
+\item For, if a weaker understanding is relevant, then I get the conclusion in any case, as on the weaker reading the ought statement does hold.
+\item Hence, part of the difficulty for the opponent is, if I can make the argument work, finding a way to squeeze an intermediate sense of ought in between the two extremes.
+\end{itemize}
+
+
+\newpage
+
+\begin{itemize}
+\item Dealing with rationality.
+\item So, the can is some kind of rational can.
+\item And, not judging that the conclusion follows from the premises is not an rationally available option.
+\item So the only rationally available option is to judge that the conclusion follows from the premises.
+\item However, it need not be the case that one is rational only if one does every rationally available option.
+\item So, there's a kind of unique rational option, which forms a kind of non-voluntarism.
+\item However, something about the agent not needing to take a stance.
+\item That's the key part that's missing.
+\item The idea is that in not judging that the conclusion follows from the premises, there is some action that the agent does.
+\item So, this is different from not pursuing any relationship between the conclusion and the premises.
+\end{itemize}
+
+\begin{itemize}
+\item Whether \(\chi\) follows from \(\Sigma\) is at issue.
+\item So, if the agent is to engage with \(?(\Sigma \vDash \chi)\).
+\item Not the case that this is always at issue.
+\item So I kind of want \(\lnot J (\Sigma \vDash \chi) \rightarrow J\Diamond (\Sigma \nvDash \chi)\).
+\item But this isn't quite right.
+\item Judging is the problem.
+\item I'm interested in an attitude which considers the agent's reasoning.
+\item Roughly, the attitude is judging that conclusion follows from premises given reasoning.
+\item In this respect, the problem arises because this clearly conflicts with the agent being able to reason.
+\end{itemize}
+
+\begin{itemize}
+\item If the agent can judge that they are not committed to \(\phi\), then there is a `fixed point' at which \(\phi\) does not hold.
+\item So, there's a sequence of events, such that eventually there's no continuation for which \(\phi\) holds.
+\item 
+\end{itemize}
+
+
+\begin{itemize}
+\item Judging that one is committed to \(\phi\) does not lead to judging that \(\phi\) is true.
+\item For, this could indicate that some premises is mistaken.
+\item It's similar to \citeauthor{Harman:1986aa} on the conditional.
+\item I'm committed to \(\phi\), but I judge \(\lnot\phi\), hence problem with premises/reasoning.
+\item However, if agent is confident in both, then there is a kind of factivity inference.
+\item And, in the cases of interest, these conditions are met.
+\end{itemize}
+
+\begin{itemize}
+\item The attitude of interest, parsed as ``judge that committed to \(\phi\)''.
+\item There are a number of ways to understand this.
+\item Here, agent is committed to \(\phi\) is they have the ability to reason to \(\phi\).
+\item So, could say ``judge that have the ability to reason to \(\phi\)'', instead.
+\item Then, the argument is that this is permissible if the agent can do the reasoning.
+\end{itemize}
+
+The intuitive argument, is, roughly:
+
+\begin{itemize}
+\item Agent is permitted to hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item This is because, it is not true that the agent ought not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item For, if the agent ought not hold that \(\chi\) follows on the basis of \(\Sigma\), then the agent can not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item In other words, the agent has the ability to not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item Yet, this means that the agent can intervene on any purported demonstration from \(\Sigma\) to \(\chi\).
+\end{itemize}
+
+The important stuff happens in the last two steps.
+For, it's relatively simple to show that the agent cannot intervene granted that the agent is able to reason.
+
+\begin{itemize}
+\item One issue is that it seems the only thing that agent can do is hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item And this is to some extent true.
+\item But this doesn't mean that the agent ought to hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item Yet, the agent not being able to not hold that \(\chi\) follows on the basis of \(\Sigma\) suggests this.
+\item But, this assumes that the agent forms an attitude as to whether or not \(\chi\) follows from \(\Sigma\).
+\item The problem here is that one could argue that the agent ought not form an attitude.
+\item That is, there's the potential for a gentle murderer style paradox here.
+\end{itemize}
+
+\begin{itemize}
+\item Another way of putting things is that I have ``as to whether \(?(\Sigma \vDash \chi)\), only option is \(\Sigma \vDash \chi\)''.
+\item So, if one takes a stand, then there's only one option, but it's possible to recommend against taking a stand.
+\item Agent does not have the ability to not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\end{itemize}
+
+\begin{itemize}
+\item The problem is that if the agent doesn't hold that \(\chi\) follows on the basis of \(\Sigma\), then this looks like a counterexample to the claim that it is not the case that the agent can not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item Yet, intuitively this is quite plausible, because one doesn't expect the agent to be confident on everything that follows on the basis of reasoning that they are able to do.
+\end{itemize}
+
+\begin{itemize}
+\item There's got to be some kind of response here.
+\end{itemize}
+
+\begin{itemize}
+\item To object, one runs the argument slightly differently.
+\item If it's permissible for the agent not to hold that \(\chi\) follows on the basis of \(\Sigma\), then the agent can not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item Yet, by the same reasoning it is not the case that the agent can not hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item Therefore, it is not permissible for the agent not to hold that \(\chi\) follows on the basis of \(\Sigma\).
+\item So, the agent ought to hold that \(\chi\) follows on the basis of \(\Sigma\).
+\end{itemize}
+
+This objection is somewhat problematic.
+However, the first premise isn't true.
+Which is part of the problem.
+It's not permissible for the agent to do this, hence the agent ought to hold that \(\chi\) follows on the basis of \(\Sigma\).
+Though, in a sense this isn't so bad, in that it does seem true that this is what the agent ought to do in some sense.
+The point of contention is that it's not clear that the agent is `required' to do what they ought to do in order to be of interest.
+For, I'm looking only for permissibility.
+
+
+Maybe I should run the argument on the permissibility of holding that \(\Sigma \nvDash \chi\).
+Then, argue that one is prevented from speculating only if it is permitted to hold that \(\Sigma \nvDash \chi\).
+
+Another option is:
+\[
+  P(\text{hold} \Sigma \vDash \chi) \lor P(\text{hold}\Sigma \nvDash \chi)
+\]
+Then the conclusion follows by disjunction elimination.
+Not clear on why this should be true.
+Ah, well, this probably isn't true.
+For there should be a third conjunct, maybe.
+Well, the issue is, whether \(\phi \lor \lnot\phi\) entails \(PX\phi \lor PX\lnot\phi\).
+For, it's not simply \(\phi \lor \lnot\phi\), given the addition of holding in the scope of permissibility.
+
+\[
+  P(\text{hold} \Sigma \vDash \chi) \lor P(\text{hold}\Sigma \nvDash \chi) \lor P(\lnot\text{hold} \Sigma \vDash \chi) \lor P(\lnot\text{hold}\Sigma \nvDash \chi)
+\]
+
+So, there are also the options of not holding.
+So, it seems I would like
+
+\[
+  P(\text{hold}\Sigma \nvDash \chi) \lor P(\text{speculate}\Sigma \vDash \chi)
+\]
+
+So, either it's permissible to deny that something follows, or it's permissible to speculate.
+This is then all about speculation, which also gets messy, but isn't yet ruled out.
+So, either it's permissible to hold that no witness for \(\Sigma \vDash \chi\) can be provided, or it is permissible to hold that there is a witness for \(\Sigma \vDash \chi\).
+So, if I can reason, then I can hold that a witness may be provided.
+And, then the significant details which follow from this concern the providing of the witness.
+For, if there is a witness, then if I'm confident, then a quasi factivity inference applies.
+
+This isn't quite one big circle, because the inference form being able to reason to the permissibility to stipulating a witness isn't obvious.
 
 \newpage
 
