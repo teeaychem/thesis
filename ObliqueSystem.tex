@@ -365,10 +365,16 @@ This rule is termed general as it does not depend on the constraints we place on
   \end{proof}
 \end{lemma}
 
-
 \begin{prooftree}
   \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
   \RightLabel{\ruleCDiamondR}
+  \UnaryInf\(\phi \CBox \Gamma, \top \CDiamond \phi \fCenter\ \top \CDiamond \Delta\)
+\end{prooftree}
+
+
+\begin{prooftree}
+  \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
+  \RightLabel{\ruleCDiamondR ++}
   \UnaryInf\(\psi \CBox \Gamma, \psi \CDiamond \phi \fCenter\ \phi \CDiamond \Delta\)
 \end{prooftree}
 
@@ -510,6 +516,17 @@ For the reflexivity of the joint relation, I have:
 
 \subsection{A handful of rules to help with completeness}
 \label{sec:handful-rules-help}
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleCWindowPlus}
+  \UnaryInf\(\phi \CBox \psi, \top \CDiamond (\phi \land \chi)  \fCenter\ \top \CDiamond (\psi \land \chi)\)
+\end{prooftree}
+
+\ruleCWindowPlus\ captures some of the interaction between box and diamond.
+
+
+{\color{red} Probably don't need these.}
 
       \begin{prooftree}
         \AxiomEmpty
@@ -819,7 +836,7 @@ I wasn't able to make definition~\ref{def:jaspars:canonical} work given the requ
   \item \(R^{+}\Gamma\Delta\) iff
     \begin{itemize}
     \item \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\)
-    \item \(\psi \in \Delta\) implies \(\phi \CDiamond \psi \in \Gamma\) for some \(\phi \in \Delta\)
+    \item \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\) %for some \(\phi \in \Delta\)
     \end{itemize}
   \item \(R^{-}\Gamma\Delta\) iff
     \begin{itemize}
@@ -841,7 +858,8 @@ The definitions hide this, in order to make the quantification more straightforw
   For any \(\Gamma\), \(\Delta\) in \(\cmodW\).
   \begin{enumerate}[label=(\alph*)]
   \item\label{lemmma:ext:box} If \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodBox \Delta'\)
-  \item\label{lemma:ext:dia} If \(\psi \in \Delta\) implies \(\phi \CDiamond \psi \in \Gamma\) for some \(\phi \in \Delta\) then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodBox \Delta'\)
+  \item\label{lemma:ext:dia} If \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\) %for some \(\phi \in \Delta\)
+    then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodBox \Delta'\)
   \item\label{lemma:ext:win} If \(\modcou{\Window}{\Gamma} \subseteq \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodWin \Delta'\)
   \item\label{lemma:ext:kit} If \(\Delta \subseteq \modcou{\Kite}{\Gamma}\) then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodWin \Delta'\)
   \end{enumerate}
@@ -941,11 +959,11 @@ The definitions hide this, in order to make the quantification more straightforw
 
   \item[\ref{lemma:ext:dia}]
 
-    Assume \(\psi \in \Delta\) implies \(\phi \CDiamond \psi \in \Gamma\) for some \(\phi \in \Delta\).
+    Assume \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\).
     Our goal is to show that there is some \(\Delta'\) such that \(\Delta \subseteq \Delta'\) and:
     \begin{itemize}
-    \item if \(\psi \in \Delta'\) then \(\phi \CDiamond \psi \in \Gamma\) for some \(\phi \in \Delta'\)
-    \item if \(\phi \CBox \psi \in \Gamma\) then \(\psi \in \Delta'\) whenever \(\phi \in \Delta'\)
+    \item if \(\psi \in \Delta'\) then \(\top \CDiamond \psi \in \Gamma\)/
+    \item if \(\phi \CBox \psi \in \Gamma\) then \(\psi \in \Delta'\) for some \(\phi \in \Delta'\).
     \end{itemize}
 
     The latter condition can be established by showing that \(\Delta'\) contains all \(\CBox\) consequents, for then there is no way for the condition to be false.
@@ -954,7 +972,7 @@ The definitions hide this, in order to make the quantification more straightforw
     Let:
     \begin{itemize}
     \item \(\modcou{\Box}{\Gamma} = \{ \psi \mid \phi \CBox \psi \in \Gamma \text{ and } \phi \in \Delta \}\)
-    \item \(\modcou{\Diamond}{\Gamma} = \{ \psi \mid \phi \CDiamond \psi \in \Gamma \text{ and } \phi \in \Delta \}\)
+    \item \(\modcou{\Diamond}{\Gamma} = \{ \psi \mid \top \CDiamond \psi \in \Gamma \}\)
     \end{itemize}
 
     Consider \(\modcou{\Box}{\Gamma} \cup \Delta\).
@@ -963,8 +981,8 @@ The definitions hide this, in order to make the quantification more straightforw
     The intermediate plan is to show that \(\modcou{\Diamond}{\Gamma}\) is a saturator of \(\modcou{\Box}{\Gamma} \cup \Delta\).
     This will establish that there is some \(\Delta'\) such that \(\modcou{\Box}{\Gamma} \cup \Delta \subseteq \Delta' \subseteq \modcou{\Diamond}{\Gamma}\)
     Given this, we know that \(\Delta'\) contains all of the relevant \(\CBox\) consequents, and \(\Delta'\) is a subset of the \(\CDiamond\) consequents.
-    The remaining task is to show that for all \(\psi \in \modcou{\Diamond}{\Gamma}\) there is some \(\phi \in \Delta'\) such that \(\phi \CDiamond \psi \in \Gamma\).
-    Yet, this follows immediately from the definition of \(\modcou{\Diamond}{\Gamma}\) and the fact that \(\Delta \subseteq \Delta'\).
+    The remaining task is to show that \(\top \CDiamond \psi \in \Gamma\) for all \(\psi \in \modcou{\Diamond}{\Gamma}\).
+    Yet, this will follow immediately from the definition of \(\modcou{\Diamond}{\Gamma}\) and the fact that \(\Delta \subseteq \Delta'\).
 
     \hozlinedash
 
@@ -981,50 +999,30 @@ The definitions hide this, in order to make the quantification more straightforw
     There is some finite \(\Delta' \subseteq \Delta\) such that \(\modcou{\Box}{\Gamma}, \Delta' \vdash \Sigma\).
     Let \(\delta' = \bigwedge \Delta'\) and hence \(\modcou{\Box}{\Gamma}, \delta' \vdash \Sigma\).
     Furthermore, there is finite \(\modcou{\Box}{\Gamma}' \subseteq \modcou{\Box}{\Gamma}\) such that \(\modcou{\Box}{\Gamma}', \delta' \vdash \Sigma\).
+    Let \(\gamma' = \bigwedge \modcou{\Box}{\Gamma}\) and hence \(\gamma', \delta' \vdash \Sigma\).
 
-    So we have, \(\modcou{\Box}{\Gamma}', \delta' \vdash \Sigma\).
-    Let \(\gamma_{1}, \dots, \gamma_{k}\) be an enumeration of the \(\gamma \in \modcou{\Box}{\Gamma}'\).
-    Then, rewriting, we have \(\gamma_{1}, \dots, \gamma_{k}, \delta' \vdash \Sigma\)
+    So we have, \(\gamma', \delta' \vdash \Sigma\).
+    And, by \ruleAndL\ we have \(\gamma' \land \delta' \vdash \Sigma\).
+    By application of rule \ruleCDiamondR\ we obtain \(\top \CDiamond (\gamma' \land \delta') \vdash \top \CDiamond \Sigma\).
 
-    By definition of \modcou{\Box}{\Gamma}' we know that for each \(\gamma_{i} \in \modcou{\Box}{\Gamma}'\) there is some \(\phi_{i} \in \Delta\) such that \(\phi_{i} \CBox \gamma_{i} \in \Gamma\).
-    And, as \(\Delta' \subseteq \Delta\) and \(\Delta \in W\) we know that \(\delta' \in \Delta\) and therefore by our initial assumption there is some \(\phi \CDiamond \delta' \in \Gamma\) such that \(\phi \in \Delta\).
+    Our goal is to show that \(\Gamma \vdash \top \CDiamond (\gamma' \land \delta')\).
 
-    Of interest is the formula \((\bigwedge \phi_{i} \land \phi)\), the conjunction of the antecedents noted above.
-    For, from \(\gamma_{1}, \dots, \gamma_{k}, \delta' \vdash \Sigma\) we obtain
-    \[(\bigwedge \phi_{i} \land \phi) \CBox\gamma_{1}, \dots, (\bigwedge \phi_{i} \land \phi) \CBox \gamma_{k}, (\bigwedge \phi_{i} \land \phi) \CDiamond \delta' \vdash (\bigwedge \phi_{i} \land \phi) \CDiamond\Sigma\]
-    by application of rule \ruleCDiamondR.
+    Note that for all \(\gamma \in \modcou{\Box}{\Gamma}\) there is some \(\phi \in \Delta\) such that \(\phi \CBox \gamma \in \Gamma\) with \(\phi \in \Delta\).
+    So, as \(\phi \in \Delta\) and \(\delta' \in \Delta\) we also know that \(\phi \land \delta' \in \Delta\), from which it follows that \(\top \CDiamond (\phi \land \delta') \in \Gamma\).
+    Notice that we now have \(\phi \CBox \gamma \in \Gamma\) and \(\top \CDiamond (\phi \land \delta') \in \Gamma\).
+    So, by rule \ruleCWindowPlus\ we know that \(\top \CDiamond (\gamma \land \delta') \in \Gamma\).
+    Hence, by repeated applications of \ruleCWindowPlus\ we know that \(\top \CDiamond (\gamma' \land \delta') \in \Gamma\).
+    Therefore, as \(\Gamma \vdash \top \CDiamond (\gamma' \land \delta')\), we know that \(\Gamma \vdash \top \CDiamond \Sigma\).
 
-    Now, we know that \(\phi_{i} \CBox \gamma_{i} \in \Gamma\) and that \(\phi \CDiamond \delta' \in \Gamma\).
-    Hence, by \ruleCBoxLW\ \ruleCDiamondLW\ and the fact that \(\Gamma \in W\) we also have \((\bigwedge \phi_{i} \land \phi) \CBox\gamma_{i} \in \Gamma\) and \((\bigwedge \phi_{i} \land \phi) \CDiamond \delta' \in \Gamma\).
-    Therefore, \((\bigwedge \phi_{i} \land \phi) \CDiamond\Sigma \cap \Gamma \ne \emptyset\).
-    And, as each \(\phi_{i}\) and \(\phi\) are elements of \(\Delta\), it is also the case that \((\bigwedge \phi_{i} \land \phi)\) is an element of \(\Delta\).
-
-    Finally, as \((\bigwedge \phi_{i} \land \phi) \CDiamond\Sigma \cap \Gamma \ne \emptyset\) we have some \(\sigma \in \Sigma\) such that \((\bigwedge \phi_{i} \land \phi) \CDiamond\Sigma \in \Gamma\).
-    Therefore, by our initial assumption and the fact that \((\bigwedge \phi_{i} \land \phi) \in \Delta\), we know that \(\sigma \in \modcou{\Diamond}{\Gamma}\).
-    From this is follows that \(\Sigma \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\) and hence \(\modcou{\Diamond}{\Gamma}\) is a saturator of \(\modcou{\Box}{\Gamma}\).
+    From the above it follows that \(\Sigma \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\) and hence \(\modcou{\Diamond}{\Gamma}\) is a saturator of \(\modcou{\Box}{\Gamma}\).\nolinebreak
+    \footnote{
+      The `insight' here is that \ruleCDiamondR\ ensures that the consequence relation is respected by the conditional-diamond modality.
+      And, given that we are considering what follows from \(\Delta\) were \(\Delta\) accessible from \(\Gamma\) with the assumption that the conditional-diamond modality is respected, we can use this to ensure that the appropriate consequents also hold with respect to the conditional-diamond modality.
+    }
     \end{description}
 
-    \hozline
-
-    Different idea.
-    The diamond accessibility is with \(\top\).
-    Now, \(\modcou{\Box}{\Gamma}, \Delta \vdash \Sigma\).
-    From this, \(\modcou{\Box}{\Gamma}', \Delta' \vdash \Sigma\).
-    Now, conjoin the elements of \(\modcou{\Box}{\Gamma}\).
-    \(\modcou{\Box}{\Gamma}', \gamma' \land \delta' \vdash \Sigma\).
-    Know that \(\gamma' \land \delta' \CDiamond \gamma' \land \delta' \in \Gamma\) by assumption, because these are the relevant consequents.
-    Now, \(\gamma_{1} \CBox \gamma_{1}\) is a tautology.
-    Hence, can strengthen.
-    This makes the box condition kind of redundant, at least in this use.
-    But, you can do the original proof in this way, which may be somewhat surprising.
-    I mean, one is really only showing that consequence is preserved with diamonds, the boxes really aren't all that important.
-
-    The `insight' here is that it's simply the diamond doing the work.
-    Hence, the box stuff is mostly fluff.
-    In fact, it's easier to take the special case of the rule where the boxes are ignored.
-
     \newpage
-    
+
   The second pair of implications follow the same strategy as the first pair.
 
   \begin{description}
