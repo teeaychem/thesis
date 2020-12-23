@@ -558,6 +558,40 @@ For, if the truth of \(\Gamma\) and \(\phi\) guarantees the truth of some \(\del
 %   And, as every \(\delta \in \Delta\) can be replaced with \(\phi \land \delta\), 
 % \end{note}
 
+
+
+
+\subsection{Conditional window rules}
+\label{sec:cond-wind-rules}
+
+The semantics of the window modality are structurally the same as the box modality, with the only difference being that the window modality focuses on inaccessible states and falsity, rather than accessible states and true.
+Therefore, the sequents governing the window modality simply exchange truth for falsity.
+
+
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma \fCenter\ \lnot\phi, \lnot\Delta\)
+  \RightLabel{\ruleCWindowL}
+  \UnaryInf\(\psi \CWindow \Gamma, \fCenter\ \psi \CWindow \phi, \psi \CKite \Delta\)
+\end{prooftree}
+
+\begin{prooftree}
+  \Axiom\(\lnot\Gamma, \lnot\phi \fCenter\ \lnot\Delta\)
+  \RightLabel{\ruleCKiteR}
+  \UnaryInf\(\phi \CWindow \Gamma, \bot \CKite \phi \fCenter\ \bot \CKite \Delta\)
+\end{prooftree}
+
+
+\begin{lemma}[Soundness]
+  Rules \ruleCWindowL\ and \ruleCKiteR\ are sound.
+  \begin{proof}
+    Analogous to the proof(s) that rules \ruleDSwitch\ and \ruleDiamondW\ are sound.
+  \end{proof}
+\end{lemma}
+
+
+\subsection{A handful of rules to help with completeness}
+\label{sec:handful-rules-help}
+
 In the completeness proof we appeal to an additional pair of rules regarding diamond formulas.
 I suspect both can be derived from the primary pair of rules, but it is straightforward to see that they are sound in any case.
 
@@ -594,157 +628,8 @@ I suspect both can be derived from the primary pair of rules, but it is straight
   \end{proof}
 \end{proposition}
 
-
-
-\subsection{Conditional window rules}
-\label{sec:cond-wind-rules}
-
-Window-type modalities are governed by a corresponding rule.
-
-\begin{prooftree}
-  \Axiom\(\lnot\Gamma \fCenter\ \phi, \Delta\)
-  \RightLabel{\ruleWinR}
-  \UnaryInf\(\Window\Gamma \fCenter\ \Window\lnot\phi, \lnot\Window\Delta\)
-\end{prooftree}
-
-\ruleWinR\ is structurally similar to \ruleBoxR, but `flipped' to account for the relation to
-inaccessible states.
-
-
-\begin{proposition}
-  Rule \ruleWinR\ is sound.
-  \begin{proof}
-    Assume \(\lnot\Gamma \Vdash \phi, \Delta\).
-
-    For the left-to-right direction suppose for some \(s \in \omodel{M}\), \(\omodel{M},s \vDash \Window\gamma\) for all \(\gamma \in \Gamma\).
-    By the semantic clause for \(\Window\) we have for all \(t\) such that \(\lnot Rst\), \(\omodel{M}, t \vDash \lnot\gamma\) for all \(\gamma \in \Gamma\).
-    If it is the case that \(\omodel{M},v \vDash \phi\) for every \(v\) such that \(\lnot Rsv\) then clearly \(\omodel{M},s \vDash \Window\lnot\phi\).
-    And, if there is some \(v\) such that \(\omodel{M},v \nvDash \phi\), then \(\omodel{M},v \vDash \delta\) for some \(\delta \in \Delta\) from which it follows that \(\omodel{M},s \vDash \lnot\Window\delta\).
-
-    For the right-to-left direction, suppose \(\omodel{M}, s \Dashv \Window\lnot\phi\) and \(\omodel{M},s \Dashv \lnot\Window\delta\) for all \(\delta \in \Delta\).
-    Hence, \(\omodel{M},s \vDash \Kite\phi\) and \(\omodel{M},s \vDash \Window\delta\) for \(\delta \in \Delta\).
-    By the former there is some \(t \in \omodel{M}\) such that \(\lnot Rst\) with \(\omodel{M}, t \vDash \lnot\phi\) and by the latter it is also the case that \(\omodel{M},t \vDash \lnot\delta\) for each \(\delta \in \Delta\).
-    As \(\lnot\Gamma \Vdash \phi, \lnot\Delta\) we also have \(\lnot\Delta \Vdash, \lnot\phi \Vdash \Gamma\), and hence \(\omodel{M},t \vDash \gamma\) for some \(\gamma \in \Gamma\).
-    Therefore, \(\omodel{M},s \Dashv \Window\gamma\) for some \(\gamma \in \Gamma\).
-  \end{proof}
-\end{proposition}
-
-\begin{proposition}
-  The following rules are derivable:
-  \begin{multicols}{2}
-    \begin{prooftree}
-  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
-  \RightLabel{\ruleWinL}
-  \UnaryInf\(\Window\Gamma,\lnot\Window\phi \fCenter\ \lnot\Window\Delta\)
-\end{prooftree}
-
-\begin{prooftree}
-  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
-  \RightLabel{\ruleKitL}
-  \UnaryInf\(\Window\Gamma,\Kite\phi \fCenter\ \Kite\Delta\)
-\end{prooftree}
-  \end{multicols}
-\end{proposition}
-
-The interaction between \(\Box\) and \(\Window\) is split into five additional axioms.
-% Combined, these ensure the global modality \(\Global\) (where \(\Global\phi \coloneq \Box\phi \land \Window\lnot\phi\)) is an S5 modality and correspond to the standard modal axioms M, 4, and B, respectively.
-
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{\ruleGlobalM}
-%   \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \phi\)
-% \end{prooftree}
-
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{\ruleGlobalF}
-  \UnaryInf\(\Box\phi, \Window\lnot\phi \fCenter\ \Box(\Box\phi \land \Window\lnot\phi) \land \Window\lnot(\Box\phi \land \Window\lnot\phi)\)
-\end{prooftree}
-
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{\ruleGlobalB}
-  \UnaryInf\(\phi \fCenter\ \Box\lnot(\Box\lnot\phi \land \Window\phi) \land \Window(\Box\lnot\phi \land \Window\phi)\)
-\end{prooftree}
-
-{\color{red}
-For the reflexivity of the joint relation, I have:
-\begin{prooftree}
-  \AxiomEmpty
-  \UnaryInf\(\phi, \Window\lnot\psi \fCenter\ \psi \lor \Diamond\phi\)
-\end{prooftree}
-}
-
-
-
-
-\begin{prooftree}
-  \Axiom\(\fCenter\ \bot \CKite (\phi \lor \psi)\)
-  \RightLabel{\ruleKiteW}
-  \UnaryInf\(\fCenter\ \bot \CKite \phi\)
-\end{prooftree}
-
-\begin{proof}
-  If the top line is true, then the bottom line is trivial.
-\end{proof}
-
-
-% Four rules to deal with the interaction between \(\Box\) and \(\Window\).
-% Each of these rules relies on the non-derivability of some modal formula.
-% Intuition here is any state must be either accessible or inaccessible.
-% With \ruleGlobalM\ we ensure that if some formula is true at a state then its relevance to satisfaction is recognised, but \ruleGlobalM\ does not, at least straightforwardly, ensure this holds for arbitrary collections of formulas.
-
-
-% \begin{multicols}{2}
-%   \begin{prooftree}
-%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \nvdash \psi \quad \Delta \vdash \Window\lnot\psi \land \Some\phi\)}
-%     \UnaryInfC{\(\Delta \vdash \Diamond\phi\)}
-%   \end{prooftree}
-%   \begin{prooftree}
-%      \AxiomC{\(\Gamma \vdash \phi \quad  \Gamma \nvdash \psi \quad \Delta \vdash \Box\psi \land \langle \Some\phi\)}
-%     \UnaryInfC{\(\Delta \vdash \Kite\lnot\phi\)}
-%   \end{prooftree}
-% \end{multicols}
-
-
-% \begin{multicols}{2}
-%   \begin{prooftree}
-%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi \quad \Delta \nvdash \Diamond\phi\)}
-%     \UnaryInfC{\(\Delta \vdash \Kite\lnot\psi\)}
-%   \end{prooftree}
-%   \begin{prooftree}
-%      \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi \quad \Delta \nvdash \Kite\lnot\phi\)}
-%     \UnaryInfC{\(\Delta \vdash \Diamond\psi\)}
-%   \end{prooftree}
-% \end{multicols}
-
-% I think with these four rules I get \(\modcou{\Box}{\Gamma} \subseteq \Delta \subseteq \modcou{\Diamond}{\Gamma}\) or the same for window whenever I have the global stuff working out.
-% These are sound, and when I'm doing stuff with saturation, I may have a number of additional things, but I don't think this is going to be too much of a problem.
-% Of course, I don't get anything like decidability.
-% It's then interesting that these rules don't need to apply when \(\Delta = \Gamma\), but this doesn't give a clear way to eliminate for the general case.
-% And, all of these rules are left-to-right only, I think.
-
-% Wait, the last two rules \emph{can} be replaced.
-
-% \begin{multicols}{2}
-%   \begin{prooftree}
-%     \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi\)}
-%     \UnaryInfC{\(\Delta \vdash \Diamond\phi \lor \Kite\lnot\psi\)}
-%   \end{prooftree}
-%   \begin{prooftree}
-%      \AxiomC{\(\Gamma \vdash \phi \quad \Gamma \vdash \psi\)}
-%     \UnaryInfC{\(\Delta \vdash \Diamond\psi \lor \Kite\lnot\phi\)}
-%   \end{prooftree}
-% \end{multicols}
-% And these are, in fact, the same rule.
-% And, these don't cover the reflexive case.
-% And, they're a little different to rule \ruleGlobalM, I think.
-% The trouble is, these two rules don't do any work, and it's only the top two rules that I actually need.
-
-
-
-\subsection{A handful of rules to help with completeness}
-\label{sec:handful-rules-help}
+We also make use of a rule capturing some of the interaction between the box and diamond modalities.
+Again, this may be derivable from the primary pair of rules governing the box and diamond modalities.
 
 \begin{prooftree}
   \AxiomEmpty
@@ -752,21 +637,38 @@ For the reflexivity of the joint relation, I have:
   \UnaryInf\(\phi \CBox \psi, \top \CDiamond (\phi \land \chi)  \fCenter\ \top \CDiamond (\psi \land \chi)\)
 \end{prooftree}
 
-\ruleCWindowPlus\ captures some of the interaction between box and diamond.
+\begin{lemma}[Soundness]
+  Rule \ruleCWindowPlus\ is sound.
+  \begin{proof}
+    Take an arbitrary state \(s \in \omodel{M}\) such that \(M,s \vDash \phi \CBox \psi\) and \(M,s \vDash \top \CDiamond (\phi \land \chi)\).
+    By the latter, we are guaranteed some state \(t \in \omodel{M}\) such that \(Rst\) with \(M,t \vDash \phi \land \psi\).
+    By the former, we know that for any \(t'\) such that \(Rst'\) with \(M,t' \vDash \phi\), it is also the case that \(M,t' \vDash \psi\).
+    Hence, we know that \(M,t \vDash \psi \land \chi\).
+    Therefore, as \(Rst\), we know \(M,s \vDash \top \CDiamond (\psi \land \chi)\).
+  \end{proof}
+\end{lemma}
 
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{\ruleCBoxLW}
-%   \UnaryInf\(\phi \CBox \psi  \fCenter\ (\phi \land \chi) \CBox \psi\)
-% \end{prooftree}
-% The second formula
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{\ruleCDiamondLW}
-%   \UnaryInf\(\phi \CDiamond \psi \fCenter\ (\phi \land \chi) \CDiamond \psi\)
-% \end{prooftree}
-% These rules are uninspiring.
-% The reason why they are sound is because, either there is no state where the antecedent is true, and then strengthening makes no difference, or there is a state, but then \(\psi\) is also true, and hence the conditional is true for any antecedent.
+As \ruleCWindowPlus\ captures some of the interaction between box and diamond, an analogous rule holds for the interaction between window and kite.
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{\ruleCKitePlus}
+  \UnaryInf\(\lnot\phi \CWindow \lnot\psi, \bot \CKite \lnot(\phi \land \chi)  \fCenter\ \bot \CKite \lnot(\psi \land \chi)\)
+\end{prooftree}
+
+And, as with the box modalities we have a pair of supplemental rules for the kite modality to help with the completeness proof.
+
+\begin{prooftree}
+  \Axiom\(\Gamma \fCenter\ \top \CKite \lnot(\phi \land \psi)\)
+  \RightLabel{\ruleDSwitch}
+  \UnaryInf\(\Gamma \fCenter\ \lnot\phi \CKite \lnot\psi\)
+\end{prooftree}
+
+\begin{prooftree}
+  \Axiom\(\fCenter\ \bot \CKite \lnot(\phi \land \psi)\)
+  \RightLabel{\ruleKiteW}
+  \UnaryInf\(\fCenter\ \bot \CKite \lnot\phi\)
+\end{prooftree}
 
 \subsection{Interaction sequents}
 \label{sec:inter-modal}
@@ -777,19 +679,36 @@ For the reflexivity of the joint relation, I have:
   \UnaryInf\(\phi \CBox \psi, \gamma \CWindow \delta \fCenter\ (\phi \land \lnot\gamma) \CGlobal (\psi \lor \lnot\delta)\)
 \end{prooftree}
 
+\begin{proposition}
+  Rule \ruleCBoxWindowGlobal\ is sound.
+  \begin{proof}
+    Suppose \(M,s \vDash \phi \CBox \psi\) and \(M,s \vDash \gamma \CWindow \delta\).
+    Let \(t\) be arbitrary such that \(M,t \vDash \phi \land \gamma\).
+    Either \(Rst\) or \(\lnot Rst\).
 
+    If \(Rst\) then as \(M,s \vDash \phi \CBox \psi\) \(M,t \vDash \phi\) we know \(M,t \vDash \psi\), whence \(M,t \vDash \psi \lor \lnot\delta\).
+    Likewise, if \(\lnot Rst\), then as \(M,s \vDash \gamma \CWindow \delta\) and \(M,t \vDash \lnot\gamma\), we know \(M,t \vDash \lnot\delta\), whence \(M,t \vDash \psi \lor \lnot\delta\).
+
+    So, we have shown that for any \(t \in \omodel{M}\), if \(M,t \vDash \phi \land \gamma\) then \(M,t \vDash \psi \lor \lnot\delta\), and therefore \(M,s \vDash (\phi \land \lnot\gamma) \CGlobal (\psi \lor \lnot\delta)\).
+  \end{proof}
+\end{proposition}
 
 \begin{prooftree}
   \Axiom\(\Gamma \fCenter\ \chi \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi))\)
-  \UnaryInf\(\Gamma \fCenter\ (\phi' \land \lnot\phi \CGlobal (\psi' \lor \lnot\psi)\)
+  \RightLabel{\ruleGDG}
+  \UnaryInf\(\Gamma \fCenter\ (\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)\)
 \end{prooftree}
 
+\begin{proposition}
+Rule \ruleGDG\ is sound.
 \begin{proof}
-  Suppose \(\Gamma \Vdash \chi \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi))\)
+  Suppose \(\Gamma \Vdash \chi \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi))\).
+  Take some \(s \in \omodel{M}\) and assume \(M,s \vDash \gamma\) for each \(\gamma \in \Gamma\).
+  Hence, \(M,s \vDash \chi \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi))\), and so there is some \(t \in \omodel{M}\) such that \(Rst\) with \(M,t \vDash \chi\) and \(M,t \vDash (\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)\).
+  Hence, we know that for all \(v \in \omodel{M}\), if \(M,v \vDash \phi' \land \lnot\phi\) then \(M,v \vDash \psi' \lor \lnot\psi\).
+  So, we know that \(M,s \vDash (\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)\).
 \end{proof}
-
-
-
+\end{proposition}
 
 \subsection{Global sequents}
 \label{sec:global-sequents}
@@ -836,7 +755,7 @@ To keep things simple, rules are stated with the global conditional modality.
 \end{prooftree}
 
 \begin{proof}
-  If it's an inaccessible state where \(\lnot\phi\) is true, then \(\lnot\psi\) is true.
+  If there's an inaccessible state where \(\lnot\phi\) is true, then \(\lnot\psi\) is also true at that state.
   Hence, either there is an accessible state where \(\chi\) is true, or there is not.
   If there is not, then \(\chi\) can only be true at inaccessible states, but then the conjunction of \(\lnot\phi\) and \(\chi\) is only true at inaccessible states, and so as \(\lnot\phi\) guarantees \(\lnot\psi\) at inaccessible states, and \(\chi\) restricts to inaccessible states, we know that \((\lnot\phi \land \chi) \CGlobal \lnot\psi\)
 \end{proof}
@@ -851,6 +770,52 @@ To keep things simple, rules are stated with the global conditional modality.
   If \(\phi\) is true, then wherever you go, either it's accessible or inaccessible.
 \end{proof}
 
+\hozlinedash
+
+At present the collection of sequents is (likely) incomplete.
+The sequents listed above guarantee that when constructing the canonical model, if \(Rst\) then either \(Rts\) or \(\lnot Rts\) (the importance of this is explained below) as \(R\) and \(\lnot R\) are treated as distinct relations in the canonical model.
+Additional axioms may be required to ensure additional constraints between \(R\) and \(\lnot R\).
+
+From past notes I can include:
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{O}
+  \UnaryInf\(\lnot\phi \CWindow \lnot\xi \fCenter\ \top \CDiamond \psi, (\phi \land \psi) \CGlobal \xi\)
+\end{prooftree}
+
+\begin{proof}
+  Suppose \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\).
+
+  First, consider the case where \(\omodel{},s \nvDash \Diamond\psi\).
+  To see that \((\phi \land \psi) \CGlobal \xi\) suppose there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\).
+  As we know \(\omodel{},s \nvDash \Diamond\psi\) it must be the case that \(\lnot Rst\), and hence by the initial assumption we know that \(\omodel{},t \vDash \xi\).
+
+  Second, consider the case where \(\omodel{}, s \nvDash (\phi \land \psi) \CGlobal \xi\).
+  Then there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\) but \(\omodel{},t \nvDash \xi\).
+  As \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\) it cannot be the case that \(\lnot Rst\), for otherwise it would be the case that \(\omodel{},t \vDash \xi\), and so \(Rst\).
+  And, as \(\omodel{},t \vDash \psi\) it is immediate that \(\omodel{},s, \vDash \Diamond\psi\).
+\end{proof}
+
+And the following trio of axioms are easily seen to be sound.
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{4ish}
+  \UnaryInf\(\phi \CGlobal \psi \fCenter\ \chi \CGlobal (\phi \CGlobal \psi)\)
+\end{prooftree}
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{5ish}
+  \UnaryInf\(\top \CSome \psi \fCenter\ \chi \CGlobal (\top \CSome \psi)\)
+\end{prooftree}
+
+\begin{prooftree}
+  \AxiomEmpty
+  \RightLabel{Ref-1}
+  \UnaryInf\(\phi \CWindow \psi, \lnot\phi, \chi \fCenter\ \lnot\psi, \Diamond\chi\)
+\end{prooftree}
 
 \newpage
 
@@ -992,27 +957,80 @@ The Lindenbaum lemma is more involved than usual.
 \subsection{The Caonical Model}
 \label{sec:caonical-model}
 
-The following definition is based on \textcite[115]{Jaspars:1996aa}.
-
-\begin{definition}
-  Let \(\Gamma\) be a saturated set, we introduce the following notation to capture certain modal counterparts of \(\Gamma\).
-  \begin{multicols}{2}
-    \begin{itemize}
-    \item \(\modcou{\Box}{\Gamma} = \{\phi \mid \Box\phi \in \Gamma \}\)
-    \item \(\modcou{\Diamond}{\Gamma} = \{\phi \mid \Diamond\phi \in \Gamma\}\)
-    \end{itemize}
-    \begin{itemize}
-    \item \(\modcou{\Window}{\Gamma} = \{\lnot\phi \mid \Window\phi \in \Gamma\}\)
-    \item \(\modcou{\Kite}{\Gamma} = \{\lnot\phi \mid \Kite\phi \in \Gamma\}\)
-    \end{itemize}
-  \end{multicols}
-\end{definition}
-
-
-
+\subsubsection{Overview}
+\label{sec:overview}
 
 The required interaction between Box- and Window-type modalities makes the direct construction of an \emph{oblique} canonical model difficult.
 However, by adapting a technique developed by Dimiter Vakarelov and put to use by \citeauthor{Gargov:1987aa}, we can straightforwardly construct a non-oblique canonical model which is modally equivalent to an oblique model.
+
+The definition of a generalised model mirrors the definition given by \textcite[255]{Gargov:1987aa}.
+
+\begin{definition}[Generalised model]
+  A generalised model is a quadruple \(S, R^{+}, R^{-}, V\) where:
+  \begin{itemize}
+  \item \(R^{+} \cup R^{-} = S^{2}\)
+  \item \(M,s \vDash \phi \CBox \psi\) iff \(\forall t((R^{+}st \land M,t \vDash \phi) \Rightarrow M,t \vDash \psi)\)
+  \item \(M,s \vDash \phi \CWindow \psi\) iff \(\forall t((R^{-}st \land M,t \Dashv \phi) \Rightarrow M,t \Dashv \psi)\)
+  \item \(M,s \Dashv \phi \CBox \psi\) iff \(\exists t(R^{+}st \land M,t \vDash \phi \land M,t \Dashv \psi)\)
+  \item \(M,s \Dashv \phi \CWindow \psi\) iff \(\exists t(R^{-}st \land M,t \Dashv \phi \land M,t \vDash \psi)\)
+  \end{itemize}
+\end{definition}
+
+In short, \(\CBox\) and \(\CWindow\) are defined with respect to distinct accessibility relations, and we do not require that \(R^{+} \cap R^{-} = \emptyset\).
+\citeauthor{Gargov:1987aa}'s `Important Lemma' (\citeyear[256]{Gargov:1987aa}) then details how to find a standard oblique model which is modally equivalent to a generalised model.
+
+Our goal for completeness is to assume that \(\Gamma \nvdash \Delta\) and construct a generalised countermodel to show that \(\Gamma \nvDash \Delta\).
+
+This is a two step process.
+First, we construct a countermodel using saturated sets.
+As we are showing that \(\Gamma \nvDash \Delta\), we will have a model \(S, R^{+},R^{-}, V\) with a saturated set \(s\) such that \(s \vDash \Gamma\) but \(s \nvDash \Delta\).
+However, in general it will not be the case that \(R^{+}st\) or \(R^{-}st\) for any arbitrary saturated set \(t\).
+Therefore, we take a point generated canonical model from \(s\).
+
+\begin{definition}[Point generated canonical model]
+  Let \(S, R^{+}, R^{-}, V\) be a canonical model, and let \(R^{\circ} = R^{+} \cup R^{-}\).
+  For \(s \in S\), the point generated canonical model from \(s\) is the model \(S_{s}, R^{+}_{s}, R^{-}_{s}, V_{s}\):
+  \begin{itemize}
+  \item \(S_{s} = \{ t \in S \mid R^{\circ}st \}\)
+  \item \(R^{+}_{s} = R^{+} \cap S_{s}^{2}\)
+  \item \(R^{-}_{s} = R^{-} \cap S_{s}^{2}\)
+  \item \(V_{s}(p) = \{t \mid t \in S_{s} \text{ and } p \in t\}\)
+  \end{itemize}
+\end{definition}
+
+It is straightforward to observe that a point generated canonical model is a generalised model so long as \(R^{\circ}\) is reflexive, transitive, and symmetric.
+For, \(R^{+}_{s} \cup R^{-}_{s} = S^{2}_{s}\) iff \(S^{2}_{s}\) is an equivalence relation and \(S_{s}^{2} = R^{\circ}\).
+
+As we are dealing with partial models, showing that \(R^{\circ}\) is an equivalence relation takes some work.
+The use of conditional modalities to define a global conditional modality is what allows us to reason about an equivalence relation.
+However, as this remains a conditional modality, our proof comes down to checking a number of conditions.
+
+\begin{itemize}
+\item Reflexivity:
+  \begin{itemize}
+  \item Either \(R^{+}ss\) or \(R^{-}ss\)
+  \end{itemize}
+\item Symmetry:
+  \begin{itemize}
+  \item If \(R^{+}st\) then either \(R^{+}ts\) or \(R^{-}ts\)
+  \item If \(R^{-}st\) then either \(R^{+}ts\) or \(R^{-}ts\)
+  \end{itemize}
+\item Transitivity:
+  \begin{itemize}
+  \item If \(R^{+}st\) and \(R^{+}tv\) then either \(R^{+}sv\) or \(R^{-}sv\)
+  \item If \(R^{+}st\) and \(R^{-}tv\) then either \(R^{+}sv\) or \(R^{-}sv\)
+  \item If \(R^{-}st\) and \(R^{+}tv\) then either \(R^{+}sv\) or \(R^{-}sv\)
+  \item If \(R^{-}st\) and \(R^{-}tv\) then either \(R^{+}sv\) or \(R^{-}sv\)
+  \end{itemize}
+\end{itemize}
+
+Checking all of these conditions is uninspiring.
+The only upshot is identifying some interesting axioms to ensure that these are forced by the construction of the canonical model.
+Unfortunately the required definition for the accessibility relations on the canonical model only increase the complexity of checking for these conditions, so for now I have only sketched the first instance of the symmetry condition.
+I take this to be a good proof of concept for the remaining conditions.
+
+\subsubsection{Canonical model}
+\label{sec:canonical-model}
 
 The canonical model if defined in a relatively straightforward way.\nolinebreak
 \footnote{
@@ -1031,7 +1049,7 @@ The canonical model if defined in a relatively straightforward way.\nolinebreak
     \end{itemize}
   \item \(R^{-}\Gamma\Delta\) iff
     \begin{itemize}
-    \item \(\phi \CWindow \psi \in \Gamma\) only if (\lnot\psi \in \Delta) whenever \(\lnot\phi \in \Delta\)
+    \item \(\phi \CWindow \psi \in \Gamma\) only if \(\lnot\psi \in \Delta\) whenever \(\lnot\phi \in \Delta\)
     \item If \(\lnot\phi \in \Delta\), then \(\bot \CKite \phi \in \Gamma\)
     \end{itemize}
   \item \(\Gamma \in \cintp{p}\) iff \(p \in \Gamma\) and \(\Gamma \in \iintp{p}\) iff \(\lnot p \in \Gamma\).
@@ -1522,239 +1540,11 @@ This suggests I probably do want to tweak the definition so that the antecedent 
 Then, it's a more straightforward condition, if \(\phi\) holds, then adding \(\psi\) cannot lead to an unsatisfactory state, though \(\psi\) need not hold.
 \(\CBox\) then states a kind of natural consequence idea, whenever \(\phi\) holds, \(\psi\) also holds, and hence I know that if I'm considering \(\phi\) I'm also considering \(\psi\), whereas \(\CWindow\) is like a safety condition, if I'm considering \(\phi\) then I don't need to worry about \(\psi\).
 
-
-For the canonical model, take saturated sets as before, and for the relations, define:
-
-
-
-
-Following is a generalisation of the diamond rule.
-
-
-
-
-\begin{prooftree}
-  \Axiom\( \Gamma \fCenter\ (\alpha \CBox \beta) \land (\gamma \CBox \delta)\)
-  \RightLabel{C}
-  \UnaryInf\( \Gamma \fCenter\ (\alpha \land \gamma) \CBox (\beta \land \delta)\)
-\end{prooftree}
-
-
-
-
-Two counterparts for the inaccessible modalities.
-\begin{prooftree}
-  \Axiom\(\lnot\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
-  \RightLabel{A'}
-  \UnaryInf\(\phi \CWindow \Gamma, \bot \CKite \phi \fCenter\ \bot \CKite \Delta\)
-\end{prooftree}
-
-\begin{prooftree}
-  \Axiom\(\lnot\Gamma \fCenter\ \phi, \Delta\)
-  \RightLabel{B'}
-  \UnaryInf\(\psi \CWindow \Gamma, \fCenter\ \psi \CWindow \lnot\phi, \bot \CDiamond \Delta\)
-\end{prooftree}
-Also the conjunction rule:
-\begin{prooftree}
-  \Axiom\( \fCenter\ (\alpha \CWindow \beta) \land (\gamma \CWindow \delta)\)
-  \RightLabel{C'}
-  \UnaryInf\( \fCenter\ (\alpha \lor \gamma) \CWindow (\beta \lor \delta)\)
-\end{prooftree}
-
-
-Some interaction.
-First, getting some of the semantics.
-\begin{prooftree}
-  \Axiom\(\Gamma \fCenter\ \phi \CBox \psi\)
-  \Axiom\(\Gamma \fCenter\ \lnot\phi \CWindow \lnot\xi\)
-  \RightLabel{G-I}
-  \BinaryInf\(\Gamma \fCenter\ \phi \CGlobal (\psi \lor \xi)\)
-\end{prooftree}
-
-A key axiom is the following.
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{G-I}
-  \UnaryInf\(\phi \CBox \psi, \gamma \CWindow \delta\fCenter\ (\phi \land \lnot\gamma) \CGlobal (\psi \lor \lnot\delta)\)
-\end{prooftree}
-For, with this it's straightforward to see that for anything accessible via the global relation, one of the box modalities must work out.
-
-% Getting the interaction for the non-conditional instances via conditionals.
-% \begin{prooftree}
-%   \AxiomEmpty
-%   \RightLabel{O}
-%   \UnaryInf\(\lnot\phi \CWindow \lnot\psi \fCenter\ \top \CDiamond \psi, \psi \CGlobal \phi\)
-% \end{prooftree}
-% Not that this is necessarily going to help in the case of the more complex accessibility relations\dots
-
-This might work as a generalisation, as if \(\psi\) can't be found, then if you're at a \(\psi\) world it's got to be inaccessible, and hence if it's also makes \(\phi\) true then it must also make \(\xi\) true.
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{O}
-  \UnaryInf\(\lnot\phi \CWindow \lnot\xi \fCenter\ \top \CDiamond \psi, (\phi \land \psi) \CGlobal \xi\)
-\end{prooftree}
-This rule is sound.
-The intuition is straightforward, if there is no accessible \(\psi\) state, then any \(\psi\) state must be inaccessible and hence if \(\phi\) holds, \(\xi\) must also hold.
-Conversely, if there is a \(\phi\) and \(\psi\) state which is not also a \(\xi\) state, then this state must be accessible (else \(\xi\) would also hold) and hence there is an accessible \(\psi\) state.
-\begin{proof}
-  Suppose \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\).
-
-  First, consider the case where \(\omodel{},s \nvDash \Diamond\psi\).
-  To see that \((\phi \land \psi) \CGlobal \xi\) suppose there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\).
-  As we know \(\omodel{},s \nvDash \Diamond\psi\) it must be the case that \(\lnot Rst\), and hence by the initial assumption we know that \(\omodel{},t \vDash \xi\).
-
-  Second, consider the case where \(\omodel{}, s \nvDash (\phi \land \psi) \CGlobal \xi\).
-  Then there is some state \(t\) such that \(\omodel{},t \vDash \phi \land \psi\) but \(\omodel{},t \nvDash \xi\).
-  As \(\omodel{},s \vDash \lnot\phi \CWindow \lnot\xi\) it cannot be the case that \(\lnot Rst\), for otherwise it would be the case that \(\omodel{},t \vDash \xi\), and so \(Rst\).
-  And, as \(\omodel{},t \vDash \psi\) it is immediate that \(\omodel{},s, \vDash \Diamond\psi\).
-\end{proof}
-
-
-
-
-\begin{lemma}
-  If \(R\Gamma\Delta\), then \(R\Delta\Gamma\) or \(S\Gamma\Delta\).
-  \begin{proof}
-    There are lots of cases here.
-
-    Suppose \(\lnot R\Delta\Gamma\).
-    This could be for two reasons.
-    If there is some \(\gamma \in \Gamma\) such that \(\Diamond\gamma \notin \Delta\), then I can show \(S\Gamma\Delta\) by the O rule and \(\Some\) reasoning.
-
-    If there's some \(\phi \CBox \psi \in \Delta\) with \(\phi \in \Gamma\) but \(\psi \notin \Gamma\), then take any \(\xi \CWindow \delta \in \Delta\) and suppose \(\lnot\xi \in \Gamma\).
-    Then, as \(\Delta \vdash \phi \CBox \psi\) and \(\Delta \vdash \xi \CWindow \delta\) we have \(\Delta \vdash (\phi \land \lnot\xi) \CGlobal (\psi \lor \lnot\delta)\), and hence it must be the case that \(\lnot\delta \in \Gamma\).
-    To get the kite part working, use rule P.
-  \end{proof}
-\end{lemma}
-
-
-
-
-
-
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{4ish}
-  \UnaryInf\(\phi \CGlobal \psi \fCenter\ \chi \CGlobal (\phi \CGlobal \psi)\)
-\end{prooftree}
-
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{5ish}
-  \UnaryInf\(\top \CSome \psi \fCenter\ \chi \CGlobal (\top \CSome \psi)\)
-\end{prooftree}
-
-\begin{prooftree}
-  \AxiomEmpty
-  \RightLabel{Ref-1}
-  \UnaryInf\(\phi \CWindow \psi, \lnot\phi, \chi \fCenter\ \lnot\psi, \Diamond\chi\)
-\end{prooftree}
-
-
-\[
-  \psi \CDiamond \phi \dashv\vdash \top \CDiamond (\phi \land \psi) \dashv\vdash \phi \CDiamond \psi
-\]
-
-
-
-\newpage
-
-\subsection{Additional Properties}
-\label{sec:addit-prop}
-
-I should be able to derive \(\attn{\lnot \phi} \equiv \lnot\attn{\phi}\), somehow.
-
-
-
-On generalised models, \citeauthor{Gargov:1987aa} give a revised definition of the window modality.
-
-\begin{itemize}
-\item \(s \vDash B\phi\) iff \(\forall t(Rst \rightarrow t \vDash \phi)\)
-\item \(s \vDash W\phi\) iff \(\forall t(t \vDash \phi \rightarrow \lnot Sst)\)
-\end{itemize}
-
-Where \(s \vDash W\phi\) iff \(\forall t(t \vDash \phi \rightarrow Rst)\) is standard.
-
-The general idea here seems sound for generalising.
-For the \(W\) modality, I have \(\forall t(\lnot Rst \rightarrow t \vDash \lnot\phi)\).
-Given this, I may want something else.
-Perhaps, \(s \vDash W\phi \) iff \(\forall t(Sst \rightarrow t \vDash \lnot\phi)\), which is classically equivalent to the condition used by \citeauthor{Gargov:1987aa}.
-In other words, I take two standard box modalities, which is more or less what's going on with the semantics.
-Indeed, the key here is to partition the set of states.
-And, this observation is what the proof of \citeauthor{Gargov:1987aa} relies on.
-
-For the multimodal system, it may be that I need to appeal to the universal modality for each pair of attitudes, and to require equivalence between the worlds in the respective sets.
-The worry here is the use of point generated submodels by \citeauthor{Gargov:1987aa}.
-
-\begin{note}
-  Weaken version of the attitudes seem attainable, though logically equivalent formulas don't.
-  For, given \(\attn{p}\), consider \(D\lnot p \land \lnot B\attn{\lnot p}\).
-  It must then be the case that \(W\attn{p}\), from the first conjunct.
-  And, conversely, if \(W\attn{p}\) fails to hold, then the second conjunct must fail.
-  Defining an equivalent formula, however, may not be possible, as only monotonic operators are available.
-\end{note}
-
-
-
-In addition to the two general modal rules governing \(\Box\) and \(\Window\), we introduce two specific modal rules to ensure that the accessible states can be treated as a set.
-Here, we take the standard frame conditions to ensure any relation is both transitive and euclidean.
-\begin{multicols}{2}
-  \begin{prooftree}
-    \AxiomEmpty
-    \RightLabel{\ruleTran}
-    \UnaryInf\(\fCenter\ \Box\phi \rightarrow \Box\Box\phi\)
-  \end{prooftree}
-  \begin{prooftree}
-    \AxiomEmpty
-    \RightLabel{\ruleEucl}
-    \UnaryInf\(\fCenter\ \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\)
-  \end{prooftree}
-\end{multicols}
-
-\begin{proposition}
-  \(\oframe{F} \vDash \Box\phi \rightarrow \Box\Box\phi\) iff \(\oframe{F}\) is transitive.
-  \begin{proof}
-    Take an arbitrary model based on a transitive frame \(\oframe{F}\).
-    Suppose \(\Box\phi\) but \(\lnot\Box\Box\phi\).
-    Some \(t,u\) such that \(Rst\) and \(Rtu\) but \(t \nvDash \phi\).
-    However, from this it follows that \(Rsu\) and it must be the case that \(t \vDash \phi\).
-
-    Conversely, take a non-transitive frame and value the \(u\) point as the only one where \(\phi\) is false, and let the rest of the valuation be determined by what \(\phi\) requires (or, rather, perhaps this only needs to hold for propositional atoms\dots).
-  \end{proof}
-\end{proposition}
-
-\begin{proposition}
-  \(\oframe{F} \vDash \lnot\Box\phi \rightarrow \Box\lnot\Box\phi\) iff \(\oframe{F}\) is euclidean.
-  \begin{proof}
-    Suppose the frame is euclidean but for some valuation the formula isn't valid.
-    Then, \(s \vDash \lnot\Box\phi\) and \(s \nvDash \Box\lnot\Box\phi\).
-    So, some accessible state \(t\) such that \(t \nvDash \phi\).
-    And, \(s \nvDash \Box\lnot\Box\phi\) so \(s \vDash \Diamond\Box\phi\).
-    Hence, some \(u\) such that \(u \vDash \Box\phi\).
-    But then as the frame is euclidean, it's got to be the case that \(Rut\), hence \(t \nvDash \phi\) and \(t \vDash \phi\).
-
-    {\color{red} Conversely, valuation such that \(t\) is the only state that doesn't make \(\phi\) true.}
-  \end{proof}
-\end{proposition}
-
-
 \newpage
 
 \hfill
 \printbibliography
 
-\newpage
-
-\section{Observations}
-\label{sec:observations}
-
-A slightly more interesting instance of the \(\CDiamond\) rule:
-\begin{prooftree}
-  \Axiom\(\Gamma,\phi \fCenter\ \Delta\)
-  \RightLabel{A}
-  \UnaryInf\(\phi \CBox \Gamma, \top \CDiamond \phi \fCenter\ \top \CDiamond \Delta\)
-\end{prooftree}
-This is sound, as if \(\Gamma,\phi \Vdash \Delta\), then if you're able to go to a \(\phi\) world, and you're able to build this up with \(\Gamma\), then you're going to get something in \(\Delta\).
 
 
 \newpage
@@ -1845,6 +1635,14 @@ The \(.3\) alternative can be slightly strengthened in the case of modalities, a
 \]
 The basic idea here can be generalised to cover both boxes and windows, and therefore, it seems reasonable to conjecture that a schema of this kind leads to a relatively straightforward proof in the case of a finite language.
 
+
+For the reflexivity of the joint relation, I have:
+\begin{prooftree}
+  \AxiomEmpty
+  \UnaryInf\(\phi, \Window\lnot\psi \fCenter\ \psi \lor \Diamond\phi\)
+\end{prooftree}
+
+
 \newpage
 
 \begin{proposition}
@@ -1869,21 +1667,5 @@ The basic idea here can be generalised to cover both boxes and windows, and ther
 \end{proposition}
 \citeauthor{Jaspars:1996aa} require \ruleBoxLP\ to be taken as a separate rule due to the consequence relation they use.
 
-\newpage
-
-\section{Logic Notes}
-\label{sec:logic-notes}
-
-\begin{proposition}
-  The up and down versions of mental operators are not interdefinable.
-  \begin{proof}
-    Consider \(\ldesd{p} \rightarrow \lnot p\).
-
-    Suppose a frame is not irreflexive. Then, value the relflexive point \(p\), and the formula is false at this point.
-
-    Conversely, suppose the formula is invalid.
-    Then \(\ldesd{p} \land p\) for some point, which means that this point must be accessible from itself, and hence the frame cannot be irreflexive.
-  \end{proof}
-\end{proposition}
 
 \end{document}
