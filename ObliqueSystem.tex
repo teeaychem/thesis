@@ -124,7 +124,7 @@
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-\title{Oblique Reasoning}
+\title{Oblique System}
 \author{Ben Sparkes}
 % \date{ }
 
@@ -133,29 +133,35 @@
 
 \maketitle
 
-\begin{enumerate}
-\item Partial logic
-\item Pair of denotations, partial and full.
-  One for positive, the other for negative.
-\item Including modal operators.
-\item For completeness, find a way to define a universal modality, in order to follow strategy from \citeauthor{Gargov:1987aa}.
-  The completeness proof from \citeauthor{Gargov:1987aa} is non-partial.
-\end{enumerate}
+These notes sketch out the path for a sound and complete \emph{partial} propositional modal logic which makes use of conditional box and conditional window modalities.
 
+A partial propositional logic is simply a standard propositional logic with a partial valuation function.
+Hence, a partial propositional modal logic is a propositional modal logic with a partial valuation function.
 
+The `window' modality is used in Boolean Modal Logic (\cite[424--425]{Blackburn:2002aa}), and is effectively a standard box modality based on inaccessible worlds rather than accessible worlds.
 
-\begin{itemize}
-\item The conditional modalities are \dots
-\item Well, \(\phi \CBox \psi\) is usually equivalent to \(\Box(\phi \rightarrow \psi)\).
-\item However, dealing with partial logic, and don't have the standard semantics for the conditional.
-\item So, if neither \(\phi\) nor \(\psi\) is true, one doesn't have \(\phi \rightarrow \psi\).
-\item So, we either complicate the basic modal operators, or build in something with the modalities.
-\item Prefer modalities, as this means that the non-modal connectives are monotonic with respect to enhancing the partial interpretation.
-\item The conditional modalities are not necessarily monotonic, but if the interest is in propositional attitudes, this won't be the case for all applications in any case.
-\item E.g.\ \(p \CBox q\) is true because there are no accessible states where either \(p\) or \(\lnot p\) is defined, and there's \(p\) may be introduced by an expanded interpretation, but if \(q\) remains undefined then \(p \CBox q \) will no longer be true.
-\item For example, learning cuts out possibilities, and so diamond formulas become false.
-\item Here, the box modalities are also an issue.
-\end{itemize}
+The system is based on the partial propositional modal logic of \textcite{Jaspars:1996aa}, who axiomatize a partial modal logic with a standard box operator.
+The interest of the present system (if there is any) is establishing the required interaction between the box and window modalities given a partial valuation.
+We introduce conditional variants of the box and window modalities in order to capture this interaction in a partial setting.
+
+A conditional box modality is a modality of the form \(\phi \CBox \psi\), which requires that for all accessible states, if \(\phi\) is true, then \(\psi\) is also true.
+Given a complete valuation, this modality is equivalent to \(\Box(\phi \rightarrow \psi)\).
+However, given a partial valuation, if neither \(\phi\) nor \(\psi\) is true, one doesn't have \(\phi \rightarrow \psi\).
+Therefore, \(\psi\) being true whenever \(\phi\) is true is not simply a matter of \(\lnot\phi \lor \psi\) being true at all accessible states.
+
+An alternative approach may be to introduce a conditional.
+A difficulty here is ensuring that such a conditional is monotonic with respect to valuations extending the present evaluation.
+(\cite{Blamey:2002aa,Blamey:1980aa} has some nice discussions of why monotonicity of the connectives with respect to extended valuations is of interest).
+\textcite[14]{Blamey:2002aa} observes that a it is not possible to define a non-monotonic conditional in the partial system that \citeauthor{Blamey:2002aa} considers (which is slightly different from the one built on below), and I suspect it would not be hard to show that this is the case for the present system.
+Indeed, it is easy to show that the conditional box modality is non-monotonic with respect to extended valuations.
+E.g.\ \(p \CBox q\) is true because there are no accessible states where either \(p\) or \(\lnot p\) is defined, and there's \(p\) may be introduced by an expanded interpretation, but if \(q\) remains undefined then \(p \CBox q \) will no longer be true.
+
+In any case, exploring whether the approach of \citeauthor{Jaspars:1996aa} could be extended to axiomatize both a box and window modality presented some interest.
+And, as it did not seem possible to straightforwardly ensure the appropriate interaction between straightforward box and window modalities, extending the approach of \citeauthor{Jaspars:1996aa} to conditional modalities turned a curiosity into something of a challenge.
+
+Finally, while the basic outline for completeness in a partial setting is provided by the work of \citeauthor{Jaspars:1996aa}, it is only be combing this with the approach of \textcite{Gargov:1987aa} to axiomatizing Boolean Modal Logic that we are able to (sketch out) a completeness proof for the desired operators.
+
+As noted, the following is a sketch, which is likely in need of some corrections and additional axioms, but I am now quite confident that a sound and complete system can be obtained.
 
 \section{Formalism}
 \label{sec:formalism}
@@ -188,7 +194,7 @@
 \begin{definition}[Oblique language]
   Given a collection of atomic expressions \(\mathsf{Exp}\), the well-formed expressions \(\phi\) of an \emph{oblique language} \(\olang{}\) are given by the following rule:
   \[
-    \phi \Coloneqq \top \bnfsep P \in \mathsf{Exp} \bnfsep \lnot\phi \bnfsep \phi\land\psi \bnfsep \phi \CBox \psi \bnfsep \phi \CDiamond \psi \bnfsep \phi \CWindow \psi \bnfsep \phi \CKite \psi
+    \phi \Coloneqq \top \bnfsep P \in \mathsf{Exp} \bnfsep \lnot\phi \bnfsep \phi\land\psi \bnfsep \phi \CBox \psi \bnfsep \phi \CWindow \psi
   \]
 \end{definition}
 
@@ -218,8 +224,39 @@ Therefore, we make use of a partial truth relation between states and formulas \
   \item \(M,s \Dashv \phi \CBox \psi\) iff \(\exists t(Rst \land M,t \vDash \phi \land M,t \Dashv \psi)\)
   \item \(M,s \Dashv \phi \CWindow \psi\) iff \(\exists t(\lnot Rst \land M,t \Dashv \phi \land M,t \vDash \psi)\)
   \end{enumerate}
-
 \end{definition}
+
+\begin{note}
+  The use of conditional modalities is largely to establish completeness.
+  In particular, the conditional nature of these modalities allows us to avoid making commitments about the truth or falsity of propositions at accessible or inaccessible states.
+
+  One upshot of the given definition of conditional modalities is that is straightforward to define non-conditional variants.
+  \begin{itemize}
+  \item \(\Box \phi \coloneq \top \CBox \phi\)
+  \item \(\Window \phi \colon \bot \CWindow \phi\)
+  \end{itemize}
+
+  With these definitions the following truth and falsity clauses follow by definition (and simplification):
+  \begin{itemize}
+  \item \(M,s \vDash \Box\phi\) iff \(\forall t((Rst \Rightarrow M,t \vDash \phi)\)
+  \item \(M,s \Dashv \Box \phi\) iff \(\exists t(Rst \text{ and } M,t \Dashv \phi)\)
+  \item \(M,s \vDash \Window \phi\) iff \(\forall t(\lnot Rst \Rightarrow M,t \Dashv \phi)\)
+  \item \(M,s \Dashv \Window \phi\) iff \(\exists t(\lnot Rst \text{ and } M,t \vDash \phi)\)
+  \end{itemize}
+  And upshot here is that the role of the window modality is now easy to understand.
+  For by rewriting the truth clause we have:
+  \begin{itemize}
+  \item \(M,s \vDash \Window \phi\) iff \(\forall t(M,t \not\Dashv \phi \Rightarrow Rst)\)
+  \end{itemize}
+  In other words, \(\phi\) can \emph{only} be true at accessible states, though \(\phi\) is not required to be true at accessible states.
+  Intuitively, one can `rule out' \(\lnot\phi\) while failing to establish \(\phi\).
+  Part of the interest here is the ability to capture the idea that an agent may have a partial state of information where they are able to rule out \(\lnot\phi\) being the case given the information that they have, while either:
+  \begin{itemize}
+  \item Remaining uncertain that about whether \(\phi\) is the case or \(\lnot\phi\) is the case if \(\Window \phi\) is not required to hold under extended valuations, or
+  \item Remaining uncertain about which other states will be ruled out if \(\Window \phi\) is required to hold under extended valuations.
+  \end{itemize}
+  Where an `extended valuation' simply defines additional propositional atoms given the current valuation.
+\end{note}
 
 Conditional diamond modalities are the `dual' of conditional box modalities.
 
@@ -287,7 +324,7 @@ Indeed, it is the ability to define such a modality that motivates the use of \e
 
 \begin{definition}[Global modality]
   Take \(\phi,\psi \in \Lambda\).
-  
+
   We define a global conditional modality \(\CGlobal\) as:
   \[
     \phi \CGlobal \psi \colon ((\phi \CBox \psi) \land (\lnot\phi \CWindow \lnot\psi))
@@ -493,6 +530,8 @@ This rule is termed general as it does not depend on the constraints we place on
 A pair of rules capture the main interest of the box modality.
 For convenience we make use of the defined diamond operator.
 
+We also make use of the shorthand \(\phi \CBox \Gamma\) to abbreviate \(\{\phi \CBox \gamma \mid \gamma \in \Gamma\}\), etc.
+
 \begin{prooftree}
   \Axiom\(\Gamma \fCenter\ \phi, \Delta\)
   \RightLabel{\ruleCBoxR}
@@ -547,26 +586,14 @@ For, if the truth of \(\Gamma\) and \(\phi\) guarantees the truth of some \(\del
   \end{proof}
 \end{lemma}
 
-% \begin{note}
-%   Rule \ruleCDiamondR\ can be seen as a special instance of a slightly more general rule.
-%   \begin{prooftree}
-%     \Axiom\(\Gamma, \phi \fCenter\ \Delta\)
-%     \RightLabel{\ruleCDiamondRPP}
-%     \UnaryInf\(\psi \CBox \Gamma, \psi \CDiamond \phi \fCenter\ \phi \CDiamond \Delta\)
-%   \end{prooftree}
-%   To obtain rule \ruleCDiamondR\ from \ruleCDiamondRPP\ take \(\psi\) to be \(\phi\), and note that \(\phi \CDiamond \phi\) is true just in case \(\top \CDiamond (\phi)\) is true.
-%   And, as every \(\delta \in \Delta\) can be replaced with \(\phi \land \delta\), 
-% \end{note}
-
-
-
-
 \subsection{Conditional window rules}
 \label{sec:cond-wind-rules}
 
 The semantics of the window modality are structurally the same as the box modality, with the only difference being that the window modality focuses on inaccessible states and falsity, rather than accessible states and true.
-Therefore, the sequents governing the window modality simply exchange truth for falsity.
-
+Therefore, the sequents governing the window modality simply exchange truth for falsity.\nolinebreak
+\footnote{
+  Note, \(\bot\) is defined as \(\lnot\top\).
+}
 
 \begin{prooftree}
   \Axiom\(\lnot\Gamma \fCenter\ \lnot\phi, \lnot\Delta\)
@@ -669,6 +696,64 @@ And, as with the box modalities we have a pair of supplemental rules for the kit
   \RightLabel{\ruleKiteW}
   \UnaryInf\(\fCenter\ \bot \CKite \lnot\phi\)
 \end{prooftree}
+
+Finally, a pair of tautologies:
+
+\begin{multicols}{2}
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleCBoxTaut}
+    \UnaryInf\(\fCenter\ \phi \CBox \phi\)
+  \end{prooftree}
+
+  \begin{prooftree}
+    \AxiomEmpty
+    \RightLabel{\ruleCWindowTaut}
+    \UnaryInf\(\fCenter\ \phi \CWindow \phi\)
+  \end{prooftree}
+\end{multicols}
+
+\begin{proposition}
+  Rules \ruleCBoxTaut\ and \ruleCWindowTaut\ are sound.
+  \begin{proof}
+    Immediate by the semantic clauses for the modalities.
+  \end{proof}
+\end{proposition}
+
+Rules \ruleCBoxTaut\ and \ruleCWindowTaut\ are independently useful, and also allow us to derive a pair of useful derived rules.
+
+\begin{proposition}
+  The following pair of rules, \ruleCBoxConq\ and \ruleCBoxConq, can be derived.
+
+\begin{multicols}{2}
+  \begin{prooftree}
+    \Axiom\(\phi \fCenter\ \psi\)
+    \RightLabel{\ruleCBoxConq}
+    \UnaryInf\(\fCenter\ \phi \CBox \psi\)
+  \end{prooftree}
+
+    \begin{prooftree}
+    \Axiom\(\lnot\phi \fCenter\ \lnot\psi\)
+    \RightLabel{\ruleCBoxConq}
+    \UnaryInf\(\fCenter\ \phi \CWindow \psi\)
+  \end{prooftree}
+\end{multicols}
+
+\begin{proof}
+  The derivation for both rules is analogous.
+  We provide the derivation for \ruleCBoxConq.
+    \begin{prooftree}
+    \Axiom\(\phi \fCenter\ \psi\)
+    \RightLabel{\ruleCBoxR}
+    \UnaryInf\(\phi \CBox \phi \fCenter\ \phi \CBox \psi\)
+    \AxiomEmpty
+    \RightLabel{\ruleCBoxTaut}
+    \UnaryInf\(\fCenter\ \phi \CBox \phi\)
+    \RightLabel{\ruleCut}
+    \BinaryInf\(\fCenter\ \phi \CBox \psi\)
+  \end{prooftree}
+\end{proof}
+\end{proposition}
 
 \subsection{Interaction sequents}
 \label{sec:inter-modal}
@@ -1045,14 +1130,14 @@ The canonical model if defined in a relatively straightforward way.\nolinebreak
   \item \(R^{+}\Gamma\Delta\) iff
     \begin{itemize}
     \item \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\)
-    \item \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\) %for some \(\phi \in \Delta\)
+    \item \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\)
     \end{itemize}
   \item \(R^{-}\Gamma\Delta\) iff
     \begin{itemize}
     \item \(\phi \CWindow \psi \in \Gamma\) only if \(\lnot\psi \in \Delta\) whenever \(\lnot\phi \in \Delta\)
     \item If \(\lnot\phi \in \Delta\), then \(\bot \CKite \phi \in \Gamma\)
     \end{itemize}
-  \item \(\Gamma \in \cintp{p}\) iff \(p \in \Gamma\) and \(\Gamma \in \iintp{p}\) iff \(\lnot p \in \Gamma\).
+  \item \(V(p, \Gamma) = 1\) iff \(p \in \Gamma\) and \(V(p, \Gamma) = 0\) iff \(\lnot p \in \Gamma\).
   \end{itemize}
 \end{definition}
 
@@ -1066,8 +1151,9 @@ The definitions hide this, in order to make the quantification more straightforw
   \item\label{lemmma:ext:box} If \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodBox \Delta'\)
   \item\label{lemma:ext:dia} If \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\) %for some \(\phi \in \Delta\)
     then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodBox \Delta'\)
-  \item\label{lemma:ext:win} If \(\modcou{\Window}{\Gamma} \subseteq \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodWin \Delta'\)
-  \item\label{lemma:ext:kit} If \(\Delta \subseteq \modcou{\Kite}{\Gamma}\) then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodWin \Delta'\)
+  \item\label{lemma:ext:win} If \(\phi \CWindow \psi \in \Gamma\) only if \(\lnot\psi \in \Delta\) whenever \(\lnot\phi \in \Delta\) then there exists a \(\Delta' \subseteq \Delta\) such that \(\Gamma \cmodBox \Delta'\)
+  \item\label{lemma:ext:kit} If \(\psi \in \Delta\) implies \(\bot \CDiamond \lnot\psi \in \Gamma\) %for some \(\phi \in \Delta\)
+    then there exists a \(\Delta \subseteq \Delta'\) such that \(\Gamma \cmodBox \Delta'\)
   \end{enumerate}
   \begin{proof}
     Take \(\Gamma,\Delta \in \cmodW\).
@@ -1075,40 +1161,41 @@ The definitions hide this, in order to make the quantification more straightforw
     \item[\ref{lemmma:ext:box}]
       Assume \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\).
       And, take:
-      \[
-        \Psi = \{ \psi \mid \phi \CBox \psi \in \Gamma \text{ and } \phi \in \Delta \}
-      \]
-      Informally, \(\Psi\) consists of all the consequents of conditional modalities which hold at \(\Gamma\) for which the antecedent is true at \(\Delta\).
+      \begin{itemize}
+      \item \(\modcou{\Box}{\Gamma} = \{ \psi \mid \phi \CBox \psi \in \Gamma \text{ and } \phi \in \Delta \}\)
+      \item \(\modcou{\Diamond}{\Gamma} = \{\phi \mid \top \CDiamond \phi \in \Gamma\}\)
+      \end{itemize}
+      Informally, \(\modcou{\Box}{\Gamma}\) consists of all the consequents of conditional modalities which hold at \(\Gamma\) for which the antecedent is true at \(\Delta\).
       Note that as \(\phi \CBox \phi\) for any \(\phi\),\nolinebreak
       \footnote{
         Alternatively, observe that if \(\phi \CBox \psi\) is true then \(\phi \CBox (\phi \land \psi)\) is also true.
       }
-      it will also be the case that \(\Psi\) contains all the antecedents of the respective modalities.
-      For, suppose \(\psi \in \Psi\) given \(\phi \CBox \psi \in \Gamma\) and \(\phi \in \Delta\).
-      Then, it will also be the case that \(\phi \CBox \phi \in \Gamma\), and therefore as \(\phi \in \Delta\), it is also the case that \(\psi \in \Psi\).
-      Note also that \(\Psi \subseteq \Delta\).
+      it will also be the case that \(\modcou{\Box}{\Gamma}\) contains all the antecedents of the respective modalities.
+      For, suppose \(\psi \in \modcou{\Box}{\Gamma}\) given \(\phi \CBox \psi \in \Gamma\) and \(\phi \in \Delta\).
+      Then, it will also be the case that \(\phi \CBox \phi \in \Gamma\), and therefore as \(\phi \in \Delta\), it is also the case that \(\psi \in \modcou{\Box}{\Gamma}\).
+      Note also that \(\modcou{\Box}{\Gamma} \subseteq \Delta\).
 
     Our goal is to show that:
     \begin{enumerate}
-    \item For all finite \(\Sigma\): If \(\Psi \vdash \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\)
+    \item For all finite \(\Sigma\): If \(\modcou{\Box}{\Gamma} \vdash \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\)
     \end{enumerate}
-    For, given this we know by proposition~\ref{prop:finiteness} that \(\Delta \cap \modcou{\Diamond}{\Gamma}\) is a saturator of \(\Psi\).
-    Then, by lemma~\ref{lindenbaum:left} there must be some saturated \(\Delta^{'}\) such that \(\Psi \subseteq \Delta^{'} \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\).
-    Therefore, as \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Psi\) whenever \(\phi \in \Psi\), the same holds for \(\Delta'\), and as \(\Delta' \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\) we know that \(\phi \in \Delta'\) whenever \(\top \CDiamond \phi \in \Gamma\), thus \(\Gamma R^{+}\Delta'\).
+    For, given this we know by proposition~\ref{prop:finiteness} that \(\Delta \cap \modcou{\Diamond}{\Gamma}\) is a saturator of \(\modcou{\Box}{\Gamma}\).
+    Then, by lemma~\ref{lindenbaum:left} there must be some saturated \(\Delta^{'}\) such that \(\modcou{\Box}{\Gamma} \subseteq \Delta^{'} \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\).
+    Therefore, as \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \modcou{\Box}{\Gamma}\) whenever \(\phi \in \modcou{\Box}{\Gamma}\), the same holds for \(\Delta'\), and as \(\Delta' \subseteq \Delta \cap \modcou{\Diamond}{\Gamma}\) we know that \(\phi \in \Delta'\) whenever \(\top \CDiamond \phi \in \Gamma\), thus \(\Gamma R^{+}\Delta'\).
 
-    So, suppose \(\Psi \vdash \Sigma\) for some finite \(\Sigma\).
+    So, suppose \(\modcou{\Box}{\Gamma} \vdash \Sigma\) for some finite \(\Sigma\).
 
-    {
-      \color{red}
-      If \(\Psi = \emptyset\) then this conditional is immediate, for some \(\sigma \in \Sigma\) is a tautology, and \(\Delta\) contains all tautologies given \(\Delta \in W\), and likewise so does \(\modcou{\Diamond}{\Gamma}\).
+    % {
+    %   \color{red}
+    %   If \(\modcou{\Box}{\Gamma} = \emptyset\) then this conditional is immediate, for some \(\sigma \in \Sigma\) is a tautology, and \(\Delta\) contains all tautologies given \(\Delta \in W\), and likewise so does \(\modcou{\Diamond}{\Gamma}\).
 
-      Hence, can assume that \(\Psi \ne \emptyset\), and therefore that there is some \(\phi \in \Delta\) etc.\
-    }
-    
-    As \(\Psi \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta \ne \emptyset\).
-    Rewriting, we have \(\Psi \vdash \Sigma - \Delta,\Sigma \cap \Delta\), which can be rewritten again as \(\Psi \vdash \sigma, \Sigma \cap \Delta\), where \(\sigma \coloneq \bigvee(\Sigma - \Delta)\).
-    Further, given proposition \ref{prop:finiteness} (finiteness) there must be some finite \(\Psi' \subseteq \Psi\) such that \(\Psi' \vdash \sigma, \Sigma \cap \Delta\).
-    Taking \(\psi' \coloneq \bigwedge\Psi'\), we then have \(\psi' \vdash \sigma, \Sigma \cap \Delta\).
+    %   Hence, can assume that \(\modcou{\Box}{\Gamma} \ne \emptyset\), and therefore that there is some \(\phi \in \Delta\) etc.\
+    % }
+
+    As \(\modcou{\Box}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta \ne \emptyset\).
+    Rewriting, we have \(\modcou{\Box}{\Gamma} \vdash \Sigma - \Delta,\Sigma \cap \Delta\), which can be rewritten again as \(\modcou{\Box}{\Gamma} \vdash \sigma, \Sigma \cap \Delta\), where \(\sigma \coloneq \bigvee(\Sigma - \Delta)\).
+    Further, given proposition \ref{prop:finiteness} (finiteness) there must be some finite \(\modcou{\Box}{\Gamma}' \subseteq \modcou{\Box}{\Gamma}\) such that \(\modcou{\Box}{\Gamma}' \vdash \sigma, \Sigma \cap \Delta\).
+    Taking \(\psi' \coloneq \bigwedge\modcou{\Box}{\Gamma}'\), we then have \(\psi' \vdash \sigma, \Sigma \cap \Delta\).
 
     By the application of rule \ruleCBoxR\ we obtain \(\psi' \CBox \psi' \vdash \psi' \CBox \sigma, \psi' \CDiamond(\Sigma \cap \Delta)\).\nolinebreak
     \footnote{
@@ -1120,48 +1207,25 @@ The definitions hide this, in order to make the quantification more straightforw
     }
     Therefore, \(\Gamma \vdash \psi' \CBox \sigma, \psi' \CDiamond(\Sigma \cap \Delta)\).
 
-    As \(\Gamma\) is saturated, it must be the case that either \(\psi' \CBox \sigma \in \Gamma\) or
-    {
-      \color{red}
-      There is some instance of this formula in \(\Gamma\).
-      \(\psi' \CDiamond(\Sigma \cap \Delta) \cap \Gamma \ne \emptyset\).
-    }
+    As \(\Gamma\) is saturated, it must be the case that either \(\psi' \CBox \sigma \in \Gamma\) or \(\psi' \CDiamond(\Sigma \cap \Delta) \cap \Gamma \ne \emptyset\).
 
     Suppose \(\psi' \CBox \sigma \in \Gamma\).
-    Then, as \(\psi' = \bigwedge \Psi'\), and \(\Psi' \subseteq \Psi \subseteq \Delta\) it follows that \(\sigma \in \Delta\).
+    Then, as \(\psi' = \bigwedge \modcou{\Box}{\Gamma}'\), and \(\modcou{\Box}{\Gamma}' \subseteq \Psi \subseteq \Delta\) it follows that \(\sigma \in \Delta\).
     Yet,  as \(\Delta\) is also saturated from the previous we would then have \(\phi' \in \Delta\) for some \(\phi' \in \Sigma - \Delta\).
     Therefore, it cannot be the case that \(\psi' \CBox \sigma \in \Gamma\).
 
-    {
-      \color{red}
-      So, get some instance in \(\Gamma\).
-      Therefore, get that there is some \(\delta\).
-      Therefore, get that there is some \(X \in \Delta\) such that \(X \CDiamond \delta\).
-      But then the idea is to show that this shows that there's a diamond for every \(\delta\) in the intersection.
-      Still, shown that whatever follows just from the box part, then know that can saturate with the diamonds I have.
-      This then allows me to find some \(X \in \Delta'\) which does the job.
-    }
+    % {
+    %   \color{red}
+    %   So, get some instance in \(\Gamma\).
+    %   Therefore, get that there is some \(\delta\).
+    %   Therefore, get that there is some \(X \in \Delta\) such that \(X \CDiamond \delta\).
+    %   But then the idea is to show that this shows that there's a diamond for every \(\delta\) in the intersection.
+    %   Still, shown that whatever follows just from the box part, then know that can saturate with the diamonds I have.
+    %   This then allows me to find some \(X \in \Delta'\) which does the job.
+    % }
 
-    Hence, \(\psi' \CDiamond (\Sigma \cap \Delta) \in \Gamma\).
+    Hence, \(\psi' \CDiamond (\Sigma \cap \Delta) \cap \Gamma \ne \emptyset\).
     This is equivalent to \(\Sigma \cap \Delta \cap \modcou{\Diamond}{\Gamma} \ne \emptyset\).
-    % Old proof sketch %
-    % \begin{proof}
-    %   Suppose there is some state \(\Delta\) such that if \(\phi \CBox \psi \in \Gamma\) and \(\phi \in \Delta\) then \(\psi \in \Delta\).
-    %   Take \(\Delta' = \{ \psi \mid \phi \CBox \psi \in \Gamma, \phi \in \Delta \}\).
-    %   \(\Delta' \subseteq \Delta\), in particular as if \(\phi \CBox \psi\) then \(\phi \CBox (\phi \land \psi)\).
-    %
-    %   Take an arbitrary finite \(\Sigma\) such that \(\Delta' \vdash \ast, \Sigma\).
-    %   As \(\Delta\) is saturated and \(\Delta' \subseteq \Delta\), it follows that \(\Delta \cap \Sigma \ne \emptyset\).
-    %   Hence, we can split \(\Sigma\) into two parts, those formulas which aren't in the expansion and those which are.
-    %   So, have \(\Delta' \vdash \ast, \Sigma - \Delta, \Sigma \cap \Delta\).
-    %   From this we get \(\Delta' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\) as \(\Sigma\) is finite.
-    %   Furthermore, we know that for some finite \(\Delta'' \subseteq \Delta'\) we have \(\Delta'' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\).
-    %   Hence, we have \(\bigwedge \Delta'' \vdash \ast, \bigvee(\Sigma - \Delta), \Sigma \cap \Delta\).
-    %   By the box rule, we have \(\psi \CBox \bigwedge\Delta'' \vdash \ast, \psi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\) for any \(\psi\).
-    %   Take \(\Phi = \{ \phi \mid \phi \CBox \xi \in \Gamma \text{ for } \xi \in \Delta'' \}\), in other words, recover the antecedents to which the formulas in \(\Delta''\) are consequents.
-    %   We now have \(\bigwedge\Phi \CBox \bigwedge\Delta'' \vdash \ast, \bigwedge\Phi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\).
-    %   By monotonicity and a rule for combining conditionals, we get \(\Gamma \vdash \ast, \bigwedge\Phi \CBox \bigvee(\Sigma - \Delta), \Diamond(\Sigma \cap \Delta)\), and we also know that \(\Delta' \vdash \bigwedge\Phi\), but this means that \(\Gamma \vdash  \Diamond(\Sigma \cap \Delta)\), which is what we wanted to show.
-    % \end{proof}
 
   \item[\ref{lemma:ext:dia}]
 
@@ -1227,160 +1291,10 @@ The definitions hide this, in order to make the quantification more straightforw
     }
     \end{description}
 
-    \newpage
-
-  The second pair of implications follow the same strategy as the first pair.
-
-  \begin{description}
-  \item[\ref{lemma:ext:win}]
-    Assume \(\modcou{\Window}{\Gamma} \subseteq \Delta\).
-    As with the first implication, our goal is to show:
-    \begin{enumerate}[resume]
-    \item For all finite \(\Sigma\): If \(\modcou{\Window}{\Gamma} \vdash \Sigma\) then \(\Sigma \cap \Delta \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
-    \end{enumerate}
-    Suppose \(\modcou{\Window}{\Gamma} \vdash \Sigma\) for some finite \(\Sigma\).
-    As \(\modcou{\Window}{\Gamma} \subseteq \Delta\) and \(\Delta \in \cmodW\) we have \(\Sigma \cap \Delta \ne \emptyset\), hence \(\modcou{\Window}{\Gamma} \vdash \Sigma - \Delta, \Sigma \cap \Delta\).
-    Analogous to case~\ref{lemmma:ext:box}, rewriting and appealing to the derived rule \ruleKitL\ we obtain \(\modcou{\Window}{\Gamma} \vdash \Window\lnot\sigma, \Window(\Sigma \cap \Delta)\).
-    So, if \(\Window\lnot\sigma \in \Gamma\) then \(\sigma \in \modcou{\Window}{\Gamma}\), which cannot be the case.
-    Therefore, \(\Kite(\Sigma \cap \Delta) \in \Gamma\), which is equivalent to \(\Sigma \cap \Delta \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
-
-  \item[\ref{lemma:ext:kit}]
-    Assume \(\modcou{\Kite}{\Gamma} \subseteq \Delta\).
-    As with the second implication, our goal is to show:
-    \begin{enumerate}[resume]
-    \item For all finite \(\Sigma\): If \(\modcou{\Window}{\Gamma}, \Delta \vdash \Sigma\) then \(\Sigma \cap \modcou{\Kite}{\Gamma} \ne \emptyset\).
-    \end{enumerate}
-    Analogous to the steps the second implication, suppose \(\modcou{\Window}{\Gamma}, \Delta \vdash \Sigma\) for some finite \(\Sigma\).
-    Then by proposition~\ref{prop:finiteness} we have \(\modcou{\Window}{\Gamma}, \Delta' \vdash \Sigma\) for some finite \(\Delta' \subseteq \Delta\), and hence \(\modcou{\Window}{\Gamma}, \delta' \vdash \Sigma\) where \(\delta' \coloneq \bigwedge\Delta'\).
-    By the derived rule \ruleKitL\ we obtain \(\Gamma, \Kite\lnot\delta' \vdash \Kite\Sigma\).
-    As \(\Delta\) is saturated, \(\delta' \in \Delta\), and as \(\Delta \subseteq \modcou{\Kite}{\Gamma}\) this means \(\Kite\lnot\delta' \in \Gamma\).
-    So, \(\modcou{\Window}{\Gamma} \vdash \Sigma\).
-    \end{description}
+    The second pair of implications follow the same strategy as the first pair.
   \end{proof}
 \end{lemma}
 
-\newpage
-
-\begin{lemma}
-  If \(\Gamma R^{+} \Delta\) then either \(\Delta R^{+} \Gamma\) or \(\Delta R^{-} \Gamma\).
-  \begin{proof}
-    Assume \(\Gamma R^{+} \Delta\).
-    Therefore:
-    \begin{itemize}
-    \item \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\), and
-    \item \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\).
-    \end{itemize}
-
-    Cases.
-    If it is not the case that \(\Delta R^{+} \Gamma\) then \(\Delta R^{-} \Gamma\), and if it is not the case that \(\Delta R^{-} \Gamma\) then \(\Delta R_{+} \Gamma\).
-
-    Suppose it is not the case that \(\Delta R^{+} \Gamma\).
-    Then, either
-    \begin{itemize}
-    \item There is some \(\phi' \CBox \psi' \in \Delta\) such that \(\psi' \in \Gamma\) but \(\phi' \notin \Gamma\), or
-    \item \(\psi' \in \Gamma\) but \(\top \CDiamond \psi' \notin \Delta\).
-    \end{itemize}
-
-    \begin{description}
-    \item[\textbf{Former}]\mbox{ }
-
-      Assume there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
-
-      Goal is to show \(\Delta R^{-} \Gamma\):
-      \begin{enumerate}
-      \item \(\phi \CWindow \psi \in \Delta\) only if \(\lnot\psi \in \Gamma\) whenever \(\lnot\phi \in \Gamma\)
-      \item If \(\lnot\phi \in \Gamma\), then \(\bot \CKite \phi \in \Delta\).
-      \end{enumerate}
-
-      By assumption, we know that there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
-
-      
-
-      \begin{description}
-      \item[1.]\mbox{ }
-
-        Take \(\phi \CWindow \psi \in \Delta\) such that \(\lnot\phi \in \Gamma\). Our task is to show that \(\lnot\psi \in \Gamma\).
-
-        By appealing to both assumptions we have \(\Delta \vdash \phi' \CBox \psi'\), and \(\Delta \vdash \phi \CWindow \psi\).
-
-        Therefore, by rule \ruleCBoxWindowGlobal\ we have \(\Delta \vdash (\phi' \land \lnot\phi \CGlobal (\psi' \lor \lnot\psi))\).
-
-        Hence, \(\Delta \vdash (\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)\).
-
-        Therefore, \(\top \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)) \in \Gamma\).
-
-        So, \(((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)) \in \Gamma\) by rule \ruleDGE.
-
-        And, therefore, as \(\phi' \land \lnot\phi \in \Gamma\), either \(\psi' \in \Gamma\) or \(\lnot\psi \in \Gamma\). By assumption, \(\psi' \notin \Gamma\) and therefore \(\lnot\psi \in \Gamma\).
-
-        
-      \item[2.]\mbox{ }
-
-        Assume \(\lnot\phi \in \Gamma\).
-
-        Again \(\Delta \vdash \phi' \CBox \psi'\).
-
-        Therefore, by \ruleP\ we have \(\Delta \vdash \bot \CKite \psi, (\phi' \land \lnot\psi) \CGlobal \psi'\).
-
-        Assume, \(\Delta \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\).
-        Then it follows that \(\Gamma \vdash \top \CDiamond ((\phi' \land \lnot\psi) \CGlobal \psi')\).
-        Hence, by rule \ruleDGE\ we have \(\Gamma \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\).
-        As \(\lnot\phi \in \Gamma\) and \(\phi' \in \Gamma\) we know \(\Gamma \vdash \lnot\phi \land \phi'\).
-        Therefore, as \(\Gamma \vdash \lnot\phi \land \phi'\) and \(\Gamma \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\) we have by rule \ruleGE\ that \(\Gamma \vdash \phi'\).
-        From this it follows that \(\phi' \in \Gamma\), contradicting our assumption that there is some \(\phi' \CBox \psi' \in \Delta\) such that \(\psi' \in \Gamma\) but \(\phi' \notin \Gamma\).
-          So, it must be the case that \(\Delta \vdash \bot \CKite \psi\).
-      \end{description}
-
-    \item[\textbf{Latter}]\mbox{ }
-
-      Assume \(\psi' \in \Gamma\) but \(\top \CDiamond \psi' \notin \Delta\).
-
-      Goal is to show \(\Delta R^{-} \Gamma\):
-      \begin{enumerate}
-      \item \(\phi \CWindow \psi \in \Delta\) only if \(\lnot\psi \in \Gamma\) whenever \(\lnot\phi \in \Gamma\)
-      \item If \(\lnot\phi \in \Gamma\), then \(\bot \CKite \phi \in \Delta\).
-      \end{enumerate}
-
-      By assumption, we know that there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
-
-      Hence, \(\Delta \vdash \phi' \CBox \psi'\), and \(\Delta \vdash \phi \CWindow \psi\).
-
-      \begin{description}
-
-      \item[1.]
-
-        Assume \(\phi \CWindow \psi \in \Delta\).
-        Hence, \(\Delta \vdash \phi \CWindow \psi\) and so by rule \rulePP\ we know that \(\Delta \vdash \top \CDiamond \psi', (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
-        From our assumption it follows immediately that \(\Delta \vdash (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
-        Therefore, \(\Gamma \vdash \top \CDiamond ((\lnot\phi \land \psi') \CGlobal \lnot\psi)\), and hence \(\Gamma \vdash (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
-        Therefore, if \(\Gamma \vdash \lnot\phi\), then we know \(\Gamma \vdash \lnot\phi \land \psi'\), from which it follows that \(\Gamma \vdash \lnot\psi\).
-
-      \item[2.]
-
-        Assume \(\lnot\phi \in \Gamma\).
-        Our goal is to show that \(\bot \CKite \phi \in \Delta\).
-        As \(\Gamma \vdash \lnot\phi\) and \(\Gamma \vdash \psi'\) we have \(\Gamma \vdash \lnot\phi \land \psi'\)
-
-        So, by rule \ruleGDiamond\ we have that \(\Gamma \vdash \top \CGlobal (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
-        And, therefore \(\Delta \vdash \top \CGlobal (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
-        So, by rule \ruleGE\ we know that \(\Delta \vdash (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
-
-        Suppose \(\Delta \vdash \top \CDiamond (\lnot\phi \land \psi'))\).
-        Then by rule \ruleDiamondW\ we obtain \(\Delta \vdash \top \CDiamond \psi')\).
-        Yet, we have assumed that \(\Delta \nvdash \top \CDiamond \psi'\).
-        Hence, \(\Delta \vdash \bot \CKite \lnot(\lnot\phi \land \psi')\).
-        Rewriting, we obtain \(\Delta \vdash \bot \CKite (\phi \lor \lnot\psi')\), and therefore by \ruleKiteW\ we have \(\Delta \vdash \bot \CKite \phi\)
-      \end{description}
-
-      At this point we have shown that if \(\Gamma R^{+} \Delta\) then, if it is not the case that \(\Delta R^{+} \Gamma\) then it is the case that \(\Delta R^{-} \Gamma\).
-    \end{description}
-
-  \end{proof}
-\end{lemma}
-
-
-
-\newpage
 
 We now establish the standard truth lemma for the canonical model.\nolinebreak
 \footnote{If our model were to include right-saturated sets, we would require an additional truth lemma establishing that\(\Gamma \vDash \phi\) iff \(\lnot\phi \in \Gamma\) and \(\Gamma \Dashv \phi\) iff \(\phi \in \Gamma\).}
@@ -1404,11 +1318,8 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
       Our goal is to show that there is some \(\Delta\) such that \(R^{+}\Gamma\Delta\) and \(\Delta \vDash \phi\) but \(\Delta \nvDash \psi\).
 
       As \(\phi \CBox \psi \notin \Gamma\), we know that \(\phi \nvdash \psi\).
-      {
-        \color{red}
-        For, if \(\phi \vdash \psi\) then \(\vdash \phi \CBox \psi\) must hold.
-        Though, I need to show this.
-      }
+      For, if \(\phi \vdash \psi\) then \(\vdash \phi \CBox \psi\) must hold by (derived) rule \ruleCBoxConq.
+
       By corollary~\ref{col:saturation} we know that we can find some saturated set \(X\) such that \(\phi \in X\) and \(\psi \notin X\).
       Furthermore, if it is the case that \(\alpha \CBox \beta \in \Gamma\) implies that \(\beta \in X\) whenever \(\alpha \in X\), then by lemma~\ref{lem:modal-existence} there must be some \(X' \subseteq X\) such that \(R^{+}\Gamma X'\).
       Therefore, our goal is to find some \(X\) satisfies this additional constraint.
@@ -1483,189 +1394,128 @@ We now establish the standard truth lemma for the canonical model.\nolinebreak
   \end{proof}
 \end{lemma}
 
-\newpage
+Our final task is to show that \(R^{+} \cup R^{-}\) forms an equivalence relation.
+This is a matter of providing appropriate axioms, and the first case of symmetry is presented below to demonstrate how this would be done.
 
+\begin{lemma}
+  If \(\Gamma R^{+} \Delta\) then either \(\Delta R^{+} \Gamma\) or \(\Delta R^{-} \Gamma\).
+  \begin{proof}
+    Assume \(\Gamma R^{+} \Delta\).
+    Therefore:
+    \begin{itemize}
+    \item \(\phi \CBox \psi \in \Gamma\) only if \(\psi \in \Delta\) whenever \(\phi \in \Delta\), and
+    \item \(\psi \in \Delta\) implies \(\top \CDiamond \psi \in \Gamma\).
+    \end{itemize}
 
-\newpage
+    Cases.
+    If it is not the case that \(\Delta R^{+} \Gamma\) then \(\Delta R^{-} \Gamma\), and if it is not the case that \(\Delta R^{-} \Gamma\) then \(\Delta R_{+} \Gamma\).
 
-\section{A different idea}
-\label{sec:different-idea}
+    Suppose it is not the case that \(\Delta R^{+} \Gamma\).
+    Then, either
+    \begin{itemize}
+    \item There is some \(\phi' \CBox \psi' \in \Delta\) such that \(\psi' \in \Gamma\) but \(\phi' \notin \Gamma\), or
+    \item \(\psi' \in \Gamma\) but \(\top \CDiamond \psi' \notin \Delta\).
+    \end{itemize}
 
-\begin{definition}[Conditional modalities]
-  Take \(\phi,\psi \in \olang{}\).
-  \begin{enumerate}
-  \item \(M,s \vDash \phi \CBox \psi\) iff \(\forall t((Rst \land M,t \vDash \phi) \Rightarrow M,t \vDash \psi)\)
-  \item \(M,s \Dashv \phi \CBox \psi\) iff \(\exists t(Rst \land M,t \vDash \phi \land M,t \Dashv \psi)\)
-  \item \(M,s \vDash \phi \CWindow \psi\) iff \(\forall t((\lnot Rst \land M,t \Dashv \phi) \Rightarrow M,t \Dashv \psi)\)
-  \item \(M,s \Dashv \phi \CWindow \psi\) iff \(\exists t(\lnot Rst \land M,t \Dashv \phi \land M,t \vDash \psi)\)
-  \end{enumerate}
-\end{definition}
+    \begin{description}
+    \item[\textbf{Former}]\mbox{ }
 
-The intuition here is that these are the same modalities but with a conditional reading.
-This is somewhat intuitive for the standard modality.
-However, for window, there doesn't seem to be a way to understand this \emph{other} than thinking of this via an instance of the non-conditional case.
-Something like, if you can access all \(\phi\) states, then you can access all \(\psi\) states.
-But it's not clear to me this is the correct reading.
-It's more like you're able to rule out \(\phi\), so if you can rule out \(\phi\) then you know that \(\psi\) is satisfactory.
+      Assume there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
 
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t((\lnot Rst \land M,t \Dashv \phi) \Rightarrow M,t \Dashv \psi)
-\]
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(M,t \not\Dashv \psi \Rightarrow  (Rst \lor M,t \not\Dashv \phi))
-\]
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot Rst \Rightarrow (M,t \Dashv \phi \Rightarrow M,t \Dashv \psi))
-\]
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot Rst \Rightarrow (M,t \not\Dashv \psi \Rightarrow M,t \not\Dashv \phi))
-\]
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t(\lnot(M,t \not\Dashv \psi \Rightarrow M,t \not\Dashv \phi) \Rightarrow Rst)
-\]
-\[
-  M,s \vDash \phi \CWindow \psi\text{ iff }\forall t((M,t \not\Dashv \psi \land M,t \Dashv \phi) \Rightarrow Rst)
-\]
+      Goal is to show \(\Delta R^{-} \Gamma\):
+      \begin{enumerate}
+      \item \(\phi \CWindow \psi \in \Delta\) only if \(\lnot\psi \in \Gamma\) whenever \(\lnot\phi \in \Gamma\)
+      \item If \(\lnot\phi \in \Gamma\), then \(\bot \CKite \phi \in \Delta\).
+      \end{enumerate}
 
+      By assumption, we know that there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
 
-To say that every \(\phi\) state is accessible, write \(\bot \CWindow \lnot\phi\).
-But, this is a little stronger, as it gives a monotonic condition, ensuring that no matter how information develops, \(\phi\) can only every be something satisfactory.
+      \begin{description}
+      \item[1.]\mbox{ }
 
-The better formulation may be:
-\[
-  M,s \vDash \lnot\phi \CWindow \psi\text{ iff }\forall t((M,t \not\Dashv \psi \land M,t \vDash \phi) \Rightarrow Rst)
-\]
-So, wherever you go, if \(\phi\) holds, then you can add \(\psi\) to this and still be satisfactory.
-This suggests I probably do want to tweak the definition so that the antecedent requires truth.
-Then, it's a more straightforward condition, if \(\phi\) holds, then adding \(\psi\) cannot lead to an unsatisfactory state, though \(\psi\) need not hold.
-\(\CBox\) then states a kind of natural consequence idea, whenever \(\phi\) holds, \(\psi\) also holds, and hence I know that if I'm considering \(\phi\) I'm also considering \(\psi\), whereas \(\CWindow\) is like a safety condition, if I'm considering \(\phi\) then I don't need to worry about \(\psi\).
+        Take \(\phi \CWindow \psi \in \Delta\) such that \(\lnot\phi \in \Gamma\). Our task is to show that \(\lnot\psi \in \Gamma\).
+
+        By appealing to both assumptions we have \(\Delta \vdash \phi' \CBox \psi'\), and \(\Delta \vdash \phi \CWindow \psi\).
+
+        Therefore, by rule \ruleCBoxWindowGlobal\ we have \(\Delta \vdash (\phi' \land \lnot\phi \CGlobal (\psi' \lor \lnot\psi))\).
+
+        Hence, \(\Delta \vdash (\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)\).
+
+        Therefore, \(\top \CDiamond ((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)) \in \Gamma\).
+
+        So, \(((\phi' \land \lnot\phi) \CGlobal (\psi' \lor \lnot\psi)) \in \Gamma\) by rule \ruleDGE.
+
+        And, therefore, as \(\phi' \land \lnot\phi \in \Gamma\), either \(\psi' \in \Gamma\) or \(\lnot\psi \in \Gamma\). By assumption, \(\psi' \notin \Gamma\) and therefore \(\lnot\psi \in \Gamma\).
+
+      \item[2.]\mbox{ }
+
+        Assume \(\lnot\phi \in \Gamma\).
+
+        Again \(\Delta \vdash \phi' \CBox \psi'\).
+
+        Therefore, by \ruleP\ we have \(\Delta \vdash \bot \CKite \psi, (\phi' \land \lnot\psi) \CGlobal \psi'\).
+
+        Assume, \(\Delta \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\).
+        Then it follows that \(\Gamma \vdash \top \CDiamond ((\phi' \land \lnot\psi) \CGlobal \psi')\).
+        Hence, by rule \ruleDGE\ we have \(\Gamma \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\).
+        As \(\lnot\phi \in \Gamma\) and \(\phi' \in \Gamma\) we know \(\Gamma \vdash \lnot\phi \land \phi'\).
+        Therefore, as \(\Gamma \vdash \lnot\phi \land \phi'\) and \(\Gamma \vdash (\phi' \land \lnot\psi) \CGlobal \psi'\) we have by rule \ruleGE\ that \(\Gamma \vdash \phi'\).
+        From this it follows that \(\phi' \in \Gamma\), contradicting our assumption that there is some \(\phi' \CBox \psi' \in \Delta\) such that \(\psi' \in \Gamma\) but \(\phi' \notin \Gamma\).
+          So, it must be the case that \(\Delta \vdash \bot \CKite \psi\).
+      \end{description}
+
+    \item[\textbf{Latter}]\mbox{ }
+
+      Assume \(\psi' \in \Gamma\) but \(\top \CDiamond \psi' \notin \Delta\).
+
+      Goal is to show \(\Delta R^{-} \Gamma\):
+      \begin{enumerate}
+      \item \(\phi \CWindow \psi \in \Delta\) only if \(\lnot\psi \in \Gamma\) whenever \(\lnot\phi \in \Gamma\)
+      \item If \(\lnot\phi \in \Gamma\), then \(\bot \CKite \phi \in \Delta\).
+      \end{enumerate}
+
+      By assumption, we know that there is some \(\phi' \CBox \psi \in \Delta\) such that \(\psi' \notin \Gamma\) but \(\phi' \in \Gamma\).
+
+      Hence, \(\Delta \vdash \phi' \CBox \psi'\), and \(\Delta \vdash \phi \CWindow \psi\).
+
+      \begin{description}
+
+      \item[1.]
+
+        Assume \(\phi \CWindow \psi \in \Delta\).
+        Hence, \(\Delta \vdash \phi \CWindow \psi\) and so by rule \rulePP\ we know that \(\Delta \vdash \top \CDiamond \psi', (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
+        From our assumption it follows immediately that \(\Delta \vdash (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
+        Therefore, \(\Gamma \vdash \top \CDiamond ((\lnot\phi \land \psi') \CGlobal \lnot\psi)\), and hence \(\Gamma \vdash (\lnot\phi \land \psi') \CGlobal \lnot\psi\).
+        Therefore, if \(\Gamma \vdash \lnot\phi\), then we know \(\Gamma \vdash \lnot\phi \land \psi'\), from which it follows that \(\Gamma \vdash \lnot\psi\).
+
+      \item[2.]
+
+        Assume \(\lnot\phi \in \Gamma\).
+        Our goal is to show that \(\bot \CKite \phi \in \Delta\).
+        As \(\Gamma \vdash \lnot\phi\) and \(\Gamma \vdash \psi'\) we have \(\Gamma \vdash \lnot\phi \land \psi'\)
+
+        So, by rule \ruleGDiamond\ we have that \(\Gamma \vdash \top \CGlobal (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
+        And, therefore \(\Delta \vdash \top \CGlobal (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
+        So, by rule \ruleGE\ we know that \(\Delta \vdash (\top \CDiamond (\lnot\phi \land \psi')) \lor (\bot \CKite \lnot(\lnot\phi \land \psi'))\).
+
+        Suppose \(\Delta \vdash \top \CDiamond (\lnot\phi \land \psi'))\).
+        Then by rule \ruleDiamondW\ we obtain \(\Delta \vdash \top \CDiamond \psi')\).
+        Yet, we have assumed that \(\Delta \nvdash \top \CDiamond \psi'\).
+        Hence, \(\Delta \vdash \bot \CKite \lnot(\lnot\phi \land \psi')\).
+        Rewriting, we obtain \(\Delta \vdash \bot \CKite (\phi \lor \lnot\psi')\), and therefore by \ruleKiteW\ we have \(\Delta \vdash \bot \CKite \phi\)
+      \end{description}
+
+      At this point we have shown that if \(\Gamma R^{+} \Delta\) then, if it is not the case that \(\Delta R^{+} \Gamma\) then it is the case that \(\Delta R^{-} \Gamma\).
+    \end{description}
+
+  \end{proof}
+\end{lemma}
+
 
 \newpage
 
 \hfill
 \printbibliography
-
-
-
-\newpage
-
-\subsection{Still stuck on completeness}
-\label{sec:still-stuck-compl}
-
-If I know that \(\modcou{\Box}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Window}{\Gamma}\) then I know that \(\modcou{\Diamond}{\Gamma} \subseteq \Gamma\) or \(\modcou{\Kite}{\Gamma}\) via the rules:
-\[
-  \phi,\Window\lnot\psi \vdash \psi \lor \Diamond\phi \quad \phi,\Box\psi \vdash \psi \lor \Kite\lnot\phi
-\]
-These are sound, because if \(\phi, \Window\lnot\psi\) are true at some state, then either the state is accessible and so \(\Diamond\phi\) holds, or the state is inaccessible and \(\psi\) holds.
-Hence, when I know that one of the initial conditions obtains, I can get the other, at least with \(\Gamma\).
-
-\[\Diamond\phi \land \Diamond\Window\lnot\psi \vdash \Diamond(\phi \land \psi), \Diamond(\Window\lnot\psi \land \Kite\lnot\phi)\]
-
-From this I see that the \(\Window\lnot\psi\) state considers the \(\phi\) state either accessible or inaccessible, at least as far as the semantics goes.
-That is, if the frame does not satisfy the condition then there's a counterexample to this.
-For, take \(\phi\) to be an atom and suppose it only holds at a single state, and take some state with \(q\) holding at all inaccessible states.
-Then if the window state doesn't consider the \(p\) state accessible, the latter disjunct won't hold, and if the \(p\) state isn't accessible then \(q\) won't hold with \(p\).
-
-Same kind of frame idea and I can see
-\[
-  p \vdash \Box(\Diamond p \lor \Kite p)
-\]
-Must hold.
-
-All of this is fine, but it only shows me that I am able to rule out a frame if I have arbitrary valuations are available to me.
-This doesn't clearly establish anything about the canonical model, where I have a specific valuation.
-
-
-\[
-  \Diamond\Window\lnot\psi, \phi \vdash \psi, \Diamond\Diamond\phi
-\]
-As, the window world either considers the current world inaccessible and therefore \(\psi\) must hold, or the current world is accessible, and hence it's possible to go somewhere else and come back via the accessibility relation.
-This doesn't force any accessible saturated set to include relevant diamond formulas, but it does mean that form the root world I can't rule out adding those diamond formulas to any saturated set which doesn't consider the root inaccessible.
-
-The above can be strengthened to include additional depth.
-\[
-  \Diamond\Window\lnot\psi, \Diamond\Diamond\Window\lnot\psi, \phi \vdash \psi, \Diamond\Diamond\phi \land \Diamond\Diamond\Diamond\phi
-\]
-In fact, the number of diamonds prefixing the window modality correspond to the number of diamonds prefixing the formula true at the state plus one.
-
-So, if I can build up some accessible state to ensure that the root is accessible from it, then I can likewise build up any other accessible state which accesses the pre-built-up state.
-
-This also works for kite modalities.
-Basically, it I can access a state which requires \(\psi\) at all inaccessible states, and \(\psi\) isn't true at the present state, then I can simply substitute the \(\Window\lnot\psi\) for a \(\Diamond\phi\).
-\[
-  \Diamond\Kite\lnot\Window\lnot\psi, \phi \vdash \psi, \Diamond\Kite\lnot\Diamond\phi \quad
-  \Diamond\Diamond\Window\lnot\psi, \phi \vdash \psi, \Diamond\Diamond\Diamond\phi
-\]
-So, I get an infinite axiom schema of this form, whether I need this is unclear, but the initial cases sure seem useful.
-
-The intuition here is that walking through the diamond modalities, I'm always one optional step away from returning to the current state, and that's all that's required.
-
-So, if I have the potential to build up a saturated set, then I also see that any path I can take toward this set can be built up in a similar fashion.
-
-The following axiom captures something of the connectedness requirement, and is a generalisation of the \(.3\) axiom of normal modal logic.
-\[
-  \Diamond\phi,
-  \Some\psi
-  \vdash
-  \Diamond(\phi \land \Diamond(\psi \land \Diamond\phi)),
-  \Diamond(\phi \land \Diamond(\psi \land \Kite\lnot\phi)),
-  \Diamond(\phi \land \psi),
-  \Diamond(\phi \land \Kite\lnot(\psi \land \Diamond\phi)),
-  \Diamond(\phi \land \Kite\lnot(\psi \land \Kite\lnot\phi))
-\]
-Hence, \(\Diamond\psi\) could be replaced with \(\Some\psi\), as the fact that \(\psi\) is accessible doesn't really do much.
-
-It's possible to break down a conjunction in the somewhere modality.
-\[
-  \Some(\phi \land \psi) \vdash \Diamond\phi, \Kite\lnot\psi
-\]
-
-The \(.3\) alternative can be slightly strengthened in the case of modalities, as the `same state' case can be covered implicitly.
-
-\[
-  \Diamond(p \land \Window\lnot\psi),
-  \Diamond(r \land \Window\lnot\chi)
-  \vdash
-  \begin{cases*}
-    \Diamond(p \land \Window\lnot\psi \land \Diamond(r \land \Window\lnot\chi \land \Diamond(p \land \Window\lnot\psi))),&\\
-    \Diamond(p \land \Window\lnot\psi \land \chi \land \Diamond(r \land \Window\lnot\chi \land \Kite\lnot(p \land \Window\lnot\psi))),&\\
-\Diamond(p \land \Window\lnot\psi \land \Kite\lnot(r \land \psi \land \Window\lnot\chi \land \Diamond(p \land \Window\lnot\psi))),&\\
-\Diamond(p \land \Window\lnot\psi \land \chi \land \Kite\lnot(r \land \psi \land \Window\lnot\chi \land \Kite\lnot(p \land \Window\lnot\psi)))&\\
-  \end{cases*}
-\]
-The basic idea here can be generalised to cover both boxes and windows, and therefore, it seems reasonable to conjecture that a schema of this kind leads to a relatively straightforward proof in the case of a finite language.
-
-
-For the reflexivity of the joint relation, I have:
-\begin{prooftree}
-  \AxiomEmpty
-  \UnaryInf\(\phi, \Window\lnot\psi \fCenter\ \psi \lor \Diamond\phi\)
-\end{prooftree}
-
-
-\newpage
-
-\begin{proposition}
-  The following rules are derivable:
-  \begin{multicols}{2}
-    \begin{prooftree}
-      \Axiom\(\Gamma,\lnot\phi \fCenter\ \lnot\Delta\)
-      \RightLabel{\ruleBoxLP}
-      \UnaryInf\(\Box\Gamma,\lnot\Box\phi \fCenter\ \lnot\Box\Delta\)
-    \end{prooftree}
-
-  \begin{prooftree}
-    \Axiom\(\Gamma,\phi \fCenter\ \Delta\)
-    \RightLabel{\ruleDiaL}
-    \UnaryInf\(\Box\Gamma,\Diamond\phi \fCenter\ \Diamond\Delta\)
-  \end{prooftree}
-\end{multicols}
-
-  \begin{proof}
-    By applying the contraposition rule.
-  \end{proof}
-\end{proposition}
-\citeauthor{Jaspars:1996aa} require \ruleBoxLP\ to be taken as a separate rule due to the consequence relation they use.
 
 
 \end{document}

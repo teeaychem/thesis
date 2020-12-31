@@ -1,0 +1,527 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage{luatexja}
+
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+   \usepackage{microtype}
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves on amsmaths/mtpro2
+\usepackage{xfrac}
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,
+  % allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[itemize]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+\usepackage{subcaption}
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage{pifont}
+\newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+\usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,positioning,calc}
+\usetikzlibrary{arrows.meta}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+\usepackage{FuturePromisedEvents}
+
+\usepackage{svg}
+\usepackage[off]{svg-extract}
+\svgsetup{clean=true}
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\usepackage{contour}
+% \usepackage{pdfrender}
+
+\usepackage{extarrows}
+
+% % % My commands % % %
+
+% % % % % % % % % % % %
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{Promised Futures}
+\author{Ben Sparkes}
+% \date{ }
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section*{Outline}
+\label{sec:outline}
+
+\begin{itemize}
+\item Puzzle
+\item Two pieces to the puzzle:
+  \begin{itemize}
+  \item `Can'
+  \item Futures/Anticipation
+  \end{itemize}
+\end{itemize}
+
+
+\begin{itemize}
+\item Includes a fairly straightforward account of non-voluntarism, if a link between anticipation and belief is assumed.
+\end{itemize}
+
+
+\begin{itemize}
+\item There are ways to complicate the basic puzzle.
+\item The hypothesis here is that these are explained by the link between anticipation and action.
+\item I assume a simple picture, where the agent is permitted to act on an anticipated proposition, but this isn't always going to be the case.
+\item When this fails, it is due to limitations placed on what an agent can do with an anticipated proposition, rather than limitations on anticipation.
+\end{itemize}
+
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+Line between testimony and \emph{something}.
+This `something' is perhaps `confirmation of ability'.
+
+If testimony, then the testifier is part of the justification.
+
+Simple example: two people of different heights.
+Shorter person reaches up and touches the ceiling, taller person learns that they can touch the ceiling.
+Straightforward deduction, barring something strange.
+
+Calculation example.
+Touching the ceiling wasn't shared, the answer here is shared.
+On the one had testimony, as this is new information, etc.\
+On the other hand, it is the same as the ceiling, and it's the proposition that's different.
+
+Here, set up as a straightforward case of `testimony'.
+Shay touches the ceiling.
+Learn this via observation, and also that Taylor can touch the ceiling.
+
+Here, Taylor is confident they can touch the ceiling because they have been informed that Shay can touch the ceiling.
+However, the support for Taylor being able to touch the ceiling is independent.
+Taylor's ability to touch the ceiling is independent from Shay's ability to touch the ceiling.
+For, if we keep Taylor and the ceiling fixed, then Shay's height can vary without affecting whether Taylor can touch the ceiling.
+Shay's action allowed Taylor to do a simple piece of reasoning.
+The difference is between \emph{how} Taylor came to be confident and \emph{why} Taylor is confident.
+
+The argument here is that we're talking about ability.
+Hence, we're talking about what Taylor can do.
+Shay's reach doesn't need to factor into this.
+That is, the ability is based on it being possible for Taylor to reach up and touch the ceiling.
+It would be true regardless of Shay's height.
+How things are set up all for Taylor to construct a witnessing event.
+
+Suppose Taylor touches the ceiling.
+Taylor constructs a witnessing event.
+Then the how and why is the same.
+
+Suppose Shay states `Taylor can touch the ceiling'.
+Taylor doesn't have access to an independent verification, so the how and why is testimony.
+It may be the case that the ceiling can be raised and lowered.
+So, there's this additional variable that needs to be added to make the `can' statement true, but Taylor doesn't have access to this.
+Need something that goes beyond what Taylor is aware of to construct a witnessing event.
+So how and why is the same.
+
+
+
+
+`X Calculated'
+
+`Y Can calculate'
+
+The first statement allows a move from: `Can calculate' to `can calculate that the solution is \dots'
+
+The question is how and why.
+The statement involving the solution would not be made without appealing to the statement made by the companion.
+However, the agent has all the information, and is able to do simple addition and multiplication.
+Hence, the agent is able to witness the calculation independently.
+There is nothing hidden.\nolinebreak
+\footnote{
+  This is not the same as typing in some integration into a computer program, where it may be solved using some techniques that the agent has not mastered.
+}
+So, the reason \emph{why} the statement is true does not reference the companion.
+Yet, without the companion the agent would not be aware that the statement is true prior to doing the calculation.
+
+The basic problem here is that if the statement is true then it is true independently of the companion.
+Yet, recognition that the statement is true depends on the companion.\nolinebreak
+\footnote{
+  This is different from hidden information, so I should probably rework the ceiling example.
+  Or, perhaps the observation is that one can avoid this problem by making it clear that testimony is part of why due to hidden information.
+}
+
+{
+  \color{red}
+  Something is missing here.
+  It's typically the case that \(\phi\) is independent of being informed that \(\phi\).
+  However, being informed that \(\phi\) does not provide support for \(\phi\), independent of being informed.
+  So, the difference to more standard cases is that with ability the agent is aware that they can support \(\phi\) independently of being informed.
+  However, that they are able to support independently still relies on the agent being informed that they have the ability.
+
+  \begin{itemize}
+  \item \(\phi\) is true but you do not know it.
+  \item \(\phi\) is true and you needed me to tell you.
+  \item \(\phi\) is true but you did not need me to tell you.
+  \end{itemize}
+  The second is a variation on the first.
+}
+
+{
+  \color{red}
+  Could possibly include the diagram here.
+}
+
+
+{
+  \color{red}
+  Interested in attitude.
+  Kind of like belief, and if we take the standard belief/desire dichotomy there this is a kind of belief.
+  Still, preference is to sketch out an attitude and then see whether it reduces to belief, or to any other recognised attitude.
+  \emph{Anticipate}, in the sense the agent anticipates support.
+  This is the main feature of the attitude.
+
+  Restructure the above scenarios.
+}
+
+
+
+
+
+Question is whether this relation is mirrored in the use of ability.
+Whether in performing the act one relies on the ability, while the licence to perform the act rests on something else.
+
+
+{
+  \color{red}
+  This is \emph{almost} the right question.
+  The idea is that there's no way to avoid the fact that access is grated by the companion.
+
+  Maybe an observation to make here is that there are two why questions.
+  So why is the statement true, and why is the agent confident that the statement is true.
+  Then the issue is whether \dots but this would be hard, as I think I need confidence to support the conditionals that I have in mind.
+  Because, it doesn't seem clear that the ability allows the agent to speculate independently of whether they recognise that they have the ability.
+  Though this is tricky.
+  For, there's a difference between being able to demonstrate that one is rational (so to speak) and being rational.
+  So, I make the correct move in a game of chess, and one considers whether this is criticisable.
+  Well, it was the right move, but I cannot demonstrate that it was not the wrong move.
+  Hence, from my standpoint rationality is not guaranteed, though it was in fact rational.
+  Even so, the testimony of the agent is still going to do some work is licensing the act.
+  Yet, in acting one appeals only to the ability?
+
+  So, the question is how this relates to acting.
+  Whether there's a difference between support licensing the act, and between support for the act.
+  Argument is that there is a difference.
+}
+
+
+
+
+
+
+
+Here, \emph{how} and \emph{why} may be the same.
+
+
+
+On the one hand, the result is independent.
+On the other, ability.
+
+Like the ceiling case, but the proposition is the same.
+
+
+
+
+\section{Can}
+\label{sec:can}
+
+\begin{itemize}
+\item Interest is in the agent's ability to reason.
+\item Conceptual, rather than semantic, so while we use `can' for simplicity, this isn't an account of `can'.
+\item Modal, so restricted possibility of a kind.
+  Link to ability modals.
+  Do not claim that the concept is the same as ability modals --- due to (lack of) focus on action.
+\item Target is specific ability, but motivation from general considerations.
+\item The approach avoids being ad-hoc/overfitting, and allows us to leverage general observations about ability.
+  \begin{itemize}
+  \item It's not immediate that general observations hold for specific cases, so this is something of a balancing act.
+    That is, observe for some ability, show the same holds for reasoning, etc.\
+  \end{itemize}
+\end{itemize}
+
+\begin{scenario}[Crossword puzzle (static)]
+  \begin{itemize}
+  \item Crossword puzzle.
+  \item Can\(_{\forall}\), because the agent has some skill, knows the vocab, will correct mistakes, etc.
+  \item Can\(_{\exists}\), because the agent has some skill, but they might get stuck with a wrong entry and be convinced that they don't know the vocab for other entries.
+  \item Not can\(_{\forall}\), because ``same as above''
+  \item Not can \(_{\exists}\), because the agent doesn't have the vocabulary.
+  \end{itemize}
+  \begin{itemize}
+  \item Can\(_{\forall}\) implies can\(_{\exists}\), not conversely.
+  \item The difference is in how the agent responds to the development of the solution.
+  \end{itemize}
+\end{scenario}
+
+\begin{itemize}
+\item The scenario applies to Lewis.
+\item Mistaken inference on some piece of information, wouldn't happen if ordered differently.
+\item Lewis is confident that they can\(_{\forall}\) reason, by stipulation.
+\end{itemize}
+
+In the static scenario, it is only the agent's own actions that develop the scenario.
+Static, because the confounder doesn't change.
+Dynamic, where the confounder does change.
+
+\begin{scenario}[Dynamic]
+  \begin{itemize}
+  \item Tennis players.
+  \item Vary the skill of player \(B\).
+  \end{itemize}
+\end{scenario}
+
+\begin{itemize}
+\item No straightforward parallel in the Lewis example.
+\item However, before the investigation starts, the information that Lewis will work through can be considered dynamic.
+\item Hence, same idea can apply.
+\end{itemize}
+
+Difference is in response to developing events.
+Modal informs both the actions that the agent can take, and also the events considered.
+
+Clearer in the dynamic case, where we do not consider the opposition playing a stellar game.\nolinebreak
+\footnote{
+  Here we get something like a (reverse) sobel sequence.
+}
+Failure and existential.
+
+This is a general observation.
+Motivates an existential analysis.
+
+
+
+Parallel the difference between a strategy and a winning strategy, to some extent, though we do not have the additional background assumptions of game/decision theory to state the difference in these terms.
+
+Note that the difference between the readings is in how the outcome is established.
+Or, better put, how the agent responds to developments.
+
+On the \(\forall\) reading, we don't assume that there's always a success, as we limit the kind of alternatives available.
+
+\begin{scenario}[Dart]
+  Etc.\
+\end{scenario}
+
+Can hit the board, but of course there are various ways to ensure that this doesn't happen.
+Tennis works, and arguably so does the cipher.
+We have something like a sobel sequence here.
+
+This suggests that we're not dealing with a propositional modal.
+
+On the one hand, a bare existential.
+
+Choosing a single act doesn't allow for response.
+
+
+
+
+
+\begin{itemize}
+\item Modal, so restricted possibility.
+\end{itemize}
+
+\begin{itemize}
+\item Observations
+  \begin{enumerate}
+  \item (At least) strong and weak readings.
+    \begin{itemize}
+    \item Racing case, Lewis discarding evidence, tennis.
+    \item Variation on \citeauthor{Schwarz:2020aa} where there's a changing code.
+      Analogy here to beating someone at chess.
+      Can win, meaning that there's a chance I can play the strategy the person is not able to respond to, or can win in that I have a winning strategy, in effect.
+    \end{itemize}
+  \item Ability/action is implicit.
+  \item Fixed ability.
+  \item Ignore opportunity.
+  \end{enumerate}
+\end{itemize}
+
+Two readings.
+
+`Strong' and `weak'.
+
+Pair of conditionals.
+
+With reasoning, the weak instance is to rule out some stuff.
+However, there are some interesting cases where the weak reading is true.
+For example, Lewis discards evidence.
+Too bad for Lewis, but plausible!
+
+The primary intuition behind `can \(\phi\)' is that something happens and \(\phi\) comes about.
+
+
+
+
+The simple proposal faces some immediate difficulties.
+For, chance.
+E.g.\ the dartboard example.
+Throw, hit any area of the dartboard.
+One reading where `Can hit area' is true, and another on which it is false.
+
+
+Propositional restrictor analysis.
+
+\begin{itemize}
+\item Simple modal is a problem because the appropriate reading is an existential.
+\item So, with strong and weak there's no straightforward way to capture the difference.
+\end{itemize}
+
+Observation is that we start with an existential, for which there is general agreement.
+However, if this is the case then there's no simple dual.
+
+One can play around with the what the existential captures.
+However, this prevents manipulating the accessibility relation.
+(This is \citeauthor{Mandelkern:2017aa}'s act conditional analysis, which places the existential on the act, and then has universal over the outcomes.)
+
+It's also not easy to paraphrase.
+For, although one could say that the weaker version of can is the absence of impossibility, this isn't quite right.
+The problem is that the agent's ability restricts the relevant worlds.
+With throwing a dart, there may not be much of a difference.
+But, with reasoning there are clearer limits.
+In a sense, it's not impossible for me calculate something complex.
+However, if we fix my reasoning then it is.
+Some clear parallels to counterfactuals here, in that some things are possible, but not counterfactually possible.
+
+Using counterfactuals is a nice proxy for the different readings, but the trouble here is that we don't want all the things that are unique to counterfactuals.
+And, triviality, or, I mean, we sort of have a way with counterfactuals if we already have an analysis of what the agent can do, because we need to specify something in the counterfactual antecedent.
+
+Trouble is that this limits different readings of `can' to different modals, different ordering sources, or different propositions.
+
+Taking things apart, the agent's reasoning provides the relevant restriction, so both readings share the same ordering source.
+Further, we are interested in the same proposition, and it seems the same modal, as we're talking about ability.
+
+The claim about the same modal here is delicate.
+The idea is that we've fixed our attention on an ability of the agent.
+This is what determines the relevant restriction.
+Different modals have different restrictions.
+
+A weaker argument is that there is an entailment between the two.
+
+
+
+
+
+Assume that events are not dense, otherwise the existential version becomes trivial.
+Though definitions could be rewritten.
+
+If one considers finite sequences, then there must be a \(\phi\) point.
+Proof is to suppose that there are no \(\phi\) points, then this holds for terminal nodes, the predicate is false at these, and so by induction from terminal to the root the predicate is false.
+
+For the case of the primes, etc.\ the idea would be to add a recursive predicate.
+In a finite amount of time the agent will produce the \(n\)th prime, and then go on to produce the \(n+1\)th prime, and so on.
+Then, similar argument to show that this produces all of the primes.
+Here, the match between natural language and logic form isn't particularly tight.
+Still, these seem like fairly intuitive truth conditions.
+
+\newpage
+
+\printbibliography
+
+\end{document}
