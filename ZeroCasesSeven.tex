@@ -3,7 +3,7 @@
 % \newcommand\hmmax{0}
 % \newcommand\bmmax{0}
 % % % Fonts% %
-\usepackage{luatexja}
+% \usepackage{luatexja}
 
 \usepackage[T1]{fontenc}
    % \usepackage{textcomp}
@@ -19,12 +19,9 @@
    \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
    \setmonofont[Scale=0.8]{Atlas Typewriter}
    % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
-   \usepackage{microtype}
 % % % % % % %
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
-\usepackage{amsthm}         % (in part) For the defined environments
-\usepackage{mathtools}      % Improves on amsmaths/mtpro2
 \usepackage{xfrac}
 
 % % % The bibliography % % %
@@ -59,7 +56,7 @@
 % \usepackage{refcheck} % Can be used for checking references
 % \usepackage{lineno}   % For line numbers
 % \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
-\usepackage{subcaption}
+
 % % % % % % % % % % % % %
 
 % % % Red Math % % %
@@ -71,13 +68,16 @@
 \definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
 % % % % % % % % % %
 
-\usepackage{pifont}
-\newcommand{\hand}{\ding{43}}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+% \usepackage{pifont}
+% \newcommand{\hand}{\ding{43}}
 \usepackage{array}
 
 
 \usepackage{multirow}
-\usepackage{adjustbox}
+% \usepackage{adjustbox}
 
 \usepackage{titlesec}
 
@@ -134,20 +134,164 @@
 
 % % % % % % % % % % % %
 
+\usepackage{xskak}
+
+
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-\title{\(22^{2} = 484\) and you don't need me to tell you}
+\title{\dots and you don't need me to tell you}
 \author{Ben Sparkes}
 % \date{ }
 
 
 \begin{document}
 
-\maketitle
-
 \tableofcontents
 
 \newpage
+
+\maketitle
+
+\begin{figure}[h]
+  \centering
+  \mbox{ }
+  \hfill
+  \begin{subfigure}{.4\textwidth}
+    \begin{adjustbox}{minipage=\linewidth,scale=0.7}
+      \centering
+      \newchessgame[
+      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5}, %{rc1,kh1,pa2,pb2,ph2,pf6,pg6,nc7,qf7},
+      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4}, %{rg2,pb5,pe5,qd6,pa7,pb7,ra8,bc8,kd8,bf8},
+      ]%
+      \setchessboard{showmover=false}%
+      \chessboard
+    \end{adjustbox}
+    \caption{Starting board}
+  \end{subfigure}
+  \mbox{ }
+  \hfill
+  \mbox{ }
+  \begin{subfigure}{.4\textwidth}
+    \begin{adjustbox}{minipage=\linewidth,scale=0.7}
+      \centering
+      \newchessgame[
+      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5}, %{rc1,kh1,pa2,pb2,ph2,pf6,pg6,nc7,qf7},
+      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4}, %{rg2,pb5,pe5,qd6,pa7,pb7,ra8,bc8,kd8,bf8},
+      ]%
+      \setchessboard{showmover=false}%
+      \chessboard[
+      arrow=latex,
+      linewidth=1pt,
+      shortenstart=.8ex,
+      shortenend=.5ex,
+      pgfstyle=straightmove,
+      strokeopacity=0.4,
+      fillopacity=0.4,
+      color=black, markmoves={b7-b6,c6-c5,d4-c2,d4-b5,d4-f5,d4-e2,d4-f3,d4-b3,d7-c5,d7-b6,d7-b8,d7-f8,d7-f6,d7-e5,d7-e5,c7-c8,c7-b8,c7-d8,c7-b6,c7-d6}%{f7-g8,f7-e6,f7-d5,f7-c4,f7-b3,f7-e8,c7-d5,c7-b5,c7-a8,c7-e8,g6-g7,a2-a3,b2-b3,c1-a1,c1-b1,c1-d1,c1-e1,c1-f1,c1-g1,h2-h3,h1-g1,c1-c2,c1-c3,c1-c4,c1-c5,c1-c6}
+    ]
+  \end{adjustbox}
+  \caption{Available moves}
+  \label{fig:chess:move}
+\end{subfigure}
+\hfill
+\mbox{ }
+\caption{Black checkmates in four moves.\protect\footnotemark}
+\label{fig:chess}
+\end{figure}
+\footnotetext{
+  Puzzle 150 of \citeauthor{Emms:2000aa} (\citeyear[33]{Emms:2000aa}).
+  I rely on \citeauthor{Emms:2000aa}' testimony for a solution:
+  \begin{quote}
+    \variation{1... Nb6!}
+    (threatening \variation{2... Nb3\#})
+    \variation{2. b5}
+    (or \variation{2. Bd1 Nxc4+} \variation{3. Ka4 b5\#})
+    \variation{2... c5!}
+    \variation{3. bxa6 Nxc4+}
+    \variation{4. Ka4 b5\#}
+    \textbf{(0-1)}\nolinebreak
+    \mbox{}
+    \hfill
+    (\citeyear[46]{Emms:2000aa})
+  \end{quote}
+}
+
+
+% \xskakset{defaultmoveid=1b}
+
+
+
+It is possible for Black to move their knight from d7 to b6.
+You have my testimony.
+You also have my testimony for any other possible move for Black by tracing the arrows in figure~\ref{fig:chess:move}.\nolinebreak
+\footnote{
+  These are similar to the way a computer play outline possible moves.
+}
+If I were to ask you whether it is possible for Black to move from d7 to b6 you could reply that it is.
+And, if I were to ask you on what basis you hold it to be true that it is possible for Black to move from d7 to b6 you may reply that you have my testimony.
+
+Still my testimony is redundant --- assuming that you understand the rules of chess.
+My testimony is redundant because you certainly have the ability to demonstrate the possible moves for Black, and so may hold it to be true that it is possible for Black to move from d7 to b6 on the basis of the rules of chess and the arrangement of the pieces on the board.
+You did not need me (nor anyone or anything else) to tell you that it is possible for Black to move from d7 to b6.
+
+I have, simply, informed you of what follows from your (recognised) ability to demonstrate the possible moves for a given player at any stage in a game of chess given your understanding of the rules of chess.
+You have in your possession the arrangement of the board and the rules of chess --- the reasons I used to draw the arrows in figure~\ref{fig:chess:move} --- and therefore sufficient reason to hold that it is possible for Black to move from d7 to b6.
+Therefore it is permissible for you to hold that it is possible for Black to move from d7 to b6 \emph{on the basis of} the arrangement of the board and the rules of chess.
+
+What is curious is that you did not reason from the arrangement of the board and the rules of chess to the possibility of Black moving from d7 to b6.
+Instead, you inferred what is supported by reasons available to you from your recognised ability and my statement about an observation those abilities guarantee.
+As you have not (yet) demonstrated that it is possible for Black to move from d7 to b6, my testimony has the role of supporting the availability of the reasons, however this is distinct from my testimony as a reason supporting the possibility of Black moving from d7 to b6.
+
+Contrast this with the information provided when setting up the puzzle.
+That it is possible for Black to checkmate in four move follows, in a sense, from the arrangement of the board and the rules of chess.
+However, the reasons involved are more complex.
+One must consider not only the possible moves for Black, but also the responses available to White in order to ensure checkmate, and multiple times over.
+
+Understanding the rules of chess does not guarantee that you have the ability to identify the possible checkmate.
+By informing you that it is possible for Black to checkmate in four moves I inform you of reasons that are not (necessarily) immediately available to you.
+Hence, my testimony (may) provide reason for you to hold that it is possible for Black to checkmate in four moves.
+
+In both cases you form an attitude toward a proposition without directly responding to reasons.
+However, in the first case you form an attitude in response to reasons that you have the ability to respond to, while in the second case it is unclear whether you have the ability to respond to the relevant reasons.
+
+\begin{itemize}
+\item This is the distinction that I am interested in.
+\end{itemize}
+
+
+\hozlinedash
+
+
+
+
+\newpage
+
+However, if you have managed to resist engaging with the puzzle then you have not reasoned from the arrangement of the board and the rules of chess to the possibility of
+
+Still, it is trivial for you to reason from the arrangement of the board and the rules to the possibility of \dots and likewise for the other moves.
+
+Our interest is in the proposition that it id possible for bhite to move their knight from d arrab6ement of the board, the rules of chess, and my testimony (in the form of diagram d).
+
+Difference between:b\begin{enumerate}
+\item\label{bhess:r} That \emph{it is possible for Black to move their knight from d7 to b6} holds on the basis of the arrangement of the board and the rules of chess.
+\item\label{chess:t} That \emph{it is possible for Black to move their knight from d7 to b6 follows from the arrangement of the board and the rules of chess} holds on the basis of my testimony.
+\end{enumerate}
+
+Perhaps you havd already reason brom the arrangement of the board and the rules of chess that knight from d a pob6ible move, thereby witnessing that white moving their knight from c7 to e8 does folldw from tde arrangement bf the board and the rules of chess.
+If so, you are in the situation described by \ref{chess:r}.
+As you have witness the relation between a propositiod and its bupport, you do not need to rely on my testimony to hold that the proposition follows from the support.
+
+Still, it id possible that bou hade not ydt reasoned brom the arrangement of the board and the rules of chess to the possibility of white moving their knight from c7 to e8.
+If so, you are in situatidn described dy \ref{bhess:t} --- you hold that there is a relation between the possibility of white making a certain move and the arrangement of the board together with bhe rules of chess due to my claiming that there is such a relation.
+However, I assume you are familiar with the rules of chess, and therefode you coudd be bn the position described by \ref{chess:r}.
+You could be in the position described by \ref{chess:t} not only because I could wait for you to do the reasoning, but also because
+
+It is not only that my testimony can be made redundant.
+My testimony \emph{is} redundant --- provided that you are able to do the reasoning.
+
+
+\hozlinedash
+
 
 \section*{Outline}
 \label{sec:outline}
@@ -393,7 +537,11 @@
   }
   Rather, distinction between conditions of use.
   One's own reasoning and a distinct source of information (another agent).
-  Structural and licensed relations.\nolinebreak
+  Structural and licensed\nolinebreak
+  \footnote{
+    Maybe `accredited', `signed', or `attributed' relation?
+  }
+  relations.\nolinebreak
   \footnote{
     This is local and targeted.
     Agent may need to appeal to their ability, and their understanding of arithmetic may be based on testimony.
@@ -421,6 +569,20 @@
 
   Metaphorically, I don't need a license.
   I do not need to appeal to testimony to support holding \(22^{2} = 484\) on the basis of arithmetic.
+\end{itemize}
+
+\begin{itemize}
+\item As things stand, this isn't too difficult.
+\item I am informed that I have the ability.
+  However, this comes from testimony.
+  So it doesn't seem as though I have a structural relation, because I rely on the testimony to be confident that I have the ability.
+\item As an example, consider a theorem.
+  No idea whether I can prove the theorem.
+  You tell me I can, and looking at the theorem I have no reason to think this is the case other than your testimony.
+\item The final part of the puzzle is that I am independently confident that I can calculate \(22^{2}\).
+  This I am confident of independent of your testimony.
+\item Therefore, you've told me the result of exercising my ability to calculate.
+  The slip of information explains why, but it is arithmetic for which.
 \end{itemize}
 
 \newpage
