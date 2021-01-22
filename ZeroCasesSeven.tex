@@ -303,7 +303,10 @@ For, in order to show that White cannot prevent Black from occupying c4 on their
       \setchessboard{showmover=false}%
       \chessboard
     \end{adjustbox}
-    \caption{Starting board}
+    \caption{
+      Game state\newline
+      \mbox{ }\newline
+    }
     \label{fig:chess:board}
   \end{subfigure}
   \mbox{ }
@@ -325,10 +328,13 @@ For, in order to show that White cannot prevent Black from occupying c4 on their
       pgfstyle=straightmove,
       strokeopacity=0.4,
       fillopacity=0.4,
-      color=black, markmoves={b7-b6,c6-c5,d4-c2,d4-b5,d4-f5,d4-e2,d4-f3,d4-b3,d7-c5,d7-b6,d7-b8,d7-f8,d7-f6,d7-e5,d7-e5,c7-c8,c7-b8,c7-d8,c7-b6,c7-d6}%{f7-g8,f7-e6,f7-d5,f7-c4,f7-b3,f7-e8,c7-d5,c7-b5,c7-a8,c7-e8,g6-g7,a2-a3,b2-b3,c1-a1,c1-b1,c1-d1,c1-e1,c1-f1,c1-g1,h2-h3,h1-g1,c1-c2,c1-c3,c1-c4,c1-c5,c1-c6}
+      color=black,
+      pgfstyle=border,
+      markfields={c4,a3,a5,g6,c5},
+      % markmoves={b7-b6,c6-c5,d4-c2,d4-b5,d4-f5,d4-e2,d4-f3,d4-b3,d7-c5,d7-b6,d7-b8,d7-f8,d7-f6,d7-e5,d7-e5,c7-c8,c7-b8,c7-d8,c7-b6,c7-d6}%{f7-g8,f7-e6,f7-d5,f7-c4,f7-b3,f7-e8,c7-d5,c7-b5,c7-a8,c7-e8,g6-g7,a2-a3,b2-b3,c1-a1,c1-b1,c1-d1,c1-e1,c1-f1,c1-g1,h2-h3,h1-g1,c1-c2,c1-c3,c1-c4,c1-c5,c1-c6}
       ]
     \end{adjustbox}
-    \caption{Available moves}
+    \caption{Fields White cannot prevent Black from occupying on Black's second move}
     \label{fig:chess:move}
   \end{subfigure}
   \hfill
@@ -407,22 +413,26 @@ Note, however, that the entailment from claim~\ref{chess:claim:1} to claim~\ref{
 If you are not able to reason from the rules of chess and the game state, then claim~\ref{chess:claim:1} does not entail that White cannot prevent Black from occupying c4 on their second move.
 It may be the case that White cannot prevent Black from occupying c4 on their second move and you are not able to figure this out, or it may be the case that White can prevent Black from occupying c4 on their second move.\nolinebreak
 \footnote{
-  Pragmatics may suggest otherwise.
-
-  Possible to read:
+  % Pragmatics may suggest otherwise.
+  It may be plausible to understand claim~\ref{chess:claim:1} as conveying additional information.
+  For example:
   \begin{itemize}
-  \item You have the ability to demonstrate (the truth fact independent of your ability) that White can prevent Black from occupying c4 on their second move.
-  \item White can prevent Black from occupying c4 on their second move \emph{and} you have the ability to demonstrate this.
+  % \item You have the ability to demonstrate (the truth fact independent of your ability) that White can prevent Black from occupying c4 on their second move, or perhaps:
+  \item White can prevent Black from occupying c4 on their second move \emph{and} you have the ability to demonstrate the former conjunct.
   \end{itemize}
+  For, it is plausible to assume that I have identified a strategy, and the basis of my claim is my recognition that you are able to perform analogous reasoning.
+  This is indeed the case for the present example.
+  Therefore, you may infer that Black has a strategy regardless of ability.
 
-  Assume that I have identified a strategy, and expect that you are able to perform analogous reasoning.
-  Therefore, it would seem okay to infer that Black has a strategy regardless of ability.
+  Two observations:
+  \begin{enumerate*}[label=(\Roman*)]
+  \item Reasoning of this kind does not rule out the alternative line of reasoning that is of interest.
+  \item The example may be made more complex. You claim that you have the ability to demonstrate that \(\phi\) follows from \(\Sigma\), and I have demonstrated that \(\psi\) follows from \(\phi\). I now claim that you are able to demonstrate that \(\psi\) follows from \(\Sigma\), as my reasoning was fairly simple, but I have not shown that \(\psi\) follows from \(\Sigma\), and therefore it would be a mistake to infer that I have stated that \(\psi\) follows from \(\Sigma\).
+  \end{enumerate*}
+  % However, it may also be the case that I have made a mistake, and therefore if you do not have the ability, then White can prevent Black from occupying c4 on their second move.
 
-  However, it may also be the case that I have made a mistake, and therefore if you do not have the ability, then White can prevent Black from occupying c4 on their second move.
-
-  Complicating the example may avoid this problem.
-  For example, my goal is to indirectly demonstrate to you that you endorse and unsound inference.
-  It would be more natural to use a conditional here.
+  % Complicating the example may avoid this problem.
+  % For example, my goal is to indirectly demonstrate to you that you endorse and unsound inference.
 }
 
 So, if you hold it to be true that White cannot prevent Black from occupying c4 on their second move, you must also hold it to be true that you are able to reason from the rules of chess and the game state to a witnessing strategy for Black.
@@ -436,14 +446,68 @@ Still, even though you would be able to demonstrate claim~\ref{chess:claim:2} wi
 Even if you are confident that you understand the rules of chess and the game board, you would not be able to establish that White cannot prevent Black from occupying c4 on their second move without demonstrating a strategy for Black.
 Claim~\ref{chess:claim:1} licenses you to hold that claim~\ref{chess:claim:2} is true on grounds that are independent of my testimony.
 
-Colloquially, you may cite the reasoning that you are able to do (or the strategy that would result from the reasoning) as support for holding that claim~\ref{chess:claim:2} is true, and cite my testimony that claim~\ref{chess:claim:1} is true in support of your ability to do the reasoning.
+Colloquially, you may cite the reasoning that you are able to do (or the strategy that would result from the reasoning) as support for holding that claim~\ref{chess:claim:2} is true, and cite my testimony that claim~\ref{chess:claim:1} is true in support of your ability to do the reasoning.\nolinebreak
+\footnote{
+  Similar phenomena with `do you also hold \(\phi\) to be true?'
+  Well, you hold \(\phi\) to be true, etc.
+  So on the basis of you asking this, I may hold \(\phi\) to be true.
+
+  Or, may reason to \(\phi\).
+  So, alternative paths is not unique to ability attributions.
+}
 
 \paragraph{ }
-Difference between:
-\begin{enumerate}
-\item\label{bhess:r} That \emph{it is possible for Black to move their knight from d7 to b6} holds on the basis of the arrangement of the board and the rules of chess.
-\item\label{chess:t} That \emph{it is possible for Black to move their knight from d7 to b6 follows from the arrangement of the board and the rules of chess} holds on the basis of my testimony.
-\end{enumerate}
+\begin{note}
+  Space for a technical summary \& overview here.
+\end{note}
+
+Adopting a broader perspective, reasoning is a activity in which a conclusion is obtained from premises.
+Conclusion of interest is hold it to be true that White cannot prevent Black from occupying c4 on their second move.
+The premises concern the rules of chess, the game state, and perhaps claim~\ref{chess:claim:1}.
+
+Able to do the reasoning.
+Label these \emph{directly supporting} premises.
+
+However, unless an agent has reasoned from the premises to the conclusion, the agent requires additional information to be confident that they are able to reason from the directly supporting premises to the conclusion.
+
+Yet, the additional information is not required as a premise in the reasoning the agent is able to do.
+In this way, the additional information is not a directly supporting premise.
+For, any additional premise is required only because the agent has not (yet) done the reasoning.
+Can be sure that it is redundant because these simply recognise what the agent's ability is (so this is potentially a restriction on additional inputs being considered.)
+
+So, in the reasoning you do, there is a distinction between the premises which directly support the conclusion and those premises which inform an agent that the conclusion follows from those directly supporting premises.
+
+So, get a distinction between directly supporting premises and indirectly supporting premises for the conclusion of reasoning that the agent does in order to establish the conclusion.
+
+With a distinction between directly and indirectly supporting premises comes the opportunity to distinguish the directly supporting premises.
+Directly supporting premises are those which justify the conclusion (from the agent's point of view, at least).
+In this sense, the agent's ability and the directly supporting premises are those premises which explain \emph{why} the agent holds the conclusion.
+However, without the indirectly supporting premises the agent's ability and the directly supporting premises do not explain \emph{how} the agent came to hold the conclusion.
+
+\begin{note}[Not completely satisfactory]
+  Talking about justification and why feels difficult.
+  Because it's a limited sense of justification that I think is important here, but this is hard to fix.
+  In the same way I take the time on the clock to justify my belief about what the time is, but this isn't all.
+  There's also my setting the clock, that there hasn't been a change in daylight saving time, that my car has not run out of batteries, that a friend has not altered.
+  All these things seem to be part of the justification, or part of why I take the clock to be okay.
+  
+\end{note}
+
+
+\begin{note}[End of introduction]
+  This sets up the main idea.
+  An immediate question is why this matters.
+  I should tackle this as a section.
+  
+\end{note}
+
+
+
+% Difference between:
+% \begin{enumerate}
+% \item\label{bhess:r} That \emph{White cannot prevent Black from occupying c4 on their second move} is supported by the rules of chess and the game state.
+% \item\label{chess:t} That \emph{White cannot prevent Black from occupying c4 on their second move follows from the rules of chess and the game state} is supported by my testimony.
+% \end{enumerate}
 
 {
   \color{red}
@@ -455,7 +519,7 @@ In short, reasons why are not always reasons for which, because there are explan
 So, I'm colourblind, but that is not a reason for which I believe the two different colours are the same colour, though it explains why.
 Rather, the reasons for which is that both objects appear the same colour to me.
 
-The distinction I am interested in can be seen as distinction between the way a reason which may support an attitude.
+The distinction I am interested in can be seen as distinction between the way a reason \emph{which} may support an attitude.
 }
 
 \paragraph{ }
@@ -476,11 +540,22 @@ You have provided me with some information, but I don't rely on this information
 From a quick inspection of the board it is clear to me that I can determine whether or not White can prevent Black from occupying c4 on their second move, and that White cannot do so allows me to focus my attention on extended or alternative strategies for Black.
 
 Similar to calculators.
-\(7^{3} = 343\), but I do not consider the result of calculator a reason to hold that \(7^{3} = 343\).
-The calculator informed me that, given my understanding of arithmetic, I may hold that \(7^{3} = 343\).
+\(7^{3} = 343\), but I do not consider the result of computer program a reason to hold that \(7^{3} = 343\).
+The program informed me that, given my understanding of arithmetic, I may hold that \(7^{3} = 343\).
 
-Compare to \(\ln(\pi)\).
-This goes beyond me ability.
+Compare to:
+\(\lim_{n \to \infty}\left(1 + \frac{1}{n} \right)^{n} = e\)
+This goes beyond my ability.
+If the computer program provides an explanation of how the result was derived, I may study the steps and identify ways to develop the ability, e.g.\ by developing an understanding of l'H\^{o}pital's rule.
+
+While there is an intuitive distinction between the ability to show that \(7^{3} = 343\) and the ability to show that \(\lim_{n \to \infty}\left(1 + \frac{1}{n} \right)^{n} = e\), there are intermediate cases which put pressure on what is meant by the ability to reason from \(\Sigma\) to \(\phi\).
+For example, I doubt I have the ability to solve \(\sqrt[5]{59049}\) without some assistance, but I do have the ability to show that \(9^{5} = 59049\), and hence the ability to verify that \(\sqrt[5]{59049} = 9\).
+
+I consider both the ability to solve and the ability as instances of ability to reason, but keeping track of the differences is not too important.
+Therefore, to keep things simple I take talk of the ability to reason to align with the ability to solve.
+
+% If I were attempting to solve of a problem on a math test and needed to solve \(7^{3}\) or \(\lim_{n \to \infty}\left(1 + \frac{1}{n} \right)^{n}\) as an intermediary step, I would not hesitate to use a computer program for the solution to \(7^{3} = 343\), though I would hesitate to use a computer program for the solution to \(\lim_{n \to \infty}\left(1 + \frac{1}{n} \right)^{n}\).
+
 
 \paragraph{ }
 With a rough understanding of the distinction in hand, let us turn to a more involved case.
