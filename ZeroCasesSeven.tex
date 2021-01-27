@@ -272,7 +272,9 @@ On the other, ways in which to understand reasons/the relationship that agent's 
   The argument against this, the one that suggests this is a framework issue, is that one may consider an agent's perception of their abilities to be sufficient.
 \end{note}
 
-
+\begin{note}[Big issue]
+  The relation between an agent's reasons and explanations of the agent's action.
+\end{note}
 
 \newpage
 
@@ -283,11 +285,16 @@ Roughly stated, the claim is that an agent may hold (or maintain) an attitude on
 
 Consider the following claim:
 \begin{enumerate}
-\item\label{chess:claim:1} You are able to reason from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their second move.
+\item\label{chess:claim:1} You are able to reason from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
 \end{enumerate}
 I assume claim~\ref{chess:claim:1} is true, but not immediately obvious.
+And, in particular, the rules of chess and the game state does not immediately justify the relevant proposition.
 
 For, in order to show that White cannot prevent Black from occupying c4 on their second move, you need to consider the moves that would be possible for Black on their second turn given the move that White made on their first turn in response to the move that Black made on their first turn.
+{
+  \color{red}
+  Intermediate steps of the kind sketched are required to justify.
+}
 
 \begin{figure}[h]
   \centering
@@ -459,6 +466,8 @@ Colloquially, you may cite the reasoning that you are able to do (or the strateg
 \paragraph{ }
 \begin{note}
   Space for a technical summary \& overview here.
+
+  To add is an enumerated outline of the agent's reasoning.
 \end{note}
 
 Adopting a broader perspective, reasoning is a activity in which a conclusion is obtained from premises.
@@ -477,12 +486,237 @@ Can be sure that it is redundant because these simply recognise what the agent's
 
 So, in the reasoning you do, there is a distinction between the premises which directly support the conclusion and those premises which inform an agent that the conclusion follows from those directly supporting premises.
 
+
+\begin{enumerate}
+\item It is claimed that I have the ability to reason from premises \(\Sigma\) to conclusion \(\phi\).
+\item The claim is true.
+\item The ability to reason from premises \(\Sigma\) to conclusion \(\phi\) does not depend on the claim.
+\item I have the ability to reason from premises \(\Sigma\) to conclusion \(\phi\).
+\item Premises \(\Sigma\) obtain.
+\item If conclusion \(\phi\) does not obtain, I would not be able to reason from premises \(\Sigma\) to \(\phi\).
+\item Conclusion \(\phi\) obtains.
+\item Conclusion \(\phi\) given ability and premises \(\Sigma\) (independently of the claim).
+\end{enumerate}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[->,>=stealth',node distance=0cm, every text node part/.style={align=center}]
+
+  \node (1) [] {Information about \\ result of ability};
+  \node (2) [right of=1, xshift=4cm, yshift=.5cm] {Ability};
+  \node (3) [above of=2, yshift=1cm, xshift=2cm] {Premises};
+  \node (4) [below of=2, yshift=-1cm, xshift=2cm] {Conclusion};
+
+  \draw [dashed, ->] (1) to [bend right=10] (4);
+  \draw [dashed, ->] (1) to [bend left=10] (2);
+  \draw [->] (3) to node[left] (mid) {} (4);
+  \draw [dotted, ->] (2) to (mid);
+\end{tikzpicture}
+\caption{Sketch of support.
+  Continuous arrow is direct.
+  Dashed is indirect from information.
+  Dotted is indirect from agent.}
+\label{fig:dynamics}
+\end{figure}
+
 So, get a distinction between directly supporting premises and indirectly supporting premises for the conclusion of reasoning that the agent does in order to establish the conclusion.
 
+\begin{note}[Quick parallel]
+  \(\vdash p \rightarrow q\).
+  Though something more involved.
+  And this goes to \(p \vdash q\).
+\end{note}
+
 With a distinction between directly and indirectly supporting premises comes the opportunity to distinguish the directly supporting premises.
-Directly supporting premises are those which justify the conclusion (from the agent's point of view, at least).
+Directly supporting premises are those which {\color{red} guarantee} the conclusion (from the agent's point of view, at least).
 In this sense, the agent's ability and the directly supporting premises are those premises which explain \emph{why} the agent holds the conclusion.
 However, without the indirectly supporting premises the agent's ability and the directly supporting premises do not explain \emph{how} the agent came to hold the conclusion.
+
+
+\begin{note}[Constructive]
+  An important point here is that the agent's reasoning is non-constructive, in a sense.
+  For, the agent has a guarantee that the conclusion is true, but the agent does not establish \emph{why} the conclusion is true.
+  Hence, there are (at least) two `why' questions.
+  \begin{itemize}
+  \item Why the conclusion follows from the premises (and the agent's ability), and
+  \item Why the agent holds the conclusion to be true.
+  \end{itemize}
+  If the agent were to do the reasoning, then these would both be answered.
+  The explanation of why the agent holds the conclusion to be true (from the agent's point of view) is the same explanation as to why the conclusion follows from the premises.
+
+  Something like, knights can move \dots, the knight can be captured only if \dots, the knight cannot be captured.
+  White can only move to \dots, etc.\
+
+  So, we can see that the agent has the ability to answer the first question --- why the conclusion follows from the premises.
+  However, because the agent has not done the reasoning, this does not answer the second question.
+
+  Still, the agent's ability guarantees that an answer to the first question may be generated by the agent.
+  This is reminiscent of \citeauthor{Davidson:2001aa} \dots
+\end{note}
+
+
+\begin{note}[Davidson]
+  \begin{quote}
+    Because justifying and explaining an action so often go hand in hand, we frequently indicate the primary reason for an action by making a claim which, if true, would also verify, vindicate, or support the relevant belief or attitude of the agent.
+
+    \vdots
+
+    The justifying role of a reason, given this interpretation, depends upon the explanatory role\dots
+    \nolinebreak
+    \mbox{}\hfill(\cite[8]{Davidson:2001aa})
+  \end{quote}
+
+  If \citeauthor{Davidson:2001aa} is followed, then justification only if explanation, and explanation only if causation.
+  So, justification only if causation.
+  But this presents a problem.
+  For, the agent's ability has not been witnessed, and therefore the justification that would be constructed cannot stand in any causal relation to the agent adopting an attitude toward the conclusion.
+
+  The idea expressed above mirrors the interaction \citeauthor{Davidson:2001aa} points to.
+  For \citeauthor{Davidson:2001aa}, justification indicates how to construct a primary reason which explains.
+  In our case, primary reason indicates how to construct justification.
+
+  So, this is a problem.
+  Either the agent's ability does not do any justificatory work, or there is justification without causation.
+
+  The first option may be preferred.
+
+  Have some reasoning, seems okay.
+  Therefore, this provides justification.
+  I struggle with this.
+  The agent's reasoning obtains a guarantee of truth.
+  However, this is `simply' \(\phi \rightarrow \psi\), without understanding why \(\phi \rightarrow \psi\).
+
+  Contrast to a simple model of testimony.
+  You have justification.
+  Hence, the hearers justification goes by way of the speakers justification.
+
+  
+
+  The details of causation matter.
+  However, abilities (or what would result from abilities) avoid some of the issues here.
+  For, nothing is witnessed.
+  
+  It is somewhat interesting that \citeauthor{Davidson:2001aa} emphasises that one often doesn't have the primary reason, and instead provides information that is sufficient to generate the primary reason.
+
+  So, the idea that an explanation can be generated is stressed by \citeauthor{Davidson:2001aa}.
+  Difference is that \citeauthor{Davidson:2001aa} makes use of this idea when providing information about explanations.
+
+  
+\end{note}
+
+
+\begin{note}[Testimony comparison]
+  Suppose you have my testimony that:
+  \begin{itemize}
+  \item If the rules of chess are in play and the board is arranged as in figure~\ref{fig:chess:move}, then While cannot prevent Black from occupying c3 on Black's second move.
+  \end{itemize}
+
+  This is slightly different to what is going on in the reasoning.
+  Here, you do not have justification for the conditional, but you have justification for the claim being true.
+  So, you can use the conditional in further reasoning.
+
+  The present case is different.
+  For, you are relying on the ability to generate justification.
+  This conditional is not part of your reasoning, at least not initially.
+  Rather, this conditional is obtained (if it is obtained) by noting that the conclusion must hold if you have the ability.
+  So, here again the ability is doing the work.
+
+  {
+    \color{red}
+    Footnote:
+    This is not to take a stand on testimony.
+    The reasons that justify in the case of testimony may be those of the speaker.
+    However, if this is so, then there is still this distinction between \(\vdash \phi \rightarrow \psi\) and \(\phi \vdash \psi\).
+    Hum, but then in this case, the existence of reasons does the appropriate work.
+    Hence, there is a clear parallel.
+    Still, in a sense these may be considered `witnessed', and my main concern is with the `un-witnessed' reasons by ability.
+    Point being that if testimony, then it's not always going to be the case that the agent's ability is relevant.
+    So, this marks a difference.
+    Even if we think of ability as providing testimony, there's still something more, because testimony does not, in general, allow the agent to claim access to those reasons/that justification.
+  }
+\end{note}
+
+
+
+\begin{note}[Main issue]
+  The main issue for this paper is how the agent's ability relates to explanation.
+
+  Why the agent holds the attitude(, from the agent's perspective).
+  May be because the recognition of ability explains.
+  Or, may be because the recognition of ability guarantee explanation.
+
+  This is what I am puzzled about.
+  On the one hand, it may seem as though the agent has an explanation.
+  After all, the agent was able to reason from some premises to a conclusion.
+  In turn, it seems that this reasoning explains why (from the agent's point of view), the agent holds the conclusion.
+
+  However, the reasoning does not explain how the key premises relate to the conclusion.
+  Because the agent appeals to their ability, the agent does not establish how the premises explain the conclusion.
+  The agent has the guarantee of an explanation --- this is what the agent establishes by reasoning.
+
+  A guarantee of an explanation may in turn be an explanation.
+  (In a similar way to how evidence of evidence may be evidence.)
+  However, that some thing may be an explanation does not establish that the thing is an explanation.
+
+  In this way, the agent's ability is not a reason, in the standard sense of the term.
+  For, the agent's ability is a matter of possible actions and events that, in general, go beyond the internal states of the agent.
+
+  In short, the agent does not have an explanation for why they hold the attitude.
+  However, the agent has a guarantee that there is an explanation.
+  
+  This may seem like misdirection.
+  It is the property of the agent having the ability, or the inferences that the agent makes from their recognition that they have the property that does the work.
+
+  Idea here is that the reasoning that the agent has done provides an explanation.
+
+  
+
+  
+  However, this argument can be applied to all reasoning, so no facts are important.
+  Hence, can improve on this with causal arguments.
+
+  From one perspective, if the agent were to learn that they do not (in fact) have the ability, the agent would retain an explanation for why they came to hold the attitude.
+  This is similar to how mistakes can explain, the fact can do some explanation, but it still seems as though the agent has an explanation if they were mistaken about a fact.
+  Still, this does not work as an explanation from the point of view of the agent.
+  Following Hieronymi \dots don't need facts.
+  However, this seems to confuse two distinct things.
+  On the one hand, there is the content of the mistake.
+  And, on the other hand there is the mistake.
+  Two different kinds of explanation, but the slip is easy.
+  No longer have an explanation from the agent's point of view.
+  Shift from the agent's point of view to what constituted the agent's point of view.
+
+  H's point is something like `the agent is the explanation'.
+  {
+    \color{red}
+    Idea is that if we just look at the content, then we're missing part of the causal network.
+    The explanation from the agent's point of view is not the `complete' explanation, because the agent themselves is part of this.
+    Heck, this is complex.
+  }
+
+  Explanations have a causal trace, and if an ability has not been witnessed by some event, it cannot be the cause of anything.
+  Hence, whatever would be from the agent witnessing their ability to reason cannot be the explanation for why the agent holds the attitude (without the agent witnessing the reasoning).
+
+  Natural to expect that the agent's reasoning leaves the appropriate causal trace.
+  So, it must be the case that the reasoning which the agent has done explains, from the agent's point of view.
+
+  However, this goes too fast.
+  Interested from the agent's point of view, and we can't move so quickly.
+  The reasoning explains how the agent came to hold the conclusion.
+  The reasoning does not necessarily explain why the agent came to hold the conclusion.
+  
+\end{note}
+
+\begin{note}[Why and how]
+  Why and how as similar to the difference between explanation and cause.
+
+  Something similar to Davidson's deviant causal chain.
+  Climber lets go of the rope, explanation, but this leads to anxiety, which in turn leads to letting go of the rope.
+\end{note}
+
+\begin{itemize}
+\item Reason as explanations why
+\end{itemize}
 
 \begin{note}[Not completely satisfactory]
   Talking about justification and why feels difficult.
@@ -493,21 +727,6 @@ However, without the indirectly supporting premises the agent's ability and the 
   
 \end{note}
 
-
-\begin{note}[End of introduction]
-  This sets up the main idea.
-  An immediate question is why this matters.
-  I should tackle this as a section.
-  
-\end{note}
-
-
-
-% Difference between:
-% \begin{enumerate}
-% \item\label{bhess:r} That \emph{White cannot prevent Black from occupying c4 on their second move} is supported by the rules of chess and the game state.
-% \item\label{chess:t} That \emph{White cannot prevent Black from occupying c4 on their second move follows from the rules of chess and the game state} is supported by my testimony.
-% \end{enumerate}
 
 {
   \color{red}
@@ -521,6 +740,65 @@ Rather, the reasons for which is that both objects appear the same colour to me.
 
 The distinction I am interested in can be seen as distinction between the way a reason \emph{which} may support an attitude.
 }
+
+
+
+\begin{note}[Ability]
+  Distinction between:
+  \begin{itemize}
+  \item The agent's ability.
+  \item The property of the agent that they have the ability.
+  \end{itemize}
+  This is an important distinction.
+  The agent's ability is not, in general, a property of the agent.
+  Ability involves actions/events.
+  But these can be referenced by a predicate.
+
+  So, the structure between the premises and conclusion is done by the ability, not the property.
+
+  This is `the factive inference'.
+
+  Still, one may distinguish between the fact and the considerations which result from a factive inference.
+  This is fair.
+  And, this allows us to some flexibility.
+  However, there is a difference between the fact and the considerations.
+  For, the considerations have partial information, while the fact \emph{is} the information (speaking loosely).
+  So, it does not seem possible to completely move away from the agent's ability.
+  
+\end{note}
+
+\begin{note}[Ability and the environment]
+  This is difficult.
+  It may seem that in the case of reasoning, the agent's environment doesn't make a difference.
+  Any ability can be traced to the reasoning that the agent is able to do, and the environment can only complicate by preventing the agent reasoning.
+  For example, time or resource limitations.
+  In the chess scenario, there isn't much interaction, but I doubt that in general an agent can be isolated from their environment in an interesting way.
+  For, gaining information.
+  Agent's ability to reason may be tied to information being within their epistemic reach, so to speak.
+  Detective with a notebook.
+  Detective has the ability to reason, but this is tied to the agent recalling information from their notebook.
+
+  This is not to deny that a distinction can be drawn.
+  May say that an agent has an ability given the information that they have, has an ability given the information that is within their epistemic reach, has an ability given the information they ought to have, and so on.
+  
+\end{note}
+
+
+\begin{note}[End of introduction]
+  This sets up the main idea.
+  An immediate question is why this matters.
+  I should tackle this as a section.
+\end{note}
+
+
+
+% Difference between:
+% \begin{enumerate}
+% \item\label{bhess:r} That \emph{White cannot prevent Black from occupying c4 on their second move} is supported by the rules of chess and the game state.
+% \item\label{chess:t} That \emph{White cannot prevent Black from occupying c4 on their second move follows from the rules of chess and the game state} is supported by my testimony.
+% \end{enumerate}
+
+
 
 \paragraph{ }
 The distinction between testimony providing a reason and licensing appeal to reasons matters when the support you have for holding an attitude toward a proposition matters.
