@@ -139,7 +139,8 @@
 
 \usepackage[hidelinks,breaklinks]{hyperref}
 
-\title{\dots and you don't need me to tell you}
+\title{Only take me as far as I can go by myself}
+% \subtitle{\dots and you don't need me to tell you}
 \author{Ben Sparkes}
 % \date{ }
 
@@ -288,13 +289,9 @@ Consider the following claim:
 \item\label{chess:claim:1} You are able to reason from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
 \end{enumerate}
 I assume claim~\ref{chess:claim:1} is true, but not immediately obvious.
-And, in particular, the rules of chess and the game state does not immediately justify the relevant proposition.
+And, in particular, the rules of chess and the game state does not immediately justify the highlighted proposition.
 
-For, in order to show that White cannot prevent Black from occupying c4 on their second move, you need to consider the moves that would be possible for Black on their second turn given the move that White made on their first turn in response to the move that Black made on their first turn.
-{
-  \color{red}
-  Intermediate steps of the kind sketched are required to justify.
-}
+For, in order to show that White cannot prevent Black from occupying c4 on their second move, you need to consider the moves that would be possible for Black on their second turn given the move that White made on their first turn in response to the move that Black made on their first turn, and so on.
 
 \begin{figure}[h]
   \centering
@@ -341,7 +338,7 @@ For, in order to show that White cannot prevent Black from occupying c4 on their
       % markmoves={b7-b6,c6-c5,d4-c2,d4-b5,d4-f5,d4-e2,d4-f3,d4-b3,d7-c5,d7-b6,d7-b8,d7-f8,d7-f6,d7-e5,d7-e5,c7-c8,c7-b8,c7-d8,c7-b6,c7-d6}%{f7-g8,f7-e6,f7-d5,f7-c4,f7-b3,f7-e8,c7-d5,c7-b5,c7-a8,c7-e8,g6-g7,a2-a3,b2-b3,c1-a1,c1-b1,c1-d1,c1-e1,c1-f1,c1-g1,h2-h3,h1-g1,c1-c2,c1-c3,c1-c4,c1-c5,c1-c6}
       ]
     \end{adjustbox}
-    \caption{Fields White cannot prevent Black from occupying on Black's second move}
+    \caption{Example fields White cannot prevent Black from occupying in two moves.}
     \label{fig:chess:move}
   \end{subfigure}
   \hfill
@@ -367,11 +364,14 @@ For, in order to show that White cannot prevent Black from occupying c4 on their
   \end{quote}
 }
 
-To illustrate, Black may move the pawn from b7 to b5 in their first turn, and so be in a position to capture White's pawn on c4 in their second turn.
+To illustrate, Black may move the pawn from b7 to b5 on their first turn, and so be in a position to capture White's pawn on c4 in their second turn.
 However, White may then prevent Black from occupying c4 on their next turn by using their pawn on c4 to capture Black's pawn on b5.
+So, Black moving their pawn from b7 to b5 on their first turn is not an initial move of interest.
 
-Still, there are only a handful of alternative moves and countermoves to consider, and so I not only assume that claim~\ref{chess:claim:1} is true, but I also assume that you also hold claim~\ref{chess:claim:1} to be true.
-Specifically, I also assume that you hold claim~\ref{chess:claim:1} to be true at some interval between the point at which I claimed~\ref{chess:claim:1} is true and the present time or the point at which you demonstrated claim~\ref{chess:claim:1} to be true.\nolinebreak
+Still, there are only (a little more than) a handful of alternative moves and countermoves to consider, and so I not only assume that claim~\ref{chess:claim:1} is true, but I also assume that you also hold claim~\ref{chess:claim:1} to be true.
+Even if you do not have an effective method for identifying a strategy for Black, you are able to exhaust all the strategies available to Black and identify those which ensure c5 is occupied on Black's second move.
+
+Precisely, I assume that you hold claim~\ref{chess:claim:1} to be true at some interval between the point at which I claimed~\ref{chess:claim:1} is true and the present time or the point at which you demonstrated claim~\ref{chess:claim:1} to be true.\nolinebreak
 \footnote{
   If a fresh instance of claim~\ref{chess:claim:1} is desired, one may substitute (e.g.) `a3', `a5', `g6', or `c5' for `c4'.
 }
@@ -380,10 +380,11 @@ Therefore:
 \begin{enumerate}[resume]
 \item\label{chess:claim:2} White cannot prevent Black from occupying c4 on their second move.
 % \item\label{chess:claim:3} You hold claim~\ref{chess:claim:2} to be true.
-\item\label{chess:claim:4} you have not reasoned from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to \ref{chess:claim:2}.
+\item\label{chess:claim:4} You have not reasoned from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to \ref{chess:claim:2}. And,
+\item\label{chess:claim:5} You hold that you are able to reason from the rules of chess and the game state to the truth of \ref{chess:claim:2}.
 \end{enumerate}
 
-Claim~\ref{chess:claim:4} is true by assumption.
+Claim~\ref{chess:claim:5} is the result of holding claim~\ref{chess:claim:1} to be true, and claim~\ref{chess:claim:4} is true by assumption.
 
 Further, claim~\ref{chess:claim:4} ensures that, as you have not reasoned from the rules of chess and the game state to \ref{chess:claim:2}, you do not hold claim~\ref{chess:claim:2} to be true due to a particular strategy that Black can enact.
 Additionally, an account of why you hold claim \ref{chess:claim:2} is true does not follow from understanding the rules of chess and the game state alone.
@@ -432,7 +433,7 @@ It may be the case that White cannot prevent Black from occupying c4 on their se
   Therefore, you may infer that Black has a strategy regardless of ability.
 
   Two observations:
-  \begin{enumerate*}[label=(\Roman*)]
+  \begin{enumerate*}[label=(\roman*)]
   \item Reasoning of this kind does not rule out the alternative line of reasoning that is of interest.
   \item The example may be made more complex. You claim that you have the ability to demonstrate that \(\phi\) follows from \(\Sigma\), and I have demonstrated that \(\psi\) follows from \(\phi\). I now claim that you are able to demonstrate that \(\psi\) follows from \(\Sigma\), as my reasoning was fairly simple, but I have not shown that \(\psi\) follows from \(\Sigma\), and therefore it would be a mistake to infer that I have stated that \(\psi\) follows from \(\Sigma\).
   \end{enumerate*}
@@ -449,26 +450,86 @@ And, if you were to demonstrate a witnessing strategy for Black on the basis of 
 Hence, in order for claim~\ref{chess:claim:1} to entail claim~\ref{chess:claim:2}, it must be the case that you are able to establish that claim~\ref{chess:claim:2} is true without appealing to my testimony.
 In this way, claim~\ref{chess:claim:1} may be understood as guaranteeing a relation between your ability to reason from the rules of chess and the game state to the truth of a certain proposition.
 
-Still, even though you would be able to demonstrate claim~\ref{chess:claim:2} without my testimony, my claim remains important in order for you to be confident that you have the ability.
-Even if you are confident that you understand the rules of chess and the game board, you would not be able to establish that White cannot prevent Black from occupying c4 on their second move without demonstrating a strategy for Black.
+Still, even though you would be able to demonstrate claim~\ref{chess:claim:2} without my testimony, my claim remains important in order for you to be confident that you have the ability --- even if you are confident that you understand the rules of chess and the game board, you would not be able to establish that White cannot prevent Black from occupying c4 on their second move without demonstrating a strategy for Black.
 Claim~\ref{chess:claim:1} licenses you to hold that claim~\ref{chess:claim:2} is true on grounds that are independent of my testimony.
 
-Colloquially, you may cite the reasoning that you are able to do (or the strategy that would result from the reasoning) as support for holding that claim~\ref{chess:claim:2} is true, and cite my testimony that claim~\ref{chess:claim:1} is true in support of your ability to do the reasoning.\nolinebreak
+Colloquially, you may cite the reasoning that you are able to do (or the strategy that would result from the reasoning) as support for holding that claim~\ref{chess:claim:2} is true.
+And my testimony that claim~\ref{chess:claim:1} is true is then cited in support of your ability to do the reasoning.\nolinebreak
 \footnote{
   Similar phenomena with `do you also hold \(\phi\) to be true?'
   Well, you hold \(\phi\) to be true, etc.
   So on the basis of you asking this, I may hold \(\phi\) to be true.
 
   Or, may reason to \(\phi\).
-  So, alternative paths is not unique to ability attributions.
+  So, alternative paths is not unique to ability attributions, though this differs in an important way, as you do not gain from this confidence that you can demonstrate that \(\phi\) is the case independently of the interaction.
 }
 
-\begin{note}[Upshot]
+
+\begin{note}[Different types of reasoning]
+
+  The reasoning performed by the agent may be characterised as the \emph{preservation of a designated value}, where the designated value is \emph{truth}.
+  For, if certain premises are true, then the conclusion is also true.
+
+  This is distinct from the reasoning that the agent is able to perform, which may be characterised as the \emph{construction of a witness}.
+
+  Simply put, the reasoning that the agent performed guarantees that a strategy for Black exists as it must be true that a strategy for Black exists (if certain premises are true).
+  The reasoning that the agent is able to perform, by contrast, would provide a particular strategy for Black, a witness for the existential statement that a strategy for Black exists.
+
+  So, if the agent holds their ability as support, then this is a different kind of reasoning from the reasoning they performed.
+
+  I am inclined to treat the construction of a witness as something more important, but for present purposes it is a contingent feature made to illustrate.
+  Here, simple observation that the support is different.
+  If the agent appeals to the reasoning that they are able to do in support, then the agent is appealing to support that differs from the reasoning they have performed.
+
+  If so, then from the agent's point of view there is a divergence between the reasoning that led to the conclusion and the reasoning which supports the conclusion.
+
+  {
+    \color{red}
+    facts we take into consideration in reasoning are reasons \\
+    reasons as items in pieces of reasoning, where reasoning is thought (or possible thought) directed toward some conclusion (\citeyear[421]{Hieronymi:2011aa})
+  }
+  Reasons that reasoning took into account, then a distinction between the reasons which led to the conclusion and the reasons that the agent takes to support the conclusion.
+
+
+  Re-express the problem, the reasons why the agent holds that the Black has a strategy are those reasons that I (the agent) have the ability to reason with.
+
+  This cuts across both `normative' and `explanatory' uses of `reason'.
+  Why did the agent, in fact, act?
+  If the agent is appealing to those witnessing reasons, then they are part of the explanation.
+  If the agent is appealing to those witnessing reasons, then these affect whether the outcome was appropriate.
+\end{note}
+
+
+
+{
+  \color{red}
+  I need to make the above more explicit and detailed, but it seems that the next thing to do is to provide some examples to help motivate what is going on now that there's some theoretical background added.
+}
+
+
+
+
+
+
+\begin{note}[Upshot/Idea of a generator]
   The upshot is that the agent is confident that they can generate an explanation.
   Therefore, the adoption of the conclusion is backed by these additional considerations.
 
   Really need the shopping example (or something similar) to make this point particularly interesting.
+
+  \hozlinedash
+
+  The ability to reason guarantees that there is a strategy, and that you can demonstrate what that strategy is.
+  Term this a \emph{generator}, as the execution of the ability generates a demonstration.
+
+  Generators are what this paper is (directly) about.
+  Your ability to reason from the rules of chess and the game state to a strategy for Black is a particular instance of a generator, and serves as the template for an abstract characterisation:
+  A generator is something that, if witnessed, provides reasoning in support of a conclusion.
+
+  This paper is (indirectly) about how reasoning supports a conclusion.
 \end{note}
+
+\hozlinedash
 
 \paragraph{ }
 \begin{note}
@@ -479,8 +540,6 @@ Colloquially, you may cite the reasoning that you are able to do (or the strateg
 
 {
   \begin{note}[Important]
-    What I need to make clear is that the reasoning the agent is able to do isn't the same as preservation of a designated value.
-    This is more-or-less implicit in what I have written, but it must be explicit.
     For, it is open to think of the possible reasoning simply as an elaboration of why the designated value is preserved.
     If so, then it's hard to see a difference between the two instances of reasoning, as both succeed at establishing that the conclusion must be true.
 
@@ -586,17 +645,6 @@ Right, because the reasoning is (in part) what makes it true that the agent has 
 Without the reasoning, there is no ability.
 The agent's ability does not, and can not, be substituted for such reasoning.
 \end{note}
-
-
-So, two different kinds of explanation.
-One depends on the other.
-The first type of explanation is a guarantee that the agent is able to generate the second kind of explanation.
-
-The second type of explanation is, from the agent's point of view, why the agent holds the attitude.
-It is the second type of explanation which verifies, vindicates, or supports the conclusion.
-And, ability some same for attitude.
-
-
 
 Without commitment, cite \citeauthor{Hieronymi:2011aa}, with the second explanation settling the issue.
 
@@ -710,12 +758,10 @@ propositional/doxastic\nolinebreak
   You have justification.
   Hence, the hearers justification goes by way of the speakers justification.
 
-  
-
   The details of causation matter.
   However, abilities (or what would result from abilities) avoid some of the issues here.
   For, nothing is witnessed.
-  
+ 
   It is somewhat interesting that \citeauthor{Davidson:2001aa} emphasises that one often doesn't have the primary reason, and instead provides information that is sufficient to generate the primary reason.
 
   So, the idea that an explanation can be generated is stressed by \citeauthor{Davidson:2001aa}.
@@ -802,15 +848,12 @@ propositional/doxastic\nolinebreak
 
   In short, the agent does not have an explanation for why they hold the attitude.
   However, the agent has a guarantee that there is an explanation.
-  
+
   This may seem like misdirection.
   It is the property of the agent having the ability, or the inferences that the agent makes from their recognition that they have the property that does the work.
 
   Idea here is that the reasoning that the agent has done provides an explanation.
 
-  
-
-  
   However, this argument can be applied to all reasoning, so no facts are important.
   Hence, can improve on this with causal arguments.
 
@@ -840,10 +883,10 @@ propositional/doxastic\nolinebreak
   So, it must be the case that the reasoning which the agent has done explains, from the agent's point of view.
 
   However, this goes too fast.
-  Interested from the agent's point of view, and we can't move so quickly.
-  The reasoning explains how the agent came to hold the conclusion.
-  The reasoning does not necessarily explain why the agent came to hold the conclusion.
-  
+
+  Need the agent's reasoning.
+  This point is made by \citeauthor[233]{Davidson:2001aa}, \citeauthor{Hieronymi:2018aa}, etc.
+  And, once the agent's reasoning is in the picture, we're back to attempting to understand how the generator fits in with the agents reasoning, and hence the initial question; whether the agent needs to work through the reasons which settle.
 \end{note}
 
 \begin{note}[Why and how]
@@ -904,9 +947,8 @@ The distinction I am interested in can be seen as distinction between the way a 
   \item And, as both \(s_{1}\) and \(s_{2}\) are equal to \(s_{3}\), we see by A that \(s_{1}\) and \(s_{2}\) must be equal to each other.
   \item Therefore Z is the case.
   \end{itemize}
-  The Tortoise may object to a step in this reasoning, but it is unclear whether they would.
-  Achilles insists on convincing the Tortoise that Z must be true when A and B are true without working through the relation between the contents of A and B and the contents of Z.
-  So, it is unclear whether the Tortoise does not accept that the two sides of the Triangle are equal to each other, or whether the Tortoise is seeking an explanation of why the two sides of the Triangle are equal to each other that follows from the contents of A, B, and Z, in contrast to the supposed preservation of truth.
+  The Tortoise may object to a step in this reasoning, though it is unclear whether they would as Achilles insists on convincing the Tortoise that Z must be true when A and B are true without working through the relation between the contents of A and B and the contents of Z.
+  Perhaps the Tortoise does not accept that the two sides of the Triangle are equal to each other, or perhaps the Tortoise is seeking a demonstration of why the two sides of the Triangle are equal to each other that follows from the contents of A and B.
 
   In short, C is of interest only to the extent that certain things about equality and this Triangle conspire to make it so that the two sides of this Triangle are equal to each other.
   These things can be ignored if one grants that there is preservation of truth from A and B to Z, but the preservation of truth follows from those things, and can not be substituted for them.
@@ -914,8 +956,25 @@ The distinction I am interested in can be seen as distinction between the way a 
   Hence, the Tortoise may refuse to accept C so long as the Tortoise is unclear on how equality and this Triangle are related, as the preservation of truth is merely a byproduct of whatever that relation is.
 
   (Note that this is analogous to the rules of chess, game state, and possibility in the opening scenario.)
-\end{note}
+    {
+    \color{red}
+    The problem, roughly, is how to convince the Tortoise that truth is preserved from A and B to Z.
+    \begin{enumerate}
+    \item Starting with game state and following the rules of chess.
+    \item Black moves to \(x\) and to \(y\).
+    \item Black has occupied \(y\) without an opportunity for White to prevent Black from occupying \(y\).
+    \end{enumerate}
+    If A' and B' are true, then Z' must be true.
+    This is the case\dots
+  }
 
+  This is distinct from the later, primary, problem.
+  There the Tortoise accepts C, and refuses to accept Z, but provides a (standard?) reading of the Tortoise.
+  Refusal to accept that the preservation of truth between premises and conclusion is equivalent to the relation (of interest) that holds between the premises and the conclusion.
+
+  With the explanation, I've given the Tortoise an account of what truth is, at least with respect to these premises.
+  The problem is much more difficult if the Tortoise is already on board\dots
+\end{note}
 
 
 \begin{note}[Ability]
