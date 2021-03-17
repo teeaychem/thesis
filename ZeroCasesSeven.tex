@@ -89,6 +89,8 @@
 \usepackage{tikz}
 \usetikzlibrary{bending,arrows,positioning,calc}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{fadings}
 \usepackage{tikz-qtree} %for simple tree syntax
 % \usepgflibrary{arrows} %for arrow endings
 % \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
@@ -1029,28 +1031,27 @@ Consider the following statement.\nolinebreak
 }
 
 \begin{itemize}
-\item\label{i:claim:no-supp} No, I was careful to not provide you with support for the existence of a strategy for Black, I claimed (and gave option of supporting) only that you have the ability to demonstrate (and hence independently support) the existence of a strategy.
+\item\label{i:claim:no-supp} No, I was careful to not provide you with support for the existence of a strategy for Black.
+  The claim made was about the relationship between a handful of propositions.
+  {
+    \color{red}
+    And something a little more.
+  }
 \end{itemize}
 
-If~\ref{i:claim:no-supp} is successful, then the informer does not provide the agent with (the option of) support for the existence of a strategy.
+If~\ref{i:claim:no-supp} is successful, then the informer does not provide the agent with (the option of) support for the existence of a strategy --- this much is given by the first part of the informer's claim.
 And, without (the option of) support the informer has not claimed the existence of a strategy.
 
+The second part of the claim helps in providing success conditions.
 
-View from two perspectives
-\begin{enumerate}
-\item The informer intends to withhold (the option) of further support (regardless of agent's position).
-\item The agent does not have the option of acquiring provided support (regardless of informer's intent).
-\end{enumerate}
+Fairly simple.
+I may be confident that \(B\) follows from \(A\), without being confident that \(B\) is the case, as I'm not confident that \(A\) is the case.
 
-Breaking some Gricean maxims.
-But not necessarily.
-
-Grounds to withhold belief.
 
 So the informer goes on to add.
 
 \begin{enumerate}
-\item I have provided you with three pieces of information.
+\item I have provided you with two pieces of information.
   \begin{enumerate}
   \item That there is some particular ability such confident that witnessing this ability will yield a demonstration of this strategy. And,
   \item That you may be confident that you have this particular ability, if you are confident that you have a basic grasp of the rules of chess.
@@ -1099,7 +1100,10 @@ This would result in the slight stronger claim that the agent is able to decide 
 So, in some cases, this is going to work out.
 In other cases, not so much.
 
-\emph{Important here is that as the informer is only linking, they can be understood as speaking about confidence from the agent's point of view.
+
+{
+  \emph
+  Important here is that as the informer is only linking, they can be understood as speaking about confidence from the agent's point of view.
   And, this is not necessarily hostile.
   The informer doubts that the agent really have this ability, however, the informer doesn't take a stand on this.
   They simply note that this is how things would go.
@@ -1121,6 +1125,54 @@ However, if confidence is low enough, these can be moved around.
 Note, then, that the confidence in each needs to be sufficiently low.
 
 Then, the trouble comes with confidence of the rules.
+
+
+Important points here.
+
+\begin{itemize}
+\item It's the agent's ability --- no an arbitrary individual.
+\item If there's a mismatch, it could be either the agent or the informer.
+\item Ability does some important work here, because the informer isn't necessarily evaluating from their point of view.
+  \begin{itemize}
+  \item This is, in part, what distinguishes the case from ordinary conditionals.
+  \item Ordinary conditionals have the same property, however, the relations are different.
+    On the one hand, there's not typically a circularity problem.
+    The antecedent is often enough to establish the consequent.
+    On the other hand, there's common ground, of a sort.
+
+    If the rules of chess permit \(X\), we can do \(Y\), and so \(Z\) holds.
+  \end{itemize}
+\end{itemize}
+
+\begin{note}[The factive content of the claim]
+  Schematically, the factive content of the informer's claim is action following from fact establishing secondary fact.
+  \begin{enumerate}
+  \item If \(X\), can do \(Y\), and so \(Z\).
+  \end{enumerate}
+  So, it's somewhat plausible to assume that the agent picks up on this.
+  Hence, the agent extracts this, and the inference is a little cleaner.
+
+  Part of the issue is that the agent isn't aware of what \(X\) and \(Y\) are in any detailed way.
+  \(X\) is quite broad, and for the agent \(Y\) is characterised by \(Z\).
+  So, this is put in terms of existential quantifiers, but the agent is willing to endorse each existential.
+
+  The problem with existential quantifiers is the witness.
+  The idea is that the informer is fairly confident in each of the two steps, but isn't confident in the single step.
+  Or, is not confident in the fact.
+
+  In both cases, the demonstration of the agent is what is of interest from the informer.
+
+  It certainly seems bad in the informer is confident that there is no relation.
+
+  So, the informer is uncertain on each of these propositions.
+  However, the overlap on each is sufficient.
+  So long as certainty is not required, then there is going to be a failure of transitivity.
+  For, push conditionals to the edge.
+\end{note}
+
+
+
+
 
 
 \begin{note}[No magic]
@@ -1155,7 +1207,87 @@ Then, the trouble comes with confidence of the rules.
   Who knows about \(\psi\), etc.
 
   However, if you are confident, then I've given you information about where to look.
+
+
+  So, if the student has a grasp, then they'd have the ability to find a counterexample.
+  The thing here is that there's really no relation between the two.
+  The point being I expect the student to quickly realise that there's no way that these two things are connected.
+  So there's no way to obtain transitivity, and hence really should not be confident that they have a good grasp.
 \end{note}
+
+
+
+View from two perspectives
+\begin{enumerate}
+\item The informer intends to withhold (the option) of further support (regardless of agent's position).
+\item The agent does not have the option of acquiring provided support (regardless of informer's intent).
+\end{enumerate}
+
+Breaking some Gricean maxims.
+But not necessarily.
+
+Grounds to withhold belief.
+
+
+\newpage
+
+
+\begin{tikzfadingfrompicture}[name=myfading]
+  % must be 2cm*2cm in size
+  \clip (0,0)rectangle(2,2);
+  \shade [left color=transparent!0,
+  right color=transparent!50,
+  fit fading=false,]
+  (0,0) rectangle (.25,2);
+  \shade [left color=transparent!50,
+  right color=transparent!75,
+  fit fading=false,]
+  (.25,0) rectangle (.5,2);
+  \shade [left color=transparent!75,
+  right color=transparent!100,
+  fit fading=false,]
+  (.5,0) rectangle (1.85,2);
+  \shade [left color=transparent!100,
+  right color=transparent!100,
+  fit fading=false,]
+  (1.85,0) rectangle (2,2);
+\end{tikzfadingfrompicture}
+
+The first figure is suggestive of the relation constraints.
+
+\begin{tikzpicture}
+  \draw[pattern=dots, pattern color=black!60!white, path fading=myfading, rounded corners] (0,.5) rectangle (1.5,2.75);
+  \draw[pattern=north east lines, pattern color=black!60!white, path fading=myfading, rounded corners] (.5,.25) rectangle (2.25,3);
+  \draw[pattern=north west lines, pattern color=black!60!white, path fading=myfading, rounded corners] (1,0) rectangle (3,3.25);
+\end{tikzpicture}
+
+The second figure demonstrate failure of transitivity.
+
+\begin{tikzpicture}
+  \draw[pattern=dots, pattern color=black!60!white, rounded corners] (0,.5) rectangle (1.5,2.75);
+  \draw[pattern=north east lines, pattern color=black!60!white, rounded corners] (.5,.25) rectangle (2.25,3);
+  \draw[pattern=north west lines, pattern color=black!60!white, rounded corners] (1,0) rectangle (3,3.25);
+\end{tikzpicture}
+
+The third figure demonstrates the important of the agent's confidence in their ability.
+
+\begin{tikzpicture}
+  \draw[pattern=dots, pattern color=black!60!white, rounded corners] (0,.5) rectangle (2.75,2.75);
+  \draw[pattern=north east lines, pattern color=black!60!white, rounded corners] (.5,.25) rectangle (2.875,3);
+  \draw[pattern=north west lines, pattern color=black!60!white, rounded corners] (1,0) rectangle (3,3.25);
+\end{tikzpicture}
+
+% \begin{tikzpicture}
+%   \draw[pattern=north east lines, path fading=logLBRW] (0,0) rectangle (4,4);
+%   \draw[pattern=north west lines, path fading=logLBRW] (2,2) rectangle (3,3);
+% \end{tikzpicture}
+
+
+% \begin{tikzpicture}[scale=.5]
+%   \draw[path fading=myfading] (0,0)rectangle(10,10);
+% \end{tikzpicture}
+
+\newpage
 
 
 Heck, this is almost \emph{exactly} what I want out of the student case.
