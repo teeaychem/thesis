@@ -120,6 +120,8 @@
   % \noindent\rule{\textwidth}{.1pt}
 }
 
+\newcommand{\nf}[1]{#1\ensuremath{^{{*}}}}
+
 \newcommand{\hozlinedash}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
   %\vspace{-10pt}
@@ -446,16 +448,8 @@ However, the agent does get other things.
 
 Consider the following:
 \begin{enumerate}
-\item\label{chess:claim:1} You are able to reason from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
+\item\label{chess:claim:1}\label{chess:claim:1:conditional} If you are able to reason with the rules of chess, then you have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
 \end{enumerate}
-{
-  \color{red}
-  This needs to be reformulated.
-  \begin{enumerate}
-  \item If you have a solid grasp on the rules of chess, then you are able reason from the the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
-  \end{enumerate}
-}
-
 
 I assume claim~\ref{chess:claim:1} is true, but not immediately obvious.
 And, in particular, that some reasoning from the rules of chess and the game state is required to verify the truth of the highlighted proposition.
@@ -555,37 +549,146 @@ Precisely, I assume that you hold claim~\ref{chess:claim:1} to be true at some i
   If a fresh instance of claim~\ref{chess:claim:1} is desired, one may substitute (e.g.) `a3', `a5', `g6', or `c5' for `c4'.
 }
 For ease of exposition, I will adopt the perspective of some point in that interval.
-Therefore:
-\begin{enumerate}[resume]
-% \item\label{chess:claim:3} You hold claim~\ref{chess:claim:focus-prop} to be true.
-\item\label{chess:claim:no-reason} You have not reasoned from the rules of chess and the game state (described in figure~\ref{fig:chess:board}) to \ref{chess:claim:focus-prop}. And,
-\item\label{chess:claim:able-reason} You hold that you are able to reason from the rules of chess and the game state to the truth of \ref{chess:claim:focus-prop}.
-\item\label{chess:claim:focus-prop} White cannot prevent Black from occupying c4 on their second move.
-\end{enumerate}
 
-Claim~\ref{chess:claim:no-reason} is true by assumption and ensures that, as you have not reasoned from the rules of chess and the game state to \ref{chess:claim:focus-prop}, you can not hold claim~\ref{chess:claim:focus-prop} to be true due to a particular strategy that Black can enact.
-{
-  \color{red}
-  Only that a strategy \emph{exists}
-}
-
-\begin{note}[Alternative]
-  {
-    \color{red}
-  \begin{enumerate}
-\item\label{chess:claim:1:conditional} If you have a moderate ability to reason with the rules of chess, then you have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
-\end{enumerate}
-
-\begin{enumerate}
-\item\label{simple:conditional:claim} If I have a moderate ability to reason with the rules of chess, then I have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their second move.
-\item\label{simple:conditional:antecedent} I have a moderate ability to reason with the rules of chess.
-\item\label{simple:conditional:consequent} I have the ability to reason from the game state to the proposition that White cannot prevent Black from occupying c4 on their second move.
-\item\label{simple:conditional:necessity} If it is not the case that White cannot prevent Black from occupying c4 on their second move then \ref{simple:consequent} is false.
-\item\label{simple:conditional:focus} White cannot prevent Black from occupying c4 on their second move.
-\end{enumerate}
-}
+\begin{note}[Reasoning sketch]
+  With the above, sketch out simple reasoning.
+ {
+   \color{red}
+   \begin{enumerate}
+   \item\label{simple:conditional:claim} If I have a moderate ability to reason with the rules of chess, then I have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their second move.
+   \item\label{simple:conditional:antecedent} I have a moderate ability to reason with the rules of chess.
+   \item\label{simple:conditional:consequent} I have the ability to reason from the game state to the proposition that White cannot prevent Black from occupying c4 on their second move.
+   \item\label{simple:conditional:factive-demonstration} It is not possible to demonstrate something that is false.
+   \item\label{simple:conditional:necessity} If it is not the case that White cannot prevent Black from occupying c4 on their second move then \ref{simple:consequent} is false.
+   \item\label{simple:conditional:focus} White cannot prevent Black from occupying c4 on their second move.
+   \end{enumerate}
+ }
 \end{note}
 
+By assumption the agent has not reasoned from the rules of chess and the game state to \ref{simple:conditional:focus}.
+In turn, the agent does not hold \ref{simple:conditional:focus} to be true due to a particular strategy that Black can enact.
+Instead, \ref{simple:conditional:factive-demonstration} requires that the agent cannot be confident that they have the ability to demonstrate a strategy without being confident that \emph{some} strategy exists.\nolinebreak
+\footnote{
+  Assumes a factive reading of `demonstrate', this assumption will be held throughout the paper.
+  Non-factive counterpart.
+  If required, replace `\emph{term}' with `\nf{\emph{term}}' to indicate non-factive reading.
+  Hence, `\nf{demonstrate}' is non-factive/appearance of demonstration.
+  Likewise, `\nf{see}' is non-factive/appearance of `see'.
+
+  For example, if the agent sees a donkey, then factivity of sight entails existence of donkey, while if the agent \nf{sees} a donkey, the agent may be hallucinating, the object may be a cleverly disguised mule, a hologram, etc.
+}
+And, it seems, agent's prior confidence of ability meshes with the conditional provided by the informer.
+So, as it seems the agent is permitted to be confident that they are able to demonstrate the existence of a strategy, the agent is required to be confident that a strategy exists.
+
+I take the broad outline of this reasoning to be compelling.
+Agent's possesses general abilities, agent is not required to understand specifics that follow from general ability, informer's observe specific abilities which follow from general abilities, and once informed agent incorporates this information.
+
+Interest is in how this works when the only information the informer provides is a conditional linking general to specific.
+So, not support for the particular fact otherwise.
+
+\begin{note}[Intuition for only conditional information]
+Written communication, so I'm not focused on \emph{your} ability, so to speak.
+Instead, claim~\ref{chess:claim:1} holds in general, so it is fair to reason that in order for me to make the claim I must have reasoned from the game state to a strategy.
+\end{note}
+
+\hozlinedash
+
+\begin{note}[The details matter]
+  If the agent is given conditional information, then the details matter.
+  For, the fact rests on the reasoning.
+  Relation of support tracing from premises to conclusion.
+  Here, support as generic.
+  Sketch suggests that support works out, but ability suggests two different ideas.
+\end{note}
+
+\begin{note}[Two options with ability]
+  First, there is the attribution of ability.
+  Second, there is witnessing ability.
+
+  This leads to two ways of reading the argument.
+\end{note}
+
+\begin{note}[Two ways of reading the argument]
+  Two different ways of understanding the argument.
+  \begin{enumerate}
+  \item Attribution.
+  \item Witnessing.
+  \end{enumerate}
+  Attribution is working form the attribute of having the general ability.
+  Witnessing is working from witnessing the ability.
+
+  \begin{multicols}{2}
+    Attribution:
+    \begin{enumerate}
+    \item If general then specific.
+    \item Prior support for general
+    \item Have the general ability
+    \item Have the specific ability
+    \item Strategy exists
+    \end{enumerate}
+
+    Witness:
+    \begin{enumerate}
+    \item If general then specific
+    \item Prior support for general
+    \item General to witness of specific
+    \item Provide witness
+    \item Strategy exists
+    \end{enumerate}
+  \end{multicols}
+  
+  Witnessing, the agent relies on applying their ability and the potential attribution is unimportant.
+  Attribution, the agent relies on the attribution, and the potential reasoning is unimportant.
+
+  The two are related.
+  If the agent has the ability, then the agent has the potential to reason.
+  And, if the agent is able to apply their ability then the agent has the potential to attribute the general ability to themselves.
+
+  Reasoning is distinct, and potential to make a difference with respect to support.
+
+  An tangential example may help illustrate the difference.
+
+  Height barrier to a ride.
+  Attribute, particular height.
+  Witness, walking under the bar.
+
+  Here, arbitrary.
+  Depends on the administration.
+  Height is key, and the bar is a test.
+  Or, bar is key, and height is an approximation.
+
+  Rough around the edges.
+  Taller, but slouching.
+  Shorter, but hair.
+
+  Preserved under transformations.
+
+  Analogy does not stretch beyond illustrating basic difference.
+  Ride entrance is defined in this way.
+  Support is not.
+  Still, difference.
+  Potential for this to reflect difference in whether support flows.
+
+  The characterisation of attribution and witnessing is rough, and will be detailed in time --- the following paragraphs, and the main argument.
+
+  The latter, witnessing, reflects opening ideas.
+  The agent appeals to potential reasons, as the agent hasn't done the reasoning.
+  The former does not require this.
+
+  The former is problematic.
+\end{note}
+
+\begin{note}[Two ways continued]
+  Worry that this is very much in the weeds, so to speak.
+  Yes.
+  Limitations from ability and from information.
+
+  Still, significant.
+  If witnessing is required in some cases, then question of whether this holds in cases where it is not required.
+  And, significant because\dots (no detailed account).
+\end{note}
+
+\begin{note}[No detailed account]
 In addition, no detailed account of why you hold claim \ref{chess:claim:focus-prop} is true follows from understanding the rules of chess and the game state alone.
 For, one may understand the rules of chess and the game state while lacking the ability to demonstrate that claim~\ref{chess:claim:focus-prop} is true --- understanding the rules of chess and the game board is distinct from the ability to construct strategies.\nolinebreak
 \footnote{
@@ -601,100 +704,14 @@ For, one may understand the rules of chess and the game state while lacking the 
   Perhaps it is the case that claim~\ref{chess:claim:focus-prop} is sufficiently obvious to guarantee that the agent has the ability.
   Still, the reasoning involved differs only in complexity from the reasoning involved in showing that White cannot prevent Black from checkmating in four moves, and I doubt that this claim is sufficiently obvious.
 }
-
-Still, things are fine.
-Written communication, so I'm not focused on \emph{your} ability, so to speak.
-Instead, claim~\ref{chess:claim:1} holds in general, so it is fair to reason that in order for me to make the claim I must have reasoned from the game state to a strategy.
-
-Rules of chess, then strategy.
-Requirements for finding strategy are fairly straightforward, hence link between two abilities.
-Even though I have not directly claimed that a strategy exists, you did not reason by virtue of the claimed conditional.
-
-Interest is in cases where an agent does reason by virtue of the conditional.
-Assume the claim is made by an informer to a particular agent.
-
-\hozlinedash
-
-\begin{note}[Problem, again]
-  The problem is subtle.
-
-  The animals in the pen look like zebras.
-  The animals in the pen are zebras.
-  The animals in the pen are not mules cleverly disguised to look like zebras.
-
-  If able to see animals that look like zebras, then able to see that they are not cleverly disguised mules.
-  Able to see animals that look like zebras.
-  Able to see that they are not cleverly disguised mules.
-  Animals in the pen are not cleverly disguised mules.
-
-  The key parallel is look like -> see.
-  In the first case, this happens via an unstated premise.
-  In the second, this is supplied.
-
-  The problem is that there is a lift from `looks like' to `is'.
-  In the ability case, this follows from general to specific ability.
-
-  Intuitive problem with the former is that if the animals in the pen are cleverly disguised mules, then the agent doesn't go from appearance to seeing.
-  Though, it may be the case that the agent has ground for looks like --- the mules are cleverly disguised.
-
-  In extreme cases, the relevant failure is significant.
-  Appearance of hands.
-  Have hands.
-  External world.
-
-  Then it seems the conditional is not viable.
-
-  Bracket these cases.
-  Assume that some support flows from the antecedent to consequent.
-  Key is the shift from non-factive to factive.
-
-  Highlight a second difference between the first two examples.
-  In the first, there's nothing the agent could be doing.
-  In the second, the agent needs only witness their ability.
-
-  It may be that the agent does in fact see zebras.
-  It may be that the agent knows.
-
-  In the second, it is clear the agent has not done the reasoning.
-
-  Interest in the latter is this overstepping, but with option.
-  Return to some parallels later.\nolinebreak
-  \footnote{
-    Basically, with the seeing case, the agent possesses the relevant reasons, but is not able to distinguish them.
-    This is somewhat close to Pritchard's disjunctivism.
-  }
-
-  With this, provide a more thoroughgoing sketch.
 \end{note}
 
-\begin{note}[Two different reasoning patterns]
-  Difference between reasoning by witnessing ability and detaching from ability.
-
-  Detaching does instantiate failure of warrant.
-  Witnessing requires potential reasons.
-
-  Similarity in that both require the absence of support for \(\psi\).
-
-  Difference is that witnessing captures the relevant support.
-  Detaching does not.
-
-  Still, lays out a pair of steps after further detail.
-  First, show that this is the appropriate pattern.
-  Second, that this pattern does not provide support for \(\psi\).
+\begin{note}[First part focus]
+  First part focuses on conditional and problems with attribution.
+  Sketch the problem, general upshots, and then proceed to arguments in detail.
 \end{note}
 
-\begin{note}[Thorough sketch, recap]
-  Agent is confident through the conditional and their prior confidence in their ability that a particular strategy exists.
-
-  Still, the agent is confident because they would not have the ability if the particular strategy did not exist.
-
-  However, the support the agent has for general ability to reason with the rules of chess mentioned in the antecedent of the claim made by the informer does not secure support for the specific ability to witness the existence of the strategy mentioned in the consequent of the claim made by the informer.
-
-  For, the agent's general ability only extends so long as their is a strategy to be witnessed.
-  So, expand only if strategy exists.
-\end{note}
-
-\begin{note}[Through sketch, details]
+\begin{note}[Attribution sketch]
   This raises a problem.
 
   However, conditional is novel information, only contains ability claim, and specifically in the antecedent.
@@ -794,6 +811,16 @@ Assume the claim is made by an informer to a particular agent.
   Perhaps this is bad, though.
   The agent out to have done the alternative reasoning.
   The agent is excused, because there's not too much of a fuss to make, but the agent is in need to excuse.
+
+  {
+    \color{red}
+  Interest in the latter is this overstepping, but with option.
+  Return to some parallels later.\nolinebreak
+  \footnote{
+    Basically, with the seeing case, the agent possesses the relevant reasons, but is not able to distinguish them.
+    This is somewhat close to Pritchard's disjunctivism.
+  }
+  }
 \end{note}
 
 \begin{note}[Through, summary]
@@ -811,6 +838,41 @@ Assume the claim is made by an informer to a particular agent.
   No commitment.
   Contrast, the agent does have those reasons.
 \end{note}
+
+\begin{note}[Gist of problem]
+  Really important point is a structural defect.
+  With attribution, support fails.
+  With witnessing, support can be added later.
+\end{note}
+
+\begin{note}[Two different reasoning patterns]
+  Difference between reasoning by witnessing ability and attribution from ability.
+
+  Detaching does instantiate failure of warrant.
+  Witnessing requires potential reasons.
+
+  Similarity in that both require the absence of support for \(\psi\).
+
+  Difference is that witnessing captures the relevant support.
+  Detaching does not.
+
+  Still, lays out a pair of steps after further detail.
+  First, show that this is the appropriate pattern.
+  Second, that this pattern does not provide support for \(\psi\).
+\end{note}
+
+\begin{note}[Thorough sketch, recap]
+  Agent is confident through the conditional and their prior confidence in their ability that a particular strategy exists.
+
+  Still, the agent is confident because they would not have the ability if the particular strategy did not exist.
+
+  However, the support the agent has for general ability to reason with the rules of chess mentioned in the antecedent of the claim made by the informer does not secure support for the specific ability to witness the existence of the strategy mentioned in the consequent of the claim made by the informer.
+
+  For, the agent's general ability only extends so long as their is a strategy to be witnessed.
+  So, expand only if strategy exists.
+\end{note}
+
+
 
 \begin{note}[General and specific ability]
   Still, the observation generalises to the relation between distinct types of ability.
