@@ -125,6 +125,9 @@
 \newcommand{\WR}[0]{\textsf{Witnessing}}
 \newcommand{\AR}[0]{\textsf{Attribution}}
 
+
+\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)}
+
 \newcommand{\hozlinedash}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
   %\vspace{-10pt}
@@ -141,7 +144,6 @@
 
 \usepackage{xskak} % For chess diagram
 
-
 \usepackage[hidelinks,breaklinks]{hyperref}
 
 \title{Ability to reason and reasoning with ability}
@@ -150,6 +152,8 @@
 % \date{ }
 
 \begin{document}
+
+
 
 % \tableofcontents
 
@@ -1728,73 +1732,130 @@ We now turn to the final premise of the negative argument:
 \label{sec:attribution}
 
 
-\begin{note}[Introduction, 1]
-  Plausible that the agent obtains support for the existence of a (particular) strategy from the (specific) ability to demonstrate the existence of a (particular) strategy.
-  Our interest is in how the agent obtains such support.
+\begin{note}[Introduction, summarising previous section and interest]
+  This section of the paper considers whether an agent is able to obtain support for the existence of a chess strategy on the basis of support for possessing the general ability to reason with the rules of chess and informer from an informer that if the agent is able to reason with the rules of chess, then the agent is able to demonstrate the existence of a particular strategy.
+
+  Our interest is with the following pattern of reasoning.
+  \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{as:1}\label{inf:cond:ant} I have the ability to reason with the rules of chess.
+  \item\label{as:2}\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (specific) strategy.
+  \end{enumerate}
+  As~\ref{as:1} is the antecedent of~\ref{as:2} and the consequent of~\ref{as:2} is novel information, \ref{as:1} and~\ref{as:2} combine to provide support for:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{as:4}\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy.
+  \end{enumerate}
+  Sub-conclusion~\ref{as:4}, is the antecedent of the following conditional:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{as:3}\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \end{enumerate}
+  Therefore:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{as:5}\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.
+  \end{enumerate}
+
+  In the previous section we argued that an informer providing the agent with~\ref{inf:cond} does not provide the agent with support for~\ref{inf:cond:conq}.
+  Rather, an informer providing the agent with~\ref{inf:cond} allows the agent to extend their support for~\ref{inf:cond:ant} to~\ref{inf:cond:conq}.
+
+  In turn,~\ref{inf:gae} to obtain~\ref{inf:sse}.
+
+  In short, the agent's support for~\ref{inf:sse} rests on expanding their general ability to a specific ability.
+
+  The type of argument here is familiar.
+  The agent's goal is to \emph{transmit} support for~\ref{as:4} to~\ref{as:5} \emph{via} the entailment noted in~\ref{as:3} --- from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
+
+  For, the information provided by the informer is conditional, and so in turn the support the agent has for the ability to demonstrate the existence of a (particular) strategy is primarily premised on the support the agent has for being able to reason with the rules of chess.
+  So, the agent does not have support for~\ref{inf:cond:conq} nor~\ref{inf:sse} that is independent of their general ability to reason with the rules of chess.
+
+  Hence, with the result of the previous section in hand, we may now turn to \emph{how} the agent obtains support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
+
+   Our interest in the reasoning is from~\ref{as:4} and~\ref{as:3} to~\ref{as:5}, and in particular~\ref{as:3}.
 \end{note}
 
-\begin{note}[Introduction, 2]
-  In the opening section we sketched two paths to obtaining support for the existence of a (particular) strategy given support for the (specific) ability to demonstrate the existence of a (particular) strategy.
-  \begin{enumerate}
-  \item \AR
-  \item \WR
-  \end{enumerate}
-  The present section focuses on attributive reasoning, with the goal to suggest a dilemma.
+\begin{note}[Introduction, two different types of reasoning]
+  In the opening section we canvassed two distinct ways in which the agent may obtain support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
+  We termed these \AR{} and \WR{}.
 
-  The `problem' with \WR is that the relevant witness is potential.
+  Roughly, \AR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{attribute} of having the ability to demonstrate the existence of a particular strategy.
+  And, in turn,~\ref{inf:sse} follows from the attributive understanding of~\ref{inf:cond:conq} and~\ref{inf:gae} by understanding~\ref{inf:gae} to highlight conditions that must be in place in order for the agent to possess the attribute.
+  Intuitively, an agent may have the attribute of being able to demonstrate the existence of a strategy only if the strategy exists.
+
+  By contrast, \WR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{generating a witnessing event} of demonstrating that the (specific) strategy exists.
+  For, to have the ability to demonstrate the existence of a particular strategy is just for there to be some (potential) event in which the agent applies their understanding of the rules of chess to obtain a demonstration of the relevant strategy.
+
+  The `problem' with \WR{} is that the relevant witness is potential.
   The agent has not (yet, nor necessarily will) reasoned with the rules of chess and the state of the board to demonstrate the existence of the (particular) strategy.
   Hence, if the agent appeals to a (potential) witness, then the agent appeals to \emph{potential} reasons (or reasoning).
 
-  While there may be something immediately appealing for \WR, block potential reasons on the basis that there are (is) reasons (reasoning) that the agent has access to.
-
-  This is \AR, where the agent appeals to the attribute of having the ability to demonstrate the existence of a (particular) strategy.
-
-  If so, the agent obtains support for the existence of the (particular) strategy from available reasons (reasoning).
-
-  The intuitive idea is straightforward.
-
-  Witnessing the relevant ability involves an event.
-  Possessing the ability ensures that the relevant event may be witnessed by the agent.
-  The propositions of interest are requirements on the relevant event.
-  Therefore, it seems the agent doesn't need to appeal to witnessing.
-  And, that the agent has the ability is accessible.
-
-  Analogy, possible to hit a snooker ball into a pocket.
-  There is a possible event, but there's a reduction to accessible stuff.
-  If the agent didn't have the required resources, then even if it is possible, support seems a hard sell.
-  At best, trivial due to lack of information.
-
-  Ability is a little different.
-  Witnessing provides the relevant demonstration, etc.
-
-  In short, \AR gives a plausible sketch of how an agent may obtain support for the existence of the (particular) strategy, and satisfies the intuitive constraint that an agent may only appeal to reasons that they `have access' to.
+  Intuitively, \AR{} avoids the noted problem with \WR{}.
+  For, the attribute of having the ability to demonstrate the specific strategy is an attribute of the agent as they are.
+  The agent may not, as a matter of fact, have the ability, but granting that the agent has support for possessing the attribute, the agent is not required to appeal to potential events.
 \end{note}
 
-\begin{note}[Introduction, 3]
-  The goal of the present section is to show that \AR is not quite so straightforward.
-  The core of the argument is that \AR achieves too much.
-  Allows the agent to extend support from attribute of ability to propositions to which it seems questionable whether support does extend.
-
-  If the argument is successful, then, this establishes something of a dilemma.
-  \begin{enumerate}
-  \item\label{RDil:W} If go via witnessing, then agent isn't aware of support appealed to, but limited by the witnessing events.
-  \item\label{RDil:A} If go via attribution, then agent is aware of support they have, but extends beyond witnessing events.
+\begin{note}[Contrast with \WR{}]
+  A brief sketch of the argument sketch developed given the \WR{} interpretation is:
+  \begin{enumerate}[label=(W\arabic*), ref=(W\arabic*)]
+  \item I am able to demonstrate the existence of a (particular) strategy.
+  \item Therefore, possible to witness event of demonstrating the existence of the (particular) strategy.
+  \item Event of demonstrating provides support for the existence of the (particular) strategy.
+  \item So, attribute of ability secures availability of support for the existence of the (particular) strategy.
+    However, it is the available reasons that do the work.
   \end{enumerate}
 
-  However, do go a little further.
-  Establishing~\ref{RDil:A} relies on rejecting \WR.
-  Falls a little short, but suggests that \WR is quite good.
+  In short, the distinction is between appealing to ability as a prerequisites of the relevant event, versus appealing to ability for the outcome of the relevant event.
+  The former doesn't require any consideration about the event, as it's based only on the possibility of the event.
+  The later does require consideration about the event, because it appeals to the result.
 \end{note}
 
-\begin{note}[Introduction, 4]
+\begin{note}[Introduction, attribution and dilemma]
+  The present section focuses on \AR{}.
+  Our goal is to show that \AR{} is not quite so straightforward as may first appear.
+
+  For, if observing that the (particular) strategy must exist in order for the agent to have the attribute of being able to demonstrate the existence of the strategy, then it seems the agent may obtain support for further conditions required in order to have the attribute of being able to the demonstrate the existence of the strategy.
+  For example, that any apparent reasoning to a conflicting strategy involves a mistake.
+
+  If successful, this suggests a dilemma.
+  For, we will have established the following two conditionals:
+  \begin{enumerate}[label=(D\arabic*), ref=(D\arabic*)]
+  \item\label{RDil:W} If the reasoning pattern is understood as an instance of \WR{}, then the agent obtains support for the existence of the particular strategy by virtue of reasoning that is (merely) potential.
+  \item\label{RDil:A} If the reasoning pattern is understood as an instance of \AR{}, the agent obtains support for the existence of the particular strategy by virtue of reasoning performed, but the same reasoning may be extended to obtain support for propositions that (intuitively) the agent does not have support for.
+  \end{enumerate}
+  Therefore, if either \WR{} or \AR{} is the correct interpretation of the argument sketch, then it is the case that either the agent does not obtain support for the existence of the (particular) strategy on the basis of reasoning the agent has performed, \emph{or} the agent is able to obtain support for propositions that intuitively the agent is not able to obtain support for.
+  
+  We have sketched why \AR{} does not face the problem highlighted with \WR{}, but in order for this dilemma to be genuine we also need to observe that \WR{} does not face the problem highlighted with \AR{}.
+  Part of the argument for~\ref{RDil:A} will establish that this is so.
+\end{note}
+
+\begin{note}[Assumptions for attribution horn of dilemma]
   Ideally, argument for~\ref{RDil:A} with few premises.
   This is not the case.
-  The argument relies on transmission failure, and in particular the broad stokes of \citeauthor{Wright:2016wl}'s characterisation of transmission failure.
 
-  [Example of transmission failure]
+  The argument relies on failure of support to transmit from premises to conclusion, and in particular the broad stokes of \citeauthor{Wright:2016wl}'s characterisation of transmission failure.
 
-  Transmission failure is something of an ask, as it \citeauthor{Wright:2016wl}'s understanding.
-  It is controversial to some extent, and this offers a relatively clean way to avoid the conclusion.
+  We begin by outlining a general understanding of transmission of support and observe that the \AR{} interpretation of the reasoning sketch is a straightforward instance of transmission.
+  In broad strokes, as the agent does not have support for the existence of the (particular) strategy prior to the conditional information provided by the informer, if the agent obtains support for the existence of the (particular) strategy via an entailment, then the agent does so as a result of \emph{transmitting} the support the agent has for the supporting premises to the relevant conclusion across the noted entailment.
+
+  In order for \ref{RDil:A} to be the case, it must follow from \AR{} that the agent plausibly obtains support for certain premises if the agent obtains support for the existence of a strategy form the attribute of having the relevant ability, but for the proposed support to be (intuitively) unavailable to the agent.
+
+  In particular, we grant that the agent obtains support for the ability to demonstrate the existence of the (particular) strategy on both \AR{} and \WR{} interpretations of the reasoning sketched.
+  Likewise, we will not argue that the agent fails to obtain support for the existence of the (particular) strategy.
+  Rather, our focus will turn to additional conditions that must obtain in order for the agent to have the attribute of being able to witness the existence of a strategy.
+
+  Prior to turning to transmission failure proper, and \citeauthor{Wright:2016wl}'s characterisation of transmission failure, we argue for the following premise which will lies at the core of our understanding of support and transmission failure:
+    \begin{enumerate}[label=(A\arabic*), ref=(A\arabic*)]
+  \item\label{Att:Prem:Presupp}
+    Obtaining support for some proposition \(\phi\) is:
+    \begin{enumerate}
+    \item\label{Att:Prem:Presupp:1} a process, and
+    \item\label{Att:Prem:Presupp:2} an agent may presuppose that certain conditions obtain, where failure of the relevant presupposed conditions would entail failure of the relevant process.
+    \end{enumerate}
+  \end{enumerate}
+  The premise is not novel to this paper.
+  However, the argument for the premise is tailored to our interests.
+
+  With the premise in hand, we then turn to understanding transmission failure, and completing the argument for~\ref{RDil:A}.
+\end{note}
+
+\begin{note}[Limitations of the argument]
   However, it may be useful to note that the core idea does not entail transmission failure.
   And, that the use of transmission failure is fairly non-committal about instances of transmission failure.
 
@@ -1805,71 +1866,6 @@ We now turn to the final premise of the negative argument:
 
   So, to those sympathetic, there's an argument.
   To those unsympathetic, here are some of the issues.
-\end{note}
-
-\begin{note}[Introduction, 5]
-  Transmission failure.
-  Involves limits on witnessing.
-  \AR bypasses reasoning.
-  \AR isn't limited in the same way.
-
-  That's basically it for transmission failure.
-
-  However, also need to argue that \AR does/would transmit.
-\end{note}
-
-
-\begin{note}[A quick summary of the reasoning of interest]
-  This section of the paper considers whether an agent is able to obtain support for the existence of a chess strategy on the basis of support for possessing the general ability to reason with the rules of chess and informer from an informer that if the agent is able to reason with the rules of chess, then the agent is able to demonstrate the existence of a particular strategy.
-
-  Earlier in the paper it has (or rather will be) argued that the agent has not been provided with the information that they are able to demonstrate the existence of a strategy.
-  For, the information provided by the informer is conditional, and so in turn the support the agent has for the ability to demonstrate the existence of a (particular) strategy is primarily premised on the support the agent has for being able to reason with the rules of chess.
-
-  The reasoning is roughly as follows:
-  \begin{enumerate}
-  \item\label{as:1} I possess the ability to reason with the rules of chess.
-  \item\label{as:2} If I am able to reason with the rules of chess then you are able to demonstrate the existence of a (particular) strategy.
-  \end{enumerate}
-  As~\ref{as:1} is the antecedent of~\ref{as:2} and the consequent of~\ref{as:2} is novel information, \ref{as:1} and~\ref{as:2} combine to provide support for:
-  \begin{enumerate}[resume]
-  \item\label{as:4} I have the ability to demonstrate the existence of the (particular) strategy.
-  \end{enumerate}
-  Sub-conclusion~\ref{as:4}, is the antecedent of the following conditional:
-  \begin{enumerate}[resume]
-  \item\label{as:3} An agent has the ability to demonstrate the existence of some (specific) strategy only if the strategy exists.
-  \end{enumerate}
-  Therefore:
-  \begin{enumerate}[resume]
-  \item\label{as:5} The (particular) strategy exists.
-  \end{enumerate}
-
-  In summary, the reasoning proposes to transmit support from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
-
-  Our interest in the reasoning is from~\ref{as:4} and~\ref{as:3} to~\ref{as:5}, and in particular~\ref{as:3}.
-  For, the antecedent of~\ref{as:3} concerns the agent having the attribute of being able to demonstrate the existence of the (particular) strategy, and there allows the agent to obtain the existence of the (particular) strategy without appeal an event of demonstrating the existence of the (particular) strategy.
-\end{note}
-
-\begin{note}[???]
-  {
-    \color{red}
-    This reasoning doesn't say much about the nature of the support obtained for each of the premises.
-
-    I assume that the agent is not able to rule out that the support the agent has may be misleading, and in particular that the agent may be mistaken about their ability to reason with the rules of chess.
-
-    I also assume that the agent obtains sufficient support for being able to demonstrate the existence of a (particular) strategy.
-    However, this does not require the agent to have the same degree of support for the ability to reason with the rules of chess (\ref{as:1}) or the conditional provided by the informer (\ref{as:2}) as the ability to demonstrate the existence of a (particular) strategy (\ref{as:4}).
-
-    Likewise, the support the agent has for the existence of the (particular) strategy need be of equivalent strength to the support the agent has for the ability to demonstrate the existence of the strategy (\ref{as:4}).
-
-    If the agent obtains support for the existence of the (particular) strategy by the reasoning sketched, the reasoning will be considered a success.
-  }
-\end{note}
-
-\begin{note}[Relation to transmission]
-  The important step of the argument is~\ref{as:5} from~\ref{as:4} and~\ref{as:3}.
-
-  The type of argument here is familiar.
-  The agent's goal is to \emph{transmit} support for~\ref{as:4} to~\ref{as:5} \emph{via} the entailment noted in~\ref{as:3}.
 \end{note}
 
 \begin{note}[Transmission, the basics, definition]
@@ -1885,7 +1881,7 @@ We now turn to the final premise of the negative argument:
   (first time) transmission of support is be characterised as follows:
   \begin{quote}
     \emph{S}'s support for \emph{A} based on \emph{E} transmits from \emph{A} to \emph{B} if and only if:
-    \begin{enumerate}[label=(\roman*), ref=(\roman*)]
+    \begin{enumerate}[label=(T\arabic*), ref=(T\arabic*)]
     \item\label{sep:trans:i} \emph{S} has support for \emph{A} based on \emph{E},
     \item\label{sep:trans:ii} \emph{S} knows that \emph{B} is entailed by \emph{A}, and
     \item\label{sep:trans:iii} \emph{S} obtains (\emph{first time}) support for \emph{B} \emph{in virtue of} the satisfaction of \ref{sep:trans:i} and \ref{sep:trans:ii}.
@@ -1895,18 +1891,27 @@ We now turn to the final premise of the negative argument:
 
 \begin{note}[Transmission characterisation applied to argument]
   With respect to the case of interest:
-  \begin{itemize}
-  \item \emph{A} is the (specific) ability to demonstrate that some (particular) strategy exists.
-  \item \emph{B} is the existence of some (particular) strategy --- the strategy identified by \emph{A}.
-  \item \emph{E} is the result of combining:
-    \begin{enumerate}[label=\emph{E}\roman*.]
-    \item the agent's support for the general ability to reason with the rules of chess, and
-    \item the conditional information provided by the informer that if the agent has the general ability to reason with the rules of chess then the agent has the specific ability to demonstrate that some (particular) strategy exists.
+  \begin{transmission}[Chess]
+    \begin{enumerate}
+    \item[\tri{C}{E}]
+      The result of combining:
+      \begin{enumerate}[label=\tri{C}{E}.\arabic*.]
+    \item\label{C:tr:E1} the agent's support for the general ability to reason with the rules of chess, and
+    \item\label{C:tr:E2} the conditional information provided by the informer that if the agent has the general ability to reason with the rules of chess then the agent has the specific ability to demonstrate that some (particular) strategy exists.
     \end{enumerate}
-  \end{itemize}
+    \item[\tri{C}{A}] The attribute of having the (specific) ability to demonstrate that some (particular) strategy exists
+    \item[\tri{C}{B}] The (particular) strategy exists.
+    \end{enumerate}
+    Or, alternatively:
+    \begin{enumerate}
+    \item[\tri{C}{B\('\)}] Any apparent demonstration of a conflicting strategy is the result of a mistake.
+    \end{enumerate}
+  \end{transmission}
+
   We have argued that if the agent obtains support for the ability to demonstrate that some strategy exists on the basis of their support for the general ability and the conditional information provided by the informer, then the support is irresolute.
-  For present purposes we assume that the agent obtains irresolute support for the ability to demonstrate that some strategy exists.
-  Therefore, condition~\ref{sep:trans:i} is satisfied.
+
+  Condition~\ref{sep:trans:i} is satisfied as for present purposes we assume that the agent obtains irresolute support for the ability to demonstrate that some strategy exists.
+
   Condition~\ref{sep:trans:ii} is likewise satisfied by the recognised entailment from the ability to demonstrate a specific strategy to the existence of the strategy --- if the (particular) strategy did not exist, the agent would not have the ability to provide a demonstration of it.
 
   Condition~\ref{sep:trans:iii} is our focus.
@@ -1920,28 +1925,17 @@ We now turn to the final premise of the negative argument:
 \end{note}
 
 \begin{note}[After observations]
-  So, interest is in whether \ref{as:3} is suitable for transmission of support.
-  The above observations link the attribute to the verb.
-
-  Contrast with alternative \WR.
-  \begin{enumerate}
-  \item I am able to demonstrate the existence of a (particular) strategy.
-  \item Therefore, possible to witness event of demonstrating the existence of the (particular) strategy.
-  \item Event of demonstrating provides support for the existence of the (particular) strategy.
-  \item So, attribute of ability secures availability of support for the existence of the (particular) strategy.
-    However, it is the available reasons that do the work.
-  \end{enumerate}
-
-  In short, the distinction is between appealing to ability as a prerequisites of the relevant event, versus appealing to ability for the outcome of the relevant event.
-  The former doesn't require any consideration about the event, as it's based only on the possibility of the event.
-  The later does require consideration about the event, because it appeals to the result.
+  Our interest is with condition~\ref{sep:trans:iii}.
+  In particular, whether the agent obtains support for the existence of the (particular) strategy, or any other required condition for possessing the ability to demonstrate the existence of the (particular) strategy \emph{in virtue} of the agent possessing the attribute of being able to demonstrate the existence of the (particular) strategy.
 \end{note}
 
-\begin{note}[A little more on transmission]
-  \AR fits the transmission template.
-  \WR does not fit the transmission template, though the relevant instance of reasoning presumably does fit the template.
 
-  So, required transmission of \AR and the deferred transmission of \WR looks like something of interest.
+
+\begin{note}[A little more on transmission]
+  \AR{} fits the transmission template.
+  \WR{} does not fit the transmission template, though the relevant instance of reasoning presumably does fit the template.
+
+  So, required transmission of \AR{} and the deferred transmission of \WR{} looks like something of interest.
 \end{note}
 
 \begin{note}[Still]
@@ -2010,18 +2004,18 @@ We now turn to the final premise of the negative argument:
   This is a relatively weak argument.
   First, transmission failure is somewhat contentious.
   Second, rely on a specific account of transmission failure, \citeauthor{Wright:2016wl}.
-  Third, \WR provides a solution, but lack an argument for the uniqueness of the solution.
+  Third, \WR{} provides a solution, but lack an argument for the uniqueness of the solution.
 
   So, reject transmission failure.
   Reject \citeauthor{Wright:2016wl}'s understanding of transmission failure.
   Find alternative solution.
 
   On the other hand, the argument is sufficient.
-  Therefore, \WR does not require transmission failure, the specific account, nor uniqueness.
+  Therefore, \WR{} does not require transmission failure, the specific account, nor uniqueness.
   Still, there's going to be some tension.
 
   So, for those sympathetic to transmission, argument.
-  For those sympathetic to \WR, an exploration of some of the issues.
+  For those sympathetic to \WR{}, an exploration of some of the issues.
 \end{note}
 
 \begin{note}[Outline]
@@ -2029,7 +2023,7 @@ We now turn to the final premise of the negative argument:
   Show that this characterises the function of the argument.
 
   Start the argument with key premise regarding support.
-  Link this to the two types of reasoning (\AR and \WR).
+  Link this to the two types of reasoning (\AR{} and \WR{}).
 
   Then, build up transmission and the tension.
 \end{note}
@@ -2045,38 +2039,56 @@ We now turn to the final premise of the negative argument:
   \item provides the basic structure of an important objection.
   \end{enumerate*}
 
-  There are two parts to the basic premise:
+  The basic premise is:
   \begin{enumerate}[label=(A\arabic*), ref=(A\arabic*)]
-  \item\label{Att:Prem:Presupp}
-    Obtaining support for some proposition \(\phi\) is
-    \begin{enumerate}
+  \item\label{Att:Prem:Presupp} Obtaining support for some proposition is
+    \begin{enumerate}[label=(A1\alph*), ref=(A1\alph*)]
     \item\label{Att:Prem:Presupp:1} a process, and
     \item\label{Att:Prem:Presupp:2} an agent may presuppose that certain conditions obtain, where failure of the relevant presupposed conditions would entail failure of the relevant process.
     \end{enumerate}
   \end{enumerate}
-  For example, demonstrate, see, receive testimony, all processes.
-  Presuppose that the agent has not made a mistake, is not being presented with an illusion, informer is speaking truthfully.
-  These are factive examples.
-  Non-factive, estimate, foresee.
-  Presuppose some accuracy, previous events offer some guidance.
+  The relevant processes are captured by specific verbs such as, `demonstrate', `see', `receive testimony', and so on.
+  In turn, the agent may presuppose that the agent has not made a mistake, is not being presented with an illusion, the informer providing (apparent) testimony is speaking truthfully, and so on.
+
+  The examples given involve factive verbs, and our interest is limited to factive verbs.
+  For, a factive verb requires that certain things must be the case in order for the agent to witness the relevant process.
+  If the specific strategy does not exist, then it is not possible for an agent to demonstrate the strategy exists.
+  If there is no tree, it is not possible for an agent to see the tree.
+  If Sam is not taller than Taylor, it is not possible to receive testimony that Sam is taller than Taylor.
+
+  Still, the basic premise is not so limited.
+  For example, `doubt' and `foresee' both describe processes which for which the agent may presuppose certain things.
+  For example, in doubt that Sam is taller than Taylor the agent may presuppose that they would have recognised decisive support to the contrary if they possessed such support.
+  Likewise, in foreseeing that it will rain tomorrow the agent may presuppose that their tools for measuring atmospheric pressure are functioning correctly.
+  The contrast with respect to the factive verbs of interest is that an agent may doubt that Sam is taller than Taylor even if it is the case that Sam is shorter than Taylor, and the agent may foresee that it will rain tomorrow even if it is sunny tomorrow.
 
   In line with our understanding of non-ideal agents.
   And, focus on doxastic matters.
 
-  Part~\ref{Att:Prem:Presupp:1} is primarily motivated by inclusion of a verb.
-  Demonstrating is the main focus here.
-  Fairly intuitive.
-  Seeing may be a little less clear.
-  However, plausible examples.
+  Part~\ref{Att:Prem:Presupp:1} is assumed without further argument.
 
   Part~\ref{Att:Prem:Presupp:2} includes the important qualification that the agent \emph{may} presuppose that certain conditions obtain.
   Hence, it is not a requirement that the agent does presuppose any condition does obtain.
   Agent may have sufficient support that they are demonstrating, seeing, estimating, and so on.
   Or, an agent may decline to appeal to demonstrating, seeing, estimating, and so on if they are required to presuppose conditions are suitable for demonstrating, estimating, etc.
-  Still, cases in which presuppositions are plausible.
-  Seeing is straightforward, demonstrating likewise the agent may presuppose that they have not made mistakes at earlier steps, or that they would have identified a mistake were they to have made one.
 
-  This will lead to transmission failure just in case the agent attempts to obtain support for a presupposition made in order to claim an instance of the relevant process.
+  Still, it is plausible that non-ideal agent's like you and I do presuppose certain things in order to hold that support is obtained by the relevant process.
+  For, it is typically quite straightforward to observe that from the agent's point of view there is a possibility that the agent has performed some other processes which would not yield support.
+
+  For example, after completing it a demonstration it is possible some error has been made at some step of the (proposed) demonstration.
+  It is possible the seen tree is a telephone pole.
+  It is possible to overlook some movement of the Gulf Stream.
+
+  Observe that each of these possibilities is incompatible with a witness of the relevant process.
+  If the agent has made an error at some step of their reasoning to the existence of a strategy, then the agent has not \emph{demonstrated} the existence of a strategy.
+  If the apparent tree is a telephone poll, then the agent has not \emph{seen} a tree.
+  And, if the agent has overlooked some movement of the Gulf Stream, then (arguably) the agent has not \emph{forecasted} tomorrows weather (given a suitably rigorous understanding of forecasting).
+
+  It may well be the case that the agent demonstrates, sees, forecasts, and so on, but successfully witnessing the relevant verb is compatible with the agent presupposing that certain conditions are in place while witnessing the relevant verb.
+  If so, the agent may have propositional support for the relevant conditions, but lack the appropriate doxastic support of interest, as the would not be in a position to claim the event is an instance of the verb without presupposing the conditions obtain.
+  (This diverges from \citeauthor{Wright:2016wl} whose interest in with failure of transmission for propositional support, and would deny the agent obtains propositional support.)
+
+  Given premise~\ref{Att:Prem:Presupp}, transmission failure occurs when the agent attempts to obtain support for a presupposition made in order to claim an instance of the relevant process by virtue of some result of the process.
   Demonstrating, then no transmission from demonstration to absence of mistakes.
   Or, from seeing to (mere) appearance.
 
@@ -2085,72 +2097,70 @@ We now turn to the final premise of the negative argument:
   Premise~\ref{Att:Prem:Presupp} is difficult because it allows for an agent to obtain support for some proposition without obtaining support against any presuppositions employed.
   
   The alternative requires support all the way through.
-  \begin{enumerate}
+  \begin{enumerate}[label=(\(\lnot\)A1b), ref=(\(\lnot\)A1b)]
   \item\label{Att:Prem:No-Presupp} No presuppositions.
   \end{enumerate}
   If so, then agent support all the way through.
 
   Hence,~\ref{Att:Prem:No-Presupp} suggests that support transmits in the cases of interest.
-  There's no limits on witnessing, and hence no argument that \AR over-generates support.
+  There's no limits on witnessing, and hence no argument that \AR{} over-generates support.
   (Note that in the case of circular reasoning, transmission fails because the agent already has support.)
 
   The key is which incompatibility.
   If~\ref{Att:Prem:No-Presupp}, then it seems support for \(\phi\) will go all the way through and count against any proposition incompatible with \(\phi\).
   If~\ref{Att:Prem:Presupp} then support may not count in favour of the relevant presuppositions.
-
-  \ref{Att:Prem:No-Presupp} is appealing.
-
-  Difficulty is that intuitively support is lacking.
-  If \ref{Att:Prem:Presupp}, then recast support as for some broader disjunction.
-
-  The trouble is that this, at least in the case of factive verbs, is quite problematic.
-  Given the possibility of a mistake, there's no clear sense to demonstrating \(\phi\) or \(\psi\) where \(\psi\) leads to \(\lnot\phi\).
-
-
-  However,~\ref{Att:Prem:Presupp} suggests failure of transmission, because required presuppositions may limit.
 \end{note}
 
-\begin{note}[Mistakes and presuppositions, idea]
-  Some plausibility to the distinction.
-  Suppose \(\phi\) is not the case.
-  Either due to misleading support.
-  Or, due to mistaken presupposition.
-\end{note}
+\begin{note}[Tension]
+  \mbox{}
+  \begin{itemize}
+  \item So, we now have transmission and the key premise.
+  \item The idea is that we get failures of transmission.
+  \item However, \AR{} allows the agent to avoid such failures.
+  \end{itemize}
 
-\begin{note}[Minor qualifications]
-  First, we're interested in doxastic support, roughly.
-  Second, we're interested in non-ideal agents.
-  Third, more-or-less an existential premise, so don't need specific failures.
-\end{note}
+  \begin{itemize}
+  \item Key is that by \AR{} agent obtains support for requirements of witnessing event.
+  \item Some such requirements would be presupposed by the agent were the agent to witness the relevant ability.
+  \end{itemize}
 
-\begin{note}[How the argument works]
-  So, I now have transmission and the key premise.
-  The idea is that we get failures of transmission.
-  However, \AR allows the agent to avoid such failures.
+  With transmission and premise~\ref{Att:Prem:Presupp} in hand, we may now state the consequent of second conditional of the proposed dilemma \ref{RDil:A} in greater detail.
 
-  Part walking through transmission failure.
-  While doing so we establish links between witness of ability, and proposed attributive reasoning.
+  Grating \AR{}, an agent may:
+  \begin{enumerate}[label=(X\arabic*) , ref=(X\arabic*)]
+  \item\label{tension:Support} Obtain support for \(\psi\) given attribute of being able to \emph{V} that \(\phi\) on the basis of conditional information about how a general ability expands and support for possessing the general ability,
+  \item\label{tension:Presuppose} recognising that they may need to presuppose that \(\psi\) is the case in order to consider the relevant event as an witnessing event of \emph{V}ing that \(\phi\).
+  \end{enumerate}
+  % Alternatively:
+  % The agent recognises that \(\psi\) must be the case given ability to \emph{V} that \(\phi\) but does not expect to be able to obtain support for \(\psi\) by \emph{V}ing that \(\phi\).
 
-  On one hand, attribute reasoning.
-  On the other, witnessing ability.
-  Witnessing involves failures of transmission.
-  \AR does not.
+  \ref{tension:Support} and~\ref{tension:Presuppose} seem, at least, logically compatible.
+  The key idea behind \AR{} is that an agent need not appeal to a potential witnessing event of an ability in order to obtain support for what follows from the ability.
+  Hence,~\ref{tension:Support} and~\ref{tension:Presuppose} concerns two distinct ways of obtaining support for a proposition.
+  And, as these are two distinct ways of obtaining support may diverge in the propositions supported.
 
-  Key is that by \AR agent obtains support for requirements of witnessing event.
-  Some such requirements would be presupposed by the agent were the agent to witness the relevant ability.
+  Indeed, weakening~\ref{tension:Support} to read that the agent obtains support that they \emph{have} the specific ability without needing to leverage the support they have for the general ability is may fail to generate tension.
+  For, it may be held that that the required background conditions are satisfied in order for the agent to be provided with the information that they have the specific ability --- if they are not then the agent may claim to be misled.
 
-  The agent:
-  \begin{enumerate*}
-  \item Obtains support for \(\psi\) given attribute of being able to \emph{V} that \(\phi\), however,
-  \item may need to presuppose that \(\psi\) is the case in order to consider witnessing event as an event of \emph{V}ing that \(\phi\).
-  \end{enumerate*}
+  For example, if the agent is informed that they have the (specific) ability to demonstrate that the  strategy exists, then the agent may claim support for the proposition that reasoning to an incompatible strategy would involve a mistake, as no informer would be in the position to inform the agent that they have the (specific) ability if the (particular) strategy did not exist.
 
-  Alternatively:
-  \(\psi\) must be the case given ability to \emph{V} that \(\phi\) but do not expect to be able to obtain support for \(\psi\) by \emph{V}ing that \(\phi\).
+  I have some doubts about whether the agent would obtain support given such information, but for now we have the stronger requirement stated in~\ref{tension:Support}, the agent is required to leverage the support they have for the general ability.
 
-  Tension, rather than contradiction.
-  Attribute gets more than potential witness.
+  The tension, then, is that the agent obtains support for the required background conditions primarily in virtue of the support they have for the general ability.
+  The agent has no `direct' support for possessing the (specific) ability to demonstrate the existence of the (particular) strategy.
+  It seems, rather, that because the agent is relying on extending their general ability to a specific case, the agent is not able to obtain support for propositions they may be required to presuppose when witnessing their general ability.
   
+
+
+
+  % Agent's ability is doing the work with~\ref{tension:Support}.
+  % The attribute is that there's a witnessing event.
+  % Agent may be mistaken about this.
+  % Agent may not \emph{V} that \(\phi\).
+  % Fine for the agent to presuppose certain conditions to hold that they \emph{V} over some other verb.
+  % However, this suggests that the agent doesn't obtain support for \(\psi\), etc.\ because without the relevant presuppositions, it's not clear that the agent would \emph{V} that \(\phi\).
+
+  % Still, \AR{} would provide the agent with support for \(\phi\), and it is hard to see why the support would not extend to any \(\psi\) entailed by \(\phi\) if the relevant witnessing event explain why the agent obtains support.
 \end{note}
 
 \subsection{Transmission failure}
@@ -2174,18 +2184,23 @@ We now turn to the final premise of the negative argument:
   Instead, \citeauthor{Wright:2011wn}'s framework/template allows us to explore certain widely recognised instances of transmission failure in a fairly systematic way, and it may be expected that the conclusions draw with the aid of the framework may be reformulated without it.
 \end{note}
 
+
+
 \begin{note}[Failure of transmission, classic]
   With the prerequisites covered, we now turn our attention to failure of transmission proper.
-  We begin with a familiar instance due to \textcite{Dretske:2005vy}.
-  \begin{itemize}
-  \item[\emph{E}:] It looks as though the animal in the pen is a zebra.
-  \item[\emph{A}:] The animal in the pen is a zebra.
-  \item[\emph{B}:] The animal in the pen is not a cleverly disguised mule.
-  \end{itemize}
-  There is something intuitively problematic about obtaining \emph{A} on the basis of the support given by \emph{E} and in turn extending \emph{E}, the visual impression that the animal in the pen is a zebra to discount some possibility that would suggest some fault in obtaining \emph{A} on the basis of the support given by \emph{E}.
 
-  Of course, if a groundskeeper were to testify that the animal in the pen is a zebra, the agent may obtain support for \emph{B}.
-  Still, it seems odd that the agent may obtain support for \emph{B} given the particular support the agent has for \emph{A}, even though from \emph{A} to \emph{B} is straightforward entailment.
+  We begin with an instance of the transmission template based on an intuitively problematic instances of reasoning noted by \textcite{Dretske:2005vy}.
+  \begin{transmission}[Zebra]
+    \begin{enumerate}
+    \item[\tri{Z}{E}] It looks as though the animal in the pen is a zebra.
+    \item[\tri{Z}{A}] The animal in the pen is a zebra.
+    \item[\tri{Z}{B}] The animal in the pen is not a cleverly disguised mule.
+    \end{enumerate}
+  \end{transmission}
+  There is something intuitively problematic about obtaining \tri{Z}{A} on the basis of the support given by \tri{Z}{E} and in turn extending \tri{Z}{E}, the visual impression that the animal in the pen is a zebra to discount some possibility that would suggest some fault in obtaining \tri{Z}{A} on the basis of the support given by \tri{Z}{E}.
+
+  Of course, if a groundskeeper were to testify that the animal in the pen is a zebra, the agent may obtain support for \tri{Z}{B}.
+  Still, it seems odd that the agent may obtain support for \tri{Z}{B} given the particular support the agent has for \tri{Z}{A}, even though from \tri{Z}{A} to \tri{Z}{B} is straightforward entailment.
 \end{note}
 
 \begin{note}[Mistakes and presuppositions, example w/ zebra]
@@ -2197,37 +2212,38 @@ We now turn to the final premise of the negative argument:
   Here, in line with the basic premise outlined above, the agent has some method, but this is compatible with other things.
   So, going to get failure of transmission.
 
-    The problem, roughly, is that it's not clear that the support the agent has distinguishes between \emph{A} and \emph{A'}.
+    The problem, roughly, is that it's not clear that the support the agent has distinguishes between \tri{Z}{A} and \tri{Z}{A\('\)}.
   \begin{enumerate}
-  \item \emph{A'}: The animal in the pen is a cleverly disguised mule.
+  \item[\tri{Z}{A\('\)}] The animal in the pen is a cleverly disguised mule.
   \end{enumerate}
-  So, given \emph{E}, it seems we obtain the weaker disjunction.
+  So, given \tri{Z}{E}, it seems we obtain the weaker disjunction.
   \begin{enumerate}
-  \item \emph{A or A'} The animal in the pen is a zebra or the animal in the pen is a cleverly disguised mule.
+  \item[\tri{Z}{(A or A\('\))}] The animal in the pen is a zebra or the animal in the pen is a cleverly disguised mule.
   \end{enumerate}
-  \emph{A or A'} does not entail \emph{B}.
+  \tri{Z}{(A or A\('\))} does not entail \tri{Z}{B}, as \tri{Z}{A\('\)} does not entail \tri{Z}{B}.
   And, given further possibilities this suggests expand this disjunction with further possibilities.
 
-  So, it seems the agent is granted support for \emph{A} over \emph{A or A'}, but this means the agent focuses on some subset of what is possible, hence the agent takes for granted \emph{not-A'}.
-  In turn, because \emph{A'} remains compatible with support the agent has, the agent is not in a position to claim that the support the do have extends.
+  So, it seems the agent is granted support for \tri{Z}{A} over \tri{Z}{(A or A\('\))}, but this means the agent focuses on some subset of what is possible, hence the agent takes for granted \emph{not}-\tri{Z}{A\('\)}.
+  In turn, because \tri{Z}{A\('\)} remains compatible with support the agent has, the agent is not in a position to claim that the support the do have extends.
 \end{note}
 
 \begin{note}[Classic]
-  Granting for the moment that there is something odd about obtaining \emph{B} from \emph{E} and the entailment from \emph{A} to \emph{B}, we may reformulate \citeauthor{Dretske:2005vy}'s case with the use of a factive verb to establish closer surface parallels to the chess case.
+  Granting for the moment that there is something odd about obtaining \tri{Z}{B} from \tri{Z}{E} and the entailment from \tri{Z}{A} to \tri{Z}{B}, we may reformulate \citeauthor{Dretske:2005vy}'s case with the use of a factive verb to establish closer surface parallels to the chess case.
   \begin{enumerate}
-  \item \emph{A?} I am seeing that the animal in the pen is a zebra.
+  \item[\tri{Z}{A\(^{+}\)}] I am seeing that the animal in the pen is a zebra.
   \end{enumerate}
-  The support from \emph{E} to \emph{A} seems preserved in going from \emph{E} to \emph{A?}.
-  Given that it looks as though the animal in the pen is a zebra, then it seems this supports seeing that the animal in a pen is a zebra.
-  While this involves some speculation, I doubt that \emph{E} plausibly supports \emph{A} without also supporting \emph{A?}.
+  The support from \tri{Z}{E} to \tri{Z}{A} seems preserved in going from \tri{Z}{E} to \tri{Z}{A\(^{+}\)}.
+
+  For, given that it looks as though the animal in the pen is a zebra, then it seems this supports seeing that the animal in a pen is a zebra.
+  While this involves some speculation, I doubt that \tri{Z}{E} plausibly supports \tri{Z}{A} without also supporting \tri{Z}{A\(^{+}\)}.
   Introducing the factive verb makes explicit the previously implicit assumption that it looking as though the animal in the pen is a zebra puts me in a good position to move from how things look to how things are.
 
-  \emph{A?} entails \emph{A}, and hence also entails \emph{B}.
-  Reformulating \citeauthor{Dretske:2005vy}'s example in this way skips over \emph{A}, that the animal in the pen is a zebra, but the move from \emph{A?} to \emph{B} seems equally problematic.
+  \tri{Z}{A\(^{+}\)} entails \tri{Z}{A}, and hence also entails \tri{Z}{B}.
+  Reformulating \citeauthor{Dretske:2005vy}'s example in this way skips over \emph{A}, that the animal in the pen is a zebra, but the move from \tri{Z}{A\(^{+}\)} to \tri{Z}{B} seems equally problematic.
 
-  A slight worry here is that it is entailment that is at issue, and therefore if moving from \emph{A?} to \emph{A} is problematic, then moving from \emph{A?} to \textsc{A} is equally problematic.
-  For now we leave this aside, noting only that the agent need not move from \emph{A?} to \emph{A}, as \emph{E} seems to support both \emph{A} and \emph{A?}.
-  The source of the puzzle seems to be the relations between \emph{E}, \emph{A} or \emph{A'}, and \emph{B}.
+  A slight worry here is that it is entailment that is at issue, and therefore if moving from \tri{Z}{A\(^{+}\)} to \tri{Z}{A} is problematic, then moving from \tri{Z}{A\(^{+}\)} to \tri{Z}{A} is equally problematic.
+  For now we leave this aside, noting only that the agent need not move from \tri{Z}{A\(^{+}\)} to \tri{Z}{A}, as \tri{Z}{E} seems to support both \tri{Z}{A} and \tri{Z}{A\(^{+}\)}.
+  The source of the puzzle seems to be the relations between \tri{Z}{E}, \tri{Z}{(A or A\('\))}, and \tri{Z}{B}.
 \end{note}
 
 \begin{note}[Potential intuitive diagnosis --- sketch, \emph{very} tentative, continuing]
@@ -2250,14 +2266,14 @@ We now turn to the final premise of the negative argument:
 
   Two important differences remain.
   First, \citeauthor{Dretske:2005vy}'s case involves an event of (seemingly) witnessing the factive verb.
-  Second, the support the agent has for the witnessing the verb also extends to the fact --- \emph{A} and \emph{A?} are both supported by \emph{E}.
+  Second, the support the agent has for the witnessing the verb also extends to the fact --- \tri{Z}{A} and \tri{Z}{A\(^{+}\)} are both supported by \tri{Z}{E}.
 \end{note}
 
 \begin{note}[Moving on]
-  Our attention now turns to a framework/template developed by \citeauthor{Wright:2011wn} in order to capture the intuition that there is something problematic about obtaining support for \emph{B} in \citeauthor{Dretske:2005vy}'s case and other related cases.
+  Our attention now turns to a framework/template developed by \citeauthor{Wright:2011wn} in order to capture the intuition that there is something problematic about obtaining support for \tri{Z}{B} in \citeauthor{Dretske:2005vy}'s case and other related cases.
 
   We will note the template in general, how it applies to \citeauthor{Dretske:2005vy}'s case, and observe that it does not (at least immediately) apply to the reasoning from the rules of chess.
-  
+
   In the short term, this may be seen as promising for the agent obtaining support for the existence of a strategy from attribution alone.
   However, we build up to argue that if the agent does obtain support for the existence of a strategy, then there problematic variants of \citeauthor{Dretske:2005vy}'s case which likewise evade \citeauthor{Wright:2011wn}'s template/framework.
 \end{note}
@@ -2282,14 +2298,19 @@ We now turn to the final premise of the negative argument:
   \end{quote}
   \citeauthor{Wright:2011wn} suggests a handful of example presuppositions, including normal and proper functioning of relevant cognitive faculties, reliability of instruments or the soundness of principles of inference used obtaining support, and so on. (\citeyear[92--93]{Wright:2011wn})
 
-  In short, find some \emph{C} entailed by not-\emph{B}, and as \emph{C} is a presupposition, it follows that without the presupposition, the support that the agent has would underdetermine.
+  In short, find some \emph{C} entailed by not-\emph{B}, and as \emph{C} is a presupposition, it follows that without the presupposition, the support that the agent has would be under-determined.
+
+  {
+    \color{red}
+    This goes back to notes about verbs and support.
+  }
 \end{note}
 
 \begin{note}[The zebra, failure]
   \citeauthor{Wright:2011wn}'s template is straightforward to apply to the zebra case.
   \begin{enumerate}
-  \item \emph{not-B}: The animal in the pen is a cleverly disguised mule.
-  \item \emph{C}: Those animals are not zebras. (\citeyear[90]{Wright:2011wn})
+  \item[\emph{not}-\tri{Z}{B}] The animal in the pen is a cleverly disguised mule.
+  \item[\tri{Z}{C}] Those animals are not zebras. (\citeyear[90]{Wright:2011wn})
   \end{enumerate}
 
   Then, relevant presupposition.
@@ -2297,7 +2318,7 @@ We now turn to the final premise of the negative argument:
   \item \emph{Cg}: Appearances are not misleading.
   \end{enumerate}
 
-  The proposed \emph{C} is entailed by not-\emph{B}.
+  \tri{Z}{C} is entailed by \emph{not}-\tri{Z}{B}.
   And, seems sufficient to generate a problem.
   If appearances are misleading, then it looks as though the agent isn't in a position to appeal to appearance.
 
@@ -2428,7 +2449,7 @@ We now turn to the final premise of the negative argument:
 \begin{note}[Warping Zebra]
   Zebra, as before.
   However, before the pen, an informer.
-  \begin{enumerate}
+  \begin{enumerate}[label=(Z\arabic*), ref=(Z\arabic*)]
   \item If you have the ability to visually identify zebras, then you have the ability to see the animal in the pen is a zebra.
   \end{enumerate}
   So, general ability to specific ability.
@@ -2436,19 +2457,19 @@ We now turn to the final premise of the negative argument:
   Agent has support for having the ability to visually identify zebras, in line with support for ability to reason with the rules of chess.
 
   So, the agent works up to support for:
-  \begin{enumerate}[resume]
+  \begin{enumerate}[resume, label=(Z\arabic*), ref=(Z\arabic*)]
   \item I have the ability to see a zebra in the pen.
   \item\label{warpedZebra:ability-to-fact} I have the ability to see a zebra in the pen only if the animal in the pen is a zebra.
   \end{enumerate}
   Therefore:
-  \begin{enumerate}
+  \begin{enumerate}[resume, label=(Z\arabic*), ref=(Z\arabic*)]
   \item There is a zebra in the pen.
   \end{enumerate}
   Here, end the parallel to the chess case.
 
   However, our present interest is in taking an additional step.
 
-  \begin{enumerate}[resume]
+  \begin{enumerate}[resume, label=(Z\arabic*), ref=(Z\arabic*)]
   \item\label{warpedZebra:zebra-to-not-mule} If the animal in the pen is a zebra then the animal in the pen is not a cleverly disguised mule.
   \end{enumerate}
   So, by a quick argument, go from~\ref{warpedZebra:ability-to-fact} and~\ref{warpedZebra:zebra-to-not-mule} to:
@@ -2457,15 +2478,15 @@ We now turn to the final premise of the negative argument:
   \end{enumerate}
 
   Repeating the argument with~\ref{warpedZebra:ability-to-not-mule} in place of~\ref{warpedZebra:ability-to-fact}, the agent obtains:
-  \begin{enumerate}[resume]
+  \begin{enumerate}[resume, label=(Z\arabic*), ref=(Z\arabic*)]
   \item The animal in the pen is not a cleverly disguised mule.
   \end{enumerate}
 
   Reformulating in terms of the familiar \emph{E}, \emph{A}, and \emph{B} triad:
   \begin{itemize}
-  \item[\emph{E}:] The agent seems to have the ability to visually identify zebras and the information that if the agent has the ability to visually identify zebras, then they have the ability to see the animal in the pen is a zebra.
-  \item[\emph{A}:] The agent has the ability to see the animal in the pen is a zebra.
-  \item[\emph{B}:] The animal in the pen is not a cleverly disguised mule.
+  \item[\tri{Z\('\)}{E}] The agent seems to have the ability to visually identify zebras and the information that if the agent has the ability to visually identify zebras, then they have the ability to see the animal in the pen is a zebra.
+  \item[\tri{Z\('\)}{A}] The agent has the ability to see the animal in the pen is a zebra.
+  \item[\tri{Z\('\)}{B}] The animal in the pen is not a cleverly disguised mule.
   \end{itemize}
 \end{note}
 
@@ -2575,7 +2596,7 @@ We now turn to the final premise of the negative argument:
   However, the relevant presuppositions don't apply to the attribute of possessing the ability.
 
   Therefore, it seems some prerequisites are needed in order to claim witnessing of ability.
-  However, \AR skips over ability.
+  However, \AR{} skips over ability.
 
   
 \end{note}
@@ -2758,7 +2779,6 @@ We now turn to the final premise of the negative argument:
 
 \newpage
 
-So, the set up has been a distinction between two kinds of reasoning.
 
 Established relation between ability and events.
 Then, suggested separation.
