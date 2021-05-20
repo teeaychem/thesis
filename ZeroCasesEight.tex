@@ -139,6 +139,17 @@
 \usepackage{extarrows}
 
 % % % My commands % % %
+% https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
+\makeatletter
+\newcommand{\superimpose}[2]{%
+  {\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}
+}
+\makeatother
+
+\newcommand{\veewedge}{\mathpalette\superimpose{{\vee}{\wedge}}}
+\newcommand{\lessgreater}{\mathpalette\superimpose{{<}{>}}}
+\newcommand{\strikeQ}{\mathpalette\superimpose{{\text{---}}{Q}}}
+\newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
 
 % % % % % % % % % % % %
 
@@ -162,8 +173,7 @@
 \maketitle
 
 \section{Introduction}
-\label{sec:introduction-1}
-
+\label{sec:introduction}
 
 {
   \color{red}
@@ -404,7 +414,69 @@ Also, isolated conclusions.
 Second section provides results about expansion of ability.
 Third section provides results about how to understand a plausible reasoning pattern.
 
-\hozlinedash
+\section{Abilities}
+\label{sec:abilities}
+
+\begin{note}[Outline of section]
+  The goal of this section is to isolate a particular pattern of reasoning:
+  \begin{enumerate}
+  \item Information that agent possesses ability to reason \(\phi\).
+  \item Endorsement of ability (not simply testimony).
+  \item `Factive' inference to \(\phi\) being the case.
+  \end{enumerate}
+
+  Ability statements of interest are of the form:
+  \begin{itemize}
+  \item Agent \(a\) has ability to \emph{V} that \emph{p}.
+  \end{itemize}
+  Where \emph{V} is some verb and \emph{p} some proposition.
+  For example:
+  \begin{enumerate}
+  \item Sam has the ability to prove that the central limit theorem is true.
+  \item Taylor has the ability to see that there is a red barn in the field.
+  \item Gray has the ability to 
+  \item 
+  \end{enumerate}
+
+  Differ.
+  \begin{enumerate}
+  \item Riley has the ability to measure the table.
+  \item Avery has the ability to find where Quinn is hiding.
+  \end{enumerate}
+
+  \begin{enumerate}
+  \item Riley has the ability to measure that the table is six foot long.
+  \item Avery has the ability to find that Quinn is hiding behind the hedge.
+  \end{enumerate}
+  These variants sound bad, but express a straightforward situation.
+  There is some action that Riley has the ability to perform whose witnessing results in a measurement that the table is six foot long.
+  Likewise, there is some action that Avery has the ability to perform whose witnessing results in finding Quinn hiding behind the hedge.
+
+  What matters is not the particular choice of verb, but that there is some action.
+
+  Certain preconditions need to be in place.
+  Central limit theorem is true, there is a red barn in the field, and so on.
+
+  Examples given are all `factive', in that the proposition must be true of the relevant witnessing event.
+  So, we get:
+  \begin{itemize}
+  \item For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \end{itemize}
+
+  Non-factive variants.
+  Here, the same principle applies, but may not get the requirement of the relevant proposition.
+\end{note}
+
+\begin{note}[Potential, not hypothetical]
+  The ability is not that there `might' be some event.
+  Given the information available, agent does the action, and establishes the result.
+  Do not need to assume that certain things are the case.
+\end{note}
+
+\begin{note}[General and specific]
+  Above are examples of specific abilities.
+  Also general abilities.
+\end{note}
 
 \section{Potential strategies}
 \label{sec:potential-strategies}
@@ -452,31 +524,6 @@ Third section provides results about how to understand a plausible reasoning pat
   However, so long as it is a contender, then the main goal has been achieved.
 \end{note}
 
-\begin{note}[Outline of section]
-  The goal of this section is to isolate a particular pattern of reasoning:
-  \begin{enumerate}
-  \item Information that agent possesses ability to reason \(\phi\).
-  \item Endorsement of ability (not simply testimony).
-  \item `Factive' inference to \(\phi\) being the case.
-  \end{enumerate}
-  Key piece of this reasoning is:
-  \begin{itemize}
-  \item Agent has the ability to \(\alpha\phi\) only if \(\phi\) is the case, where \(\alpha\) is some factive thing.
-  \end{itemize}
-  This is a necessary condition on the agent possessing the ability.
-  Therefore, \emph{that} the agent possesses the ability can not be used to support \emph{that} \(\phi\) is the case.
-  For the agent must already implicitly assume that \(\phi\) is the case.
-
-  That the agent is informed is straightforward.
-  The agent may avoid endorsing the ability, but this leads to some unnatural/indirect inference regarding assertion.
-  Hence, endorsement of ability seems a plausible line of reasoning.
-
-  Restructuring, I need to file some problems with ability inferences prior to working through testimony.
-
-  In short, the problem is that there is no certainty with ability when the proposition is novel.
-  For, the ability concerns a particular event type, bounded to the agent's current state.
-  And as the agent has not yet witnessed their ability, at most one can obtain a high degree of confidence.
-\end{note}
 
 Consider the following claim\nolinebreak
 \footnote{
@@ -486,15 +533,11 @@ Consider the following claim\nolinebreak
   \item\label{cond:claim-to-opt-supp} If an informer claims that \(\phi\), then the informed has the option of obtaining support for \(\phi\) via the informer's claim.
   \end{enumerate}\vspace{-10pt}
 }\nolinebreak
-:
+made to an agent:
 \begin{enumerate}
 \item\label{chess:claim:1}\label{chess:claim:1:conditional} If you are able to reason with the rules of chess, then you have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
 \end{enumerate}
 
-I assume claim~\ref{chess:claim:1} is true, but not immediately obvious.
-And, in particular, that some reasoning from the rules of chess and the game state is required to verify the truth of the highlighted proposition.
-
-For, in order to show that White cannot prevent Black from occupying c4 on their second move, you need to consider the moves that would be possible for Black on their second turn given the move that White made on their first turn in response to the move that Black made on their first turn, and so on.
 
 
 \begin{figure}[h]
@@ -568,11 +611,20 @@ For, in order to show that White cannot prevent Black from occupying c4 on their
   \end{quote}
 }
 
-To illustrate, Black may move the pawn from b7 to b5 on their first turn, and so be in a position to capture White's pawn on c4 in their second turn.
-However, White may then prevent Black from occupying c4 on their next turn by using their pawn on c4 to capture Black's pawn on b5.
-So, Black moving their pawn from b7 to b5 on their first turn is not an initial move of interest.
+\begin{note}[Status of the claim]
+  We assume claim~\ref{chess:claim:1} is true, but not immediately obvious to the agent.
+  And, in particular, that some reasoning from the rules of chess and the game state is required to verify that the agent is able to demonstrate that White cannot prevent Black from occupying c4 on their (Black's) second move.
 
-Still, there are only (a little more than) a handful of alternative moves and countermoves to consider, and so I not only assume that claim~\ref{chess:claim:1} is true, but I also assume that you also hold claim~\ref{chess:claim:1} to be true.
+  For, in order to show that White cannot prevent Black from occupying c4 on their second move, the agent would need to consider the moves that would be possible for Black on their second turn given the move that White made on their first turn in response to the move that Black made on their first turn, and so on.
+  A (general) ability to reason with the rules of chess may ensure that the agent is able to demonstrate the existence of the (particular) strategy for Black.
+  However, it does not follow that the agent is in a position to recognise that the (general) ability to reason with the rules of chess requires the agent to recognise that they are able to demonstrate the existence of the (particular) strategy.
+
+  To illustrate, Black may move the pawn from b7 to b5 on their first turn, and so be in a position to capture White's pawn on c4 in their second turn.
+  However, White may then prevent Black from occupying c4 on their next turn by using their pawn on c4 to capture Black's pawn on b5.
+  So, Black moving their pawn from b7 to b5 on their first turn is not an initial move of interest.
+
+  Still, there are only (a little more than) a handful of alternative moves and countermoves to consider.
+\end{note}
 
 \begin{note}[Some motivation for holding claim 1 to be true]
   Perhaps you have an effective method for identifying a strategy for Black.
@@ -584,6 +636,10 @@ Still, there are only (a little more than) a handful of alternative moves and co
   Whichever way, general ability.
 \end{note}
 
+\begin{note}[Parallel example with theorems]
+  To take a parallel example, an agent's (general) ability to reason with some sound and complete proof system for propositional logic means that the agent is able to demonstrate various (particular) theorems of propositional logic, but the agent may not recognise that they have the (specific) ability to demonstrate any (particular) theorem prior to witnessing their (specific) ability, or being otherwise informed of the theorem.
+\end{note}
+
 \begin{note}[Role of conditional]
   Claim~\ref{chess:claim:1} is distinct from the claim that the agent has the ability to demonstrate a strategy --- the unembedded consequent of claim~\ref{chess:claim:1}
 \begin{enumerate}
@@ -591,98 +647,101 @@ Still, there are only (a little more than) a handful of alternative moves and co
 \end{enumerate}
 \end{note}
 
-Precisely, I assume that you hold claim~\ref{chess:claim:1} to be true at some interval between the point at which I claimed~\ref{chess:claim:1} is true and the present time or the point at which you demonstrated claim~\ref{chess:claim:1} to be true.\nolinebreak
-\footnote{
-  If a fresh instance of claim~\ref{chess:claim:1} is desired, one may substitute (e.g.) `a3', `a5', `g6', or `c5' for `c4'.
-}
-For ease of exposition, I will adopt the perspective of some point in that interval.
+% Precisely, I assume the agent holds claim~\ref{chess:claim:1} to be true at some interval between the point at which I claimed~\ref{chess:claim:1} is true and the present time or the point at which you demonstrated claim~\ref{chess:claim:1} to be true.\nolinebreak
+% \footnote{
+%   If a fresh instance of claim~\ref{chess:claim:1} is desired, one may substitute (e.g.) `a3', `a5', `g6', or `c5' for `c4'.
+% }
+% For ease of exposition, I will adopt the perspective of some point in that interval.
 
 \begin{note}[Reasoning sketch]
   With the above, sketch out simple reasoning.
- {
-   \color{red}
-   \begin{enumerate}
-   \item\label{simple:conditional:claim} If I have a moderate ability to reason with the rules of chess, then I have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their second move.
-   \item\label{simple:conditional:antecedent} I have a moderate ability to reason with the rules of chess.
-   \item\label{simple:conditional:consequent} I have the ability to reason from the game state to the proposition that White cannot prevent Black from occupying c4 on their second move.
-   \item\label{simple:conditional:factive-demonstration} It is not possible to demonstrate something that is false.
-   \item\label{simple:conditional:necessity} If it is not the case that White cannot prevent Black from occupying c4 on their second move then \ref{simple:conditional:consequent} is false.
-   \item\label{simple:conditional:focus} White cannot prevent Black from occupying c4 on their second move.
-   \end{enumerate}
- }
-\end{note}
-
-\begin{note}[Undesrtanding of factive]
-  Factive here is attitude to fact, where relation is non-causal.
-  Not all are like this.
-  Especially if mix event and fact.
-  So, event of seeing, leads to fact of something being seen.
-  Difference is that in the cases of interest, fact must already hold.
-\end{note}
-
-By assumption the agent has not reasoned from the rules of chess and the game state to \ref{simple:conditional:focus}.
-In turn, the agent does not hold \ref{simple:conditional:focus} to be true due to a particular strategy that Black can enact.
-Instead, \ref{simple:conditional:factive-demonstration} requires that the agent cannot be confident that they have the ability to demonstrate a strategy without being confident that \emph{some} strategy exists.\nolinebreak
-\footnote{
-  Assumes a factive reading of `demonstrate', this assumption will be held throughout the paper.
-  Non-factive counterpart.
-  If required, replace `\emph{term}' with `\nf{\emph{term}}' to indicate non-factive reading.
-  Hence, `\nf{demonstrate}' is non-factive/appearance of demonstration.
-  Likewise, `\nf{see}' is non-factive/appearance of `see'.
-
-  For example, if the agent sees a donkey, then factivity of sight entails existence of donkey, while if the agent \nf{sees} a donkey, the agent may be hallucinating, the object may be a cleverly disguised mule, a hologram, etc.
-}
-And, it seems, agent's prior confidence of ability meshes with the conditional provided by the informer.
-So, as it seems the agent is permitted to be confident that they are able to demonstrate the existence of a strategy, the agent is required to be confident that a strategy exists.
-
-I take the broad outline of this reasoning to be compelling.
-Agents possesses general abilities.
-And, an agent is not required to understand specifics that follow from general ability in order to posses the general ability.
-So, an informer may observe specific abilities which (would) follow from the agent's general ability (if the agent possesses the ability), and once informed agent may incorporate this information.
-
-The hedging is important.
-In some cases, the informer may have an independent understanding of the ability, such as understanding the rules of chess themselves, and so provides information about what follows from the general ability, so to speak.
-In other cases, the informer may observe the agent's action and extrapolate a specific ability on the basis of this.
-In the latter kind of cases, the informer provides information about what follows from the agent's ability, so to speak, no from the general ability itself.
-
-May assume is in the latter kind of case.
-Hence, the conditional formulation is to some extent natural.
-However, the informer may make the conditional statement in either case.
-
-So, interest is in how this works when the only information the informer provides is a conditional linking general to specific.
-Motivated by the possibility of the second kind of case, from the agent's point of view.
-So, not support for the particular fact otherwise.
-
-\begin{note}[Intuition for only conditional information]
-Written communication, so I'm not focused on \emph{your} ability, so to speak.
-Instead, claim~\ref{chess:claim:1} holds in general, so it is fair to reason that in order for me to make the claim I must have reasoned from the game state to a strategy.
-\end{note}
-
-\hozlinedash
-
-\begin{note}[The details matter]
-  If the agent is given conditional information, then the details matter.
-  For, the fact rests on the reasoning.
-  Relation of support tracing from premises to conclusion.
-  Here, support as generic.
-  Sketch suggests that support works out, but ability suggests two different ideas.
-\end{note}
-
-\begin{note}[Two options with ability]
-  First, there is the attribution of ability.
-  Second, there is witnessing ability.
-
-  This leads to two ways of reading the argument.
-\end{note}
-
-\begin{note}[Two ways of reading the argument, 1]
-  Two different ways of understanding the argument.
-  \begin{enumerate}
-  \item Attribution.
-  \item Witnessing.
+  \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
+  \item\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
   \end{enumerate}
-  Attribution is working form the attribute of having the general ability.
-  Witnessing is working from witnessing the ability.
+  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information, \ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy that White cannot prevent Black from occupying c4 on their second move.
+  \end{enumerate}
+  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following conditional:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \end{enumerate}
+  Therefore:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.\newline
+    White cannot prevent Black from occupying c4 on their second move.
+  \end{enumerate}
+\end{note}
+
+\begin{note}[Support for (general) ability]
+The agent has background support for having the ability to reason with the rules of chess (\label{inf:cond:ant}).
+For example, the agent may have read various accounts of the rules of chess, played numerous games without apparent fault, solved diverse chess problems, and so on.
+Still, we assume the agent recognises that their support for having the ability to reason with the rules of chess may be mistaken.
+Perhaps the agent considers it possible that are certain rules that the agent has either misunderstood or not yet understood.
+
+It may seem implausible at first glance to obtain support for the (general) ability to reason with the rules of chess while maintaining the possibility of some mis- or missing-understanding.
+The agent may have a complete grasp on the rules of chess, and while no specific mis- or missing-understanding is of interest, it is fairly easy to generate plausible variants of the rules of chess which may have persisted through a somewhat cursory reading of any introductory text and persisted through games and problems.
+
+For example,
+\begin{itemize}
+\item A knight may move two squares horizontally and one square vertically (but not one square horizontally and two squares vertically).
+\item Knights may not `leap over' other pieces.
+\item \emph{En passant} to involve any piece moving two squares vertically from the fifth row.
+\item Rooks move any number of (free) squares diagonally and bishops move any number of (free) squares horizontally or vertically.
+\item The king may only move to a square which is adjacent to a piece of the same colour.
+\end{itemize}
+Perhaps none of these variants are plausible in practice, but mentioned to a causal player may result in some pause.
+
+It is clear that the agent is able to something, but from the agent's point of view it is possible that the ability is not reasoning with the rules of chess.
+To clarify, we may reformulate~\ref{inf:cond:ant} as follows:
+  \begin{enumerate}[label=(S\arabic*\('\)), ref=(S\arabic*\('\))]
+\item\label{inf:cond:antp} I have an ability \(\mathcal{A}\), and \(\mathcal{A}\) is the (general) ability to reason with the rules of chess.
+\end{enumerate}
+\end{note}
+
+\begin{note}[Extending general ability]
+  As noted, we will consider the information conveyed by the informer's claim~\ref{chess:claim:1:conditional} with some rigour in section~\ref{sec:role-conditional}.
+  For now, we assume that~\ref{inf:cond} is the only relevant information obtained from the informer's claim.
+  Given the alternative statement of~\ref{inf:cond:ant}, we may recast~\ref{inf:cond} to read:
+  \begin{enumerate}[resume, label=(S\arabic*\('\)), ref=(S\arabic*\('\))]
+  \item\label{inf:condp} If \(\mathcal{A}\) is the ability to reason with the rules of chess, then \(\mathcal{A}\) is (also) the ability to demonstrate the existence of a particular strategy.
+  \end{enumerate}
+  The role of the information provided by the informer is to allow the agent to expand what follows from their (general) ability \(\mathcal{A}\), so long as the agent is not mistaken about what their (general) ability \(\mathcal{A}\) is.
+  Intuitively, then, the informer does not provide information about whether \(\mathcal{A}\) is (also) the ability to demonstrate the existence of a particular strategy, as \(\mathcal{A}\) may not be the (general) ability to reason with the rules of chess.
+
+  Hence, we may likewise recast~\ref{inf:cond:conq} to read:
+    \begin{enumerate}[resume, label=(S\arabic*\('\)), ref=(S\arabic*\('\))]
+  \item\label{inf:cond:conqp} I have an ability \(\mathcal{A}\), and \(\mathcal{A}\) allows me to demonstrate the existence of the (particular) strategy.
+  \end{enumerate}
+  The required background to our primary interest in the reasoning sketch is that the agent obtains~\ref{inf:cond:conq} by using the information provided by the informer to expand what follows from the ability \(\mathcal{A}\), given the support the agent has for considering \(\mathcal{A}\) to be the (general) ability to reason with the rules of chess.
+\end{note}
+
+\begin{note}[More on extending general ability]
+  I take the broad outline of this reasoning to be compelling. Agents possesses general abilities. And, an agent is not required to understand specifics that follow from general ability in order to posses the general ability. So, an informer may observe specific abilities which (would) follow from the agent's general ability (if the agent possesses the ability), and once informed agent may incorporate this information.
+
+  The hedging is important. In some cases, the informer may have an independent understanding of the ability, such as understanding the rules of chess themselves, and so provides information about what follows from the general ability, so to speak. In other cases, the informer may observe the agent's action and extrapolate a specific ability on the basis of this. In the latter kind of cases, the informer provides information about what follows from the agent's ability, so to speak, no from the general ability itself.
+
+  May assume is in the latter kind of case. Hence, the conditional formulation is to some extent natural. However, the informer may make the conditional statement in either case.
+
+  So, interest is in how this works when the only information the informer provides is a conditional linking general to specific. Motivated by the possibility of the second kind of case, from the agent's point of view. So, not support for the particular fact otherwise.
+\end{note}
+
+\begin{note}[Two options for understanding ability]
+  Our primary interest is in how~\ref{inf:cond:conq} combines with~\ref{inf:gae} to provide the agent with support for~\ref{inf:sse}.
+  For, there are two distinct aspects of having the (specific) ability to demonstrate the existence of a (particular) strategy which may be stressed:
+  \begin{enumerate}
+  \item\label{Ab:asp:A} Possessing the \emph{attribute} of having the (specific) ability to demonstrate the existence of the (particular) strategy.
+  \item\label{Ab:asp:W} The (potential) event of \emph{witnessing} the (specific) ability by demonstrating the existence of the (particular) strategy.
+  \end{enumerate}
+  We describe \label{Ab:asp:A} and~\label{Ab:asp:W} as aspects of having the (specific) ability to demonstrate the existence of a (particular) strategy as they entail one another, given the relevant understanding of ability.
+
+  If there is no (potential) event, then the agent doesn't have the ability.
+  If there is a (potential) event, then as this involves the action of the agent, an attribute is generated.
+\end{note}
+
+\begin{note}[Expanding]
+  \label{Ab:asp:A} and~\label{Ab:asp:W} as aspects of having the (specific) ability to demonstrate the existence of a (particular) strategy, but lead to distinct interpretations of the reasoning from~\ref{inf:cond:conq} to~\ref{inf:sse} via~\ref{inf:gae} of the argument sketch.
 
   \begin{multicols}{2}
     Attribution (Property):
@@ -703,59 +762,76 @@ Instead, claim~\ref{chess:claim:1} holds in general, so it is fair to reason tha
     \item Strategy exists
     \end{enumerate}
   \end{multicols}
-
-  {
-    \color{red}
-    Distinguish by property and action.
-    With attribution, it's the property of being able.
-    With witnessing, it's the availability of an action.
-  }
-
-  Witnessing, the agent relies on applying their ability and the potential attribution is unimportant.
-  Attribution, the agent relies on the attribution, and the potential reasoning is unimportant.
-
-  The two are related.
-  If the agent has the ability, then the agent has the potential to reason.
-  And, if the agent is able to apply their ability then the agent has the potential to attribute the general ability to themselves.
-
-  Reasoning is distinct, and potential to make a difference with respect to support.
+  We label these \AR{} and \WR{}.
 \end{note}
 
-\begin{note}[Support and the distinction between propositional and doxastic justification.]
-  Our use of support falls closer in line with doxastic justification as opposed to propositional justification.
-  Roughly, following \textcite{Silva:2020aa}:
+\begin{note}[Why there's interest]
+  The interest is in the reasons available to the agent.
 
-  \begin{quote}
-    Propositional Justification (PJ): S has propositional justification to believe that p iff S has sufficient epistemic reasons to believe that p.
+  Agent obtains support for the ability, this much we assume.
+  And, argument sketch gives a clear account of the reasons.
+  So, attribution is quite nice.
 
-    Doxastic Justification (DJ): S has a doxastically justified belief in p iff
-    \begin{enumerate*}[label=(\roman*)]
-    \item S has propositional justification to believe that p,
-    \item S believes that p, and
-    \item S’s belief in p is appropriately connected to S’s sufficient epistemic reasons to believe it.
-    \end{enumerate*}
-  \end{quote}
-  The difficult issue is whether an un-witnessed ability to demonstrate that something is the case constitutes having sufficient epistemic reasons to believe the strategy exists.
-  On first blush, it may seem the un-witnessed ability does not.
-  The un-witnessed ability would generate the required reasons for \emph{p} were it witnessed, so until the ability is witnessed the agent lacks propositional justification.
-  However, on second blush it may seem that witnessing the ability appropriately connects the agent to the reasons which are guaranteed by possession of the ability.
+  Witnessing is not.
+  The agent hasn't demonstrated the existence of the strategy, and the witnessing event is potential.
 
-  To take an example:
-  Two informers, it takes some effort to tell them apart, and I have reason to think that one tells the truth.
-  Both say different things.
-  It seems plausible to remark that the agent has propositional justification.
-  Exercising the ability would establish doxastic justification.
-
-  Still, consider a particularly difficult instance of spot the difference.
-  Seems odd to grant propositional justification.
-  In part, this may be answered by clarifying the relevant notion of ability.
-
-  In turn, this suggests that doxastic is closer again.
-
-  These are lose considerations based on a quick sketch of the distinction between propositional and doxastic justification.
-  The upshot is caution regarding whether the agent does not have sufficient reason to believe that a strategy exists if the agent has not witnessed their ability to demonstrate the existence of the strategy.
-  However, granting that the agent has sufficient reason, there remains an issue of whether the agent can secure an appropriate connexion to those (assumed) reasons prior to witnessing the ability.
+  Consider snooker balls.
+  Different kind of skill.
+  Here, though, access to reasons.
 \end{note}
+
+\begin{note}[Quick argument/upshot/stakes]
+  Turn this into something of an argument.
+  \begin{enumerate}
+  \item\label{supp:arg:claim} Claim
+  \item\label{supp:arg:need-supp} Would not be reasonable without support.
+  \item\label{supp:arg:supp} Hence, if inference is okay then must be provided with support.
+  \item So, either some additional support, or the agent rejects the conditional, or reduces confident in antecedent.
+  \item\label{supp:arg:reasonable} Reasonable for the agent to hold true, and retain confidence.
+  \item Additional support.
+  \end{enumerate}
+
+  Above, background reflections provided additional support.
+  If not, then the agent would be required either to reject the conditional or lower confidence in ability.
+
+  Inclined to think that [the toy argument from~\ref{supp:arg:claim} to~\ref{supp:arg:supp}] holds most of the time.
+  Hence, the interest with \emph{ability} claims, and \AR.
+  Often there is no other route provided, but here there is.
+
+  So, agent has information about potential reasons, so to speak.
+
+  Replace with:
+  \begin{enumerate}
+  \item So, either some additional support, or the agent rejects the conditional, or if ability then licenses support from ability.
+  \end{enumerate}
+
+  Focus of the paper is motivating this additional option.
+  I haven't yet argued that no parallel to the background reasoning works in all cases.
+
+  The upshot is that this opens up understanding of agents.
+  However, argument is somewhat limited in scope.
+  Specific cases, therefore open to further constraints.
+  The most straightforward is strengthening the antecedent of the conditional, so that it only applies when the agent lacks additional support.
+
+  Still, two options are not exclusive, and I counterpart argument will highlight a handful of cases to demonstrate potential.
+  And, note that the focus on ability allows deviations from familiar accounts to be isolated.
+  Of course, this limits generalisations, rationality goes beyond responding to reasons.
+  However, given the relative uniqueness of ability, many of the arguments in support of general positions will continue to hold, and as such licensing supplements preferred theory.
+\end{note}
+
+\begin{note}[A little more]
+  Easy to see when given some simple rules.
+  For example, mathematics or logic.
+  This isn't simply the ability to establish any theorem in the logic case.
+  Some proofs may be out of reach.
+
+  A little more straightforwardly by reversing, absence of a witness does not show inability.
+\end{note}
+
+
+
+
+
 
 \begin{note}[Tangential ex. for att. vs. witt.]
   An tangential example may help illustrate the difference.
@@ -802,59 +878,36 @@ Instead, claim~\ref{chess:claim:1} holds in general, so it is fair to reason tha
   And, significant because\dots (no detailed account).
 \end{note}
 
-\begin{note}[Quick argument/upshot/stakes]
-  Turn this into something of an argument.
-  \begin{enumerate}
-  \item\label{supp:arg:claim} Claim
-  \item\label{supp:arg:need-supp} Would not be reasonable without support.
-  \item\label{supp:arg:supp} Hence, if inference is okay then must be provided with support.
-  \item So, either some additional support, or the agent rejects the conditional, or reduces confident in antecedent.
-  \item\label{supp:arg:reasonable} Reasonable for the agent to hold true, and retain confidence.
-  \item Additional support.
-  \end{enumerate}
-
-  Above, background reflections provided additional support.
-  If not, then the agent would be required either to reject the conditional or lower confidence in ability.
-
-  Inclined to think that [the toy argument from~\ref{supp:arg:claim} to~\ref{supp:arg:supp}] holds most of the time.
-  Hence, the interest with \emph{ability} claims.
-  Often there is no other route provided, but here there is.
-
-  The interesting thing about ability is that there's no simple characterisation.
-  Have the ability to do something, without recognising that one has the ability.
-  Yet, this puts the agent in a position to verify.
-
-  Easy to see when given some simple rules.
-  For example, mathematics or logic.
-  This isn't simply the ability to establish any theorem in the logic case.
-  Some proofs may be out of reach.
-
-  A little more straightforwardly by reversing, absence of a witness does not show inability.
-
-  So, agent has information about potential reasons, so to speak.
-
-  Replace with:
-  \begin{enumerate}
-  \item So, either some additional support, or the agent rejects the conditional, or if ability then licenses support from ability.
-  \end{enumerate}
-
-  Focus of the paper is motivating this additional option.
-  I haven't yet argued that no parallel to the background reasoning works in all cases.
-
-  The upshot is that this opens up understanding of agents.
-  However, argument is somewhat limited in scope.
-  Specific cases, therefore open to further constraints.
-  The most straightforward is strengthening the antecedent of the conditional, so that it only applies when the agent lacks additional support.
-
-  Still, two options are not exclusive, and I counterpart argument will highlight a handful of cases to demonstrate potential.
-  And, note that the focus on ability allows deviations from familiar accounts to be isolated.
-  Of course, this limits generalisations, rationality goes beyond responding to reasons.
-  However, given the relative uniqueness of ability, many of the arguments in support of general positions will continue to hold, and as such licensing supplements preferred theory.
+\begin{note}[Hum]
+  So, need to go through the reasoning sketched, and show that attribution doesn't quite work.
 \end{note}
 
+
+\hozlinedash
+
+
+
+\begin{note}[Support and the distinction between propositional and doxastic justification.]
+  Our use of support falls closer in line with doxastic justification as opposed to propositional justification.
+  Roughly, following \textcite{Silva:2020aa}:
+
+  \begin{quote}
+    Propositional Justification (PJ): S has propositional justification to believe that p iff S has sufficient epistemic reasons to believe that p.
+
+    Doxastic Justification (DJ): S has a doxastically justified belief in p iff
+    \begin{enumerate*}[label=(\roman*)]
+    \item S has propositional justification to believe that p,
+    \item S believes that p, and
+    \item S’s belief in p is appropriately connected to S’s sufficient epistemic reasons to believe it.
+    \end{enumerate*}
+  \end{quote}
+  The difficult issue is whether an un-witnessed ability to demonstrate that something is the case constitutes having sufficient epistemic reasons to be confident the strategy exists.
+\end{note}
+
+
 \begin{note}[No detailed account]
-In addition, no detailed account of why you hold claim \ref{simple:conditional:focus} is true follows from understanding the rules of chess and the game state alone.
-For, one may understand the rules of chess and the game state while lacking the ability to demonstrate that claim~\ref{simple:conditional:focus} is true --- understanding the rules of chess and the game board is distinct from the ability to construct strategies.\nolinebreak
+In addition, no detailed account of why you hold claim \ref{inf:sse} is true follows from understanding the rules of chess and the game state alone.
+For, one may understand the rules of chess and the game state while lacking the ability to demonstrate that claim~\ref{inf:sse} is true --- understanding the rules of chess and the game board is distinct from the ability to construct strategies.\nolinebreak
 \footnote{
   Here I am relying on a principle \emph{like}:
   \begin{itemize}
@@ -865,77 +918,11 @@ For, one may understand the rules of chess and the game state while lacking the 
     Whether or not this claim is true depends in part of how ability is understood\dots
   }
 
-  Perhaps it is the case that claim~\ref{simple:conditional:focus} is sufficiently obvious to guarantee that the agent has the ability.
+  Perhaps it is the case that claim~\ref{inf:sse} is sufficiently obvious to guarantee that the agent has the ability.
   Still, the reasoning involved differs only in complexity from the reasoning involved in showing that White cannot prevent Black from checkmating in four moves, and I doubt that this claim is sufficiently obvious.
 }
 \end{note}
 
-\begin{note}[First part focus]
-  First part focuses on conditional and problems with attribution.
-  Sketch the problem.
-  Then, alternative.
-  Details in {\color{red} section ???}.
-\end{note}
-
-\begin{note}[Attribution outline]
-  The focus of {\color{red} section ???} is whether the agent obtains support for the existence of a strategy from their confidence that they have the (general) ability to reason with chess, and the informer's claim that if they have the (general) ability to reason with chess then they have the (specific) ability to demonstrate a particular strategy.
-
-  The primary conclusion of {\color{red} section ???} is that the agent does not obtain support.
-  The argument for the primary conclusion of {\color{red} section ???} consists of two premises.
-
-  \begin{itemize}
-  \item Novel information provides irresolute support.
-  \item Irresolute support is insufficient for factive inference.
-  \end{itemize}
-
-  \begin{itemize}
-  \item Agent has support for \(A(\psi)\)
-  \item \(A(\phi) \rightarrow A(\psi)\) is novel information.
-  \item No independent support for \(A(\psi)\).
-  \item Without independent support for \(A(\psi)\), the agent's support for \(A(\psi)\) is just the agent's support for \(A(\phi)\).
-  \item So, agent's support for \(A(\psi)\) is irresolute.
-  \item If irresolute, then no support by factive inference.
-  \end{itemize}
-
-  Irresolute.
-  Something missing.
-  For example, floating in water.
-  Easy test.
-  Well, salt content.
-  So, resolute for some, irresolute for others.
-
-  Depends on the proposition.
-  Float in water of the same consistency.
-  Sure, trade between degree of support and specificity of proposition.
-
-  Idea is that some price is fixed, irresolute if some debt.
-  Resolute if otherwise fine.
-
-  Non-committal terminology.
-
-  Simple gloss in terms of possible worlds is ruling out and making unlikely.
-  As novel information, new worlds get added in, and the agent is only in a position to consider these unlikely.
-
-  \hozlinedash
-
-  Possible for the support to hold and the conclusion to be false.
-  Contrast, doing the proof.
-  If conclusion does not hold, the agent was mistaken about the support provided.
-
-  Doing the reasoning would be conclusive.
-
-  Witness doesn't provide conclusive support either, but different because it is an incomplete argument.
-  Potential reasons.
-
-  Defeasible is close, but avoid.
-  One the one hand, could turn out false.
-  Still, two problems.
-  Good arguments of this kind.
-  Works quite generally for the type of reasoning and the reasoning itself.
-
-  For sure, defeasible argument seems fine, with conclusion that the agent cannot avoid, etc.
-  Factive doesn't follow from this.
-\end{note}
 
 \hozlinedash
 
@@ -947,70 +934,13 @@ For, one may understand the rules of chess and the game state while lacking the 
   }
   General ability with novel information provides irresolute support for (specific) ability.
 
-  Assume that the agent has support for general ability prior to information provided by the informer.
-  Made distinction between resolute and irresolute.
-  If irresolute for general, then easily irresolute for specific ability.
-  If resolute, then this doesn't extend to specific ability.
-
   {
     \color{red}
     Similar to hardiness of knowledge --- explored in detail further along.
     Just as agent is not free to ignore potential counterevidence, the agent is not free to extend their ability to anything which follows.
   }
-
-  Conditional information.
-  If something is the case, then something else is the case.
-  So, if the agent has the general ability, then the agent has the specific ability.
-  Agent doesn't have any independent support for specific ability.
-  Agent's support isn't resolute, because failure would provide agent with a counterexample, etc.
-
-  With information, enriched take on general ability.
-  Distinguish these.
-  Resolute for ability before information.
-  Irresolute for ability after information.
 \end{note}
 
-\begin{note}[Attribution sketch, part 2]
-  {
-    \color{red}
-    Key point: Either no support (either kind) for \(A(\psi)\), or commitment to \(\psi\).
-  }
-  In turn, failure of transmission of support.
-
-  This is because of the factive inference requiring something stronger to be the case than the agent has support for.
-
-  Agent doesn't have independent support for \(\psi\).
-
-  Basically, still possible for \(\psi\) to be false.
-  Therefore, support for \(A(\psi)\) is irresolute/limited.
-  However, as support for \(A(\psi)\) is irresolute, then the agent isn't in a position to make the factive inference.
-
-  Then, failure of transmission argues that the agent assumes irresolute support?
-  Right, that's kind of interesting.
-  So, intuitive that the agent doesn't get \(\psi\) by factive inference, but also agent doesn't get irresolute support for \(\psi\).
-  For, this is assumed in order to get \(A(\psi)\).
-
-  So, it one grants that the agent gets irresolute support for \(A(\psi)\), this doesn't extend to \(\psi\).
-  Hence, the terminology of a commitment.
-
-  So, either no support (either kind) for \(A(\psi)\), or commitment to \(\psi\).
-\end{note}
-
-\begin{note}[Attribution transmission failure parallel]
-  This can be read into the Dretske examples, given some leeway.
-  For, the visual experience lends support to (factive) sight.
-  Yet, the resulting factive inference requires the agent to see in order to make the inference.
-  However, experience does not grant this.
-
-  So, this gets solved by arguing that the agent does see.
-  The move is certainly available --- here, neutrality.
-  In contrast, the option is not available here.
-  The agent has not performed the inference.
-  Second contrast, then, is that it is possible for the agent to do the reasoning.
-  In the Dretske example, it's not clear that this is possible.
-  Or, so I conjecture.
-  It is not clear, if one is not currently seeing, what one could do, at least on par with putting pen to paper.
-\end{note}
 
 \begin{note}[Attribution sketch, part 2.5 --- trouble with transmission]
   Failure of transmission means that the agent does not obtain support for \(\psi\) from attributive reasoning.
@@ -1095,94 +1025,10 @@ For, one may understand the rules of chess and the game state while lacking the 
       This is somewhat close to Pritchard's disjunctivism.
     }
   }
-
   Maybe in line with the \citeauthor{Harman:1973ww} idea, the novel information doesn't show that the agent doesn't know, but prevents the agent from expanding their prior knowledge.
 \end{note}
 
-\begin{note}[Attribution sketch, part 3]
-  So, get that the agent is committed to \(\psi\).
-  However, this is non-factive.
-  Possible to be committed in this sense to a contradiction.
-  E.g.\ with a nice case of co-reference.
-\end{note}
 
-\begin{note}[Through sketch, summary]
-  Grant confidence, but still have problem of the reasons that the agent is appealing to.
-  The agent has good support.
-  However, the reasons are distinct.
-  Further, the agent cannot avoid a consequence of those reasons.
-
-  Note, potential, not hypothetical.
-  Place `might' in the consequent.
-  Here, no factive inference.
-  No commitment.
-  Contrast, the agent does have those reasons.
-\end{note}
-
-\begin{note}[Two different reasoning patterns]
-  Difference between reasoning by witnessing ability and attribution from ability.
-
-  Detaching does instantiate failure of warrant.
-  Witnessing requires potential reasons.
-
-  Similarity in that both require the absence of support for \(\psi\).
-
-  Difference is that witnessing captures the relevant support.
-  Detaching does not.
-
-  Still, lays out a pair of steps after further detail.
-  First, show that this is the appropriate pattern.
-  Second, that this pattern does not provide support for \(\psi\).
-\end{note}
-
-\begin{note}[Thorough sketch, recap]
-  Agent is confident through the conditional and their prior confidence in their ability that a particular strategy exists.
-
-  Still, the agent is confident because they would not have the ability if the particular strategy did not exist.
-
-  However, the support the agent has for general ability to reason with the rules of chess mentioned in the antecedent of the claim made by the informer does not secure support for the specific ability to witness the existence of the strategy mentioned in the consequent of the claim made by the informer.
-
-  For, the agent's general ability only extends so long as their is a strategy to be witnessed.
-  So, expand only if strategy exists.
-\end{note}
-
-\begin{note}[General and specific ability]
-  Still, the observation generalises to the relation between distinct types of ability.
-Specifically, the antecedent of the claim is a general ability, while the consequent of the claim is a specific ability.
-And, it is not clear --- at least without further information about the specific ability --- whether failure to hold the specific ability is sufficient for failure to hold the general ability.
-\end{note}
-
-\begin{note}[Conclusion/Reach of witnessing]
-  Here we conclude.
-  Argument for witnessing by showing the work it does in restricted setting.
-  However, the role of the restricted setting was to highlight failures.
-  Hence, failure was part of the argument for interest in witnessing.
-  Yet, witnessing may hold even when alternatives are available.
-
-  Establish failure of conditional, and suggests that the failure can be pushed.
-  Ability to show something that holds independent of ability.
-  Benefits of this.
-  Complications for theories that assume tight connexion between reasons and attitudes.
-  But, may be explored in other work.
-\end{note}
-
-\begin{note}[The conditional is targeted toward the agent]
-  The agent is the one with the ability, and also the one who receives the information.
-  Minor, but worth noting.
-
-  Interest in witnessing is due to this convergence.
-  When the agent is different, seems the third party gets irresolute support for \(A(\psi)\).
-  But, still lack for \(\psi\), as this needs to be assumed.
-
-  Contingent on witnessing, then.
-\end{note}
-
-\begin{note}[Outline]
-  First, negative part of the argument.
-  Conditional information.
-  Failure of transmission.
-  Then, positive part, witnessing in detail.
-\end{note}
 
 \hozlinedash
 
@@ -1269,24 +1115,6 @@ Here, details and illustrations.
 \begin{note}[Conditional - informer's reasoning doesn't offer support]
   Important consequence of no commitment to the rules of chess is even if the agent is confident that the informer has witnessed some instance of the agent's ability, this does not provide support for \(\psi\).
   For, it is still on the agent to classify the witness as an instance of demonstrating \(\psi\).
-\end{note}
-
-\begin{note}[Objection --- why phrase in terms of competence?]
-  Argument has been that the informer speaks to agent's ability, without taking a stance on whether the description of the ability is accurate.
-
-   Option to replace with more complex conditional.
-
-  \begin{itemize}
-  \item If ability described as reasoning with chess is ability to reason with chess, then able to demonstrate \dots
-  \end{itemize}
-  Or
-  \begin{itemize}
-  \item Ability fixed as X, extends to ability fixed as Y. \emph{And} if X = general, Y = specific, etc.
-  \end{itemize}
-  Doubt this is much different.
-
-  Nothing interesting follows from regalement, if required.
-  Stick to original as it's easier.
 \end{note}
 
 \begin{note}[Informer doesn't need to be confident of ability]
@@ -1413,6 +1241,17 @@ Here, details and illustrations.
   And, that this is conditional on the agent's ability.
   Something of a check/elaboration on initial reading.
   So, proceed to the problem.
+\end{note}
+
+\begin{note}[The conditional is targeted toward the agent]
+  The agent is the one with the ability, and also the one who receives the information.
+  Minor, but worth noting.
+
+  Interest in witnessing is due to this convergence.
+  When the agent is different, seems the third party gets irresolute support for \(A(\psi)\).
+  But, still lack for \(\psi\), as this needs to be assumed.
+
+  Contingent on witnessing, then.
 \end{note}
 
 \subsection{Attributive overview}
@@ -1714,7 +1553,7 @@ We now turn to the final premise of the negative argument:
   Contrasting, it is plausible that in normal circumstances an agent has irresolute support for the location of their car keys if they haven't driven if a few days --- it may be likely that the keys are in the bowl by the front door, but it may also be the case that the keys were left in a jacket.
 
   The support of interest throughout this section is irresolute support.
-  The agent may be mistaken about their general ability to reason with the rules of chess, that the informer is providing truthful information, that the agent possess the ability to demonstrate the existence of the (specific) strategy, and that the (specific) strategy exists.
+  The agent may be mistaken about their general ability to reason with the rules of chess, that the informer is providing truthful information, that the agent possess the ability to demonstrate the existence of the (particular) strategy, and that the (particular) strategy exists.
 
   Of course, if the agent demonstrated that the strategy existed then the agent would plausibly obtain resolute support for the existence of a strategy, but given the agent is reasoning from possession of the ability, the present interest is in whether the failure of a strategy to exists is unlikely.
 \end{note}
@@ -1737,20 +1576,20 @@ We now turn to the final premise of the negative argument:
 
   Our interest is with the following pattern of reasoning.
   \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{as:1}\label{inf:cond:ant} I have the ability to reason with the rules of chess.
-  \item\label{as:2}\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (specific) strategy.
+  \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
+  \item\label{inf:cond}\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
   \end{enumerate}
-  As~\ref{as:1} is the antecedent of~\ref{as:2} and the consequent of~\ref{as:2} is novel information, \ref{as:1} and~\ref{as:2} combine to provide support for:
+  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information, \ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{as:4}\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy.
+  \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy.
   \end{enumerate}
-  Sub-conclusion~\ref{as:4}, is the antecedent of the following conditional:
+  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following conditional:
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{as:3}\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
   \end{enumerate}
   Therefore:
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{as:5}\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.
+  \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.
   \end{enumerate}
 
   In the previous section we argued that an informer providing the agent with~\ref{inf:cond} does not provide the agent with support for~\ref{inf:cond:conq}.
@@ -1761,14 +1600,14 @@ We now turn to the final premise of the negative argument:
   In short, the agent's support for~\ref{inf:sse} rests on expanding their general ability to a specific ability.
 
   The type of argument here is familiar.
-  The agent's goal is to \emph{transmit} support for~\ref{as:4} to~\ref{as:5} \emph{via} the entailment noted in~\ref{as:3} --- from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
+  The agent's goal is to \emph{transmit} support for~\ref{inf:cond:conq} to~\ref{inf:sse} \emph{via} the entailment noted in~\ref{inf:gae} --- from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
 
   For, the information provided by the informer is conditional, and so in turn the support the agent has for the ability to demonstrate the existence of a (particular) strategy is primarily premised on the support the agent has for being able to reason with the rules of chess.
   So, the agent does not have support for~\ref{inf:cond:conq} nor~\ref{inf:sse} that is independent of their general ability to reason with the rules of chess.
 
   Hence, with the result of the previous section in hand, we may now turn to \emph{how} the agent obtains support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
 
-   Our interest in the reasoning is from~\ref{as:4} and~\ref{as:3} to~\ref{as:5}, and in particular~\ref{as:3}.
+   Our interest in the reasoning is from~\ref{inf:cond:conq} and~\ref{inf:gae} to~\ref{inf:sse}, and in particular~\ref{inf:gae}.
 \end{note}
 
 \begin{note}[Introduction, two different types of reasoning]
@@ -1779,7 +1618,7 @@ We now turn to the final premise of the negative argument:
   And, in turn,~\ref{inf:sse} follows from the attributive understanding of~\ref{inf:cond:conq} and~\ref{inf:gae} by understanding~\ref{inf:gae} to highlight conditions that must be in place in order for the agent to possess the attribute.
   Intuitively, an agent may have the attribute of being able to demonstrate the existence of a strategy only if the strategy exists.
 
-  By contrast, \WR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{generating a witnessing event} of demonstrating that the (specific) strategy exists.
+  By contrast, \WR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{generating a witnessing event} of demonstrating that the (particular) strategy exists.
   For, to have the ability to demonstrate the existence of a particular strategy is just for there to be some (potential) event in which the agent applies their understanding of the rules of chess to obtain a demonstration of the relevant strategy.
 
   The `problem' with \WR{} is that the relevant witness is potential.
@@ -1939,11 +1778,11 @@ We now turn to the final premise of the negative argument:
 \end{note}
 
 \begin{note}[Still]
-  The issue is with whether~\ref{as:3} is suitable for transmission.
-  Suggest that if~\ref{as:3} is suitable, then plausible that support does transmit.
+  The issue is with whether~\ref{inf:gae} is suitable for transmission.
+  Suggest that if~\ref{inf:gae} is suitable, then plausible that support does transmit.
 
   Tension between transmission from ability and transmission from the relevant witnessing event.
-  If~\ref{as:3} then support transmits to propositions for which transmission would fail given the relevant witnessing event.
+  If~\ref{inf:gae} then support transmits to propositions for which transmission would fail given the relevant witnessing event.
 
   In short, because the agent obtains support for prerequisites of event independent from the relevant witnessing event.
 \end{note}
@@ -2095,7 +1934,7 @@ We now turn to the final premise of the negative argument:
   For now the sketch is sufficient to outline object, and remaining details will be filled in as we move along.
 
   Premise~\ref{Att:Prem:Presupp} is difficult because it allows for an agent to obtain support for some proposition without obtaining support against any presuppositions employed.
-  
+
   The alternative requires support all the way through.
   \begin{enumerate}[label=(\(\lnot\)A1b), ref=(\(\lnot\)A1b)]
   \item\label{Att:Prem:No-Presupp} No presuppositions.
@@ -2149,8 +1988,6 @@ We now turn to the final premise of the negative argument:
   The tension, then, is that the agent obtains support for the required background conditions primarily in virtue of the support they have for the general ability.
   The agent has no `direct' support for possessing the (specific) ability to demonstrate the existence of the (particular) strategy.
   It seems, rather, that because the agent is relying on extending their general ability to a specific case, the agent is not able to obtain support for propositions they may be required to presuppose when witnessing their general ability.
-  
-
 
 
   % Agent's ability is doing the work with~\ref{tension:Support}.
@@ -2261,7 +2098,7 @@ We now turn to the final premise of the negative argument:
 \end{note}
 
 \begin{note}[Still some ways to go]
-  As things stand, reformulating \citeauthor{Dretske:2005vy}'s case in terms of a factive verb has established some surface parallels to the reasoning from ability to demonstrate the existence of a (specific) strategy to the existence of a strategy.
+  As things stand, reformulating \citeauthor{Dretske:2005vy}'s case in terms of a factive verb has established some surface parallels to the reasoning from ability to demonstrate the existence of a (particular) strategy to the existence of a strategy.
   Namely, the use of a factive verb.
 
   Two important differences remain.
@@ -2360,7 +2197,7 @@ We now turn to the final premise of the negative argument:
 
   In short, we are granting that the agent obtains support for \emph{A} or \emph{A'} via \emph{E}, and one may deny this is support is required to be closed under entailment.
   This is a hard line, but yields an immediate result with respect to the reasoning sketch in the chess case.
-  For, as the agent is not in a position to rule out that they do not have the ability to reason with the rules of chess, and hence the possibility that the agent is not able to demonstrate that the (specific) strategy exists, the agent seems in trouble as the ability to demonstrate the (particular) strategy exists entails that the agent is not mistaken about having the ability to demonstrate the (particular) strategy exists.
+  For, as the agent is not in a position to rule out that they do not have the ability to reason with the rules of chess, and hence the possibility that the agent is not able to demonstrate that the (particular) strategy exists, the agent seems in trouble as the ability to demonstrate the (particular) strategy exists entails that the agent is not mistaken about having the ability to demonstrate the (particular) strategy exists.
   And, just as the possibility of a cleverly disguised mule is troubling, substituting absence of mistake for the existence of a strategy seems equally troubling.
   Hence, as the agent doesn't seem to have sufficient support for not being misled, on the hard line we may also deny support for the existence of a strategy.
   % Conversely, thy the agent obtains support for the finer proposition.
