@@ -164,8 +164,6 @@
 
 \begin{document}
 
-
-
 % \tableofcontents
 
 % \newpage
@@ -535,7 +533,7 @@ Consider the following claim\nolinebreak
 }\nolinebreak
 made to an agent:
 \begin{enumerate}
-\item\label{chess:claim:1}\label{chess:claim:1:conditional} If you are able to reason with the rules of chess, then you have the ability to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
+\item\label{chess:claim:1}\label{chess:claim:1:conditional} If you are able to reason with the rules of chess, then you have the ability to demonstrate that White cannot prevent Black from occupying c4 on their (Black's) second move given the game state (described in figure~\ref{fig:chess:board}).
 \end{enumerate}
 
 
@@ -611,6 +609,14 @@ made to an agent:
   \end{quote}
 }
 
+{\color{red}
+  \begin{note}[Alternate claim]
+    Implicit in~\ref{chess:claim:1} is that the (specific) ability to demonstrate the existence of a strategy is an instance of the agent's (general) ability to reason with the rules of chess.
+
+  Less natural, but perhaps more accurate, the informer may claim:
+  \item\label{chess:claim:1:conditional:extend} If you are able to reason with the rules of chess, then an instance of the mentioned ability allows you to demonstrate that White cannot prevent Black from occupying c4 on their (Black's) second move given the game state (described in figure~\ref{fig:chess:board}).
+  \end{note}}
+
 \begin{note}[Status of the claim]
   We assume claim~\ref{chess:claim:1} is true, but not immediately obvious to the agent.
   And, in particular, that some reasoning from the rules of chess and the game state is required to verify that the agent is able to demonstrate that White cannot prevent Black from occupying c4 on their (Black's) second move.
@@ -659,15 +665,24 @@ made to an agent:
   \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
   \item\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
   \end{enumerate}
-  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information, \ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
+
+  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information,~\ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
+
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
   \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy that White cannot prevent Black from occupying c4 on their second move.
   \end{enumerate}
-  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following conditional:
+
+  Note, however, that~\ref{inf:cond:conq} is not considered a straightforward application of \emph{modus ponens}.
+  Rather,~\ref{inf:cond} captures conditional information about how some ability the agent has extends, if it is indeed the ability to reason with the rules of chess.
+
+  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following quantified conditional:
+
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
   \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
   \end{enumerate}
+
   Therefore:
+
   \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
   \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.\newline
     White cannot prevent Black from occupying c4 on their second move.
@@ -834,24 +849,7 @@ To clarify, we may reformulate~\ref{inf:cond:ant} as follows:
   However, given the relative uniqueness of ability, many of the arguments in support of general positions will continue to hold, and as such licensing supplements preferred theory.
 \end{note}
 
-\begin{note}[Introduction, attribution and dilemma]
-  The present section focuses on \AR{}.
-  Our goal is to show that \AR{} is not quite so straightforward as may first appear.
 
-  For, if observing that the (particular) strategy must exist in order for the agent to have the attribute of being able to demonstrate the existence of the strategy, then it seems the agent may obtain support for further conditions required in order to have the attribute of being able to the demonstrate the existence of the strategy.
-  For example, that any apparent reasoning to a conflicting strategy involves a mistake.
-
-  If successful, this suggests a dilemma.
-  For, we will have established the following two conditionals:
-  \begin{enumerate}[label=(D\arabic*), ref=(D\arabic*)]
-  \item\label{RDil:W} If the reasoning pattern is understood as an instance of \WR{}, then the agent obtains support for the existence of the particular strategy by virtue of reasoning that is (merely) potential.
-  \item\label{RDil:A} If the reasoning pattern is understood as an instance of \AR{}, the agent obtains support for the existence of the particular strategy by virtue of reasoning performed, but the same reasoning may be extended to obtain support for propositions that (intuitively) the agent does not have support for.
-  \end{enumerate}
-  Therefore, if either \WR{} or \AR{} is the correct interpretation of the argument sketch, then it is the case that either the agent does not obtain support for the existence of the (particular) strategy on the basis of reasoning the agent has performed, \emph{or} the agent is able to obtain support for propositions that intuitively the agent is not able to obtain support for.
-
-  We have sketched why \AR{} does not face the problem highlighted with \WR{}, but in order for this dilemma to be genuine we also need to observe that \WR{} does not face the problem highlighted with \AR{}.
-  Part of the argument for~\ref{RDil:A} will establish that this is so.
-\end{note}
 
 \begin{note}[A little more]
   Easy to see when given some simple rules.
@@ -1042,9 +1040,35 @@ To clarify, we may reformulate~\ref{inf:cond:ant} as follows:
 \section{Negative part --- Attribution}
 \label{sec:negative-part}
 
-The goal is to motivate interest in \WR.
+{\color{red}
+\begin{note}[Irresolute support]
+  In the following I make use of the notes of resolute and irresolute support.
+  The distinction is temporary, and basic.
+  \begin{itemize}
+  \item Resolute support allows an agent to discard possibilities incompatible with the proposition the agent has support for.
+  \item Irresolute support by contrast allows an agent (only) to consider possibilities incompatible with the proposition the agent has support for unlikely.
+  \end{itemize}
+  For example, it is plausible that in normal circumstances an agent has resolute support for the digits of their phone number --- the agent may rule out the possibilities that an apparent misprint on a business card turns out to be correct.
+  Contrasting, it is plausible that in normal circumstances an agent has irresolute support for the location of their car keys if they haven't driven if a few days --- it may be likely that the keys are in the bowl by the front door, but it may also be the case that the keys were left in a jacket.
+
+  The support of interest throughout this section is irresolute support.
+  The agent may be mistaken about their general ability to reason with the rules of chess, that the informer is providing truthful information, that the agent possess the ability to demonstrate the existence of the (particular) strategy, and that the (particular) strategy exists.
+
+  Of course, if the agent demonstrated that the strategy existed then the agent would plausibly obtain resolute support for the existence of a strategy, but given the agent is reasoning from possession of the ability, the present interest is in whether the failure of a strategy to exists is unlikely.
+\end{note}
+
+\begin{note}[Expanding a little]
+  Indeed, it seems there is a clear problem if the agent attempt to rule out the possibility of a strategy not existing by the reasoning sketched.
+  For, given that the agent may be mistaken about possessing the general ability, then it seems the agent cannot rule out the possibility that a strategy does not exist, as the agent is assumed not to have independent support (either resolute or irresolute) for the ability to demonstrate the existence of the (particular) strategy, nor for the existence of the (particular) strategy.
+
+  Still, if the agent is mistaken, this is not to say that it is a mistake for the agent to hold an attitude such as belief toward the relevant proposition given the (irresolute) support the agent has for the proposition.
+  Rather, the agent would be mistaken about what is the case, and misled by the support possessed.
+\end{note}
+}
+
+The overarching goal is to motivate interest in \WR.
 The introduction focused on the distinction between \AR{} and \WR.
-Here, we also focus on whether the agent has an alternative route to support for the existence of the (particular) strategy.
+Here, we also focus on whether the agent has an alternative route to support for the existence of the (particular) strategy via \AR.
 
 Two parts.
 \begin{itemize}
@@ -1052,8 +1076,13 @@ Two parts.
 \item Failure of transmission --- agent is not able to leverage any support for \(A(\psi)\) to get \(\psi\).
 \end{itemize}
 
-Sketched in {\color{red} section ???}
-Here, details and illustrations.
+The first part helps set up \WR{} and \AR{} as the relevant options.
+And, highlights some observations useful when examining \AR{} in detail --- and \WR{} down the line.
+
+The second part is where the primary interest is.
+Goal, again, is to develop problematic case in which \WR{} is favoured over \AR.
+So, sufficient, but not necessary.
+Rather, given motivation for \WR{} over \AR{} in some case, then see how \WR{} fares over \AR{} in cases where there are alternatives to \AR{}.
 
 \subsection{The role of the conditional}
 \label{sec:role-conditional}
@@ -1356,8 +1385,445 @@ Rather, I take the former to be straightforward, and the latter to require some 
   Interest is in how the support transmits.
 \end{note}
 
-\subsection{Transmission alternative?}
-\label{sec:transm-altern}
+
+
+\subsubsection{Transmission overview}
+\label{sec:transm-overv}
+
+\begin{note}[Transmission]
+  An understanding of transmission is important to outline.
+  The key is that the agent `obtains' support.
+  There are many arguments where transmission is not require, and the relevant observation is that the support the agent has for some proposition is also support for some other proposition.
+  So, this is repurposing, rather than transmission.
+  Very simple example is \(p\) to \(p \lor q\).
+
+  This is somewhat intuitive.
+  Easiest to consider when we're dealing with \dots
+  This isn't so clear.
+
+  Thinking about:
+  \begin{itemize}
+  \item The wall is red.
+  \item So, the wall is coloured.
+  \end{itemize}
+  The conclusion is understood to state that the wall is not white.
+  Then, this looks like transmission.
+  However, this also comes from re-describing/weakening the proposition.
+  So, in line with the disjunction instance.
+  Well, not quite, as this doesn't seem to violate the template.
+  There's no relevant cognitive project which would separate the two.
+\end{note}
+
+\begin{itemize}
+\item Previous section focused on the information provided by the informer.
+\item \emph{If} agent has ability to \(\phi\) \emph{then} the agent has the ability to \(\psi\).
+\item Requires confidence that \(\psi\).
+\item This section, two reasoning patterns sketched.
+\end{itemize}
+
+\begin{note}[Goals]
+  Have two ways of approaching the conditional.
+
+  First, attributive.
+  Intuition is that the agent attributes themselves the general ability, and reasons from the attribute of having the ability.
+  On first pass, attribution of ability combines with the conditional information.
+  This is, roughly, extending, rather than an instance of modus ponens, as noted.
+
+  Goal is to highlight problem with attributive.
+  Reasoning from possession of general ability to possession of specific ability.
+  So, the agent does not appeal to the reasoning that they are able to do.
+\end{note}
+
+\begin{note}[Two distinct arguments]
+  Have to distinct observations about \AR.
+  \begin{itemize}
+  \item First, we suggest that there is transmission failure to the existence of a strategy.
+  \item Second, we argue that if --- contrary to the first argument --- there is transmission to the existence of the strategy, understanding this as a result of \AR{} leads to successful transmission to other propositions, which do seem problematic.
+  \end{itemize}
+  We treat these as two separate arguments, as the two conclusions are important.
+  However, from a broader perspective the section is an extended look at \AR.
+\end{note}
+
+\begin{note}[Structure]
+  This section is split into three parts.
+  \begin{enumerate}
+  \item A review of \AR{} and transmission.
+  \item Inertia.
+  \item \citeauthor{Wright:2016wl}.
+  \end{enumerate}
+\end{note}
+
+\subsection{Understanding transmission}
+\label{sec:underst-transm}
+
+\begin{note}[Introduction, summarising previous section and interest]
+  This section of the paper considers whether an agent is able to obtain support for the existence of a chess strategy on the basis of support for possessing the general ability to reason with the rules of chess and informer from an informer that if the agent is able to reason with the rules of chess, then the agent is able to demonstrate the existence of a particular strategy.
+
+  Our interest is with the following pattern of reasoning.
+  \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
+  \item\label{inf:cond}\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
+  \end{enumerate}
+  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information, \ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy.
+  \end{enumerate}
+  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following conditional:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \end{enumerate}
+  Therefore:
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.
+  \end{enumerate}
+
+  In the previous section we argued that an informer providing the agent with~\ref{inf:cond} does not provide the agent with support for~\ref{inf:cond:conq}.
+  Rather, an informer providing the agent with~\ref{inf:cond} allows the agent to extend their support for~\ref{inf:cond:ant} to~\ref{inf:cond:conq}.
+
+  In turn,~\ref{inf:gae} to obtain~\ref{inf:sse}.
+
+  In short, the agent's support for~\ref{inf:sse} rests on expanding their general ability to a specific ability.
+
+  The type of argument here is familiar.
+  The agent's goal is to \emph{transmit} support for~\ref{inf:cond:conq} to~\ref{inf:sse} \emph{via} the entailment noted in~\ref{inf:gae} --- from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
+
+  For, the information provided by the informer is conditional, and so in turn the support the agent has for the ability to demonstrate the existence of a (particular) strategy is primarily premised on the support the agent has for being able to reason with the rules of chess.
+  So, the agent does not have support for~\ref{inf:cond:conq} nor~\ref{inf:sse} that is independent of their general ability to reason with the rules of chess.
+
+  Hence, with the result of the previous section in hand, we may now turn to \emph{how} the agent obtains support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
+
+   Our interest in the reasoning is from~\ref{inf:cond:conq} and~\ref{inf:gae} to~\ref{inf:sse}, and in particular how ~\ref{inf:gae} is applied.
+\end{note}
+
+\begin{note}[Introduction, two different types of reasoning]
+  In the opening section we canvassed two distinct ways in which the agent may obtain support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
+  We termed these \AR{} and \WR{}.
+
+  Roughly, \AR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{attribute} of having the ability to demonstrate the existence of a particular strategy.
+  And, in turn,~\ref{inf:sse} follows from the attributive understanding of~\ref{inf:cond:conq} and~\ref{inf:gae} by understanding~\ref{inf:gae} to highlight conditions that must be in place in order for the agent to possess the attribute.
+  Intuitively, an agent may have the attribute of being able to demonstrate the existence of a strategy only if the strategy exists.
+
+  By contrast, \WR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{generating a witnessing event} of demonstrating that the (particular) strategy exists.
+  For, to have the ability to demonstrate the existence of a particular strategy is just for there to be some (potential) event in which the agent applies their understanding of the rules of chess to obtain a demonstration of the relevant strategy.
+
+  The `problem' with \WR{} is that the relevant witness is potential.
+  The agent has not (yet, nor necessarily will) reasoned with the rules of chess and the state of the board to demonstrate the existence of the (particular) strategy.
+  Hence, if the agent appeals to a (potential) witness, then the agent appeals to \emph{potential} reasons (or reasoning).
+
+  Intuitively, \AR{} avoids the noted problem with \WR{}.
+  For, the attribute of having the ability to demonstrate the specific strategy is an attribute of the agent as they are.
+  The agent may not, as a matter of fact, have the ability, but granting that the agent has support for possessing the attribute, the agent is not required to appeal to potential events.
+\end{note}
+
+\begin{note}[Transmission, the basics, definition]
+  From a broad perspective, transmission may be characterised with respect to the state of an agent, premises, and conclusion.
+  Failure of transmission is when, relative to the state, the support the agent has for the premises does not transmit to the conclusion.
+
+  Following \textcite{Moretti:2018we,Moretti:2018tl}, with minor adjustments,\nolinebreak
+  \footnote{
+    Replace justification with support, logical consequence with entailment, omit belief in the last.
+    Template works for both propositional and doxastic, differs on reading of support.
+    Given focus is doxastic, suppress.
+
+    Most important is dropping requirement for knowledge in~\ref{sep:trans:ii}.
+    
+  }
+  (first time) transmission of support is be characterised as follows:
+  \begin{quote}
+    \emph{S}'s support for \emph{A} based on \emph{E} transmits from \emph{A} to \emph{B} if and only if:
+    \begin{enumerate}[label=(T\arabic*), ref=(T\arabic*)]
+    \item\label{sep:trans:i} \emph{S} has support for \emph{A} based on \emph{E},
+    \item\label{sep:trans:ii} \emph{S} is confident that \emph{B} is entailed by \emph{A}, and
+    \item\label{sep:trans:iii} \emph{S} obtains (\emph{first time}) support for \emph{B} \emph{in virtue of} the satisfaction of \ref{sep:trans:i} and \ref{sep:trans:ii}.
+    \end{enumerate}
+  \end{quote}
+\end{note}
+
+\begin{note}[After observations]
+  A non-transmissive triad of \emph{E}, \emph{A}, and \emph{B} may be due to the failure of either~\ref{sep:trans:i},~\ref{sep:trans:ii}, or~\ref{sep:trans:iii}.
+
+  For, if~\ref{sep:trans:i} fails then the agent does not have support to transmit from \emph{A} to \emph{B}.
+
+  If~\ref{sep:trans:ii} fails then the agent is not confident that \emph{A} entails \emph{B}, and hence lacks an appropriate relation between \emph{A} and \emph{B} for support to transmit over.
+
+  Finally,~\ref{sep:trans:iii} fails if
+  \begin{enumerate*}
+  \item the agent already has support for \emph{B},
+  \item either~\ref{sep:trans:i} or~\ref{sep:trans:ii} are unsatisfied, or
+  \item the satisfaction of~\ref{sep:trans:i} or~\ref{sep:trans:ii} do not provide the agent with support for \emph{B}.
+  \end{enumerate*}
+  Note, the agent may still obtain support for \emph{B} from some other basis.
+\end{note}
+
+\begin{note}[Transmission characterisation applied to argument]
+  With respect to the case of interest:
+  \begin{transmission}[Chess]
+    \begin{enumerate}
+    \item[\tri{C}{E}]
+      The result of combining:
+      \begin{enumerate}[label=\tri{C}{E}\arabic*.]
+    \item\label{C:tr:E1} the agent's support for the general ability to reason with the rules of chess, and
+    \item\label{C:tr:E2} the conditional information provided by the informer that if the agent has the general ability to reason with the rules of chess then the agent has the specific ability to demonstrate that some (particular) strategy exists.
+    \end{enumerate}
+    \item[\tri{C}{A}] The attribute of having the (specific) ability to demonstrate that some (particular) strategy exists
+    \item[\tri{C}{B}] The (particular) strategy exists.
+    \end{enumerate}
+    Or, alternatively:
+    \begin{enumerate}
+    \item[\tri{C}{B\('\)}] Any apparent demonstration of a conflicting strategy is the result of a mistake.
+    \end{enumerate}
+  \end{transmission}
+
+  Condition~\ref{sep:trans:ii} is satisfied by the recognised entailment from the ability to demonstrate a specific strategy to the existence of the strategy --- if the (particular) strategy did not exist, the agent would not have the ability to provide a demonstration of it.
+
+  Further, given that the information about the particular strategy provided is novel, any support obtained for \tri{C}{B} will be \emph{first time} support.
+  And, as the agent has no other information regarding \tri{C}{B}, any support obtained for \tri{C}{B} will be in virtue of the agent's support for \tri{C}{A} (~\ref{sep:trans:i}) and the entailment from \tri{C}{A} to \tri{C}{B} (~\ref{sep:trans:ii}).
+  For, we have assumed the information provided by the informer is novel, we have no need for a broader characterisation of transmission.\nolinebreak
+  \footnote{
+    See \textcite{Moretti:2018we,Moretti:2018tl,Moretti:2013wd}, for more.
+  }
+
+  Our interest primarily concerns condition~\ref{sep:trans:iii}.
+  Whether the agent obtains support for the existence of some (particular) strategy in virtue of their (irresolute) support for the ability to demonstrate the existence of the strategy and the relevant entailment.
+  However, also~\ref{sep:trans:i} --- specifically, the way in which the agent obtains support for \tri{C}{A} based on \tri{C}{E} (~\ref{sep:trans:i}).
+\end{note}
+
+\begin{note}[The two arguments]
+  The `inertia' argument focuses on \ref{inf:cond}, the information provided by the informer.
+
+  The `other' argument focuses on whether~\ref{inf:gae} is suitable for transmission.
+  Tension between transmission from ability and transmission from the relevant witnessing event.
+\end{note}
+
+\begin{note}[A little more on transmission]
+  \AR{} fits the transmission template.
+  \WR{} does not fit the transmission template, though the relevant instance of reasoning presumably does fit the template.
+
+  So, required transmission of \AR{} and the deferred transmission of \WR{} looks like something of interest.
+\end{note}
+
+\begin{note}[Still]
+  If~\ref{inf:gae} then support transmits to propositions for which transmission would fail given the relevant witnessing event.
+
+  In short, because the agent obtains support for prerequisites of event independent from the relevant witnessing event.
+\end{note}
+
+\begin{note}[Handful of observations]
+  Still, before moving to transmission failure, let us make a handful of observations that will help maintain continuity between the reasoning sketched and the type of argument we will be using as an example.
+\end{note}
+
+\begin{note}[Role of factivity]
+  First, the factivity of the verb `demonstrate' is the foundation of the entailment from the agent possessing the (specific) ability to demonstrate the existence of a strategy to the existence of a strategy.
+  We may replace demonstrate with other factive verbs and obtain the same entailment.
+
+  For example, see, receive testimony, learn, and so on all have the same entailment and lend to similar constructions.
+  \begin{enumerate}[label=(FV\arabic*), ref=(FV\arabic*)]
+  \item\label{FV:1} An agent has the ability to see that it is raining only if it is raining.
+  \end{enumerate}
+  The conditional is silent on what constitutes the ability to see that it is raining, but the antecedent requires the consequent in order to be true.
+  There is some subtly, however.
+  For, in absence of the entailment the antecedent may be ambiguous.
+  \begin{enumerate}[label=(FV\arabic*), ref=(FV\arabic*)]
+    \setcounter{enumi}{1}
+  \item\label{FV:2} An agent has the ability to receive testimony that it is snowing.
+  \end{enumerate}
+  On one reading,~\ref{FV:2} states that if we suppose that someone were to testify, then the agent has the ability to receive that testimony.
+  For example, the agent is not so prejudiced against the idea of snow to discount the message of anyone attempting to inform the agent.
+  Still, on the reading of interest, the `factive inference' is required.
+  Examples can be found to show that verbs such as argue, suggest, recommend, don't exhibit the same `factive inference'.
+\end{note}
+
+\begin{note}[Relation between attribute and event]
+  Second, the ability to demonstrate, see, receive testimony that, and so on is a property of the agent.
+  However, the factive inference is due to a verb.
+  Hence, that the agent has the property of having the ability to demonstrate, see, receive testimony that, and so on is in part secured by the resultant state of event in which the agent demonstrates, sees, receive testimony that, and so on, and these verbs impose that the relevant fact must be part of the event.
+  In turn, for any ability to \emph{V} \(\phi\) there is a corresponding possibility of an event in which an agent \emph{V}s \(\phi\), and vice-versa.
+\end{note}
+
+\begin{note}[Chaining entailments]
+  Third, it is possible to chain entailments.
+  The agent has the ability to see that it is raining only if it is raining, but it is raining only if the atmospheric conditions are not sufficient for hail.
+  Therefore, the agent has the ability to see that it is raining only if the atmospheric conditions are not sufficient for hail.
+
+  There are not too many entailments that follow from the ability to demonstrate the existence of a (particular) strategy.\nolinebreak
+  \footnote{
+    E.g.\ unique answer, rules aren't open to interpretation.
+  }
+  However, in other cases, more interesting entailments.
+  Foreshadowing, see a donkey then not a cleverly disguised mule.
+\end{note}
+
+\begin{note}[Wrapping up observations]
+  Let us wrap up these observations.
+  Our interest is in whether support extends from the ability to demonstrate the existence of a (particular) strategy to the existence of a the (particular) strategy.
+  The first observation allows us to generalise to other factive verbs such as seeing.
+  The second observation, links the agent possessing the ability to do something to the possibility of an event in which the agent does the things.
+  And, finally, the third observation, broadens the relevant entailments from the ability to \emph{V} \(\phi\) to \(\phi\) to any \(\psi\) entailed by \(\phi\).
+\end{note}
+
+\subsection{Two arguments}
+\label{sec:two-arguments}
+
+\begin{note}[Overview]
+  We have a basic understanding of transmission and where our interest lies.
+  We now turn to the two arguments.
+
+  First, focusing on relation of support between \tri{C}{E} and \tri{C}{A} is sufficient for~\ref{sep:trans:iii}.
+  Second, assuming that the relation of support between \tri{C}{E} and \tri{C}{A} is sufficient for~\ref{sep:trans:iii} and questioning whether~\ref{sep:trans:iii} holds.
+\end{note}
+
+\subsubsection{Inertia}
+\label{sec:inertia}
+
+\begin{note}[Overview]
+  The first argument concerns the relation between the support the agent has for their (general) ability to reason with the rules the chess, the information provided by the informer, and the (specific) ability to demonstrate the existence of the (particular) strategy.
+  The move from~\ref{inf:cond:ant} and~\ref{inf:cond} to~\ref{inf:cond:conq}.
+
+  We argued in section~\ref{sec:role-conditional} that the agent does not obtain support for the existence of the (particular) strategy from the informer.
+
+  Here, we consider how support moves given the conditional information.
+\end{note}
+
+\begin{note}[Not modus ponens]
+  The move from~\ref{inf:cond:ant} and~\ref{inf:cond} to~\ref{inf:cond:conq} is on the basis of conditional information.
+  Etc.\
+  This has been detailed above.
+
+  Rather, the agent is extending their general ability to a specific case.
+\end{note}
+
+\begin{note}[No support for the consequent]
+  The key here, then, is a lack of independent support for the consequent.
+
+  Further, 
+\end{note}
+
+\begin{note}[What the informers claim does]
+  The claim made by the informer does two things:
+  \begin{enumerate}
+  \item Provides information about how the agent's ability extends.
+  \item Requires the agent to:
+    \begin{enumerate}
+    \item Hold that they have the specific ability if they have the general ability.
+    \item Give up the general ability.
+    \item Not incorporate the claim.
+    \end{enumerate}
+  \end{enumerate}
+
+  The agent may no incorporate the claim.
+  Of course, but grant that the informer seems fine.
+
+  Else, the conditional is something of a consistency constraint.
+
+  If the agent doesn't think that they have the (specific) ability to demonstrate the existence of the (particular) strategy, then the agent should hold that they do not have the (general) ability to reason with the rules of chess, as the informer has claimed that the ability puts them in a position to provide the informer.
+
+  Likewise, if the agent thinks they have the (general) ability to reason with the rules of chess, then the (specific) ability to demonstrate the existence of the (particular) strategy is merely an instance of the (general) ability that they have.
+\end{note}
+
+\begin{note}[Still, compatible with both]
+  So, argue that this is a consistency constraint.
+
+  Still, also notice that the conditional is compatible both with the agent having the (general) ability and with the agent not having the (general) ability.
+
+  If the agent has the (general) ability, then the conditional is true because the general ability extends to the specific case.
+
+  If the agent does not have the (general) ability, then the conditional is true because the antecedent condition is not met.
+  As the ability referenced isn't the ability to reason with the rules of chess, then it trivially follows.
+
+  From one perspective this is something of a technicality, information with a conditional structure only matters when the antecedent is true.
+  Still, it does not follow that the informer is mischievous if they do not think that the agent has the general ability.
+
+  It may be that the informer is indirectly showing the agent that they do not have the general ability.
+
+  For example, given the lack of specifics, this then allows the agent to work out where their misunderstanding of chess lies by themselves.
+\end{note}
+
+\begin{note}[Combining the two observations]
+  Here, we have a combination of constraint and compatibility
+
+  So, if the agent holds that they have the specific ability, then it's as the result of constraint which is compatible with the agent not having the general ability.
+
+  So, the agent is obtaining support for the specific ability on the basis of support they have for general ability.
+  The agent has no direct support either way for the specific ability, prior to witnessing the ability.
+\end{note}
+
+\begin{note}[Rejection]
+  Given the compatibility observation, may wish to withdraw.
+
+  However, the claim made by the informer doesn't suggest that there's anything problematic.
+\end{note}
+
+\begin{note}[Inertia]
+  Term this `inertia'.
+
+  Obtain support by inertia if it's the result of a constraint on attitudes which is compatible with the agent being mistaken about the relevant antecedent.
+  Intuitively, the support the agent has built for the antecedent tilts the consistency constraint to the consequent.
+  If the agent didn't have the support already, the constraint wouldn't much.
+\end{note}
+
+\begin{note}[Inertia and transmission]
+  Question, now, is whether support obtain by inertia is suitable for transmission.
+
+  Intuitively, the `momentum' will carry through to entailments.
+
+  However, this means that the agent is allowed to appeal to propositions for which they have no `direct' support.
+  The extension of the support the agent has for the general ability to the specific ability is insensitive to whether or not the agent has the specific ability.
+  
+\end{note}
+
+\begin{note}[Fire alarm case]
+  Consider the fire alarm case.
+
+  If conditional is given before fire alarm, then not inertia, as the structure of support is now that the alarm sounding entails that there's a fire.
+
+  If conditional is given after fire alarm, then not inertia, because then wouldn't be hearing the fire alarm.
+
+  The source of the problem, so to speak, is that the agent doesn't have any way of holding that they would not have been given the information if they did not have the general ability.
+\end{note}
+
+\begin{note}[Zebra case]
+  Here, helpful to look at some other cases.
+
+  With the zebra, 
+\end{note}
+
+\begin{note}[Something with how the agent gets to ability]
+  It's straightforward to observe that the information provided by the informer is compatible with the agent having the general ability, and with the agent not having the general ability.
+
+  In turn, it seems as though the agent is okay with using the conditional, because the agent has quite good support for the antecedent of the conditional, and no support (independent of the conditional) either way for the consequent.
+
+  However, this itself seems to be a problem.
+  Here, there's a parallel to \citeauthor{Wright:2016wl} in that on \citeauthor{Wright:2016wl}'s understanding the agent assumes certain things in order to employ the relevant method, and this blocks transmission.
+  Here, in turn, it seems that because the agent relies solely on the conditional which is compatible both ways, the agent likewise takes it for granted, in some sense, that the conditional is to be used.
+
+  The basic idea, then, is that support then fails to transmit when the relevant proposition is the result of something that could go either way.
+
+  \begin{itemize}
+  \item If support for some proposition \(\phi\) is obtained by inertia, then it is not possible to transmit the support to any consequence \(\psi\) of \(\phi\), on the basis of support for \(\phi\) alone.
+  \end{itemize}
+  Where:
+  \begin{itemize}
+  \item Support for \(\phi\) is obtained by inertia if
+    \begin{enumerate}
+    \item \(\phi\) not being the case is compatible with the support appealed to, and
+    \item \(\phi\) is obtained solely on basis that the agent would be required to hold that the support appealed to would be misleading if \(\phi\) were not the case.
+    \end{enumerate}
+  \end{itemize}
+  In this sense, because the agent is relying on the inertia provided by previous support, the agent is not in a position to incorporate \(\phi\) as the basis of support for further consequences.
+
+  Intuitively, the support the agent has is insufficiently sensitive to \(\phi\), but given the information the agent has, the agent does not have the option of withholding an attitude toward \(\phi\) without also holding that the support they have is misleading.
+
+  The label of `inertia' is fairly intuitive.
+  It's also independent from \citeauthor{Wright:2016wl}.
+  And, it really focuses in on the idea that the agent is being required to extend the support they already have.
+  Properly speaking, it does seem as though the agent isn't being provided with any `new' support.
+  Rather, it's information about what the agent's support already does, and given that it doesn't say whether the agent's support is leading, there's some tension.
+\end{note}
+
+
+
+
+\newpage
 
 \begin{note}[Only the ability]
   So, from the above, the agent only gets the ability.
@@ -1391,18 +1857,6 @@ Rather, I take the former to be straightforward, and the latter to require some 
   However, without the relevant precondition the agent would not have the relevant attribute.
 \end{note}
 
-\subsection{Tentative}
-\label{sec:tentative}
-
-\begin{note}[X]
-  Agent is assuming that the relevant conditions obtain in order to hold that they have the attribute.
-  In turn, the agent is not in a position to appeal to having the attribute in order to support the background conditions holding.
-\end{note}
-
-\begin{note}[Y]
-  If I am going to argue for some kind of transmission failure, then it should only be with respect to the fact.
-  I do not want to argue that the agent fails to have support for the ability.
-\end{note}
 
 \begin{note}[Sgaravatti]
   Justified belief in premises only if justified belief in conclusion.
@@ -1496,8 +1950,6 @@ Rather, I take the former to be straightforward, and the latter to require some 
   And this is where there is some trouble.
   Because, it seems plausible that the agent obtains support for \(A(\psi)\) without worry about whether \(\psi\) is the case.
   It may well be that the support the agent has amassed for \(A(\psi)\) is simply misleading with respect to \(A(\psi)\).
-
-  However, 
 \end{note}
 
 \begin{note}[Counterfactual]
@@ -1543,219 +1995,55 @@ Rather, I take the former to be straightforward, and the latter to require some 
   Either the general ability, or the informer's information.
   Given the agent doesn't have a position of \(\psi\) nor \(A(\psi)\), it seems okay, at least, for the agent to take \(A(\psi)\).
   Built up a decent body of support, so even though the informer's claim could be made either way, \(A(\psi)\) goes through.
-  
-\end{note}
-
-\begin{note}[Something with how the agent gets to ability]
-  It's straightforward to observe that the information provided by the informer is compatible with the agent having the general ability, and with the agent not having the general ability.
-
-  In turn, it seems as though the agent is okay with using the conditional, because the agent has quite good support for the antecedent of the conditional, and no support (independent of the conditional) either way for the consequent.
-
-  However, this itself seems to be a problem.
-  Here, there's a parallel to \citeauthor{Wright:2016wl} in that on \citeauthor{Wright:2016wl}'s understanding the agent assumes certain things in order to employ the relevant method, and this blocks transmission.
-  Here, in turn, it seems that because the agent relies solely on the conditional which is compatible both ways, the agent likewise takes it for granted, in some sense, that the conditional is to be used.
-
-  The basic idea, then, is that support then fails to transmit when the relevant proposition is the result of something that could go either way.
-
-  \begin{itemize}
-  \item If support for some proposition \(\phi\) is obtained by inertia, then it is not possible to transmit the support to any consequence \(\psi\) of \(\phi\), on the basis of support for \(\phi\) alone.
-  \end{itemize}
-  Where:
-  \begin{itemize}
-  \item Support for \(\phi\) is obtained by inertia if
-    \begin{enumerate}
-    \item \(\phi\) not being the case is compatible with the support appealed to, and
-    \item \(\phi\) is obtained solely on basis that the agent would be required to hold that the support appealed to would be misleading if \(\phi\) were not the case.
-    \end{enumerate}
-  \end{itemize}
-  In this sense, because the agent is relying on the inertia provided by previous support, the agent is not in a position to incorporate \(\phi\) as the basis of support for further consequences.
-
-  Intuitively, the support the agent has is insufficiently sensitive to \(\phi\), but given the information the agent has, the agent does not have the option of withholding an attitude toward \(\phi\) without also holding that the support they have is misleading.
-\end{note}
-
-\subsubsection{Transmission overview}
-\label{sec:transm-overv}
-
-\begin{note}[Transmission]
-  An understanding of transmission is important to outline.
-  The key is that the agent `obtains' support.
-  There are many arguments where transmission is not require, and the relevant observation is that the support the agent has for some proposition is also support for some other proposition.
-  So, this is repurposing, rather than transmission.
-  Very simple example is \(p\) to \(p \lor q\).
-
-  This is somewhat intuitive.
-  Easiest to consider when we're dealing with \dots
-  This isn't so clear.
-
-  Thinking about:
-  \begin{itemize}
-  \item The wall is red.
-  \item So, the wall is coloured.
-  \end{itemize}
-  The conclusion is understood to state that the wall is not white.
-  Then, this looks like transmission.
-  However, this also comes from re-describing/weakening the proposition.
-  So, in line with the disjunction instance.
-  Well, not quite, as this doesn't seem to violate the template.
-  There's no relevant cognitive project which would separate the two.
-\end{note}
-
-\begin{itemize}
-\item Previous section focused on the information provided by the informer.
-\item \emph{If} agent has ability to \(\phi\) \emph{then} the agent has the ability to \(\psi\).
-\item Requires confidence that \(\psi\).
-\item This section, two reasoning patterns sketched.
-\end{itemize}
-
-\begin{note}[Goals]
-  Have two ways of approaching the conditional.
-
-  First, attributive.
-  Intuition is that the agent attributes themselves the general ability, and reasons from the attribute of having the ability.
-  On first pass, attribution of ability combines with the conditional information.
-  Hence, reason by modus ponens.
-
-  Goal is to highlight problem with attributive.
-  Reasoning from possession of general ability to possession of specific ability.
-  So, the agent does not appeal to the reasoning that they are able to do.
 \end{note}
 
 
 
-\subsection{Failure of transmission}
+\begin{note}[Not \emph{required}]
+  Question over whether there's an alternative.
+  Is there some other way for an informer to extend ability other than via inertia?
+  (Without also providing support for the ability?)
+
+  Unclear, though it doesn't really matter.
+\end{note}
+
+
+\subsubsection{Failure of transmission}
 \label{sec:failure-transmission}
 
-\begin{note}[Final premise explanation]
-We now turn to the final premise of the negative argument:
+\begin{note}[Previous section]
+  The previous section argued for a failure of transmission to the existence of the strategy.
 
-\begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-\item\label{xx:1} support for the general ability
-\item\label{xx:2} (novel) information that the agent has the specific ability if the agent has the general ability
-\item\label{xx:3} having the specific ability to demonstrate the existence of some strategy
-\item\label{xx:4} existence of a strategy
-\end{enumerate}
+  May with to deny that `inertia' is a problem.
+  So, having the attribute of being able to demonstrate the existence of the (particular) strategy is on par with other things the agent has support for.
+  In short, it's able to be used a premise in further reasoning.
 
-\begin{itemize}
-\item If the agent has irresolute support for \ref{xx:3} from \ref{xx:1} and \ref{xx:2}, then the agent does not obtain support for the \ref{xx:4} by virtue of the support the agent has for \ref{xx:3} and the observation that \ref{xx:3} entails \ref{xx:4}.
-\end{itemize}
+  This section argues that there remains some tension.
+
+  As noted, `inertia' did not depend on ability.
+  If `inertia' is a problem, then it extends to other instances of reasoning.
+  By contrast, our attention here will be on ability.
+  And, in particular, that if the agent obtains support for the existence of a strategy, it is because the existence of the strategy is a background constraint on the relevant witnessing event.
+  The tension, in brief, lies in further background conditions.
+
+  An upshot of this second pass at \AR{} is a suggestion that \WR{} provides an account of the relevant intuitions.
 \end{note}
 
-\begin{note}[Final premise as transmission failure]
-  This follows transmission failure.
-  However, doxastic.
-\end{note}
+\begin{note}[Introduction, attribution and dilemma]
+  For, if observing that the (particular) strategy must exist in order for the agent to have the attribute of being able to demonstrate the existence of the strategy, then it seems the agent may obtain support for further conditions required in order to have the attribute of being able to the demonstrate the existence of the strategy.
+  For example, that any apparent reasoning to a conflicting strategy involves a mistake.
 
-\begin{note}[Transmission failure, two parts]
-  The argument is split into two parts.
-  \begin{enumerate}
-  \item\label{tf:arg:p:1} An argument that a fault occurs at some point in the reasoning.
-  \item\label{tf:arg:p:2} Template for the specific fault.
+  If successful, this suggests a dilemma.
+  For, we will have established the following two conditionals:
+  \begin{enumerate}[label=(D\arabic*), ref=(D\arabic*)]
+  \item\label{RDil:W} If the reasoning pattern is understood as an instance of \WR{}, then the agent obtains support for the existence of the particular strategy by virtue of reasoning that is (merely) potential.
+  \item\label{RDil:A} If the reasoning pattern is understood as an instance of \AR{}, the agent obtains support for the existence of the particular strategy by virtue of reasoning performed, but the same reasoning may be extended to obtain support for propositions that (intuitively) the agent does not have support for.
   \end{enumerate}
+  Therefore, if either \WR{} or \AR{} is the correct interpretation of the argument sketch, then it is the case that either the agent does not obtain support for the existence of the (particular) strategy on the basis of reasoning the agent has performed, \emph{or} the agent is able to obtain support for propositions that intuitively the agent is not able to obtain support for.
 
-  Part~\ref{tf:arg:p:2} deals with~\ref{tf:arg:p:1}.
-  With a template for the specific fault, we may apply this to the argument to identify the relevant failure of transmission.
-  Still, the template is motivated in part by identifying recognised failures of transmission.
-  Hence, \ref{tf:arg:p:1} first.
-  Argue that there is a failure, and identify where.
-  This motivates the general template, and provides an argument that there is failure even if doubts are raised about the template.
+  We have sketched why \AR{} does not face the problem highlighted with \WR{}, but in order for this dilemma to be genuine we also need to observe that \WR{} does not face the problem highlighted with \AR{}.
+  Part of the argument for~\ref{RDil:A} will establish that this is so.
 \end{note}
-
-\subsection{Failure of transmission occurs}
-\label{sec:fail-transm-occurs}
-
-
-\newpage
-
-
-\begin{note}[Irresolute support]
-  In the following I make use of the notes of resolute and irresolute support.
-  The distinction is temporary, and basic.
-  \begin{itemize}
-  \item Resolute support allows an agent to discard possibilities incompatible with the proposition the agent has support for.
-  \item Irresolute support by contrast allows an agent (only) to consider possibilities incompatible with the proposition the agent has support for unlikely.
-  \end{itemize}
-  For example, it is plausible that in normal circumstances an agent has resolute support for the digits of their phone number --- the agent may rule out the possibilities that an apparent misprint on a business card turns out to be correct.
-  Contrasting, it is plausible that in normal circumstances an agent has irresolute support for the location of their car keys if they haven't driven if a few days --- it may be likely that the keys are in the bowl by the front door, but it may also be the case that the keys were left in a jacket.
-
-  The support of interest throughout this section is irresolute support.
-  The agent may be mistaken about their general ability to reason with the rules of chess, that the informer is providing truthful information, that the agent possess the ability to demonstrate the existence of the (particular) strategy, and that the (particular) strategy exists.
-
-  Of course, if the agent demonstrated that the strategy existed then the agent would plausibly obtain resolute support for the existence of a strategy, but given the agent is reasoning from possession of the ability, the present interest is in whether the failure of a strategy to exists is unlikely.
-\end{note}
-
-\begin{note}[Expanding a little]
-  Indeed, it seems there is a clear problem if the agent attempt to rule out the possibility of a strategy not existing by the reasoning sketched.
-  For, given that the agent may be mistaken about possessing the general ability, then it seems the agent cannot rule out the possibility that a strategy does not exist, as the agent is assumed not to have independent support (either resolute or irresolute) for the ability to demonstrate the existence of the (particular) strategy, nor for the existence of the (particular) strategy.
-
-  Still, if the agent is mistaken, this is not to say that it is a mistake for the agent to hold an attitude such as belief toward the relevant proposition given the (irresolute) support the agent has for the proposition.
-  Rather, the agent would be mistaken about what is the case, and misled by the support possessed.
-\end{note}
-
-
-\section{Attribution}
-\label{sec:attribution}
-
-\begin{note}[Introduction, summarising previous section and interest]
-  This section of the paper considers whether an agent is able to obtain support for the existence of a chess strategy on the basis of support for possessing the general ability to reason with the rules of chess and informer from an informer that if the agent is able to reason with the rules of chess, then the agent is able to demonstrate the existence of a particular strategy.
-
-  Our interest is with the following pattern of reasoning.
-  \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
-  \item\label{inf:cond}\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
-  \end{enumerate}
-  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information, \ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
-  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy.
-  \end{enumerate}
-  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following conditional:
-  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
-  \end{enumerate}
-  Therefore:
-  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
-  \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.
-  \end{enumerate}
-
-  In the previous section we argued that an informer providing the agent with~\ref{inf:cond} does not provide the agent with support for~\ref{inf:cond:conq}.
-  Rather, an informer providing the agent with~\ref{inf:cond} allows the agent to extend their support for~\ref{inf:cond:ant} to~\ref{inf:cond:conq}.
-
-  In turn,~\ref{inf:gae} to obtain~\ref{inf:sse}.
-
-  In short, the agent's support for~\ref{inf:sse} rests on expanding their general ability to a specific ability.
-
-  The type of argument here is familiar.
-  The agent's goal is to \emph{transmit} support for~\ref{inf:cond:conq} to~\ref{inf:sse} \emph{via} the entailment noted in~\ref{inf:gae} --- from the ability to demonstrate the existence of a (particular) strategy across a (known) entailment to obtain support for the existence of a (particular) strategy.
-
-  For, the information provided by the informer is conditional, and so in turn the support the agent has for the ability to demonstrate the existence of a (particular) strategy is primarily premised on the support the agent has for being able to reason with the rules of chess.
-  So, the agent does not have support for~\ref{inf:cond:conq} nor~\ref{inf:sse} that is independent of their general ability to reason with the rules of chess.
-
-  Hence, with the result of the previous section in hand, we may now turn to \emph{how} the agent obtains support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
-
-   Our interest in the reasoning is from~\ref{inf:cond:conq} and~\ref{inf:gae} to~\ref{inf:sse}, and in particular how ~\ref{inf:gae} is applied.
-\end{note}
-
-\begin{note}[Introduction, two different types of reasoning]
-  In the opening section we canvassed two distinct ways in which the agent may obtain support for~\ref{inf:sse} given support for~\ref{inf:cond:conq}.
-  We termed these \AR{} and \WR{}.
-
-  Roughly, \AR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{attribute} of having the ability to demonstrate the existence of a particular strategy.
-  And, in turn,~\ref{inf:sse} follows from the attributive understanding of~\ref{inf:cond:conq} and~\ref{inf:gae} by understanding~\ref{inf:gae} to highlight conditions that must be in place in order for the agent to possess the attribute.
-  Intuitively, an agent may have the attribute of being able to demonstrate the existence of a strategy only if the strategy exists.
-
-  By contrast, \WR{} observes that support for~\ref{inf:cond:conq} may be understood as support for the \emph{generating a witnessing event} of demonstrating that the (particular) strategy exists.
-  For, to have the ability to demonstrate the existence of a particular strategy is just for there to be some (potential) event in which the agent applies their understanding of the rules of chess to obtain a demonstration of the relevant strategy.
-
-  The `problem' with \WR{} is that the relevant witness is potential.
-  The agent has not (yet, nor necessarily will) reasoned with the rules of chess and the state of the board to demonstrate the existence of the (particular) strategy.
-  Hence, if the agent appeals to a (potential) witness, then the agent appeals to \emph{potential} reasons (or reasoning).
-
-  Intuitively, \AR{} avoids the noted problem with \WR{}.
-  For, the attribute of having the ability to demonstrate the specific strategy is an attribute of the agent as they are.
-  The agent may not, as a matter of fact, have the ability, but granting that the agent has support for possessing the attribute, the agent is not required to appeal to potential events.
-\end{note}
-
-
-
 
 
 \begin{note}[Assumptions for attribution horn of dilemma]
@@ -1779,13 +2067,13 @@ We now turn to the final premise of the negative argument:
     Obtaining support for some proposition \(\phi\) is:
     \begin{enumerate}
     \item\label{Att:Prem:Presupp:1} a process, and
-    \item\label{Att:Prem:Presupp:2} an agent may presuppose that certain conditions obtain, where failure of the relevant presupposed conditions would entail failure of the relevant process.
+    \item\label{Att:Prem:Presupp:2} an agent may presuppose that certain conditions obtain, where failure of the relevant presupposed conditions would entail failure of the process.
     \end{enumerate}
   \end{enumerate}
   The premise is not novel to this paper.
   However, the argument for the premise is tailored to our interests.
 
-  With the premise in hand, we then turn to understanding transmission failure, and completing the argument for~\ref{RDil:A}.
+  With the premise in hand, we now turn to the argument for~\ref{RDil:A}.
 \end{note}
 
 \begin{note}[Limitations of the argument]
@@ -1801,130 +2089,6 @@ We now turn to the final premise of the negative argument:
   To those unsympathetic, here are some of the issues.
 \end{note}
 
-\begin{note}[Transmission, the basics, definition]
-  From a broad perspective, transmission may be characterised with respect to the state of an agent, premises, and conclusion.
-  Failure of transmission is when, relative to the state, the support the agent has for the premises does not transmit to the conclusion.
-
-  Following \textcite{Moretti:2018we,Moretti:2018tl}, with minor adjustments,\nolinebreak
-  \footnote{
-    Replace justification with support, logical consequence with entailment, omit belief in the last.
-    Template works for both propositional and doxastic, differs on reading of support.
-    Given focus is doxastic, suppress.
-  }
-  (first time) transmission of support is be characterised as follows:
-  \begin{quote}
-    \emph{S}'s support for \emph{A} based on \emph{E} transmits from \emph{A} to \emph{B} if and only if:
-    \begin{enumerate}[label=(T\arabic*), ref=(T\arabic*)]
-    \item\label{sep:trans:i} \emph{S} has support for \emph{A} based on \emph{E},
-    \item\label{sep:trans:ii} \emph{S} knows that \emph{B} is entailed by \emph{A}, and
-    \item\label{sep:trans:iii} \emph{S} obtains (\emph{first time}) support for \emph{B} \emph{in virtue of} the satisfaction of \ref{sep:trans:i} and \ref{sep:trans:ii}.
-    \end{enumerate}
-  \end{quote}
-\end{note}
-
-\begin{note}[Transmission characterisation applied to argument]
-  With respect to the case of interest:
-  \begin{transmission}[Chess]
-    \begin{enumerate}
-    \item[\tri{C}{E}]
-      The result of combining:
-      \begin{enumerate}[label=\tri{C}{E}.\arabic*.]
-    \item\label{C:tr:E1} the agent's support for the general ability to reason with the rules of chess, and
-    \item\label{C:tr:E2} the conditional information provided by the informer that if the agent has the general ability to reason with the rules of chess then the agent has the specific ability to demonstrate that some (particular) strategy exists.
-    \end{enumerate}
-    \item[\tri{C}{A}] The attribute of having the (specific) ability to demonstrate that some (particular) strategy exists
-    \item[\tri{C}{B}] The (particular) strategy exists.
-    \end{enumerate}
-    Or, alternatively:
-    \begin{enumerate}
-    \item[\tri{C}{B\('\)}] Any apparent demonstration of a conflicting strategy is the result of a mistake.
-    \end{enumerate}
-  \end{transmission}
-
-  We have argued that if the agent obtains support for the ability to demonstrate that some strategy exists on the basis of their support for the general ability and the conditional information provided by the informer, then the support is irresolute.
-
-  Condition~\ref{sep:trans:i} is satisfied as for present purposes we assume that the agent obtains irresolute support for the ability to demonstrate that some strategy exists.
-
-  Condition~\ref{sep:trans:ii} is likewise satisfied by the recognised entailment from the ability to demonstrate a specific strategy to the existence of the strategy --- if the (particular) strategy did not exist, the agent would not have the ability to provide a demonstration of it.
-
-  Condition~\ref{sep:trans:iii} is our focus.
-  Whether the agent obtains support for the existence of some (particular) strategy in virtue of their (irresolute) support for the ability to demonstrate the existence of the strategy and the relevant entailment.
-  The additional qualification that the agent obtains \emph{first time} support distinguishes our interest from cases in which the agent may obtain additional support.
-  As we have assumed the information provided by the informer is novel, we have no need for a broader characterisation of transmission.\nolinebreak
-  \footnote{
-    See \textcite{Moretti:2018we,Moretti:2018tl,Moretti:2013wd}, for more.
-  }
-  Further, as the agent has no other route to the (specific) ability to demonstrate the (particular) strategy, it seems the satisfaction of condition~\ref{sep:trans:iii} determines whether the agent can obtain support for the specific ability.
-\end{note}
-
-\begin{note}[After observations]
-  Our interest is with condition~\ref{sep:trans:iii}.
-  In particular, whether the agent obtains support for the existence of the (particular) strategy, or any other required condition for possessing the ability to demonstrate the existence of the (particular) strategy \emph{in virtue} of the agent possessing the attribute of being able to demonstrate the existence of the (particular) strategy.
-\end{note}
-
-
-
-\begin{note}[A little more on transmission]
-  \AR{} fits the transmission template.
-  \WR{} does not fit the transmission template, though the relevant instance of reasoning presumably does fit the template.
-
-  So, required transmission of \AR{} and the deferred transmission of \WR{} looks like something of interest.
-\end{note}
-
-\begin{note}[Still]
-  The issue is with whether~\ref{inf:gae} is suitable for transmission.
-  Suggest that if~\ref{inf:gae} is suitable, then plausible that support does transmit.
-
-  Tension between transmission from ability and transmission from the relevant witnessing event.
-  If~\ref{inf:gae} then support transmits to propositions for which transmission would fail given the relevant witnessing event.
-
-  In short, because the agent obtains support for prerequisites of event independent from the relevant witnessing event.
-\end{note}
-
-\begin{note}[Handful of observations]
-  Still, before moving to transmission failure, let us make a handful of observations that will help maintain continuity between the reasoning sketched and the type of argument we will be using as an example.
-
-  First, the factivity of the verb `demonstrate' is the foundation of the entailment from the agent possessing the (specific) ability to demonstrate the existence of a strategy to the existence of a strategy.
-  We may replace demonstrate with other factive verbs and obtain the same entailment.
-
-  For example, see, receive testimony, learn, and so on all have the same entailment and lend to similar constructions.
-  \begin{enumerate}[label=(FV\arabic*), ref=(FV\arabic*)]
-  \item\label{FV:1} An agent has the ability to see that it is raining only if it is raining.
-  \end{enumerate}
-  The conditional is silent on what constitutes the ability to see that it is raining, but the antecedent requires the consequent in order to be true.
-  There is some subtly, however.
-  For, in absence of the entailment the antecedent may be ambiguous.
-  \begin{enumerate}[label=(FV\arabic*), ref=(FV\arabic*)]
-    \setcounter{enumi}{1}
-  \item\label{FV:2} An agent has the ability to receive testimony that it is snowing.
-  \end{enumerate}
-  On one reading,~\ref{FV:2} states that if we suppose that someone were to testify, then the agent has the ability to receive that testimony.
-  For example, the agent is not so prejudiced against the idea of snow to discount the message of anyone attempting to inform the agent.
-  Still, on the reading of interest, the `factive inference' is required.
-  Examples can be found to show that verbs such as argue, suggest, recommend, don't exhibit the same `factive inference'.
-
-  Second, the ability to demonstrate, see, receive testimony that, and so on is a property of the agent.
-  However, the factive inference is due to a verb.
-  Hence, that the agent has the property of having the ability to demonstrate, see, receive testimony that, and so on is in part secured by the resultant state of event in which the agent demonstrates, sees, receive testimony that, and so on, and these verbs impose that the relevant fact must be part of the event.
-  In turn, for any ability to \emph{V} \(\phi\) there is a corresponding possibility of an event in which an agent \emph{V}s \(\phi\), and vice-versa.
-
-  Third, it is possible to chain entailments.
-  The agent has the ability to see that it is raining only if it is raining, but it is raining only if the atmospheric conditions are not sufficient for hail.
-  Therefore, the agent has the ability to see that it is raining only if the atmospheric conditions are not sufficient for hail.
-
-  There are not too many entailments that follow from the ability to demonstrate the existence of a (particular) strategy.\nolinebreak
-  \footnote{
-    E.g.\ unique answer, rules aren't open to interpretation.
-  }
-  However, in other cases, more interesting entailments.
-  Foreshadowing, see a donkey then not a cleverly disguised mule.
-
-  Let us wrap up these observations.
-  Our interest is in whether support extends from the ability to demonstrate the existence of a (particular) strategy to the existence of a the (particular) strategy.
-  The first observation allows us to generalise to other factive verbs such as seeing.
-  The second observation, links the agent possessing the ability to do something to the possibility of an event in which the agent does the things.
-  And, finally, the third observation, broadens the relevant entailments from the ability to \emph{V} \(\phi\) to \(\phi\) to any \(\psi\) entailed by \(\phi\).
-\end{note}
 
 \begin{note}[Goal]
   So, idea about getting prerequisites for event.
