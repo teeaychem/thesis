@@ -1,0 +1,700 @@
+\documentclass[10pt]{article}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage{luatexja}
+
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{xfrac}
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,
+  % allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[itemize]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+% \usepackage{pifont}
+% \newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+
+\usepackage{multirow}
+% \usepackage{adjustbox}
+
+\usepackage{titlesec}
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,positioning,calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{fadings}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usepgflibrary{arrows} %for arrow endings
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+\usepackage{tabularx}
+
+\usepackage{bussalt}
+
+\usepackage{Oblique} % Custom package for oblique commands
+\usepackage{CustomTheorems}
+\usepackage{FuturePromisedEvents}
+
+% \usepackage{svg}
+% \usepackage[off]{svg-extract}
+% \svgsetup{clean=true}
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+
+
+\usepackage{contour}
+% \usepackage{pdfrender}
+
+\usepackage{extarrows}
+
+% % % My commands % % %
+
+% % %
+% https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
+\makeatletter
+\newcommand{\superimpose}[2]{%
+  {\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}
+}
+\makeatother
+
+\newcommand{\veewedge}{\mathpalette\superimpose{{\vee}{\wedge}}}
+\newcommand{\lessgreater}{\mathpalette\superimpose{{<}{>}}}
+\newcommand{\strikeQ}{\mathpalette\superimpose{{\text{---}}{Q}}}
+\newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
+% % %
+
+\newcommand{\nf}[1]{#1\ensuremath{^{{*}}}}
+
+\newcommand{\WR}[0]{\textsf{Witnessing}}
+\newcommand{\AR}[0]{\textsf{Attribution}}
+
+\usepackage{xparse} % For creating commands with complex arguments
+\ExplSyntaxOn
+\DeclareDocumentCommand{\mp}{ m }{% Symbol for the language, with default
+  \tl_if_empty:nTF {#1}
+  {
+    \text{(uRa)}%
+  }
+  {
+    \text{Use\space requires\space access}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\nI}{ m }{% Symbol for the language, with default
+  \tl_if_empty:nTF {#1}
+  {
+    \text{(nI)}%
+  }
+  {
+    \text{No-inertia}%
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)}
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+% % % % % % % % % % % %
+
+\usepackage{xskak} % For chess diagram
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{
+  Ability to reason and reasoning with ability \\
+  \large Outline
+}
+\author{Ben Sparkes}
+% \date{ }
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\maketitle
+
+\section{Interest}
+\label{sec:interest}
+
+Interest is in `support'.
+Intuitively, `support' for a proposition means that the agent has the option of using the proposition as a premise in further reasoning about what is the case.
+How an agent supports a conclusion.
+
+\begin{enumerate}
+\item\label{xx} If agent accesses support they have for premises and traces implication through (sound) reasoning, then agent obtains support for conclusion on basis of support for premises.
+\end{enumerate}
+
+\begin{enumerate}[label=\mp{}, ref=\mp{}]
+\item\label{denied-claim} Agent obtains support for conclusion on basis of support for premises only if the agent accesses support they have for premises and traces implication through (sound) reasoning.
+\end{enumerate}
+
+These are the two main cases.
+
+Note, that in both cases the relation between premises and conclusion is important.
+If agent does not reason, then neither~\ref{xx} nor~\label{denied-claim} apply.
+If there are multiple ways to obtain a conclusion, then~\label{denied-claim} does not require the agent to reason from a particular set of premises.
+Rather,~\label{denied-claim} requires that the agent only establishes support between premises and conclusion by reasoning from them.
+
+Agent may not obtain conclusion without doing the relevant reasoning.
+
+This is `doxastic' as opposed to `propositional'.
+Agent need not reason in order to have propositional support.
+For example, \(A < B\) and \(B < C\), then propositional support for \(A < C\) even if I don't bother to reason.
+No further assumptions about the relation between propositional and doxastic support.
+
+\ref{denied-claim} is a universal claim.
+Applies to all instances of reasoning.
+
+Argument against~\ref{denied-claim} is that in certain cases it conflicts with \nI{-}.
+
+\begin{enumerate}[label=(nI), ref=(nI)]
+\item\label{prem:ni} An agent is not able to obtain support for some proposition \(\psi\) on the basis of information that some the support the agent has is misleading if \(\psi\) is not the case.
+\end{enumerate}
+
+Case in which the support the agent has does not trace from access, or the agent obtains support on the basis that the support the agent does have is misleading.
+
+So, look to establish the following conditional.
+
+\begin{enumerate}
+\item\label{goal:cond} If~\ref{denied-claim} then~not-\ref{prem:ni}.
+\end{enumerate}
+
+The contraposition, then:
+
+\begin{enumerate}
+\item\label{goal:cond:var} If~\ref{prem:ni} then~not-\ref{denied-claim}.
+\end{enumerate}
+
+This provides a third option:
+\begin{itemize}
+\item Deny problematic case.
+\end{itemize}
+
+Problematic cases, are, roughly put, useful for understanding how things are.
+
+Still, because particular case, then the rejection of~\ref{denied-claim} is limited.
+I think the core of~\ref{denied-claim} often holds.
+The concern is that~\ref{denied-claim} applies to all instances of reasoning.
+
+Interest is in the role of~\ref{denied-claim} in arguments and understanding phenomena.
+If there are exceptions to~\ref{denied-claim}, then if~\ref{denied-claim} is a premise, there may be variants on the relevant conclusion, and if~\ref{denied-claim} is a conclusion, then potential issues with premises, or links between them.
+
+Before continuing, narrow down.
+
+\subsection{A little more detail}
+\label{sec:little-more-detail}
+
+The argument is by counter-example.
+Rejection of~\ref{denied-claim} is somewhat narrow.
+
+
+
+\begin{enumerate}[]
+\item\label{access} If premises imply conclusion, then if agent accesses support they have for premises and traces implication through reasoning, then agent obtains support for conclusion on basis of support for premises
+\end{enumerate}
+
+Basic.
+Understanding of implication is put in the background.
+May understand this as something quite trivial.
+
+\begin{enumerate}[]
+\item\label{access} If agent is able to obtain support for conclusion on basis of support for premises by accesses support they have for premises and reasoning to conclusion, then if agent accesses support they have for premises and traces implication through reasoning, then agent obtains support for conclusion on basis of support for premises.
+\end{enumerate}
+
+If agent may do something to achieve a result, then they would achieve the result by doing the thing.
+Embedded conditional captures a witnessing event of the ability.
+
+Agent is required to witness the ability, if the agent is appealing to witnessing.
+
+Compatible with the agent reasoning from their ability.
+
+This is where the tension comes.
+Scenarios in which it is permissible for agent to appeal to reasoning they are able to do in order to support a conclusion.
+
+This narrows significantly.
+
+Still, the type of counterexample is further constrained.
+Here, the argument splits.
+
+First, the counterexample with \nI{}.
+Second, the upshots of denying~\ref{denied-claim}.
+
+Counterexample requires alternative in some cases of ability, and given alternative is required, it expands to other cases of ability.
+
+Remains a somewhat narrow exception to~\ref{denied-claim}.
+Idealised agents have no need to appeal to ability.
+However, for limited agents, ability is abundant, while the resources required to witness abilities are scarce.
+That the exception to~\ref{denied-claim} is narrow does not entail that there are few occurrences of the exception.
+
+Our focus for now is on the tension between~\ref{denied-claim} and~\ref{prem:ni} with respect to ability.
+Initially, put~\ref{prem:ni} in the background and focus on~\ref{denied-claim} and ability.
+\ref{prem:ni} will return when look at reasoning with ability as a premise.
+
+
+\section{Ability}
+\label{sec:ability}
+
+First explain how ability relates, and how it suggests an alternative.
+
+\subsection{Why ability is interesting}
+\label{sec:why-abil-inter}
+
+\begin{enumerate}
+\item Reasoning is an action, a particular event.
+\item Ability grants a potential witnessing event.
+\end{enumerate}
+
+Reasoning is some event, and ability allows us to attribute the agent the potential to witness the relevant event.
+
+Certain kinds of ability.
+
+The interest here is that we have a clear understanding of how reasoning works, related to the general premise.
+With ability to reason, there are two things:
+\begin{enumerate}
+\item The reasoning which the agent may witness.
+\item Having the ability to generate the witnessing event.
+\end{enumerate}
+
+By the general premise, it seems that if the agent were to witness the reasoning, then those things appealed to in reasoning would support the premise.
+However, as the agent has not yet reasoned, having the ability should do the work.
+
+So, this is the suggested alternative.
+In some cases, witnessing.
+
+If witnessing, then the conflict with the general principle is that as the agent has not done the reasoning, the agent doesn't have access to those reasons.
+However, the reasons are there for the agent.
+
+Two things about why ability is interesting.
+
+Understand that if the agent has the ability, then they may witness reasoning.
+However, ability secures only the potential.
+Not in the sense that the there is a potential for a coin flip to land heads, but in that a coin with heads on both sides has the potential to land heads up when flipped --- the coin merely needs to be flipped.
+
+Things follow from witnessing abilities.
+Factive verbs work best here.
+Key is that the relevant proposition is true whether or not the agent witnesses the ability.
+Some propositions are only true after witnessing.
+
+Simple example is \(\phi\), and `that I have \emph{V}'d that \(\psi\)'.
+\(\phi\) must be true in order for the agent to \emph{V} that \(\phi\).
+Still, `that I have \emph{V}'d that \(\psi\)' is only true when the agent has \emph{V}'d that \(\phi\).
+
+Two different ways of understanding ability provide different perspectives.
+
+If the agent reasons, then the agent obtains support for \(\phi\) which do not necessarily depend on a premise that the agent has the ability.
+Easy to see with logic examples.
+The agent witnesses the ability, but in so exercising does not need to appeal to the observation that they are witnessing.
+Many cases where recognition of ability is only after witnessing it.
+
+If the agent appeals to the attribute, then ability is a key premise.
+The agent obtains \(\phi\) because if \(\phi\) were not the case, the agent wouldn't have the ability to \emph{V} that \(\phi\).
+
+So, in principle there's two ways in which ability may be put to work.
+
+One further complication.
+Agent may not need to put ability to work.
+
+Possible for agent to be provided with support for \(\phi\) and support for the ability to \emph{V} that \(\phi\).
+For example, testimony, say.
+Distinct from \(A(\phi)\) therefore \(\phi\) must be the case.
+
+If so, ability is not of interest in obtaining a conclusion.
+
+\begin{enumerate}
+\item\label{cases-of-i-ex} There are cases in which \(A(\phi)\) is required for \(\phi\).
+\end{enumerate}
+
+\ref{cases-of-i-ex} holds that there are cases in which the agent has information that \(A(\phi)\), understands that \(A(\phi) \rightarrow \phi\), and has no other way of obtaining \(\phi\) other than by \(A(\phi)\).
+
+\section{\mp{}}
+\label{sec:mp}
+
+\subsection{Strength of \mp{}}
+\label{sec:appeal-main-premise}
+
+Denying the \mp{} is difficult.
+The general principle provides a recipe for dealing with every other case.
+However, given that the agent does some reasoning, seems there's always the option to identify the reasoning done with the reasons the agent appeals to.
+So, given that there's always something for the \mp{} to use, it seems that in the absence of any serious difficulty with the \mp{}, alternatives lose out.
+
+Further, simple failure of \mp{} isn't particularly informative.
+Seems good in many cases.
+And, rules out many bad cases.
+If the \mp{} fails in general, then an account of why.
+
+The strategy is split into two parts:
+\begin{enumerate}
+\item Identify a kind of case where the assumption is problematic, motivating an exception to the general principle.
+\item Argue that if the exception is granted, then there are further cases of similar kind in which the alternative is compelling, even if the general principle holds.
+\end{enumerate}
+
+The strategy is straightforward.
+Identifying a kind of counterexample means that one is not in a position to apply the general principle universally.
+Given counterexample, then we have an alternative account for at least one kind of case.
+Consider other cases in which the alternative may apply.
+It is not the case that we don't have an argument for accessibility based on the application of a general principle.
+Suggest that the alternative fares well in the absence of a general principle.
+
+Then, so long as the structure in place for the alternative is fairly common, there is potential to re-evaluate arguments that involve the general principle.
+
+\section{Sketch of cases}
+\label{sec:sketch-cases}
+
+\begin{itemize}
+\item Agent has some body of support \(S\).
+\item \(S\) is such the agent has not reasoned from \(S\) to \(\phi\).
+\end{itemize}
+
+Things are somewhat difficult here.
+If \(A(\phi)\), then the agent has the ability, and so doesn't need any further support.
+The agent only needs to perform some reasoning.
+However, that reasoning may be understood as establishing new doxastic support.
+
+So,
+
+\begin{itemize}
+\item \(S\) does not provide doxastic support for \(\phi\).
+\item Or, \(S\) has not obtained doxastic support for \(\phi\).
+\end{itemize}
+
+So, the agent doesn't obtain information that they have the ability from some event witnessing the ability.
+Else, the agent would have doxastic support for \(\phi\).
+Some independent source of information that the agent has the ability.
+
+\begin{enumerate}
+\item\label{abGen:i} Information \(i\), such that \(A(\phi)\).
+\end{enumerate}
+
+Important is that the source of information does not also include information that \(\phi\) is the case.
+Else, agent doesn't need to use \(A(\phi)\) as a premise.
+
+For example, agent has proved in some formal system that \(\alpha \land \beta\) is a theorem.
+Hence, the agent has the ability to prove that \(\alpha \land \beta\) is a theorem of the system.
+From this, ability to prove that \(\alpha\) (or \(\beta\)) is a theorem.
+However, the agent already has support that \(\alpha\) (or \(\beta\)) is a theorem.
+Therefore, the agent does not need to appeal to their ability in order to obtain support.
+
+Similarly, testimony presents a problem.
+`You are able to prove \(\alpha\)' seems equivalent to `\(\alpha\) and you are able to prove \(\alpha\)'.
+For, the testifier would not be in a position to testify that the agent is able to prove \(\alpha\) if \(\alpha\) is not the case.
+Unlike the above case, ability is involved, but ability does not do the work.
+Instead, it is about what must be the case in order for testimony to provided.
+
+Suggests a general premise.
+
+\begin{enumerate}
+\item\label{abGen:i:g} If information provides (direct) support for \(A(\phi)\), then \(i\) provides support for \(\phi\).
+\end{enumerate}
+
+Comes from generalising the latter observation.
+For, if the agent receives information, then some long as it provides direct support for \(A(\phi)\), then reason that \(\phi\) must be the case in order to receive the information.
+
+Possibility of:
+
+\begin{enumerate}
+\item\label{abGen:i:g:denial} Information \(i\), does not provide (direct) support for \(A(\phi)\).
+\end{enumerate}
+
+\ref{abGen:i:g} does not require that the agent does reason to \(\phi\) based on receiving information.
+For, if \(\phi\) is not explicitly mentioned, some steps are required for doxastic support.
+In turn,~\ref{abGen:i:g:denial} is not required for the agent to appeal to ability.
+
+However, if~\ref{abGen:i:g:denial} is not the case, then agent always has an option other than ability.
+That is, receiving the information.
+\(A(\phi)\) is never required to obtain \(\phi\).
+
+\begin{enumerate}
+\item\label{abGen:i:indirect} Information \(i\), provides (indirect) support for \(A(\phi)\).
+\end{enumerate}
+
+Examples suggest that this is the case.
+
+[Examples]
+
+These examples suggest:
+
+\begin{enumerate}
+\item\label{abGen:i:conditional} Information \(i\), does provides (conditional) support for \(A(\phi)\).
+\end{enumerate}
+
+So long as the agent has support for \(X\), the agent has support for \(A(\phi)\).
+
+
+So, if~\ref{denied-claim}, then it's the attribute that must do the work.
+However, \(i\) does not provide direct support for \(A(\phi)\).
+We find conflict with~\ref{prem:ni}.
+The kind of conditional support provided here just is that the agent's support for the general ability would be misleading if it does not also extend to the specific case.
+Therefore, it is not possible for the attribute to do the work, because the agent does not obtain support for the attribute.
+
+
+
+
+\newpage
+
+It looks as though I end up with:
+
+The agent appeals to a potential witnessing event of an ability that the agent has in order to obtain support for some proposition without having appropriate support for the ability to generate the witnessing event.
+
+Well, the ability is not the thing providing the support.
+So, lacking support for the ability is not the issue.
+
+The question is about why the agent is in a position to appeal to those reasons.
+
+Well, there's an additional constraint, possibly.
+Roughly, it is impermissible for an agent to hold a contrary attitude to a proposition that they're committed to.
+
+Well, then the agent does not have support for possessing the ability.
+Still, 
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Building counterexample}
+\label{sec:build-count}
+
+We look for:
+\begin{enumerate}
+\item Case in which ability does the work.
+\item Argument that having is a problem in such a case.
+\end{enumerate}
+
+Without the first, then don't need to make the choice.
+May be some other reasons.
+
+If having is a problem, this will then conflict with the general principle.
+
+Transmission.
+
+\begin{itemize}
+\item Some support for ability.
+\item Ability entails fact.
+\item Fact.
+\end{itemize}
+
+Fact in virtue of the first two.
+
+\begin{enumerate}
+\item In order for ability to do work, agent obtains ability without obtaining fact.
+\end{enumerate}
+
+\begin{itemize}
+\item If agent obtains ability without obtaining fact, then this is due to extending support the agent already has for something other than ability.
+\item For, if agent is not extending support for something other than ability, then the agent obtains support directly for ability.
+  Yet, it then follows that fact comes in with this as a relevant precondition.
+\end{itemize}
+
+\begin{itemize}
+\item So, extending support.
+\end{itemize}
+
+\begin{itemize}
+\item Conditional structure.
+\item If X then Y.
+\item Given this information, agent is constrained.
+\item Either not X or Y.
+\end{itemize}
+
+\begin{itemize}
+\item This is compatible with not X.
+\item For, otherwise this includes support for the antecedent, and hence support for the consequent, and in turn support for the fact.
+\end{itemize}
+
+\subsubsection{Example scenario}
+\label{sec:example-cases}
+
+Question about whether such cases exist.
+
+\begin{itemize}
+\item This happens in cases where ability is the result of being provided information about how general ability extends.
+\end{itemize}
+
+Here, then, extend general ability to specific ability.
+
+Problem?
+
+\begin{itemize}
+\item If we're in this kind of case, then there is something difficult about the ability.
+\end{itemize}
+
+\begin{itemize}
+\item If extending, then no addition of support.
+\end{itemize}
+
+\begin{itemize}
+\item \(A(\phi)\), general ability.
+\item Without information, no support for \(A(\psi)\) from \(A(\phi)\).
+\item Information that \(A(\phi) \leadsto A(\psi)\).
+\item Information that \(A(\phi) \leadsto A(\psi)\) does not provide support for \(A(\phi)\).
+\item So, holding \(A(\psi)\) is the result of extending support for \(A(\phi)\), as information provides constraints on holding support for \(A(\phi)\), rather than helping with \(A(\psi)\).
+\end{itemize}
+
+
+Suggest no.
+
+\section{Motivation for \nI{}}
+\label{sec:motivation-ni}
+
+\begin{itemize}
+\item Because, the support the agent has is independent of \(A(\psi)\)/\(\psi\).
+\end{itemize}
+
+\begin{itemize}
+\item An agent is not able to obtain support for some proposition \(\psi\) on the basis of information that the support the agent has for \(\phi\) is misleading if \(\psi\) is not the case.
+\end{itemize}
+
+\begin{itemize}
+\item The relevant information must also provide some support for \(\phi\).
+\item One way of getting to this is by ordering support.
+\item If the constraint is established prior to obtaining support, then this may limit support.
+\end{itemize}
+
+\begin{itemize}
+\item This is also related to Harman.
+\item For, the principle there is that one is not in a position to hold that support is going to be misleading.
+\item Support for \(\phi\) does not show that future support for \(\psi\) is misleading when \(\psi \vdash \lnot\phi\).
+\item Support for \(\phi\) does not show that 
+\end{itemize}
+
+\begin{itemize}
+\item Important to note is that this does not deny closure.
+\item First, doxastic.
+\item Second, no requirement that the required information is a (known, logical) entailment.
+\end{itemize}
+
+Why does witnessing work?
+
+\begin{itemize}
+\item Because the agent is not basing things on the support they have.
+\item The things about misleading support is that it doesn't say there's anything problematic about the information received.
+\end{itemize}
+
+
+\newpage
+
+\section{Names}
+\label{sec:names}
+
+\begin{itemize}
+\item[(uRp)] Use requires possession.
+\item[(uRh)] Use requires having.
+\item[(uRa)] \mp{-}.\newline
+  うら　（裏）
+\end{itemize}
+
+
+
+\subsection{Motivation for \mp{}}
+\label{sec:motiv-main-prem}
+
+Some motivation for the \mp{}:
+
+\begin{enumerate}
+\item Davidson
+\item Responding to reasons
+\item Hieronymi
+\item Intuitive
+\end{enumerate}
+
+Broadly, the \mp{} is interesting because it constrains how an agent obtains some conclusion by reasoning.
+Instances that conform seem good, and instances that do not conform seem bad.
+
+[Examples]
+
+May also see how this is applied when finding solutions to difficult cases.
+For example, the \mp{} is in the background with Bratman on temptation, where the central idea is that desires fail to count as reasons because the agent would then need to act in a certain way.
+
+\end{document}
