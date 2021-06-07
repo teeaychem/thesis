@@ -1,0 +1,164 @@
+%%% Local Variables:
+%%% TeX-master: "master"
+%%% End:
+
+\documentclass[10pt]{report}
+% \usepackage[margin=1in]{geometry}
+% \newcommand\hmmax{0}
+% \newcommand\bmmax{0}
+% % % Fonts% %
+\usepackage{luatexja}
+
+\usepackage[T1]{fontenc}
+   % \usepackage{textcomp}
+   % \usepackage{newtxtext}
+   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
+\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
+   \usepackage{bm}% Access to bold math symbols
+   % \usepackage[onlytext]{MinionPro}
+   \usepackage[no-math]{fontspec}
+   \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
+   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
+   \setmainfont[Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
+   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
+   \setmonofont[Scale=0.8]{Atlas Typewriter}
+   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+% % % % % % %
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{xfrac}
+
+% % % The bibliography % % %
+\usepackage[backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,
+  % allinit,
+  % giveninits=true,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  useprefix=true,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Thesis.bib}
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\setlist[enumerate]{noitemsep}
+\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\setlist[itemize]{noitemsep}
+
+% % % Misc packages % % %
+\usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+% % % Red Math % % %
+\usepackage[usenames, dvipsnames]{xcolor}
+% \usepackage{everysel}
+% \EverySelectfont{\color{black}}
+% \everymath{\color{red}}
+% \everydisplay{\color{black}}
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+% % % % % % % % % %
+
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+
+% \usepackage{pifont}
+% \newcommand{\hand}{\ding{43}}
+\usepackage{array}
+
+\usepackage{multirow}
+% \usepackage{adjustbox}
+
+\usepackage{multicol}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,positioning,calc,arrows.meta,patterns,fadings}
+\usetikzlibrary{trees}
+\usepackage{tikz-qtree} %for simple tree syntax
+% \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
+\usetikzlibrary{tikzmark}
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+\usepackage{tabularx}
+
+
+
+% \usepackage{svg}
+% \usepackage[off]{svg-extract}
+% \svgsetup{clean=true}
+
+\usepackage{dashrule}
+
+\newcommand{\hozline}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+  %\vspace{-10pt}
+  % \noindent\rule{\textwidth}{.1pt}
+}
+
+% \usepackage{pdfrender}
+\usepackage{extarrows}
+
+% % % My commands % % %
+
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+% % % % % % % % % % % %
+
+\usepackage{xskak} % For chess diagram
+
+% % % My packages % % %
+\usepackage{CustomTheorems}
+\usepackage{FuturePromisedEvents}
+\usepackage{ThesisCustom}
+\usepackage{Notes}
+% % % % % % % % % % % %
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\title{
+  Ability to reason and reasoning with ability \\
+  \large Outline
+}
+\author{Ben Sparkes}
+% \date{ }
+
+\begin{document}
+
+% \newpage
+
+\maketitle
+
+\tableofcontents
+
+\include{AbilityOutline}
+
+\include{AbilityExamples}
+
+\include{AbilityPotentive}
+
+\include{AbilityInertia}
+
+\include{AbilityTension}
+
+\include{AbilityNotes}
+
+\end{document}

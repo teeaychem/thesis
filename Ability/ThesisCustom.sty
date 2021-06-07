@@ -1,0 +1,92 @@
+\ProvidesPackage{ThesisCustom}
+
+\usepackage{xparse} % For creating commands with complex arguments
+
+% % % Verbs
+\newcommand{\nf}[1]{#1\ensuremath{^{{*}}}} % Non-factive instance of a verb
+
+% % % Attribution and witnessing
+\newcommand{\WR}[0]{\textsf{Witnessing}}
+\newcommand{\AR}[0]{\textsf{Attribution}}
+
+% % % Premise Commands
+\ExplSyntaxOn
+\DeclareDocumentCommand{\mp}{ m }{% Main premise / access to support
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[uRa]}%
+  }
+  {
+    \text{Use\space requires\space access}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\nI}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[nI]}%
+  }
+  {
+    \text{No-inertia}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eA}{ m }{% Cases exists
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[eA]}%
+  }
+  {
+    \text{Extend\space ability}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\rC}{ m }{% Restricted claim
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[rC]}%
+  }
+  {
+    \text{Restricted\space claim}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\bP}{ m }{% Basic premise / understanding of reasoning
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[rB]}%
+  }
+  {
+    \text{Basic\space premise}%
+  }
+}
+\ExplSyntaxOff
+
+
+% % % Transmission
+\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
+
+
+
+
+% % % Other
+% https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
+\makeatletter
+\newcommand{\superimpose}[2]{%
+  {\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}
+}
+\makeatother
+
+\newcommand{\veewedge}{\mathpalette\superimpose{{\vee}{\wedge}}}
+\newcommand{\lessgreater}{\mathpalette\superimpose{{<}{>}}}
+\newcommand{\strikeQ}{\mathpalette\superimpose{{\text{---}}{Q}}}
+\newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
+% % %

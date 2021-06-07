@@ -1,0 +1,331 @@
+%%% Local Variables:
+%%% TeX-master: "master"
+%%% End:
+
+\chapter{Cases}
+\label{cha:cases}
+
+\section{Type of case}
+\label{sec:type-case}
+
+\section{Chess}
+\label{sec:chess}
+
+\begin{note}[Information]
+\begin{enumerate}
+\item\label{chess:claim:1}\label{chess:claim:1:conditional} If you are able to reason with the rules of chess, then you have the ability to demonstrate that White cannot prevent Black from occupying c4 on their (Black's) second move given the game state (described in figure~\ref{fig:chess:board}).
+\end{enumerate}
+\end{note}
+
+
+\begin{figure}[h]
+  \centering
+  \mbox{ }
+  \hfill
+  \begin{subfigure}{.4\textwidth}
+    \begin{adjustbox}{minipage=\linewidth,scale=0.7}
+      \centering
+      \newchessgame[
+      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5}, %{rc1,kh1,pa2,pb2,ph2,pf6,pg6,nc7,qf7},
+      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4}, %{rg2,pb5,pe5,qd6,pa7,pb7,ra8,bc8,kd8,bf8},
+      ]%
+      \setchessboard{showmover=false}%
+      \chessboard
+    \end{adjustbox}
+    \caption{
+      Game state\newline
+      \mbox{ }\newline
+    }
+    \label{fig:chess:board}
+  \end{subfigure}
+  \mbox{ }
+  \hfill
+  \mbox{ }
+  \begin{subfigure}{.4\textwidth}
+    \begin{adjustbox}{minipage=\linewidth,scale=0.7}
+      \centering
+      \newchessgame[
+      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5}, %{rc1,kh1,pa2,pb2,ph2,pf6,pg6,nc7,qf7},
+      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4}, %{rg2,pb5,pe5,qd6,pa7,pb7,ra8,bc8,kd8,bf8},
+      ]%
+      \setchessboard{showmover=false}%
+      \chessboard[
+      arrow=latex,
+      linewidth=1pt,
+      shortenstart=.8ex,
+      shortenend=.5ex,
+      pgfstyle=straightmove,
+      strokeopacity=0.4,
+      fillopacity=0.4,
+      color=black,
+      pgfstyle=border,
+      markfields={c4,a3,a5,g6,c5},
+      % markmoves={b7-b6,c6-c5,d4-c2,d4-b5,d4-f5,d4-e2,d4-f3,d4-b3,d7-c5,d7-b6,d7-b8,d7-f8,d7-f6,d7-e5,d7-e5,c7-c8,c7-b8,c7-d8,c7-b6,c7-d6}%{f7-g8,f7-e6,f7-d5,f7-c4,f7-b3,f7-e8,c7-d5,c7-b5,c7-a8,c7-e8,g6-g7,a2-a3,b2-b3,c1-a1,c1-b1,c1-d1,c1-e1,c1-f1,c1-g1,h2-h3,h1-g1,c1-c2,c1-c3,c1-c4,c1-c5,c1-c6}
+      ]
+    \end{adjustbox}
+    \caption{Example fields White cannot prevent Black from occupying after two moves.}
+    \label{fig:chess:move}
+  \end{subfigure}
+  \hfill
+  \mbox{ }
+  \caption{Black to checkmate in four moves.\protect\footnotemark}
+  \label{fig:chess}
+\end{figure}
+\footnotetext{
+  \citeauthor{Emms:2000aa}' Puzzle 150 (\citeyear[33]{Emms:2000aa}).
+  \citeauthor{Emms:2000aa} provides the following solution:
+  \begin{quote}
+    \variation{1... Nb6!}
+    (threatening \variation{2... Nb3\#})
+    \variation{2. b5}
+    (or \variation{2. Bd1 Nxc4+} \variation{3. Ka4 b5\#})
+    \variation{2... c5!}
+    \variation{3. bxa6 Nxc4+}
+    \variation{4. Ka4 b5\#}
+    \textbf{(0-1)}\nolinebreak
+    \mbox{}
+    \hfill
+    (\citeyear[46]{Emms:2000aa})
+  \end{quote}
+}
+
+\begin{note}[Role of conditional]
+  Claim~\ref{chess:claim:1} is distinct from the claim that the agent has the ability to demonstrate a strategy --- the unembedded consequent of claim~\ref{chess:claim:1}
+\begin{enumerate}
+\item\label{chess:claim:2}\label{chess:claim:1:unconditional} You are able to reason from the game state (described in figure~\ref{fig:chess:board}) to the proposition that White cannot prevent Black from occupying c4 on their (Black's) second move.
+\end{enumerate}
+\end{note}
+
+\begin{note}[Reasoning sketch]
+  With the above, sketch out simple reasoning.
+  \begin{enumerate}[label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:ant} I have the ability to reason with the rules of chess.
+  \item\label{inf:cond} If I have the ability to reason with the rules of chess then I have the ability to demonstrate the existence of a (particular) strategy.
+  \end{enumerate}
+
+  As~\ref{inf:cond:ant} is the antecedent of~\ref{inf:cond} and the consequent of~\ref{inf:cond} is novel information,~\ref{inf:cond:ant} and~\ref{inf:cond} combine to provide support for:
+
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:cond:conq} I have the ability to demonstrate the existence of the (particular) strategy that White cannot prevent Black from occupying c4 on their second move.
+  \end{enumerate}
+
+  Note, however, that~\ref{inf:cond:conq} is not considered a straightforward application of \emph{modus ponens}.
+  Rather,~\ref{inf:cond} captures conditional information about how some ability the agent has extends, if it is indeed the ability to reason with the rules of chess.
+
+  Sub-conclusion~\ref{inf:cond:conq}, is the antecedent of the following quantified conditional:
+
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:gae} For any strategy, an agent has the ability to demonstrate the existence of the strategy only if the strategy exists.
+  \end{enumerate}
+
+  Therefore:
+
+  \begin{enumerate}[resume, label=(S\arabic*), ref=(S\arabic*)]
+  \item\label{inf:sse} The (particular) strategy (that I am able to demonstrate) exists.\newline
+    White cannot prevent Black from occupying c4 on their second move.
+  \end{enumerate}
+\end{note}
+
+\begin{note}[How premise applies to argument]
+  \ref{denied-claim} is a universal claim.
+  Applies to all instances of reasoning.
+  So, trace the support for general ability and information to the conclusion.
+\end{note}
+
+\section{Additional sketches}
+\label{sec:additional-sketches}
+
+
+\newpage
+
+\section{Sketch of cases}
+\label{sec:sketch-cases}
+
+\begin{itemize}
+\item Agent has some body of support \(S\).
+\item \(S\) is such the agent has not reasoned from \(S\) to \(\phi\).
+\end{itemize}
+
+Things are somewhat difficult here.
+If \(A(\phi)\), then the agent has the ability, and so doesn't need any further support.
+The agent only needs to perform some reasoning.
+However, that reasoning may be understood as establishing new doxastic support.
+
+So,
+
+\begin{itemize}
+\item \(S\) does not provide doxastic support for \(\phi\).
+\item Or, \(S\) has not obtained doxastic support for \(\phi\).
+\end{itemize}
+
+So, the agent doesn't obtain information that they have the ability from some event witnessing the ability.
+Else, the agent would have doxastic support for \(\phi\).
+Some independent source of information that the agent has the ability.
+
+\begin{enumerate}
+\item\label{abGen:i} Information \(i\), such that \(A(\phi)\).
+\end{enumerate}
+
+Important is that the source of information does not also include information that \(\phi\) is the case.
+Else, agent doesn't need to use \(A(\phi)\) as a premise.
+
+For example, agent has proved in some formal system that \(\alpha \land \beta\) is a theorem.
+Hence, the agent has the ability to prove that \(\alpha \land \beta\) is a theorem of the system.
+From this, ability to prove that \(\alpha\) (or \(\beta\)) is a theorem.
+However, the agent already has support that \(\alpha\) (or \(\beta\)) is a theorem.
+Therefore, the agent does not need to appeal to their ability in order to obtain support.
+
+Similarly, testimony presents a problem.
+`You are able to prove \(\alpha\)' seems equivalent to `\(\alpha\) and you are able to prove \(\alpha\)'.
+For, the testifier would not be in a position to testify that the agent is able to prove \(\alpha\) if \(\alpha\) is not the case.
+Unlike the above case, ability is involved, but ability does not do the work.
+Instead, it is about what must be the case in order for testimony to provided.
+
+Suggests a general premise.
+
+\begin{enumerate}
+\item\label{abGen:i:g} If information provides (direct) support for \(A(\phi)\), then \(i\) provides support for \(\phi\).
+\end{enumerate}
+
+Comes from generalising the latter observation.
+For, if the agent receives information, then some long as it provides direct support for \(A(\phi)\), then reason that \(\phi\) must be the case in order to receive the information.
+
+Possibility of:
+
+\begin{enumerate}
+\item\label{abGen:i:g:denial} Information \(i\), does not provide (direct) support for \(A(\phi)\).
+\end{enumerate}
+
+\ref{abGen:i:g} does not require that the agent does reason to \(\phi\) based on receiving information.
+For, if \(\phi\) is not explicitly mentioned, some steps are required for doxastic support.
+In turn,~\ref{abGen:i:g:denial} is not required for the agent to appeal to ability.
+
+However, if~\ref{abGen:i:g:denial} is not the case, then agent always has an option other than ability.
+That is, receiving the information.
+\(A(\phi)\) is never required to obtain \(\phi\).
+
+\begin{enumerate}
+\item\label{abGen:i:indirect} Information \(i\), provides (indirect) support for \(A(\phi)\).
+\end{enumerate}
+
+Examples suggest that this is the case.
+
+[Examples]
+
+These examples suggest:
+
+\begin{enumerate}
+\item\label{abGen:i:conditional} Information \(i\), does provides (conditional) support for \(A(\phi)\).
+\end{enumerate}
+
+So long as the agent has support for \(X\), the agent has support for \(A(\phi)\).
+
+
+So, if~\ref{denied-claim}, then it's the attribute that must do the work.
+However, \(i\) does not provide direct support for \(A(\phi)\).
+We find conflict with~\ref{prem:ni}.
+The kind of conditional support provided here just is that the agent's support for the general ability would be misleading if it does not also extend to the specific case.
+Therefore, it is not possible for the attribute to do the work, because the agent does not obtain support for the attribute.
+
+
+\newpage
+
+It looks as though I end up with:
+
+The agent appeals to a potential witnessing event of an ability that the agent has in order to obtain support for some proposition without having appropriate support for the ability to generate the witnessing event.
+
+Well, the ability is not the thing providing the support.
+So, lacking support for the ability is not the issue.
+
+The question is about why the agent is in a position to appeal to those reasons.
+
+Well, there's an additional constraint, possibly.
+Roughly, it is impermissible for an agent to hold a contrary attitude to a proposition that they're committed to.
+
+Well, then the agent does not have support for possessing the ability.
+Still, 
+
+
+\section{Case recipe}
+\label{sec:case-recipe}
+
+
+
+We look for:
+\begin{enumerate}
+\item Case in which ability does the work.
+\item Argument that having is a problem in such a case.
+\end{enumerate}
+
+Without the first, then don't need to make the choice.
+May be some other reasons.
+
+If having is a problem, this will then conflict with the general principle.
+
+Transmission.
+
+\begin{itemize}
+\item Some support for ability.
+\item Ability entails fact.
+\item Fact.
+\end{itemize}
+
+Fact in virtue of the first two.
+
+\begin{enumerate}
+\item In order for ability to do work, agent obtains ability without obtaining fact.
+\end{enumerate}
+
+\begin{itemize}
+\item If agent obtains ability without obtaining fact, then this is due to extending support the agent already has for something other than ability.
+\item For, if agent is not extending support for something other than ability, then the agent obtains support directly for ability.
+  Yet, it then follows that fact comes in with this as a relevant precondition.
+\end{itemize}
+
+\begin{itemize}
+\item So, extending support.
+\end{itemize}
+
+\begin{itemize}
+\item Conditional structure.
+\item If X then Y.
+\item Given this information, agent is constrained.
+\item Either not X or Y.
+\end{itemize}
+
+\begin{itemize}
+\item This is compatible with not X.
+\item For, otherwise this includes support for the antecedent, and hence support for the consequent, and in turn support for the fact.
+\end{itemize}
+
+\section{Example scenario}
+\label{sec:example-cases}
+
+Question about whether such cases exist.
+
+\begin{itemize}
+\item This happens in cases where ability is the result of being provided information about how general ability extends.
+\end{itemize}
+
+Here, then, extend general ability to specific ability.
+
+Problem?
+
+\begin{itemize}
+\item If we're in this kind of case, then there is something difficult about the ability.
+\end{itemize}
+
+\begin{itemize}
+\item If extending, then no addition of support.
+\end{itemize}
+
+\begin{itemize}
+\item \(A(\phi)\), general ability.
+\item Without information, no support for \(A(\psi)\) from \(A(\phi)\).
+\item Information that \(A(\phi) \leadsto A(\psi)\).
+\item Information that \(A(\phi) \leadsto A(\psi)\) does not provide support for \(A(\phi)\).
+\item So, holding \(A(\psi)\) is the result of extending support for \(A(\phi)\), as information provides constraints on holding support for \(A(\phi)\), rather than helping with \(A(\psi)\).
+\end{itemize}
+
+
+Suggest no.
