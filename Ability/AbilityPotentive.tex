@@ -1074,6 +1074,7 @@
       % \node (4) [left of=3, xshift=-2cm] {};
       \draw [-{Circle[open]}, dashed] (x.0) to (premise);
       \draw [-{Circle[open]}, dashed] (x.0) to (conclusion);
+      \draw [-{Circle[open]}, dashed] (x.0) to (-.4,-1.05);
     \end{tikzpicture}
     \caption{\WR{}}
     \label{fig:WR:support}
@@ -1360,6 +1361,12 @@
   \item information that propositional support.
   \item additional features connect agent to propositional support, and do not add support.
   \end{enumerate}
+
+  Idea is that agent appeals to propositional support that they have.
+
+  Key point of argument is that if agent has propositional support, then that is sufficient support for conclusion.
+  Agent appeals to propositional support, which is premises.
+  Role of \WR{} is in granting connexion between premises and conclusion.
 \end{note}
 
 \begin{note}[Propositional and doxastic support]
@@ -1367,14 +1374,17 @@
   Roughly, following \textcite{Silva:2020aa}:
 
   \begin{quote}
-    Propositional Justification (PJ): S has propositional justification to believe that p iff S has sufficient epistemic reasons to believe that p.
+    \textbf{Propositional Justification}: S has propositional justification to believe that p iff
+    \begin{itemize}
+    \item S has sufficient epistemic reasons to believe that p.
+    \end{itemize}
 
-    Doxastic Justification (DJ): S has a doxastically justified belief in p iff
-    \begin{enumerate*}[label=(\roman*), ref=(\roman*)]
+    \textbf{Doxastic Justification}: S has a doxastically justified belief in p iff
+    \begin{enumerate}[label=(\roman*), ref=(\roman*)]
     \item\label{dj:def:i} S has propositional justification to believe that p,
     \item\label{dj:def:ii} S believes that p, and
-    \item\label{dj:def:iiii} S's belief in p is appropriately connected to S's sufficient epistemic reasons to believe p.
-    \end{enumerate*}
+    \item\label{dj:def:iii} S's belief in p is appropriately connected to S's sufficient epistemic reasons to believe p.
+    \end{enumerate}
   \end{quote}
 
   These are fairly neutral definitions.
@@ -1384,46 +1394,75 @@
   So long as agent has reasoned, then those premises (and perhaps steps used, maybe lack of other premises) are sufficient epistemic reasons.
   No need for full account.
   In turn, ability/potential event involves sufficient epistemic reasons.
+
+  Important point here is that propositional support alone doesn't do much.
+  An agent may have propositional support for some proposition and either not recognise that they have propositional support, or fail to form any attitude toward the proposition in line with the propositional support they have.
 \end{note}
 
 \begin{note}[P/D Example]
   To illustrate the distinction between propositional and doxastic support, consider the following multiple choice question.
 
-  \newcommand{\pythagwidth}{3cm}
-  \newcommand{\pythagheight}{5cm}
-  \begin{tikzpicture}[box/.style={rectangle, rounded corners, draw=black, text width=15mm}]
-      \begin{scope}[shift={(0,0)},rotate=270, scale=0.75]
-      \coordinate [label={below right:}] (A) at (0, 0);
-      \coordinate [label={above right:}] (B) at (0, \pythagheight);
-      \coordinate [label={below left:}] (C) at (-\pythagwidth, 0);
+  \begin{figure}[H]
+    \centering
+    {
+      \sffamily
+      \newcommand{\pythagwidth}{3cm}
+      \newcommand{\pythagheight}{5cm}
+      \begin{tikzpicture}[box/.style={rectangle, rounded corners, draw=black, text width=15mm}]
+        \begin{scope}[shift={(0,0)},rotate=270, scale=0.75]
+          \coordinate [label={below right:}] (A) at (0, 0);
+          \coordinate [label={above right:}] (B) at (0, \pythagheight);
+          \coordinate [label={below left:}] (C) at (-\pythagwidth, 0);
 
-      \coordinate [label={below:\(5\text{cm}\)}] (F) at (0,\pythagheight/2);
-      \coordinate [label={left:\(3\text{cm}\)}] (G) at (-\pythagwidth/2, 0);
+          \coordinate [label={below:\(5\text{cm}\)}] (F) at (0,\pythagheight/2);
+          \coordinate [label={left:\(3\text{cm}\)}] (G) at (-\pythagwidth/2, 0);
 
-      \coordinate (D1) at (-\pythagheight, \pythagheight + \pythagwidth);
-      \coordinate (D2) at (-\pythagheight - \pythagwidth, \pythagwidth);
+          \coordinate (D1) at (-\pythagheight, \pythagheight + \pythagwidth);
+          \coordinate (D2) at (-\pythagheight - \pythagwidth, \pythagwidth);
 
-      \draw [thick] (A) -- (C) -- (B) -- (A);
-      \newcommand{\ranglesize}{0.3cm}
-      \draw (A) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
-    \end{scope}
+          \draw [] (A) -- (C) -- (B) -- (A);
+          \newcommand{\ranglesize}{0.3cm}
+          \draw [line width=0.4pt] (A) -- ++ (0, \ranglesize) -- ++ (-\ranglesize, 0) -- ++ (0, -\ranglesize);
+        \end{scope}
 
-    \node (Answer) at (7.25,1.25) [text width=6.5cm]
-    {\textsf
-      What is the area of the given triangle?
-      \begin{enumerate}[label=\Alph*.]
-      \item \(4\text{cm}^{2}\)
-      \item \(7.5\text{cm}^{2}\)
-      \item \(30\text{cm}^{2}\)
-      \item \(16\text{cm}^{2}\)
-      \end{enumerate}
-    };
-  \end{tikzpicture}
+        \node (Answer) at (7,1.25) [text width=6cm]
+        {
+          What is the area of the given triangle?
+          \begin{enumerate}[label=\Alph*.]
+          \item \(4\text{cm}^{2}\)
+          \item \(7.5\text{cm}^{2}\)
+          \item \(16\text{cm}^{2}\)
+          \end{enumerate}
+        };
+        \draw [rounded corners] (-1,-.5) -- (10,-.5) -- (10,2.75) -- (-1,2.75) -- cycle;
+      \end{tikzpicture}
+      \vspace{5pt}
+    }
+  \end{figure}
 
-  The students have been taught:
-  \(\frac{1}{2} \times \text{base} \times \text{(perpendicular) height} (\text{square units})\).
+  \noindent The students have been taught:
+  \[\text{Area of triangle} = \left[\sfrac{1}{2} \times \text{base} \times \text{perpendicular height}\right] (\text{square units})\]
+  Perhaps the students have testimony of teacher, or perhaps have been given a proof.
+  Either way, applied to given triangle provides sufficient epistemic reasons, and for simplicity \emph{stipulate} no other epistemic reason.\nolinebreak
+  \footnote{Somewhat tricky as there may be ways to eliminate the two other options.
+    Stipulate in order to ease a point made below.
+  }
 
-  Consider two students who have applied the formula, and calculated that \(\frac{1}{2} \times 5\text{(cm)} \times 3\text{(cm)} = 7.5(\text{cm}^{2})\).
+  Three variations.
+  No propositional (entails no doxastic).
+  Propositional and doxastic.
+  Propositional and no doxastic.
+
+  Consider a handful of students.
+  First, guesses.
+
+  remaining four clarify divide.
+  First pair, clear instances.
+  Second pair, more difficult cases.
+  First is great case.
+  Guess again, clearly no dox, though prop.
+
+  Two students who have applied the formula, and calculated that \(\sfrac{1}{2} \times 5\text{(cm)} \times 3\text{(cm)} = 7.5(\text{cm}^{2})\).
   Both students have the correct answer.
   However, only one of the students has noted that \(3\text{cm}\) may be taken as the (perpendicular) height of the triangle because the triangle is a right angle.
   The other student has taken \(3\text{cm}\) to be the (perpendicular) height of the triangle because it is the length of one edge of the triangle.
@@ -1437,11 +1476,14 @@
   \footnote{
     Note, not saying that the student would not have arrived at the correct answer.
     For, the student may have clarified their reasoning if the answer given did not match a choice.
+    Rather, if the same reasoning was applied (with different lengths) to a non-right angled triangle, the agent would not have correctly identified the perpendicular height of the triangle.
   }
 
-  May compare to a third student who did not understand the formula but has it written down on a cheat sheet.
+  Third student who did not understand the formula but has it written down on a cheat sheet.
   The student sees that calculating the area of a triangle involves multiplying two numbers and dividing the result by two, and so believes that the area of the triangle is \(7.5\text{cm}^{2}\) because the only two numbers available are odd, recalls the result of multiplying two numbers is always odd, and that division by two of any odd (rational) number must involve a fraction.
   Certainly no doxastic support.
+
+  Fourth student, guesses.
 
   Without a full account of sufficient epistemic reasons, unclear that the student has propositional justification.
   As the student did not understand the formula, lack sufficient epistemic reasons.
@@ -1451,6 +1493,10 @@
 
   A clearer case of a student who lacks even propositional support may be a student who forms a belief that the area of the triangle is \(7.5\text{cm}^{2}\) without learning the formula, but because it is one of the options given, and one in four odds aren't too bad.
   No possibility of doxastic support.
+
+  No stance on borderline cases.
+  Rather, helpful because this highlights how two important conditions work.
+  What it is to have sufficient epistemic reasons, and what it is for an agent's belief to be appropriately connected to the agent's sufficient epistemic reasons to believe.
 \end{note}
 
 \begin{note}[Takeaway]
@@ -1461,23 +1507,38 @@
   If the information is true, then the agent has propositional support.
   For, result of reasoning would be good, and potential means that there's no opportunity to acquire new information.
 
-  Given assumption that the information is true, that the agent has propositional support matters because forming doxastic support does not require additional (sufficient epistemic) reasons.
+  Agent does not have doxastic support.
+  Some flexibility on what the third condition amounts to, but the overall argument is that there is an exception to~\ref{denied-claim}.
+  Noted problems with basing.
+  I see no interest in arguing that the term `doxastic support' applies to cases of interest.
+  Given well-developed analyses of the basing relation, then leaves `doxastic support' to those analysis.
+
+  Doxastic support requires an \emph{appropriate} connexion, but `appropriate' is one adjective among many.
+  There are other adjectives --- or ways in which the agent may relate sufficient epistemic reasons to conclusion --- that may be of interest.
+
+  Further, if information is true, then potential event seems a clear case.
+  Unlike the second pair, things aren't too delicate.
+  Agent reasons well, and potential event so avoid worries about the degree to which propositional support is in reach.
 \end{note}
 
-\begin{note}[Important point for prop/dox def.]
-  The observation that forming doxastic support does not require additional (sufficient epistemic) reasons follows independently of any particular account of what sufficient epistemic reasons are.
-  For, condition~\ref{dj:def:i} states that the agent has propositional support to believe that p, which reduces to the agent having sufficient epistemic reasons to believe that p.
-  Hence, if sufficient epistemic reasons relied on additional (epistemic) reasons introduced by the agent forming an attitude toward the proposition, the either the sufficient epistemic reasons identified by the agent having propositional support are not sufficient --- a contradiction --- or the definitions of propositional and doxastic support are circular, as propositional justification must reference doxastic justification in order to identify the additional epistemic reasons introduced by the agent forming doxastic support, and doxastic support in turn requires the agent to have propositional support and so on\dots
+\begin{note}[Generalising a little]
+  Propositional support is focus.
+  Given definition, applies to p, some proposition.
+  Extend to cover steps of reasoning.
+  May always reduce to a proposition, if given some basic.
+  Still, talk of steps.
+\end{note}
 
-  So, as doxastic is the attitude, proposition is supported independently of whether or not the agent has (a doxastically support) attitude toward the proposition.\nolinebreak
-  \footnote{
-    This is not to say that the agent is irrelevant. (Notably observed by \cite{Firth:1978vi} when introducing the terminology).
-    Rather, that the agent has (propositional) support whether or not they have reasoned.
-  }
-  Hence, as we're dealing with a potential event, then given the definitions of propositional and doxastic support \emph{and} given the truth of the information, then the agent has propositional support for the conclusion, no matter what sufficient epistemic reasons turn out to be.
+\begin{note}[Agent doesn't need support to appeal to support]
+  This is super important to stress that agent doesn't need support to appeal to support.
+  Mistakes are made, even when reasoning.
+  One uses a premise which one doesn't have propositional support for.
+  For example, by something changing in the world.
 \end{note}
 
 \begin{note}[Where this is going]
+  With a (sufficiently) neutral distinction between propositional and doxastic support in hand, we now turn to an argument for the claim that the agent is in a position to form an attitude to conclusion, where support appealed to are those premises that would be used in reasoning.
+
   For the agent to obtain doxastic support, need appropriate connexion, not additional support.
 
   Independent relation of propositional support between premises and conclusion.
@@ -1494,130 +1555,288 @@
   \end{enumerate}
 
   If information is true, then as the agent already has sufficient support for the conclusion on basis of premises, our task is to explain how information about ability/potential event allows the agent to appropriately connect attitude toward conclusion to premises.
-  Doxastic support requires an \emph{appropriate} connexion, but `appropriate' is one adjective among many.
-  There are other adjectives --- or ways in which the agent may relate sufficient epistemic reasons to conclusion --- that may be of interest.
 
   Propositional support alone doesn't do much.
   But the information is useful.
 \end{note}
 
+\begin{note}[Idea]
+  Idea is to show that the agent may appeal to having propositional support for whatever the premises of reasoning are.
+  Information then used to extend propositional support for premises to propositional support for conclusion.
+  In turn, attitude toward conclusion based on propositional support, whatever that propositional support happens to be.
+
+  Four key points to the argument, which we will work through.
+  \begin{enumerate}[label=(V\arabic*), ref=(V\arabic*)]
+  \item\label{W:fp:S:1} If there is a relation of propositional support between premises and conclusion of reasoning, then witnessing the reasoning does not provide an agent with \emph{additional required} support for the conclusion.\nolinebreak
+    \footnote{May provide the agent with additional support, but it isn't required for the agent.}
+  \item\label{W:fp:S:2} If support for general ability, agent may (plausibly) appeal to having propositional support for any premises or steps of reasoning which is an exercise of the relevant general ability.
+  \item\label{W:fp:S:3} A potential event of witnessing is sufficient for the agent to hold that propositional support for premises of reasoning extend to conclusion.
+  \item\label{W:fp:S:4} Attitude that conclusion is true based on propositional support for conclusion (and not that the agent has attitude toward propositional support).
+  \end{enumerate}
+  The four key points are then unified by the following pair of observations:
+  \begin{itemize}
+  \item From~\ref{W:fp:S:1} and~\ref{W:fp:S:2}, agent may hold that they have propositional support for conclusion.
+  \item From~\ref{W:fp:S:3} and~\ref{W:fp:S:4}, Attitude toward conclusion based on premises used when witnessing.
+  \end{itemize}
+  Second observation may also use~\ref{W:fp:S:2}, given steps that would be used in reasoning.
+
+  Figure~\ref{W:fp:steps:diagram} provides a (rough) visual representation of how the four steps fit together.
+\end{note}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=.5]
+    \node at (0,0) (GA) {\parbox{2cm}{\centering General Ability}};
+    \node at (8,0) (I) {\parbox{2cm}{\centering Information}};
+    \node at (16,0) (AC) {\parbox{2cm}{\centering Attitude toward Conclusion}};
+
+
+    \node at (0,-6) (PP) {\parbox{3cm}{\centering (Propositional) support for premises}};
+    % \node at (8,6) {\parbox{3cm}{\centering Information}};
+    \node at (16,-6) (PC) {\parbox{3cm}{\centering (Propositional) support for conclusion}};
+
+    \node at (-2,-3) {\parbox{2cm}{\centering \ref{W:fp:S:2}}};
+    \node at (8,-7) {\parbox{3.5cm}{\centering \ref{W:fp:S:1} (and possibly~\ref{W:fp:S:2})}};
+    \node at (18,-3) {\parbox{2cm}{\centering \ref{W:fp:S:4}}};
+    \node at (8,-3) {\parbox{2cm}{\centering \ref{W:fp:S:3}}};
+
+    \draw [-Implies,line width=1pt,double distance=1pt] (GA) -- (PP);
+    \draw [-Implies,line width=1pt,double distance=1pt] (PC) -- (AC);
+    \draw [->] (PP) -- (PC);
+
+    \draw [-, dashed] (PP.30) -- (PC.150);
+    \draw [-, dashed] (I.270) -- (PP.30);
+    \draw [-, dashed] (I.270) -- (PC.150);
+
+    \node[circle,draw=black, fill=white, inner sep=0pt,minimum size=4pt] (b) at (PP.30) {};
+    \node[circle,draw=black, fill=white, inner sep=0pt,minimum size=4pt] (b) at (PC.150) {};
+  \end{tikzpicture}
+  \caption{Representation of important steps}
+  \label{W:fp:steps:diagram}
+\end{figure}
+
+\begin{note}[Explaining figure]
+  Trace the arrows.
+
+  Top line, what the agent accesses.
+  Bottom line, support.
+\end{note}
+
+\begin{note}[First key point]
+  The first key point states:
+  \begin{enumerate}
+  \item If there is a relation of propositional support between premises and conclusion of reasoning, then witnessing the reasoning does not provide an agent with \emph{additional required} support for the conclusion.
+  \end{enumerate}
+  The point follows from the definitions of propositional and doxastic support, and independently of any particular account of what sufficient epistemic reasons are (or what support is).
+
+  For, conditions~\ref{dj:def:i} and~\ref{dj:def:iii} of the given definition of doxastic support states that the agent has propositional support to believe that p, or equivalently that the agent has sufficient epistemic reasons to believe that p, given the definition of propositional support.
+  Therefore, if sufficient epistemic reasons relied on additional (epistemic) reasons introduced by either condition~\ref{dj:def:ii} or condition~\ref{dj:def:iii}, then either:
+  \begin{enumerate*}[label=(\roman*)]
+  \item The sufficient epistemic reasons identified by the agent having propositional support are not sufficient for holding an attitude toward the conclusion --- a contradiction.
+    Or
+  \item The definitions of propositional and doxastic support are equivalent.
+  \end{enumerate*}
+
+  Assume for equivalence that some collection of the conditions for doxastic support introduce additional required support for the conclusion.
+  As the epistemic reasons identified by propositional support are sufficient, then given the assumption made, propositional support must reference doxastic support in order to identify the additional epistemic reasons introduced by some collection of the conditions for doxastic support in order for the agent to have sufficient epistemic reasons to hold an attitude toward the conclusion.
+  However, doxastic support in turn requires the agent to have propositional support by condition~\ref{dj:def:i}.
+  So, in order for the agent to have doxastic support the agent must have propositional support, but given the assumption, in order for the agent to have propositional support, the agent must have (some part of) doxastic support.
+
+  There need not be anything problematic with circular definition.
+  Rather, the observation is that if the definitions are circular in this way, then the presence of condition~\ref{dj:def:i} as part of the definition of propositional support allows one to eliminate either either condition~\ref{dj:def:ii}, condition~\ref{dj:def:iii}, or both from the definition of doxastic support.
+
+  Note, however, that condition~\ref{dj:def:iii} requires condition~\ref{dj:def:ii} to be true, as the agent's belief is required to be appropriately connected to the agent's sufficient epistemic reasons.
+  Therefore, it seems that if condition~\ref{dj:def:iii} is a required epistemic reason then condition~\ref{dj:def:ii} must also be a required epistemic reason.
+  Hence, the definitions collapse in to one another and there is no distinction between propositional and doxastic support.
+
+  So, then leave out condition~\ref{dj:def:iii}, but this is the condition where things are different.
+  Only appropriate connexion without further information would be reasoning, by~\ref{denied-claim}.
+  Hence, given definitions and difference, then result wanted.
+
+  As doxastic is the attitude, proposition is supported independently of whether or not the agent has reasoned.\nolinebreak
+  \footnote{
+    This is not to say that the agent is irrelevant. (Notably observed by \cite{Firth:1978vi} when introducing the terminology).
+    Rather, that the agent has (propositional) support whether or not they have reasoned.
+  }
+  Therefore, as we're dealing with a potential event, then given the definitions of propositional and doxastic support \emph{and} given the truth of the information, then the agent has propositional support for the conclusion, no matter what sufficient epistemic reasons turn out to be.
+\end{note}
+
+\begin{note}[Closure principle]
+  Summarise with a closure principle for propositional support:
+  \[\propsupp{\phi} \land (\phi \ientails{} \psi) \vdash \propsupp{\psi}\]
+  If reasoning would lead to conclusion, and agent has support for premises, then agent has support for conclusion.
+  
+  This simply states things about propositional support.
+  Closure principles, because it states that \(\psi\) is a member of the class of things that are propositionally justified.
+\end{note}
+
+\begin{note}[Slight problem]
+  This premise is important, but fairly weak.
+  May be the case that the agent is required to reason to have propositional support (i.e.\ sufficient epistemic reasons).
+\end{note}
+
 \begin{note}[Concludes first step]
   This is the first step.
-  Agent doesn't need any additional support (sufficient epistemic reasons).
+  Given definitions of propositional and doxastic support, the agent is not required to reason in order to have sufficient epistemic reasons for the conclusion.
 \end{note}
 
 \begin{note}[Second step]
-  Continue to assume information is true, then the second step involves observing that the agent is in a good position to claim doxastic support for whatever sufficient epistemic reasons are.
+  Second step:
+  \begin{enumerate}
+  \item[\ref{W:fp:S:2}] If support for general ability, agent may (plausibly) appeal to having propositional support for any premises or steps of reasoning which is an exercise of the relevant general ability.
+  \end{enumerate}
+  Phrased a little more naturally, though perhaps a little more controversially:
+  \begin{enumerate}
+  \item[\ref{W:fp:S:2}] In the scenarios of interest, the agent may (plausibly) \emph{believe} they have propositional support for any premises or steps of reasoning which is an exercise of the relevant general ability.
+  \end{enumerate}
+  Prefer to stay neutral.
+  Still, highlighting belief, repeat a clarification from earlier.
+  \ref{W:fp:S:2} does not require the agent to have support.
+  Rather, \emph{appeal} to having propositional support.
+  No plausible requirement that an agent may appeal to propositional support only if they do have propositional support.
+  Motivated with changes to environment.
 
-  That is, complex doxastically support belief.
-  Given information, then have propositional support for conclusion.
-  For potentive event.
-  Relies on general ability.
-  Agent has good support for general ability.
+  Same applies to cases.
+  Agent has support for general ability.
+  May not have propositional support.
 
-  Here, substantive requirement on sufficient epistemic reasons.
-  Don't need to be factive.
-  As, possibility that the agent is mistaken about general ability.
-  Here, the attitude is important.
-  Belief, rather than knowledge.
-  Plausible, else belief would also be factive.
+  Two examples.
 
-  Simplify attitude.
-  Belief that the agent has propositional support for any premises used in reasoning in line with general ability.
-  Eliminate the conditional nature by a universal.
-  Retain doxastic support for propositional support.
+  Agent has been taught, and teacher is bad.
+  Agent does not have propositional support, but fair for the agent to appeal to having propositional support.
 
-  Main case, it's the general ability to reason with the rules of chess.
+  Agent has learnt majority of rules, feedback that these are complete.
+  However, additional rule stating an exception to rule that has been learnt.
+  Given that the rules of chess are fairly compact, this takes some imagination, but provided some examples earlier.
+  Seems plausible that the agent may appeal to having propositional support as from agent's perspective there.
 
-  Question is whether the agent can extend this to conclusion.
-  Doxastically supported belief that the agent has propositional support for conclusion.
+  Still, as noted in concluding first key point, something substantial needs to be said about sufficient epistemic reasons in order for this second key point.
+  Hence, role of qualifier.
+  No direct argument.
 
-  Here, the support for the conclusion the agent is appealing to is the propositional support.
-  In turn, whatever premises would be used.
+  Here, rely on~\ref{prem:bP} again, though slightly expanded.
+  Premises, or steps of reasoning are sufficient epistemic reasons.
+  Nothing more to support with respect to reasoning.
 
-  Constraint of interest is whether the agent requires support for information to have such a doxastically supported belief.
+  Consider validity.
+  If Premises are true, then conclusion is true.
+
+  Steps are fixed.
+  Allow different steps.
+  If Premises are true, and steps preserve truth, then conclusion is true.
+
+  Soundness.
+  Premises are true, steps preserve truth, then conclusion is true.
+
+  Truth, but more generally some designated property.
+  E.g.\ probability, or desirability.
+
+  Vary from preservation.
+  What matters is that the conclusion has the designated property.
+  (May be probability example for this.)
+
+  So, premises and steps are sufficient to ensure that conclusion has designated property.
+
+  Concerns about what is required for ensuring, but hard to think of there being something in addition to premises and steps which is relevant to ensuring designated property.
+
+  So, reasoning/demonstration (and hence exercise of general ability) is understood in terms of premises and steps.
+
+  Granting this, question is whether agent may appeal to having propositional support from exercise of general ability.
+
+  Role of general ability has two parts.
+  First, no new information --- this is a strict reading.
+  Already seen that propositional support/sufficient epistemic reasons whether or not agent reasons.
+  Second, the agent doesn't stray from premises and steps that they (may claim to) have support for.
+
+  This seems to capture something unremarkable.
+  Consider arithmetic.
+  \(((421 + 537) \times 3)/6\).
+  General ability, so if you calculate, you will get the right answer.\nolinebreak
+  \footnote{
+    \(479\)
+  }
+  Checking propositional validity.
+
+  Short term memory, names of people in a group.
+  So long as group isn't too big, and names are familiar.
+
+  Most common, parsing novel sentences.
+  Compositionality.
+
+  Consider converse cases.
+  Cases of reasoning where there is a necessary step or premise, and the agent lacks support.
+  E.g.\ misunderstood a particular rule.
+  Agent lacks support, and recognised, then lack general ability.
+
+  Likewise, non-reasoning cases.
+  Cooking.
+  Experience, various recipes and styles, good dishes.
+  Some general ability, mastered some skills.
+  As long as novel recipe only requires those skills, expect the meal to turn out well.
+
+  Perhaps agent may not have the skill to articulate support appealed to, but still appeal.
 \end{note}
 
-\begin{note}[Conclusion first and second step]
-  Idea is that the agent has is in a good position with respect to whatever premises would be used.
-  Careful to phrase appropriately.
-  If 
+\begin{note}[Second pair of key points]
+  We now turn to the remaining two key points.
+  This is where things get a little more complex.
 \end{note}
 
-\begin{figure}[!h]
-  \begin{subfigure}{.5\linewidth}
-    \centering
-    \begin{tikzpicture}[scale=.5]
-      \node at (0,0) {Premises};
-      \node at (8,0) {Conclusion};
-      \draw[->] (0,0) -- (8,0);
-    \end{tikzpicture}
-    \caption{Propositional}
-  \end{subfigure}
-  \begin{subfigure}{.5\linewidth}
-    \centering
-    \begin{tikzpicture}[scale=.5]
-      \node at (0,0) {Premises};
-      \node at (8,0) {Conclusion};
-      \draw[->] (0,0) -- (8,0);
-      \draw[green] (0,0) sin (1,.5) cos (2,0) sin (3,-.5) cos (4,0) sin (5,.5) cos (6,0) sin (7,-.5) cos (8,0);
-    \end{tikzpicture}
-    \caption{Propositional and doxastic}
-  \end{subfigure}
-\end{figure}
 
+\begin{note}[Third key point]
+  Previous key point~\ref{W:fp:S:2}, agent has propositional support for any premises and steps used when witnessing general ability.
+  \ref{W:fp:S:1}, witnessing doesn't add.
+  Third key point builds on~\ref{W:fp:S:1} and \ref{W:fp:S:2} given information about potential event of witnessing general ability.
+  \begin{enumerate}
+  \item[\ref{W:fp:S:3}] Information of a potential event of witnessing is sufficient for the agent to hold that propositional support for premises of reasoning extend to conclusion.
+  \end{enumerate}
 
+  In broad strokes, from~\ref{W:fp:S:1}, propositional support/sufficient epistemic reasons do not require reasoning.
+  Therefore, if reasoning would lead to conclusion, and agent has support for premises, then agent has support for conclusion.
+  Saw this with closure.
 
-{
-  \begin{note}[A kind of `closure' principle]
-    This is probably the best way to look at this.
+  From~\ref{W:fp:S:1}, if information is true, then attitude to antecedent condition of closure.
+  Main claim is that agent does not require support for reasoning to extend attitude toward conclusion and form attitude toward consequent of closure condition.
 
-    Clear closure principle for propositional support:
-    \[\propsupp{\phi} \land (\phi \ientails{} \psi) \vdash \propsupp{\psi}\]
-    This simply states things about propositional support.
-    Closure principles, because it states that \(\psi\) is a member of the class of things that are propositionally justified.
-    There's nothing about an agent's recognition in play here.
+  Here, the idea of \WR{}.
+  Not strictly a propositional attitude.
+  Instead, appeal to the potential event of witnessing reasoning.
+  Ties attitude toward conclusion to that reasoning.
+  That is, whatever those reasons are which are sufficient for propositional support, if agent does have propositional support.
 
-    Introduce some operators.
+  Second point is important.
+  For, agent is appealing to \WR{}, hence relying on support for general ability as applied, rather than obtaining support for specific ability.
 
-    \[\geop{1}(\propsupp{\phi}) \land \geop{2}(\phi \ientails{} \psi) \vdash \geop{3}(\propsupp{\psi})\]
+  {
+    \color{red}
+    {\color{green} This note needs to be cleaned up and stated in various other places.}
+    Delicate.
+    The agent is not obtaining support for specific ability.
+    Instead, the agent is appealing to support for general ability that would be used if they were to witness the specific ability.
+    Further, result is not immediately that the conclusion is true, but that the agent has propositional support for conclusion.
 
-    Not claiming that \(\psi\) is in \(\geop{3}\), given the antecedent.
+    Problem with support for specific ability was reasoning that otherwise the agent support would be misleading.
+    Insight is that agent doesn't need to go directly to specific ability, as it may be built from elements of general ability.
+    \WR{} is the key piece where the agent considers reasoning, and how the general ability interacts.
+    Without witnessing, no appeal to the steps of reasoning, and support agent has for these.
+  }
+\end{note}
 
-    Question is how to fill in \(\geop{1}\), \(\geop{2}\), and \(\geop{3}\).
+\begin{note}[Relation to closure]
+  Begin by returning to closure principle for propositional support:
+  \[\propsupp{\phi} \land (\phi \ientails{} \psi) \vdash \propsupp{\psi}\]
+  This simply states things about propositional support.
+  Closure principles, because it states that \(\psi\) is a member of the class of things that are propositionally justified.
+  There's nothing about an agent's recognition in play here.
 
-    For example, with \(K\) we obtain a very straightforward epistemic closure principle.
-
-    Initial observation is that \(\geop{1}\) may be quite strong, but perhaps not knowledge (argued for this).
-    Second observation is that whatever \(\geop{2}\) is, it doesn't require that the agent has support.
-    Likewise, \(\geop{3}\) involves some support.
-
-    If some instances are found, then we've got a situation in which the agent may have attitude toward having propositional support.
-
-    Note, with operators in the mix, we can keep track of whether these are factive.
-    That is, whether \(\geop{i}(\phi) \vdash \phi\).
-    In particular, whether \(\geop{i}(\propsupp{\phi}) \vdash \propsupp{\phi}\), whether it must be the case that the agent has propositional support.
-
-    Argue that this need not be the case.
-    For, the key question is not whether the agent really has propositional support, but whether the agent is able to make use of it.
-    Far closer to belief than knowledge.
-
-    Might go with belief, given a loose interpretation.
-    This provides us with the following sketch.
-
-    \[B(\propsupp{\phi}) \land \geop{2}(\phi \ientails{} \psi) \vdash B(\propsupp{\psi})\]
-
-    Put in natural language, agent believes that they have propositional support for \(\phi\) and has some relation to entailment, then believes that they have propositional support for \(\psi\).
-    Remain on somewhat safe ground with respect to closure.
-    Though, it is a little tricky, possible that it follows that the agent has the belief without deliberately forming it.
-    Still, somewhat plausible.
-
-    Issue is \(\geop{2}\).
-    How to understand this.
-
-    \(\geop{2}\).
-    Often allows the agent to skip over working through whatever the entailment is. (\cite[28]{Hawthorne:2005tb})
-
+  To ease introduction of attitudes, consider an easier case.
+  Knowledge.
+  \[K(\phi) \land K(\phi \rightarrow \psi) \vdash K(\psi)\]
+  Natural language, if agent knows that \(\phi\) and knows that \(\phi\) entails \(\psi\), then the agent knows that \(\psi\).
+  Knowledge is factive.
+  Note, switch to entailment, as proposition.
+  So, it must (given agent's knowledge) be the case that \(\phi\) and that \(\phi\) entails \(\psi\), and hence it must be the case that \(\psi\).\nolinebreak
+  \footnote{
     Variations on epistemic closure principle which do not require \(\geop{2}\).
     E.g.\ \citeauthor{Williamson:2000wx} formulates \emph{intuitive closure} as:
     \begin{quote}
@@ -1628,71 +1847,164 @@
 
     \citeauthor{Hawthorne:2005tb}, generalisation
     \begin{quote}
-      If one knows P and competently deduces Q from P, thereby coming to believe Q, while retaining one’s knowledge that P, one comes to know that Q.\nolinebreak
+      If one knows P and competently deduces Q from P, thereby coming to believe Q, while retaining one's knowledge that P, one comes to know that Q.\nolinebreak
       \mbox{}\hfill\mbox{(\citeyear[29]{Hawthorne:2005tb})}
     \end{quote}
+    In terms of the formalism used:
+    \[K(\phi) \land (\phi \ientails{} \psi) \Vdash K(\psi)\]
 
-    Competent deduction.
+    \citeauthor{Hawthorne:2005tb}'s generalisation is important.
+    Take similar restrictions to be implicit in main body.
+    
+  }
 
-    Could rewrite this using an event.
-    Then acceptance for potential event.
-    Thing here is that nothing stronger than acceptance seems to be required.
+  Note, we're not interested in an unrestricted closure principle.
+  Rather, observing that so long as some closure principle is true, then this seems to be an instance.
 
-    The role of the potential event is with securing the relation between \(\phi\) and \(\psi\).
-    The agent doesn't have support for potential event, but at the same time the agent is in a position to accept the potential event.
-    The added importance is that the belief in propositional support is adequately tied to the propositional support for \(\phi\) and the relation between \(\phi\) and \(\psi\).
-    This is important for belief, rather than propositional support.
+  Introduce a variant with propositional support.
 
-    \[B(\propsupp{\phi}) \land A(\phi \ientails{} \psi) \vdash B(\propsupp{\psi})\]
+  \[K(\propsupp{\phi}) \land K(\phi \rightarrow \psi) \vdash K(\propsupp{\psi})\]
+  Natural language, if an agent knows that they have propositional support for \(\phi\), and the agent knows that \(\phi\) entails \(\psi\), then the agent knows that they have propositional support for \(\psi\).\nolinebreak
+  \footnote{
+    Originally in terms of belief, but as noted {\color{red} need to add}, generalises to other attitudes.
+  }
+  Here, reasoning as before, with the observation from~\ref{W:fp:S:1} that whatever secures knowledge of \(\phi\) provides sufficient epistemic reasons for \(\psi\), given possibility of reasoning.
 
-    Then, because the entailment from \(\phi\) to \(\psi\) extends support, nothing more is required.
+  Use \(\Vdash\) to indicate permissibility of forming attitude to the right given attitudes to the left.
 
-    Consider contrapositive.
-    \[\lnot B(\propsupp{\psi}) \vdash  \lnot A(\phi \ientails{} \psi) \lor \lnot B(\propsupp{\phi})\]
-    Agent does not believe that they have propositional support for \(\psi\), then either do not accept entailment, or do not believe they have propositional support for \(\phi\).
+  \[K(\propsupp{\phi}) \land K(\phi \rightarrow \psi) \Vdash K(\propsupp{\psi})\]
 
-    Lack of support.
-    Perhaps acceptance.
-  \end{note}
+  Example of difference.
+  First, something standard.
+  Second, knowledge of propositional support.
+  Mnemonic for order of colours of the rainbow.
+  Propositional support, sufficient epistemic reasons for order of colours of the rainbow.
+  {
+    \color{red}
+    Might be easier with conditional structure and consequent.
+  }
 
-  \begin{note}[Nothing more than acceptance for entailment?]
-    This doesn't seem to be the case with knowledge.
-    For, acceptance is not factive, so there's a possibility that this leads agent from truth to falsity.
+  May seem that the agent simply knows.
+  Additional point in anticipation of next key point is that \(K(\propsupp{\phi}) \vdash K(\phi)\).
+  Seems there's an equivalence here, as the converse certainly holds.
+  Suggests that there aren't cases from perspective of attitude,  idea behind example, still, is different epistemic reasons.
 
-    With belief, the core idea is that acceptance is sufficient, because well, on aspect of \WR{} is that the rule is used and not mentioned.
-    The agent is committed to their reasoning being guided in this way.
-  \end{note}
+  Perhaps clearer with potential event.
+  If agent knows they have specific ability, then knows they have propositional support.
+  However, as seen agent may then appeal to potentive entailment.
+\end{note}
 
-  \begin{note}[\WR{}]
-    The role of the witnessing event is small, but important.
-    Premises, and fixing link.
-    Agent is not merely claiming that there is \emph{some} propositional support.
-    Rather, that the propositional support is sufficient for some positive doxastic attitude.
-  \end{note}
+\begin{note}[Generalise closure]
+  Return to \(\ientails{}\) and introduce some placeholders.
 
-  \begin{note}[A little more work]
-    Propositional support is not quite sufficient.
-    Propositional support for contrary propositions.
+  \[\geop{1}(\propsupp{\phi}) \land \geop{2}(\phi \ientails{} \psi) \Vdash \geop{3}(\propsupp{\psi})\]
 
-    For example: \cite{Bondy:2018ux}
-    \begin{quote}
-      S’s belief B is propositionally but not doxastically justiﬁed iff S holds \(B\) only on the basis of a set of reasons \(R1 = \{R1_{1}, \dots, R1_{n}\}\), and either:
-      \begin{enumerate}[label=(\arabic*)]
-      \item \(R1\) is not a good set of reasons for holding \(B\), and
-      \item S has available to her another set of reasons \(R2 = \{R2_{1}, \dots, R2_{n}\}\) which are good reasons for holding B; or
-      \item \(R1\) is a good set of reasons, and
-      \item S arrives at \(B\) on the basis of \(R1\) in an improper way.\linebreak
-      \mbox{}\hfill\mbox{(\citeyear[3813--3814]{Bondy:2018ux})}
-    \end{enumerate}
-  \end{quote}
-    Avoid both of these considerations.
-    For, information adds that witnessing would be successful.
+  Natural language, \dots
+  Again, \(\Vdash\) to indicate permissibility of forming attitude to the right given attitudes to the left.
 
-    And, plausible that this extends to any other considerations which would prevent the agent from establishing doxastic support in line with the relevant basing relation.
+  Question is whether there are instances of \(\geop{1}\), \(\geop{2}\), and \(\geop{3}\), in parallel to \(K\).
 
-    In other words, whatever is chosen for \(\geop{2}\) allows observation of this stuff.
-  \end{note}
+  As with knowledge, not looking for general closure principle.
+  Rather, there are cases.
+\end{note}
 
+\begin{note}[Claiming for \(\geop{1}\)]
+  Talked in terms of claiming support.
+  This provides instances for \(\geop{1}\).
+
+  \[C(\propsupp{\phi}) \land \geop{2}(\phi \ientails{} \psi) \vdash \geop{3}(\propsupp{\psi})\]
+  If agent claims propositional support for premises, some relation to reasoning, then some attitude toward conclusion.
+\end{note}
+
+\begin{note}[\(\geop{2}\)]
+  \(\geop{2}\) is where \WR{} is important.
+
+  From~\ref{W:fp:S:2}, plausible that the agent has support for any premises and steps following instance of general ability.
+
+  Intuitive idea behind instance of \(\geop{2}\) is that it allows agent to appeal to premises and steps used in reasoning.
+
+  Introduce \(W\).
+
+  \[C(\propsupp{\phi}) \land W(\phi \ientails{} \psi) \vdash \geop{3}(\propsupp{\psi})\]
+
+  Understanding of \(W\) is \dots
+
+
+
+
+  Why this doesn't require support.
+
+  The important aspect of~\ref{W:fp:S:3} is that information is sufficient.
+  So, information that this follows from general ability.
+
+  For, then agent either gives up general ability, or is required to hold that they have ability.
+  Of course, no support.
+
+  So, as long as general ability, is potential event.
+  However, and quite important, is that the agent is not obtaining support for specific ability/potential event on the basis that their support for general ability would be misleading.
+  Rather, agent is observing that so long as it is true that there is a potential event, then support for general ability means that the agent has support they may appeal to when witnessing reasoning.
+
+  Delicate, but the agent is not generating support for a novel proposition that they have specific ability, as would be the case with ability.
+  Instead, observation is that the support they already have applies to novel proposition that conclusion is true.
+
+  From this perspective, information is merely directing the agent as to \emph{what} follows from general ability.
+
+  Summary of \(W\), then, is that permissible for agent to have attitude of \(W\) toward reasoning just in case support for stages.
+\end{note}
+
+\begin{note}[\(W\) is an attitude?]
+  Nothing in particular rests on \(W\) as an attitude toward event of reasoning.
+  If understand attitudes toward propositions in terms of attitude toward states of affairs, then fairly straightforward.
+  If not, trust that there is some reformulation.
+\end{note}
+
+\begin{note}[\(\geop{3}\)]
+  Finally, take \(\geop{3}\) as \(C\), in parallel with \(\geop{1}\).
+  \[C(\propsupp{\phi}) \land W(\phi \ientails{} \psi) \Vdash C(\propsupp{\psi})\]
+  Agent may claim to have propositional support for conclusion.
+\end{note}
+
+\begin{note}[Contraposing]
+  Then, because the entailment from \(\phi\) to \(\psi\) extends support, nothing more is required.
+
+  Consider contrapositive.
+  \[\lnot C(\propsupp{\psi}) \Vdash  \lnot W(\phi \ientails{} \psi) \lor \lnot C(\propsupp{\phi})\]
+  Agent may not claim that they have propositional support for \(\psi\), then either no witnessing reasoning, or may not claim that they have propositional support for \(\phi\).
+
+  Both \(\lnot C\) and \(\lnot W\) are candidates.
+
+  Depends on surrounding information.
+  If agent is aware of required premises, then maybe \(\lnot C\).
+
+  However, if agent is not aware of required premises, then \(\lnot C\) is tricky.
+  Plausible that they are in a position to claim propositional support.
+  However, unable to do the reasoning.
+
+  Clean example is when one is stuck on a puzzle.
+  It may be that one has all of the premises required to figure out the conclusion, but things break down with the potential to witness the required reasoning.
+\end{note}
+
+\newpage
+
+\begin{note}
+  Before an exam.
+  Studied.
+  If understand material, and instance is written, then everything needed for the answer.
+  Phrased in this way, somewhat unlikely, but reassurance.
+  All the student needs to do is build on their preparation.
+
+  In first, agent doesn't have independent information to identify what propositional support is for.
+  In main, agent is aware of what provides them with propositional support, and the conditional directs this.
+\end{note}
+
+\begin{note}[Conclusion first and second step]
+  Idea is that the agent has is in a good position with respect to whatever premises would be used.
+  Careful to phrase appropriately.
+  Assuming information is true, this extends to the conclusion and so the agent has propositional support for the conclusion.
+  However, not clear that the agent is in a position to hold that they have propositional support for conclusion.
+\end{note}
+
+{
   \color{red}
   \begin{note}[Access to propositional support]
     The agent does not have support that the premises support \(\phi\).
@@ -1700,6 +2012,44 @@
     Still, so long as there is a relation of propositional support, the agent does have propositional support for the conclusion.
   \end{note}
 }
+
+\begin{note}[Fourth key step]
+  Final step is moving from attitude toward propositional support for conclusion to attitude toward conclusion.
+
+  Given understanding of propositional support, then endorse the following:
+  \[B(\propsupp{\phi}) \vdash B(\phi)\]
+
+  Contraposition is more clearly true:
+  \[B(\phi) \vdash B(\propsupp{\phi})\]
+  If believe, then sufficient epistemic reasons.
+
+  Biconditional.
+  Seem inconsistent to hold that one has sufficient epistemic reasons to believe that \(\phi\) and that one does not believe \(\phi\).
+
+  In part, turns on sufficient epistemic reasons.
+  Roughly, on our understanding, no other attitude toward \(\phi\) on the belief spectrum would be supported by reasons.
+  Potentially some objections, but these are puzzling.
+
+  Bracket objections.
+
+  Importance of final step here is why this holds.
+
+  State that it is the belief that one has propositional support for the conclusion.
+  This would be in line with~\ref{denied-claim}.
+  This then traces back.
+
+  However, following propositional support.
+  Significant observation was no additional support is added.
+  Hence, it seems appealing to propositional support is sufficient.
+
+  Fail to see why the belief, other than antecedent commitment to~\ref{denied-claim}\dots
+\end{note}
+
+\begin{note}[EEE]
+  Clearest case to be made is thinking in terms of evidence of evidence being evidence.
+  Saw this when considering \AR{}.
+  However, this would be to take belief as evidence?
+\end{note}
 
 \begin{note}[Objection]
   Objection here is that this reduces.
@@ -1726,8 +2076,6 @@
 
 \begin{note}[First pass]
   Whatever it is that doxastic support and basing is, agent establishes this in potential event when witnessing.
-
-  `Pre-basing'.
 
   Plausibility here is that propositional and doxastic support do not different with respect to support.
   Rather, differ with respect to relation between agent and support.
@@ -1822,6 +2170,21 @@
 
   Information in \WR{} does not --- and is not used to --- support the conclusion.
   Rather, it is the propositional support the agent has that does the work.
+\end{note}
+
+\begin{note}[Main motivation]
+  Before turning to difficulties, there are a handful of things to say in favour of the first pass.
+  Notably, that it provides a fairly clean expression of the core idea of \WR{}.
+  Reducing to propositional support allows agent to appeal to reasons in support that they have not used.
+  This is to some extend captured by propositional support.
+
+  Two main sticking points.
+  \begin{itemize}
+  \item Weak attitude to relation between premises and conclusion --- one may require more.
+  \item That the agent takes the propositional support to do the work.
+    There remains some room to argue that the attitude toward propositional support for premises and attitude toward information are key.
+    
+  \end{itemize}
 \end{note}
 
 \subsubsection{Difficulty with first pass}
