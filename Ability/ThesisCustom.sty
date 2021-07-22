@@ -12,9 +12,12 @@
 %
 
 \newcommand{\gen}[0]{\text{informer's statement}}
-\newcommand{\GSI}[0]{\text{G\ensuremath{\veryshortarrow}SI}}
+\newcommand{\GSI}[0]{\text{GSI}}
 \newcommand{\dSI}[0]{\text{dSI}}
 \newcommand{\gsi}[0]{\text{general-to-specific ability information}}
+
+\newcommand{\mcA}[0]{\text{Conditional A}}
+\newcommand{\mcB}[0]{\text{Conditional B}}
 
 
 
@@ -32,8 +35,38 @@
 \newcommand{\nIm}[0]{\text{[nIm]}}
 
 % % % Premise Commands
+% Perhaps:
+% S\(\rightarrow\)C for main premise
+% S\(\leftarrow\)C for denied premise
+% And S\(\circ\dashes\)C for exception
+
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\mp}{ m }{% Main premise / access to support
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[uRa]}%
+  }
+  {
+    \text{Use\space requires\space access}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\nI}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \text{[nI]}%
+  }
+  {
+    \text{No-inertia}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\uRa}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {
     \text{[uRa]}%
