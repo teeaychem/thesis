@@ -11,13 +11,13 @@
    \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
 %
 
-\newcommand{\gen}[0]{\text{informer's statement}}
+\newcommand{\gen}[0]{informer's statement}
 \newcommand{\GSI}[0]{\text{GSI}}
 \newcommand{\dSI}[0]{\text{dSI}}
-\newcommand{\gsi}[0]{\text{general-to-specific ability information}}
+\newcommand{\gsi}[0]{general-to-specific ability information}
 
-\newcommand{\mcA}[0]{\text{Conditional A}}
-\newcommand{\mcB}[0]{\text{Conditional B}}
+\newcommand{\mcA}[0]{Conditional A}
+\newcommand{\mcB}[0]{Conditional B}
 
 
 
@@ -40,27 +40,14 @@
 % S\(\leftarrow\)C for denied premise
 % And S\(\circ\dashes\)C for exception
 
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\mp}{ m }{% Main premise / access to support
-  \tl_if_empty:nTF {#1}
-  {
-    \text{[uRa]}%
-  }
-  {
-    \text{Use\space requires\space access}%
-  }
-}
-\ExplSyntaxOff
-
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nI}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {
-    \text{[nI]}%
+    \text{\textsf{|DDNIS|}}%
   }
   {
-    \text{No-inertia}%
+    \text{Dependencies\space do\space not\space inherit\space support}%
   }
 }
 \ExplSyntaxOff
@@ -69,7 +56,7 @@
 \DeclareDocumentCommand{\uRa}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {
-    \text{[uRa]}%
+    \text{\textsf{|URA|}}%
   }
   {
     \text{Use\space requires\space access}%
@@ -78,25 +65,13 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\nI}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {
-    \text{[nI]}%
-  }
-  {
-    \text{No-inertia}%
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \DeclareDocumentCommand{\eA}{ m }{% Cases exists
   \tl_if_empty:nTF {#1}
   {
-    \text{[eA]}%
+    \text{\textsf{|SE|}}%
   }
   {
-    \text{Extend\space ability}%
+    \text{Scenarios\space exist}%
   }
 }
 \ExplSyntaxOff
@@ -105,10 +80,10 @@
 \DeclareDocumentCommand{\rC}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {
-    \text{[rC]}%
+    \text{\textsf{|ACE|}}%
   }
   {
-    \text{Restricted\space claim}%
+    \text{Ability\space allows\space claiming\space support}%
   }
 }
 \ExplSyntaxOff
@@ -117,10 +92,10 @@
 \DeclareDocumentCommand{\bP}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
   {
-    \text{[rB]}%
+    \text{\textsf{|SU|}}%
   }
   {
-    \text{Basic\space premise}%
+    \text{Support\space from\space use}%
   }
 }
 \ExplSyntaxOff
@@ -145,3 +120,37 @@
 \newcommand{\strikeQ}{\mathpalette\superimpose{{\text{---}}{Q}}}
 \newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
 % % %
+
+
+% % % Agents % % %
+\ExplSyntaxOn
+\newcommand{\nagent}[1]{%
+\tl_if_empty:nTF {#1}
+  {
+    <AGENT>
+  }
+  {
+    \ifnum0=#1\relax
+      ?AGENT?
+    \fi
+    \ifnum1=#1\relax
+      Sam
+    \fi
+    \ifnum2=#1\relax
+      Taylor
+    \fi
+    \ifnum3=#1\relax
+      Cameron
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+% % % % Propositions % % %
+
+\newcommand{\propSuppIndependence}[0]{
+    \begin{proposition}\label{}
+    If agent claims support for some proposition \(\phi\), then the support claimed indicates value of \(\phi\) regardless whether \(\phi\) has that value.
+  \end{proposition}
+}
