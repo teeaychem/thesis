@@ -2,12 +2,19 @@
 %%% TeX-master: "master"
 %%% End:
 
+
+\makeatletter
+\renewcommand{\PackageInfo}[2]{}% Remove package information
+\renewcommand{\@font@info}[1]{}% Remove font information
+% \renewcommand{\@latex@info}[1]{}% Remove LaTeX information
+\makeatother
+
 \documentclass[10pt]{report}
 % \usepackage[margin=1in]{geometry}
 % \newcommand\hmmax{0}
 % \newcommand\bmmax{0}
 % % % Fonts% %
-\usepackage{luatexja}
+% \usepackage{luatexja}
 
 \usepackage[T1]{fontenc}
    % \usepackage{textcomp}
@@ -27,6 +34,9 @@
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{xfrac}
+
+% \usepackage{silence}
+% \WarningsOff[marginnote]% Suppress warnings related to package
 
 % % % The bibliography % % %
 \usepackage[backend=biber,

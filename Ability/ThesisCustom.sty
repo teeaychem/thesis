@@ -1,5 +1,10 @@
 \ProvidesPackage{ThesisCustom}
 
+
+% % % TO DO % % %
+% \hyperref[label-name]{link-text}
+% % % % % % % % %
+
 \usepackage{xparse} % For creating commands with complex arguments
 
 % % % Verbs
@@ -10,6 +15,9 @@
    \vcenter{\hbox{\rule[-.5\fontdimen8\textfont3]{#1}{\fontdimen8\textfont3}}}%
    \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
 %
+
+%\newcommand{\argued}[1]{\(\ulcorner\!\!\ulcorner\)\textsf{#1}\(\urcorner\!\!\urcorner\)}
+
 
 \newcommand{\gen}[0]{informer's statement}
 \newcommand{\GSI}[0]{\text{GSI}}
@@ -25,7 +33,10 @@
 
 % % % Attribution and witnessing
 \newcommand{\WR}[0]{\textsf{Witnessing}}
+\newcommand{\PW}[0]{\textsf{Potentive Witnessing}}
 \newcommand{\AR}[0]{\textsf{Attribution}}
+\newcommand{\PA}[0]{\textsf{APotentive Attribution}}
+\newcommand{\aben}[0]{ability entailment}
 \newcommand{\future}[0]{\textsf{Forward}}
 \newcommand{\agent}[0]{\emph{S}}
 \newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
@@ -58,7 +69,7 @@
 \DeclareDocumentCommand{\uRa}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {
-    \text{\textsf{|URA|}}%
+    \text{\hyperref[denied-claim]{\textsf{|URA|}}}%
   }
   {
     \text{Use\space requires\space access}%
