@@ -16,15 +16,9 @@
 % % % Fonts% %
 \usepackage{luatexja}
 
-\usepackage{nonumonpart}
-
 \usepackage[T1]{fontenc}
-   % \usepackage{textcomp}
-   % \usepackage{newtxtext}
-   % \renewcommand\rmdefault{Pym} %\usepackage{mathptmx} %\usepackage{times}
 \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
    \usepackage{bm}% Access to bold math symbols
-   % \usepackage[onlytext]{MinionPro}
    \usepackage[no-math]{fontspec}
    \defaultfontfeatures{Ligatures=TeX,Numbers={Proportional}}
    \newfontfeature{Microtype}{protrusion=default;expansion=default;}
@@ -52,6 +46,7 @@
   hyperref=true,
   url=false,
   isbn=false,
+  doi=false,
   useprefix=true,
   ]{biblatex}
 \DeclareFieldFormat{postnote}{#1}
@@ -67,11 +62,11 @@
 \setlist[itemize]{noitemsep}
 
 % % % Misc packages % % %
-\usepackage{setspace}
+% \usepackage{setspace}
 % \usepackage{refcheck} % Can be used for checking references
 % \usepackage{lineno}   % For line numbers
 % \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
-
+\usepackage{nonumonpart} % Disable page numbers on 'Part' title pages
 % % % % % % % % % % % % %
 
 % % % Red Math % % %
@@ -89,7 +84,6 @@
 
 % \usepackage{pifont}
 % \newcommand{\hand}{\ding{43}}
-\usepackage{array}
 
 \usepackage{multirow}
 % \usepackage{adjustbox}
@@ -99,6 +93,7 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+% % % % % % % % % % % % TIKZ
 \usepackage{tikz}
 \usetikzlibrary{bending,arrows,positioning,calc,arrows.meta,patterns,fadings}
 \usetikzlibrary{trees}
@@ -106,36 +101,40 @@
 \usepackage{tikz-qtree} %for simple tree syntax
 % \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
 \usetikzlibrary{tikzmark}
+% % % % % % % % % % % %
 
 \usepackage{graphicx} % for images (png/jpeg etc.)
 \usepackage{caption} % for \caption* command
-
-\usepackage{tabularx}
 
 % \usepackage{svg}
 % \usepackage[off]{svg-extract}
 % \svgsetup{clean=true}
 
-\usepackage{dashrule}
+\usepackage{extarrows}
 
+% % % % % % % % % % % % MY COMMANDS
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+  %\vspace{-10pt}
+}
+
+\def\nleadsto{\mathrel{%
+    \mathchoice{\NLEADSTO}{\NLEADSTO}{\scriptsize\NLEADSTO}{\tiny\NLEADSTO}%
+}}
+\def\NLEADSTO{{%
+    \setbox0\hbox{\leadsto}%
+    \rlap{\hbox to \wd0{\hss\hspace{-10pt}\not\hss}}\box0
+  }}
+
+\usepackage{dashrule}
 \newcommand{\hozline}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
   %\vspace{-10pt}
   % \noindent\rule{\textwidth}{.1pt}
 }
-
-% \usepackage{pdfrender}
-\usepackage{extarrows}
-
-% % % My commands % % %
-
-\newcommand{\hozlinedash}[0]{%
-  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
-  %\vspace{-10pt}
-}
 % % % % % % % % % % % %
-
 \usepackage{xskak} % For chess diagram
+% % % % % % % % % % % %
 
 % % % My packages % % %
 \usepackage{CustomTheoremsThesis}
@@ -144,16 +143,9 @@
 \usepackage{Notes}
 % % % % % % % % % % % %
 
-\def\nleadsto{\mathrel{%
-    \mathchoice{\NLEADSTO}{\NLEADSTO}{\scriptsize\NLEADSTO}{\tiny\NLEADSTO}%
-}}
-\def\NLEADSTO{{%
-    \setbox0\hbox{\leadsto}%
-    \rlap{\hbox to \wd0{\hss\hspace{-10pt}\not\hss}}\box0
-}}
+
 
 \usepackage[hidelinks,breaklinks]{hyperref}
-\usepackage[]{bookmark}
 
 % \title{
 %   Ability to reason and reasoning with ability

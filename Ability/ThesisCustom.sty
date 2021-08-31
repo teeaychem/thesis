@@ -45,6 +45,8 @@
 \newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
 
+\newcommand{\GuRa}[0]{\textsc{|esu|}}
+
 \newcommand{\nIp}[0]{\text{[nI\('\)]}}
 
 \newcommand{\nIm}[0]{\text{[nIm]}}
@@ -72,10 +74,10 @@
 \DeclareDocumentCommand{\uRa}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {
-    \text{\hyperref[denied-claim]{\textsf{|URA|}}}%
+    \text{\hyperref[denied-claim]{\textsf{|ESU|}}}%
   }
   {
-    \text{Use\space requires\space access}%
+    \text{Explanation\space only\space by\space (claimed)\space support\space used}%
   }
 }
 \ExplSyntaxOff
@@ -96,10 +98,10 @@
 \DeclareDocumentCommand{\rC}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {
-    \text{\textsf{|ACE|}}%
+    \text{\textsf{|EAS|}}%
   }
   {
-    \text{Ability\space allows\space claiming\space support}%
+    \text{Explanation\space by\space ability\space to (claim)\space support}%
   }
 }
 \ExplSyntaxOff
@@ -108,10 +110,10 @@
 \DeclareDocumentCommand{\bP}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
   {
-    \text{\textsf{|CSBA|}}%
+    \text{\textsf{\textsf{|USE|}}}%
   }
   {
-    \text{Claimed\space support\space by\space access}%
+    \text{Used\space (claimed) \space support\space explains}%
   }
 }
 \ExplSyntaxOff
@@ -140,6 +142,8 @@
   }
 }
 \ExplSyntaxOff
+
+
 
 
 % % % Transmission
