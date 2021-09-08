@@ -426,3 +426,286 @@ Why does witnessing work?
   So, this distinguishes \nI{} from transmission failure.
   More is said in chapter~\ref{cha:inertia}.
 \end{note}
+
+\section{Two Different Ways of Claiming Support}
+\label{sec:two-different-ways}
+
+\begin{note}
+  Here, two different ways of claiming support.
+  \RBV{-} is used when stating \nI{}, so it may be helpful to clarify.
+  \incl{} is not used anywhere, but it provides a useful contrast to \RBV{}.
+\end{note}
+
+\subsection{Inclusion}
+\label{sec:inclusion-support}
+
+\begin{note}[Inclusion of support]
+  \begin{proposition}[Inclusion of support --- \incl{}]
+    Support for \(\phi\) includes/requires support for \(\psi\).
+    If, possible to reapply premises that establish \(\phi\) to establish \(\psi\) (without appealing to value of \(\phi\)).
+  \end{proposition}
+  Basic idea of \incl{} is reapplication.
+  Hence, \incl{}\dots
+
+  Without going by \(\phi\).
+  This is not an additional condition, but clarification.
+  For, given \eiS{}, agent did not need value of \(\phi\) in order to claim support for \(\phi\), and as agent is reapplying claimed support for \(\phi\), such reapplication does not require value of \(\phi\) either.
+
+    \begin{figure}[H]
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [] (a) at (1.5,3) {\(\{P/S\}\)};
+        \node [] (b) at (1.5,0) {\(S(\phi)\)};
+        \node [] (c) at (3,0) {};
+        \node [] (d) at (3,3) {};
+
+        \draw [->,-{Square[open]}, xshift=4] (a) to  node[right] {} (b);
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Support for \(S(\phi)\) from premises/steps}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [opacity=.33] (a) at (.25,3) {\(\{P/S\}\)};
+        \node [opacity=.33] (b) at (.25,0) {\(S(\phi)\)};
+        \node [] (lt) at (1.5,3.25) {\(\leadsto\)};
+        \node [] (dv) at (1.5,3) {\hdashrule[0.5ex][c]{12pt}{.1pt}{}};
+        \node [] (ss) at (1.5,2.75) {\(\supseteq\)};
+        \node [] (c) at (2.75,0) {\(S(\psi)\)};
+        \node [] (d) at (2.75,3) {\(\{P'/S'\}\)};
+
+        \draw [->,-{Square[open]}, opacity=.33] (a) to  node[right] {} (b);
+        \draw [->,-{Square[open]},] (d) to  node[right] {} (c);
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Reapply premises/steps to claim support for \(\psi\)}
+    \end{subfigure}
+    \caption{\incl{} diagram}
+  \end{figure}
+
+  Examples:
+  \begin{itemize}
+  \item \(p \rightarrow r\), includes support for \(p \rightarrow (q \land r)\) with premises \(p \rightarrow q\) and \(q \rightarrow r\).
+  \item More complex example of entailment.
+  \item Combining support for novel entailments.
+  \item If understand language, then parse: some sentence.
+  \item Optimal route to some place, then stop at some intermediate point at some time.
+  \item Calculation of area, then calculation of diagonal. (A little trickier, as diagonal is background, and it's only the reuse of measurements.)
+  \end{itemize}
+  In these cases, some consequence.
+  However, it's not simply any consequence.
+  Rather, there is some resource that the agent will have used which may be refined.
+
+  Clear failures for arbitrary entailment.
+  Things used for proving completeness do not necessarily ensure finite model property, though in certain cases they may.
+
+  And, finally, cases of ability.
+  Ability is quite natural here, as when looking at the agent doing something, so perform some action.
+
+  \begin{quote}
+    If you've done X, then in a position to do Y.
+  \end{quote}
+
+  Doesn't hold for many cases.
+  Two examples:
+  \begin{itemize}
+  \item Knowledge, support that \(S\) knows \(p\) does not include support for \(p\).
+  \item Going by a supplied conditional.
+    E.g.\ If not in London then in Paris.
+    Searched London, but this doesn't already establish that the person is in Paris, the person could be anywhere other than London.
+  \end{itemize}
+\end{note}
+
+\begin{note}[\incl{} and \nI{}]
+  So, with respect to \nI{}, \incl{} highlights tight relation between support for \(\phi\) and support for \(\psi\).
+
+  Because focus is on inclusion, issue of \(\psi\) is something of an (indirect, partial) test on the claimed support for \(\phi\).\nolinebreak
+  \footnote{
+    Partial, because it doesn't say too much about mistaken or misleading support that allows the agent to claim support for too much.
+    However, pair with `not claim support for \(\psi\)' type conditions.
+  }
+  This is why issue of support for \(\psi\) is significant.
+\end{note}
+
+
+\subsection{Reasoning-by-value}
+\label{sec:reasoning-value}
+
+\begin{note}[\RBV{}]
+  Second point is reasoning-by-value.
+
+  \begin{proposition}[Reasoning by value (\RBV{})]
+    An agent \emph{reasons by value} if the agent moves from claimed support for propositions \(\phi_{i}\) to \(\phi_{i}\) having value \(v_{i}\), which constrains value of \(\psi\).
+  \end{proposition}
+
+  \RBV{} is common.
+  Agent has claimed support for \(\phi\) having value \(v\), then reason about what follows from \(\phi\) having value \(v\).
+  Distinguishing feature is that it is \(\phi\) having value \(v\) which constrains value of \(\phi\).
+  Purpose of going by value is that claimed support for \(\phi\) may not be sufficient to provide constraint of value of \(\psi\) without value of \(\phi\).
+
+  First, entailments sometimes require value.
+  Example with knowledge.
+  It is true that an agent knows that \(p\) only if \(p\) is true.
+  So, agent knowing \(p\) constrains value of \(p\).
+
+  Support for agent knowing \(p\) without independent support for \(p\).
+  For example, novice and an expert.
+  Novice in position to claim support for expertise of expert, but not in a position to reason to \(p\) independently of expert.
+  Appeal to claim of support.
+  Factivity.
+  Factivity requires that the expert knows, not merely that the agent has claimed support that the expert knows.
+  Claimed support won't do this alone, for claimed support doesn't get \(p\) without \(K_{E}p\), nor does it need to be the case that \(K_{E}p\) in order to claim support for \(p\).\nolinebreak
+  \footnote{
+    Decline to link support to attitudes, but for clearer intuition, consider belief.
+    \(B(K_{E}p)\) gets to \(B(p)\), but simply believing \(K_{E}p\) isn't enough to get \(K_{E}p\) and hence \(p\).
+    So, \(K_{E}p\) given belief, hence \(p\), resulting in \(B(p)\).
+  }
+  Probe and find issues.
+
+  Second, following entailment, information provided to agents is often about values.
+  Information provides to an officer worker by company secretary that if their manager is not in the London office today, they are in the Paris office.
+  Secretary does not provide information other than constraints on location.
+  Employee searches London office, doesn't find manager.
+  So, claim support that manager is not in the London office, and with the secretary's information, claim support that the manager is in the Paris office.
+
+  As secretary doesn't provide information other than constraints, need not in London office to go to Paris office.
+
+  Similarly, condition~\ref{nI:received-info} is about value, though abstract stated.
+
+  \begin{figure}[H]
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [] (a) at (0,3) {\(S(\phi)\)};
+        \node [] (b) at (0,0) {\(\phi\)};
+        \node [] (c) at (3,0) {\(\psi\)};
+        \node [] (d) at (3,3) {};
+
+        \draw [->, xshift=4] (b) to  node[right] {} (c);
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Support for \(S(\phi)\) and info}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [] (a) at (0,3) {\(S(\phi)\)};
+        \node [] (b) at (0,0) {\(\phi\)};
+        \node [] (c) at (3,0) {\(\psi\)};
+        \node [] (d) at (3,3) {};
+
+        \draw [->] (b) to  node[right] {} (c);
+        \draw [->, -{Square[open]}] (a) to  node[right] {} (b);
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Move to value of \(\phi\)}
+    \end{subfigure}
+
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[>=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [] (a) at (0,3) {\(S(\phi)\)};
+        \node [opacity=0.33] (b) at (0,0) {\(\phi\)};
+        \node [] (c) at (3,0) {\(\psi\)};
+        \node [] (d) at (3,3) {};
+
+        \draw [->, opacity=0.33] (b) to  node[right] {} (c);
+        \draw [->,-{Square[open]}, opacity=0.33] (a) to  node[right] {} (b);
+        \draw [->,-{Square[open]}] (a) to  node[right] {} (c);
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Given support, value of \(\psi\) is determined}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.45\textwidth}
+      \centering
+      \begin{tikzpicture}[>=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
+        \node [] (1) at (-1,4) {};
+        \node [] (2) at (-1,-1) {};
+        \node [] (3) at (4,-1) {};
+        \node [] (4) at (4,4) {};
+
+        \node [opacity=0.66] (a) at (0,3) {\(S(\phi)\)};
+        \node [opacity=0.33] (b) at (0,0) {\(\phi\)};
+        \node [opacity=0.66] (c) at (3,0) {\(\psi\)};
+        \node [] (d) at (3,3) {\(S(\psi)\)};
+
+        \draw [->, opacity=0.33] (b) to  node[right] {} (c);
+        \draw [->,-{Square[open]}, opacity=0.33] (a) to  node[right] {} (b);
+
+        \draw [rounded corners=10pt] (-.5,3.5) -- (-.5,-.5) -- (3.5,-.5) -- (3.5,.5) -- (.5,.5) -- (.5,3.5) -- cycle;
+        \draw [->,-{Square[open]}] (.64,.64) to node[right] {} (d);
+
+        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
+      \end{tikzpicture}
+      \caption{Support for \(\psi\) from constraint on \(\psi\) following from support for \(\phi\)}
+    \end{subfigure}
+    \caption{\RBV{} diagram}
+  \end{figure}
+\end{note}
+
+
+\begin{note}[Non-\RBV{} reasoning]
+  Not all reasoning is like this.
+
+  Return to examples used to illustrate inclusion of support.
+  \begin{itemize}
+  \item Conjunction elimination.
+    Here, working with the logical form, it doesn't matter what \(p\), \(q\), nor \(r\) are.
+  \item Same for efficient route example.
+    Agent doesn't need to appeal to having found the most efficient route to produce variation.
+  \end{itemize}
+
+  Some instance of reasoning may go either way.
+  For example.
+  Machine.
+  Told that the machine is designed to perform some function, but not told what the function is.
+
+  Question, \(f(X,Y)\)
+
+  One option is to input into machine.
+  So, relying on machine implementing function.
+  Going by value.
+
+  Second option, abstract function from machine by inspection.
+  Then, calculate \(f(X,Y)\).
+  Not going by value, doesn't matter what the machine produced.
+
+  Risks for each.
+  For the first, potential malfunction on specific input, but without malfunction then that's the result.
+  For the second, no concern about potential malfunction, but possible that abstracted function is faulty.
+
+  So, difference is not tied to proposition.
+
+  And, complex chain of reasoning may include both.
+  \(p \rightarrow (q \land K_{S}r)\) so \(p \rightarrow q \land r\).
+\end{note}

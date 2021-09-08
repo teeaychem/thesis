@@ -1072,7 +1072,7 @@
   However, if the agent holds that they have the ability to demonstrate that there is a sequences of moves that will ensure a win for one of the players, then the agent may reason to~\ref{qe:result}.
 \end{note}
 
-\subsection{(An) Ability entailment}
+\subsection{(An) ability entailment}
 \label{sec:ability-entailment}
 
 \begin{note}[\aben{}]
@@ -1424,18 +1424,31 @@
 \subsubsection{Statement of \nI{}}
 \label{sec:ni-1}
 
+
 \begin{note}[\nI{}]
   We turn to the general constraint on claiming support.
   \begin{proposition}[\nI{-}  --- \nI{}]\label{prem:ni}
     For any agent \(S\).
     Suppose:
     \begin{enumerate}[ref=(\textsf{NI}:\arabic*), series=nI_counter]
-    \item\label{nI:claimed-support} \(S\) has claimed support that some proposition \(\phi\) has value \(v\).
+    \item\label{nI:claimed-support} \(S\) has claimed support that some proposition \(\phi\) has value \(v\) from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).\nolinebreak
+      \footnote{
+        The agent has at some time in the past (perhaps a moment ago) claimed support for \(\phi\) having \(v\) from materia \(M\), and at the present time the agent continues to hold that \(\phi\) has value \(v\) from \(M\).
+        In some cases, an agent may revise materia.
+        E.g.\ this may be the case when appealing to memory, a new source, etc.
+        Note, however, that this does not require that the agent initially claimed support for \(\phi\) from materia \(M\) --- may be in instance of memory.
+      }
     \item\label{nI:received-info} \(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).
     \end{enumerate}
     And, suppose:
     \begin{enumerate}[ref=(\textsf{NI}:\arabic*), resume*=nI_counter]
-    \item\label{nI:inclusion} \(S\) considers that the support claimed for \(\phi\) having value \(v\) is mistaken or misled if \(S\) is not in a position to claim support that \(\psi\) has value \(v'\) --- without appealing to \(\phi\) having value \(v\).
+    \item\label{nI:inclusion} \(S\) considers that the support claimed for \(\phi\) having value \(v\) is mistaken or misled if \(S\) is not in a position to claim support that \(\psi\) has value \(v'\) (without appealing to \(\phi\) having value \(v\)).\nolinebreak
+      \footnote{
+        Agent considers.
+        This should be stressed.
+        And, in most cases, it is mistaken that's at issue.
+        For, failure of \(\psi\) condition doesn't raise any issue in particular for \(\phi\).
+      }
     \end{enumerate}
     Then:
     \begin{enumerate}[ref=(\textsf{NI}:\arabic*), resume*=nI_counter]
@@ -1448,61 +1461,187 @@
   \end{proposition}
 \end{note}
 
+
 \begin{note}
   \nI{} highlights a restriction on the way in which an agent may claim support for some proposition.
 
-  The intuition behind~\nI{} is that an agent is never permitted to claim support for propositions that may reveal problem with claimed support for entailing proposition by appealing to claimed support for entailing proposition if
+  The intuition behind~\nI{} follows with the help of previous proposition and \eit{}.
 
-  claimed support for some proposition does permit an agent to claim support for some implied proposition if inability to claim support for the other proposition would highlight some problem with the claim support for the implying proposition.
+  The problem is claiming support for \(\psi\).
+  Here, the issue is that there's a relation between two instances of claiming support.
+  Hence, in moving to the value of \(\phi\), the agent already needs to expect that \(\psi\) is the case.
+  However, given this, support claimed for \(\psi\) by value requires \(\psi\) to be the case.
 
-  A researcher is never permitted to claim support that some data is an anomaly on the basis of theory if anomaly would show that claimed support for theory is problematic.
-  If theory is good, then account for anomaly without appealing to truth of theory.
+  A researcher is never permitted to claim support that some data is result of machine malfunction given theory if data would show that claimed support for theory is problematic.
+  For, moving from theory to what is the case already requires data to be result of machine malfunction.
+  No claim for support that it's the result of a machine malfunction even if the machine did not malfunction.
+  Consistent with expectation that the machine malfunctioned, but this is weaker than claiming support that the machine did malfunction.
 
   However, this is too quick.
   Going through the details with a toy example where intuitions may be less clear will help.
 
   The initial conditions, \ref{nI:claimed-support} and~\ref{nI:received-info}, are background conditions, separated to allow a clean statement of the final condition \ref{nI:inclusion} and the restriction \ref{nI:going-by-value}.
+\end{note}
 
-  {
-    \color{red}
-    Eleven differences in \emph{next} pair of images.
-    Perhaps works better with colour of jumper, stripes or whatever.
+\subsubsection{Illustration of \nI{}}
+\label{sec:illustration-ni}
+
+\begin{note}[Illustration]
+  To illustrate, let \(\phi\) be the proposition that a certain individual in a given illustration is Wally.\nolinebreak
+  \footnote{
+    Or Waldo.
+    Background on `Where's Wally?'.
+  }
+  Most likely you have searched the picture and identified an individual with a sufficient collection of visually-identifying properties say: glasses, brown hair, blue trousers, and a red and white striped jumper).
+  Let \(\psi\) be some other identifying trait that you did you use to identify Wally, say round glasses (or perhaps a vertically striped jumper, a held cane, etc.).
+  So, you may claim support that if you found Wally, then the individual identified is wearing round glasses.
+
+  The third condition~\ref{nI:inclusion} queries whether claimed support for finding Wally has a certain property.
+  Would the claimed support for having found Wally be mistaken or misled if you are not in a position to claim support that the identified individual is not wearing round glasses?
+  Clearly, you would be mistaken or misled if the identified individual is not wearing round glasses, as Wally is always wearing a pair of round glasses.
+  However, \ref{nI:inclusion} whether you would be mistaken or misled if you are not in a position to claim support that Wally is wearing round glasses.
+  Intuitively, the latter is true because you identified the individual as Wally by a sufficient collection of visually-identifying properties, you're at least in a position to find the individual again and check that they're wearing round glasses, though you may have also taken a photo, or your may have good visual memory.
+  If the individual is not wearing round glasses, then you were mistaken or misled when claiming support that the individual is Wally.
+
+  \ref{nI:inclusion} restricts application of \nI{} to cases in which the agent `should' be in position to claim support for some other proposition.
+  Hence: \emph{given} that you have the opportunity to reinspect the individual, there is a problem claiming support that the individual is Wally if you are not in position to claim support that the individual is not wearing round glasses.
+  If you do not have the opportunity, then there may be no reason to consider the claimed support for the individual being Wally may be problematic.
+
+  Why?
+  \ref{nI:inclusion} sets up \(\psi\) as a potential defeater for claimed support with respect to how the agent has claimed support for \(\phi\).
+  Broadly, \nI{} is not identifying an issue with support claimed for \(\phi\) --- issue is with whether the agent may claim support for \(\psi\) in a certain way.\nolinebreak
+  \footnote{
+    Indeed, \ref{nI:claimed-support} grants that the agent has claimed support for \(\phi\).
+    Claimed does not imply success, but is consistent with success, so this is fine.
+  }
+  Potential defeater with respect to successful claimed support.
+
+  So, if the picture is destroyed, there's no interest.
+  However, if faded, then okay.
+  If rely on testimony, then still a problem.
+  But, if sold the book and testimony, then fine.
+
+  Summarising.
+  Simple case used, plausible claimed support given inspection of image.\nolinebreak
+  \footnote{
+    Given \ref{nI:inclusion} this is compatible with memory.
+  }
+  \ref{nI:claimed-support}, things looked good.
+  \ref{nI:received-info}, wearing round glasses.
+  \ref{nI:inclusion}, potential defeater that agent expects not to hold.
+
+  Finally, the fourth condition~\ref{nI:going-by-value} denies that I may claim support that the individual is wearing glasses in a certain way.
+  Specifically, I may not claim support that the individual is wearing rounded glasses from:
+  \begin{enumerate*}
+  \item it is true that the individual is Wally, and
+  \item it is true that if the individual is Wally then the individual is wearing glasses, and the entailment that,
+  \item it is true that the individual is wearing glasses.
+  \end{enumerate*}.
+  We term this type of reasoning `\RBV{-}', and will expand below.
+  For now, important observation is that in order to `reason by value' the agent infers from claimed support for a proposition having some value that the corresponding proposition has the value, and then reasons from the proposition having the value.
+
+  Difference.
+  Perhaps easy to illustrate with the Preface Paradox.
+  Claimed support for each claim in preface.
+  So, each is true.
+  Therefore, conjunction is true.
+  However, do not claim support that all are true.
+  Prevented from claiming support.
+
+  Possible for similar situation here.
+  Claimed support requires some overlap, and possible for \(\psi\) to fall below some threshold.
+  However, different.
+
+  Issue is with the kind of defeater.
+  Need \(\psi\) to be the case in order to reason this way.
+  Constraint on support is `even if\dots'
+  Kind of defeater means \RBV{} conflicts with this.
+
+  Need to hold that in a position to claim support for \(\psi\) in order to move from claimed support for \(\phi\) to value of \(\phi\).
+  If go to value, then require support to be good.
+  If support is good, then in position.
+  Therefore, in moving to \(\phi\) already require that I am in position to claim support for \(\psi\).
+  Hence, that \(\psi\) holds up.
+  Yet, result of this is that need \(\psi\) to be the case in order to reason this way.\nolinebreak
+  \footnote{
+    Edge cases provide further illustration.
+    If you found Wally, then you actually found a one of many as the illustrator made a mistake in this illustration.
   }
 
-  To illustrate, spot the difference.
-  Exhaustive search.
-  Instance of \ref{nI:claimed-support}, the proposition that I have found all of the differences between the two pictures is true.
-  On the back of the page it states there are eleven differences.
-  Instance of \ref{nI:claimed-support}, if it is true that I have found all of the differences between the two pictures, then I have found eleven differences between the two pictures.
+  Again, no suggested problem with claimed support for \(\phi\).
+  Expect to be in a position to claim support.
+  However, issue with \(\psi\) by value is that requires me to be in position.
+  Some other proposition would not have this result.
+  To illustrate, `faster than X'.
+  In moving to value, not required to hold that I am faster.
+  Even if I am not faster than X, I am still in a position to claim support that I am, because of info and finding.
+\end{note}
 
-  Here, simple deduction.
-  If I have found all the differences, then I have found eleven differences.
-  Therefore, claim support for having found eleven differences.
+\begin{note}[\emph{Summary}]
+Still, in position to claim support, but I am not permitted to use this to extend to proposition that would show support is problematic.
+\end{note}
 
-  The third condition~\ref{nI:inclusion} queries whether claimed support for finding all differences has a certain property.
-  Would I be mistaken or misled when claiming exhaustive search for all differences if I am not in a position to claim support for eleven differences (without appealing to having found all the differences)?
-  I am in a position to re-search.
-  So, suppose I am not in a position to claim support for eleven differences.
-  Perhaps because I found fewer.
-  Then, misleading.
-  Perhaps I found more.
-  Then mistake.
-  Given information from the back of the page, there may be some problem with claimed support for having found all.
+\subsubsection{Details of --- and argument for --- \nI{}}
+\label{sec:details-ni}
 
-  Note, this does not suggest that I should revise claim to support.
-  There may be some problem, but it does not state there is a problem.
+\begin{note}
+  Initial three conditions are background conditions.
+\end{note}
 
-  Nor does it say that I may not reuse the same support --- though I did not count, may be that memory is sufficiently good that I can recall each difference and claim support.
+\begin{note}
+  \ref{nI:claimed-support} and \ref{nI:received-info} fix what the agent has claimed support for.
+  Claimed support, potential defeater.
+  As agent has claimed support, agent expects that potential defeaters do not obtain.
+\end{note}
 
-  Still, the fourth condition~\ref{nI:going-by-value} denies that I may claim support by simple deduction.
-  Issue is that reasoning by value will implicitly or explicitly hold that I am in a position to establish \(\psi\).
-  Therefore, prior to reasoning to value of \(\psi\), I have already assumed what I set out to establish.
+\begin{note}
+  \ref{nI:inclusion} introduces potential defeater of a certain kind.
 
-  For, when moving from claimed support to value, hold that support is good, but then by 3, this means that I already hold that I am in a position.
 
-  Again, no suggested problem with claimed support for all differences with current picture.
-  Potential defeater, but exhaustive search is sufficient to expect that no difference has been missed.
-  Still, in position to claim support, but I am not permitted to use this to extend to proposition that would show support is problematic.
+
+
+
+
+  Here, mistaken.
+  This implies that the agent has made a mistake.
+  However, does not follow that problem if the agent is misled.
+
+  The argument sketched above, and detailed below, applies regardless of mistaken or misled.
+
+
+
+
+
+
+  
+  Note, the defeater focuses on the claimed support for \(\phi\), not whether \(\phi\) has value \(v\).
+  In some cases, potential defeater for \(\phi\) having value \(v\) may be of this kind.
+  Still, not all.
+
+  Important case is knowledge.
+  This condition doesn't necessarily apply, as agent may not be in position to claim support for what follows from knowledge claim.
+
+  Two reasons for this.
+  First, agent may not be in a position to check.
+  Second, agent may not need to \RBV{-}.
+  For, if you've testified, then it follows from your statement.
+  I don't need to appeal to me having heard from you.
+  Instead, given the additional information that I have, you've already made the claim.
+  Even if \(\phi\) doesn't have value, this is still an okay reinterpretation of the testimony you have provided.
+  Here, to get the intuition, it's really not clear that I need to endorse that I do have the option to check.
+  {
+    \color{red}
+    This point only really makes sense after the argument has been given.
+  }
+
+  Still, possible to separate \nI{} into two distinct conditions.
+  One for being mistaken and one for being misled.
+  For us, misled is the most important.
+  And, arguably the harder to establish.
+  For, this requires that failure is sufficient to indicate that \(\phi\) does not the relevant value.
+  This was the case with Wally.
+
+  Still, the argument to be given does not depend on the particular relation between the support claimed for \(\phi\) and the potential to claim support for \(\psi\).
 \end{note}
 
 \begin{note}
@@ -1599,283 +1738,7 @@
   Including, related literature. (No Feedback and Wright.)
 \end{note}
 
-\subsubsection{Inclusion of support}
-\label{sec:inclusion-support}
 
-{
-  \color{red}
-  This should be cut down and offered as an alternative to \RBV{}.
-}
-
-\begin{note}[Inclusion of support]
-  \begin{proposition}[Inclusion of support --- \incl{}]
-    Support for \(\phi\) includes/requires support for \(\psi\).
-    If, possible to reapply premises that establish \(\phi\) to establish \(\psi\) (without appealing to value of \(\phi\)).
-  \end{proposition}
-  Basic idea of \incl{} is reapplication.
-  Hence, \incl{}\dots
-
-  Without going by \(\phi\).
-  This is not an additional condition, but clarification.
-  For, given \eiS{}, agent did not need value of \(\phi\) in order to claim support for \(\phi\), and as agent is reapplying claimed support for \(\phi\), such reapplication does not require value of \(\phi\) either.
-
-    \begin{figure}[H]
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [] (a) at (1.5,3) {\(\{P/S\}\)};
-        \node [] (b) at (1.5,0) {\(S(\phi)\)};
-        \node [] (c) at (3,0) {};
-        \node [] (d) at (3,3) {};
-
-        \draw [->,-{Square[open]}, xshift=4] (a) to  node[right] {} (b);
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Support for \(S(\phi)\) from premises/steps}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [opacity=.33] (a) at (.25,3) {\(\{P/S\}\)};
-        \node [opacity=.33] (b) at (.25,0) {\(S(\phi)\)};
-        \node [] (lt) at (1.5,3.25) {\(\leadsto\)};
-        \node [] (dv) at (1.5,3) {\hdashrule[0.5ex][c]{12pt}{.1pt}{}};
-        \node [] (ss) at (1.5,2.75) {\(\supseteq\)};
-        \node [] (c) at (2.75,0) {\(S(\psi)\)};
-        \node [] (d) at (2.75,3) {\(\{P'/S'\}\)};
-
-        \draw [->,-{Square[open]}, opacity=.33] (a) to  node[right] {} (b);
-        \draw [->,-{Square[open]},] (d) to  node[right] {} (c);
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Reapply premises/steps to claim support for \(\psi\)}
-    \end{subfigure}
-    \caption{\incl{} diagram}
-  \end{figure}
-
-  Examples:
-  \begin{itemize}
-  \item \(p \rightarrow r\), includes support for \(p \rightarrow (q \land r)\) with premises \(p \rightarrow q\) and \(q \rightarrow r\).
-  \item More complex example of entailment.
-  \item Combining support for novel entailments.
-  \item If understand language, then parse: some sentence.
-  \item Optimal route to some place, then stop at some intermediate point at some time.
-  \item Calculation of area, then calculation of diagonal. (A little trickier, as diagonal is background, and it's only the reuse of measurements.)
-  \end{itemize}
-  In these cases, some consequence.
-  However, it's not simply any consequence.
-  Rather, there is some resource that the agent will have used which may be refined.
-
-  Clear failures for arbitrary entailment.
-  Things used for proving completeness do not necessarily ensure finite model property, though in certain cases they may.
-
-  And, finally, cases of ability.
-  Ability is quite natural here, as when looking at the agent doing something, so perform some action.
-
-  \begin{quote}
-    If you've done X, then in a position to do Y.
-  \end{quote}
-
-  Doesn't hold for many cases.
-  Two examples:
-  \begin{itemize}
-  \item Knowledge, support that \(S\) knows \(p\) does not include support for \(p\).
-  \item Going by a supplied conditional.
-    E.g.\ If not in London then in Paris.
-    Searched London, but this doesn't already establish that the person is in Paris, the person could be anywhere other than London.
-  \end{itemize}
-\end{note}
-
-\begin{note}[\incl{} and \nI{}]
-  So, with respect to \nI{}, \incl{} highlights tight relation between support for \(\phi\) and support for \(\psi\).
-
-  Because focus is on inclusion, issue of \(\psi\) is something of an (indirect, partial) test on the claimed support for \(\phi\).\nolinebreak
-  \footnote{
-    Partial, because it doesn't say too much about mistaken or misleading support that allows the agent to claim support for too much.
-    However, pair with `not claim support for \(\psi\)' type conditions.
-  }
-  This is why issue of support for \(\psi\) is significant.
-\end{note}
-
-\subsubsection{Reasoning-by-value}
-\label{sec:reasoning-value}
-
-\begin{note}[\RBV{}]
-  Second point is reasoning-by-value.
-
-  \begin{proposition}[Reasoning by value (\RBV{})]
-    An agent \emph{reasons by value} if the agent moves from claimed support for propositions \(\phi_{i}\) to \(\phi_{i}\) having value \(v_{i}\), which constrains value of \(\psi\).
-  \end{proposition}
-
-  \RBV{} is common.
-  Agent has claimed support for \(\phi\) having value \(v\), then reason about what follows from \(\phi\) having value \(v\).
-  Distinguishing feature is that it is \(\phi\) having value \(v\) which constrains value of \(\phi\).
-  Purpose of going by value is that claimed support for \(\phi\) may not be sufficient to provide constraint of value of \(\psi\) without value of \(\phi\).
-
-  First, entailments sometimes require value.
-  Example with knowledge.
-  It is true that an agent knows that \(p\) only if \(p\) is true.
-  So, agent knowing \(p\) constrains value of \(p\).
-
-  Support for agent knowing \(p\) without independent support for \(p\).
-  For example, novice and an expert.
-  Novice in position to claim support for expertise of expert, but not in a position to reason to \(p\) independently of expert.
-  Appeal to claim of support.
-  Factivity.
-  Factivity requires that the expert knows, not merely that the agent has claimed support that the expert knows.
-  Claimed support won't do this alone, for claimed support doesn't get \(p\) without \(K_{E}p\), nor does it need to be the case that \(K_{E}p\) in order to claim support for \(p\).\nolinebreak
-  \footnote{
-    Decline to link support to attitudes, but for clearer intuition, consider belief.
-    \(B(K_{E}p)\) gets to \(B(p)\), but simply believing \(K_{E}p\) isn't enough to get \(K_{E}p\) and hence \(p\).
-    So, \(K_{E}p\) given belief, hence \(p\), resulting in \(B(p)\).
-  }
-  Probe and find issues.
-
-  Second, following entailment, information provided to agents is often about values.
-  Information provides to an officer worker by company secretary that if their manager is not in the London office today, they are in the Paris office.
-  Secretary does not provide information other than constraints on location.
-  Employee searches London office, doesn't find manager.
-  So, claim support that manager is not in the London office, and with the secretary's information, claim support that the manager is in the Paris office.
-
-  As secretary doesn't provide information other than constraints, need not in London office to go to Paris office.
-
-  Similarly, condition~\ref{nI:received-info} is about value, though abstract stated.
-
-  \begin{figure}[H]
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [] (a) at (0,3) {\(S(\phi)\)};
-        \node [] (b) at (0,0) {\(\phi\)};
-        \node [] (c) at (3,0) {\(\psi\)};
-        \node [] (d) at (3,3) {};
-
-        \draw [->, xshift=4] (b) to  node[right] {} (c);
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Support for \(S(\phi)\) and info}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[->, >=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [] (a) at (0,3) {\(S(\phi)\)};
-        \node [] (b) at (0,0) {\(\phi\)};
-        \node [] (c) at (3,0) {\(\psi\)};
-        \node [] (d) at (3,3) {};
-
-        \draw [->] (b) to  node[right] {} (c);
-        \draw [->, -{Square[open]}] (a) to  node[right] {} (b);
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Move to value of \(\phi\)}
-    \end{subfigure}
-
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[>=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [] (a) at (0,3) {\(S(\phi)\)};
-        \node [opacity=0.33] (b) at (0,0) {\(\phi\)};
-        \node [] (c) at (3,0) {\(\psi\)};
-        \node [] (d) at (3,3) {};
-
-        \draw [->, opacity=0.33] (b) to  node[right] {} (c);
-        \draw [->,-{Square[open]}, opacity=0.33] (a) to  node[right] {} (b);
-        \draw [->,-{Square[open]}] (a) to  node[right] {} (c);
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Given support, value of \(\psi\) is determined}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{.45\textwidth}
-      \centering
-      \begin{tikzpicture}[>=stealth', node distance=0cm, every text node part/.style={align=center}, scale=0.75]
-        \node [] (1) at (-1,4) {};
-        \node [] (2) at (-1,-1) {};
-        \node [] (3) at (4,-1) {};
-        \node [] (4) at (4,4) {};
-
-        \node [opacity=0.66] (a) at (0,3) {\(S(\phi)\)};
-        \node [opacity=0.33] (b) at (0,0) {\(\phi\)};
-        \node [opacity=0.66] (c) at (3,0) {\(\psi\)};
-        \node [] (d) at (3,3) {\(S(\psi)\)};
-
-        \draw [->, opacity=0.33] (b) to  node[right] {} (c);
-        \draw [->,-{Square[open]}, opacity=0.33] (a) to  node[right] {} (b);
-
-        \draw [rounded corners=10pt] (-.5,3.5) -- (-.5,-.5) -- (3.5,-.5) -- (3.5,.5) -- (.5,.5) -- (.5,3.5) -- cycle;
-        \draw [->,-{Square[open]}] (.64,.64) to node[right] {} (d);
-
-        \draw [rounded corners=5pt, opacity=.1] (-.75,3.75) -- (-.75,-.75) -- (3.75,-.75) -- (3.75,3.75) -- cycle;
-      \end{tikzpicture}
-      \caption{Support for \(\psi\) from constraint on \(\psi\) following from support for \(\phi\)}
-    \end{subfigure}
-    \caption{\RBV{} diagram}
-  \end{figure}
-\end{note}
-
-
-\begin{note}[Non-\RBV{} reasoning]
-  Not all reasoning is like this.
-
-  Return to examples used to illustrate inclusion of support.
-  \begin{itemize}
-  \item Conjunction elimination.
-    Here, working with the logical form, it doesn't matter what \(p\), \(q\), nor \(r\) are.
-  \item Same for efficient route example.
-    Agent doesn't need to appeal to having found the most efficient route to produce variation.
-  \end{itemize}
-
-  Some instance of reasoning may go either way.
-  For example.
-  Machine.
-  Told that the machine is designed to perform some function, but not told what the function is.
-
-  Question, \(f(X,Y)\)
-
-  One option is to input into machine.
-  So, relying on machine implementing function.
-  Going by value.
-
-  Second option, abstract function from machine by inspection.
-  Then, calculate \(f(X,Y)\).
-  Not going by value, doesn't matter what the machine produced.
-
-  Risks for each.
-  For the first, potential malfunction on specific input, but without malfunction then that's the result.
-  For the second, no concern about potential malfunction, but possible that abstracted function is faulty.
-
-  So, difference is not tied to proposition.
-
-  And, complex chain of reasoning may include both.
-  \(p \rightarrow (q \land K_{S}r)\) so \(p \rightarrow q \land r\).
-\end{note}
 
 \subsubsection{Argument for \nI{}}
 \label{sec:argument-ni}
@@ -1976,19 +1839,6 @@
 
 \begin{note}[Picture book]
   \begin{scenario}
-    Picture book.
-    Finding a particular character.
-    Go through, and claim support.
-    Then receive information that if found character, then wearing a striped shirt.
-    So, visual support, relation of inclusion.
-    Intuitively problematic, because, if not wearing striped shirt, then claimed support is bad.
-  \end{scenario}
-  Observe, here, that other things by value are fine.
-  If found, then actually one of a number of solutions are the author made a mistake.
-  Inclusion fails here, because may have moved on after single solution.
-
-  Another visual
-  \begin{scenario}
     If not genuine, then missing serial number.
   \end{scenario}
   No need to reinspect, faults are support, so no serial number.
@@ -2056,7 +1906,7 @@
 
 \newpage
 
-\subsubsection{\nI{} applies to \AR{}}
+\subsubsection{\nI{} applied to \AR{}}
 \label{sec:ni-applies-ar}
 
 \begin{note}[Applying to type of scenario]
