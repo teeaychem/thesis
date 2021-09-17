@@ -20,12 +20,8 @@
 
 
 \newcommand{\gen}[0]{informer's statement}
-\newcommand{\GSI}[0]{\text{g-sI}}
 \newcommand{\dSI}[0]{\text{dI}}
-\newcommand{\gsi}[0]{general-to-specific ability information}
-
 \newcommand{\pe}[0]{potentive entailment}
-
 \newcommand{\mcA}[0]{Conditional A}
 \newcommand{\mcB}[0]{Conditional B}
 
@@ -56,6 +52,18 @@
 % S\(\rightarrow\)C for main premise
 % S\(\leftarrow\)C for denied premise
 % And S\(\circ\dashes\)C for exception
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\gsi}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \text{g-sI}%
+  }
+  {
+    \text{general-to-specific\space ability\space information}
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nI}{ m }{% No inertia
@@ -150,7 +158,6 @@
     \text{\textsf{RBV}}%
   }
   {
-    %\text{Support\space is\space not\space inherited\space by\space squires}%
     \text{Reasoning\space by\space value}
   }
 }
@@ -198,6 +205,9 @@
     \fi
     \ifnum3=#1\relax
       Cameron
+    \fi
+    \ifnum4=#1\relax
+      Kelsey
     \fi
   }
 }
