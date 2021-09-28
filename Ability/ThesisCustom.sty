@@ -20,7 +20,6 @@
 
 
 \newcommand{\gen}[0]{informer's statement}
-\newcommand{\dSI}[0]{\text{dI}}
 \newcommand{\pe}[0]{potentive entailment}
 \newcommand{\mcA}[0]{Conditional A}
 \newcommand{\mcB}[0]{Conditional B}
@@ -38,6 +37,7 @@
 \newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
 \newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
+\newcommand{\Gsi}[1]{\text{General-to-specific\space ability\space information}}
 
 \newcommand{\gESU}[0]{\textsf{|g-ESU|}}
 
@@ -59,6 +59,18 @@
   }
   {
     \text{general-to-specific\space ability\space information}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\dsI}{ m }{% Basic premise / understanding of reasoning
+  \tl_if_empty:nTF {#1}
+  {
+    \text{\textsf{\textsf{dsI}}}%
+  }
+  {
+    \text{direct\space specific\space ability\space information}%
   }
 }
 \ExplSyntaxOff
