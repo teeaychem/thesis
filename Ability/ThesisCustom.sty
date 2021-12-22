@@ -7,6 +7,16 @@
 
 \usepackage{xparse} % For creating commands with complex arguments
 
+
+
+% % % General purpose
+
+\newcommand{\obeybreaks}[1]{%
+  {\begingroup\setlength{\parindent}{0pt}\obeylines%
+    #1%
+    \endgroup}%
+}
+
 \newcommand{\phantlabel}[1]{
   \phantomsection
   \label{#1}
@@ -15,6 +25,10 @@
 \newcommand{\phantref}[2]{
   \hyperref[#1]{#2}
   }
+
+% % % Things such as templates, etc.
+\newcommand{\wrt}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} % Wright's revised template
+
 
 % % % Verbs
 \newcommand{\nf}[1]{#1\ensuremath{^{*}}} % Non-factive instance of a verb
