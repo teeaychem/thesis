@@ -53,9 +53,9 @@
 \newcommand{\RBV}[0]{\textsf{RBV}}
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
-\newcommand{\WR}[0]{\textsf{Witnessing}}
-\newcommand{\AR}[0]{\textsf{Attribution}}
-\newcommand{\aben}[0]{ability entailment}
+\newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Witnessing}}}
+\newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Attribution}}}
+\newcommand{\aben}[0]{\hyperref[def:aben]{ability entailment}}
 \newcommand{\future}[0]{\textsf{Forward}}
 \newcommand{\agent}[0]{\emph{S}}
 \newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
@@ -167,6 +167,18 @@
   }
   {%
     \obeybreaks{Explanation\space by\space ability\space to\space claim\space support}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\EASw}{ m }{% Restricted claim
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:EASw]{\named{EASw}}}%
+  }
+  {%
+    \obeybreaks{Explanation\space by\space ability\space to\space claim\space support\space (Witnessing)}%
   }
 }
 \ExplSyntaxOff
