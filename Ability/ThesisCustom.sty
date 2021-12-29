@@ -55,7 +55,7 @@
 \newcommand{\asso}[0]{\textsf{Association}}
 \newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Witnessing}}}
 \newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Attribution}}}
-\newcommand{\aben}[0]{\hyperref[def:aben]{ability entailment}}
+%\newcommand{\aben}[0]{\hyperref[def:aben]{ability entailment}}
 \newcommand{\future}[0]{\textsf{Forward}}
 \newcommand{\agent}[0]{\emph{S}}
 \newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
@@ -231,6 +231,19 @@
 }
 \ExplSyntaxOff
 
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\aben}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \hyperref[def:aben]{\obeybreaks{ability\space entailment}}%
+  }
+  {%
+    \hyperref[def:aben]{\obeybreaks{#1\space ability\space entailment}}%
+  }
+}
+\ExplSyntaxOff
+
 % % % Transmission
 \newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
 
@@ -302,3 +315,30 @@
     If agent claims support for some proposition \(\phi\), then the support claimed indicates value of \(\phi\) regardless whether \(\phi\) has that value.
   \end{proposition}
 }
+
+
+
+% % % %
+\ExplSyntaxOn
+\DeclareDocumentCommand{\RIPa}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \text{big}%
+  }
+  {%
+    \text{Big}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\RIPb}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \text{playful}%
+  }
+  {%
+    \text{Playful}%
+  }
+}
+\ExplSyntaxOff
