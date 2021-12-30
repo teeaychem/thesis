@@ -342,3 +342,58 @@
   }
 }
 \ExplSyntaxOff
+
+% % % Two symbols for illustrations of rectangle reasoning wrt. ur and nr % % %
+% https://tex.stackexchange.com/questions/336070/symbol-creation-in-tikz
+\newcommand{\tBox}{%
+  \mathrel{%
+    \tikz[line cap=round, line join=round]
+    \draw
+      (1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle;%
+  }%
+}
+
+\newcommand{\tBoxd}{%
+  \mathrel{%
+    \tikz[line cap=round, line join=round]
+    \draw[dash pattern=on \pgflinewidth off 1.125pt]
+      (1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle
+      %(1.3ex, 0.325ex) -- (0.325ex, 0.325ex) -- (0.325ex, 0.975ex)
+      %-- (1.3ex, 0.975ex)
+      %(-.13ex, 0ex) (1.3ex + .13ex, 0ex) % side bearings
+    ;%
+  }%
+}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\newcommand{\iDog}{%
+  \mathrel{%
+  \begin{tikzpicture}
+%    \tikz[line cap=round, line join=round]
+    \draw[draw = white] (0,0) rectangle (0.3,0.3);
+    \begin{scope}[overlay]
+    \draw (0.15,0) circle (2.25pt);
+    \draw (0.15,.2) circle (1.25pt);
+    \draw (0.05,.15) circle (1.25pt);
+    \draw (0.25,.15) circle (1.25pt);
+    \end{scope}
+    %\draw[dash pattern=on \pgflinewidth off 1.125pt]
+      %(1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle
+      %(1.3ex, 0.325ex) -- (0.325ex, 0.325ex) -- (0.325ex, 0.975ex)
+      %-- (1.3ex, 0.975ex)
+      %(-.13ex, 0ex) (1.3ex + .13ex, 0ex) % side bearings
+      \end{tikzpicture}
+  }%
+}
+
+
+
+% Following for getting hyperlinks with citeyear.
+% New command, easy to change after default with M-c
+% Changed from  {\usebibmacro{cite:postnote}} to {\usebibmacro{postnote}} to work with whatever style it is I'm using
+% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
+\DeclareCiteCommand{\Citeyear}
+    {\usebibmacro{prenote}}
+    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+    {\multicitedelim}
+    {\usebibmacro{postnote}}
