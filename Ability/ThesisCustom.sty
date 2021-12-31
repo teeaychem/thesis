@@ -303,6 +303,9 @@
     \ifnum9=#1\relax
       Roxanne%
     \fi
+    \ifnum10=#1\relax
+      Winter%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -343,6 +346,9 @@
 }
 \ExplSyntaxOff
 
+
+% % % Labels % % %
+
 % % % Two symbols for illustrations of rectangle reasoning wrt. ur and nr % % %
 % https://tex.stackexchange.com/questions/336070/symbol-creation-in-tikz
 \newcommand{\tBox}{%
@@ -364,7 +370,8 @@
     ;%
   }%
 }
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % Paws % % %
 
 \newcommand{\iDog}{%
   \mathrel{%
@@ -372,21 +379,65 @@
 %    \tikz[line cap=round, line join=round]
     \draw[draw = white] (0,0) rectangle (0.3,0.3);
     \begin{scope}[overlay]
-    \draw (0.15,0) circle (2.25pt);
-    \draw (0.15,.2) circle (1.25pt);
-    \draw (0.05,.15) circle (1.25pt);
-    \draw (0.25,.15) circle (1.25pt);
+    \draw (0.15,.01) circle (2.25pt);
+    \draw (0.15,.2) circle (1.125pt);
+    \draw (0.05,.15) circle (1.125pt);
+    \draw (0.25,.15) circle (1.125pt);
     \end{scope}
-    %\draw[dash pattern=on \pgflinewidth off 1.125pt]
-      %(1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle
-      %(1.3ex, 0.325ex) -- (0.325ex, 0.325ex) -- (0.325ex, 0.975ex)
-      %-- (1.3ex, 0.975ex)
-      %(-.13ex, 0ex) (1.3ex + .13ex, 0ex) % side bearings
       \end{tikzpicture}
   }%
 }
 
+\newcommand{\iDogd}{%
+  \mathrel{%
+  \begin{tikzpicture}
+%    \tikz[line cap=round, line join=round]
+    \draw[draw = white] (0,0) rectangle (0.3,0.3);
+    \begin{scope}[overlay]
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.01) circle (2.25pt);
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.2) circle (1.125pt);
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.05,.15) circle (1.125pt);
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.25,.15) circle (1.125pt);
+    \end{scope}
+      \end{tikzpicture}
+  }%
+}
 
+% % % Paws with backwards 'e' for pads % % %
+
+\newcommand{\iEDogd}{%
+  \mathrel{%
+  \begin{tikzpicture}
+%    \tikz[line cap=round, line join=round]
+    \draw[draw = white] (0,0) rectangle (0.3,0.3);
+    \begin{scope}[overlay]
+    %\draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.01) circle (2.25pt);
+    \node[scale=0.9] (1,0.1) [label={[xshift=0.155cm, yshift=-.3125cm]\reflectbox{\textsf{e}}}] {};
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.2) circle (1.125pt);
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.05,.15) circle (1.125pt);
+    \draw[dash pattern=on \pgflinewidth off .5pt] (0.25,.15) circle (1.125pt);
+    \end{scope}
+      \end{tikzpicture}
+  }%
+}
+
+\newcommand{\iEDog}{%
+  \mathrel{%
+  \begin{tikzpicture}
+%    \tikz[line cap=round, line join=round]
+    \draw[draw = white] (0,0) rectangle (0.3,0.3);
+    \begin{scope}[overlay]
+    %\draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.01) circle (2.25pt);
+    \node[scale=0.9] (1,0.1) [label={[xshift=0.155cm, yshift=-.3125cm]\reflectbox{\textsf{e}}}] {};
+    \draw (0.15,.2) circle (1.125pt);
+    \draw (0.05,.15) circle (1.125pt);
+    \draw (0.25,.15) circle (1.125pt);
+    \end{scope}
+      \end{tikzpicture}
+  }%
+}
+
+ % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 % Following for getting hyperlinks with citeyear.
 % New command, easy to change after default with M-c
