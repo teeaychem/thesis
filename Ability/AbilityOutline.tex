@@ -2685,6 +2685,36 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   However, as \AR{} appeals to some property, the witnessing event is irrelevant to the way in which the agent claims support for \(\phi\).
 \end{note}
 
+\begin{note}
+  {
+    \color{red}
+    Some additional notes on \AR{} that haven't been merged with the above follow.
+  }
+\end{note}
+
+\begin{note}[Compatibility]
+  \AR{} suggests an alternative way to obtain support for the conclusion of reasoning the agent is able to do.
+  Specifically, if order for the agent to \emph{have} the attribute of being able to reason to the conclusion, the conclusion of the reasoning must be true.
+  The relevant entailment is in part secured by the verb chosen, and in part by what the verb is applied to.
+  Here, `demonstrate' is a factive verb, if an agent demonstrates that \(\phi\), then it is true that \(\phi\).
+  And, the existence of a chess strategy does not depend on the agent demonstrating that the relevant strategy exists.
+
+  To take another example, you only have the ability to identify a typo on this page if there is a typo on this page.
+  So, if I were to provide you with testimony that you have the ability to identify a typo on this page, you may begin searching for the typo, or you may note that there must be a typo in order for me to be in a position to provide you with testimony that you have the ability.
+\end{note}
+
+\begin{note}[Sketch of \AR{}]
+  \begin{enumerate}[label=(\textsf{A}\arabic*), ref=(\textsf{A}\arabic*)]
+  \item\label{AR:Sketch:1} I have the attribute of being able to \emph{V} that \(\phi\).
+  \item\label{AR:Sketch:2} In order to have the attribute of being able to \emph{V} that \(\phi\), \(\phi\) must be the case independent of whether or not I witness the ability.
+  \item\label{AR:Sketch:3} \(\phi\) is the case.
+  \end{enumerate}
+
+  To keep things simple, we will refer to the principle behind the pattern sketched as \AR{}.
+  And agent may bundle~\ref{WR:Sketch:1} and~\ref{WR:Sketch:3} into a conditional, and avoid instantiating the reasoning pattern, but so long as the conditional is (implicitly) held on the basis of the intermediate premise~\ref{WR:Sketch:2}, we take use of such a conditional to be an instance of \AR{}.
+\end{note}
+
+
 \subsubsection{\WR{}}
 \label{sec:wr-1}
 
@@ -3164,6 +3194,14 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Doesn't say that this is successful, that there is not some other way, in particular going by \nr{} or \ur{} instead.
 \end{note}
 
+\begin{note}[Simpliciter]
+  Definitions are with respect to some thing.
+  That's what we're interested in.
+  Further, they don't characterise steps of reasoning in general.
+  Hence, no immediate (at least) consequences for what is involved in a step of reasoning.
+  For example, possible \ur{} with respect to some thing and \nr{} with respect to some other thing.
+\end{note}
+
 \begin{note}[The distinction and entailment]
   The purpose of these definitions is to capture when the agent claim support by appeal to some thing.
 
@@ -3278,7 +3316,7 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Idea is to illustrate this kind of reasoning in terms of transformations.
   Following steps in the first-order language.
 
-  \begin{illustration}\label{ill:dog:c:nr}
+  \begin{illustration}\label{ill:dog:C:nr}
     \vspace{-\baselineskip}
     \begin{enumerate}[label=\(\protect\iDogd\)\space\arabic*., ref=(\(\protect\iDogd\)\space\arabic*), align=left, leftmargin=*]
       % \item[\(\protect\iDogd\)\space P.] The dog is \RIPa{} and \RIPb{}.
@@ -3370,86 +3408,160 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 \begin{note}
   Contrast to reasoning \ur{}.
 
-  Following illustration traces follows the same general pattern as~\autoref{ill:dog:c:nr}.
+  Following illustration traces follows the same general pattern as~\autoref{ill:dog:C:nr}.
   Difference, roughly stated, is that the agent will reason about \nagent{10}, \RIPa{} and \RIPb{} dogs, and so on.
-
-  To make parallel explicit, we'll stick close to standard semantic clauses.
-  Then, expand after.
-
-  Follow convention and use \(\sem{--}\) to capture the reference of some term `\(\text{--}\)'.
 \end{note}
 
 \begin{note}[Example, \ur{}]
-    \begin{illustration}
+
+  \begin{illustration}
     \vspace{-\baselineskip}
     \begin{enumerate}[label=\(\protect\iDog\)\space\arabic*., ref=\arabic*, align=left, leftmargin=*]
-    % \item[\(\protect\iDog\)\space P.] The dog is \RIPa{} and \RIPb{}.
-    \item\label{ill:iDog:mixed} \(\sem{w} \in \sem{\RIPa{-} \& \RIPb{} dog}\)
-    \item\label{ill:iDog:sep-gen} \(\sem{\RIPa{-} and \RIPb{} dog} \subseteq (\sem{\RIPa{-} dog} \cap \sem{\RIPb{-} dog})\)
-    \item\label{ill:iDog:sep-app} \emph{If} \(\sem{w} \in \sem{\RIPa{-} \& \RIPb{} dog}\), \emph{then} \(\sem{w} \in \sem{\RIPa{-} dog}\) \emph{and} \(\sem{w} \in \sem{\RIPb{-} dog}\)
-    \item \(\sem{w} \in \sem{\RIPa{-} dog}\) and \(\sem{w} \in \sem{\RIPb{-} dog}\)
-    \item\label{ill:iDog:sep-res} \(\sem{w} \in \sem{\RIPb{-} dog}\)
-    % \item[\(\protect\iDog\)\space C.] Hence, the dog is \RIPb{}.
+    \item\label{ill:iDog:mixed} \nagent{10} is a big and playful dog.
+    \item\label{ill:iDog:sep-gen} The thing of being a \RIPa{} and \RIPb{} dog is just the combination of being a \RIPa{} dog and being a \RIPb{} dog.
+    \item\label{ill:iDog:sep-app} \nagent{10} being a \RIPa{} and \RIPb{} dog is the case when \nagent{10} is both a \RIPa{} dog and a \RIPb{} dog.
+    \item\label{ill:iDog:sep-con} \nagent{10} is a \RIPa{} dog and \nagent{10} a \RIPb{} dog.
+    \item\label{ill:iDog:sep-res} \nagent{10} is a \RIPb{} dog.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{illustration}
 \end{note}
 
 \begin{note}
-  Switch the way we understand what the formalism is capturing.
-  Before, assumed that the formalism captured the rules that the agent used.
-  Here, the formalism indirectly captures what the agent is reasoning about.
+  Natural language to ease discussion.
+  Could go with semantic interpretation.\nolinebreak
+  \footnote{
+    Follow convention and use \(\sem{--}\) to capture the reference of some term `\(\text{--}\)'.
+    \begin{illustration}
+      \vspace{-\baselineskip}
+      \begin{enumerate}[label=\(\protect\iDog\)\space\arabic*., ref=\arabic*, align=left, leftmargin=*]
+      \item \(\sem{w} \in \sem{\RIPa{-} \& \RIPb{} dog}\)
+      \item \(\sem{\RIPa{-} and \RIPb{} dog} \subseteq (\sem{\RIPa{-} dog} \cap \sem{\RIPb{-} dog})\)
+      \item \emph{If} \(\sem{w} \in \sem{\RIPa{-} \& \RIPb{} dog}\), \emph{then} \(\sem{w} \in \sem{\RIPa{-} dog}\) \emph{and} \(\sem{w} \in \sem{\RIPb{-} dog}\)
+      \item \(\sem{w} \in \sem{\RIPa{-} dog}\) and \(\sem{w} \in \sem{\RIPb{-} dog}\)
+      \item \(\sem{w} \in \sem{\RIPb{-} dog}\)
+      \end{enumerate}
+      \vspace{-\baselineskip}
+    \end{illustration}
+    Imports set theoretical background from first order logic.
+    Constants are individuals, predicates are treated extensionally.
+    Read simply, \(\sem{The dog} \in \sem{\RIPa{-} and \RIPb{}}\) may suggest that the agent is reasoning that the reference of the term `the dog' is a member of the reference of `\RIPa{} and \RIPb{}'.
+
+    \emph{\nagent{10}} is such that they are a \emph{\RIPa{} and \RIPb{}} dog.
+  }
 \end{note}
 
 \begin{note}
-  Start with~\ref{ill:iDog:mixed}.
-
-  Reference of \(w\) is a member of the reference of `\RIPa{-} \& \RIPb{} dog'.
-
-  Imports set theoretical background from first order logic.
-  Constants are individuals, predicates are treated extensionally.
-  Read simply, \(\sem{The dog} \in \sem{\RIPa{-} and \RIPb{}}\) may suggest that the agent is reasoning that the reference of the term `the dog' is a member of the reference of `\RIPa{} and \RIPb{}'.
-
-  \emph{\nagent{10}} is such that they are a \emph{\RIPa{} and \RIPb{}} dog.
-
-  So, reflection of how the agent's reasoning about the dog and \RIPa{} and \RIPb{}ness with respect to whatever it is that allows the agent to reason about the dog and \RIPa{} and \RIPb{}ness.
-
-  \ref{ill:iDog:sep-gen} --- what it is to be \RIPa{} \& \RIPb{}.
-  Separable qualities.
-\end{note}
-
-
-\begin{note}[More difficult part]
-  \ref{ill:iDog:sep-app}
-  \begin{itemize}
-  \item If \nagent{10} is \dots, then \nagent{10} is \dots and \dots
-  \end{itemize}
-  Or
-  \begin{itemize}
-  \item If refer to \nagent{10} is \dots, then refer to \nagent{10} by distinct predicates\dots
-  \end{itemize}
+  \ref{ill:iDog:mixed} meet \nagent{10} for the first time.
+  \nagent{10} is playing with a ball.
+  Person who takes care of \nagent{10} remarks that they're a \RIPa{} and \RIPb{} dog.
+  You wonder about adjectives, what's being communicated here.
+  Think about these two adjectives, \ref{ill:iDog:sep-gen}.
+  Of course, apply to \nagent{10}, \ref{ill:iDog:sep-app}.
+  And, observed, so \ref{ill:iDog:sep-con}.
+  Hence, \ref{ill:iDog:sep-res}.
 \end{note}
 
 \begin{note}
-  The agent reasons about the dog and how it relates to \RIPa{} and \RIPb{}ness, and the \RIPb{}ness.
-  \(\sem{\RIPa{-} and \RIPb{}} = \sem{\RIPa{-}} \cap \sem{\RIPb{-}}\) that \RIPa{} and \RIPb{}ness may be recast as \RIPa{}ness and \RIPb{}ness.
-  \RIPa{-} and \RIPb{}ness is just the combination of two distinct qualities.
+  \ur{} with respect to \nagent{} and properties, roughly.
+  So, four things.
+  \nagent{10}, \RIPa{} \& \RIPb{}, \RIPa{}, and \RIPb{}.
 
-  We noted with respect to \nr{} that agent may establish rule from \RIPa{}ness and \RIPb{}ness.
-  Here, agent reasons in that way.
-  More generally, there need be no pre-existing rule regarding the relevant terms.
-  Not to say that the agent's reasoning isn't rule governed.
-  Rather, that however the agent's reasoning goes, it works from what the terms refer to.
+  Throughout, properties.
 
-  Then, the remaining reasons captures the result of this.
+  Variations.
+  Focus on the adjectives and how these relate to properties, or abstract to concepts.
+
+  Key point is that \ur{}.
+  Agent is reasoning about some things, and claiming support by appeal to those things.
 \end{note}
 
+\begin{note}
+  As with first pair of illustrations, claiming support by reference to something.
+  This is all the distinction amounts to.
+  Broader, applied to different kinds of reasoning, and differences that follow from these two kinds of reasoning.
+\end{note}
 
+\begin{note}[Difference]
+  First illustration, logical structure of propositions.
+  Don't need to appeal to reference.
+  Logical structure for convenience.
+  Claim support by transformations.
 
+  Second illustration, surface presentation remains similar, but properties.
 
-\paragraph*{Related ideas}
+  \mom{}.
+  First, \nagent{10} and transformations.
+  World appears this way, and reasoning is independent.
+
+  Second, \nagent{10} and understanding of properties involved.
+  No reason to think that properties have been thought about badly, and testimony or observation seems good enough.
+  World appears this way.
+\end{note}
+
+\begin{note}
+  Overall similarity.
+  Designed so that the explanation of the steps applies to both illustrations.
+  Steps are missing from outline of reasoning present.
+  Nothing about presentation.
+  Indeed, second as semantic counterpart to syntactic reasoning of first.
+
+  Alternatively, formal and non-formal.
+
+  Something about this is right, but it's not quite right.
+  Hopefully overlap will lend some clarity.
+\end{note}
+
+\paragraph*{Two related ideas}
+
+\begin{note}
+  Two related distinctions.
+  Overlap and differences.
+  Not an exhaustive discussion, just enough to identify similarities and differences.
+
+  Similarity, then difference.
+\end{note}
+
+\begin{note}
+  Should already be cautious.
+  \ur{} and \nr{} is about whether some thing is appealed to when taking a step.
+  It not obvious that anything else follows about the step, which is what the distinctions apply to.
+
+  It's not obvious, but not immediate either.
+  Still, difficult to work with.
+  So, let's simplify for the moment.
+
+  \begin{definition}
+    Let \(S\) be some step of reasoning that involves appeal to claimed support for propositions \(\psi_{1},\dots,\psi_{n}\) to claim support for some proposition \(\phi\).
+
+    The step of reasoning \(S\) is:
+    \begin{itemize}
+    \item \ur{} \emph{simpliciter}, if there is something thing for which \(S\) is \ur{} with respect to.
+    \item \nr{} \emph{simpliciter}, otherwise.
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+  Now, apply to steps of reasoning as a whole.
+\end{note}
+
+\begin{note}[Issues]
+  \nr{} for both sides of consequence.
+  So, \nr{} does not imply syntactic reasoning.
+  Still, seems formal then \nr{}.
+
+  However, \nr{} does not imply formal reasoning.
+\end{note}
 
 \subparagraph*{Syntactic and semantic perspectives on logical consequence}
+
+\begin{note}
+  Similarity: well, syntactic transformation and something involving reference.
+
+  Quick point is that role of reference in semantic perspective of logical consequence is different from \ur{}.
+
+  Given some background, this is somewhat obvious.
+  It's still logical consequence that we're talking about.
+\end{note}
 
 \begin{note}
   Using first order logic.
@@ -3517,11 +3629,6 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Possible to have a view where reference is by the agent, or a view where reference is by language.
 \end{note}
 
-\begin{note}
-  \cite{Beall:2019ty} formal and material.
-  Though this isn't it either, as the meaning of a word could be relevant just for the way in which the word could refer.
-\end{note}
-
 \begin{note}[Avoid syntax semantics terminology]
   Don't use syntax/semantics terminology because the focus of the contrast is reference, rather than two `systems' that falls from the contrast.
   Indeed, syntax/semantics requires a background system.
@@ -3532,9 +3639,25 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 
 \subparagraph*{Formal and non-formal reasoning}
 
+ \cite{Beall:2019ty}
+
 \begin{note}
-  Well, perhaps formal and non-formal.
-  Where, formal is logical consequence.
+  Above, different kinds of consequence.
+  Issue was logical consequence.
+
+  So, perhaps formal and non-formal.\nolinebreak
+  \footnote{
+    Distinct from informal logic~\textcite{Groarke:2021tk}.
+  }
+
+  Instances of \nr{} considered arithmetic and first order logic.
+  Formal systems.
+  Appeal to something beyond form(al system).
+
+  Intuitive distinction, but beyond this I'm not sure how exactly to characterise the distinction.
+
+  Well, seems that this distinction fits well.
+  If logical is just no particular reference, then we've got a nice distinction.
 \end{note}
 
 \begin{note}[`Formal' and \nr{}, `non-formal' and \ur{}]
@@ -3543,7 +3666,9 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 
 \begin{note}[Two cases]
   \begin{itemize}
-  \item `Formal' and \ur{}: nonstandard models
+  \item `Formal' and \ur{}: nonstandard models. Reasoning about formal properties of natural numbers. Just because these don't uniquely identify doesn't prevent this.
+    However, still non-formal in the sense that the agent goes beyond formalism.
+    So, this does end up being non-formal in a sense.
   \item `Non-formal' and \nr{}: time
   \end{itemize}
 \end{note}
@@ -3602,29 +3727,20 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
     \item[C.] Hence, some dog is \RIPb{}.
     \end{itemize}
   \end{quote}
-  
+\end{note}
+
+\begin{note}[Exists \nr{}]
   \nr{} is kind of straightforward.
   Not going to think about what this \(x\) refers to, just manipulate like any other individual.
 
-  \begin{illustration}
-    \vspace{-\baselineskip}
-    \begin{enumerate}[label=\(\protect\iEDogd\)\space\arabic*.]
-    \item \(\exists x(\text{\RIPa{-} and \RIPb{}})(x)\)
-    \item \(\exists x((\text{\RIPa{-} and \RIPb{}})(x) \leftrightarrow \exists x(\text{\RIPa{-}}(x) \land \text{\RIPb{-}}(x)))\)
-    \item \(\exists x(\text{\RIPa{-}}(x) \land \text{\RIPb{-}}(x))\)
-    \item \(\exists x\text{\RIPb{-}}(x)\)
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{illustration}
-
     \begin{illustration}\label{ill:dog:E:nr}
     \vspace{-\baselineskip}
-    \begin{enumerate}[label=\(\protect\iEDogd\)\space\arabic*., ref=(\(\protect\iDogd\)\space\arabic*), align=left, leftmargin=*]
+    \begin{enumerate}[label=\(\protect\iEDogd\)\space\arabic*., ref=(\(\protect\iEDogd\)\space\arabic*), align=left, leftmargin=*]
       % \item[\(\protect\iDogd\)\space P.] The dog is \RIPa{} and \RIPb{}.
     \item\label{ill:iDogd:E:abd} \(\exists x \text{\RIPa{-} \& \RIPb{} dog}(x)\)
-    \item\label{ill:iDogd:E:sep-gen} \(\forall x(\text{\RIPa{-} \& \RIPb{} dog}(x) \rightarrow (\text{\RIPa{-} dog}(x) \land \text{\RIPb{-} dog})(x))\)
+    \item\label{ill:iDogd:E:sep-gen} \(\forall x(\text{\RIPa{-} \& \RIPb{} dog}(x) \rightarrow (\text{\RIPa{-} dog}(x) \land \text{\RIPb{-} dog}(x)))\)
     \item\label{ill:iDogd:E:abd} \(\text{\RIPa{-} \& \RIPb{} dog}(i)\)
-    \item\label{ill:iDogd:E:sep-app} \(\text{\RIPa{-} \& \RIPb{} dog}(i) \rightarrow ((\text{\RIPa{-} dog}(x) \land \text{\RIPb{-} dog})(i))\)
+    \item\label{ill:iDogd:E:sep-app} \(\text{\RIPa{-} \& \RIPb{} dog}(i) \rightarrow (\text{\RIPa{-} dog}(i) \land \text{\RIPb{-} dog}(i))\)
     \item\label{ill:iDogd:E:sep-con} \(\text{\RIPa{-} dog}(i) \land \text{\RIPb{-} dog}(i)\)
     \item\label{ill:iDogd:E:inst} \(\text{\RIPb{-} dog}(i)\)
     \item\label{ill:iDogd:E:done} \(\exists x\text{\RIPb{-} dog}(x)\)
@@ -3632,18 +3748,37 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{illustration}
+\end{note}
 
-  \begin{illustration}
+\begin{note}
+  \autoref{ill:dog:E:nr} is \ref{ill:dog:C:nr}.
+
+  Steps \ref{ill:iDogd:E:abd} to \ref{ill:iDogd:E:inst} mirror the reasoning with universal quantifier, conditionals, and conjunctions as before.
+
+  Difference is these are with respect to some fresh constant.
+
+  Standard.
+  And, \nr{} with respect to any possible referent of \(i\).
+  For, as before, agent doesn't require an interpretation of the non-logical vocabulary in order to apply these rules.
+\end{note}
+
+\begin{note}[Exists \ur{}]
+  \begin{illustration}\label{ill:dog:E:ur}
     \vspace{-\baselineskip}
-    \begin{enumerate}[label=\(\protect\iEDog\)\space\arabic*.]
-    \item \(\sem{Some dog} \in \sem{\RIPa{-} and \RIPb{}}\)
-    \item \(\sem{\RIPa{-} and \RIPb{}} = \sem{\RIPa{-}} \cap \sem{\RIPb{-}}\)
-    \item \(\sem{Some dog} \in \sem{\RIPa{-}} \cap \sem{\RIPb{-}}\)
-    \item \(\sem{Some dog} \in \sem{\RIPb{-}}\)
+    \begin{enumerate}[label=\(\protect\iEDog\)\space\arabic*., ref=(\(\protect\iEDog\)\space\arabic*), align=left, leftmargin=*]
+    \item Some dog is \RIPa{} \& \RIPb{}.
+    \item The thing of being a \RIPa{} and \RIPb{} dog is just the combination of being a \RIPa{} dog and being a \RIPb{} dog.
+    \item \emph{That dog} is a \RIPa{} and \RIPb{} dog
+    \item \emph{That dog} being a \RIPa{} and \RIPb{} dog is the case when \emph{that dog} is both a \RIPa{} dog and a \RIPb{} dog.
+    \item \emph{That dog} is a \RIPa{} dog and \emph{that dog} a \RIPb{} dog.
+    \item \emph{That dog} is a \RIPb{} dog.
+    \item Some dog is \RIPb{}.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{illustration}
+\end{note}
 
+\begin{note}
   \ur{} is far more interesting.
   First order logic, update to point to something.
   From \ur{} the agent is reasoning about that thing.
@@ -3656,8 +3791,20 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   However, no different from common cases.
   For example, `Plato', `Grice', etc.
   Existential secures a reference, and that's all that's required.
+\end{note}
 
-  Do the Kripke thing with modals.
+\begin{note}[\emph{That dog} might not exist]
+  Possible that \emph{that dog} does not exist, so the agent is not appealing to some existing thing.
+  Well, sure, but same problem with `Plato'.
+  Existential is sufficient to claim support.
+
+  In other respects, the same.
+
+  Parallel to \nagent{10}.
+  Appealed to \nagent{10}'s \RIPa{} \& \RIPb{}-ness to claim support for \nagent{10}'s \RIPb{}-ness.
+  In the same way, claiming support for \emph{that dog}'s \nagent{10}'s \RIPb{}-ness by appeal to \emph{that dog}'s \RIPa{} \& \RIPb{}-ness.
+
+  Appeal to \emph{that dog} and those properties have same role.
 \end{note}
 
 \paragraph*{Similarity to \dd{}/\dr{} distinction.}
@@ -3763,7 +3910,7 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   First, recall \gsi{}.
 \end{note}
 
-\subsection{Recap}
+\subsubsection{Recap}
 \label{sec:recap-reasoning}
 
 \begin{note}
@@ -3811,7 +3958,35 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Still, even if it does, argument will proceed even if there is something significant to be made of this.
 \end{note}
 
-\paragraph{\nr{}}
+\begin{note}[Summarising]
+  Above we introduced \gsi{}.
+  Limited information of the form `If \emph{S} has a (general) ability to \(\gamma\), then \emph{S} has a (specific) ability to \emph{V} that \(\phi\) (as an instance of the general ability).'
+  We then noted that certain instances of the (specific) ability to \emph{V} that \(\phi\) entail that \(\phi\) is the case.
+  Two interpretations of \aben{the}, \AR{} and \WR{}.
+
+  Our focus now turns back to \gsi{}.
+  For those instances of \gsi{} when \aben{the} holds, the interpretations \AR{} and \WR{} detail what the agent obtains by reasoning from general to specific ability.
+  In other words, \emph{what} the agent is claiming support for.
+
+  As noted, using a conditional such as \gsi{} is not automatic.
+  The informer has not provided the agent with any additional way to claim support that the agent has the general ability.
+  Rather, outlined something that follows \emph{if} the agent has the general ability.
+
+  So, it is up to the agent to resolve in either way.
+  If the agent wants to use the information, then the agent needs to reason from general to specific.
+  The issue is that without any additional reasoning, it seems there's no clear way to determine which way the agent should go.
+  Here is where the distinction between \AR{} and \WR{} is important.
+  Interpretation of specific ability informs how the agent move from general to specific.
+
+  Following two propositions outline combination.
+  {
+    \color{red}
+    The key thing here is about claiming that one has a specific ability.
+  }
+\end{note}
+
+\subsubsection{\nr{}}
+\label{sec:nr}
 
 \begin{note}
   Straightforward.
@@ -3846,12 +4021,166 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   So, need to go beyond claimed support to apply factivity.
 \end{note}
 
+\subsubsection{\ur{}}
+\label{sec:ur-1}
 
-\paragraph{\AR{} and \ur{}}
+\begin{note}
+  Start with a broader example.
+  Programming.
+\end{note}
+
+\begin{note}
+  Similar to verifying an algorithm may be implemented.
+  Break down all of the steps in the algorithm, and then ensure that it is possible to express each of the steps in the programming language of choice.
+
+  \begin{quote}
+    \textsc{factorial}(\(n\)):\newline
+    \textbf{if} \(n = 1\)\newline
+    \mbox{}\indent \textbf{return} \(1\)\newline
+    \textbf{else}\newline
+    \mbox{}\indent \textbf{return} \(n \times\) \textsc{factorial}(\(n-1\))
+  \end{quote}
+
+  Fortran 77 does not support recursion, a function may not call an instance of itself.\nolinebreak
+  \footnote{
+    This is not to say that one may not compute factorials using Fortran 77.
+    It's a Turing complete language.
+    However, would require a different (non-recursive) algorithm.
+  }
+  By contrast, the recursive factorial algorithm may implemented in languages that support recursion, such as Lisp or Python.
+
+  \ur{}, it's those features that are important.
+  \AR{}, properties of the language, \WR{} adds in particular event.
+\end{note}
+
+\begin{note}
+  Turning to reasoning, very similar idea.
+  Features of programming languages are resources for doing something, in the same way that premises and steps of reasoning are resources for reaching some conclusion.
+\end{note}
+
+\begin{note}[Unified idea]
+  Claim support for premises and steps of reasoning.
+
+  Easiest with \WR{}.
+  What's missing here is the use of the premises in reasoning.
+  Hence, contrast to \ESU{} which we'll talk in some detail about below.
+  
+
+  Same applies to \AR{} by general property reduction.
+
+  So, \AR{} and \WR{} allow the agent to do the same thing, but in slightly different ways.
+\end{note}
+
+\begin{note}[\gsi{}++]
+  First, \gsi{} applied to \AR{}
+  \begin{proposition}[\textsf{|gs-I\space·\space H|}]
+    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that \emph{S} has the property of being able to \emph{V} that \(\phi\).
+    Suppose an agent has:
+    \begin{enumerate}
+    \item Claimed support for some general ability \(\gamma\).
+    \item Claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) (for which \aben{the} holds).
+    \end{enumerate}
+    Then:
+    \begin{enumerate}[resume]
+    \item \emph{S} may claim support for having the specific ability \(\sigma\) by reasoning that they have the property of being able to \emph{V} that \(\phi\).
+    \end{enumerate}
+    \vspace{-\topsep}\vspace{-\topsep}
+  \end{proposition}
+  Second, \gsi{} applied to \WR{}
+  \begin{proposition}[\textsf{|gs-I\space·\space W|}]\label{W:s}
+    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
+        Suppose an agent has claimed support for some general ability \(\gamma\) and has claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) for which \aben{the} holds.
+    Then, an agent may claim support for having the specific ability \(\sigma\) by reasoning that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
+  \end{proposition}
+\end{note}
+
+\begin{note}[Alternatives]
+  Appeal to premises and steps is not required by either \AR{} or \WR{}.
+  However, most plausible account of what is going on.
+
+  Explored some alternatives for \AR{}, but unclear what is of importance other than reasoning, and hence premises and steps.
+  And, in this respect, basic \AR{} seems like a dead end.
+  Premises and steps allow the agent to claim support in the same way as they would allow the agent to claim support when used in reasoning.
+  It's not at all clear to me that basic \AR{} makes sense from this perspective.
+\end{note}
+
+\begin{note}[Limitation of intuition]
+  Focused on idea that claiming support in same way as reasoning.
+
+  This is not to imply equivalence of claimed support.
+
+  Said too little about claimed support to make any strong remarks about equivalence.
+  Still, intuitive that additional way of being \mom{}.
+  For, haven't done the reasoning, so \mom{} about this.
+  Not the case if the agent has done the reasoning.
+\end{note}
+
+\paragraph{Old notes}
+
+\begin{note}[\gsi{}++ applied : \AR{}]
+  \AR{} doesn't need to much expansion.
+  Silent on what the property is.
+  One way to view is that general ability reduces to sufficient collection of specific.
+  \gsi{} conditional informs the agent that specific instance, so required for general ability.
+  \gsi{} is novel, but support claimed is for quantifier over all core instances.
+
+  Similar to a standard induction principle.
+
+  With respect to chess, this is one such principle.
+\end{note}
+
+\begin{note}[\gsi{}++ applied : \WR{}]
+  \WR{} is different.
+  Witnessing event.
+  So, \emph{V}ing that \(\phi\).
+  Break down \emph{V}ing that \(\phi\) into a series of actions performed by the agent.
+  General ability secures performing each of those actions.
 
 
-\paragraph{\WR{} and \ur{}}
 
+  Turning to the chess example.
+  Here, appeal to sufficient understanding of the rules of chess, and the combination of these.
+  More broadly, premises and steps of reasoning.
+
+  It's this kind of stuff that \WR{} uses.
+\end{note}
+
+\begin{note}[Impact of distinction]
+  Return to the impact of the distinction.
+
+  \AR{}, focus on generator.
+  Hence, task is to establish that the agent has resources to generate.
+  So, in a sense, with \gsi{} we go from existence of general to existence of specific generator.
+  Note, this isn't to say that there's something like a general generator.
+  It may be the case by general ability we have quantification over specific abilities.
+  If so, then claim support that there's a particular specific generator.
+  Nor that specific generators are unique.
+  The available resources may overlap.
+  Still, some thing that is true of the agent, and claimed support for general ability is sufficient to claim support that the `some thing' holds.
+
+  \WR{}, focus on generated event.
+  So, agent doesn't necessarily need to establish a generator, but rather ensure that event may be generated.
+  Hence, \gsi{}, general ability allows the agent to generate witnessing event for specific ability.
+  Not looking to claim support that `some thing' is true of the agent.
+  Rather, claimed support for general ability, and appeal to the actions that this allows the agent to perform.
+\end{note}
+
+\begin{note}[Intuition for \AR{} and \WR{}]
+  Both \AR{} and \WR{} are ways to understand \aben{the}, which is in turn about what is entailed by an agent having a (certain kind of) specific ability.
+
+  \AR{} focuses on the idea that the agent may claim support from having the attribute (or the truth) of the specific ability.
+  \AR{} requires support for attribute, which in turn suggests in a position to claim support for premises and steps.
+  \AR{} doesn't require agent to claim support for premises and steps.
+
+  \WR{} focuses on the idea that the agent may claim support from witnessing (or using) the specific ability.
+  \WR{} requires support for premises and steps, which in turn suggests in a position to claim support for attribute.
+  \WR{} doesn't require agent to claim support for attribute.
+\end{note}
+
+\begin{note}[Quite brief]
+  Sketches of \AR{} and \WR{} are brief.
+  Expand on these in the following sections (\ref{sec:first-conditional} and~\ref{sec:second-conditional}) to some extent, and chapter~\ref{cha:potent-infer-attr} will focus on a detailed account of both.
+\end{note}
 
 \begin{note}
   Role of ability to secure witnessing event.
@@ -3865,40 +4194,15 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 
   First, implication follows from some property.
   Second, implication follows from the result of some action.
-  {
-    \color{red}
-    The really difficult thing to clear up here is that the entailment is not from the \emph{existence} of an event, but rather from \emph{the} event.
-    Consider \(\exists Fx \vdash \exists Gx\).
-    Truth conditions.
-    Need to find some individual.
-    The entailment doesn't hold because of the quantifiers.
-    Rather, it holds because of how we interpret the quantifiers.
-    It goes down to individuals.
 
-    In a sense, this is the core thing I've puzzled about in this thesis.
-    The right way to reason about events, and while there are different ways of doing so, these do lead to different results.
-  }
   As with ability, both implications may be true.
   Still, difference in terms of whether one appeals to some property of \nagent{4}, or some action that \nagent{4} performed.
   As with ability, there is some ambiguity.
   There's the fact that \nagent{4} took a walk in the sun, and there's the action of \nagent{4} taking a walk in the sun.
 \end{note}
 
-
-\begin{note}[More on \WR{}]
-  \color{red}
-  Using the event semantics representation.
-  Easy to represent possible event, here existential quantification is replaced.
-  In order to represent potential, things are a little more tricky.
-  One option is a different quantifier.
-  Another option is to restate components.
-  Here, reasoning.
-  For the verb, we have premises and steps.
-  So, place these outside the scope of the quantifier.
-\end{note}
-
 \begin{note}[Why]
-  So, \AR{}, the truth of some property.
+  So, \AR{}, some property.
   With \WR{}, it's the event that matters.
   In turn, moving from premises to some conclusion.
   Appeal to the event involves appeal to constituents of event.
@@ -3929,12 +4233,17 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
       \hline
       \multicolumn{2}{c}{\WR{}} & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Details of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
       \hline
-      \multirow[c]{2}{*}{\AR{}} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & \emph{S}'s ability (to \emph{V} that \(\phi\)) entails \(\phi\) \\
+      \multirow[c]{2}{*}{\AR{}} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & \emph{S}'s ability (to \emph{V} that \(\phi\)) entails \(\phi\)? \\
       \cline[dashed]{2-4}
       & Derived & That there is some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) & (Some) property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) \\
     \end{tblr}
     \caption{Distinction matrix with \aben{the}}
   \end{figure}
+\end{note}
+
+\begin{note}
+  Basic \AR{} with \ur{} has `?'.
+  For, as noted above it's not clear what this amounts to.
 \end{note}
 
 \subsubsection{The distinctions are exhaustive}
@@ -4066,175 +4375,6 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   If abstract away from the act, then it's not clear how to understand conditions as identifying ability.
 \end{note}
 
-\subsubsection{Reflexive, reasoning}
-\label{sec:reflexive}
-
-{
-  \color{green}
-  I don't think I necessarily need this section.
-}
-
-{
-  \color{red}
-  Okay, \ESU{} holds that claimed support for conclusion from steps and premises only if reasoned from steps and premises.
-  Now, \WR{} holds that witnessing event.
-  So, the agent needs to claim support that conclusion does follow from certain steps and premises.
-  Therefore, \ESU{} and \WR{} are incompatible, because \ESU{} means that the agent is not in a position to claim support that the conclusion follows from premises and steps.
-  So, there's an event in which \emph{S} reasons from premises to conclusion.
-  So, conclusion is supported by premises and steps.
-
-
-  Look, the idea here is that \ESU{} is going to rule out the agent claiming support for the conclusion.
-  And, this happens because the agent appeals to a witnessing event.
-  The agent only gets to claim \(\phi\) holds because there's reasoning which results in a \emph{V}ing of \(\phi\).
-  So, the idea is that \ESU{} rules out making any claims about this kind of witnessing event.
-
-  That is, so long as the agent isn't informed.
-  So, it might be better to bundle \gsi{} and reasoning together.
-}
-
-
-\subsubsection{\AR{}, \WR{}, and \gsi{}}
-\label{sec:ar-wr-gsi}
-
-\begin{note}[Summarising]
-  Above we introduced \gsi{}.
-  Limited information of the form `If \emph{S} has a (general) ability to \(\gamma\), then \emph{S} has a (specific) ability to \emph{V} that \(\phi\) (as an instance of the general ability).'
-  We then noted that certain instances of the (specific) ability to \emph{V} that \(\phi\) entail that \(\phi\) is the case.
-  Two interpretations of \aben{the}, \AR{} and \WR{}.
-
-  Our focus now turns back to \gsi{}.
-  For those instances of \gsi{} when \aben{the} holds, the interpretations \AR{} and \WR{} detail what the agent obtains by reasoning from general to specific ability.
-  In other words, \emph{what} the agent is claiming support for.
-
-  As noted, using a conditional such as \gsi{} is not automatic.
-  The informer has not provided the agent with any additional way to claim support that the agent has the general ability.
-  Rather, outlined something that follows \emph{if} the agent has the general ability.
-
-  So, it is up to the agent to resolve in either way.
-  If the agent wants to use the information, then the agent needs to reason from general to specific.
-  The issue is that without any additional reasoning, it seems there's no clear way to determine which way the agent should go.
-  Here is where the distinction between \AR{} and \WR{} is important.
-  Interpretation of specific ability informs how the agent move from general to specific.
-
-  Following two propositions outline combination.
-  {
-    \color{red}
-    The key thing here is about claiming that one has a specific ability.
-  }
-\end{note}
-
-\begin{note}[\gsi{}++]
-  First, \gsi{} applied to \AR{}
-  \begin{proposition}[\textsf{|gs-I\space·\space H|}]
-    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that \emph{S} has the property of being able to \emph{V} that \(\phi\).
-    Suppose an agent has:
-    \begin{enumerate}
-    \item Claimed support for some general ability \(\gamma\).
-    \item Claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) (for which \aben{the} holds).
-    \end{enumerate}
-    Then:
-    \begin{enumerate}[resume]
-    \item \emph{S} may claim support for having the specific ability \(\sigma\) by reasoning that they have the property of being able to \emph{V} that \(\phi\).
-    \end{enumerate}
-    \vspace{-\topsep}\vspace{-\topsep}
-  \end{proposition}
-  Second, \gsi{} applied to \WR{}
-  \begin{proposition}[\textsf{|gs-I\space·\space W|}]\label{W:s}
-    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
-        Suppose an agent has claimed support for some general ability \(\gamma\) and has claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) for which \aben{the} holds.
-    Then, an agent may claim support for having the specific ability \(\sigma\) by reasoning that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
-  \end{proposition}
-\end{note}
-
-\begin{note}[\gsi{}++ applied : \AR{}]
-  \AR{} doesn't need to much expansion.
-  Silent on what the property is.
-  One way to view is that general ability reduces to sufficient collection of specific.
-  \gsi{} conditional informs the agent that specific instance, so required for general ability.
-  \gsi{} is novel, but support claimed is for quantifier over all core instances.
-
-  Similar to a standard induction principle.
-
-  With respect to chess, this is one such principle.
-\end{note}
-
-\begin{note}[\gsi{}++ applied : \WR{}]
-  \WR{} is different.
-  Witnessing event.
-  So, \emph{V}ing that \(\phi\).
-  Break down \emph{V}ing that \(\phi\) into a series of actions performed by the agent.
-  General ability secures performing each of those actions.
-
-  Similar to verifying an algorithm may be implemented.
-  Break down all of the steps in the algorithm, and then ensure that it is possible to express each of the steps in the programming language of choice.
-
-  \begin{quote}
-    \textsc{factorial}(\(n\)):\newline
-    \textbf{if} \(n = 1\)\newline
-    \mbox{}\indent \textbf{return} \(1\)\newline
-    \textbf{else}\newline
-    \mbox{}\indent \textbf{return} \(n \times\) \textsc{factorial}(\(n-1\))
-  \end{quote}
-
-  Fortran 77 does not support recursion, a function may not call an instance of itself.\nolinebreak
-  \footnote{
-    This is not to say that one may not compute factorials using Fortran 77.
-    It's a Turing complete language.
-    However, would require a different (non-recursive) algorithm.
-  }
-  By contrast, the recursive factorial algorithm may implemented in languages that support recursion, such as Lisp or Python.
-
-  Turning to the chess example.
-  Here, appeal to sufficient understanding of the rules of chess, and the combination of these.
-  More broadly, premises and steps of reasoning.
-
-  It's this kind of stuff that \WR{} uses.
-\end{note}
-
-\begin{note}[Impact of distinction]
-  Return to the impact of the distinction.
-
-  \AR{}, focus on generator.
-  Hence, task is to establish that the agent has resources to generate.
-  So, in a sense, with \gsi{} we go from existence of general to existence of specific generator.
-  Note, this isn't to say that there's something like a general generator.
-  It may be the case by general ability we have quantification over specific abilities.
-  If so, then claim support that there's a particular specific generator.
-  Nor that specific generators are unique.
-  The available resources may overlap.
-  Still, some thing that is true of the agent, and claimed support for general ability is sufficient to claim support that the `some thing' holds.
-
-  \WR{}, focus on generated event.
-  So, agent doesn't necessarily need to establish a generator, but rather ensure that event may be generated.
-  Hence, \gsi{}, general ability allows the agent to generate witnessing event for specific ability.
-  Not looking to claim support that `some thing' is true of the agent.
-  Rather, claimed support for general ability, and appeal to the actions that this allows the agent to perform.
-\end{note}
-
-
-\begin{note}[Use of terminology]
-  \AR{} and \WR{} are favoured.
-  For, \gsi{} and \aben{the} are fixed for the remainder of the major argument.
-\end{note}
-
-\begin{note}[Intuition for \AR{} and \WR{}]
-  Both \AR{} and \WR{} are ways to understand \aben{the}, which is in turn about what is entailed by an agent having a (certain kind of) specific ability.
-
-  \AR{} focuses on the idea that the agent may claim support from having the attribute (or the truth) of the specific ability.
-  \AR{} requires support for attribute, which in turn suggests in a position to claim support for premises and steps.
-  \AR{} doesn't require agent to claim support for premises and steps.
-
-  \WR{} focuses on the idea that the agent may claim support from witnessing (or using) the specific ability.
-  \WR{} requires support for premises and steps, which in turn suggests in a position to claim support for attribute.
-  \WR{} doesn't require agent to claim support for attribute.
-\end{note}
-
-\begin{note}[Quite brief]
-  Sketches of \AR{} and \WR{} are brief.
-  Expand on these in the following sections (\ref{sec:first-conditional} and~\ref{sec:second-conditional}) to some extent, and chapter~\ref{cha:potent-infer-attr} will focus on a detailed account of both.
-\end{note}
-
 \subsubsection{Where the tension arises}
 \label{sec:where-tension-arises}
 
@@ -4253,47 +4393,14 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 
 \begin{note}[Summary]
   In this section we argue that \ESU{} constrains what an agent may claim support for when reasoning from general to specific ability.
-  In short, the agent may only claim support for some property.
-  In turn, if claimed support for specific ability, then any application of \aben{the} will be an instance of \AR{}.
-  For, the agent has not claimed support for a witnessing event.
 
+  In short, \ESU{} rules out claiming support by \ur{}.
+\end{note}
 
-
-  In this section, argue that \ESU{} requires \AR{} because \ESU{} conflicts with \WR{}.
-
+\begin{note}
   Two ways corresponding to two sides of (specific) ability
   First, with respect to \aben{the}: appealing to (specific) ability.
   Second, with respect to \gsi{}: establishing (specific) ability from (general) ability.
-
-  With \WR{}, it is potential witnessing event has central role.
-  Issue is what this involves.
-  Potential, so the only thing that's missing is to act.
-
-  Now, issue is what is used when the agent appeals to potential witnessing event.
-  That required resources are available.
-  Interest here is that bare (specific) ability statement does not include specification of sufficient resources.
-  Hence, conflict with \ESU{}.
-  Appeal to sufficient resources, but agent has not used the resources.
-
-  Here, something needs to be stressed.
-  Sufficient resources is not a general property.
-  We're interested in a witnessing event.
-  Therefore, those resources that would be used to witness.
-  If broad appeal to resources, then a case of \AR{}.
-
-  To illustrate, back to factorial.
-  How did I calculate the \(5! = 120\)?
-  I used my ability to calculate factorials.
-  Or, I recursively reasoning in line with algorithm.
-  \(5 \times (4 \times (3 \times (2 \times 1)))\).
-  and then\(2 \times 1 = 2\), \(3 \times 2 = 6\), \(4 \times 6 = 24\), and \(5 \times 24 = 120\).
-
-  Key thing is the things that would be used in the event.
-  Focus on the potential event, and so resources used in the event.
-
-  Common issue: Potential event, so the agent doesn't identify or use resources.
-  \gsi{} establishes potential witnessing event, ensure those resources are there.
-  \aben{the} appeals to the potential witnessing event and so appeals to those resources.
 \end{note}
 
 \begin{note}[Expand: \gsi{}]
@@ -4324,27 +4431,6 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   So, given context, general ability supplements sufficient additional premises and steps of reasoning.
 
   However, without witnessing specific ability, agent is not aware of which additional premises and steps of reasoning are used.
-\end{note}
-
-\begin{note}[Expand: \aben{}]
-  Conversely, with \aben{the} the agent claims support for \(\phi\).
-  Similarly, claimed support, and \aben{the} takes (specific) ability to \emph{V} that \(\phi\) as main premise.
-  Hence, the agent appeals to (and uses) (specific) ability to \emph{V} that \(\phi\) in order to claim support that \(\phi\).
-
-  Here, agent uses appeals to sufficient resources.
-  Key part of \WR{} interpretation is that the agent may witness \emph{V}ing that \(\phi\).
-  Ability is understood in terms of potential witness.
-  Therefore, appeal is made to sufficient resources.
-  However, as the agent does not \emph{V} that \(\phi\), the agent is not aware of what those resources are.
-
-  Stress again, at issue is not the \emph{de dicto} proposition that there are such sufficient resources.
-  Rather, it's the \emph{de re} proposition that `those' resources are sufficient.
-  The difficulty is that without witnessing, the agent has not determined what the referent of `those' is.
-
-  Personally, I find the above the clearest statement of the issue with \WR{}.
-  Focus on a witnessing event.
-  So, refer to something.
-  However, prior to witnessing, no referent is not fixed.
 \end{note}
 
 \begin{note}[Moving to incompatibility]
@@ -4378,73 +4464,24 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 Key proposition of this section.
 
 \begin{note}[Proposition]
-  \begin{proposition}[\WR{} is incompatible with~\ESU{}]\label{mcA:WR-and-denied-claim}
-    \emph{If} \ESU{} is true \emph{then} \WR{} is an incorrect interpretation of (specific) abilities of the form \emph{S} has the ability to \emph{V} that \(\phi\) (for which \aben{the} entailment holds).
-    {
-      \color{red}
-      If \ESU{} holds then when claiming support for specific ability by \gsi{} the agent claims support for some property.
-    }
+  \begin{proposition}[\ur{} is incompatible with~\ESU{}]\label{mcA:WR-and-denied-claim}
+    \emph{If} \ESU{} is true \emph{then} no claiming support by \ur{} with respect to derived \AR{} or \WR{}.
   \end{proposition}
+\end{note}
 
+\begin{note}
+  Argument is straightforward.
+  \ur{} then claiming support by property of witnessing event.
+  But, agent has not used those things in reasoning.
+\end{note}
+
+
+\begin{note}
   So, the key thing with this proposition is that in cases where an agent reasons with \gsi{-}, the agent claims support for a property.
   Hence, if an agent reasons from specific ability via \aben{the}, then must be an instance of \AR{}.
 
   Now, \autoref{mcA:WR-and-denied-claim} doesn't say that \ESU{} and \WR{} are incompatible in general.
   We'll see this in the argument for~\autoref{mcA:WR-and-denied-claim}.
-  {
-    \color{red}
-    Simple argument is that \ESU{} would require the agent to witness the relevant ability.
-    Objection to the simple argument is that premises and steps may be re-used, and therefore the agent may only need to produce a partial witness.
-    However, then there's potential defeaters that the premises and steps used for the partial witness are not sufficient for a full witness.
-    Is there a response to this?
-    So, issue is whether partial witness would be enough to claim support.
-    Well, the goal here is to argue that this would require the agent to have information that if these premises and steps hold up, then \(\phi\) must be the case.
-  }
-
-
-  {
-    \color{green}
-    Initial idea is that potential witnessing event is sufficient.
-    The agent does not need to use any of the premises or steps.
-    I think this is plausible.
-    However, this is flawed as an argument.
-    \WR{} only concerns the interpretation of specific ability.
-    No restrictions have been placed on \gsi{} move or \aben{the} move.
-    So, while it may be plausible that witnessing event is sufficient, this is not something which follows from the principles at issue.
-
-    Different argument.
-    Appeal to premises and steps.
-    So, needs to use these.
-    Requires the agent to witness the ability.
-
-    Note, it seems a presupposition of this argument that premises and steps are fine grained.
-    Each premise and step is considered distinct in order to achieve this.
-
-    Not obvious.
-    Propositional logic as an example.
-
-    So: Objection, that it is not clear that the agent must fully witness.
-    Therefore, partial or fragmented witness may be possible.
-
-    However, logic motivation is less clear on inspection.
-    When applying a rule it's always with reference to previous premises.
-    Point here is that this is a type-token distinction.
-    Conjunction introduction is a general sort of thing --- a type --- and there are instances --- tokens.
-    The type conjunction introduction does not apply to any pair of propositions in particular.
-    A token instance of conjunction introduction holds with respect to particular propositions.
-    Contrast, the word type `Smith' does not refer to an individual, but a token may.
-    So, in order to avoid witnessing, the agent would need to appeal to types, rather than tokens, but it is tokens that are important.
-    It is rare for types to be used in reasoning.
-    However, tokens are common.
-
-    Two consequences.
-    For \gsi{}, the agent needs to witness specific in order to claim support that they have specific.
-    For \aben{the}, the agent needs to witness specific ability in order to claim support for conclusion.
-
-    Both problem stem from common core of \WR{}: Witnessing events.
-
-    In short. there's not plausible sense of `use' which doesn't require the agent to witness their ability with respect to \WR{}.
-  }
 
   The argument that \WR{} is an incorrect interpretation of (specific) abilities of the form \emph{S} has the ability to \emph{V} that \(\phi\) (for which \aben{the} entailment holds) has two components.
   First, difficulty establishing by \gsi{}.
@@ -4460,51 +4497,6 @@ Key proposition of this section.
   The issue is strengthened when turning to \aben{the}.
   For, the conclusion is that \(\phi\) is the case.
   And, a partial witnessing event does not establish that \(\phi\) is the case.
-
-
-  For,~\ref{P:ab-and-dc:W:ab} and~\ref{P:ab-and-dc:W:uRa}.
-  Then, agent obtains support by~\ref{P:ab-and-dc:W:ab}.
-  As \ESU{}, then from \ref{mcA:WR-and-denied-claim} not \WR{}.
-  So, from~\ref{either-AR-or-WR}, must be \AR{}.
-\end{note}
-
-\begin{note}[To argument]
-  {
-    \color{red}
-    We provided a brief argument for~\ref{either-AR-or-WR} in the previous section.
-  }
-  So, what follows is a brief argument for~\ref{mcA:WR-and-denied-claim}.
-\end{note}
-
-\begin{note}[Attribute]
-  \WR{} is an instance of~\EAS{}, as the agent obtains support for the conclusion of the reasoning is able to do on the basis of the reasoning that would be performed in a witnessing event.
-  Hence, the supported obtained for the conclusion is obtained on the basis of the support the agent has for the premises that would be used.
-  Again, this does not imply that the agent obtains support for the conclusion which is equivalent to the support the agent would obtain by witnessing their ability by performing the reasoning.
-\end{note}
-
-\begin{note}[Compatibility]
-  However, \AR{} suggests an alternative way to obtain support for the conclusion of reasoning the agent is able to do.
-  Specifically, if order for the agent to \emph{have} the attribute of being able to reason to the conclusion, the conclusion of the reasoning must be true.
-  The relevant entailment is in part secured by the verb chosen, and in part by what the verb is applied to.
-  Here, `demonstrate' is a factive verb, if an agent demonstrates that \(\phi\), then it is true that \(\phi\).
-  And, the existence of a chess strategy does not depend on the agent demonstrating that the relevant strategy exists.
-
-  To take another example, you only have the ability to identify a typo on this page if there is a typo on this page.
-  So, if I were to provide you with testimony that you have the ability to identify a typo on this page, you may begin searching for the typo, or you may note that there must be a typo in order for me to be in a position to provide you with testimony that you have the ability.
-
-  The reasoning is summarised with the following sketch.
-
-  \begin{enumerate}[label=(\textsf{A}\arabic*), ref=(\textsf{A}\arabic*)]
-  \item\label{WR:Sketch:1} I have the attribute of being able to \emph{V} that \(\phi\).
-  \item\label{WR:Sketch:2} In order to have the attribute of being able to \emph{V} that \(\phi\), \(\phi\) must be the case independent of whether or not I witness the ability.
-  \item\label{WR:Sketch:3} \(\phi\) is the case.
-  \end{enumerate}
-
-  To keep things simple, we will refer to the principle behind the pattern sketched as \AR{}.
-  And agent may bundle~\ref{WR:Sketch:1} and~\ref{WR:Sketch:3} into a conditional, and avoid instantiating the reasoning pattern, but so long as the conditional is (implicitly) held on the basis of the intermediate premise~\ref{WR:Sketch:2}, we take use of such a conditional to be an instance of \AR{}.
-
-  \AR{} is compatible with \ESU{}.
-  For, the two premises~\ref{WR:Sketch:1} and~\ref{WR:Sketch:2} are accessible to the agent, and obtaining \ref{WR:Sketch:3} from~\ref{WR:Sketch:1} and~\ref{WR:Sketch:2} appears to be straightforwardly sound reasoning.
 \end{note}
 
 \subsubsection{Summary}
@@ -4526,36 +4518,8 @@ Key proposition of this section.
   \end{figure}
 \end{note}
 
-\begin{note}[Conditional A]
-  The first conditional we establish highlights how \ESU{} constrains how an agent may use \gsi{} in the type of scenarios described by \eA{}.
-
-  \begin{proposition}[\mcA{}]
-  \begin{enumerate}[label=(C\Alph*), ref=(C\Alph*), series=CC_counter]
-  \item\label{P:ab-and-dc:W} If
-    \begin{enumerate}[label=(\roman*), ref=(CA.\roman*), series=CCA_counter]
-    \item\label{P:ab-and-dc:W:ab} an agent may claim support for the conclusion of reasoning they are able to do in cases described by~\eA{}, and
-    \item\label{P:ab-and-dc:W:uRa} \ESU{} is true,
-    \end{enumerate}
-    then
-    \begin{enumerate}[label=(\roman*), ref=(CA.\roman*), resume*=CCA_counter]
-    \item\label{P:ab-and-dc:W:AR} support for \(\phi\) is claimed from the agent having the attribute of being able to demonstrate that \(\phi\) (i.e.\ \AR{}).
-    \end{enumerate}
-  \end{enumerate}
-  \vspace{-\topsep}\vspace{-\topsep}
-\end{proposition}
-
-  The reasoning described in the consequent of the conditional, \ref{P:ab-and-dc:W:AR}, is in line with \AR{} --- the support the agent obtains for the conclusion of the reasoning that they are able to do is obtained from the support the agent has for having the attribute of being able to reason to the conclusion.
-\end{note}
-
 \begin{note}[Summarising]
   ???
-\end{note}
-
-\begin{note}[Note on why \AR{} does not conflict with \ESU{}]
-  \AR{} and \ESU{} are compatible.
-  For, \AR{} is attribute.
-  So, if instance of \AR{} agent is claiming support for attribute.
-  This is accessed.
 \end{note}
 
 \subsection{\nI{}, \gsi{}, and \aben{the}}
@@ -7144,8 +7108,7 @@ From a glace, the type of reasoning captured by~\ref{nI:going-by-value} seems st
 
   The previous section argued that~\ESU{} constrains how an agent may use the received information.
   If an agent is required to traces support from premises to conclusion through reasoning, then an agent may not appeal to the support for the premises and steps of reasoning that the agent would use to witness the specific ability.
-  {\color{red} This is summarised in~\ref{P:ab-and-dc:W}.}
-
+  
   The (initial) plausibility of~\ESU{}, then, suggests that the agent may only establish support for having the {\color{red} result of the specific ability} from the support they have for the general ability by \AR{}:
   The support the agent has for the general ability is support that it is true that the agent has the general ability.
   In turn, given the information received it is true that the agent has the specific ability, and it is only possible for the agent to have the specific ability if the result of witnessing the specific ability is true.
@@ -7161,6 +7124,32 @@ From a glace, the type of reasoning captured by~\ref{nI:going-by-value} seems st
 
 \begin{note}
   Here, argue that \ur{} is okay with \nI{}.
+\end{note}
+
+\begin{note}
+  Key point is that agent claims support for property or event.
+  The agent doesn't move to value.
+
+  So, \gsi{} it's the parts of the general ability.
+  And \aben{the} it's the premises and so on.
+
+  Key point is that given background information, these allow the agent to claim support, even if it turns out the agent is \mom{}.
+  Information is that that stuff is sufficient to claim support.
+
+  Easiest with \WR{}.
+  As, this is just the same as an instance of reasoning.
+  The only difference is that the agent isn't clear on what's going on.
+
+  Everything the agent has claimed support for allows them to make this move.
+  Even if turns out things aren't right, and \mom{}, the agent seems to have enough, and by \ur{} they don't require that they aren't \mom{}.
+
+  This, to my mind, is the key idea with ability.
+  It informs the agent of something they have the ability to do.
+  And, that thing functions in just the same way as it would if the agent were to do the thing.
+
+  Claim support by appeal to that reasoning.
+  Only going to be truly successful if I have the ability, for sure.
+  However, claim support for ability even if \mom{}.
 \end{note}
 
 \begin{note}
@@ -7203,51 +7192,6 @@ From a glace, the type of reasoning captured by~\ref{nI:going-by-value} seems st
     \caption{Distinction matrix}
   \end{figure}
 \end{note}
-
-\begin{note}[Conditional B]
-  \begin{proposition}[\mcB{}]
-    \begin{enumerate}[label=(C\Alph*), ref=(C\Alph*), resume*=CC_counter]
-    \item\label{P:ab-and-dc:A} If
-      \begin{enumerate}[label=(\roman*), ref=(CB.\roman*), series=CCB_counter]
-      \item\label{P:ab-and-dc:A:ab} an agent obtains support for some proposition \(\phi\) on the basis of the agent's ability to demonstrate that \(\phi\) is the case, and
-      \item\label{P:ab-and-dc:A:ni} \nI{} is true,
-      \end{enumerate}
-      then
-      \begin{enumerate}[label=(\roman*), ref=(CB.\roman*), resume*=CCB_counter]
-      \item\label{P:ab-and-dc:A:AR} the support for \(\phi\) \emph{is not} claimed on the basis of the agent having the attribute of being able to demonstrate that \(\phi\) (in line with \AR{}).
-      \end{enumerate}
-    \end{enumerate}
-    \vspace{-\topsep}
-  \end{proposition}
-\end{note}
-
-\begin{note}[Relating to other conditional]
-  Given \mcA{}, the immediate interest with \mcB{} is that~\ref{P:ab-and-dc:W:AR} and~\ref{P:ab-and-dc:W:AR} are incompatible.
-  So, if both conditionals are true, then (at least) one of the antecedents from either conditional is false.
-
-  \ref{P:ab-and-dc:A:ab} repeats~\ref{P:ab-and-dc:W:ab}, roughly \eA{}.\nolinebreak
-  \footnote{
-    As with \mcA{}, could rephrase without \ref{P:ab-and-dc:A:ab}.
-    If \nI{} is true, then not possible for agent to claim support for \(\phi\) on the basis of the agent having the attribute of being able to demonstrate that \(\phi\).
-  }
-  % Still,~\ref{P:ab-and-dc:A:ni} differs from~\ref{P:ab-and-dc:W:uRa}.
-  \mcA{} assumed \ESU{}, principle we are proposing an exception for.
-  \mcB{} assumes a principle, \nI{} to be argued for.
-  Hence, if both \mcA{} and \mcB{} are true, either \eA{}, \ESU{}, or \nI{} is false.
-
-  Before turning to \nI{}, observe general picture.
-  If \eA{} and \nI{}, then \ESU{} is false.
-  Hence, argument against \ESU{}.
-  Further, \ref{either-AR-or-WR} then \WR{}.
-  Motivates \EAS{}.
-\end{note}
-
-
-
-\begin{note}[Established conditional 2]
-  Something about, if \eA{} then agent does not obtain support for the attribute.
-\end{note}
-
 
 \subsubsection{\nI{} isn't that strong}
 \label{sec:ni-isnt-that}
