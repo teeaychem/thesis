@@ -77,8 +77,8 @@
 \newcommand{\named}[1]{\textsf{|#1|}}
 
 
-\newcommand{\adS}[0]{simple}
-\newcommand{\adC}[0]{composite}
+\newcommand{\adA}[0]{\textsf{Substantiation}}
+\newcommand{\adB}[0]{\textsf{Interpolation}}
 
 % % % Premise Commands
 % Perhaps:
@@ -139,6 +139,19 @@
 
 \newcommand{\nIOTT}{\hyperref[prem:ni]{\named{\nItext:1--3}}}
 
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:USE]{\named{USE}}}%
+  }
+  {%
+    \obeybreaks{Use\space is\space sufficient\space to\space explain \space claiming \space support}%
+  }
+}
+\ExplSyntaxOff
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ESU}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
@@ -146,19 +159,7 @@
     \text{\hyperref[denied-claim]{\named{ESU}}}%
   }
   {%
-    \obeybreaks{Explanation\space only\space by\space (claimed)\space support\space used}%
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eA}{ m }{% Cases exists
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prop:SE]{\named{SE}}}%
-  }
-  {%
-    \obeybreaks{Scenarios\space exist}%
+    \obeybreaks{Explanation\space of\space claiming\space support\space (only)\space by\space use}%
   }
 }
 \ExplSyntaxOff
@@ -167,10 +168,10 @@
 \DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:EAS]{\named{EAS}}}%
+    \text{\hyperref[prop:EAS]{\named{ESA}}}%
   }
   {%
-    \obeybreaks{Explanation\space by\space ability\space to\space claim\space support}%
+    \obeybreaks{Explanation\space of\space claiming\space support\space by\space ability}%
   }
 }
 \ExplSyntaxOff
@@ -188,13 +189,13 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
+\DeclareDocumentCommand{\eA}{ m }{% Cases exists
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:USE]{\named{USE}}}%
+    \text{\hyperref[prop:SE]{\named{SE}}}%
   }
   {%
-    \obeybreaks{Used\space (claimed) \space support\space explains}%
+    \obeybreaks{Scenarios\space exist}%
   }
 }
 \ExplSyntaxOff
