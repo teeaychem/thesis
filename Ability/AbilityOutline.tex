@@ -2959,16 +2959,46 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 \paragraph*{Initial illustration}
 
 \begin{note}
-  \begin{illustration}\label{ill:ad:proof}
-    \begin{enumerate}
-    \item\label{ill:Eproof:def} Syntactic proof is sufficient to establish theorem.
-    \item\label{ill:Eproof:exi} Exists a syntactic proof.
-    \item\label{ill:Eproof:thm} Theorem.
-    \end{enumerate}
-  \end{illustration}
+  
+  \begin{enumerate}
+  \item\label{ill:Eproof:def} A syntactic proof of a formula (using a sound first-order system) is sufficient to establish the formula is a (syntactic) theorem of first-order logic.
+  \end{enumerate}
+\end{note}
 
-  Claimed support for existence of a proof, say some previous proof.
-  So, apply to~\ref{ill:Eproof:def} and `detach' \ref{ill:Eproof:thm}.
+\begin{note}[Memory]
+  \begin{illustration}\label{ill:ad:proof:mem}
+    \begin{enumerate}
+    \item \ref{ill:Eproof:def} is an immediate consequence of how (syntactic) theorem-hood is defined.
+    \item I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).
+    \item So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
+    \item Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
+    \end{enumerate}
+
+    \autoref{ill:ad:proof:mem} seems a straightforward case of claiming support.
+
+    First, the agent has claimed support for \ref{ill:Eproof:def} by their familiarity with systems of first order logic.
+
+    Second, the agent remembers having created a syntactic proof of the relevant formula.
+    And, it seems sufficient, generally speaking, to claim support for some proposition by appealing to memory, hence the agent claims support that there was some event which culminated in a syntactic proof of the formula.\nolinebreak
+    \footnote{
+      It may be more natural to say `I remember creating\dots' or `I remember proving\dots'.
+      The particular phrasing is chosen to remove any ambiguity about whether the agent \emph{finished} the activity creating or proving.
+    }
+    Of course, the agent may have misremembered, but there seems no issue with the agent expecting that appeal to their memory is \nmom{}.
+
+    Following, this allows the agent to claim support that a syntactic proof of the formula exists.
+    As before, the agent may have been \mom{} about whether what they created really was a syntactic proof of the formula
+    And, as before it seems the agent may expect that they were not \mom{}.
+
+    Hence, finally, the agent claims support that the formula is a (syntactic) theorem of first-order logic.
+  \end{illustration}
+  To concisely summarise, we may say that the agent claimed support for the formula being a (syntactic) theorem of first-order logic \emph{because} of their understanding of syntactic theorem-hood and their memory of proving the formula.
+
+  For sure,~\autoref{ill:ad:proof:mem} is designed to be as straightforward as possible.
+  Of interest is not whether the agent claims support, but how the role the agent gives to their memory in claiming support.
+
+  The agent appeals to their memory to establish that there exists a syntactic proof of the formula, and then combines the existence of a syntactic proof with~\ref{ill:Eproof:def} to claim support that the formula is a theorem.
+  Hence, the agent's memory is directly involved in their claimed support for the formula being a theorem.
 
   This makes sense.\nolinebreak
   \footnote{
@@ -2996,16 +3026,25 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Now, memory.
 
   Instance of proving.
-  So, something like\dots
-  \begin{itemize}
-  \item \(P \rightarrow Q\)
-  \item \(\lnot Q\)
-  \item \(P\)
-  \item \(Q\)
-  \item \(\lnot P\)
-  \item \(\lnot Q \rightarrow \lnot P\)
-  \end{itemize}
-  This constitutes a proof.
+  So, something like\dots\nolinebreak
+  \footnote{~\cite[557--560]{Barwise:1999tu}}
+
+  \begin{quote}
+    \fitchprf{}{
+      \subproof{\pline[1.]{\forall x P x}}{
+        \subproof{\pline[2.]{\exists x \lnot Px}}{
+          \boxedsubproof[3.]{a}{\lnot Pa}{
+            \pline[4.]{Pa}[\lalle{1}] \\
+            \pline[5.]{\bot}[\lfalsei{3}{4}]
+          }
+          \pline[6.]{\bot}[\lexie{2}{3--5}]
+        }
+        \pline[7.]{\lnot \exists x \lnot Px}[\lnoti{2--6}]
+      }
+      \pline[8.]{\forall x Px \rightarrow \lnot \exists x \lnot Px}[\lifi{1--7}]
+    }
+  \end{quote}
+
 
   In addition, from \ref{ill:Eproof:def} understand that a proof is sufficient to establish.
 
@@ -3018,6 +3057,16 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
     Still, may extend to composite properties of any model.
     Either \(\phi\) or \(\lnot\phi\).
     So, \(\psi\), or trivial.
+  }
+
+  Of course, the agent need not remember.
+  Still, memory of proving means that there was some instance.
+  It seems memory is only good to the extent that this proving was any good.
+
+  {
+    \color{red} Note: no conflict with \ESU{}.
+    For, did use to claim support at some time in the past.
+    Incompatible with a stronger variant of \ESU{}, though.
   }
 \end{note}
 
@@ -3057,88 +3106,113 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
 \end{note}
 
 \begin{note}
-  \begin{definition}[\adA{}]
+  \begin{definition}[\adA{}]\label{def:adA}
     Suppose:
-    \begin{enumerate}[label=\arabic*., ref=(\textsf{S}\arabic*), series=adA_counter]
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=\named{\textsf{S}:\arabic*}, series=adA_counter]
     % \item\label{def:adA:p-to-p} Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
     \item\label{def:adA:phi} Claimed support for \(\phi\) having value \(v\).
     \end{enumerate}
     Then, agent claims support for \(\psi\) having value \(v'\) by `\adA{}' from \(\phi\) having value \(v\) when:
-    \begin{enumerate}[label=\arabic*., ref=(\textsf{S}\arabic*), resume*=adA_counter]
-    \item\label{def:adA:psi} Claims support for \(\psi\) having value \(v'\) by claimed support for \(\phi\) having value \(v\).
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=\named{\textsf{S}:\arabic*}, resume*=adA_counter]
+    \item\label{def:adA:psi} Claims support for \(\psi\) having value \(v'\) by \(\phi\) having value \(v\) (obtained from claimed support).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{definition}
 \end{note}
 
 \begin{note}
+  \adA{} does not outline a specific way of reasoning.
+  Rather, captures the role of claimed support for \(\phi\) having value \(v\) in some instance of reasoning when the agent claims support for \(\psi\) having value \(v'\).
+
   Intuitive idea is that claimed support for \(\phi\) having value \(v\)~\ref{def:adA:phi} provides agent with resource to claim support for \(\psi\) having value \(v'\) to~\ref{def:adA:psi}.
-  
+
   Applied to the two sketches seen, claim support by existence of proof, or by specific ability to \emph{V} that \(\phi\).
   Key thing is that claimed support for existence of proof or the specific ability to \emph{V} that \(\phi\) rather than something else.
+
+  Indeed, noting and abstracting from the role of conditionals in these two illustrations, basic (abstract) instance of \adA{}:
+
+  \begin{itemize}
+  \item If \(\phi\) has value \(v\) then \(\psi\) has value \(v'\).
+  \item And, as I have claimed support for \(\phi\) having value \(v\), \(\phi\) has value \(v\), from which is follows that \(\psi\) has value \(v'\).
+  \item Hence, claim support that \(\psi\) has value \(v'\).
+  \end{itemize}
+
+  Note, \(\phi\) having value \(v\).
+  Conditional is useful as need to satisfy the antecedent.
+  Agent isn't appealing to some part of \(\phi\) or some other consequence of \(\phi\) having value \(v\), etc.
+
+  Still, the agent need not claim support for a conditional.
+  Consider \(A \text{ and } B\) to \(A\).
+  Either conditional or a step.
 \end{note}
 
 \begin{note}
-  \begin{definition}[\adB{}]
+  \begin{definition}[\adB{}]\label{def:adB}
     Suppose:
-    \begin{enumerate}[label=\arabic*., ref=(\textsf{I}\arabic*), series=adB_counter]
+    \begin{enumerate}[label=\textsf{I:\arabic*}., ref=\named{\textsf{I}:\arabic*}, series=adB_counter]
     % \item Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).\nolinebreak
       % \footnote{
       %   It doesn't matter whether claiming support for \(\phi\) is sufficient to claim support for \(\psi\).
       % }
-    \item Claimed support for \(\phi\) ensures there is some (distinct) collection of propositions \(\gamma_{1},\dots,\gamma_{k}\), such that possible to claim support for \(\psi\) by \(\gamma_{1},\dots,\gamma_{k}\).
+    \item\label{def:adB:poss} Claimed support for \(\phi\) ensures there is some (distinct) collection of propositions \(\gamma_{1},\dots,\gamma_{k}\) with respective values, such that it is possible to claim support for \(\psi\) having value \(v'\) by appeal to \(\gamma_{1},\dots,\gamma_{k}\) and the respective values.
     \end{enumerate}
-    Then, agent claims support for \(\psi\) having value \(v'\) by `\adB{}' from \(\phi\) to \(\psi\) via \(\gamma_{1},\dots,\gamma_{k}\) when:
-    \begin{enumerate}[label=\arabic*., ref=(\textsf{I}\arabic*), resume*=adB_counter]
-    \item Claim support for \(\psi\) by appeal to \(\gamma_{1},\dots,\gamma_{k}\) and possibility of claiming support for \(\psi\) by \(\gamma_{1},\dots,\gamma_{k}\).
+    Then, agent claims support for \(\psi\) having value \(v'\) by `\adB{}'\nolinebreak
+    \footnote{
+      Motivated in part by similarity to Craig's interpolation theorem.
+      Find something `in-between' that does the work.
+      However, that's the extent of the relation.
+    }
+    from \(\phi\) having value \(v\) when:
+    \begin{enumerate}[label=\textsf{I}:\arabic*., ref=\named{\textsf{I}:\arabic*}, resume*=adB_counter]
+    \item\label{def:adB:inter} Claim support for \(\psi\) having value \(v'\) by appeal to \(\gamma_{1},\dots,\gamma_{k}\) having respective values and the possibility of claiming support for \(\psi\) having value \(v'\) by appeal to \(\gamma_{1},\dots,\gamma_{k}\) and the respective values.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{definition}
 \end{note}
 
 \begin{note}
+  With \adA{} \(\phi\) having value \(v\).
+  \adB{} does not involve the agent claiming support for \(\phi\) having value \(v'\) by \(\phi\) having value \(v\).
+  Instead, some (distinct) collection of proposition \(\gamma_{1},\dots,\gamma_{k}\).
+
+  Key difference is that agent isn't directly claiming support for \(\psi\) from \(\phi\).
+  From \(\gamma_{1},\dots,\gamma_{k}\) to \(\psi\)
+  Though, this is not to say that \(\phi\) is irrelevant.
+  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
+  In turn, the definition does not stated how the agent claims support for \(\gamma_{1},\dots,\gamma_{k}\) having respective values.
+
+  In other words, \adA{} specifies a `because' while \adB{} does not.
+
+  Two reasons.
+  First, it doesn't matter.
+  Some other way.
+  Second, there are at least two possibilities:
+
+  \begin{enumerate}
+  \item Agent to claims support for \(\gamma_{1},\dots,\gamma_{n}\) by \(\phi\) (though this isn't the one I'm interested in).
+  \item Agent has already claiming support for \(\gamma_{1},\dots,\gamma_{n}\) (this is the one I'm interested in).
+  \end{enumerate}
+
+  With respect to `because'
+  \begin{itemize}
+  \item Because \(\phi\) ensures \(\gamma_{1},\dots,\gamma_{n}\) and \(\psi\) from \(\gamma_{1},\dots,\gamma_{n}\).
+  \item Because \(\gamma_{1},\dots,\gamma_{n}\) and \(\phi\) ensures possibility for \(\psi\) from \(\gamma_{1},\dots,\gamma_{n}\).
+  \end{itemize}
+\end{note}
+
+
+\begin{note}
   Only seen \adB{} with respect to proof illustration.
-  Appeal to the premises and steps of the proof.
+  Remembered proving \(\phi\), that secures the possibility, but claiming support from the details of the proof itself.
+
   Intuitively, applies to ability in the same way.
+  Premises and steps of reasoning work in the same way as components of a proof.
   However, we will delay details until we've seen a few more illustrations.
 \end{note}
 
-\begin{note}[Descriptive]
-  \adA{} and \adB{} are descriptive from the perspective of claimed support.
-  Don't say that 1 and 2 are sufficient for 3 in the case of \adA{}.
-  Nor that there are cases for \adB{}.
-\end{note}
-
-\begin{note}[Important]
-  \adA{} traces a chain of support, claimed support for \(\phi\) goes to \(\psi\).
-
-  \adB{} as defined does not detail how the agent has claimed support for \(\gamma_{1},\dots,\gamma_{k}\).
-
-  In other words, \adA{} specifies a `because' while \adB{} does not.
-  {
-    \color{red}
-    Two options:
-
-    \begin{enumerate}
-    \item Agent to claims support for \(\gamma_{1},\dots,\gamma_{n}\) by \(\phi\) (though this isn't the one I'm interested in).
-    \item Agent has already claiming support for \(\gamma_{1},\dots,\gamma_{n}\) (this is the one I'm interested in).
-    \end{enumerate}
-
-    With respect to `because'
-    \begin{itemize}
-    \item Because \(\phi\) ensures \(\gamma_{1},\dots,\gamma_{n}\) and \(\psi\) from \(\gamma_{1},\dots,\gamma_{n}\).
-    \item Because \(\gamma_{1},\dots,\gamma_{n}\) and \(\phi\) ensures possibility for \(\psi\) from \(\gamma_{1},\dots,\gamma_{n}\).
-    \end{itemize}
-  }
-
-  {
-    \color{blue}
-    Motivated in part by similarity to Craig's interpolation theorem.
-    Find something `in-between' that does the work.
-    However, that's the extent of the relation.
-  }
 
 
+\begin{note}
   Broad distinction, agent may claim support by appeal to some thing, but it is also possible to break that thing down in to parts or elements such that the agent may claim support by appeal to those parts or elements (and how they compose).
 
   `Break down' is metaphorical.
@@ -3150,7 +3224,6 @@ Finally, subsection~\ref{sec:scenarios} will combine \gsi{-} and `\aben{the}' to
   Break down is not required.
 
   In this sense, break down is more fundamental.
-  
 
   `Because\dots'
 
