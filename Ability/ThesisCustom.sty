@@ -213,6 +213,18 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\nfcs}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:supp:nfactive]{\named{\cancel[thick]{F}CS}}}%\text{\textsf{|ICS|}}%
+  }
+  {%
+    \obeybreaks{Non-factivity\space of\space claimed\space support}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\eit}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {%
