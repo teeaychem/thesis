@@ -414,7 +414,7 @@
   \begin{enumerate}[label=\Alph*., ref=(\Alph*)]
   \item\label{CS:I:Never} \emph{In principle} it is not possible for any agent to rule out the possibility that claimed support is not misleading or mistaken.
   \item\label{CS:I:Resources} It is not possible for a \emph{resource bound agent} to rule out the possibility that claimed support is not misleading or mistaken.
-  \item\label{CS:I:Class} There is a restricted class of propositions for which and agent is required to claim support, and it is not possible for any agent to rule out the possibility that claimed support for a proposition belonging the class is not misleading or mistaken.
+  \item\label{CS:I:Class} There is a restricted class of propositions for which and agent is required to claim support, and it is not possible for any agent to rule out the possibility that claimed support for a proposition belonging the class is \nmom{}.
   \end{enumerate}
 
   To illustrate, consider the proposition that there is an external world:
@@ -454,9 +454,9 @@
   Claiming support is independent of value.
 
   \begin{proposition}[\eiS{-} --- \eiS{}]\label{prop:supp:independence}
-    Claimed support indicates the value of \(\phi\)
+    Claimed support for \(\phi\) having value \(v\) indicates that \(\phi\) has value \(v\)
     % independently of the value of \(\phi\) --- or
-    regardless of whether the claimed support is \mom{}.
+    regardless of whether the claimed support for \(\phi\) having value \(v\) is \mom{}.
 \nolinebreak
     \footnote{
       Possibly goes against externalism, but I don't think this is right.
@@ -3953,21 +3953,21 @@ Key proposition of this section.
   \begin{proposition}[\nI{-}  --- \nI{}]\label{prem:ni}
     Suppose:
     \begin{enumerate}[ref=\named{\nItext{}:\arabic*}, series=nI_counter]
-    \item\label{nI:claimed-support} \(S\) has claimed support that some proposition \(\phi\) has value \(v\) from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).\nolinebreak
+    \item\label{nI:claimed-support} \nIClauseClaimedSupport{}\nolinebreak
       \footnote{
         The agent has at some time in the past (perhaps a moment ago) claimed support for \(\phi\) having \(v\) from materia \(M\), and at the present time the agent continues to hold that \(\phi\) has value \(v\) from \(M\).
         In some cases, an agent may revise materia.
         E.g.\ this may be the case when appealing to memory, a new source, etc.
         Note, however, that this does not require that the agent initially claimed support for \(\phi\) from materia \(M\) --- may be in instance of memory.
       }
-    \item\label{nI:received-info} \(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).
+    \item\label{nI:received-info} \nIClauseReceivedInfo{}
     \end{enumerate}
     And, suppose:
     \begin{enumerate}[ref=\named{\nItext{}:\arabic*}, resume*=nI_counter]
     \item\label{nI:inclusion}
-       \(S\) is confident that:
+      \nIClauseInclusion{}
       \begin{enumerate}[label=\alph*., ref=\named{\nItext{}3:\alph*}]
-      \item\label{nI:inclusion:position} Their claimed support for \(\phi\) having value \(v\) is \mom{} if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).\nolinebreak
+      \item\label{nI:inclusion:position} \nIClauseInclusionPosition{}\nolinebreak
         \footnote{
           Agent considers.
           This should be stressed.
@@ -3979,7 +3979,7 @@ Key proposition of this section.
           I don't see a clear problem at the moment.
           However, I do expand below.
         }
-      \item\label{nI:inclusion:bound} If their claimed support for \(\phi\) having value \(v\) is \nmom{} then they would be \nmom{} when claiming support for \(\psi\) having value \(v'\).
+      \item\label{nI:inclusion:bound} \nIClauseInclusioBound{}
       \end{enumerate}
     \end{enumerate}
     {
@@ -4006,10 +4006,10 @@ Key proposition of this section.
     }
     Then:
     \begin{enumerate}[ref=\named{\nItext{}:\arabic*}, resume*=nI_counter]
-    \item\label{nI:going-by-value} \(S\) may not claim support for \(\psi\) having value \(v'\) by appeal (only) to:
+    \item\label{nI:going-by-value} \nIClauseValue{}
       \begin{enumerate}[label=\alph*., ref=\named{\nItext{}4:\alph*}]
-      \item\label{nI:going-by-value:phi} \(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and
-      \item\label{nI:goingbyvalue:psi} the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.
+      \item\label{nI:going-by-value:phi} \nIClauseValuePhi{}
+      \item\label{nI:goingbyvalue:psi} \nIClauseValuePsi{}
       \end{enumerate}
     \end{enumerate}
     {
@@ -4595,10 +4595,9 @@ Key proposition of this section.
 
   Restated:
   \begin{quote}
-    \color{blue}
     \begin{enumerate}
-    \item[\ref{nI:claimed-support}] \(S\) has claimed support that some proposition \(\phi\) has value \(v\) from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).
-    \item[\ref{nI:received-info}] \(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).
+    \item[\ref{nI:claimed-support}] \nIClauseClaimedSupport{}
+    \item[\ref{nI:received-info}] \nIClauseReceivedInfo{}
     \end{enumerate}
   \end{quote}
 
@@ -4669,30 +4668,35 @@ Key proposition of this section.
 \paragraph{\ref{nI:going-by-value}}
 
 \begin{note}[Background to Limitation]
-  Core idea of~\ref{nI:going-by-value} is that given~\nIOTT{} as background conditions, agent is prevented from claiming support in a specific way.
-  So, primary role of~\ref{nI:going-by-value} is to capture what the way of reasoning is.
+  The broad target of \nI{} is to identify sufficient conditions for a way of claiming support to be undercut.
+  The primary content of~\ref{nI:going-by-value} is an account of the particular way of claiming support, and the statement that \emph{that} way of claiming support is undercut given~\nIOTT{}.
 
-  Argument for why~\ref{nI:going-by-value} holds given~\nIOTT{} will be given below.
-  Here, further details on what this way of claiming support amounts to.
+  Restated:
 
-  \ref{nI:going-by-value} prohibits this kind of reasoning given previous conditions obtain.
-  For the moment we focus on what is prohibited, and defer why it is prohibited to argument below.
+  \begin{quote}
+    \begin{enumerate}
+    \item[\ref{nI:going-by-value}] \nIClauseValue{}
+      \begin{enumerate}[label=\alph*.]
+      \item[\ref{nI:going-by-value:phi}] \nIClauseValuePhi{}
+      \item[\ref{nI:goingbyvalue:psi}] \nIClauseValuePsi{}
+      \end{enumerate}
+    \end{enumerate}
+  \end{quote}
+
+  In this section we clarify the way of claiming support in some detail.
+  The argument for why the way of claiming support is undercut will be given in~\autoref{sec:argument-ni}.
+  However, we will argue for a proposition that we will in turn appeal to when arguing for~\nI{}.
+\end{note}
+
+\begin{note}
+  Specifically, we will split this section into two parts.
+  First, a discussion of the way in which the agent claims support and second, an statement and argument for a proposition that we will appeal to when arguing for \nI{}.
+  The proposition is related to the specific way of claiming support described by~\ref{nI:going-by-value}.
+  However, the proposition is stated with respect to way of claiming support, rather than specific instance.
 \end{note}
 
 \begin{note}[\ref{nI:going-by-value} Restated]
   \ref{nI:going-by-value} describes a particular way of claiming support (and denies that the agent may claim support in such a way if certain conditions are met).
-
-  Restated:
-  \color{blue}
-  \begin{quote}
-    \begin{enumerate}
-    \item[\ref{nI:going-by-value}] \(S\) may not claim support for \(\psi\) having value \(v'\) by appeal (only) to:
-      \begin{enumerate}[label=\alph*.]
-      \item[\ref{nI:going-by-value:phi}] \(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and
-      \item[\ref{nI:goingbyvalue:psi}] the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.
-      \end{enumerate}
-    \end{enumerate}
-  \end{quote}
 \end{note}
 
 \begin{note}[An instance of \adA{}]
@@ -4873,6 +4877,11 @@ Key proposition of this section.
   However, further exploration of this topic would go beyond present interest, so we'll stop here.
 \end{note}
 
+
+
+
+\paragraph*{Summary}
+
 \begin{note}[Summary]
   In summary, we've expanded on the type of reasoning that~\ref{nI:going-by-value} captures.
   We termed this type of reasoning `\RBV{-}' as the distinguishing feature is reasoning from a proposition having a certain value.
@@ -4911,13 +4920,12 @@ p  So, \RBV{} won't do for claiming support.
 \begin{note}[\ref{nI:inclusion}]
   Restated:
   \begin{quote}
-    \color{blue}
     \begin{enumerate}
     \item[\ref{nI:inclusion}]
-      Suppose \(S\) is confident that:
+      \nIClauseInclusion{}
       \begin{enumerate}
-      \item[\ref{nI:inclusion:position}] Their claimed support for \(\phi\) having value \(v\) is \mom{} if they are not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to \(\phi\) having value \(v\)).
-      \item[\ref{nI:inclusion:bound}] If their claimed support for \(\phi\) having value \(v\) is \nmom{} then they would be \nmom{} when claiming support for \(\psi\) for value \(v'\). (when not going by value.)
+      \item[\ref{nI:inclusion:position}] \nIClauseInclusionPosition{}
+      \item[\ref{nI:inclusion:bound}] \nIClauseInclusioBound{}
       \end{enumerate}
     \end{enumerate}
   \end{quote}
@@ -4925,6 +4933,12 @@ p  So, \RBV{} won't do for claiming support.
 
 \begin{note}[Two clauses]
   The two sub-clauses of~\ref{nI:inclusion} are separated by~\ref{nI:inclusion:position} being a conditional with an antecedent and consequent that describe present circumstances while \ref{nI:inclusion:bound} is a conditional with an antecedent that describe present circumstances and a subjunctive consequent.
+
+  {
+    \color{red}
+    The key this here is that if claimed support for \(\phi\) is not misled, then \(\psi\) has value \(v'\) --- that's the importance of being in position.
+  }
+
   In turn, each sub-clause is stated from the perspective of possible defeaters, but as a result both sub-clauses carry certain implications if the agent is confident that they have successful claimed support for \(\phi\) having value \(v\).
 
   First, as stated, \ref{nI:inclusion:position} ensures that the agent considers their claimed support \(\phi\) having value \(v\) is mistaken or misled if they are not in a position to claim support that \(\psi\) has value \(v'\).
@@ -5318,7 +5332,6 @@ p  So, \RBV{} won't do for claiming support.
 \newpage
 
 \subsubsection{Argument for \nI{}}
-\label{sec:argument-ni-1}
 \label{sec:argument-ni}
 
 \begin{note}
@@ -5361,15 +5374,132 @@ p  So, \RBV{} won't do for claiming support.
   Two important are:
   \nfcs{} and \eiS{}.
 
-  From \nfcs{}, agent needs to assume \nmom{}.
-  So, assumption about claimed support.
-  From \ref{nI:inclusion}, this requires the agent to hold that they're \nmom{} about \(\psi\) having value \(v'\).
-  Hence, violation of \eiS{}.
+  From \nfcs{}, (epistemic) possibility that any instance of claimed support is \mom{}.
+  From \eiS{}, failure of claimed support if claimed support for \(\phi\) having value \(v\) requires \(\phi\) having value \(v\).
 
-  So, focus of argument is primarily on why~\ref{nI:inclusion} and~\nfcs{} lead to violation of~\eiS{} with respect to \(\psi\) having value \(v'\).
+  So, focus of argument is primarily on why~\ref{nI:inclusion} leads to violation of~\eiS{} with respect to \(\psi\) having value \(v'\).
+  Throughout the argument, \nfcs{}.
 \end{note}
 
 \paragraph*{Argument proper}
+
+\begin{note}
+  \begin{definition}[Dependencies of claimed support]\label{def:CS-depends}
+    Claimed support for \(\phi\) having value \(v\) \emph{depends} on \(\psi\) having value \(v'\) just in case the agent would consider the claimed support for \(\phi\) having value \(v\) to be either \mom{} if \(\psi\) does not have value \(v'\).
+  \end{definition}
+
+  There's nothing too special about a dependency.
+  In particular, there is no requirement that an agent has claimed support for any dependency.
+  Simple statement about relation between claimed support for \(\phi\) having value \(v\) and the evaluation of other propositions.
+
+  \autoref{prop:RBV:inheritance} follows from~\autoref{def:CS-depends}.
+
+  \begin{restatable}[]{proposition}{RBVinheritance}\label{prop:RBV:inheritance}
+    Reasoning from \(\phi\) having value \(v\), then:
+    \begin{enumerate}
+    \item Any claimed support as result depends on \(\phi\) having value \(v\). And:
+    \item If agent considers that \(\phi\) having value \(v\) requires \(\xi\) having value \(v''\) then any claimed support as a result (also) depends on \(\xi\) having value \(v''\).
+    \end{enumerate}
+  \end{restatable}
+
+  Again, a dependency isn't anything special.
+
+  {
+    \color{red}
+    Also note that the second part of \ref{prop:RBV:inheritance} is about consideration.
+    It doesn't matter whether things actually are this way.
+  }
+\end{note}
+
+\begin{note}
+  This is all I need.
+  For:
+  \begin{itemize}
+  \item If \(\phi\) does not have value \(v\) then claimed support for \(\psi\) having value \(v'\) fails.
+  \item If claimed support for \(\phi\) having value \(v\) is misled, then \(\phi\) does not have value \(v\).
+  \item If the agent would be mistaken when claimed support for \(\psi\) having value \(v'\) then the agent's claimed support for \(\phi\) having value \(v\) would be mistaken.
+  \item If \(\psi\) does not have value \(v'\) then the agent would be mistaken when claiming support for \(\psi\) having value \(v'\).
+  \end{itemize}
+  The key point here is that because the claimed support for \(\psi\) having value \(v'\) depends on \(\phi\) having value \(v\), it also depends on everything that the agent thinks must be the case if \(\phi\) has value \(v\).
+
+  Now, the problem here is that this just establishes a dependency.
+  It does not follow from this that there's a violation of \eiS{}.
+
+  This is easy to see, as dependency as defined is reflexive.
+
+  The point is that if \(\phi\) doesn't have value \(v'\) then \(\phi\) doesn't have value \(v\).
+  And, \(\phi\) was part of way in which agent claimed support.
+  So, \(\phi\) already requires that \(\psi\) has value \(v'\).
+
+  Okay, so if \(\psi\) doesn't have value \(v'\), then \(\phi\) doesn't have value \(v\).
+  Hence, the agent doesn't get to appeal to \(\phi\) having value \(v\) to secure \(\psi\) having value \(v'\).
+
+  In short, problematic consequences from the role of \(\phi\) having value \(v\) as a dependency given the perceived relationship between claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\).
+
+  I.e.\ the reasoning does not go through without \(\psi\) having value \(v'\).
+
+  {
+    \color{red}
+    Note, \nfcs{} is really important here for the possibility of these things obtaining.
+    The issue won't arise if the agent is in a position to rule out some of this stuff.
+    However, \nI{} itself doesn't apply to such cases.
+  }
+\end{note}
+
+\begin{note}
+  This seems kind of strong.
+  Given relation set up by~\ref{nI:inclusion} there's a problem with claimed support for \(\phi\) having value \(v\) and \(\phi\) having value \(v\) as a dependency.
+
+  However, this is not so much of an issue.
+  First, the relation set up by~\ref{nI:inclusion} is specific to \(\psi\) having value \(v'\).
+  Second, the relationship itself is quite a strong condition.
+  This kind of interdependence requires quite a lot.
+\end{note}
+
+\subparagraph*{Variant}
+
+\begin{note}
+  There is a variant of the argument given which adds additional constraints.
+  I think this variant is plausible, and given that it adds additional constraints avoids some concerns about \nI{} over-generating failures of claiming support.
+  However, requires a premise/conjecture that I feel is too imprecise.
+
+  Briefly sketch.
+\end{note}
+
+\begin{note}
+  \begin{itemize}
+  \item Claimed support is not factive, \nfcs{}.
+  \item Not possible to get that \(\phi\) has value \(v\) from claimed support that \(\phi\) has value \(v\).
+  \item Hence, moving from claimed support for \(\phi\) having value \(v\) to \(\phi\) having value \(v\) requires assumption that claimed support for \(\phi\) is \nmom{}.
+  \end{itemize}
+
+  So, idea is that if possible \mom{} then don't get to go to \(\phi\) via claimed support.
+
+  Of course, agent may assume \(\phi\), but then no account of why \(\phi\) unless this kind of thing is applied.
+
+  \begin{itemize}
+  \item In order to `get' \(\phi\) from CS\(\phi\), assume \nmom{}.
+  \item Conversely, if do not assume \nmom{}, then don't `get' \(\phi\) from CS\(\phi\).
+  \end{itemize}
+  This is more or less immediate from \nfcs{}.
+  As possible misled, then that one has claimed support does not guarantee \(\phi\).
+
+  \begin{itemize}
+  \item Any reasoning from \(\phi\) proceeds under CS\(\phi\) \nmom{}.
+  \end{itemize}
+
+  That is, if appealed to CS\(\phi\) in order to secure reasoning from \(\phi\) \dots
+\end{note}
+
+\begin{note}
+  \begin{itemize}
+  \item Move to \(\phi\) having value \(v\).
+  \item So, clear that things won't work out if \(\phi\) does not have value \(v\).
+  \end{itemize}
+\end{note}
+
+
+\newpage
 
 \begin{note}[Two conditionals]
   Goal is to argue for \nI{}.

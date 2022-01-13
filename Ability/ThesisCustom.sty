@@ -454,7 +454,7 @@
   }%
 }
 
- % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 % Following for getting hyperlinks with citeyear.
 % New command, easy to change after default with M-c
@@ -465,3 +465,32 @@
     {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
     {\multicitedelim}
     {\usebibmacro{postnote}}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% A collection of commands to ensure that the contents of nI/LCS are always the same when repeated.
+\newcommand{\nIClauseClaimedSupport}{%
+  \obeybreaks{\(S\) has claimed support that some proposition \(\phi\) has value \(v\).} % from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).}%
+}
+\newcommand{\nIClauseReceivedInfo}{%
+  \obeybreaks{\(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).}%
+}
+\newcommand{\nIClauseInclusion}{%
+  \obeybreaks{\(S\) is confident that:}%
+}
+\newcommand{\nIClauseInclusionPosition}{%
+  \obeybreaks{Their claimed support for \(\phi\) having value \(v\) is \mom{} if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).}%
+}
+\newcommand{\nIClauseInclusioBound}{%
+  \obeybreaks{If their claimed support for \(\phi\) having value \(v\) is \nmom{} then they would be \nmom{} when claiming support for \(\psi\) having value \(v'\).}%
+}
+\newcommand{\nIClauseValue}{%
+  \obeybreaks{\(S\) may not claim support for \(\psi\) having value \(v'\) by appeal (only) to:}%
+}
+\newcommand{\nIClauseValuePhi}{%
+  \obeybreaks{\(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and}%
+}
+\newcommand{\nIClauseValuePsi}{%
+  \obeybreaks{the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.}%
+}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
