@@ -7,8 +7,8 @@
 
 \usepackage{xparse} % For creating commands with complex arguments
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % General purpose
-
 \newcommand{\obeybreaks}[1]{%
   {\begingroup\setlength{\parindent}{0pt}\obeylines%
     #1%
@@ -23,11 +23,14 @@
 \newcommand{\phantref}[2]{%
   \hyperref[#1]{#2}%
   }
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % Things such as templates, etc.
 \newcommand{\wrt}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} % Wright's revised template
 \newcommand{\widt}[0]{\hyperref[widt]{\obeybreaks{information-dependence\space template}}} % Wright's information-dependence template
 \newcommand{\wnf}[0]{\hyperref[wnf]{\obeybreaks{No\space Feedback}}} % Weibserg's no feedback condition
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 % % % Verbs
 \newcommand{\nf}[1]{#1\ensuremath{^{*}}} % Non-factive instance of a verb
@@ -38,10 +41,10 @@
    \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
 %
 
-%\newcommand{\argued}[1]{\(\ulcorner\!\!\ulcorner\)\textsf{#1}\(\urcorner\!\!\urcorner\)}
-
-\newcommand{\mom}[0]{mistaken or misled}
-\newcommand{\nmom}[0]{\obeybreaks{neither mistaken nor misled}}
+\newcommand{\mistaken}[0]{mistaken}
+\newcommand{\misled}[0]{misled}
+\newcommand{\mom}[0]{\mistaken{} or \misled{}}
+\newcommand{\nmom}[0]{\obeybreaks{neither \mistaken{} nor \misled{}}}
 \newcommand{\gen}[0]{\obeybreaks{informer's statement}}
 \newcommand{\pe}[0]{\obeybreaks{potentive entailment}}
 \newcommand{\mcA}[0]{Conditional A}
@@ -69,10 +72,7 @@
 
 \newcommand{\nIm}[0]{\text{[nIm]}}
 
-\newcommand{\dd}[0]{\emph{de dicto}}
-\newcommand{\dr}[0]{\emph{de re}}
-\newcommand{\nr}[0]{\emph{non utendo referat}} % de constructione
-\newcommand{\ur}[0]{\emph{utendo referat}} % de materia
+
 
 \newcommand{\named}[1]{\textsf{|#1|}}
 
@@ -248,6 +248,17 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\twoDefeaters}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \hyperref[prop:defs-for-CS]{\named{2\cancel[thick]{CS}}}%
+  }
+  {%
+  \obeybreaks{Two\space defeater\space types\space for\space claimed\space support}%
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\aben}{ m }{% No inertia
@@ -470,7 +481,7 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A collection of commands to ensure that the contents of nI/LCS are always the same when repeated.
 \newcommand{\nIClauseClaimedSupport}{%
-  \obeybreaks{\(S\) has claimed support that some proposition \(\phi\) has value \(v\).} % from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).}%
+  \obeybreaks{\(S\) has claimed support that some proposition \(\phi\) has value \(v\).}% from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).}%
 }
 \newcommand{\nIClauseReceivedInfo}{%
   \obeybreaks{\(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).}%
@@ -479,13 +490,13 @@
   \obeybreaks{\(S\) is confident that:}%
 }
 \newcommand{\nIClauseInclusionPosition}{%
-  \obeybreaks{Their claimed support for \(\phi\) having value \(v\) is \mom{} if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).}%
+  \obeybreaks{Their claimed support for \(\phi\) having value \(v\) is mistaken if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).}%
 }
 \newcommand{\nIClauseInclusioBound}{%
-  \obeybreaks{If their claimed support for \(\phi\) having value \(v\) is \nmom{} then they would be \nmom{} when claiming support for \(\psi\) having value \(v'\).}%
+  \obeybreaks{If their claimed support for \(\phi\) having value \(v\) is not mistaken then they would not be mistaken when claiming support for \(\psi\) having value \(v'\).}%
 }
 \newcommand{\nIClauseValue}{%
-  \obeybreaks{\(S\) may not claim support for \(\psi\) having value \(v'\) by appeal (only) to:}%
+  \obeybreaks{\(S\) may not claim support for \(\psi\) having value \(v'\) by appeal which includes:}%
 }
 \newcommand{\nIClauseValuePhi}{%
   \obeybreaks{\(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and}%
@@ -493,4 +504,16 @@
 \newcommand{\nIClauseValuePsi}{%
   \obeybreaks{the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.}%
 }
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Commands that I don't think are needed
+\newcommand{\dd}[0]{\emph{de dicto}}
+\newcommand{\dr}[0]{\emph{de re}}
+\newcommand{\nr}[0]{\emph{non utendo referat}} % de constructione
+\newcommand{\ur}[0]{\emph{utendo referat}} % de materia
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
