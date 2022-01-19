@@ -462,7 +462,7 @@
   So, \nfcs{} limits the strength of claimed support in reasoning, but also need additional assumptions to ensure sufficiently strong.
 \end{note}
 
-\paragraph{Second Assumption}
+\paragraph{Second (and Third) Assumption}
 
 \begin{note}[\eiS{}]
   From \nfcs{}, (epistemic) possibility that claimed support is \mom{}.
@@ -477,7 +477,12 @@
   % \end{definition}
 
   \begin{restatable}[\eiS{-} --- \eiS{}]{assumption}{eisProp}\label{prop:supp:independence}
-    Claimed support for \(\phi\) having value \(v\) indicates that \(\phi\) has value \(v\) independently of whether the claimed support for \(\phi\) having value \(v\) is \mom{}.
+    Claimed support for \(\phi\) having value \(v\) indicates that \(\phi\) has value \(v\) regardless of whether the claimed support for \(\phi\) having value \(v\) is \mom{}.
+
+    {
+      \color{red} Only claims support relative to backdrop of considered defeaters.
+
+    }
   \end{restatable}
   {
     \color{red}
@@ -519,13 +524,28 @@
   Rather, we endorse the following condition with respect to these types of defeaters:
 
   \begin{restatable}[Expectation with respect to claimed support]{definition}{expectationDef}\label{def:expectation}
-    If agent claims support for some proposition and not possible to rule out possible defeaters (of the two types of noted), then the agent \emph{expects} that those possible defeaters do not obtain.\nolinebreak
+    If agent claims support for some proposition then the agent \emph{expects} that unrecognised possible defeaters (of the two types of noted) do not obtain.\nolinebreak
     \footnote{
       Stronger than distinct claim that the agent does not expect that the claimed support is misleading or mistaken.
       Stronger requires, expectation.
       Latter does not.
     }
+
+    \(\phi\) has value \(v\).
+    Expects \(\psi\) has value \(v'\) relative to further information about \(\phi\) and \(\psi\).
   \end{restatable}
+
+  {
+    \color{red}
+    Expectation is somewhat subtle.
+    Claiming support is an instance of reasoning.
+    From \eiS{}, enough to go even if \mom{}.
+    At time of claiming support, agent may not recognise certain possibilities.
+    This doesn't prevent the agent from claiming support.
+    Instead, expectation is a general catch all.
+    Expects that future information would not defeat claimed support.
+  }
+
   Our understanding of `expectation' contrasts to claiming support.
   If an agent claims support that some proposition \(\phi\) has value \(v\) then the agent appeals to information that indicates that \(\phi\) has value \(v\).
   By contrast, we assume that an agent to noting that they have no information that indicates a possible defeater obtains is sufficient to expect that the possible defeater does not obtain.
@@ -537,6 +557,24 @@
 
   If the claimed support is not misleading, then the proposition has the value the claimed support indicates the proposition has.
   And, if the claimed support is not mistaken, then the claimed support indicates the value.
+\end{note}
+
+\begin{note}
+  \begin{assumption}\label{assu:expect-nai}
+    Reasoning is not an instance of claiming support if require expectation that \(\phi\) has value \(v\) in order to conclude that \(\phi\) has value \(v\).
+  \end{assumption}
+  In other words, claimed support covers all possibilities.
+  Not possible to claim support against a restricted selection of possibilities.
+
+  This assumption is interesting.
+  As we will see below.
+  Suppose claimed support for \(\psi\), and then claimed support for \(\phi\).
+  Well, for \(\psi\) expectation that \(\phi\).
+  That's a problem.
+
+  Plausible that this follows from \ref{prop:supp:independence}.
+  However, tricky.
+  So, best left as assumption.
 \end{note}
 
 \begin{note}
@@ -850,7 +888,7 @@
   Possibility of \misled{}.
   Possible that X does not always tell the truth.
 
-  Does~\ref{ex:tt:test} do enough?
+  Does~\ref{ex:eiS:tt:test} do enough?
 
   No, because if X is not trustworthy, then it may be the case that~\ref{ex:tt:test} was an instance where X was not to be trusted.
   So, reasoning fails if not X is not trustworthy.
@@ -987,22 +1025,90 @@
   Any time the agent appeals to a consequence.
   And, this is straightforward, because consequence is only going to hold with the antecedent.
 
-  \begin{corollary}
+  \begin{corollary}\label{corr:eiS:C:contraposition}
     An agent may not claim support for \(\psi\) having value \(v'\) by appeal to:
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item\label{corr:cond:p} \(\phi\) having value \(v'\), and
-    \item\label{corr:cond:pq} \(\psi\) having value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{corr:cond:p} \(\phi\) having value \(v'\), and:
+    \item\label{corr:cond:pq} If \(\phi\) has value \(v\) then \(\psi\) has value \(v'\).
     \end{enumerate}
     If:
     \begin{enumerate}[resume]
-    \item Clause~\ref{corr:cond:pq} also requires that \(\phi\) does not \(v\) when \(\psi\) does not have value \(v'\), and
-    \item The agent does not appeal to any other premises other than claimed support for~\ref{corr:cond:p} and~\ref{corr:cond:pq} and some form of conditional detachment.
+    \item Contraposition, and:
+    \item The agent does not appeal to any other premises other than claimed support for~\ref{corr:cond:p} prior to reasoning, the claimed support for~\ref{corr:cond:pq} and some form of conditional detachment.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{corollary}
 
+  {
+    \color{red}
+    The issue is that contraposition ensures that if \(\lnot\psi\) then \(\lnot\phi\).
+    And, if \(\lnot\phi\) then \(\phi \rightarrow \psi\) is of no use.
+
+    Point is, this then involves expecting that not \(\lnot\phi \land \lnot\psi\).
+    But, then expect not \(\lnot\psi\).
+    The point is that the claim support for \(\phi\) is did not consider \(\lnot\psi\), and so it's not clear that claimed support continues to hold up.
+  }
+
+  Suppose \mistaken{}.
+  Claimed support for \ref{corr:cond:p} and \ref{corr:cond:pq}, so possible for either to be different.
+  However, if one fails then the agent doesn't get to \(\psi\) having value \(v\).
+
+  Response is that claimed support, so grant this.
+
+  Contraposition.
+
+  So, possibility of \(\lnot\phi\).
+  And, if \(\lnot\phi\) then no way for the agent to get to \(\psi\).
+  So, if \misled{} about \(\phi\), then reasoning does not get the agent to \(\psi\).
+
+  Of course, expect that this is not the case.
+
+
+  So, the role of contraposition is to raise the issue about whether \(\phi\).
+
+  If am mistaken, then the values don't hold up.
+
+  Contraposition, so need to consider \(\lnot\phi\).
+
+
+
+
+  So, if \misled{} then appealing to the claimed support for either \ref{corr:cond:p} and \ref{corr:cond:pq} doesn't look good.
+  This means that the claimed support
+
+
+
+  The point is that there's a move to the actual values.
+
+  Question is whether the agent really needs to make this move.
+
+
+
+
+
+  \autoref{corr:eiS:C:contraposition} from the `even if' test.
+
+
+
+
+  Suppose \misled{}.
+  Then, \(\psi\) does not have value \(v'\).
+  And, if \(\psi\) does not have value \(v'\) then either:
+  \begin{itemize}
+  \item \(\phi\) does not have value \(v\), or
+  \item \(\phi\) it is possible for \(\phi\) to have value \(v\) and for \(\psi\) to not have value \(v'\).
+  \end{itemize}
+
+  Hence, claimed support for either~\ref{corr:cond:p}~or~\ref{corr:cond:pq} is \mistaken{}.
+  Problem is, \(\lnot\phi \land \lnot\psi\), hence claimed support for \(\phi\) expects \(\psi\).
+  This is ruled out by~\autoref{assu:expect-nai}.
+
+  Again, intuition is that claimed support for \(\phi\), but novel information about defeater.
+  So, it's no good to appeal to claimed support as it didn't take into account the defeater.
+
   Don't be too surprised.
   Claiming support.
+
   And, conditional such that contraposition is possible.
   Conditional isn't very interesting.
 
@@ -1014,10 +1120,11 @@
   Contraposition is only important in the sense that it's a problem for \(\phi\).
   The failure of claiming support is because expectation that \(\lnot\phi\) isn't the case, but there's no account of why think that that \(\psi\) if it turns out to be \(\lnot\phi\).
 
-  In particular probability.
+  Without contraposition, retain claimed support for \(\phi\), and even if \mom{} \(\phi\) provides enough to think that \(\psi\) is the case.
+  In particular, a variation of~\ref{corr:eiS:C:contraposition} does not \emph{necessarily} hold with respect to conditional probability.
 
-  \begin{corollary}
-    An agent may not claim support for \(\psi\) having value \(v'\) by appeal to:
+  \begin{conjecture}\label{conj:eiS:C:probability}
+    It is not necessarily the case that an agent may not claim support for \(\psi\) having value \(v'\) by appeal to:
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item\label{corr:prob:p} \(\phi\) having value \(v'\), and
     \item\label{corr:prob:pq} \(\psi\) having value \(v'\) when \(\phi\) has value \(v\).
@@ -1028,22 +1135,27 @@
       (i.e.\ \(\phi\) and constraint so \(\psi\) is at least\dots)
     \end{enumerate}
     \vspace{-\baselineskip}
-  \end{corollary}
+  \end{conjecture}
 
-  With this kind of information, there's no way to tell.
-  Probability of P is quite high.
-  Probability of Q given P is quite high.
-  Tells us nothing about the probability of Q in general.
-  If Q remains likely given not P, then great.
-  If not, then not great.
-  Point is, unclear.
+  Assuming that sufficiently high probability is sufficient for claiming support.
+  Given this, follows from the simple observation that conditional probability does not require that \(\phi\) does not have value \(v\) when \(\psi\) does not have value \(v'\).
+  \(P(V(\phi) = v) = .9\)
+  \(P(V(\psi) = v' \mid V(\phi) = v) = .9\)
 
-  So, contraposition fails, but we get the same problem.
-  This only tells us about \(\phi\).
-  Still, it may be sufficient to hold that given \(\phi\), probability is so low that \(\psi\) is still okay.
+  Possible that \(\phi\) has value \(v\) and \(\psi\) does not have value \(v'\), but sufficiently low probability allows the agent to expect that this defeater does not obtain.
+  And, possible that \(P(V(\phi) \ne v \mid V(\psi) \ne v') = 0\).
 
-  This extends to the proposition.
-  Possible to add stuff in.
+  Generally speaking, \(P(A)\) and \(P(B \mid A)\) does not provide any specific information about \(\lnot A \land \lnot B\)
+  It may be the case that \(P(V(\psi) = v' \mid V(\phi) \ne v) = .9\).
+  Indeed, there are no constraints.
+
+  The point being that even if \(\psi\) does not have value \(v'\), the agent may still appeal to \(\phi\) having value \(v\).
+
+  Might deny this.
+  Lack of information generates possible defeater.
+  If so, parallel failure to~\autoref{corr:eiS:C:contraposition}.
+
+  Still, given assumptions this way of reasoning does not require an expectation that \(\phi\).
 \end{note}
 
 
