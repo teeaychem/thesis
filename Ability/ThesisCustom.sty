@@ -75,9 +75,9 @@
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
 \newcommand{\Gsi}[0]{\text{General-to-specific\space ability\space information}}
 
-\newcommand{\gESU}[0]{\named{g-ESU}}
 
-\newcommand{\named}[1]{\textsf{|#1|}}
+
+\newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
 
 \newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Substantiation}}}
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
@@ -125,13 +125,13 @@
 \ExplSyntaxOff
 
 
-\newcommand{\nItext}[0]{\textsf{LCS}}
+\newcommand{\nIacro}[0]{LCS}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nI}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prem:ni]{\named{\nItext{}}}}% \text{\textsf{|NI|}}%
+    \text{\hyperref[prem:ni]{\named{\nIacro{}}}}% \text{\textsf{|NI|}}%
   }
   {%
     %\text{Support\space is\space not\space inherited\space by\space squires}%
@@ -140,8 +140,7 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\nIOTT}{\hyperref[prem:ni]{\named{\nItext:1--3}}}
-
+\newcommand{\nIOTT}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
@@ -155,11 +154,13 @@
 }
 \ExplSyntaxOff
 
+\newcommand{\ESUacro}[0]{CSU}
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ESU}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[denied-claim]{\named{CSU}}}%
+    \text{\hyperref[denied-claim]{\named{\ESUacro{}}}}%
   }
   {%
     \obeybreaks{Claiming\space support\space requires\space use}%
@@ -167,11 +168,15 @@
 }
 \ExplSyntaxOff
 
+\newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
+
+\newcommand{\EASacro}[0]{ACS}
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:EAS]{\named{ACS}}}%
+    \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
   }
   {%
     \obeybreaks{Ability\space is\space (sometimes)\space sufficient\space for\space claiming\space support}%
@@ -183,10 +188,10 @@
 \DeclareDocumentCommand{\EASw}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:EASw]{\named{EASw}}}%
+    \text{\hyperref[prop:EASw]{\named{\EASacro{}:W}}}%
   }
   {%
-    \obeybreaks{Explanation\space by\space ability\space to\space claim\space support\space (Witnessing)}%
+    \obeybreaks{\EASacro{}\space (Witnessing)}%
   }
 }
 \ExplSyntaxOff
@@ -207,7 +212,7 @@
 \DeclareDocumentCommand{\eiS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:supp:independence]{\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[assu:supp:independence]{\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \obeybreaks{Independence\space of\space claimed\space support}%
@@ -286,8 +291,6 @@
   }
 }
 \ExplSyntaxOff
-
-
 
 
 % % % Transmission
