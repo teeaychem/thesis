@@ -75,8 +75,6 @@
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
 \newcommand{\Gsi}[0]{\text{General-to-specific\space ability\space information}}
 
-
-
 \newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
 
 \newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Substantiation}}}
@@ -140,7 +138,7 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\nIOTT}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
+
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
@@ -293,11 +291,6 @@
 \ExplSyntaxOff
 
 
-% % % Transmission
-\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
-
-
-
 
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
@@ -368,8 +361,6 @@
   \end{proposition}
 }
 
-
-
 % % % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\RIPa}{ m }{% No inertia
@@ -420,8 +411,66 @@
   }%
 }
 
-% % % Paws % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Following for getting hyperlinks with citeyear.
+% New command, easy to change after default with M-c
+% Changed from  {\usebibmacro{cite:postnote}} to {\usebibmacro{postnote}} to work with whatever style it is I'm using
+% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
+\DeclareCiteCommand{\Citeyear}
+    {\usebibmacro{prenote}}
+    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+    {\multicitedelim}
+    {\usebibmacro{postnote}}
 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% A collection of commands to ensure that the contents of nI/LCS are always the same when repeated.
+\newcommand{\nIClauseClaimedSupport}{%
+  \obeybreaks{\(S\) has claimed support that some proposition \(\phi\) has value \(v\).}% from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).}%
+}
+\newcommand{\nIClauseReceivedInfo}{%
+  \obeybreaks{\(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).}%
+}
+\newcommand{\nIClauseInclusion}{%
+  \obeybreaks{\(S\) is confident that:}%
+}
+\newcommand{\nIClauseInclusionPosition}{%
+  \obeybreaks{Their claimed support for \(\phi\) having value \(v\) is mistaken if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).}%
+}
+\newcommand{\nIClauseInclusioBound}{%
+  \obeybreaks{If their claimed support for \(\phi\) having value \(v\) is not mistaken then they would not be mistaken when claiming support for \(\psi\) having value \(v'\).}%
+}
+\newcommand{\nIClauseValue}{%
+  \obeybreaks{\(S\) may not claim support for \(\psi\) having value \(v'\) by appeal which includes:}%
+}
+\newcommand{\nIClauseValuePhi}{%
+  \obeybreaks{\(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and}%
+}
+\newcommand{\nIClauseValuePsi}{%
+  \obeybreaks{the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.}%
+}
+
+\newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Commands that I don't think are needed
+\newcommand{\dd}[0]{\emph{de dicto}}
+\newcommand{\dr}[0]{\emph{de re}}
+\newcommand{\nr}[0]{\emph{non utendo referat}} % de constructione
+\newcommand{\ur}[0]{\emph{utendo referat}} % de materia
+\newcommand{\mcA}[0]{Conditional A}
+\newcommand{\mcB}[0]{Conditional B}
+
+\newcommand{\nIp}[0]{\text{[nI\('\)]}}
+
+\newcommand{\nIm}[0]{\text{[nIm]}}
+
+
+% % % Paws % % %
 \newcommand{\iDog}{%
   \mathrel{%
   \begin{tikzpicture}
@@ -486,61 +535,7 @@
   }%
 }
 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Transmission
+\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
 
-% Following for getting hyperlinks with citeyear.
-% New command, easy to change after default with M-c
-% Changed from  {\usebibmacro{cite:postnote}} to {\usebibmacro{postnote}} to work with whatever style it is I'm using
-% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
-\DeclareCiteCommand{\Citeyear}
-    {\usebibmacro{prenote}}
-    {\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
-    {\multicitedelim}
-    {\usebibmacro{postnote}}
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% A collection of commands to ensure that the contents of nI/LCS are always the same when repeated.
-\newcommand{\nIClauseClaimedSupport}{%
-  \obeybreaks{\(S\) has claimed support that some proposition \(\phi\) has value \(v\).}% from materia \(M\) and continues to claim support for \(\phi\) having value \(v\) from materia \(M\).}%
-}
-\newcommand{\nIClauseReceivedInfo}{%
-  \obeybreaks{\(S\) has claimed support that if proposition \(\phi\) has value \(v\) then proposition \(\psi\) has value \(v'\).}%
-}
-\newcommand{\nIClauseInclusion}{%
-  \obeybreaks{\(S\) is confident that:}%
-}
-\newcommand{\nIClauseInclusionPosition}{%
-  \obeybreaks{Their claimed support for \(\phi\) having value \(v\) is mistaken if \(S\) is not (given present context) in a position to claim support that \(\psi\) has value \(v'\) (without appealing to claimed support for \(\phi\)).}%
-}
-\newcommand{\nIClauseInclusioBound}{%
-  \obeybreaks{If their claimed support for \(\phi\) having value \(v\) is not mistaken then they would not be mistaken when claiming support for \(\psi\) having value \(v'\).}%
-}
-\newcommand{\nIClauseValue}{%
-  \obeybreaks{\(S\) may not claim support for \(\psi\) having value \(v'\) by appeal which includes:}%
-}
-\newcommand{\nIClauseValuePhi}{%
-  \obeybreaks{\(\phi\) having value \(v\) from~\ref{nI:claimed-support}, and}%
-}
-\newcommand{\nIClauseValuePsi}{%
-  \obeybreaks{the corresponding implication that \(\psi\) has value \(v'\) from~\ref{nI:received-info}.}%
-}
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-
-
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% % % Commands that I don't think are needed
-\newcommand{\dd}[0]{\emph{de dicto}}
-\newcommand{\dr}[0]{\emph{de re}}
-\newcommand{\nr}[0]{\emph{non utendo referat}} % de constructione
-\newcommand{\ur}[0]{\emph{utendo referat}} % de materia
-\newcommand{\mcA}[0]{Conditional A}
-\newcommand{\mcB}[0]{Conditional B}
-
-\newcommand{\nIp}[0]{\text{[nI\('\)]}}
-
-\newcommand{\nIm}[0]{\text{[nIm]}}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
