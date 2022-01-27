@@ -315,8 +315,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \begin{restatable}[\mistaken{-} and \misled{}]{definition}{defMoM}\label{def:MoM}
     Some instance of reasoning that culminates with \(\phi\) having value \(v\).
     \begin{itemize}
+      \item The reasoning is \emph{\mistaken{}} by involving appeal to some proposition \(\psi\) having value \(v'\) which does not have value \(v'\).
     \item The reasoning is \emph{\misled{}} if \(\phi\) does not have value \(v\).
-    \item The reasoning is \emph{\mistaken{}} by involving appeal to some proposition \(\psi\) having value \(v'\) which does not have value \(v'\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -341,6 +341,17 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       Countervailing does not imply mistaken, though may in some cases demonstrate so.
     }
   \end{restatable}
+\end{note}
+
+\begin{note}
+    Intuition here is that of \mistaken{} is instance of undercutting and \misled{} is a consequence of rebutting, mainly.
+
+  This is mismatched.
+  Rebutting implies \misled{}.
+  Yet, may be undercutting which does not reduce to \mistaken{}.
+
+  Purpose is that both are straightforward problems relate to basic assumption about claiming support.
+  Relation to broader characterisation is present, but have nothing to say about these kinds of defeaters beyond relation to specific instances.
 \end{note}
 
 \phantlabel{first-mention-undercutting-defeater} % first mention of undercutting defeaters
@@ -4689,23 +4700,27 @@ Key proposition of this section.
 \paragraph{Statement of \nI{}}
 
 \begin{note}[\nI{}]
+
   \begin{restatable}[\nI{-}  --- \nI{}]{proposition}{propNI}\label{prem:ni}
-    Suppose \(\phi\) is any, and \(\psi\) is such that value regardless of claiming support:
+    Let \(\phi\), \(\psi\) be propositions and \(v\), \(v'\) values:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, series=nI_counter]
-    \item\label{nI:claimed-support} \nIClauseClaimedSupport{}\nolinebreak
-      \footnote{
-        The agent has at some time in the past (perhaps a moment ago) claimed support for \(\phi\) having \(v\), and at the present time the agent continues to hold that \(\phi\) has value \(v\).
-        In some cases, an agent may revise basis for claimed support.
-        E.g.\ this may be the case when appealing to memory, a new source, etc.
-      }
-    % \item\label{nI:received-info} \nIClauseReceivedInfo{}
-    \item\label{nI:psi-is-new} {\color{red} \(S\) did not have information about \(\psi\) when claiming support for \(\phi\).}
+    \item\label{nI:claimed-support}
+      Suppose it is the case that:
+      \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}1:\alph*}]
+      \item \nIClauseClaimedSupport{}\nolinebreak
+        \footnote{
+          The agent has at some time in the past (perhaps a moment ago) claimed support for \(\phi\) having \(v\), and at the present time the agent continues to hold that \(\phi\) has value \(v\).
+          In some cases, an agent may revise basis for claimed support.
+          E.g.\ this may be the case when appealing to memory, a new source, etc.
+        }
+        % \item\label{nI:received-info} \nIClauseReceivedInfo{}
+      \item\label{nI:psi-is-new} {\color{red} \(S\) did not have information about \(\psi\) when claiming support for \(\phi\).}
+      \end{enumerate}
     \end{enumerate}
     And, suppose:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, resume*=nI_counter]
-    \item\label{nI:inclusion}
-      \nIClauseInclusion{}
-      \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}3:\alph*}]
+    \item\label{nI:inclusion} \nIClauseInclusion{}
+      \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}2:\alph*}]
       \item\label{nI:inclusion:position} \nIClauseInclusionPosition{}\nolinebreak
         \footnote{
           Agent considers.
@@ -4721,14 +4736,15 @@ Key proposition of this section.
       \item\label{nI:inclusion:bound} \nIClauseInclusioBound{}
       \end{enumerate}
     \end{enumerate}
-    Then:
+    For any reasoning such that:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, resume*=nI_counter]
     \item\label{nI:going-by-value} \nIClauseValue{}
-      \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}4:\alph*}]
+      \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}3:\alph*}]
       \item\label{nI:going-by-value:phi} \nIClauseValuePhi{}
-      % \item\label{nI:goingbyvalue:psi} \nIClauseValuePsi{}
+      \item\label{nI:goingbyvalue:psi} \nIClauseValuePsi{}
       \end{enumerate}
     \end{enumerate}
+    Result of reasoning is not an instance of \(S\) claimed support that \(\psi\) has value \(v'\).
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
@@ -5219,248 +5235,84 @@ Key proposition of this section.
 \end{note}
 
 \begin{note}
-  Important that expectation.
-  Because, even though move to \(\phi\) would bring \(\psi\), would have taken care of whether bringing in \(\psi\) was robust against possibility of not \(\psi\).
+  In broad outline.
 
-  That is, because claimed support for \(\psi\) is expectation, the agent ends up requiring that claimed support for \(\psi\).
+  \begin{itemize}
+  \item Claimed support for \(\phi\).
+  \item No reasoning about \(\psi\).
+    \begin{itemize}
+    \item No claimed support for \(\psi\).
+    \item No account of why \(\phi\) regardless of \(\psi\). (I.e.\ weaker than claimed support, if think this is possible).
+    \end{itemize}
+  \item From inclusion, this means that claiming support for \(\psi\) is an expectation of claimed support for \(\phi\).
+  \item Consequence of expectation is that \(\psi\) is a requisite of the move to \(\phi\).
+    In sense that:
+    \begin{itemize}
+    \item Move to \(\phi\) is not compatible with possibility that \(\psi\) is not the case.
+    \item Also, as result of this, move to \(\phi\) requires \(\psi\) to be the case.
+    \end{itemize}
+  \item So, reasoning to \(\psi\) is not compatible with the possibility of \(\psi\) not holding.
+  \item And, as way of claiming support needs this move, failure.
+  \end{itemize}
 
-  Right, okay, and then \autoref{assu:expect-nai} works to show that getting to \(\psi\) as result of reasoning wouldn't allow getting rid of claiming support for \(\psi\) as expectation.
-\end{note}
+  This is somewhat complex.
+  So, to summarise.
+  The key problem is that reasoning to \(\psi\) is not compatible with the possibility that \(\psi\) does not have value \(v'\).
+  And, as a result of this the reasoning is not an instance of claiming support.
 
-\begin{note}
-  The real key point, then, is that have to get \(\psi\) from \emph{expectation} of claimed support for \(\psi\).
-  But, then, haven't got claimed support against possible defeaters.
-  And, as a result, haven't got \(\psi\) against possible defeaters.
+  Of course, still an instance of reasoning, and result may be of interest.
+  However, no independence.
 
-  That is, no account of \(\psi\) regardless because
-
-  Wait, part of the point is that we've got claiming support for \(\psi\) as a possible defeater.
-  Without this, there's not much of a worry about \(\psi\).
-  So, this then bring in expectation.
-  So, when move to \(\phi\), also get \(\psi\).
-  \emph{And}, because CS\(\psi\) is expectation, this means that it's not `proper' claimed support.
-  So, the expectation of claimed support does not provide grounds for \(\psi\) regardless of whether or not \(\psi\).
-  Hence, not only does \(\phi\) bring \(\psi\), but the reasoning is not secured against \(\psi\) not holding up.
-  Hence, not claiming support.
-  Because, reasoning is not such that compatible with the possibility of \(\psi\) not being the case.
-
-  For, if not \(\psi\) then move from claimed support for \(\phi\) to \(\phi\) is undercut.
-  Because, only expectation of claimed support for \(\psi\).
-
-  Move to \(\phi\) needs claiming support for \(\psi\) (by expectation), and in turn brings that \(\psi\).
-  Possible that \(\psi\) is not the case as claiming support, but then as claimed support for \(\psi\) is only an expectation, no reasoning about whether this holds up when \(\psi\) is not the case.
-
-  Possible that \(\lnot\psi\) is such that this breaks the claimed support for \(\phi\).
-  In turn, breaks moving to \(\phi\).
-
-  Hence, require \(\psi\) going by \(\phi\).
-  And, if not \(\psi\) then no going by \(\phi\).
-
-  I.e.\ if go to \(\phi\) then \(\psi\) and if not \(\psi\) then no going by \(\phi\), and hence no account of \(\psi\).
-  So, only way of getting to \(\psi\) requires \(\psi\).
-
-  So, issue is that not only does \(\phi\) bring \(\psi\).
-  But also that the move to \(\phi\) is premised on \(\psi\) in such a way that doesn't work without \(\psi\), and therefore really is a requirement.
-  With the additional observation being that because claimed support for \(\psi\) is an expectation, this step is not robust given the possibility of \(\lnot\psi\).
-\end{note}
-
-\begin{note}
-  This ends up with something different to an expectation, though a variation really.
-  For, the problem is with the particular application of the claimed support.
-  Call this ??
-
-  Point is only applies when going to \(\phi\).
-\end{note}
-
-
-
-
-
-
-\begin{note}
-  In particular, the argument for \nI{} rests on {\color{red} propositions} which follow from the assumptions made regarding claimed support.
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \propInfoToExpectation*
-  \end{quote}
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \propExpectNai*
-  \end{quote}
-
-  Recall, add some strength to this.
-
-  Not possible to discharge expectation by appealing to claimed support.
-
-  \autoref{prop:info-to-expectation} is a sufficient condition for \(\psi\) having value \(v'\) to be an expectation for claimed support for \(\phi\).
-
-  \autoref{assu:expect-nai} states that no claimed support if reasoning that concludes with \(\psi\) having value \(v'\) requires expectation that \(\psi\) has value \(v'\).
   {
     \color{red}
-    Restate generation motivation for these propositions.
+    Compare to conditional with contraposition.
   }
 \end{note}
 
-
-\begin{note}[Propositions applied to \nI{}]
-  Hence, obtain from \nIBackground{} that \(\psi\) having value \(v'\) is expectation by \autoref{prop:info-to-expectation}.
-
-  In turn, \ref{nI:going-by-value} restricts attention to when \(\phi\) having value \(v\) is required part of reasoning.
-  Hence, \autoref{assu:expect-nai} prevents claiming support.
-\end{note}
-
 \begin{note}
-  So, we assume that \nIBackground{} obtain.
+  To do is expand on this quick sketch.
 
-  Important step is establishing that \(\psi\) having value \(v'\) is an expectation of the claimed support for \(\phi\) having value \(v\).
+  At issue is not only how these clauses link together, but what the clauses amount to.
+  Both these things are important.
+  Still, to simplify matters split in to two sections.
 
-  In outline.
-  \begin{itemize}
-  \item \ref{nI:claimed-support} claimed support for \(\phi\) having value \(v\).
-  \item \ref{nI:psi-is-new} \(\psi\) was not considered.
-  \item Interdependence between claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\).
-  \item So, from previous two, \(\psi\) not having value \(v'\) was an unrecognised defeater.
-  \item Hence, \(\psi\) having value \(v'\) is expectation.
-  \end{itemize}
+  In the first section, walk through the clauses --- in particular \ref{nI:inclusion}.
+  In the second, link the clauses together.
+
+  Read these in either order.
+  Split is in part so that the first section may expand on some aspects of the clauses which are important for understanding the scope of \nI{}, but are not required to obtain the key consequence.
 \end{note}
 
-\begin{note}
-  So, focus of argument is primarily on why~\ref{nI:inclusion} leads to expectation that \(\psi\) has value \(v'\) with respect to \(\psi\) having value \(v'\).
-\end{note}
-
-\begin{note}
-  See that \nI{} is somewhat weak.
-  Requires going by \(\phi\).
-  \emph{And} that \(\psi\) is expectation.
-  May be that resolution to instance of \nI{} is to remove \(\phi\) as expectation.
-
-  So, upshot has two parts.
-  Either remove expectation, or abandon claiming support for \(\psi\) having value \(v'\) via appeal to \(\phi\) having value \(v\).
-\end{note}
-
-\begin{note}[Plan for the section]
-  \color{red}
-  Outline of how the text will go.
-\end{note}
-
-\newpage
-
-\begin{note}[Overview]
-  In this section we will walk through the four clauses of \nI{} in some detail.
-
-  Our goal is to clarify each clause to the extent that the remaining task in our argument for \nI{} is to explain why~\ref{nI:going-by-value} follows from~\nIBackground{}, the initial three clauses of \nI{}.
-
-  With this in mind, the examination of each clause is directed at clarifying what the overall role of the clause with respect to \nI{} as a whole.
-  Still, as each clause may be satisfied independently of the others, when considering the what and when of each clause we will consider the clause separate from its role in \nI{}.
-
-  The map for this section is as follows:
-
-  Start with~\ref{nI:claimed-support} as this is relatively straightforward.
-  Importance is to set up information that the agent is reasoning with.
-
-  Interest is with~\ref{nI:inclusion} and~\ref{nI:going-by-value}.
-
-  Take~\ref{nI:going-by-value} before~\ref{nI:inclusion}.
-  Helpful to see what~\ref{nI:inclusion} is targeted at.
-  Allow a clearer treatment of some of the issues that arise with respect to~\ref{nI:inclusion}
-
-  \indent\indent Clauses~\ref{nI:inclusion} and~\ref{nI:going-by-value} will then be examined separately as they are, and their role is, more complex.
-\end{note}
-
-
-\paragraph{\ref{nI:claimed-support}, \ref{nI:psi-is-new}, and~\ref{nI:going-by-value}}
-
-\subparagraph{\ref{nI:claimed-support} and~\ref{nI:psi-is-new}}
-
-\begin{note}
-\ref{nI:claimed-support} and \ref{nI:psi-is-new} are simple background conditions.
-
-First, \ref{nI:claimed-support} ensures the agent has claimed support for \(\phi\) having value \(v\).
-Hence, agent may appeal to \(\phi\) having value \(v\) by the claimed support for \(\phi\) having value \(v\) in further reasoning, and in particular reasoning which culminates in claiming support for some other proposition.
-
-Second, \ref{nI:psi-is-new} ensures that the agent has not considered whether \(\psi\) has value \(v'\).
-
-As a result, it is possible that \(\psi\) not having value \(v'\) is an unrecognised defeater, and hence it is possible that \(\phi\) having value \(v'\) will come to be an expectation of the agent's claimed support for \(\phi\) having value \(v\).
-
-Note, though, that as the agent has not considered \(\psi\), these observations about \(\psi\) were not made when claimed support for \(\phi\) having value \(v\).
-
-Little else of interest follows from \ref{nI:claimed-support} and \ref{nI:psi-is-new} alone.
-For example, the agent may never come to consider \(\psi\).
-Or, \(\psi\) may be such that it wouldn't show \mom{}.
-
-I hadn't considered that that author has a habit of misquoting articles, but I am quoting directly from the original article\dots
-
-Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of the claimed support for \(\phi\) having value \(v\).
-\end{note}
-
-\subparagraph{\ref{nI:going-by-value}}
-
-\begin{note}
-  \ref{nI:going-by-value} serves two purposes.
-
-  First, claiming support for \(\psi\) having value \(v'\).
-  Second, claimed support for \(\phi\) having value \(v\) as part of such reasoning, from claimed support.
-  And, that this is something that it is not possible for the agent to avoid.
-  {
-    \color{red} Because here it's not the case that \(\phi\) is an non-important part.
-  }
-
-  Some interest.
-  Saw about with conditionals and contraposition.
-  However, also saw with conditionals without contraposition.
-
-  So, it is possible that the details of the reasoning introduce \(\psi\) having value \(v\) as an expectation.
-  Still, this is not necessarily the case.
-
-  Hence, that agent is claiming support and claimed support for \(\phi\) having value \(v\) is involved so not provide anything immediate.
-
-  Hence, the task of~\ref{nI:inclusion} is to point to conflict with assumptions \emph{given} the details of this reasoning.
-\end{note}
-
-\paragraph{\ref{nI:inclusion}}
-
-\begin{note}[Core idea]
-  The role of~\ref{nI:inclusion} is to capture a relation between an agent's claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\) such that the agent considers their claimed support for \(\phi\) having value \(v\) to depend on the possibility of claiming support for \(\psi\) having value \(v'\).
-
-  Loosely phrased, the agent thinks that the support they've claimed for \(\phi\) isn't really worth much if it not also possible for them to claim support for \(\psi\).
-\end{note}
 
 
 \begin{note}
-  One perspective on \ref{nI:inclusion} is that it ensures that claiming support for \(\psi\) having value \(v'\) is a possible and `pressing' defeater for the claimed support that \(\phi\) has value \(v\).
+  Following outline given.
+  Assume clauses hold.
 
-  In turn, links to \autoref{assu:supp:independence} to motivate some account of reasoning against recognised defeater.
+  Main thing is `requisite'.
 
-  I think that there is a successful argument that follows this pattern.
-  However, this is not the argument we present.
-
-  Rather, our goal is to show that not possible to move to \(\phi\) without also \(\psi\).
-  The primary result from \ref{nI:inclusion} is that claiming support for \(\psi\) having value \(v'\) is an expectation of the claimed support for \(\phi\) having value \(v\).
-  In turn, this interacts with move to \(\phi\) having value \(v\).
-
-
-
-
-
-  
-  Hence, \autoref{assu:expect-nai}.
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \propExpectNai*
-  \end{quote}
-
-  Seems more basic and stronger.
-  Problem is possibility that \(\psi\) is not the case.
-  But, only claim support given \(\psi\).
-  Hence, not claiming support.
-
-  This relies on \(\phi\).
-  Above suggestion would not necessarily do so.
-  Hence, above seems preferable, but requires more than assumptions offer, and it also seems that motivating \nI{} without such an argument would be informative for developing such an argument.
+  So,
+  \begin{enumerate}
+  \item Preliminaries
+  \item Requisite
+  \end{enumerate}
+  Then, tension.
 \end{note}
+
+\subsubsection{Two things}
+\label{sec:nI:arg:clauses}
+
+\begin{note}
+  Two subsections.
+
+  First,~\ref{nI:inclusion}.
+  Second,~\ref{nI:going-by-value}.
+
+  Add further information regarding these.
+  Not required for argument.
+\end{note}
+
+\paragraph{~\ref{nI:inclusion}}
 
 \begin{note}[\ref{nI:inclusion}]
   Restated:
@@ -5777,8 +5629,6 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   \end{itemize}
 \end{note}
 
-
-
 \begin{note}[Inclusion and Association]
   \color{red}
   The illustrations provided offer some intuition, and it seems these will have to do.
@@ -5916,91 +5766,205 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   Indeed, interdefinability plays an important role in getting this condition.
 \end{note}
 
+\paragraph{Value}
+
 \begin{note}
-  \begin{itemize}
-  \item Get that \(\psi\) having value \(v'\) is an expectation of the claimed support for \(\phi\) having value \(v\).
-    \begin{itemize}
-    \item This part is straightforward from definitions.
-    \end{itemize}
-  \item Not possible to consider possibility of \(\psi\) not having value \(v'\) while holding on to \(\phi\) having value \(v\).
-  \end{itemize}
+  `\RBV{-}'
 
-  \begin{itemize}
-  \item It is not possible for the agent to appeal to \(\phi\) having value \(v\) from claimed support that \(\phi\) has value \(v\) while considering it possible that \(\psi\) does not have value \(v'\).
-  \end{itemize}
-  Given the above, it is not possible for the agent to \emph{claim support} for \(\psi\) having value \(v'\).
-  For, such reasoning is not compatible with the possibility that \(\psi\) does not have value \(v'\).
+  More or less factive reasoning.
+\end{note}
 
-  \begin{proof}
-    Claimed support for \(\phi\) having value \(v\).
-    \(\phi\) has value \(v\).
-    In order to do this, position to claim support for \(\psi\) having value \(v'\).
-    And, claimed support for \(\phi\) having value \(v\) `guarantees' claimed support for \(\psi\) having value \(v'\).
-    For, granting \(\phi\) has value \(v\) is such that the claimed support is not \misled{}, and therefore, consider that claimed support for \(\psi\) having value \(v'\) would not be \misled{}, which is only the case if \(\psi\) has value \(v'\) (at present time).
-    So, also \(\psi\) has value \(v'\).
+\subsubsection{Linking}
+\label{sec:nI:arg:linking}
 
-    This comes from a and b.
+\paragraph{Laying out the clauses}
 
-    If \(\psi\) does not have value \(v'\), then moving to \(\phi\) is undercut, because claimed support for \(\phi\) having value \(v\) \emph{is} either \mom{}. (Stronger than mere possibility.)
+\subparagraph{\ref{nI:claimed-support}}
 
-    This comes from b.
+\begin{note}
+\ref{nI:claimed-support} and \ref{nI:psi-is-new} are simple background conditions.
 
-    Considering the possibility leads agent to consider that claimed support for \(\phi\) having value \(v\) is not enough to move to \(\phi\) having value \(v\).
-    Claimed support for \(\phi\) is such that it ensures that the agent has resources to deal with possible defeater of \(\psi\) not having value \(v'\).
+First, \ref{nI:claimed-support} ensures the agent has claimed support for \(\phi\) having value \(v\).
+Hence, agent may appeal to \(\phi\) having value \(v\) by the claimed support for \(\phi\) having value \(v\) in further reasoning, and in particular reasoning which culminates in claiming support for some other proposition.
 
-    Hence, the result of reasoning is not compatible with possibility that the agent is \mom{} with respect to \(\psi\) having value \(v'\).
-    Therefore, the result of reasoning is not an instance of claiming support.
+Second, \ref{nI:psi-is-new} ensures that the agent has not considered whether \(\psi\) has value \(v'\).
 
-    {
-      \color{red}
-      The really important thing to keep in mind here is that the problem isn't just from \(\psi\) not having value \(v'\).
-      Rather, it's that if \(\psi\) does not have value \(v'\) then this reveals some problem in the claimed support for \(\phi\) having value \(v\).
-      I.e.\ it's that appealing to the claimed support for \(\phi\) having value \(v\) `includes' \(\psi\) having value \(v'\) when moving to \(\phi\) having value \(v\).
+As a result, it is possible that \(\psi\) not having value \(v'\) is an unrecognised defeater, and hence it is possible that \(\phi\) having value \(v'\) will come to be an expectation of the agent's claimed support for \(\phi\) having value \(v\).
 
-      It is, of course, the case that for all claimed support:
-      If \(\phi\) does not have value \(v\) then the claimed support for \(\phi\) having value \(v\) is either \mom{}.
-      However, the problem highlighted here is distinct.
-      At issue is not that the claimed support for \(\psi\) having value \(v'\) would be \mom{} if \(\psi\) does not have value \(v'\).
-      Rather, the problem is that the way in which the agent claims support for \(\psi\) having value \(v'\) fails in a recognised way if \(\psi\) does not have value \(v'\).
-    }
-  \end{proof}
+Note, though, that as the agent has not considered \(\psi\), these observations about \(\psi\) were not made when claimed support for \(\phi\) having value \(v\).
 
-  Corollary here is that there is no way to remove \(\psi\) having value \(v'\) as an expectation of the claimed support by appeal to the claimed support for \(\psi\) having value \(v\) alone.
+Little else of interest follows from \ref{nI:claimed-support} and \ref{nI:psi-is-new} alone.
+For example, the agent may never come to consider \(\psi\).
+Or, \(\psi\) may be such that it wouldn't show \mom{}.
 
-  This will be useful when we apply \nI{} to cases of interest.
+I hadn't considered that that author has a habit of misquoting articles, but I am quoting directly from the original article\dots
 
-  Still, the argument seems stronger, as it rests on interdependence.
-  Given this, may wonder whether it is important that \(\psi\) having value \(v'\) is an expectation of the claimed support.
+Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of the claimed support for \(\phi\) having value \(v\).
+\end{note}
 
-  First, some caution.
-  Interdependence is key, but expectation allowed us to focus on this.
-  The purpose of the initial assumptions is to ensure that \(\psi\) having value \(v'\) turns out to be an expectation, and hence requires some novel reasoning about the possible defeater.
+\paragraph{\ref{nI:inclusion}}
 
-  Still, it may be possible to strengthen this argument.
-  It may be in some cases that the kind of interdependence is sufficient to require a retraction of previous considerations regarding \(\psi\) having value \(v'\).
-  This would then allow the argument presented to apply not only instances of expectation, but also instances of retraction.
+\begin{note}
+  Important here is that of possible defeater.
+  Have that agent didn't consider \(\psi\), but this doesn't establish that possible defeater.
+\end{note}
 
-  We do not take a stand on this.
-  This would require additional argumentation concerning the reasoning that goes in to claiming support.
-  \nI{} is a sufficient condition, but it need not be the weakest sufficient condition.\nolinebreak
-  \footnote{
-    The weakest sufficient condition relies on making precise things we've left as open in assumptions.
+\begin{note}[Core idea]
+  The role of~\ref{nI:inclusion} is to capture a relation between an agent's claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\) such that the agent considers their claimed support for \(\phi\) having value \(v\) to depend on the possibility of claiming support for \(\psi\) having value \(v'\).
+
+  Loosely phrased, the agent thinks that the support they've claimed for \(\phi\) isn't really worth much if it not also possible for them to claim support for \(\psi\).
+\end{note}
+
+
+
+\subparagraph{~\ref{nI:going-by-value}}
+
+\begin{note}
+  \ref{nI:going-by-value} serves two purposes.
+
+  First, claiming support for \(\psi\) having value \(v'\).
+  Second, claimed support for \(\phi\) having value \(v\) as part of such reasoning, from claimed support.
+  And, that this is something that it is not possible for the agent to avoid.
+  {
+    \color{red} Because here it's not the case that \(\phi\) is an non-important part.
   }
+
+  Some interest.
+  Saw about with conditionals and contraposition.
+  However, also saw with conditionals without contraposition.
+
+  So, it is possible that the details of the reasoning introduce \(\psi\) having value \(v\) as an expectation.
+  Still, this is not necessarily the case.
+
+  Hence, that agent is claiming support and claimed support for \(\phi\) having value \(v\) is involved so not provide anything immediate.
+
+  Hence, the task of~\ref{nI:inclusion} is to point to conflict with assumptions \emph{given} the details of this reasoning.
+\end{note}
+
+\paragraph{The argument}
+
+\begin{note}
+  \color{red}
+  Maybe restate sketch.
+\end{note}
+
+\begin{note}[Key proposition]
+  In particular, the argument for \nI{} rests on {\color{red} propositions} which follow from the assumptions made regarding claimed support.
+
+  \begin{quote}
+    \vspace{-\baselineskip}
+    \propExpectNai*
+  \end{quote}
 \end{note}
 
 \begin{note}
-  Put a different way:
-  Interdependence is such that when move to \(\phi\), \(\psi\) also has to come with.
+  First, establish two things:
+  \begin{enumerate}
+  \item If \(\phi\) then \(\psi\).
+  \item If possible \(\lnot\psi\) then no going to \(\phi\).
+  \end{enumerate}
+  Then, bring these together to get problem.
+\end{note}
+
+
+
+\begin{note}[A]
+  Suppose agent has moved to \(\phi\) having value \(v\) from claimed support for \(\phi\) having value \(v\).
+
+  What we get here is that claimed support for \(\phi\) is not \misled{}.
+  Also, would not be \mistaken{}.
+  For, claimed support is doing the work for \(\phi\) having value \(v\).
+
+  Two immediate consequences from~\ref{nI:claimed-support}.
+  \begin{enumerate}
+  \item \(S\) is (given present context) in position to claim support that \(\psi\) has value \(v'\) (without appeal to \(\phi\) having value \(v\))
+  \item \(S\) would be \nmom{} were they to claim support.
+  \end{enumerate}
+
+  Hence, if \(S\) would not be \mistaken{}, then it must (also) be the case that \(\phi\).
+  Note here that we only rely on not being \misled{}.
+
+  State this simply:
+  Given that \(S\) has taken claimed support to be enough to get to \(\phi\), then because of relation to claiming support for \(\psi\), also \(\psi\).
+
+  What is important to keep in mind is that it is the move to \(\phi\) that requires perspective on claimed support for \(\phi\), in turn perspective on claimed support for \(\psi\), and hence same move.
+
+  So, moving to \(\phi\) is sufficient to fix value for \(\psi\).
 \end{note}
 
 \begin{note}
-  The converse does not hold.
-  It need not be the case that the claimed support for \(\psi\) is such that requires claimed support for \(\phi\).
+  Don't yet have a clear issue.
+  Sufficient, but possible contingency.
+  It doesn't really matter that \(\psi\) having value \(v'\) follows from the move.
+  In other words, have shown that \(\psi\) is there in the background, but have not yet shown that move to \(\phi\) is not compatible.
 
-  This is important to note.
-  For, general and specific.
+  In order to establish this, second conditional.
+  This move is such that it requires ruling out possibility of \(\psi\) not having value \(v'\), roughly.
+\end{note}
 
-  Should have an example here.
+\begin{note}[B]
+  Possible that \(\psi\) doesn't have value \(v'\).
+  Then, possibility that claimed support for \(\psi\) having value \(v'\) is \misled{}.
+  As a result, possibility that either \mom{} with respect to claimed support for \(\phi\) having value \(v\).
+  However, move to \(\phi\) brings that this is not the case.
+  So, would not move to \(\phi\).
+
+  The point is that here we don't get \(\psi\) following, but rather stuff about claiming support for \(\psi\).
+\end{note}
+
+\begin{note}
+  So, not only is \(\psi\) bought along, but not going to get \(\phi\) without this being involved.
+
+  May think only need B.
+  I think this is mostly correct.
+  There is a slight difficulty.
+  Strictly speaking, B only gets perspective on claimed support for \(\psi\) having value \(v'\).
+  A adds observation that given this, also get \(\psi\) has value \(v'\).
+
+  So, correct that B is the most important part.
+  But A is still an important observation.
+\end{note}
+
+\newpage
+
+
+
+
+
+\paragraph*{A handful of observations}
+
+\begin{note}
+  Argument is complete.
+  A handful of observations.
+\end{note}
+
+\begin{note}
+  Perspective on claimed support is key.
+  \nfcs{} and \eiS{}.
+
+  May challenge these.
+  However, \nI{} is going to apply when both these things hold.
+\end{note}
+
+\begin{note}[Unused component of argument]
+  There is an additional component to the clauses of \nI{} that may be added to strengthen the argument.
+  Not only is \(\psi\) not having value \(v'\) a possible defeater, but given \ref{nI:inclusion} it is a possible defeater that the agent is confident that they can claim support about.
+
+  ``One perspective on \ref{nI:inclusion} is that it ensures that claiming support for \(\psi\) having value \(v'\) is a possible and `pressing' defeater for the claimed support that \(\phi\) has value \(v\).''
+
+  {
+    \color{red}
+     In turn, links to \autoref{assu:supp:independence} to motivate some account of reasoning against recognised defeater.
+
+  I think that there is a successful argument that follows this pattern.
+  However, this is not the argument we present.
+  }
+
+  Without saying more about reasoning regarding recognised possible defeaters, it is hard to say how important this is.
+  Add in assumption that if possible to claim support then no dismissing by `weaker' reasoning.
+  Not necessary, as clause of \nI{} is that \(\psi\) only from \(\phi\).
+  Instead, suggestions along these lines would suggest that \nI{} stronger constraint would allow final clause to be weaker.
+  Upshot for application of \nI{} is that need to identify this link between \(\phi\) and \(\psi\).
 \end{note}
 
 
@@ -6020,23 +5984,6 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   This means that \nI{} does not rule out not going by \(\phi\).
   Still, expectation which is a worry.
   And, in any case, if there is a possibility, we don't need to worry about it as we're interested in applying \nI{} to cases where \(\phi\) is made use of.
-\end{note}
-
-\newpage
-
-\paragraph*{A handful of observations}
-
-\begin{note}
-  Argument is complete.
-  A handful of observations.
-\end{note}
-
-\begin{note}
-  Perspective on claimed support is key.
-  \nfcs{} and \eiS{}.
-
-  May challenge these.
-  However, \nI{} is going to apply when both these things hold.
 \end{note}
 
 \begin{note}[Generalising \nI{}]
