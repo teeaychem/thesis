@@ -290,6 +290,26 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\requ}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{requisite}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{requisites}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{Requisite}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Requisites}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 
 
 % % % Other
