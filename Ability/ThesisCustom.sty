@@ -291,7 +291,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\requ}{ m }{% No inertia
+\DeclareDocumentCommand{\requ}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{requisite}%
@@ -310,7 +310,25 @@
 }
 \ExplSyntaxOff
 
-
+\ExplSyntaxOn
+\DeclareDocumentCommand{\expec}{ m }{% Expectation
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{expectation}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{expectations}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{Expectation}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Expectations}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
