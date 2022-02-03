@@ -219,6 +219,18 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:eiS]{\named{ICS}}}%\text{\textsf{|ICS|}}%
+  }
+  {%
+    \obeybreaks{Independence\space of\space claimed\space support}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\eiSC}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
@@ -268,6 +280,18 @@
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\twodefeaters}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \hyperref[idea:defs-for-CS]{\named{2\cancel[thick]{CS}}}%
+  }
+  {%
+  \obeybreaks{Two\space defeater\space types\space for\space claimed\space support}%
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ideaCSA}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
     \hyperref[idea:defs-for-CS]{\named{2\cancel[thick]{CS}}}%
@@ -385,6 +409,9 @@
     \fi
     \ifnum10=#1\relax
       Winter%
+    \fi
+    \ifnum11=#1\relax
+      Robin%
     \fi
   }
 }
