@@ -1,0 +1,959 @@
+\chapter{Two types of reasoning}
+
+\section{\adA{}, \adB{}}
+\label{sec:ability-ads-adc}
+
+\begin{note}[Recall\dots]
+  Let us briefly summarise our progress so far.
+
+  In~\autoref{sec:cases-interest} we introduced particular instances of an agent claiming support for some conclusion which involved two key steps.
+  The reasoning, in outline:
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \item\label{NUR:ro:i} I have some general ability \(\gamma\).
+  \item\label{NUR:ro:ii} If I have general ability \(\gamma\) then I have some specific ability \(\varsigma\) to \emph{V} that \(\phi\).
+  \item\label{NUR:ro:iii} I have the specific ability \(\varsigma\) to \emph{V} that \(\phi\). \hfill (From~\ref{NUR:ro:i} and~\ref{NUR:ro:ii})
+  \item\label{NUR:ro:iv} It is only possible to \emph{V} that \(\phi\) if \(\phi\) is already the case.
+  \item\label{NUR:ro:v} \(\phi\) is the case. \hfill (From~\ref{NUR:ro:iii} and~\ref{NUR:ro:iv})
+  \end{enumerate}
+
+  The reasoning involves claiming support by two important steps.
+
+  \begin{itemize}
+  \item The first step, from~\ref{NUR:ro:i} and~\ref{NUR:ro:ii} to~\ref{NUR:ro:iii}, involves the conditional of~\ref{NUR:ro:ii}, termed `\gsi{-}', clarified in~\autoref{sec:type-scenario}. And,
+  \item The second step, from~\ref{NUR:ro:iii} and~\ref{NUR:ro:iv} to~\ref{NUR:ro:v}, is an instance of `\aben{an}', clarified in~\autoref{sec:ability-entailment}.
+  \end{itemize}
+
+  Both steps involve reasoning, and in particular claiming support, by appeal to ability.
+  The first step, claiming support from a specific ability from a general ability.
+  The second step, claiming support for some proposition from specific ability.
+
+  Issue is how the agent claims support.
+  In turn, how an agent reasons with ability.
+  The sketch captures key premises and steps, but does not provide an interpretation of those steps.
+
+  In~\autoref{sec:wr-ar} we introduced two (schematic) interpretations of specific ability --- \AR{} and \WR{}.
+  A few purposes for these (schematic) interpretations.
+  First, some insight into how an agent may claim support.
+  \AR{} some property, \WR{} some event.
+  No stance on these.
+  Distinction on one hand allows us to state in greater detail, and on the other hand ensures that the arguments to follow do not presuppose a particular (schematic) interpretation of ability.
+
+  Now, two steps under either \AR{} or \WR{} may look straightforward.
+  Both involve conditionals, so matter of something like \emph{modus ponens}.
+  In this respect, distinction between \AR{} and \WR{} matters only for finer details of how the agent claims support, rather than the reasoning involved.
+  `Something like \emph{modus ponens}' sufficiently similar so that it's the conditional that's doing the work.
+  In the sense that the conditional form does most of the work.
+  \AR{} and \WR{} why it's claiming support as opposed to some other kind, say subjunctive or suppositional, reasoning.
+
+  However, this is not immediate.
+  The sketch does not provide an interpretation of those steps.
+  The purpose of this section is to outline an alternative way of claiming support that may be applied to the sketch.
+  Key part in argument against \ESU{} (and for \EAS{}).
+
+  Start with illustration.
+  Then, definition.
+  Applied to further illustrations.
+  Applied to \AR{} and \WR{}.
+
+
+  Distinction between reasoning \adA{} and \adB{} is of interest to use with respect to these two instances of claiming support in particular.
+
+  So, pair \AR{} and \WR{} with \adA{} and \adB{} and we have various ways of understanding how agent claim support.
+
+  Keep in mind that here we're elaborating on what this sketch amounts to.
+\end{note}
+
+\subsection{Initial illustrations}
+
+\begin{note}[What we're going to look at]
+
+  {\color{red} footnote}\nolinebreak
+  \footnote{
+    Here, as with other examples, focus on existential, as this is relevant.
+    However, question about semantic counterpart.
+    Every model, or there does not exist a model.
+    In contrast to existential, pointing to some specific thing won't do.
+    Still, may extend to composite properties of any model.
+    Either \(\phi\) or \(\lnot\phi\).
+    So, \(\psi\), or trivial.
+  }
+
+  \begin{enumerate}[label=\named{\(\exists\mathord{\vdash}{,}\top\)}, ref=\named{\(\exists\mathord{\vdash}{,}\top\)}]
+  \item\label{ill:Eproof:def} A syntactic proof of a formula (using a sound first-order system) is sufficient to establish the formula is a (syntactic) theorem of first-order logic.
+  \end{enumerate}
+\end{note}
+
+\begin{note}[Memory]
+  \begin{illustration}\label{ill:ad:proof:mem}
+    \begin{enumerate}
+    \item\label{ill:Eproof:mem} I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).
+    \item\label{ill:Eproof:exP} So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
+    \item\label{ill:Eproof:thm} Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
+    \end{enumerate}
+  \end{illustration}
+
+  \autoref{ill:ad:proof:mem} seems a straightforward case of claiming support.\nolinebreak
+    \footnote{
+      Looking ahead, one may concerned that \nI{} rules out the agent claiming support in the way outlined by \ref{ill:ad:proof:mem}.
+
+      For, \ref{nI:claimed-support} is be satisfied by taking \(\phi\) to be the proof, and \(\psi\) to be theorem-hood.
+      For sure, requires collapsing steps~\ref{ill:ad:proof:eve} and~\ref{ill:ad:proof:eve:app} into a complex conditional so \nI{} does not apply to the specific reasoning.
+      Still, at issue is whether the spirit of \nI{} applies, rather than the letter --- reasoning with the derived conditional doesn't seem to change much.
+      And, given the derived conditional, the agent's reasoning would fit the pattern described by \ref{nI:going-by-value}.
+
+      So, at issue is whether \ref{nI:inclusion:position} and~\ref{nI:inclusion:bound} hold with respect to the reasoning.
+      In short, is the agent confident their claimed support for their memory of the proof to be \mom{} if they are not in position to claim support for theorem-hood without appealing to their memory?
+
+      This may be the case.
+      One may only trust their memory of proving if they consider themselves to be in position to (re)create the proof, as failure would suggest that failed to create an adequate proof in the past --- e.g.\ the agent may have created a proof as a student and is now (re)considering whether the formula is a theorem as an expert in the field.
+
+      Of course, this may also not be the case, but the worry is that the reasoning seems fine regardless of how additional details are added, so long as the additional details do not conflict with the claimed support.
+
+      So, our attention turns to~\ref{nI:inclusion:bound}.
+      In short, is the agent is confident that they would be \nmom{} when claiming support for theorem-hood if their memory is \nmom{}?
+
+      Here, any worry eases.
+      Memory of creating the proof seems quite independent of whether the agent would be successful if they were to attempt to (re)create the proof.
+      For, the memory is (merely) of the existence of the proof, rather than the details of the syntactic system, and so on.
+
+      In particular, it seems clear that the agent would not need to assume that the formula is a theorem prior to attempting to recreate the proof.
+    }
+
+  First, the agent has claimed support for \ref{ill:Eproof:def} by their familiarity with systems of first order logic.
+
+  Second, the agent remembers having created a syntactic proof of the relevant formula.
+  And, it seems sufficient, generally speaking, to claim support for some proposition by appealing to memory, hence the agent claims support that there was some event which culminated in a syntactic proof of the formula.\nolinebreak
+  \footnote{
+    It may be more natural to say `I remember creating\dots' or `I remember proving\dots'.
+    The particular phrasing is chosen to remove any ambiguity about whether the agent \emph{finished} the activity creating or proving.
+  }
+  Of course, the agent may have misremembered, but there seems no issue with the agent expecting that appeal to their memory is \nmom{}.
+
+  Following, this allows the agent to claim support that a syntactic proof of the formula exists.
+  As before, the agent may have been \mom{} about whether what they created really was a syntactic proof of the formula
+  And, as before it seems the agent may expect that they were not \mom{}.
+
+  Hence, finally, the agent claims support that the formula is a (syntactic) theorem of first-order logic.
+
+  To concisely summarise, we may say that the agent claimed support for the formula being a (syntactic) theorem of first-order logic \emph{because} of their understanding of syntactic theorem-hood and their memory of proving the formula.
+
+  For sure,~\autoref{ill:ad:proof:mem} is designed to be as straightforward as possible.
+  Of interest is not whether the agent claims support, but how the role the agent gives to their memory in claiming support.
+
+  The agent appeals to their memory to establish that there exists a syntactic proof of the formula, and then combines the existence of a syntactic proof with~\ref{ill:Eproof:def} to claim support that the formula is a theorem.
+  Hence, the agent's memory is directly involved in their claimed support for the formula being a theorem.
+\end{note}
+
+
+\begin{note}
+  \begin{illustration}\label{ill:ad:proof:eve}
+    \begin{enumerate}
+    \item I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).
+    \item\label{ill:ad:proof:eve:app} In creating the syntactic proof I appealed to various aspects of some sound first-order system.
+    \item\label{ill:ad:proof:eve:pos} As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
+    \item Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
+    \end{enumerate}
+  \end{illustration}
+
+  As with~\autoref{ill:ad:proof:mem}, the agent's memory has a role in~\autoref{ill:ad:proof:eve}, but the role is quite different.
+  Above, the agent claimed support for the formula being a theorem primarily \emph{because} they remembered creating a proof.
+  By contrast, here the agent claims support for the formula being a theorem primarily because of the properties of some sound first-order system.
+
+  Step~\ref{ill:ad:proof:eve:app} appeals to various aspects of some sound first-order system and, in turn, step~\ref{ill:ad:proof:eve:app} observes that those aspects are sufficient to ensure a proof exists.
+  The agent claims support for the existence of a proof by appeal to the various aspects of some first-order system they appealed to when constructing the proof, rather than their memory of constructing the proof.
+\end{note}
+
+\begin{note}
+  To help clarify, let's fix a particular syntactic proof using the Fitch-style proof system of~\textcite[557--560]{Barwise:1999tu}:
+
+  \begin{figure}[H]
+    \centering
+    \begin{quote}
+      \fitchprf{}{
+        \subproof{\pline[1.]{\forall x P x}}{
+          \subproof{\pline[2.]{\exists x \lnot Px}}{
+            \boxedsubproof[3.]{a}{\lnot Pa}{
+              \pline[4.]{Pa}[\lalle{1}] \\
+              \pline[5.]{\bot}[\lfalsei{3}{4}]
+            }
+            \pline[6.]{\bot}[\lexie{2}{3--5}]
+          }
+          \pline[7.]{\lnot \exists x \lnot Px}[\lnoti{2--6}]
+        }
+        \pline[8.]{\forall x Px \rightarrow \lnot \exists x \lnot Px}[\lifi{1--7}]
+      }
+    \end{quote}
+    \caption{A syntactic proof}\label{fig:syntx-prf}
+  \end{figure}
+
+  The proof consists of single instances of five introduction or elimination rules.
+  Each rule is part of the Fitch-style proof system, and the specific application of the rules constitute the proof.
+\end{note}
+
+
+\begin{note}[Before\dots]
+  Before returning to~\autoref{ill:ad:proof:eve}, let us observe that with the proof in hand one may claim support that a proof of the formula exists via the contents of~\autoref{fig:syntx-prf}.
+
+  Broadly stated:
+
+  \begin{enumerate}
+  \item The proof is constructed from a sound first-order proof system.
+  \item And, the particular application of some rules of the system to formulae is such that the proof begins with no assumptions and the last line of the proof is not part of any assumption made during the course of the proof.
+  \end{enumerate}
+\end{note}
+
+\begin{note}
+  Note, appeal to creation of the proof involves appeal to various aspects of the Fitch-style proof system.
+
+  The object itself is mute to whether or not it is a proof.
+
+  For example, adding `\formula{Ba}' as an assumption would void the proof, but you would need to observe that the appeal to existential elimination on line 6 requires that `\formula{a}' does not appear in the proof prior to its introduction on line 3 in order to claim support that the proof is void.
+
+  Indeed, the proof consists of eight steps, each step is permitted by the first-order system, the proof begins with no assumptions, the last line of the proof is not part of any assumption made during the course of the proof and the proof, and so on.
+
+  Sparing the details, claimed support that~\autoref{fig:syntx-prf} is a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} from the creation of~\autoref{fig:syntx-prf} is a matter of claiming support for each step of the creation.
+
+  Indeed, to spare the details in general, let us instead talk of some collection of propositions and steps of reasoning.
+  Claiming support that a proof exists from the some creation in the way under discussion is an instance of reasoning from details of the creation to the conclusion that a proof exists.
+  Hence, as an instance of reasoning involves certain premises and steps of reasoning.
+  And, whatever these turn out to be, the proceed from the creation of the proof rather than from some other source such as memory, testimony, and so on.
+\end{note}
+
+\begin{note}
+  In other words, one may claim support that a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} exists (primarily) \emph{because} of their reasoning from some collection of premises and steps of reasoning concerning the creation to the existence of a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x}.
+\end{note}
+
+\begin{note}[Return to \ref{ill:ad:proof:eve}]
+  Now let us return to the reasoning of~\autoref{ill:ad:proof:eve}, and in particular steps~\ref{ill:ad:proof:eve:app} and~\ref{ill:ad:proof:eve:pos}:
+  \begin{quote}
+    \begin{enumerate}
+      \setcounter{enumi}{2}
+    \item In creating the syntactic proof I appealed to various aspects of some sound first-order system.
+    \item As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
+    \end{enumerate}
+  \end{quote}
+  Given that the agent remembers having created a syntactic proof, the `various aspects of some sound first-order system' of step~\ref{ill:ad:proof:eve} may be taken as those aspects of the first-order system that were appealed to in the premises and steps of reasoning when the agent created the proof.
+  And step \ref{ill:ad:proof:eve}, in turn, appeals to how those various aspects of some sound first-order system were sufficient for the agent to claim support that a proof exists by the reasoning that occurred.
+
+  In short, the agent remembers creating a syntactic proof and claiming support that a proof exists from the creation.
+  The instance of claiming support involved reasoning from premises via steps to the relevant conclusion.
+  Hence, it is possible to claim support for the conclusion by those premises and steps of reasoning.
+  So, in~\ref{ill:ad:proof:eve} the agent observes that those premises and steps of reasoning are sufficient to claim support by way of their memory, and in turn appeals to those premises and steps of reasoning to claim support for the relevant conclusion.
+\end{note}
+
+\begin{note}
+  {
+    \color{red}
+    Propositional support.
+    (If I talk about this, it should be after the definitions.)
+  }
+\end{note}
+
+\begin{note}
+  Generalising, the way in which the agent claims support in~\autoref{ill:ad:proof:eve} is of interest because the agent appeals to premises and steps of reasoning that are not `part' of their present reasoning.
+  The role of memory in the illustration is (merely) a way for the agent to recognise that there are such premises and steps of reasoning.
+  And, in the definitions that follow, we will abstract from any particular way in which the recognises that relevant premises and steps of reasoning are available.
+
+  Still, even though memory is contingent, we may briefly observe that the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is compatible with \ESU{}.
+  For, \ESU{} requires that an agent may claim support for some conclusion from premises and steps of reasoning only if the agent has witnessed reasoning to the conclusion from those premises via those steps of reasoning.
+  So, if the initial instance of claiming support conformed to \ESU{} then the agent will have witnessed reasoning from those steps and premises to the conclusion --- the instance of claiming support in~\autoref{ill:ad:proof:eve} does not involve such witnessing, but the agent's memory would be about how the relevant premises and steps were used to claim support.
+
+  Of course, the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is incompatible with a strengthened variant of \ESU{} which requires the agent to use any premises and steps they appeal to in the \emph{present} instance of reasoning, but the point for the moment is that the way in which the agent claims support in~\autoref{ill:ad:proof:eve} does not already require what we are arguing against: \ESU{}.
+\end{note}
+
+\subsection{Definitions}
+
+\begin{note}
+  With a somewhat detailed pair of contrasting illustrations in hand, we now turn to fixing a pair of definitions which capture the general way in which the agent claims support in the respective illustrations.
+
+  The two ways will be termed `\adA{}' and `\adB{}', respectively.
+\end{note}
+
+% \begin{note}
+%   Appealing to a conditional, and appealing to something `more fundamental' that underwrites the conditional.
+
+%   This is okay, to some extent.
+%   However, unsatisfactory.
+%   First, conditional, so particular type of reasoning, but what really matters is that something is obtained from something else.
+%   Second, no idea what `more fundamental' amounts to.
+%   What is clear is that it's a different way, and that's what we capture.
+% \end{note}
+
+\begin{note}
+  \begin{restatable}[\adA{}]{definition}{defADA}\label{AR:adA}\label{def:adA}
+    Fix an agent and suppose:
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), series=adA_counter]
+    % \item\label{def:adA:p-to-p} Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{def:adA:phi} The agent has claimed support for \(\phi\) having value \(v\).
+    \end{enumerate}
+    Then, agent claims support for \(\psi\) having value \(v'\) by `\adA{}' from \(\phi\) having value \(v\) when:
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), resume*=adA_counter]
+    \item\label{def:adA:psi} The agent claims support for \(\psi\) having value \(v'\) (in part) by via their claimed support that for \(\phi\) having value \(v\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  \adA{} does not outline a specific way of reasoning.
+  Rather, captures the role of claimed support for \(\phi\) having value \(v\) in some instance of reasoning when the agent claims support for \(\psi\) having value \(v'\).
+
+  Intuitive idea is that claimed support for \(\phi\) having value \(v\)~\ref{def:adA:phi} provides agent with resource to claim support for \(\psi\) having value \(v'\) to~\ref{def:adA:psi}.
+\end{note}
+
+\begin{note}
+  Applied to the two sketches seen, claim support by existence of proof, or by specific ability to \emph{V} that \(\phi\).
+  Key thing is that claimed support for existence of proof or the specific ability to \emph{V} that \(\phi\) rather than something else.
+
+  \phantlabel{abstract-adA}
+  Indeed, noting and abstracting from the role of conditionals in these two illustrations, basic (abstract) instance of \adA{}:
+
+  {
+    \small
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
+    \item\label{def:adA:ex:C:Cp} I have claimed support that \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:p} So, if my claimed support is \nmom{}, \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cp})
+    \item\label{def:adA:ex:C:Cps} Likewise, I have claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:ps} So, if my claimed support is \nmom{}, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cps})
+    \item\label{def:adA:ex:C:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
+    \item\label{def:adA:ex:C:s} Hence, if my claimed support is \nmom{}, \(\psi\) has value \(v'\).\newline
+      \mbox{}\hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
+    \item Therefore, I claim support that \(\psi\) has value \(v'\) as I expect the claimed support of (\ref{def:adA:ex:C:Cp}) and (\ref{def:adA:ex:C:Cps}) is, respectively, \nmom{}. \hfill (From \ref{def:adA:ex:C:Cp} -- \ref{def:adA:ex:C:s})
+    \end{enumerate}
+  }
+  The reasoning is a verbose because claimed support is not necessarily factive
+  \nolinebreak
+  \footnote{
+    It may be that an agent has claimed support for \(\phi\) having value \(v\) while \(\phi\) has value \(v'\).
+  }
+  yet the agent has claimed support about \(\phi\) having value \(v\) and how that relates to \(\psi\) having value \(v'\), rather than how claimed support for \(\phi\) having \(v\) relates to claimed support for \(\psi\) having value \(v'\),
+  (Consider parallel reasoning with knowledge, rather than (mere) claimed support.\nolinebreak
+  \footnote{The parallel reasoning in full:
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
+    \item\label{def:adA:ex:K:Kp} I know that \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:K:p} So, \(\phi\) has value \(v\). \hfill (From~\ref{def:adA:ex:K:Kp})
+    \item\label{def:adA:ex:K:Kps} I know that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:K:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:K:Kps})
+    \item\label{def:adA:ex:K:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
+    \item\label{def:adA:ex:K:s} Hence, \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
+    \item So, I know that \(\psi\) has value \(v'\) as \(\psi\) having value \(v'\) follows from~(\ref{def:adA:ex:K:Kp}) and~(\ref{def:adA:ex:K:Kps}).
+      \mbox{}\hfill (From \ref{def:adA:ex:K:Kp} -- \ref{def:adA:ex:K:s})
+    \end{enumerate}
+  }%
+  )
+  Still, the reasoning is a clear instance of claiming support for \(\psi\) having value \(v'\) by \adA{} from \(\phi\) having value \(v\) as the agent claims support for \(\psi\) having value \(v'\) by appealing to their claimed support for \(\phi\) having value \(v\) to satisfy the antecedent of a conditional.
+
+  Still, \adA{} need not involve a conditional.
+  Consider, for example, claiming support that they have claimed support for a contradiction from claimed support that \(\phi\) and not-\(\phi\) are both true.
+  It seems plausible that so claiming need only involve a reflection on what \(\phi\) and not-\(\phi\) amounts to.
+\end{note}
+
+\begin{note}
+
+    \begin{restatable}[\adB{}]{definition}{defADB}\label{AR:adB}\label{def:adB}
+    Fix an agent and suppose:
+    \begin{enumerate}[label=\textsf{I:\arabic*}., ref=(\textsf{I}:\arabic*), series=adB_counter]
+    % \item Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).\nolinebreak
+      % \footnote{
+      %   It doesn't matter whether claiming support for \(\phi\) is sufficient to claim support for \(\psi\).
+      % }
+    \item\label{def:adB:poss} Claimed support for \(\phi\) ensures there is some (distinct) collection of propositions premises \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\), such that it is possible to claim support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\), with respective values, and \(\delta_{1},\dots,\delta_{m}\).
+    \end{enumerate}
+    Then, agent claims support for \(\psi\) having value \(v'\) by `\adB{}'\nolinebreak
+    \footnote{
+      Motivated in part by similarity to Craig's interpolation theorem.
+      Find something `in-between' that does the work.
+      However, that's the extent of the relation.
+    }
+    from \(\phi\) having value \(v\) when:
+    \begin{enumerate}[label=\textsf{I}:\arabic*., ref=(\textsf{I}:\arabic*), resume*=adB_counter]
+    \item\label{def:adB:inter} Claim support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\) with respective values and the possibility of claiming support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  With \adA{} \(\phi\) having value \(v\).
+  \adB{} does not involve the agent claiming support for \(\phi\) having value \(v'\) by \(\phi\) having value \(v\).
+  Instead, some (distinct) collection of premises \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\).
+
+  Key difference is that agent isn't directly claiming support for \(\psi\) from \(\phi\).
+  From \(\rho_{1},\dots,\rho_{k}\) to \(\psi\)
+  Though, this is not to say that \(\phi\) is irrelevant.
+  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
+  In turn, the definition does not stated how the agent claims support for \(\rho_{1},\dots,\rho_{k}\) having respective values.
+
+  In other words, \adA{} specifies a `because' while \adB{} does not.
+
+  Two reasons.
+  First, it doesn't matter.
+  Some other way.
+  Second, there are at least two possibilities:
+
+  \begin{enumerate}
+  \item Agent to claims support for \(\rho_{1},\dots,\rho_{n}\) by \(\phi\) (though this isn't the one I'm interested in).
+  \item Agent has already claiming support for \(\rho_{1},\dots,\rho_{n}\) (this is the one I'm interested in).
+  \end{enumerate}
+
+  With respect to `because'
+  \begin{itemize}
+  \item Because \(\phi\) ensures \(\rho_{1},\dots,\rho_{n}\) and \(\psi\) from \(\rho_{1},\dots,\rho_{n}\).
+  \item Because \(\rho_{1},\dots,\rho_{n}\) and \(\phi\) ensures possibility for \(\psi\) from \(\rho_{1},\dots,\rho_{n}\).
+  \end{itemize}
+\end{note}
+
+
+\begin{note}
+  Only seen \adB{} with respect to proof illustration.
+  Remembered proving \(\phi\), that secures the possibility, but claiming support from the details of the proof itself.
+
+  Intuitively, applies to ability in the same way.
+  Premises and steps of reasoning work in the same way as components of a proof.
+  However, we will delay details until we've seen a few more illustrations.
+\end{note}
+
+\begin{note}
+  Broad distinction, agent may claim support by appeal to some thing, but it is also possible to break that thing down in to parts or elements such that the agent may claim support by appeal to those parts or elements (and how they compose).
+
+  `Break down' is metaphorical.
+
+  In some cases, the thing itself, in other cases, more basic stuff that must be the case in order for the thing to be the case.
+
+  Break down does the work.
+  Agent will typically recognise.
+  Break down is not required.
+
+  In this sense, break down is more fundamental.
+
+  `Because\dots'
+
+  Unifying feature is that \adA{} allows claim support for \adB{}, so not clear that need to go via \adB{}.
+  Indeed, unclear, given \ESU{}, that may claim support by \adB{}.
+  We will only push this question with respect to ability, though.
+\end{note}
+
+\begin{note}[\ESU{}]
+  We noted above that the reasoning of~\ref{ill:ad:proof:eve} was compatible with \ESU{}.
+  The reasoning of~\ref{ill:ad:proof:eve} is an instance of \adB{}.
+  Hence, there are instances of \adB{} which are compatible with \ESU{}.
+
+  Argue that there are instances which are not compatible.
+\end{note}
+
+\subsection{Additional illustrations}
+
+\begin{note}
+
+  \begin{illustration}
+    \begin{itemize}
+    \item If bag are overweight then they can't be taken on the flight.
+    \item Machine reads\dots
+    \item Bag can't be taken on the flight.
+    \end{itemize}
+  \end{illustration}
+  Contents of the bag are overweight.
+
+  Combined weight of the items versus the combination of the individual weights.
+
+  Compare, filling the bag and weighing it, versus summing the weight of the items as you fill the bag.
+
+  Now, seems possible to fill the bag and weight it, then appeal to the sum of the items.
+
+  So, this is a little more subtle.
+  The bag has been weighed, and the distinction is between the weight of the contents of the bag, and the combined weight of the items that make up the contents of the bag.
+
+  This is particularly interesting.
+  Because, it seems clear that something is strange if someone talks about the weight of the contents of the bag without recognising that this is a function of the combined weight of all the individual elements of the bag.
+  However, no idea what the contents of the bag are.
+
+  So, claiming support from what is has been observed, the combined weight, rather than what must be the case in order to have made the observation.
+\end{note}
+
+\begin{note}[Fire alarm]
+  \begin{illustration}
+    \begin{itemize}
+    \item Fire alarm is ringing.
+    \item Fire in the building.
+    \item Should leave by the nearest exit.
+    \end{itemize}
+  \end{illustration}
+  So, claiming for getting out of the building.
+  Fire alarm.
+  Or, fire, fire alarm has picked this up.
+
+  So, difference between that there is a fire in the building, and \emph{the} fire in the building.
+
+  The point here is that, okay, you need to go from alarm to fire, that's all fine, but fire itself is sufficient to claim support.
+\end{note}
+
+\begin{note}
+
+  \begin{illustration}\label{ill:ad:factorial}
+    \begin{itemize}
+    \item It is possible to write recursive functions in C.
+    \item It is possible to write a recursive implementation of the factorial function in C.
+    \end{itemize}
+  \end{illustration}
+  With proofs, abstract objects.
+
+  Consider programming.
+
+  Recursive implementation of factorial in C (chosen to make the implication clear).
+
+  So, \adA{} is just the fact, so to speak.
+  But, \adB{} points to the key step of calling function.
+  Of course, this is just recursion, but appeal here is to the concept, so to speak, rather than the truth of the statement.
+
+  Don't need to understand details.
+  Go by form, so to speak.
+
+  Claiming support by logical relation, rather than the states of affairs that ensure those logical relations hold up.
+
+  Or, the definition is such that\dots
+\end{note}
+
+\begin{note}[Existentials]
+  In a sense, the point here is that \adA{} cases of interest mean that there's something more.
+  This is viewed in terms of some complex of more basic things existing.
+  And, \adB{} follows the reference.
+\end{note}
+
+\subsection{\adA{}}
+\label{sec:ads}
+
+\subsection{\adB{}}
+\label{sec:adc}
+
+\begin{note}
+  Core idea is that claim support by what follows from ability.
+
+  Helpful to highlight parallel distinction with respect to other instances of claiming support.
+\end{note}
+
+\begin{note}
+  Similar to verifying an algorithm may be implemented.
+  Break down all of the steps in the algorithm, and then ensure that it is possible to express each of the steps in the programming language of choice.
+
+  \begin{quote}
+    \textsc{factorial}(\(n\)):\newline
+    \textbf{if} \(n = 1\)\newline
+    \mbox{}\indent \textbf{return} \(1\)\newline
+    \textbf{else}\newline
+    \mbox{}\indent \textbf{return} \(n \times\) \textsc{factorial}(\(n-1\))
+  \end{quote}
+
+  Fortran 77 does not support recursion, a function may not call an instance of itself.\nolinebreak
+  \footnote{
+    This is not to say that one may not compute factorials using Fortran 77.
+    It's a Turing complete language.
+    However, would require a different (non-recursive) algorithm.
+  }
+  By contrast, the recursive factorial algorithm may implemented in languages that support recursion, such as Lisp or Python.
+
+  \adA{} and \adB{}, recursion, or function calling an instance of itself.
+
+  \AR{}, properties of the language, \WR{} adds in particular event.
+\end{note}
+
+\begin{note}
+  Turning to reasoning, very similar idea.
+  Features of programming languages are resources for doing something, in the same way that premises and steps of reasoning are resources for reaching some conclusion.
+\end{note}
+
+\section{Recap}
+\label{sec:recap-reasoning}
+
+\begin{note}
+  Ability.
+  Instance of reasoning with ability.
+  Two distinctions which apply here.
+  \AR{} and \WR{} for ability.
+  \adB{} and \adA{} for how ability is used to claim support.
+\end{note}
+
+\begin{note}[Two ways to get to \(\phi\)]
+  Two key steps.
+  \begin{itemize}
+  \item \gsi{}.
+  \item \aben{the}.
+  \end{itemize}
+
+  First, general to specific, then specific to \(\phi\).
+
+  Second, general to specific, then general to \(\phi\).
+\end{note}
+
+\begin{note}
+  Second is something like evidence of evidence is evidence.
+
+  Here, the important difference is that the agent only needs to appeal to general ability.
+  And, they've claimed support for this.
+
+  The point is that it's not clear the agent is required to do anything too much with the specific ability.
+\end{note}
+
+\begin{note}[Focus]
+  Common here is \gsi{}.
+  Needed in both cases.
+
+  However, it's also the case that the `final' bit of reasoning is more or less \aben{the}.
+
+  So, in a sense both ways of reasoning depend on these two things.
+
+  The only difference is the particular for \aben{the} would take.
+
+  There is a difference.
+  For, general and specific are different.
+  I'm not clear on whether this amounts to a significant difference.
+  Still, even if it does, argument will proceed even if there is something significant to be made of this.
+\end{note}
+
+\begin{note}[Summarising]
+  Above we introduced \gsi{}.
+  Limited information of the form `If \emph{S} has a (general) ability to \(\gamma\), then \emph{S} has a (specific) ability to \emph{V} that \(\phi\) (as an instance of the general ability).'
+  We then noted that certain instances of the (specific) ability to \emph{V} that \(\phi\) entail that \(\phi\) is the case.
+  Two interpretations of \aben{the}, \AR{} and \WR{}.
+
+  Our focus now turns back to \gsi{}.
+  For those instances of \gsi{} when \aben{the} holds, the interpretations \AR{} and \WR{} detail what the agent obtains by reasoning from general to specific ability.
+  In other words, \emph{what} the agent is claiming support for.
+
+  As noted, using a conditional such as \gsi{} is not automatic.
+  The informer has not provided the agent with any additional way to claim support that the agent has the general ability.
+  Rather, outlined something that follows \emph{if} the agent has the general ability.
+
+  So, it is up to the agent to resolve in either way.
+  If the agent wants to use the information, then the agent needs to reason from general to specific.
+  The issue is that without any additional reasoning, it seems there's no clear way to determine which way the agent should go.
+  Here is where the distinction between \AR{} and \WR{} is important.
+  Interpretation of specific ability informs how the agent move from general to specific.
+
+  Following two propositions outline combination.
+  {
+    \color{red}
+    The key thing here is about claiming that one has a specific ability.
+  }
+\end{note}
+
+\begin{note}[Unified idea]
+  Claim support for premises and steps of reasoning.
+
+  Easiest with \WR{}.
+  What's missing here is the use of the premises in reasoning.
+  Hence, contrast to \ESU{} which we'll talk in some detail about below.
+
+  Same applies to \AR{} by general property reduction.
+
+  So, \AR{} and \WR{} allow the agent to do the same thing, but in slightly different ways.
+\end{note}
+
+\begin{note}[\gsi{}++]
+  First, \gsi{} applied to \AR{}
+  \begin{restatable}[\textsf{|gs-I\space·\space H|}]{idea}{ideaCSbyAR}\label{idea:CS-by-AR}
+    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that \emph{S} has the property of being able to \emph{V} that \(\phi\).
+    Suppose an agent has:
+    \begin{enumerate}
+    \item Claimed support for some general ability \(\gamma\).
+    \item Claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) (for which \aben{the} holds).
+    \end{enumerate}
+    Then:
+    \begin{enumerate}[resume]
+    \item \emph{S} may claim support for having the specific ability \(\sigma\) by reasoning that they have the property of being able to \emph{V} that \(\phi\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+  Second, \gsi{} applied to \WR{}
+
+  \begin{restatable}[\textsf{|gs-I\space·\space W|}]{idea}{ideaCSbyWR}\label{idea:CS-by-WR}\label{W:s}
+    % In order for \emph{S} to have the (specific) ability to \emph{V} that \(\phi\) for which \aben{the} holds, claimed support for general and claimed support for \gsi{} are sufficient to claim support that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
+    Suppose an agent has claimed support for some general ability \(\gamma\) and has claimed support that if they have the general ability \(\gamma\) then they have some specific ability to \emph{V} that \(\phi\) for which \aben{the} holds.
+    Then, an agent may claim support for having the specific ability \(\sigma\) by reasoning that there is a potential witnessing event in which \emph{S} \emph{V}s that \(\phi\).
+  \end{restatable}
+\end{note}
+
+\begin{note}[Alternatives]
+  Appeal to premises and steps is not required by either \AR{} or \WR{}.
+  However, most plausible account of what is going on.
+
+  Explored some alternatives for \AR{}, but unclear what is of importance other than reasoning, and hence premises and steps.
+  And, in this respect, basic \AR{} seems like a dead end.
+  Premises and steps allow the agent to claim support in the same way as they would allow the agent to claim support when used in reasoning.
+  It's not at all clear to me that basic \AR{} makes sense from this perspective.
+\end{note}
+
+\begin{note}[Limitation of intuition]
+  Focused on idea that claiming support in same way as reasoning.
+
+  This is not to imply equivalence of claimed support.
+
+  Said too little about claimed support to make any strong remarks about equivalence.
+  Still, intuitive that additional way of being \mom{}.
+  For, haven't done the reasoning, so \mom{} about this.
+  Not the case if the agent has done the reasoning.
+\end{note}
+
+\subsubsection{Old notes}
+
+\begin{note}[\gsi{}++ applied : \AR{}]
+  \AR{} doesn't need to much expansion.
+  Silent on what the property is.
+  One way to view is that general ability reduces to sufficient collection of specific.
+  \gsi{} conditional informs the agent that specific instance, so required for general ability.
+  \gsi{} is novel, but support claimed is for quantifier over all core instances.
+
+  Similar to a standard induction principle.
+
+  With respect to chess, this is one such principle.
+\end{note}
+
+\begin{note}[\gsi{}++ applied : \WR{}]
+  \WR{} is different.
+  Witnessing event.
+  So, \emph{V}ing that \(\phi\).
+  Break down \emph{V}ing that \(\phi\) into a series of actions performed by the agent.
+  General ability secures performing each of those actions.
+
+  Turning to the chess example.
+  Here, appeal to sufficient understanding of the rules of chess, and the combination of these.
+  More broadly, premises and steps of reasoning.
+
+  It's this kind of stuff that \WR{} uses.
+\end{note}
+
+\begin{note}[Impact of distinction]
+  Return to the impact of the distinction.
+
+  \AR{}, focus on generator.
+  Hence, task is to establish that the agent has resources to generate.
+  So, in a sense, with \gsi{} we go from existence of general to existence of specific generator.
+  Note, this isn't to say that there's something like a general generator.
+  It may be the case by general ability we have quantification over specific abilities.
+  If so, then claim support that there's a particular specific generator.
+  Nor that specific generators are unique.
+  The available resources may overlap.
+  Still, some thing that is true of the agent, and claimed support for general ability is sufficient to claim support that the `some thing' holds.
+
+  \WR{}, focus on generated event.
+  So, agent doesn't necessarily need to establish a generator, but rather ensure that event may be generated.
+  Hence, \gsi{}, general ability allows the agent to generate witnessing event for specific ability.
+  Not looking to claim support that `some thing' is true of the agent.
+  Rather, claimed support for general ability, and appeal to the actions that this allows the agent to perform.
+\end{note}
+
+\begin{note}[Intuition for \AR{} and \WR{}]
+  Both \AR{} and \WR{} are ways to understand \aben{the}, which is in turn about what is entailed by an agent having a (certain kind of) specific ability.
+
+  \AR{} focuses on the idea that the agent may claim support from having the attribute (or the truth) of the specific ability.
+  \AR{} requires support for attribute, which in turn suggests in a position to claim support for premises and steps.
+  \AR{} doesn't require agent to claim support for premises and steps.
+
+  \WR{} focuses on the idea that the agent may claim support from witnessing (or using) the specific ability.
+  \WR{} requires support for premises and steps, which in turn suggests in a position to claim support for attribute.
+  \WR{} doesn't require agent to claim support for attribute.
+\end{note}
+
+\begin{note}[Quite brief]
+  Sketches of \AR{} and \WR{} are brief.
+  Expand on these in the following sections (\ref{sec:first-conditional} and~\ref{sec:second-conditional}) to some extent, and chapter~\ref{cha:potent-infer-attr} will focus on a detailed account of both.
+\end{note}
+
+\begin{note}
+  Role of ability to secure witnessing event.
+
+  The distinction may be highlighted by a distinct set of implications\nolinebreak
+  \footnote{
+    Though not necessarily entailments.
+  }
+  \nagent{4} is dehydrated, so \nagent{4} is tired.
+  \nagent{4} took a long walk in the sun, so \nagent{4} is tired.
+
+  First, implication follows from some property.
+  Second, implication follows from the result of some action.
+
+  As with ability, both implications may be true.
+  Still, difference in terms of whether one appeals to some property of \nagent{4}, or some action that \nagent{4} performed.
+  As with ability, there is some ambiguity.
+  There's the fact that \nagent{4} took a walk in the sun, and there's the action of \nagent{4} taking a walk in the sun.
+\end{note}
+
+\begin{note}[Why]
+  So, \AR{}, some property.
+  With \WR{}, it's the event that matters.
+  In turn, moving from premises to some conclusion.
+  Appeal to the event involves appeal to constituents of event.
+
+  Return to \ESU{}.
+  No inherent conflict with either \AR{} or \WR{}.
+  Difference between property and witness.
+  Requirement is that claimed support for premises is sufficient to claim support for conclusion.
+  With \AR{}, claimed support for property --- need enough to be sure property is adequate.
+  With \WR{}, claimed support for witness --- need enough to make sure that witness is adequate.
+
+  \nagent{4} is thirsty, no implication.
+  \nagent{4} walked, no implication.
+
+  Does not matter that thirst is part of the relevant instance of being dehydrated.
+  Nor that the witnessing event of walking was a long walk in the sun.
+  Deny claimed support as did not reason from such premises.
+\end{note}
+
+\subsection{Summary of distinctions}
+\label{sec:summary-distinctions}
+
+\begin{note}
+  \begin{figure}[H]
+    \centering
+    \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Parts of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
+      \hline
+      \multirow[c]{2}{*}{\AR{}} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & --- \\
+      \cline[dashed]{2-4}
+      & Derived & That there is some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) & Parts of some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) \\
+    \end{tblr}
+    \caption{Distinction matrix with \aben{the}}
+  \end{figure}
+\end{note}
+
+\begin{note}
+  Basic \AR{} with \adB{} has `?'.
+  For, as noted above it's not clear what this amounts to.
+\end{note}
+
+\subsection{The distinctions are (sufficiently) exhaustive}
+\label{sec:ar-wr-are}
+
+\begin{note}
+  Two pairs.
+  \AR{} and \WR{}, \adA{} and \adB{}.
+
+  Goal is to argue that:
+  \begin{itemize}
+  \item \AR{} and \WR{} are exhaustive.
+  \item \adA{} and \adB{}, sufficient, as relative to \(\phi\).
+  \end{itemize}
+\end{note}
+
+\subsubsection{\AR{} and \WR{}}
+
+\begin{note}
+  Key idea is that \AR{} and \WR{} are different perspectives on the same thing.
+
+  Switching between ability and potential events.
+  This is not important, two ways of describing the same thing.
+
+  The ability to \emph{V} that \(\phi\) is equivalent to there being a potential event in which the agent \emph{V}s that \(\phi\).
+  For, if there is no such potential event, then the agent does not have the ability to \emph{V} that \(\phi\).
+  Conversely, if there is a potential event in which the agent \emph{V}s that \(\phi\), then the agent has the ability to \emph{V} that \(\phi\).
+\end{note}
+
+\begin{note}[Exhaustive]
+    \begin{restatable}[]{proposition}{propAbilityExuastive}\label{prop:WR-and-AR-exhaustive}\label{either-AR-or-WR}
+    Any interpretations of an agent's (specific) ability to \emph{V} that \(\phi\) (for which \aben{the} holds) conforms to either:
+    \begin{enumerate}
+    \item \AR{}: It is a property of the agent that they are able to \emph{V} that \(\phi\).
+    \item \WR{}: There is a potential witnessing event in which the agent \emph{V}s that \(\phi\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  The distinction between \AR{} and \WR{} sets up two (schematic) ways in which agent an agent may claim support given an instance of \aben{the}.
+  We now argue that these two (schematic) methods are exhaustive.
+  {
+    \color{red}
+    Important to keep in mind is that our interest is with claiming support.
+    And, in particular, what the agent claims support for given \AR{} and \WR{}.
+    So, the claim that \AR{} and \WR{} are exhaustive is a claim about how an agent reasons, not what ability reduces to.
+  }
+\end{note}
+
+\begin{note}
+  \color{red}
+  This section is now far more straightforward.
+  \AR{} and \WR{} is a little more complex.
+  Ability always with respect to some action, that's a constraint on the type of ability of interest.
+  So, static versus dynamic.
+
+
+  And, Basic and derived are easy given \AR{}.
+\end{note}
+
+\begin{note}[Argument]
+  \color{red}
+  Start with the basics.
+  Have an instance of \aben{the}.
+  So, the agent claim support for \(\phi\) given claimed support for \emph{S} having the ability to \emph{V} that \(\phi\).
+  So, need to argue that the agent:
+  Either claims support for some property of \emph{S} (\AR{}).
+  Or, claim support for \(\phi\) as the result of the event of \emph{S} \emph{V}ing that \(\phi\), with 
+\end{note}
+
+\begin{note}[Old arguments]
+  Remaining issue is details of the schemas.
+  These talk about more than mere reference.
+  \AR{}, agent, and \WR{} the result of the witnessing event.
+  In turn, these are harmless and the only plausible option.
+
+  \AR{} is simple.
+  State of affairs, but as the agent is involved, then it is natural to attribute to the agent.
+  Implausible that it's some event.
+
+  \WR{} focuses attention to culmination of event.
+  However, need culmination.
+  Quirk of English that may `use' relevant verbs in this way.
+  Imperfective paradox.
+  May consider this a state, but only in the sense that it is a state bought about by some event.
+  Focus on event, but given culmination, consider this a state.
+  Still, state of culminated event.
+  Possible that this is simply a state in which the agent has some appropriate relation.
+  Problem is that an ability is the ability to do some thing.
+  If abstract away from the act, then it's not clear how to understand conditions as identifying ability.
+\end{note}
+
+\subsubsection{\adA{} and \adB{}}
+
+\begin{note}[Style of argument]
+  Well, with respect to claiming support for \(\psi\) such that \(\phi\) is involved.
+
+  Either \adA{} or \adB{}.
+  \adA{} seems sufficiently clear, so:
+  Transform this to: If not \adA{} then \adB{}.
+  Equivalent.
+\end{note}
+
+\begin{note}[Idea]
+  So, \(\phi\) is involved, but isn't \adA{}.
+  Hence, agent claims support by something else.
+  If \(\phi\) isn't related to that stuff in any way, then completely redundant.
+  Note, from agent's perspective, rather than possibility of revising without.
+  So, seems it can only be about how those other things relate to the conclusion.
+
+  Okay, so idea is that if no \adA{} then \(\phi\) isn't part of claiming support.
+  If other stuff without \(\phi\) then redundant.
+  So, if \(\phi\) is involved, about how the other stuff relates.
+\end{note}
+
+\subsection{Where the tension arises}
+\label{sec:where-tension-arises}
+
+\begin{note}
+  {
+    \color{red}
+    Looking ahead.
+  }
+  The goal here is to clarify that the tension arises from the ability entailment.
+  The role of general to specific is to ensure that agent gets to fact from specific.
+\end{note}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
