@@ -85,11 +85,14 @@
 
 \begin{note}[Memory]
   \begin{illustration}\label{ill:ad:proof:mem}
+    \mbox{}
+    \vspace{-\baselineskip}
     \begin{enumerate}
     \item\label{ill:Eproof:mem} I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).
     \item\label{ill:Eproof:exP} So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
     \item\label{ill:Eproof:thm} Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
     \end{enumerate}
+    \vspace{-\baselineskip}
   \end{illustration}
 
   \autoref{ill:ad:proof:mem} seems a straightforward case of claiming support.\nolinebreak
@@ -147,12 +150,15 @@
 
 \begin{note}
   \begin{illustration}\label{ill:ad:proof:eve}
+    \mbox{}
+    \vspace{-\baselineskip}
     \begin{enumerate}
     \item I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).
     \item\label{ill:ad:proof:eve:app} In creating the syntactic proof I appealed to various aspects of some sound first-order system.
     \item\label{ill:ad:proof:eve:pos} As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
     \item Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
     \end{enumerate}
+    \vspace{-\baselineskip}
   \end{illustration}
 
   As with~\autoref{ill:ad:proof:mem}, the agent's memory has a role in~\autoref{ill:ad:proof:eve}, but the role is quite different.
@@ -227,7 +233,7 @@
   Now let us return to the reasoning of~\autoref{ill:ad:proof:eve}, and in particular steps~\ref{ill:ad:proof:eve:app} and~\ref{ill:ad:proof:eve:pos}:
   \begin{quote}
     \begin{enumerate}
-      \setcounter{enumi}{2}
+      \setcounter{enumi}{1}
     \item In creating the syntactic proof I appealed to various aspects of some sound first-order system.
     \item As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
     \end{enumerate}
@@ -288,7 +294,7 @@
     \end{enumerate}
     Then, agent claims support for \(\psi\) having value \(v'\) by `\adA{}' from \(\phi\) having value \(v\) when:
     \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), resume*=adA_counter]
-    \item\label{def:adA:psi} The agent claims support for \(\psi\) having value \(v'\) (in part) by via their claimed support that for \(\phi\) having value \(v\).
+    \item\label{def:adA:psi} The agent claims support for \(\psi\) having value \(v'\) (in part) by their claimed support that \(\phi\) has value \(v\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -378,31 +384,40 @@
   \adB{} does not involve the agent claiming support for \(\phi\) having value \(v'\) by \(\phi\) having value \(v\).
   Instead, some (distinct) collection of premises \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\).
 
-  Key difference is that agent isn't directly claiming support for \(\psi\) from \(\phi\).
-  From \(\rho_{1},\dots,\rho_{k}\) to \(\psi\)
-  Though, this is not to say that \(\phi\) is irrelevant.
-  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
-  In turn, the definition does not stated how the agent claims support for \(\rho_{1},\dots,\rho_{k}\) having respective values.
-
-  In other words, \adA{} specifies a `because' while \adB{} does not.
-
-  Two reasons.
-  First, it doesn't matter.
-  Some other way.
-  Second, there are at least two possibilities:
-
-  \begin{enumerate}
-  \item Agent to claims support for \(\rho_{1},\dots,\rho_{n}\) by \(\phi\) (though this isn't the one I'm interested in).
-  \item Agent has already claiming support for \(\rho_{1},\dots,\rho_{n}\) (this is the one I'm interested in).
-  \end{enumerate}
-
-  With respect to `because'
+  The key difference between \adA{} and \adB{}:
   \begin{itemize}
-  \item Because \(\phi\) ensures \(\rho_{1},\dots,\rho_{n}\) and \(\psi\) from \(\rho_{1},\dots,\rho_{n}\).
-  \item Because \(\rho_{1},\dots,\rho_{n}\) and \(\phi\) ensures possibility for \(\psi\) from \(\rho_{1},\dots,\rho_{n}\).
+  \item \adA{} involves the agent appealing to \(\phi\) in order to claim support for \(\psi\), while
+  \item \adB{} does not involve the agent appealing to \(\psi\) to claim support for \(\psi\).
+    Instead, the role of \(\phi\) is to highlight \(\rho_{1},\dots,\rho_{k}\) and the agent appeals to propositions \(\rho_{1},\dots,\rho_{k}\) to claim support for \(\psi\).
   \end{itemize}
+
+  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
+  Hence, \(\phi\) is not irrelevant.
+  Still, the agent does not appeal to \(\phi\).
 \end{note}
 
+\begin{note}[How appeal?]
+  \autoref{def:adB} does not state relation the agent has to premises.
+  Issue here is that we only need a way in which \autoref{def:adB}.
+  So, no reason to narrow definition.
+  And, certainly no point in motivating restriction.
+
+  Assume:
+  \begin{itemize}
+  \item Agent has already claiming support for \(\rho_{1},\dots,\rho_{n}\).
+  \end{itemize}
+
+  This is in the background of the illustrations.
+
+  Stronger, not explicitly ruled out:
+
+  \begin{enumerate}
+  \item Possibility \(\rho_{1},\dots,\rho_{n}\) secured by \(\phi\), and this is sufficient.
+  \end{enumerate}
+
+  This seems unintuitive.
+  However, there is no point to ruling this out.
+\end{note}
 
 \begin{note}
   Only seen \adB{} with respect to proof illustration.
@@ -446,6 +461,8 @@
 \begin{note}
 
   \begin{illustration}
+    \mbox{}
+    \vspace{-\baselineskip}
     \begin{itemize}
     \item If bag are overweight then they can't be taken on the flight.
     \item Machine reads\dots
@@ -472,6 +489,8 @@
 
 \begin{note}[Fire alarm]
   \begin{illustration}
+    \mbox{}
+    \vspace{-\baselineskip}
     \begin{itemize}
     \item Fire alarm is ringing.
     \item Fire in the building.
@@ -490,6 +509,8 @@
 \begin{note}
 
   \begin{illustration}\label{ill:ad:factorial}
+    \mbox{}
+    \vspace{-\baselineskip}
     \begin{itemize}
     \item It is possible to write recursive functions in C.
     \item It is possible to write a recursive implementation of the factorial function in C.
@@ -519,10 +540,13 @@
   And, \adB{} follows the reference.
 \end{note}
 
-\subsection{\adA{}}
+\subsection{Applied to ability}
+\label{sec:applied-ability}
+
+\subsubsection{\adA{}}
 \label{sec:ads}
 
-\subsection{\adB{}}
+\subsubsection{\adB{}}
 \label{sec:adc}
 
 \begin{note}
@@ -837,83 +861,7 @@
   \end{itemize}
 \end{note}
 
-\subsubsection{\AR{} and \WR{}}
 
-\begin{note}
-  Key idea is that \AR{} and \WR{} are different perspectives on the same thing.
-
-  Switching between ability and potential events.
-  This is not important, two ways of describing the same thing.
-
-  The ability to \emph{V} that \(\phi\) is equivalent to there being a potential event in which the agent \emph{V}s that \(\phi\).
-  For, if there is no such potential event, then the agent does not have the ability to \emph{V} that \(\phi\).
-  Conversely, if there is a potential event in which the agent \emph{V}s that \(\phi\), then the agent has the ability to \emph{V} that \(\phi\).
-\end{note}
-
-\begin{note}[Exhaustive]
-    \begin{restatable}[]{proposition}{propAbilityExuastive}\label{prop:WR-and-AR-exhaustive}\label{either-AR-or-WR}
-    Any interpretations of an agent's (specific) ability to \emph{V} that \(\phi\) (for which \aben{the} holds) conforms to either:
-    \begin{enumerate}
-    \item \AR{}: It is a property of the agent that they are able to \emph{V} that \(\phi\).
-    \item \WR{}: There is a potential witnessing event in which the agent \emph{V}s that \(\phi\).
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{restatable}
-\end{note}
-
-\begin{note}
-  The distinction between \AR{} and \WR{} sets up two (schematic) ways in which agent an agent may claim support given an instance of \aben{the}.
-  We now argue that these two (schematic) methods are exhaustive.
-  {
-    \color{red}
-    Important to keep in mind is that our interest is with claiming support.
-    And, in particular, what the agent claims support for given \AR{} and \WR{}.
-    So, the claim that \AR{} and \WR{} are exhaustive is a claim about how an agent reasons, not what ability reduces to.
-  }
-\end{note}
-
-\begin{note}
-  \color{red}
-  This section is now far more straightforward.
-  \AR{} and \WR{} is a little more complex.
-  Ability always with respect to some action, that's a constraint on the type of ability of interest.
-  So, static versus dynamic.
-
-
-  And, Basic and derived are easy given \AR{}.
-\end{note}
-
-\begin{note}[Argument]
-  \color{red}
-  Start with the basics.
-  Have an instance of \aben{the}.
-  So, the agent claim support for \(\phi\) given claimed support for \emph{S} having the ability to \emph{V} that \(\phi\).
-  So, need to argue that the agent:
-  Either claims support for some property of \emph{S} (\AR{}).
-  Or, claim support for \(\phi\) as the result of the event of \emph{S} \emph{V}ing that \(\phi\), with 
-\end{note}
-
-\begin{note}[Old arguments]
-  Remaining issue is details of the schemas.
-  These talk about more than mere reference.
-  \AR{}, agent, and \WR{} the result of the witnessing event.
-  In turn, these are harmless and the only plausible option.
-
-  \AR{} is simple.
-  State of affairs, but as the agent is involved, then it is natural to attribute to the agent.
-  Implausible that it's some event.
-
-  \WR{} focuses attention to culmination of event.
-  However, need culmination.
-  Quirk of English that may `use' relevant verbs in this way.
-  Imperfective paradox.
-  May consider this a state, but only in the sense that it is a state bought about by some event.
-  Focus on event, but given culmination, consider this a state.
-  Still, state of culminated event.
-  Possible that this is simply a state in which the agent has some appropriate relation.
-  Problem is that an ability is the ability to do some thing.
-  If abstract away from the act, then it's not clear how to understand conditions as identifying ability.
-\end{note}
 
 \subsubsection{\adA{} and \adB{}}
 
