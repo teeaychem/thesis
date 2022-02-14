@@ -199,7 +199,7 @@
 
 % % %
 \newcommand{\EASacro}[0]{ACS}
-\newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
+% \newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
@@ -565,6 +565,95 @@
 
 \newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Commands for distinction matrix
+
+\newcommand{\saMtxEmpty}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} & ? & ? \\
+      \hline
+      \multirow{2}{*}{\AR{}} & Basic & ? & ? \\
+      \cline[dashed]{2-4}
+      & Derived & ?  & ? \\
+    \end{tblr}%
+}
+% Label = fig:saMtxEmpty
+
+\newcommand{\saMtxInterpreted}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Parts of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
+      \hline
+      \multirow[c]{2}{*}{\AR{}} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & --- \\
+      \cline[dashed]{2-4}
+      & Derived & That there is some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) & Parts of some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) \\
+    \end{tblr}%
+}
+% Label = fig:saMtxInterpreted
+
+\newcommand{\saMtxRuledOut}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} & Ruled out by \nI{}  & Ruled out by \ESU{} \\
+      \hline
+      \multirow{2}{*}{\AR{}} & Basic  & Ruled out by \nI{}  & ---  \\
+      \cline[dashed]{2-4}
+      & Derived & Ruled out by \nI{}  & Ruled out by \ESU{} \\
+    \end{tblr}%
+}
+
+% Label = fig:saMtxRuledOut
+
+
+\newcommand{\saMtxRuledOutESU}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} &  & Ruled out by \ESU{} \\
+      \hline
+      \multirow{2}{*}{\AR{}} & Basic  &  & --- \\
+      \cline[dashed]{2-4}
+      & Derived &  & Ruled out by \ESU{} \\
+    \end{tblr}%
+}
+
+\newcommand{\saMtxRuledOutLCS}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \hline
+      \multicolumn{2}{c}{\WR{}} & Ruled out by \nI{}  &  \\
+      \hline
+      \multirow{2}{*}{\AR{}} & Basic  & Ruled out by \nI{}  & ---  \\
+      \cline[dashed]{2-4}
+      & Derived & Ruled out by \nI{}  &  \\
+    \end{tblr}%
+}
+
+% % % https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
+
+\newcommand{\repeatCaption}[2]{%
+  \renewcommand{\thefigure}{\ref{#1}}%
+  \captionsetup{list=no}%
+  \caption{#2}%
+  \addtocounter{figure}{-1}% So that next figure after the repeat gets the right number.
+}
+
+\newcommand{\repeatCaptionPrime}[2]{%
+  \renewcommand{\thefigure}{\ref{#1}\('\)}%
+  \captionsetup{list=no}%
+  \caption{#2}%
+  \addtocounter{figure}{-1}% So that next figure after the repeat gets the right number.
+}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
 
 
 
