@@ -101,6 +101,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -113,6 +114,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\gsi}{ m }{% No inertia
   \tl_if_empty:nTF {#1}%
@@ -125,6 +127,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\dsi}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
@@ -137,6 +140,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\Dsi}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
@@ -149,7 +153,7 @@
 }
 \ExplSyntaxOff
 
-
+% % %
 \newcommand{\nIacro}[0]{LCS}
 
 \ExplSyntaxOn
@@ -165,8 +169,7 @@
 }
 \ExplSyntaxOff
 
-
-
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
@@ -179,6 +182,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \newcommand{\ESUacro}[0]{CSU}
 
 \ExplSyntaxOn
@@ -193,9 +197,9 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
-
+% % %
 \newcommand{\EASacro}[0]{ACS}
+\newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
@@ -209,6 +213,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\EASw}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
@@ -221,6 +226,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\eA}{ m }{% Cases exists
   \tl_if_empty:nTF {#1}
@@ -233,6 +239,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\eiS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -245,8 +252,7 @@
 }
 \ExplSyntaxOff
 
-
-
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\eiSC}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -259,6 +265,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nfcs}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -271,8 +278,9 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\eit}{ m }{% Main premise / access to support
+\DeclareDocumentCommand{\eit}{ m }{% Even if test
   \tl_if_empty:nTF {#1}
   {%
     \obeybreaks{`Even\space if\dots'}%
@@ -283,8 +291,9 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\RBV}{ m }{% No inertia
+\DeclareDocumentCommand{\RBV}{ m }{% Reasoning by value
   \tl_if_empty:nTF {#1}
   {
     \text{\textsf{RBV}}%
@@ -295,6 +304,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\twodefeaters}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -307,8 +317,7 @@
 }
 \ExplSyntaxOff
 
-
-
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\aben}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
@@ -321,6 +330,9 @@
 }
 \ExplSyntaxOff
 
+% % % Abbreviations % % %
+
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\requ}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
@@ -344,6 +356,7 @@
 }
 \ExplSyntaxOff
 
+% % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\expec}{ m }{% Expectation
   \tl_if_empty:nTF {#1}
@@ -362,6 +375,29 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Expectations}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\illu}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{illustration}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{illustration}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{illustrations}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Illustration}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Illustrations}%
     \fi
   }
 }
