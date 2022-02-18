@@ -16,15 +16,13 @@
 
 \begin{note}
   \color{red}
-  \large
-
   The point of \nI{} isn't to find something that gets me something about ability.
   Given the assumptions made, it's fairly easy to figure out the problem.
   Rather, the point on \nI{} is to generalise the problem.
   The ideas we're appealing to aren't relying on anything in particular about ability.
 \end{note}
 
-\section{Overview of \nI{}}
+\section{\nI{-}}
 \label{sec:ni-1}
 
 \begin{note}
@@ -38,17 +36,16 @@
   \begin{restatable}[\nI{-}  --- \nI{}]{proposition}{propNI}\label{prem:ni}
     Let \(\phi\) and \(\psi\) be propositions, \(v\) and \(v'\) values, and \(S\) an agent:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, series=nI_counter]
-    \item\label{nI:claimed-support}
+    \item\label{nI:background}
       Suppose it is the case that:
       \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}1:\alph*}]
-      \item \nIClauseClaimedSupport{}\nolinebreak
+      \item\label{nI:background:phi} \nIClauseClaimedSupport{}\nolinebreak
         \footnote{
           The agent has at some time in the past (perhaps a moment ago) claimed support for \(\phi\) having \(v\), and at the present time the agent continues to hold that \(\phi\) has value \(v\).
           In some cases, an agent may revise basis for claimed support.
           E.g.\ this may be the case when appealing to memory, a new source, etc.
         }
-        % \item\label{nI:received-info} \nIClauseReceivedInfo{}
-      \item\label{nI:psi-is-new} {\color{red} \(S\) did not have information about \(\psi\) when claiming support for \(\phi\).}
+      \item\label{nI:background:psi} \nIClausePsiIsNew{}
       \end{enumerate}
     \end{enumerate}
     And, suppose:
@@ -78,70 +75,82 @@
       \item\label{nI:goingbyvalue:psi} \nIClauseValuePsi{}
       \end{enumerate}
     \end{enumerate}
-    The result of that reasoning is not an instance of \(S\) claimed support that \(\psi\) has value \(v'\).
-    \vspace{-\baselineskip}
+    The result of that reasoning is not an instance of \(S\) claiming support that \(\psi\) has value \(v'\).
   \end{restatable}
 \end{note}
 
 \begin{note}[What \nI{} amounts to]
   \nI{} is a restriction on the way in which an agent may claim support for some proposition when certain conditions obtain.
-  The proposition consists of a collection of `background' conditions --- clauses~\ref{nI:claimed-support} to~\ref{nI:inclusion} --- and a limitation given those background conditions --- clause~\ref{nI:going-by-value}.
+  The proposition consists of a collection of `background' conditions --- clauses~\ref{nI:background} and~\ref{nI:inclusion} --- and a limitation given those background conditions --- clause~\ref{nI:going-by-value}.
 
-  \ref{nI:claimed-support} and~\ref{nI:inclusion} combine to ensure that if \(\phi\) having value \(v\), then claimed support for \(\psi\) having value \(v'\) would violate \eiS{}.
-  {
-    \color{red} In particular, \ref{nI:psi-is-new} and~\ref{nI:inclusion} combine to ensure that \(\psi\) would be an expectation of the claimed support for \(\phi\).
+  \ref{nI:background} and~\ref{nI:inclusion} combine to ensure that if \(\phi\) having value \(v\), then claimed support for \(\psi\) having value \(v'\) would violate \eiS{}.
+\end{note}
 
-    Argument for~\nI{} is similar to argument from~\ref{sec:claim-supp-expect}.
+\begin{note}[`Reasoning']
+  \nI{} talks about past, present, and possible reasoning.
+  This is quite complex.
+
+  Past reasoning, unconstrained for \(\phi\).
+  Possible reasoning, unconstrained for \(\psi\).
+  Present reasoning is claiming support for \(\phi\).
+
+  A natural thing to do is replace reasoning with claimed support.
+
+  [How this goes]
+
+  This is not built in to \nI{} as it would restrict \nI{} to instances of claiming support.
+  No reason to so restrict.
+  And, restriction would be a significant problem as we haven't placed constraints on reasoning that goes in to claiming support.\nolinebreak
+  \footnote{
+    To be explicit.
+    Apply \nI{} to some case.
+    This would only show that if claimed support.
+    However, weaken so that \nI{} no longer applies.
+
+    So, would need to then argue that claiming support by appeal to past reasoning only if past reasoning is instance of claiming support.
+
+    A worry in the background is regress.
+    However, even if these worries may be resolved, this would be pointless from a dialectical perspective.
   }
 \end{note}
 
-\begin{note}[Expanding on~\ref{nI:inclusion}]
-  Indeed,~\ref{nI:inclusion} is point of interest.
+\paragraph{Plan}
 
+\begin{note}[Plan]
+  To start:
+  \begin{enumerate}
+  \item Core idea of \nI{}.
+  \item Role in overall argument.
+  \item Some intuition.
+  \item Key points.
+  \item Argument
+  \item Some connexions to the literature.
+  \end{enumerate}
+  Then, details.
+\end{note}
 
+\begin{note}[Task]
+  Two important tasks with respect to arguing for \nI{}:
 
-  Main thing will be expanding on:
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \ideaEIS*
-  \end{quote}
-
-  In particular:
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \assuEIS*
-  \end{quote}
-
-  Interdependence between claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\) given \ref{nI:inclusion}.
-  If \(\phi\) has value \(v\), then claimed support for \(\phi\) is \nmom{}.
-  Hence, claimed support for \(\psi\) having value \(v'\) would be \nmom{}.
-  So, given background, \(\phi\) having value \(v\) requires \(\psi\) having value \(v'\).
-
-  Problem, as claimed support for \(\psi\) having value \(v'\) --- via claimed support for \(\phi\) having value \(v\) --- `requires' \(\psi\) having value \(v\).
-
-  {\color{green}
-    If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is undercut.
-
-    Specifically, undercutting arises from \ref{nI:inclusion} establishing a form of interdependence between claimed support for \(\phi\) and claiming support for \(\phi\).
-
-    Such that in order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
-    Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
-  }
-
-  Though, leaves open claiming support that does not going via the claimed support for \(\phi\) having value \(v\).
-
-  Two possibilities:
   \begin{itemize}
-  \item Different approach to claiming support.
-  \item Reasoning that removes expectation.
+  \item \ref{nI:inclusion:position} and~\ref{nI:inclusion:bound}, how these function.
+  \item And, why \nI{} holds.
   \end{itemize}
 
-  So, \nI{} is not particularly strong.
-  However, not too weak either.
-  \autoref{prop:CS-nai} with respect to second point.
+  Then, additional details.
 \end{note}
+
+\paragraph{Literature}
+
+\begin{note}[Literature]
+  We will highlight the contrast between \nI{} and similar principles in~\autoref{sec:contr-other-cond}, below.
+  In particular, \citeauthor{Wright:2011wn}'s work on transmission failure (\Citeyear{Wright:2003aa,Wright:2011wn}) and \citeauthor{Weisberg:2010to}'s No Feedback condition (\Citeyear{Weisberg:2010to}).
+
+  For now, it may be helpful to highlight that \nI{} does not deny that any agent may claim support for \(\psi\) having value \(v'\).
+  Rather,~\ref{nI:going-by-value} (only) denies that the agent may claim support for \(\psi\) in a specific way.
+\end{note}
+
+\paragraph{Intuition}
 
 \begin{note}[Intuitive idea]
   To bring out the intuitive idea:
@@ -163,20 +172,110 @@
   }
 \end{note}
 
-\begin{note}[Plan]
-  To start:
-  \begin{enumerate}
-  \item Core idea of \nI{}.
-  \item Role in overall argument.
-  \item Some intuition.
-  \item Key points.
-  \item Some connexions to the literature.
-  \end{enumerate}
-  Then, details.
+\begin{note}
+  Two quick points.
 \end{note}
 
+\begin{note}[First point to stress]
+  First, \nI{} outlines sufficient conditions for a limitation on claiming support to obtain.
+  Hence, there may be other limitations on claiming support.
+  For example, \ESU{} implies a limitation of claiming support --- an agent may not claim support by appeal to some premises or step of reasoning that they have not used.
+
+  Similarly, there may be other limitations on claiming support with obtain.
+\end{note}
+
+\begin{note}[Second point to stress]
+  Second~\ref{nI:going-by-value} is a limitation of a \emph{way} of claiming support.
+  So, \nI{} does not imply that the agent is not in a position to claim support for \(\psi\), only that one way of claiming support is ruled out when the other clauses of \nI{} hold.
+  Hence, \nI{} is compatible with the agent claiming support for \(\psi\) having value \(v'\) --- so long the agent doesn't follow the pattern captured by~\ref{nI:going-by-value}.
+
+  Indeed, I take the primary upshot of \nI{} to be a demand for understanding alternative ways of claiming support when each clause of \nI{} holds and it seems that the agent may claim support for \(\psi\) having value \(v'\).
+  And, after arguing for \nI{} our attention will turn to examining how an agent may claim support by \EAS{} when clauses~\ref{nI:background} obtain.
+
+  For now, however, our focus is on arguing for \nI{}.
+
+  It is perhaps also helpful to flag that the following discussion of \nI{} will relate previous details on claiming support (in particular section~\ref{sec:abil-access-supp}) but will proceed without consideration of ability.
+  Our goal is to motivate \nI{} as a general limitation on claiming support, and in turn draw a consequence from such a limitation when applied to ability.
+\end{note}
+
+
+\paragraph{Situating \nI{}}
+
+\begin{note}[Expanding on~\ref{nI:inclusion}]
+  Claiming support, so possible that \(\psi\) is not the case.
+  Then, claiming support.
+
+  Main thing will be expanding on:
+
+  \begin{quote}
+    \vspace{-\baselineskip}
+    \ideaEIS*
+  \end{quote}
+
+  In particular, \ref{nI:background} and~\ref{nI:inclusion} combine to ensure that \(\psi\) would be an expectation of the claimed support for \(\phi\).
+  Hence:
+  \begin{quote}
+    \vspace{-\baselineskip}
+    \assuCSRExp*
+  \end{quote}
+
+  In~\ref{sec:claim-supp-expect}, \ref{assu:independence-expec}.
+
+  And, as \expec{} goes to \requ{}:
+
+  \begin{quote}
+    \vspace{-\baselineskip}
+    \assuCSRReq*
+  \end{quote}
+
+  From \autoref{sec:claim-supp-requ}.
+
+  Claiming support, so possible that \(\psi\) is not the case.
+  Then, claiming support.
+  \autoref{assu:supp:independence} for lack of reasoning.
+  Here, second part of the clause, reasoning given that \requ{} may not have value.
+
+  \ref{nI:inclusion} is point of interest.
+  Here, with \nI{}, lack of reasoning from \(\psi\) not being the case.
+\end{note}
+
+
+\begin{note}
+  Interdependence between claimed support for \(\phi\) having value \(v\) and claiming support for \(\psi\) having value \(v'\) given \ref{nI:inclusion}.
+  If \(\phi\) has value \(v\), then claimed support for \(\phi\) is \nmom{}.
+  Hence, claimed support for \(\psi\) having value \(v'\) would be \nmom{}.
+  So, given background, \(\phi\) having value \(v\) requires \(\psi\) having value \(v'\).
+
+  Problem, as claimed support for \(\psi\) having value \(v'\) --- via claimed support for \(\phi\) having value \(v\) --- `requires' \(\psi\) having value \(v\).
+
+  Though, leaves open claiming support that does not going via the claimed support for \(\phi\) having value \(v\).
+
+  Two possibilities:
+  \begin{itemize}
+  \item Different approach to claiming support.
+  \item Reasoning that removes expectation.
+  \end{itemize}
+
+  So, \nI{} is not particularly strong.
+  However, not too weak either.
+  \autoref{prop:CS-nai} with respect to second point.
+\end{note}
+
+
+
+\paragraph{Undercutting defeater}
+
+  {\color{green}
+    If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is undercut.
+
+    Specifically, undercutting arises from \ref{nI:inclusion} establishing a form of interdependence between claimed support for \(\phi\) and claiming support for \(\phi\).
+
+    Such that in order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
+    Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
+  }
+
 \begin{note}[Kind of defeater]
-  The basic idea behind \nI{} is that given clause~\ref{nI:claimed-support}, clause~\ref{nI:inclusion} captures a condition which \emph{undercuts} the agent claiming support as captured by~\ref{nI:going-by-value}.
+  The basic idea behind \nI{} is that given clause~\ref{nI:background}, clause~\ref{nI:inclusion} captures a condition which \emph{undercuts} the agent claiming support as captured by~\ref{nI:going-by-value}.
 
   Mentioned undercutting {\color{red} \hyperref[first-mention-undercutting-defeater]{above}}
 \end{note}
@@ -224,13 +323,9 @@
 
 \begin{note}
   If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is undercut.
-
-  {
-    \color{red}
-    Specifically, undercutting arises from \ref{nI:inclusion} establishing a form of interdependence between claimed support for \(\phi\) and claiming support for \(\phi\).
-  }
-  Such that in order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
-  Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
+  Does not show that there's no hope for the agent.
+  Only that the reasoning fails.
+  Indeed, if \nIBackground{} hold then possible for the agent to reason.
 \end{note}
 
 \begin{note}[\eiS{}]
@@ -239,7 +334,10 @@
 
   Undercut because failure of \eiS{}.
   This doesn't say anything about whether \(\psi\) has value \(v'\).
-  Rather, if \eiS{} doesn't hold then the agent doesn't get to claim support {\color{red} due to lack of reasoning regarding recognised possible defeater}.
+  Rather, if \eiS{} doesn't hold then the agent doesn't get to claim support {\color{red} due to impossibility of reasoning about a \requ{}}.
+
+  In order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
+  Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
 \end{note}
 
 \begin{note}[Point of \nI{} is to motivate `independent' of ability]
@@ -257,7 +355,9 @@
   \nI{} address this by motivating the failure in general.
 \end{note}
 
-\subsection{Illustrations for intuition}
+
+
+\subsection{A illustration with variations}
 
 \begin{note}[A few illustrations]
   Let us now turn to a few illustrations before discussing \nI{} in further detail.
@@ -280,10 +380,13 @@
   We will discuss the relation after the illustrations.
 \end{note}
 
+\paragraph{First}
+
 \begin{note}[Brief illustration of \nI{}]
   The first illustration considers theories and counterexamples.
 
-  \begin{illustration}\label{ill:CE:main}
+  \begin{illustration}
+    \label{ill:CE:main}
     Suppose a researcher have constructed a theory of some general phenomenon.
 
     The theory seems to capture the phenomenon, and the researcher has claimed (inductive) support that the theory is adequate by applying it to various instances of the general phenomenon.
@@ -297,53 +400,58 @@
     Conversely, if the theory is adequate, every particular instance of the phenomenon conforms the theory.
     In other words, if the theory is adequate, then there are no counterexamples to the theory.
 
-    Of course, it may be simple to revise the theory is a counterexample exists, and the fundamental ideas of the theory may remain sound (Cf.~\textcite{Bonevac:2011tz}).
+    Of course, it may be simple to revise the theory is a counterexample exists, and the fundamental ideas of the theory may remain sound (\cite[Cf.][]{Bonevac:2011tz}).
     And, the theory may have sufficient resources to explain why any apparent counterexample is not a counterexample.
     Yet, it remains the case that the theory would need to be revised in light of a counterexample.
 
     Now, to summarise, the researcher may claim support for two propositions allow the agent to claim support that there are no counterexamples.
 
-    \begin{itemize}
+    \begin{enumerate}
     \item The theory is adequate, and
     \item If the theory is adequate, then there are no counterexamples.
-    \end{itemize}
+    \end{enumerate}
 
     At issue is whether the researcher may claim support that there are no counterexamples to the theory from the claimed support for the two propositions in the following way:
 
-    \begin{itemize}
+    \begin{enumerate}
     \item I have claimed support that the theory is adequate.
     \item So, given the claimed support, theory is adequate.
     \item Therefore, as the theory is adequate, given the claimed support, it follows that there are no counterexamples.
     \item Hence, I claim support that there are no counterexamples to the theory.
-    \end{itemize}
-
-    Seems problematic.
-    Claimed support that the theory is adequate is qualified by the possibility of counterexamples.
-    {
-      \color{red}
-      Note, agent is, here, only claiming support that there are no counterexamples.
-      And, claiming support may be \mom{}.
-      So, it does not follow that the agent is ruling out the possibility of counterexamples to the theory.
-      Plausible that the agent \emph{may} claim support.
-      Problem is the way in which the agent goes about this.
-    }
-
-    {
-      Even if not convinced about support, this way of claiming support seems problematic.
-      Relying on theory being adequate.
-      However, if this is the case, then no possible counterexamples.
-      Issue is that such counterexamples are possible given the state of your claimed support.
-      Hence, claiming support in this way seems to take for granted that there are no counterexamples.
-    }
-
-    Problem is that the reasoning only works if there are no counterexamples.
-    If there are counterexamples, misled.
-    Hence, problem to go from the theory is adequate.
-    However, without this step, researcher doesn't get to no counterexamples.
-
-    So, this is \eiS{}.
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{illustration}
+\end{note}
 
+\begin{note}[Seems problematic]
+  Seems problematic.
+  Claimed support that the theory is adequate is qualified by the possibility of counterexamples.
+  {
+    \color{red}
+    Note, agent is, here, only claiming support that there are no counterexamples.
+    And, claiming support may be \mom{}.
+    So, it does not follow that the agent is ruling out the possibility of counterexamples to the theory.
+    Plausible that the agent \emph{may} claim support.
+    Problem is the way in which the agent goes about this.
+  }
+
+  {
+    Even if not convinced about support, this way of claiming support seems problematic.
+    Relying on theory being adequate.
+    However, if this is the case, then no possible counterexamples.
+    Issue is that such counterexamples are possible given the state of your claimed support.
+    Hence, claiming support in this way seems to take for granted that there are no counterexamples.
+  }
+
+  Problem is that the reasoning only works if there are no counterexamples.
+  If there are counterexamples, misled.
+  Hence, problem to go from the theory is adequate.
+  However, without this step, researcher doesn't get to no counterexamples.
+
+  So, this is \eiS{}.
+\end{note}
+
+\begin{note}
   So, relation between theory and counterexample \emph{undercuts} using way of using theory to get no counterexample.
 
   Now, given that the researcher has claimed support that the theory is adequate, the researcher may \emph{expect} that there are no counterexamples to the theory.
@@ -366,6 +474,8 @@
   Difficult part is to account for why~\ref{nI:inclusion} sets things up and ensures that things don't go too far.
 \end{note}
 
+\paragraph{Second}
+
 \begin{note}[Idea main part of \nI{} works]
   As noted above, it is unclear whether or not there may be some way for the researcher to claim that there are no counterexamples to the theory.
   And, if there is some way for the researcher to claim that there are no counterexamples to the theory, one may be inclined to wonder whether there really is a problem with claiming support in the way outlined by~\ref{nI:going-by-value}.
@@ -382,18 +492,19 @@
     However, the colleague has not provided the researcher with any further details about the counterexample.
 
     Now, the conditional of interest may be made more precise:
-    \begin{itemize}
+    \begin{enumerate}
     \item If the theory is adequate, then the colleague has failed to identify a counterexample to the theory.
-    \end{itemize}
+    \end{enumerate}
 
     Now, let's replicate the way of claiming support from before.
 
-    \begin{itemize}
+    \begin{enumerate}
     \item I have claimed support that the theory is adequate.
     \item So, given the claimed support, theory is adequate.
     \item Therefore, as the theory is adequate, given the claimed support, it follows that the colleague has failed to identify a counterexample to the theory.
     \item Hence, I claim support that the colleague has failed to identify a counterexample to the theory.
-    \end{itemize}
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{illustration}
 
   I take this illustration to be intuitively problematic.
@@ -454,6 +565,8 @@
   }
 \end{note}
 
+\paragraph{Third}
+
 \begin{note}[Variation where \nI{} does not apply]
   \begin{illustration}\label{ill:CE:testimony}
     Suppose the researcher has published a paper containing the details of the theory.
@@ -467,19 +580,20 @@
     The novice is thinking about instances of the general phenomenon, and identifies one.
 
     The conditional of interest is:
-    \begin{itemize}
+    \begin{enumerate}
     \item If theory is adequate, it accounts for this instance of the phenomenon.
-    \end{itemize}
+    \end{enumerate}
 
     Of course, the novice also recognises that the theory is inadequate if it  does not account for the particular instance of the phenomenon.
     Still, the novice claims support in the familiar manner.
 
-    \begin{itemize}
+    \begin{enumerate}
     \item I have claimed support that the theory is adequate (this time by reading a published paper).
     \item So, given the claimed support, the theory is adequate.
     \item Therefore, as the theory is adequate, given the claimed support, it follows that the theory accounts for this instance of the phenomenon.
     \item Hence, I claim support that the theory accounts for this instance of the phenomenon.
-    \end{itemize}
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{illustration}
 
   In contrast to the previous illustrations, it seems the novice may claim support in such a way.
@@ -489,6 +603,8 @@
   Hence, claiming support from something like status of peer review --- or testimony.
   And, not accounting would not show peer review is bad.
 \end{note}
+
+\paragraph{Summary of illustration and variations}
 
 \begin{note}
   These three illustrations.
@@ -511,7 +627,7 @@
   Some other way of claiming support for \(\psi\).
   However, not merely an alternative path, but an alternative path that must be possible given claimed support for \(\phi\).
 
-  Issue is that given \ref{nI:claimed-support} and~\ref{nI:inclusion}, agent expect that they have the resources, and hence expects that \(\psi\) is the case.
+  Issue is that given \ref{nI:background} and~\ref{nI:inclusion}, agent expect that they have the resources, and hence expects that \(\psi\) is the case.
 
   So, that \(\phi\) has value \(v\).
   In doing so, resources to claim support for \(\psi\) has value \(v'\).
@@ -522,59 +638,6 @@
   In cases of reasoning with a conditional, such as the illustrations given, that value of \(\phi\) constrains value of \(\psi\) is in general helpful information, but in these specific cases it does not help the agent claim support for \(\psi\) having value \(v'\) because if \(\psi\) isn't already so constrained, then no appeal to \(\phi\) having value \(v\).
 
   Similar to other principles, failure because establishing something that needs to be the case in order to be in a position to establish.
-\end{note}
-
-\subsection{Moving on\dots}
-
-\begin{note}[Task]
-  Two important tasks with respect to arguing for \nI{}:
-
-  \begin{itemize}
-  \item \ref{nI:inclusion} and~\ref{nI:inclusion:position}, how these function.
-  \item And, why \nI{} holds.
-  \end{itemize}
-
-  Then, additional details.
-\end{note}
-
-\begin{note}
-  Before continuing I would like to stress two general points.
-  Follow up on relation to \citeauthor{Kripke:2011wv}'s Dogmatism paradox.
-  Link to similar principles in the literature.
-\end{note}
-
-\begin{note}
-  Two quick points to stress.
-\end{note}
-
-\begin{note}[First point to stress]
-  First, \nI{} outlines sufficient conditions for a limitation on claiming support to obtain.
-  Hence, there may be other limitations on claiming support.
-  For example, \ESU{} implies a limitation of claiming support --- an agent may not claim support by appeal to some premises or step of reasoning that they have not used.
-
-  Similarly, there may be other limitations on claiming support with obtain.
-\end{note}
-
-\begin{note}[Second point to stress]
-  Second~\ref{nI:going-by-value} is a limitation of a \emph{way} of claiming support.
-  So, \nI{} does not imply that the agent is not in a position to claim support for \(\psi\), only that one way of claiming support is ruled out when the other clauses of \nI{} hold.
-  Hence, \nI{} is compatible with the agent claiming support for \(\psi\) having value \(v'\) --- so long the agent doesn't follow the pattern captured by~\ref{nI:going-by-value}.
-
-  Indeed, I take the primary upshot of \nI{} to be a demand for understanding alternative ways of claiming support when each clause of \nI{} holds and it seems that the agent may claim support for \(\psi\) having value \(v'\).
-  And, after arguing for \nI{} our attention will turn to examining how an agent may claim support by \EAS{} when clauses~\ref{nI:claimed-support} obtain.
-
-  For now, however, our focus is on arguing for \nI{}.
-
-  It is perhaps also helpful to flag that the following discussion of \nI{} will relate previous details on claiming support (in particular section~\ref{sec:abil-access-supp}) but will proceed without consideration of ability.
-  Our goal is to motivate \nI{} as a general limitation on claiming support, and in turn draw a consequence from such a limitation when applied to ability.
-\end{note}
-
-\begin{note}[Literature]
-  We will highlight the contrast between \nI{} and similar principles in~\autoref{sec:contr-other-cond}, below.
-  In particular, \citeauthor{Wright:2011wn}'s work on transmission failure (\Citeyear{Wright:2003aa,Wright:2011wn}) and \citeauthor{Weisberg:2010to}'s No Feedback condition (\Citeyear{Weisberg:2010to}).
-
-  For now, it may be helpful to highlight that \nI{} does not deny that any agent may claim support for \(\psi\) having value \(v'\).
-  Rather,~\ref{nI:going-by-value} (only) denies that the agent may claim support for \(\psi\) in a specific way.
 \end{note}
 
 \newpage
@@ -906,7 +969,7 @@
     All that would be established is that the scanner is not good for claiming support.
     }
 
-  Still, given \ref{nI:claimed-support}, agent may expect \(\psi\) to have value \(v'\), and may claim support.
+  Still, given \ref{nI:background}, agent may hold that \(\psi\) to have value \(v'\), and may claim support.
   And, may expect to have the resources to claim support for \(\psi\) without appealing to \(\phi\) having value \(v\).
   To illustrate, suppose you and I are both experts.
   You claim to have developed a sound and complete proof system for an logic and presented me with a paper containing the system and a proof.
@@ -1097,6 +1160,12 @@
 
 \subsubsection{\ref{nI:inclusion:position} and~\ref{nI:inclusion:bound} combined}
 
+\begin{note}
+  {\color{red}
+    Main point is that this is a variant of a \requ{}, in effect.
+  }
+\end{note}
+
 \begin{note}[Failure for zebra case]
   Here, not obvious that holds for zebra case, as it's not clear there is an alternative.
 \end{note}
@@ -1106,30 +1175,6 @@
     \color{red}
     Place this here as it helps clarify why~\ref{nI:inclusion:position} and~\ref{nI:inclusion:bound} seem to work well together.
   }
-  The circularity here is similar to that proposed by~\cite{Sgaravatti:2013wu}
-
-  \begin{quote}
-    \begin{itemize}
-    \item[(JBA)] An argument A is circular relative to an evidential state E iff in order for a subject S in E to have a justified belief in each one of A’s premisses, it is necessary that S has a justified belief in A’s conclusion\nolinebreak \mbox{}\hfill\mbox{(\Citeyear[759]{Sgaravatti:2013wu})}
-    \end{itemize}
-  \end{quote}
-  Relative to an agent, really.
-
-  Talk about claiming support, rather than evidence.
-  And, details of why it's necessary.
-  Also, contrast to some of the details.
-
-  Well, interesting is:
-  \begin{quote}
-    For my present purposes it will suffice to say that a good test of A’s being necessary for B (and thus of B’s being sufficient for A) is the satisfaction of two subjunctive conditionals. First, if A did not hold, B would not hold; secondly, if B were to hold, A would hold.\nolinebreak
-    \mbox{}\hfill\mbox{(\Citeyear[761]{Sgaravatti:2013wu})}
-  \end{quote}
-  This is very similar to \ref{nI:inclusion}.
-  A is \(\psi\) and B is \(\phi\).\nolinebreak
-  \footnote{
-    \ref{nI:inclusion} was developed independently, though this is probably no surprise given how clumsy~\ref{nI:inclusion} is.
-  }
-  However, need \(A \leadsto B \vdash A \rightarrow B\).
 
   Still, relative to a certain way of claiming support.
   It's not the case that this idea holds in general.
@@ -1168,21 +1213,21 @@
 
 \subsection{Laying out the clauses}
 
-\subsubsection{\ref{nI:claimed-support}}
+\subsubsection{\ref{nI:background}}
 
 \begin{note}
-\ref{nI:claimed-support} and \ref{nI:psi-is-new} are simple background conditions.
+\ref{nI:background:phi} and \ref{nI:background:psi} are simple background conditions.
 
-First, \ref{nI:claimed-support} ensures the agent has claimed support for \(\phi\) having value \(v\).
+First, \ref{nI:background:phi} ensures the agent has claimed support for \(\phi\) having value \(v\).
 Hence, agent may appeal to \(\phi\) having value \(v\) by the claimed support for \(\phi\) having value \(v\) in further reasoning, and in particular reasoning which culminates in claiming support for some other proposition.
 
-Second, \ref{nI:psi-is-new} ensures that the agent has not considered whether \(\psi\) has value \(v'\).
+Second, \ref{nI:background:psi} ensures that the agent has not considered whether \(\psi\) has value \(v'\).
 
 As a result, it is possible that \(\psi\) not having value \(v'\) is an unrecognised defeater, and hence it is possible that \(\phi\) having value \(v'\) will come to be an expectation of the agent's claimed support for \(\phi\) having value \(v\).
 
 Note, though, that as the agent has not considered \(\psi\), these observations about \(\psi\) were not made when claimed support for \(\phi\) having value \(v\).
 
-Little else of interest follows from \ref{nI:claimed-support} and \ref{nI:psi-is-new} alone.
+Little else of interest follows from \ref{nI:background:phi} and \ref{nI:background:psi} alone.
 For example, the agent may never come to consider \(\psi\).
 Or, \(\psi\) may be such that it wouldn't show \mom{}.
 
@@ -1298,7 +1343,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
 \end{note}
 
 \begin{note}
-  Two immediate consequences from~\ref{nI:claimed-support}.
+  Two immediate consequences from~\ref{nI:background}.
   \begin{enumerate}
   \item \(S\) is (given present context) in position to claim support that \(\psi\) has value \(v'\) (without appeal to \(\phi\) having value \(v\))
   \item \(S\) would be \nmom{} were they to claim support.
@@ -1667,7 +1712,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
     Well, it could, as we've seen.
     The point is that \nI{} is something of a generalisation of this.
   }
-  Now, the agent may observe that if both~\ref{nI:claimed-support} and~\(\phi \rightarrow \psi\) hold, then if \(\psi\) does \emph{not} have value \(v'\) then the support claimed in either condition is either \mom{}.
+  Now, the agent may observe that if both~\ref{nI:background} and~\(\phi \rightarrow \psi\) hold, then if \(\psi\) does \emph{not} have value \(v'\) then the support claimed in either condition is either \mom{}.
 
   First, if it is the case that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\psi\) does not have value \(v'\), then \(\phi\) does not have value \(v\).
   Hence, the agent's claimed support for \(\phi\) having value \(v\) must be misled.
@@ -1942,7 +1987,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
     % So, \ref{nI:received-info} may be seen as an instance of \wrt{}'s initial condition with some superfluous detail.
 
   Likewise, \wrt{} is concerned with whether a claim to warrant for A is transmissible to B in general, and so not assume the agent has claimed warrant for A.
-  So, as~\ref{nI:claimed-support} requires that the agent has claimed support for \(\phi\), we may consider~\ref{nI:claimed-support} as superfluous from the perspective of \wrt{}.
+  So, as~\ref{nI:background} requires that the agent has reasoned to \(\phi\), we may consider~\ref{nI:background} as superfluous from the perspective of \wrt{}.
 \end{note}
 
 \begin{note}[Gist of why these are different]
@@ -2494,7 +2539,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
 \newpage
 
 \begin{note}[Checking conditions]
-  Conditions \ref{nI:claimed-support} is provided by the scenario.
+  Condition~\ref{nI:background} is provided by the scenario.
   And, scenario also provide information about how the agent claims support for \(\psi\) having value \(v'\) when \(\phi\) has value \(v\).
   Key is that \aben{the} requires that the agent has the specific ability, not (merely) that the agent has claimed support that they have the specific ability.
   Condition~\ref{nI:inclusion} is obtained by reflection on ability.
@@ -2697,7 +2742,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
 \end{note}
 
 \begin{note}[Working through the details]
-  \ref{nI:claimed-support} \dots
+  \ref{nI:background} \dots
 
 
 
@@ -2792,7 +2837,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   Avoided this because these do not require expectation of \(\psi\).
 \end{note}
 
-\subsubsection{\requ{1}}
+\subsubsection{\requ{3}/\expec{3}}
 \label{sec:requ1}
 
 \begin{note}
@@ -2811,6 +2856,8 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   Instead, witnessing ability is itself sufficient for claiming support.
   And, as would amount to claiming support, this will involve reasoning about \requ{}.
   Important, \EAS{} does not necessarily hold for anything weaker.
+  \nI{} has been stated for reasoning quite broadly, so problem if the agent appeals to claiming support, or any other reasoning with interdependence.
+  However, witnessing is not appealing in this way.
 \end{note}
 
 \subsubsection{Deny claimed support for ability}
@@ -2828,6 +2875,8 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an expectation of
   So, this is much stronger than {\color{red} Assumption ???}.
   Indeed, something like this would prevent event \ESU{}.
   Find this sufficiently implausible.
+
+  The reasoning seems fine.
 \end{note}
 
 \subsubsection{Appeal to premises and steps requires appeal to ability}
