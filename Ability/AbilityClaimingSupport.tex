@@ -490,11 +490,20 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{idea:eiS}
     Claimed support for \(\phi\) having value \(v\) indicates that \(\phi\) has value \(v\) regardless (from the perspective of the agent) of whether
     \begin{enumerate}
-    \item The reasoning appeals to some proposition \(\psi\) having value \(v'\), while \(\psi\) does not value \(v'\).
     \item \(\phi\) has value \(v\).
+    \item The reasoning appeals to some proposition \(\psi\) having value \(v'\), while \(\psi\) does not value \(v'\).
     \end{enumerate}
   \end{restatable}
   Entertain possibility that \(\phi\) does not have value \(v\) while maintaining claimed support.
+\end{note}
+
+\begin{note}
+  Important here is \emph{indicating}.
+  In the case of \(\phi\), reasoning is sufficiently strong.
+  In the case of \(\psi\), either substitutes, or appeal to \(\psi\) is such that \(\psi\) is indicated, even if not the case.
+
+  Inductive reasoning is the most interesting example here.
+  But, reasoning in general.
 \end{note}
 
 \begin{note}
@@ -582,38 +591,141 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \label{sec:def-of-requ}
 
 \begin{note}
-  \begin{restatable}[\requ{3} of reasoning]{definition}{defRequisite}\label{def:requisite}
-    \(\psi\) has value \(v'\) is \requ{} of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if:
+  \begin{restatable}[\requ{3} of a step of reasoning]{definition}{defRequisite}
+    \label{def:requisite}
+    \(\psi\) has value \(v'\) is \requ{} of a step of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if:
     \begin{enumerate}
+    \item\label{def:requi:prop} \(\psi\) having value \(v'\):
+      \begin{enumerate}
+      \item\label{def:requi:prop:conseq} Is a consequence of the step of reasoning.\nolinebreak
+        \footnote{
+          Or rather, is a consequence of what is established as a result of the step of reasoning.
+        }
+      \item\label{def:requi:prop:persists} Persists through to the conclusion of the instance of reasoning.\nolinebreak
+        \footnote{
+          Or rather, what is established as a result of the step of reasoning persists through to the conclusion of the instance of reasoning.
+          For, \(\psi\) having value \(v'\) is a consequence of what is established as the result of the step of reasoning, and as such if the consequence persists through to the conclusion of the instance of reasoning, then \(\psi\) having value \(v'\) must also likewise persist.
+        }
+      \end{enumerate}
     \item\label{def:requi:not-v-poss} \(\psi\) not having value \(v'\) is epistemically possible.
-    \item\label{def:requi:counterfactual} If \(\psi\) were not to have value \(v'\) then some step of reasoning would involve appealing to:
+    \item\label{def:requi:counterfactual} If \(\psi\) were not to have value \(v'\) then that step of reasoning would involve appealing to:
       \begin{enumerate}
       \item\label{def:requi:counterfactual:p} something that is not the case, or
       \item\label{def:requi:counterfactual:c} moving to something that is not the case
       \end{enumerate}
-      No making that step of reasoning.
-    \item\label{def:requi:conseq-persists} That step has consequence of \(\psi\) having value \(v'\) which persists through to conclusion of reasoning.
     \end{enumerate}
-
-    \requ{2} of claimed support if \requ{} of claiming support.
   \end{restatable}
-  Intuitively, non-disposable consequence of some step of reasoning in isolation.
 
-  If \requ{} fails, then reasoning fails as a whole.
+  Intuitively, a \requ{} of a step of reasoning is a non-disposable consequence of some step of reasoning and the reasoning as a whole, whose failure is epistemic possibility for the agent, and is such that the failure of the \requ{} would mean that the step of reasoning appealed to something that is not the case.
 \end{note}
 
 \begin{note}
-  \ref{def:requi:not-v-poss} as \ref{def:requi:counterfactual} is a counterfactual.
-  Interest is in the counterfactual obtaining.
-  \ref{def:requi:counterfactual} and \ref{def:requi:conseq-persists} may apply in cases of epistemically impossible proposition-value pairs, but it is not clear why such epistemically impossible proposition-value pairs would matter to the agent's reasoning.
+  \autoref{def:requisite} is how we build on \ideaCSA{} and \ideaCSB{}.
+  For, the definition of a \requ{} applies to reasoning in general, claiming support is an instance of reasoning, and hence applies to instances of claiming support.
+  In particular, in instances of claiming support:
+  {
+    \color{reword}
+    Conclusion is a \requ{}, as epistemically possible that it does not hold, and non-disposable.
+    Moving from sub-premises to sub-conclusions plausibly involves a \requ{}, given the epistemic possibility that a conclusion of an instance of claiming support does not hold.
 
+    So, \ideaCSA{} for possibility.
+    Dealing with \requ{1} for \ideaCSB{}.
+    Indeed, \ideaCSB{} will focus on \requ{} for step, rather than reasoning in general.
+  }
+
+  Still, as \autoref{def:requisite} is quite complex, we will first work through the clauses and how they combine in some detail before providing a handful of illustrations.
+\end{note}
+
+\paragraph{In detail}
+
+
+\begin{note}
+  The clauses are arranged as follows:
+  \begin{itemize}
+  \item Clause \ref{def:requi:prop} How \(\psi\) having value \(v'\) relates to the instance reasoning.
+  \item Clause \ref{def:requi:not-v-poss} is a precondition for the relevance of subjective conditional of \ref{def:requi:counterfactual}.
+  \item Clause \ref{def:requi:counterfactual} highlights a specific issue that arises from how \(\psi\) having value \(v'\) relates to the instance reasoning.
+  \end{itemize}
+  As such, our focus will be on clauses~\ref{def:requi:prop}~and~\ref{def:requi:counterfactual}.\nolinebreak
+  \footnote{
+    Clause \ref{def:requi:not-v-poss} is separated from \ref{def:requi:counterfactual} simply to ease readability.
+  }
+\end{note}
+
+\begin{note}[Clause \ref{def:requi:prop}]
+
+  If consequence of a step, then consequence of reasoning.
+  Plausible, but this is not quite right.
+  Consider reasoning by cases.
+  If not that case, then a problem, but does not have the consequence that the case holds.
+  Hence, persists.\nolinebreak
+  \footnote{
+    This is not to deny a slightly more complex clause.
+    Rather, easier this way.
+  }
+\end{note}
+
+\begin{note}[Clause \ref{def:requi:not-v-poss}]
+  Clause \ref{def:requi:not-v-poss} is a precondition for the relevance of subjective conditional of \ref{def:requi:counterfactual}.
+  Further, no interest in a consequence of reasoning if there is no epistemic possibility of subjunctive of clause \ref{def:requi:counterfactual} obtaining, and hence clause \ref{def:requi:not-v-poss} ensures the epistemic possibility.
+
+  \ref{def:requi:counterfactual} may apply in cases of epistemically impossible proposition-value pairs, but it is not clear why such epistemically impossible proposition-value pairs would matter to the agent's reasoning.
+\end{note}
+
+\begin{note}[Clause \ref{def:requi:counterfactual}]
   \ref{def:requi:counterfactual} has two components.
+\end{note}
+
+\begin{note}
+  Footnote:\nolinebreak
+  \footnote{
+  May think that clause \ref{def:requi:prop:conseq} follows from \ref{def:requi:counterfactual}.
+  For, \(\lnot p \leadsto \lnot q\), \(\lnot p \rightarrow \lnot q\), so \(q \rightarrow p\).
+  However, this is not quite right.
+
+  Not appeal to something that is not the case, then it is not the case that \(\psi\) were not to have value \(v'\).
+
+  For this to work, would need that in appealing to something, also appealing to it not being the case that one is appealing to something that is not the case.
+  This does not obviously follow.
+  Return to this with illustration.
+  }
+\end{note}
+
+\hozline
+
+\begin{note}
   No clear reduction of moving to something that is not the case to moving from something that is not the case.
   For, it may be that step of reasoning is content dependent {\color{red} (ecological)} and no need to make the assumption that being in the right context is always some premise.
   (However, not the case that ignore this possibility.)
 
-  Finally, \ref{def:requi:conseq-persists} ensures that the proposition-value pair remains important.
+  Finally, \ref{def:requi:prop:persists} ensures that the proposition-value pair remains important.
   In particular, avoids classifying proposition-value pairs appeals to as part of reasoning by cases as \requ{1}.
+\end{note}
+
+\begin{note}
+  The subjunctive here, generally speaking, highlights a possible defeater for reasoning.
+
+  Of course, given that subjunctive, questions about how to evaluate.
+  However, not counterfactual.
+  So, given that possibility, do not need to consider cases where entertaining possibility requires some revision to the reasoning that the agent has performed.
+
+  The final clause seems to explicit a plausible implicit consequence of the first clause.
+\end{note}
+
+\begin{note}
+  Really important here is that being a \requ{} does not imply that the reasoning involves direct appeal.
+  {
+    \color{red}
+    Indeed, this distinguishes from \citeauthor{Sgaravatti:2013wu}, which requires belief in each of premises.
+  }
+\end{note}
+
+\paragraph{Illustrations}
+
+\begin{note}
+  Four illustrations.
+  The first pair identify \requ{1}.
+  Second pair concern consequences of steps of reasoning which fail to be \requ{1}.
 \end{note}
 
 \begin{note}
@@ -626,7 +738,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   If appropriate disambiguation, then appealed to something that is not the case.
   Hence, that `river bank' is not the appropriate disambiguation is a \requ{}.
 
-  Note, however, that if agent did not learn about different disambiguations of `bank' then no \requ{}.
+  Note, however, that if agent did not learn about ambiguity of `bank' then no \requ{}.
 \end{note}
 
 \begin{note}
@@ -665,23 +777,15 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  \begin{illustration}[Textbook answers]
-    \label{illu:textbook-answers}
-    Suppose an agent is working through a logic textbook with practice problems at the end of each chapter to test a student's understanding.
-
-    For any given question, the following conditional holds with respect to the agent:
+  \begin{illustration}[Higher-order propositions]
+    Proposal:
     \begin{itemize}
-    \item If my answer to the problem is incorrect, then I {\color{red} appealed to something that is not the case or moved to something that is not the case}.
+    \item That I have not appealed to something that is not the case.
     \end{itemize}
   \end{illustration}
-  Possible that the agent {\color{red} appealed to something that is not the case or moved to something that is not the case}.
-  However, implausible that the agent appealed to \emph{not} {\color{red} appealed to something that is not the case or moved to something that is not the case}.
-
-  Key point is that a \requ{} follows from some part of the agent's reasoning, not from things that may also hold if the agent's reasoning is successful.\nolinebreak
-  \footnote{
-    Well, meta-beliefs with inference.
-    While I do not think particularly plausible, there is also a question of whether any such meta-belief is part of the agent's reasoning, \dots
-  }
+  This is not a \requ{}, because it is not a consequence of the step.
+  For this, would need it to be the case that making the step alone ensures that there is no fault.
+  However, this is not, in general, the case.
 
   For example:
   \begin{enumerate}
@@ -694,62 +798,56 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \footnote{
     \textcite{Carroll:1895uj}.
   }
-  With respect to \autoref{illu:textbook-answers}, that the reasoning is good is not a consequence of a step of reasoning.
 \end{note}
 
 \begin{note}
-  Regular conditional and subjunctive.
-\end{note}
+  \begin{illustration}[Textbook answers]
+    \label{illu:textbook-answers}
+    Suppose an agent is working through a logic textbook with practice problems at the end of each chapter to test a student's understanding.
 
-\begin{note}
-  The subjunctive here does, generally speaking, highlight a possible defeater for reasoning.
+    For any given question, the following conditional holds with respect to the agent:
+    \begin{itemize}
+    \item If my answer to the problem is incorrect, then I {\color{red} appealed to something that is not the case or moved to something that is not the case}.
+    \end{itemize}
+  \end{illustration}
+  Possible that the agent {\color{red} appealed to something that is not the case or moved to something that is not the case}.
 
-  Subjunctive because what follows from entertaining possibility.
-  This then allows `discovering'.
+  The proposition of interest here is:
+  \begin{itemize}
+  \item My answer is not incorrect.
+  \item Or, the textbook has the same answer.
+  \end{itemize}
 
-  Of course, given that subjunctive, questions about how to evaluate.
-  However, not counterfactual.
-  So, given that possibility, do not need to consider cases where entertaining possibility requires some revision to the reasoning that the agent has performed.
+  Not a \requ{} of any intermediate step of reasoning, as these don't get the answer.
+  Not a \requ{} of final step, because there's no plausible consequence relation.
+  Making the step doesn't imply anything about the textbook.
 
-  The final clause seems to explicit a plausible implicit consequence of the first clause.
+  Similarly, for if the textbook has not made a mistake, then same answer.
 
-  For \(\lnot p \leadsto \lnot q\), \(\lnot p \rightarrow \lnot q\), so \(q \rightarrow p\).
+  Because, although it something not being the case would ensure the step of reasoning is bad, it does not follow that by making the step of reasoning, it is a consequence that there is no mistake.
 
-  Plausible, but this is not quite right.
-  Consider reasoning by cases.
-  If not that case, then a problem, but does not have the consequence that the case holds.
-  Hence, persists.\nolinebreak
+  Key point is that a \requ{} follows from some part of the agent's reasoning, not from things that would hold if the agent's reasoning is successful.\nolinebreak
   \footnote{
-    This is not to deny a slightly more complex clause.
-    Rather, easier this way.
+    Well, meta-beliefs with inference.
+    While I do not think particularly plausible, there is also a question of whether any such meta-belief is part of the agent's reasoning, \dots
   }
 \end{note}
 
-\begin{note}
-  Really important here is that being a \requ{} does not imply that the reasoning involves direct appeal.
+\paragraph{Summary}
 
-  {
-    \color{red}
-    Indeed, this distinguishes from \citeauthor{Sgaravatti:2013wu}, which requires belief in each of premises.
-  }
+\begin{note}[Conclusion of reasoning is a \requ{}.]
+  Conclusion of reasoning is a \requ{}.
+
+  This is somewhat tricky.
+  Intuitively, conclusion is not something that matters.
+  However, it would not do to simply exclude.
+  For, conclusion may be introduced as a \requ{} by some intermediate step.
 \end{note}
 
 \begin{note}
   Not the case that any thing that is appealed to is a \requ{}.
   For, may add in certain additional things.
   In other words, careful to make sure that the subjunctive part is there.
-\end{note}
-
-\begin{note}
-  Conclusion of reasoning is typically a \requ{}.
-
-  This is somewhat tricky.
-  Intuitively, conclusion is not something that matters.
-  However, it would not do to simply exclude.
-  For, conclusion may be introduced as a \requ{} by some intermediate step.
-
-  Possible to add the idea of a `sub-argument'.
-  Maybe\dots
 \end{note}
 
 \subsubsection{Two assumptions relating to \requ{1}}
@@ -794,13 +892,32 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{assu:supp:independence}
     Claiming support for \(\phi\) having value \(v\) involves:
     \begin{itemize}
-    \item Reasoning about whether or not any \requ{} has value, given that \requ{} may not have value.
+    \item Reasoning about why \requ{} is fine.
+    \item Without consequence of step. (Where this is motivated by possibility that it doesn't hold. If only with consequence, then only when does hold.)
+    % \item Why appeal to source of \requ{} is compatible with \requ{} not having value.
     \end{itemize}
     \vspace{-\baselineskip}
-  \end{restatable}
+    \end{restatable}
+
+    Reasoning about how the considerations the agent has cited indicate \(\phi\) even when \requ{} does not have value.
+
+    So, any \requ{}, compatible with that being false.
+    Recognise the possibility, claiming support is limited in that way.
+    However, that possibility alone does not prevent appeal to the premise.
+
+    There is a subtly.
+    Agent may grant that the conclusion would not be the case.
+    That's not the worry.
+    Instead, the worry is whether appealing to the premise is fine.
+
+    Perhaps Moore's proof is useful here.
+    It is true that no external world is possibility.
+    However, this doesn't prevent me from appealing to perception of two hands.
+    Would need that this is only okay if I actually have two hands.
+    But, this is far too much.
+  
 
   \autoref{assu:supp:independence} expresses a necessary condition from \ideaCSB{}.
-
   The basic idea is that a \requ{} has the possibility to highlight a fault in agent's reasoning.
   So, if an agent has failed to reason about whether a \requ{} has {\color{red} value}, then the agent's reasoning fails to indicate that \(\phi\) has value \(v\) regardless of whether {\color{red} some problem with premise or conclusion}.
   {\color{red} In particular, with the \requ{} not having value.}
@@ -1352,7 +1469,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   However, granting that the problem arises from some limitation, it is important to keep in mind that the limitation arises from entertaining some possibility as opposed to assuming that the possibility obtains.
+\end{note}
 
+\begin{note}[\citeauthor{Pryor:2004ws}'s Type 4]
   An instance of a limitation arising from assuming that the possibility obtains is the fourth type of dependence between premise and conclusion considered by \citeauthor{Pryor:2004ws}.
 
   \begin{quote}
@@ -1379,7 +1498,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Also compatible with \citeauthor{Pryor:2004ws}'s objection to type 4 being sufficient to identify problematic reasoning.
+  Also compatible with \citeauthor{Pryor:2004ws}'s argument that type 4 over-generates.
   Details are in the following footnote.\footnote{
   Compatible with \citeauthor{Pryor:2004ws}'s objection to type 4 dependence.
 
