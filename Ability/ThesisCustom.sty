@@ -403,6 +403,29 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ep}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic plausibility}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic plausibility}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic plausibilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic plausibility}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic plausibilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
 \makeatletter

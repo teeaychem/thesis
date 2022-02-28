@@ -878,6 +878,34 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   }
 \end{note}
 
+\paragraph{Sub-definitions}
+
+\begin{note}
+  Before moving on, it will be helpful in further discussion to distinguish between the two ways in which some proposition-value may be a \requ{}.
+\end{note}
+
+\begin{note}
+  \begin{restatable}[Premise \requ{0} of a step of reasoning]{definition}{defRequisiteP}
+    \label{def:requisite:p}
+    \(\psi\) has value \(v'\) is a \emph{premise \requ{0}} of a step of reasoning if and only if
+    \begin{enumerate}
+    \item \(\psi\) has value \(v'\) is a \requ{0} of a that step of reasoning.
+    \item \(\psi\) has value \(v'\) is a \requ{0} of a that step of reasoning because satisfies \ref{def:requi:subjunctive:p} of \autoref{def:requisite}.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+    \begin{restatable}[Conclusion \requ{0} of a step of reasoning]{definition}{defRequisiteC}
+    \label{def:requisite:c}
+    \(\psi\) has value \(v'\) is a \emph{conclusion \requ{0}} of a step of reasoning if and only if
+    \begin{enumerate}
+    \item \(\psi\) has value \(v'\) is a \requ{0} of a that step of reasoning.
+    \item \(\psi\) has value \(v'\) is a \requ{0} of a that step of reasoning because satisfies \ref{def:requi:subjunctive:c} of \autoref{def:requisite}.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
 \paragraph{Summary}
 
 \begin{note}[Conclusion of reasoning is a \requ{}.]
@@ -944,20 +972,31 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{assu:supp:independence}
     Suppose that \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning that concludes with \(\phi\) having value \(v\).
 
-    The instance of reasoning that concludes with \(\phi\) having value \(v\) is an instance of claiming support \emph{only if}:
+    The instance of reasoning that concludes with \(\phi\) having value \(v\) is an instance of claiming support \emph{only if}
+
     \begin{enumerate}
-    \item\label{assu:supp:ind:indicate} The reasoning that concludes with \(\phi\) having value \(v\) includes some sub-reasoning that:
-      \begin{enumerate}
-      \item Indicates that \(\psi\) has value \(v'\).
-      \item\label{assu:supp:ind:circular} Does involve not appeal to proposition-value pair that only follows from the step of reasoning for which \(\psi\) having value \(v'\) is a \requ{}.
-      \end{enumerate}
-      % \item\label{assu:supp:ind:indicate} The reasoning that concludes with \(\phi\) having value \(v\) includes some sub-reasoning concludes with \(\psi\) has value \(v'\).
-      % \item\label{assu:supp:ind:circular} The sub-reasoning does involve not appeal to proposition-value pair which only follows from the step of reasoning for which \(\psi\) having value \(v'\) is a \requ{}.
+    \item\label{assu:supp:ind:indicate} The reasoning that concludes with \(\phi\) having value \(v\) includes some sub-reasoning that indicates that \(\psi\) has value \(v'\).
+    \end{enumerate}
+    Such that if:
+    \begin{enumerate}[resume]
+    \item Step is compatible with \(\psi\) not having value \(v'\).
+      (is a `premise \requ{}')
+    \end{enumerate}
+    Then.
+    \begin{enumerate}[resume]
+    \item\label{assu:supp:ind:circular} Does involve not appeal to a proposition-value pair that is only obtained from the step of reasoning for which \(\psi\) having value \(v'\) is a \requ{}.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
+  {
+    \color{red}
+    \(X \vdash \phi\) and \(\phi \rightarrow \psi\) fine to get \(X \vdash \psi\).
+    So long as not the case that \(X \vdash \psi\).
+    If so, need to find some \(Y\) such that \(Y \vdash \psi\).
+  }
 
   Intuitively\dots refined \ideaCSB{} with the idea of a \requ{}.
+  And, one instance of clear failure.
 \end{note}
 
 \begin{note}
@@ -978,7 +1017,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \citeyear[249]{Sorensen:1991wh}
   \end{quote}
   Here, no doubt.
+  Hence, no claiming support.
 \end{note}
+
+\paragraph{`Indicates'}
 
 \begin{note}
   Indicates is somewhat difficult.
@@ -1000,18 +1042,49 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  From a certain perspective, leaving part of \autoref{assu:supp:independence} open to interpretation is unsatisfying.
-  Without any account of what it is for some reasoning to indicate that some proposition \(\xi\) has some value \(v''\), it is not clear what commitments follow from this assumption.
-  From a different perspective, however, interpretation is unavoidable.
+  Leaving part of \autoref{assu:supp:independence} open to interpretation may be unsatisfying.
+  For, without any account of what it is for some reasoning to indicate that some proposition \(\xi\) has some value \(v''\), it is not clear what commitments follow from this assumption.
+
+  Core idea of indicating is \requ{1} and \ep{0}.
+  Concern is that appeal to something that is not the case.
+  Some examples.
+  Remain, but reasoning considers to sufficient degree.
+  As see in various illustrations, grant that these may be quite weak.
+  You may want to strengthen, and that is fine.
+  There will be one instance where deny that reasoning indicates.
+  However, uncontroversial.
+
+  There is nothing more assumed than this.
+  
+
+
+
+  From a different perspective, however, 
   We do not wish to place significant constraints on what `indication' amounts to in order for \autoref{assu:supp:independence} to be compatible with as many interpretations as possible.
 \end{note}
 
-\begin{note}
-  No-circularity is fairly straightforward.
+\paragraph{Constraint}
 
-  Motivation is same.
+\begin{note}
+  The complexity here is to avoid over-generating.
+  Idea of a \requ{} is quite broad.
+  Broadness is important for `indication'.
+  However, constraint on the particular reasoning requires something more narrow.
+  Explain the problem then look at some issues with the constraint.
+\end{note}
+
+\begin{note}
+  Motivation follows from before.
   Problem is \requ{} not having required value.
   And, if anything follows, then same worry will apply to this.
+\end{note}
+
+\begin{note}
+  Constraint.
+  \ideaCSA{} and \ideaCSB{} are about \requ{1} in general.
+  So, motivation for these.
+  However, when interested in failure, only interested in two types of cases.
+  Either a lack of reasoning, or a `premise \requ{0}'.
 \end{note}
 
 \begin{note}
