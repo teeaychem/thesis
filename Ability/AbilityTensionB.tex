@@ -26,14 +26,17 @@
 \label{sec:ni-1}
 
 \begin{note}
-  We now turn to the general limitation on claiming support.
+  We now turn to a pair of consequences of \autoref{assu:supp:independence}.
+  The first draws out sufficient conditions for a \cprequ{}.
+  The second observes an limitation that follows.
 \end{note}
 
 \subsection{Statement of \nI{}}
 
 \begin{note}[\nI{}]
 
-  \begin{restatable}[\nI{-}  --- \nI{}]{proposition}{propNI}\label{prem:ni}
+  \begin{restatable}[\nI{-}  --- \nI{}]{proposition}{propNI}
+    \label{prem:ni}
     Let \(\phi\) and \(\psi\) be propositions, \(v\) and \(v'\) values, and \(S\) an agent:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, series=nI_counter]
     \item\label{nI:background}
@@ -69,15 +72,101 @@
     \end{enumerate}
     And, suppose:
     \begin{enumerate}[ref=\named{\nIacro{}:\arabic*}, resume*=nI_counter]
-    \item\label{nI:going-by-value} \nIClauseValue{}
+    \item
+      \label{nI:going-by-value}
+      \nIClauseValue{}
       \begin{enumerate}[label=\alph*., ref=\named{\nIacro{}3:\alph*}]
-      \item\label{nI:going-by-value:phi} \nIClauseValuePhi{}
-      \item\label{nI:goingbyvalue:psi} \nIClauseValuePsi{}
+      \item
+        \label{nI:going-by-value:phi}
+        \nIClauseValuePhi{}
+      \item
+        \label{nI:goingbyvalue:psi}
+        \nIClauseValuePsi{}
       \end{enumerate}
     \end{enumerate}
+
     The result of that reasoning is not an instance of \(S\) claiming support that \(\psi\) has value \(v'\).
   \end{restatable}
 \end{note}
+
+\begin{note}
+  \begin{restatable}[\OCS{-}  --- \OCS{}]{proposition}{propOCS}
+    \label{prem:ni}
+    Let \(\phi\) and \(\psi\) be propositions, \(v\) and \(v'\) values, and \(S\) an agent.
+
+    Suppose \(S\) is reasoning such that:
+
+    \begin{enumerate}[ref=\named{\OCSacro{}:\arabic*}, series=OCS_counter]
+    \item
+      \label{nI:background}
+      \begin{enumerate}[label=\alph*., ref=\named{\OCSacro{}1:\alph*}]
+      \item
+        \label{nI:background:step}
+        Reasoning includes step for which \(\phi\) having value \(v\) is the conclusion.
+      \item
+        \(\phi\) not having value \(v\) is an \ep{} .
+      \end{enumerate}
+    \end{enumerate}
+
+    And
+
+    \begin{enumerate}[ref=\named{\OCSacro{}:\arabic*}, resume*=OCS_counter]
+    \item
+      \label{nI:inclusion}
+      When making the step of~\ref{nI:background:step}, \(S\) is confident that:
+      \begin{enumerate}[label=\alph*., ref=\named{\OCSacro{}2:\alph*}]
+      \item
+        \label{nI:inclusion:position}
+        If \(S\) is not \misled{} when making the step, then it is possible for \(S\), given present context, to reason to \(\psi\) having value \(v'\) (without appealing to \(\phi\) having value \(v\)).
+      \item
+        \label{nI:inclusion:bound}
+        If \(S\) is not \misled{} when making the step, then \(S\) would not be \misled{} were \(S\) to reason to \(\psi\) having value \(v'\).
+      \end{enumerate}
+    \end{enumerate}
+
+    And
+
+    \begin{enumerate}[ref=\named{\OCSacro{}:\arabic*}, resume*=OCS_counter]
+    \item
+      \label{nI:going-by-value}
+
+      \begin{enumerate}[label=\alph*., ref=\named{\OCSacro{}3:\alph*}]
+      \item
+        \label{nI:goingbyvalue:psi}
+        \(\psi\) not having value \(v'\) is an \ep{} for \(S\) (both prior to and after making the step of~\ref{nI:background:step}).
+      \end{enumerate}
+    \end{enumerate}
+
+    Then:
+    \begin{enumerate}[ref=\named{\OCSacro{}:\arabic*}, resume*=OCS_counter]
+    \item \(\psi\) having value \(v'\) is a \cprequ{} of the step of~\ref{nI:background:step}.
+    \end{enumerate}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  \begin{restatable}[\nI{-}  --- \nI{}]{proposition}{propNI3}
+    Suppose:
+    \begin{enumerate}
+    \item Clauses of \OCS{} hold.
+    \item \(S\) is confident that \(S\) requires the result of the step of~\ref{nI:background:step} --- that \(\psi\) has value \(v\) --- only from \(\phi\)
+    \end{enumerate}
+
+    Then:
+    \begin{enumerate}
+    \item No claiming support for \(\phi\) having value \(v\).
+    \end{enumerate}
+    And, hence, so long as \(\phi\) having \(v\) persists, further reasoning that appeals to \(\phi\) having value \(v'\) as a premise is (also) not an instance of claiming support.
+  \end{restatable}
+\end{note}
+
+\paragraph{Intuition}
+
+\begin{note}
+  Within scope of the paper, the basic idea is that we have identified sufficient conditions for \(\psi\) having value \(v'\) a \cprequ{}.
+\end{note}
+
+\subparagraph{Basic}
 
 \begin{note}[What \nI{} amounts to]
   \nI{} is a restriction on the way in which an agent may claim support for some proposition when certain conditions obtain.
@@ -87,6 +176,76 @@
   From a semantic perspective, \nIBackground{} combine to ensure that if \(\phi\) having value \(v\), then claimed support for \(\psi\) having value \(v'\) would violate \eiS{}.
 \end{note}
 
+\begin{note}[Intuitive idea]
+  To bring out the intuitive idea:
+
+  If agent considers possibility that they're \mom{}, then tension.
+  For, \(\psi\), but `requiring' something agent is \mom{} about.
+  Problem because if agent is \mom{}, then claimed support involves appeal to something which is no the case.
+  Claimed support would be \mom{}.
+
+  Hence, trouble with \autoref{assu:supp:independence}.
+
+  This is fast.
+  When turn to argument proper we will move more slowly.
+  Further, offer variation on the argument which make use of additional stuff of \ref{nI:going-by-value}.\nolinebreak
+  \footnote{
+    Preview:
+    Worry may be that \(\psi\) having value \(v'\) is not sufficiently involved in the reasoning.
+    If from claimed support for \(\phi\), then get that this is \mom{}, and hence claiming support involves appeal to \mom{} premise, which is again sufficient for claimed support to be mistaken.
+  }
+\end{note}
+
+\subparagraph{More detail}
+
+\begin{note}[In more detail]
+  Temporarly ordered.
+  Restate looking at the `dependency relations'.
+
+
+  Interest is in step of reasoning that obtains \(\phi\).
+  \ref{nI:inclusion} brings \(\psi\) as a \prequ{} by establishing a form of interdependence between claimed support for \(\phi\) and claiming support for \(\phi\).
+  Such that in order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
+
+  \ref{nI:going-by-value} requires reasoning about \prequ{}, as requires \(\phi\).
+
+  \ref{nI:background} prevent agent from reasoning for \prequ{} that does not violate \ref{assu:supp:independence}.
+\end{note}
+
+\begin{note}[Kind of defeater]
+  The basic idea behind \nI{} is that given clause~\ref{nI:background}, clause~\ref{nI:inclusion} captures a condition which \emph{undercuts} the agent claiming support as captured by~\ref{nI:going-by-value}.
+
+  Mentioned undercutting {\color{red} \hyperref[first-mention-undercutting-defeater]{above}}
+\end{note}
+
+\begin{note}
+  If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is intuitively undercut.
+  In the sense that \requ{}, so need to reason, but not possible to reason without \requ{}.
+
+  In order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
+  Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
+
+  This doesn't say anything about whether \(\psi\) has value \(v'\).
+  Rather, if \eiS{} doesn't hold then the agent doesn't get to claim support {\color{red} due to impossibility of reasoning about a \requ{}}.
+\end{note}
+
+\begin{note}
+  Does not show that there's no hope for the agent.
+  Only that the reasoning fails.
+
+  Two possibilities:
+  \begin{itemize}
+  \item Different approach to claiming support.
+  \item Reasoning that removes \requ{}.
+  \end{itemize}
+
+  So, \nI{} is not particularly strong.
+  However, not too weak either.
+  Highlighting circumstances such that it is not possible for the agent to reason to \(\psi\) having value \(v'\) which indicates that \(\psi\) having value \(v'\) regardless (from the perspective of the agent) whether \(\psi\) has value \(v'\).
+\end{note}
+
+
+\paragraph{Complexity of clauses}
 
 \begin{note}
   Given complexity of the clauses, a few brief notes before continuing.
@@ -175,40 +334,11 @@
   Then, additional details.
 \end{note}
 
-\paragraph{Literature}
+\paragraph{Two quick notes}
 
-\begin{note}[Literature]
-  We will highlight the contrast between \nI{} and similar principles in~\autoref{sec:contr-other-cond}, below.
-  In particular, \citeauthor{Wright:2011wn}'s work on transmission failure (\Citeyear{Wright:2003aa,Wright:2011wn}) and \citeauthor{Weisberg:2010to}'s No Feedback condition (\Citeyear{Weisberg:2010to}).
-
-  For now, it may be helpful to highlight that \nI{} does not deny that any agent may claim support for \(\psi\) having value \(v'\).
-  Rather,~\ref{nI:going-by-value} (only) denies that the agent may claim support for \(\psi\) in a specific way.
-\end{note}
-
-\paragraph{Intuition}
-
-\begin{note}[Intuitive idea]
-  To bring out the intuitive idea:
-
-  If agent considers possibility that they're \mom{}, then tension.
-  For, \(\psi\), but `requiring' something agent is \mom{} about.
-  Problem because if agent is \mom{}, then claimed support involves appeal to something which is no the case.
-  Claimed support would be \mom{}.
-
-  Hence, trouble with \autoref{assu:supp:independence}.
-
-  This is fast.
-  When turn to argument proper we will move more slowly.
-  Further, offer variation on the argument which make use of additional stuff of \ref{nI:going-by-value}.\nolinebreak
-  \footnote{
-    Preview:
-    Worry may be that \(\psi\) having value \(v'\) is not sufficiently involved in the reasoning.
-    If from claimed support for \(\phi\), then get that this is \mom{}, and hence claiming support involves appeal to \mom{} premise, which is again sufficient for claimed support to be mistaken.
-  }
-\end{note}
 
 \begin{note}
-  Two quick points.
+  Two quick notes.
 \end{note}
 
 \begin{note}[First point to stress]
@@ -233,19 +363,23 @@
   Our goal is to motivate \nI{} as a general limitation on claiming support, and in turn draw a consequence from such a limitation when applied to ability.
 \end{note}
 
+\paragraph{Literature}
+
+
+\begin{note}[Literature]
+  We will highlight the contrast between \nI{} and similar principles in~\autoref{sec:contr-other-cond}, below.
+  In particular, \citeauthor{Wright:2011wn}'s work on transmission failure (\Citeyear{Wright:2003aa,Wright:2011wn}) and \citeauthor{Weisberg:2010to}'s No Feedback condition (\Citeyear{Weisberg:2010to}).
+
+  For now, it may be helpful to highlight that \nI{} does not deny that any agent may claim support for \(\psi\) having value \(v'\).
+  Rather,~\ref{nI:going-by-value} (only) denies that the agent may claim support for \(\psi\) in a specific way.
+\end{note}
 
 \paragraph{Situating \nI{}}
+
 
 \begin{note}[Expanding on~\ref{nI:inclusion}]
   Claiming support, so possible that \(\psi\) is not the case.
   Then, claiming support.
-
-  Main thing will be expanding on:
-
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \ideaEIS*
-  \end{quote}
 
   In particular, \ref{nI:background} and~\ref{nI:inclusion} combine to ensure that \(\psi\) would be an \requ{} of the claimed support for \(\phi\).
   Hence:
@@ -255,15 +389,32 @@
     \assuCSRReq*
   \end{quote}
 
-  From \autoref{sec:claim-supp-requ}.
+  As indicated.
+  \(\psi\) having value \(v'\) as a \prequ{} of step getting \(\phi\).
+  So, as a \requ{}, from first, need some reasoning to indicate.
+  However, as a \prequ{}, antecedent of second is satisfied.
+  Hence, reasoning must not appeal to conclusion obtain from step of inference.\nolinebreak
+  \footnote{
+    Variation on proposition that only looks at lack of reasoning.
 
-  Claiming support, so possible that \(\psi\) is not the case.
-  Then, claiming support.
-  \autoref{assu:supp:independence} for lack of reasoning.
-  Here, second part of the clause, reasoning given that \requ{} may not have value.
+    \emph{N} things:
+    \begin{itemize}
+    \item Less general, requires various clauses.
+    \item Stronger, as does not require assumption that agent does not reason.
+    \end{itemize}
+  }
 
-  \ref{nI:inclusion} is point of interest.
-  Here, with \nI{}, lack of reasoning from \(\psi\) not being the case.
+  Motivated \ref{assu:supp:independence} in \ref{sec:two-assumpt-relat-to-requ}.
+  However, it may be help to briefly recap the core idea.
+
+  Recall:
+  \begin{quote}
+    \vspace{-\baselineskip}
+    \ideaEIS*
+  \end{quote}
+  The key feature that we're interested in which claiming support is that it does not `depend' on appealing to premises for which the agent has not have reasoning to indicate that are the case.
+
+  {\color{red} \dots}
 \end{note}
 
 
@@ -276,114 +427,11 @@
   Problem, as claimed support for \(\psi\) having value \(v'\) --- via claimed support for \(\phi\) having value \(v\) --- `requires' \(\psi\) having value \(v\).
 
   Though, leaves open claiming support that does not going via the claimed support for \(\phi\) having value \(v\).
-
-  Two possibilities:
-  \begin{itemize}
-  \item Different approach to claiming support.
-  \item Reasoning that removes \requ{}.
-  \end{itemize}
-
-  So, \nI{} is not particularly strong.
-  However, not too weak either.
 \end{note}
 
 
+\subsection{An \illu{0} with variations}
 
-\paragraph{Undercutting defeater}
-
-  {\color{green}
-    If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is undercut.
-
-    Specifically, undercutting arises from \ref{nI:inclusion} establishing a form of interdependence between claimed support for \(\phi\) and claiming support for \(\phi\).
-
-    Such that in order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
-    Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
-  }
-
-\begin{note}[Kind of defeater]
-  The basic idea behind \nI{} is that given clause~\ref{nI:background}, clause~\ref{nI:inclusion} captures a condition which \emph{undercuts} the agent claiming support as captured by~\ref{nI:going-by-value}.
-
-  Mentioned undercutting {\color{red} \hyperref[first-mention-undercutting-defeater]{above}}
-\end{note}
-
-\begin{note}[Quick intuition]
-  \emph{Undercutting} defeaters.
-
-  Type II defeaters.
-
-  \begin{quote}
-    The second kind of defeater attacks the connection between \(P\) and \(Q\) rather than attacking \(Q\) directly.
-
-    \mbox{}\hfill\(\vdots\)\hfill\mbox{}
-
-    A type II defeater is any reason for believing that \({\sim}(P => Q)\) which is not also a reason for believing that \({\sim}Q\).\nolinebreak
-    \mbox{}\hfill\mbox{(\cite[43]{Pollock:1974uk})}
-  \end{quote}
-  Where `\(=>\)' is the subjunctive conditional. (\Citeyear[42]{Pollock:1974uk})
-
-  With \citeauthor{Pollock:1974uk}'s original formulation, the defeater attacks the link.\nolinebreak
-  \footnote{
-    See \textcite[196,fn.166]{Pollock:1999tm} for a brief note of the history of undercutting defeaters.
-    \textcite{Pollock:1974uk} is more-or-less a direct expansion of discussion in~\textcite{Pollock:1970un}.
-  }
-
-  However, generalise.
-  That there's a relation of claimed support, evidence, or what have you between \(P\) and \(Q\).
-
-  Generalisation by \citeauthor{Bergmann:2005ws}\nolinebreak
-  \footnote{
-    I am also inclined to \citeauthor{Worsnip:2018aa}'s sketch of undercutting defeaters, which references~\citeauthor{Bergmann:2005ws}.
-    \begin{quote}
-      Undercutting defeaters, which are easiest to think of in the context of the attitude of belief, are supposed to be considerations that undermine the justification of a belief in a proposition p not necessarily by providing (sufficient) positive evidence to think that p is false, but rather merely by suggesting (perhaps misleadingly) that one’s reasons for believing p are no good, in a way that neutralizes or mitigates their justificatory or evidential force.\linebreak
-      \mbox{}\hfill\mbox{(\Citeyear[29]{Worsnip:2018aa})}
-    \end{quote}
-  }
-  \begin{quote}
-    \emph{d} is an \emph{undercutting defeater} for \emph{b} iff \emph{d} is a defeater for \emph{b} which is (or is an epistemically appropriate basis for) the belief that one's actual ground or reason for \emph{b} is not indicative of \emph{b}'s truth.\newline
-    \mbox{}\hfill\mbox{(\citeyear[424]{Bergmann:2005ws})}
-  \end{quote}
-
-  Similar generalisation, but similar to \citeauthor{Pollock:1974uk} the relation is useful.
-  So, generalise the subjunctive conditional.
-\end{note}
-
-\begin{note}
-  If~\nIBackground{} hold, then the way of claiming support captured by~\ref{nI:going-by-value} is undercut.
-  Does not show that there's no hope for the agent.
-  Only that the reasoning fails.
-  Indeed, if \nIBackground{} hold then possible for the agent to reason.
-\end{note}
-
-\begin{note}[\eiS{}]
-  Idea of an undercutting defeater is quite general.
-  Here, we'll develop a specific account.
-
-  Undercut because failure of \eiS{}.
-  This doesn't say anything about whether \(\psi\) has value \(v'\).
-  Rather, if \eiS{} doesn't hold then the agent doesn't get to claim support {\color{red} due to impossibility of reasoning about a \requ{}}.
-
-  In order for agent to appeal to \(\phi\) having value \(v\) the agent must assume that \(\psi\) has value \(v'\).
-  Hence, can't go to \(\phi\) without \(\psi\), which means that can't use \(\phi\) to claim support for \(\psi\).
-\end{note}
-
-\begin{note}[Point of \nI{} is to motivate `independent' of ability]
-  Purpose of conditions is to get undercutting of this kind.
-  Of course, work is done by \eiS{}.
-  And, in some respects, it is easier to reason directly.
-
-  However, for our purposes this won't do.
-  Our goal is to apply \nI{} to ability.
-
-  Two problems.
-  First, whether one gets this kind of failure.
-  \nI{} address this by narrowing down on a small set of conditions that we can check.
-  Second, whether the kind of failure matters.
-  \nI{} address this by motivating the failure in general.
-\end{note}
-
-
-
-\subsection{A illustration with variations}
 
 \begin{note}[A few illustrations]
   Let us now turn to a few illustrations before discussing \nI{} in further detail.
@@ -407,6 +455,7 @@
 \end{note}
 
 \paragraph{First}
+
 
 \begin{note}[Brief illustration of \nI{}]
   The first illustration considers theories and counterexamples.
@@ -665,8 +714,6 @@
 
   Similar to other principles, failure because establishing something that needs to be the case in order to be in a position to establish.
 \end{note}
-
-\newpage
 
 \section{Details of --- and argument for --- \nI{}}
 \label{sec:details-ni}
@@ -1428,49 +1475,22 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
   This move is not compatible with \(\psi\) not having value \(v'\).
 \end{note}
 
-\paragraph{Reasoning is not compatible with epistemic possibility}
+\paragraph{Clarifying important parts of \nI{}}
 
 \begin{note}
-  For, not \(\psi\) then reasoning is bad.
-  Hence, the agent is prevented.
-  For, something is up with reasoning.
-  I.e.\ \autoref{assu:supp:independence}.
+  No problem with reasoning for \(\phi\) having value \(v\).
+  \(\psi\) not having value \(v'\) is only an \ep{}.
+  And, while it is the case that \ref{nI:inclusion} establishes this link between the reasoning for \(\psi\) having value \(v\) and reasoning for \(\psi\) having value \(v'\), the agent has no reason to think (given only the conditional, at least) that there is any problem with their reasoning for \(\phi\) having value \(v\).
 
-  Though, this is not immediate.
-  Not in position to reason to \(\psi\) having value \(v'\).
-  But that doesn't follow from \(\psi\) not being the case.
-  Instead, this second part of the constraint.
-  Given that I should be in a position, but then agent recognises that something must be wrong, because they would be misled.
-  So, reasoning for \(\phi\) is mistaken or misled.
+  Do not need is that the agent would be confident that their reasoning for \(\phi\) is defective in some way.
+  Indeed, motivating idea of claiming support is that indicates `regardless'.
+\end{note}
 
-  Here, still possible, as far as I can tell, that agent still thinks indicates.
-  However, confident that mistaken or misled.
-  And, being confident that mistaken or misled prevents indicating.
-
-  While possibility of \(\lnot\psi\), then it's not clear to the agent that their reasoning is good even if \(\lnot\psi\) turns out to be the case.
-
-  What I need is that the agent would be confident that their reasoning for \(\phi\) is \mom{}.
-  And, that is a problem with going to \(\phi\).
-  For, if \mom{} then either \(\phi\) isn't the case, or appealing to something that isn't right and doesn't provide sufficient reason for getting to \(\phi\).
-
-  So, grant that \(\lnot\psi\).
-  This would mean that the reasoning for \(\psi\) is \mom{}.
-  So, while I'm entertaining the possibility that \(\lnot\psi\), this means that \(\phi\) is \misled{}.
-  This is always the case.
-  So, this alone can't be a problem.
-  But, there's a difference.
-  It would mean that I am \misled{}, but it doesn't show that I should be confident that I am \misled{}.
-  What I need is not only that I would be \misled{}, but also that I am confident.
-  So, we don't yet get a problem.
-
-  However, interdependence.
-  Not only am I confident that if I were \misled{} about \(\psi\) then I would be \misled{} about \(\phi\).
-  I am also confident that I should not withhold reasoning for \(\phi\).
-
+\begin{note}
   {
     \color{red}
     Hold on.
-    The real issue is the move to \(\phi\).
+    The issue is the move to \(\phi\).
     Look, it may well be the case that the agent has good reasons for thinking that \(\phi\) is the case, even if it turns out that \(\phi\) is not the case, and even if it turns out that \(\psi\) is not the case.
     And that's not a problem.
     For, at issue is the impossibility of getting to \(\psi\) without going to \(\phi\).
@@ -1493,17 +1513,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
     It needs to be the case that it is not possible for the agent to get to \(\psi\) without getting to \(\phi\).
     And, this is mostly limited to instances where there's some sort of `factive' inference.
   }
-
-
-  So, problem with getting to \(\phi\).
-  That reasoning is not enough to appeal to, because it is not clear to the agent that they really are ready to reason to \(\psi\).
 \end{note}
-
-
-
-
-
-\paragraph{Clarifying two important parts of \nI{}}
 
 \begin{note}
   Why is \(\phi\) to \(\psi\)?
@@ -1527,26 +1537,10 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
   \(\psi\) may not hold, but this don't establish that there is anything problematic about the reasoning.
 \end{note}
 
-
-
-
-\newpage
+age
 
 \begin{note}
-  Before starting the argument, recall:
-  \begin{quote}
-    \vspace{-\baselineskip}
-    \propRecogniseDefeaters*
-  \end{quote}
-  \nI{} is a variation of \autoref{prop:CS-only-if-reason-recognised-defeaters}.
-
-  Three things:
-  \begin{itemize}
-  \item Less general, requires various clauses.
-  \item Stronger, as does not require assumption that agent does not reason.
-  \end{itemize}
-
-  However, same motivating intuition.
+    However, same motivating intuition.
   With \autoref{prop:CS-only-if-reason-recognised-defeaters}, no reasoning about \requ{} at time of reasoning, then no reasoning regarding possible defeater.
   Hence, conflict with \autoref{idea:eiS}.
 
@@ -1676,6 +1670,7 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
 
 \subsection*{A handful of observations}
 
+
 \begin{note}
   Argument is complete.
   A handful of observations.
@@ -1693,7 +1688,9 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
   There is an additional component to the clauses of \nI{} that may be added to strengthen the argument.
   Not only is \(\psi\) not having value \(v'\) a possible defeater, but given \ref{nI:inclusion} it is a possible defeater that the agent is confident that they can claim support about.
 
-  ``One perspective on \ref{nI:inclusion} is that it ensures that claiming support for \(\psi\) having value \(v'\) is a possible and `pressing' defeater for the claimed support that \(\phi\) has value \(v\).''
+  ``One perspective on \ref{nI:inclusion} is that it ensures that claiming support for \(\psi\) having value \(v'\) is a possible and `pressing' defeater for the claimed support that \(\phi\) has value \(v\).
+
+  So, enough to prevent the agent from moving from whatever premises they have to \(\phi\) having value \(v\)\dots''
 
   {
     \color{red}
@@ -1709,7 +1706,6 @@ Rather, possibility for \(\psi\) having value \(v'\) to become an \requ{} of the
   Instead, suggestions along these lines would suggest that \nI{} stronger constraint would allow final clause to be weaker.
   Upshot for application of \nI{} is that need to identify this link between \(\phi\) and \(\psi\).
 \end{note}
-
 
 \begin{note}
   It is not a consequence of this argument that in order to claim support for \(\psi\) having value \(v'\) from \(\phi\) having value \(v\) from claimed support that \(\phi\) has value \(v\) that the agent must have an account of why \(\psi\) has value \(v'\) granting that the claimed support for \(\phi\) having value \(v\) is \mom{}.

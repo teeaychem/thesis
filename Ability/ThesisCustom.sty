@@ -154,6 +154,22 @@
 \ExplSyntaxOff
 
 % % %
+\newcommand{\OCSacro}[0]{OCS}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\OCS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prem:OCS]{\named{\OCSacro{}}}}% \text{\textsf{|NI|}}%
+  }
+  {%
+    %\text{Support\space is\space not\space inherited\space by\space squires}%
+    \obeybreaks{An\space observation\space about\space claiming\space support}%
+  }
+}
+\ExplSyntaxOff
+
+
 \newcommand{\nIacro}[0]{LCS}
 
 \ExplSyntaxOn
@@ -332,7 +348,30 @@
 
 % % % Abbreviations % % %
 
-% % %
+% % % % % % Requisites etc % % %
+\ExplSyntaxOn
+\DeclareDocumentCommand{\result}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{result}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{result}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{results}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Result}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Results}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\requ}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
@@ -351,6 +390,123 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Requisites}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\prequ}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{premise-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{premise-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{premise-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Premise-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Premise-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\crequ}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{conclusion-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{conclusion-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{conclusion-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Conclusion-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Conclusion-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cprequ}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{conclusion-premise-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{conclusion-premise-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{conclusion-premise-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Conclusion-premise-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Conclusion-premise-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % % % % % Epistemic possibility, etc % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\possibility}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viability}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ep}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \possibility{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \possibility{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \possibility{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic\space \possibility{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \possibility{1}}%
     \fi
   }
 }
@@ -403,28 +559,7 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ep}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic plausibility}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic plausibility}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic plausibilities}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic plausibility}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic plausibilities}%
-    \fi
-  }
-}
-\ExplSyntaxOff
+
 
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
@@ -577,7 +712,7 @@
   \obeybreaks{If \(S\)' reasoning for \(\phi\) having value \(v\) is \nmom{} then \(S\) is, given present context, in a position to reason to \(\psi\) having value \(v'\) (without appealing to prior reasoning for \(\phi\) having value \(v\)).}%
 }
 \newcommand{\nIClauseInclusioBound}{%
-  \obeybreaks{If \(S\)' reasoning for \(\phi\) having value \(v\) is \nmom{} then they would not be \mom{} were \(S\) to reason to \(\psi\) having value \(v'\).}%
+  \obeybreaks{If \(S\)' reasoning for \(\phi\) having value \(v\) is \nmom{} then \(S\) would not be \mom{} were \(S\) to reason to \(\psi\) having value \(v'\).}%
 }
 \newcommand{\nIClauseValue}{%
   \obeybreaks{Reasoning is such that:}%
