@@ -22,6 +22,7 @@
     \endgroup}%
 }
 
+% % % Phantom labels and reference
 \newcommand{\phantlabel}[1]{%
   \phantomsection%
   \label{#1}%
@@ -40,7 +41,6 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 % % % Verbs
-\newcommand{\nf}[1]{#1\ensuremath{^{*}}} % Non-factive instance of a verb
 
 % https://tex.stackexchange.com/questions/394985/very-short-arrow-symbol
 \newcommand{\veryshortarrow}[1][3pt]{\mathrel{%
@@ -65,22 +65,28 @@
 \newcommand{\sem}[1]{\ensuremath{[\![\text{#1}]\!]}}
 
 % % % Attribution and witnessing
+
 \newcommand{\RBV}[0]{\textsf{RBV}}
+
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
+
 \newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Witnessing}}}
+
 \newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Attribution}}}
-%\newcommand{\aben}[0]{\hyperref[def:aben]{ability entailment}}
+\newcommand{\ARB}[0]{\hyperref[AR:def]{\textsf{Attribution:Basic}}}
+\newcommand{\ARD}[0]{\hyperref[AR:def]{\textsf{Attribution:Derived}}}
+
 \newcommand{\future}[0]{\textsf{Forward}}
 \newcommand{\agent}[0]{\emph{S}}
 \newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
 \newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
-\newcommand{\Gsi}[0]{\text{General-to-specific\space ability\space information}}
 
 \newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
 
 \newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Substantiation}}}
+
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
 
 % % % Premise Commands
@@ -96,7 +102,10 @@
     \text{\hyperref[idea:defs-for-CS]{\named{\diamond\(\dag\)}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
   }
   {%
-  \obeybreaks{Treacherousness\space of\space claimed\space support}%
+  \ifnum0=#1\relax%
+      \obeybreaks{Treacherousness\space of\space claimed\space support}%
+    \fi
+
   }
 }
 \ExplSyntaxOff
@@ -109,7 +118,10 @@
     \text{\hyperref[idea:eiS]{\named{\hand\cancel{\(\dag\)}}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
-    \obeybreaks{Constancy\space of\space claimed\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Constancy\space of\space claimed\space support}%
+    \fi
+
   }
 }
 \ExplSyntaxOff
@@ -122,7 +134,13 @@
     \text{\textsf{g-sI}}%
   }
   {%
-    \obeybreaks{general-to-specific\space ability\space information}%
+    \ifnum0=#1\relax%
+      \obeybreaks{general-to-specific\space ability\space information}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{General-to-specific\space ability\space information}%
+    \fi
+
   }
 }
 \ExplSyntaxOff
@@ -135,20 +153,13 @@
     \text{\textsf{\textsf{dI}}}%
   }
   {%
-  \obeybreaks{direct\space ability\space information}%
-  }
-}
-\ExplSyntaxOff
+    \ifnum0=#1\relax%
+      \obeybreaks{direct\space ability\space information}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Direct\space ability\space information}%
+    \fi
 
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\Dsi}{ m }{% Basic premise / understanding of reasoning
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\textsf{\textsf{dI}}}%
-  }
-  {%
-    \obeybreaks{Direct\space ability\space information}%
   }
 }
 \ExplSyntaxOff
@@ -163,14 +174,15 @@
     \text{\hyperref[prem:OCS]{\named{\OCSacro{}}}}% \text{\textsf{|NI|}}%
   }
   {%
-    %\text{Support\space is\space not\space inherited\space by\space squires}%
-    \obeybreaks{An\space observation\space about\space claiming\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{An\space observation\space about\space claiming\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
 
 
-\newcommand{\nIacro}[0]{LCS}
+\newcommand{\nIacro}[0]{{\color{red} NI}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nI}{ m }{% No inertia
@@ -179,13 +191,55 @@
     \text{\hyperref[prem:ni]{\named{\nIacro{}}}}% \text{\textsf{|NI|}}%
   }
   {%
-    %\text{Support\space is\space not\space inherited\space by\space squires}%
-    \obeybreaks{Limitation\space on\space claiming\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Limitation\space on\space claiming\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
 
-% % %
+\newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
+
+
+\newcommand{\LCSAcro}[0]{OCS}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\LCS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:lcs]{\named{\LCSAcro{}}}}% \text{\textsf{|NI|}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Observation\space about\space claiming\space support}%
+    \fi
+    \ifnum8=#1\relax%
+      \obeybreaks{An\space observation\space about\space claiming\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\LCSBackground}{\hyperref[prem:lcs]{\named{\LCSAcro:1--3}}}
+
+% % % FCS % % %
+\newcommand{\FCSAcro}[0]{FCS}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\FCS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:fcs]{\named{\FCSAcro{}}}}% \text{\textsf{|NI|}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Failure\space to\space claim\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % % USE % % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
   \tl_if_empty:nTF {#1}
@@ -193,7 +247,9 @@
     \text{\hyperref[prop:USE]{\named{UCS}}}%
   }
   {%
-    \obeybreaks{Use\space is\space sufficient\space to\space claim\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Use\space is\space sufficient\space to\space claim\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -208,7 +264,9 @@
     \text{\hyperref[denied-claim]{\named{\ESUacro{}}}}%
   }
   {%
-    \obeybreaks{Claiming\space support\space requires\space use}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Claiming\space support\space requires\space use}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -224,7 +282,23 @@
     \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
   }
   {%
-    \obeybreaks{Ability\space allows\space for\space claiming\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Ability\space allows\space for\space claiming\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ACS}{ m }{% Restricted claim
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Ability\space allows\space for\space claiming\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -237,7 +311,9 @@
     \text{\hyperref[thought:EASw]{\named{\EASacro{}:W}}}%
   }
   {%
-    \obeybreaks{\EASacro{}\space (Witnessing)}%
+    \ifnum0=#1\relax%
+      \obeybreaks{\EASacro{}\space (Witnessing)}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -250,7 +326,9 @@
     \text{\hyperref[prop:SE]{\named{SE}}}%
   }
   {%
-    \obeybreaks{Scenarios\space exist}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Scenarios\space exist}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -263,7 +341,9 @@
     \text{\hyperref[assu:supp:independence]{\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
-    \obeybreaks{Independence\space of\space claimed\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Independence\space of\space claimed\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -276,7 +356,9 @@
     \text{\hyperref[prop:eiS:consq]{\named{ICS:C}}}%\text{\textsf{|ICS|}}%
   }
   {%
-    \obeybreaks{Independence\space of\space claimed\space support:\space Consequence}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Independence\space of\space claimed\space support:\space Consequence}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -289,7 +371,9 @@
     \text{\hyperref[assu:supp:nfactive]{\(\named{\diamond\cancel[thick]{\textsf{CS}}}\)}}%{\named{\cancel[thick]{F}CS}}}%\text{\textsf{|ICS|}}%
   }
   {%
-    \obeybreaks{Non-factivity\space of\space claimed\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Non-factivity\space of\space claimed\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -302,7 +386,9 @@
     \obeybreaks{`Even\space if\dots'}%
   }
   {%
-    \obeybreaks{Even\space if\space I\space am\space #1\space about\space}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Even\space if\space I\space am\space #1\space about\space}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -315,7 +401,9 @@
     \text{\textsf{RBV}}%
   }
   {%
-    \obeybreaks{Reasoning\space by\space value}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Reasoning\space by\space value}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -328,7 +416,9 @@
     \hyperref[idea:defs-for-CS]{\named{2\cancel[thick]{CS}}}%
   }
   {%
-  \obeybreaks{Two\space defeater\space types\space for\space claimed\space support}%
+    \ifnum0=#1\relax%
+      \obeybreaks{Two\space defeater\space types\space for\space claimed\space support}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -341,7 +431,9 @@
     \hyperref[def:aben]{\obeybreaks{ability\space entailment}}%
   }
   {%
-    \hyperref[def:aben]{\obeybreaks{#1\space ability\space entailment}}%
+%    \ifnum0=#1\relax%
+      \hyperref[def:aben]{\obeybreaks{#1\space ability\space entailment}}%
+ %   \fi
   }
 }
 \ExplSyntaxOff
@@ -353,20 +445,20 @@
 \DeclareDocumentCommand{\result}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{result}%
+    \obeybreaks{product}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{result}%
+      \obeybreaks{product}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{results}%
+      \obeybreaks{products}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Result}%
+      \obeybreaks{Product}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Results}%
+      \obeybreaks{Products}%
     \fi
   }
 }
@@ -724,7 +816,7 @@
   \obeybreaks{\(\psi\) only successful if \(\phi\).}%
 }
 
-\newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
