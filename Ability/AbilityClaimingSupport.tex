@@ -636,17 +636,24 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   The basic idea behind a `\requ{}' of a step of reasoning is simple:
-  \begin{restatable}[\requ{3} of (making a step of) some instance of reasoning]{idea}{ideaRequisite}
-    A requ{} is a proposition-value pair which
+  \begin{restatable}[A \requ{0} of (making a step of) some instance of reasoning]{idea}{ideaRequisite}
+    A requ{} is a proposition-value pair, e.g.\ \(\psi\) having value \(v'\), such that
     \begin{enumerate}
-    \item Follows from some step or steps.
-    \item Would not get conclusion without.
-    \item \ep{}
+    \item Involved in reasoning.
+    \item Important for reasoning.
+    \item \ep{}.
     \end{enumerate}
   \end{restatable}
-  Difficulty is the second.
-  Would not get conclusion without.
 
+  Follows from some step of the reasoning.
+  Subjunctive.
+  If \(\psi\) did not have value \(v'\), then premises fail to indicate.
+  Of course, there may be other ways in which reasoning may fail to indicate.
+  For example, positive: if \(\chi\) were to have value \(v''\)\dots
+  However, we're only focusing on proposition-value pairs.
+\end{note}
+
+\begin{note}
   To make this precise, we first define a `\result{}' of making a step of some instance of reasoning.
   This will then allow us to identify specific instances of \requ{1}.
   Leads to a general definition.
@@ -656,28 +663,27 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   However, specifically with respect to (kinds of) \prequ{1}.
 \end{note}
 
-\subsubsection{Definition of a \requ{0}}
-\label{sec:def-of-requ}
+\subsubsection{\result{3}}
+\label{sec:def-of-result}
 
-\paragraph{\result{3} of (making a step of) some instance of reasoning}
+\paragraph{Definition}
 
 \begin{note}
-  \begin{restatable}[\result{3} of (making a step of) some instance of reasoning]{definition}{defResult}
+  \begin{restatable}[A \result{0} of (making a step of) some instance of reasoning]{definition}{defResult}
     \label{def:result}
-    \(\psi\) has value \(v'\) is \result{} of a step of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if and only if:
-    \begin{enumerate}
+    Let \(R\) be some instance of reasoning which concludes that \(\phi\) has value \(v\):
+
+    \(\psi\) has value \(v'\) is \emph{\result{}} of a step \(\delta\) of reasoning \(R\) if and only if:
+    \begin{enumerate}[label=\arabic*., ref=\named{P:\arabic*}]
     \item
-      \label{def:requi:not-v-poss}
-      \(\psi\) not having value \(v'\) is epistemically possible.
-    \item\label{def:requi:prop}
-      \begin{enumerate}
-      \item
-        \label{def:requi:prop:conseq}
-        Follows as a result of making the step of reasoning no possible \(\psi\) no have value \(v'\).
-      \item
-        \label{def:requi:prop:persists}
-        No other part of reasoning shows that \(\phi\) has value \(v\) which does not involve a step for which \(\psi\) having value \(v'\) follows as a making step. (Persists).
-      \end{enumerate}
+      \label{def:result:ep}
+      \(\psi\) not having value \(v'\) is an \ep{}.
+    \item
+      \label{def:result:conseq}
+      Making step \(\delta\) while holding that \(\psi\) does not have value \(v'\) is not epistemically possible, relative to background commitments of the agent (if any).
+    \item
+      \label{def:requ:persists}
+      No other part of reasoning shows that \(\phi\) has value \(v\) which does not involve a step \(\delta'\) such that \(\psi\) having value \(v'\) follows from making step \(\delta'\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -691,136 +697,296 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   Key interest is following from reasoning, so global.
   But also important to pinpoint step, so local.
-
-  Here, consider cases.
-  Does not follow from step if some other case for which no step.
-  Still, each case.
-  If all of these.
 \end{note}
 
-\paragraph{\requ{3} of a step of reasoning}
+\paragraph{Details}
+
+\subparagraph{Clause~\ref{def:result:ep}}
 
 \begin{note}
-  With~\autoref{def:result} in hand, we now turn to \requ{1}.
-  Start with two basic types of \requ{}: \prequ{} and \crequ{}.
-  A final more complex kind of \prequ{}, a \cprequ{}.
-  Then, close with general definition of a \requ{}.
+  Only interested in these instances.
+\end{note}
+
+\subparagraph*{Clause~\ref{def:result:conseq}}
+
+\begin{note}
+  Starting with sub-clause~\ref{def:result:conseq}, emphasis is on \(\psi\) having value \(v'\) as a result of \emph{making} the step of reasoning.
+
+  \begin{example}
+    Suppose the step of reasoning appeals to premise that \(\alpha\) has value \(v''\).
+    And, suppose the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
+  \end{example}
+
+  In this example, \ref{def:result:conseq} is satisfied due to appealing to a premise.
+  By contrast, conclusion:
+
+  \begin{example}
+    Suppose the step of reasoning concludes with \(\alpha\) having value \(v''\).
+    And, suppose the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
+  \end{example}
+
+  Both are \result{1}.
+
+  \begin{example}
+    Suppose the agent has available inductive for \(\alpha\) having value \(v''\).
+    The step of reasoning involves moving from inductive premises to \(\alpha\) having value \(v''\).
+
+    As before the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
+  \end{example}
+\end{note}
+
+\subparagraph*{Clause~\ref{def:requ:persists}}
+
+\begin{note}
+  However, we also wish to ensure that \(\psi\) having value \(v'\) matters with respect to the instance of reasoning as a whole.
+
+  Not only does \(\psi\) having value \(v'\) follow as a result of making the step of reasoning, but making the step of reasoning is such that the conclusion of reasoning is obtained in part by making the relevant step of reasoning.
+
+  \begin{example}
+    The agent reasons about \(\alpha\) having value \(v''\) and \(\alpha\) not having value \(v''\) and observes that \(\beta\) has value \(v'''\) follows regardless.
+  \end{example}
+  So, \ref{def:requ:persists} fails.
+
+  \begin{example}
+    Both cases need \(\psi\) having value \(v'\).
+  \end{example}
 \end{note}
 
 \begin{note}
-  These definitions include a general clause.
-  This is a circular definition, but uninteresting.
-  Expands to a disjunction of cases.
-  Hence, upshot of circularity is infinite disjunction of three cases.
-  Which is equivalent to the three cases.
+  Determining whether a proposition-value pair is a \result{} of some step of reasoning is, in general, difficult.
+  For, \ref{def:requ:persists} is a global property.
+  And, in general, some instance of reasoning may contain multiple steps, numerous instances of reasoning by cases, and so on.
+
+  Naturally, complex reasoning is difficult, and ideas applied are significant.
+  We will not have any direct interest in a complex of step --- in particular, our focus will be on straightforward (sub-)instances of reasoning which involve a single step.
+  However, in the case that the step is part of a larger complex, \ref{def:requ:persists} is important to highlight why some proposition-value pair associated with the step matters.
+\end{note}
+
+\subsubsection{\requ{3}}
+\label{sec:def-of-requ}
+
+\begin{note}
+  Intuitively, a \requ{} of a step of reasoning is a non-disposable consequence of some step of reasoning and the reasoning as a whole, whose failure is epistemic possibility for the agent, and is such that the failure of the \requ{} would mean that the step of reasoning appealed to something that is not the case.
+
+  The definition of a \result{} clarifies how a proposition-value pair is involved in some instance of reasoning, but the definition of a \result{} alone does not account for why it is not possible for the agent to conclude the instance of reasoning without (indirectly) appealing to the proposition-value pair.
+  To capture the mentioned role of proposition-value pair, definition of a \requ{} is broken down into three distinct types of \requ{}, and the definition of a \result{} is then used to clarify two basic \requ{}-types.
+\end{note}
+
+\begin{note}
+  The definition of a \requ{} is as follows:
+  \begin{restatable}[\requ{3} of a step of reasoning]{definition}{defRequisite}
+    \label{def:requsite}
+    \(\psi\) has value \(v'\) is a \emph{\requ{}} of a step of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if and only if:
+    \begin{enumerate}[label=\arabic*., ref=\named{R:\arabic*}]
+    \item \(\psi\) having value \(v'\) is either:
+      \begin{enumerate}
+      \item
+        A \prequ{}.
+      \item
+        A \crequ{}.
+      \item
+        A \cprequ{}.
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  Before proceeding to define the distinct types of \requ{}, a quick note on the definitions that follow.
+
+  As with the definition of a \result{}, each definition of a \requ{}-type focuses on some step of reasoning.
+  However, as with the definition of a \result{}, each definition of a \requ{}-type will include a `global' clause which ensures that the proposition-value pair is not only important for the step of reasoning, but for the instance of reasoning as a whole.
+  The clause present in each of the definitions is as follows:
+  \begin{itemize}
+  \item
+    \requGlobalClause{}
+  \end{itemize}
+  This clause means that the collection of definitions is circular.
+  We a \requ{} is in part defined in terms of a \prequ{}, and in turn a \prequ{} is in part defined in terms of a \requ{}.
+  However, the circularity is benign.
+  In is simply a convenient way to quantify over all other \requ{}-types.
+  Semantically, the result of expanding each definition is a check that no other proposition-value pair is one of the three \requ{}-types defined.\nolinebreak
+  \footnote{
+    Though, syntactically, expanding each definition results in a proposition of unbounded length.
+  }
+\end{note}
+
+\paragraph{\pandcrequ{3}}
+
+\begin{note}
+  We begin by defining \prequ{1} and \crequ{1}.
+  These two definitions build on the definition of a \result{}.\nolinebreak
+  \footnote{
+    The reason for separating these definitions is
+
+    First, the separation of the definitions helps reduce the complexity of the respective definitions.
+    Second, separation helps shift focus.
+    With \result{}, involvement.
+    With \requ{}, importance.
+  }
 \end{note}
 
 \begin{note}
   \begin{restatable}[\prequ{2} of a step of reasoning]{definition}{defRequisiteP}
-    \label{def:requisite:p}
+    \label{def:prequ}
     \(\psi\) has value \(v'\) is a \emph{\prequ{0}} of a step of reasoning if and only if
-    \begin{enumerate}
-    \item \(\psi\) has value \(v'\) is a \result{0} of a that step of reasoning.
-    \item\label{def:requi:subjunctive} If \(\psi\) were not to have value \(v'\) then that step of reasoning would involve:
-      \begin{enumerate}
-      \item\label{def:requi:subjunctive:p} Appealing to something that is not the case.
+
+    \begin{enumerate}[label=\arabic*., ref=\named{pR:\arabic*}]
+    \item
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{premises} of a the step of reasoning \(\delta\).
+    \item
+      \label{def:prequ:subjunctive}
+      It is not epistemically possible for the agent to make step \(\delta\) without either:
+      \begin{enumerate}[label=\alph*., ref=\named{pR:2\alph*}]
+      \item \(\psi\) having value \(v'\), or
+      \item the relevant background conditions (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
       \end{enumerate}
-    \item Any other, also a \requ{}.
+    \item
+      \requGlobalClause{}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
-\begin{note}
-  \result{} plus X.
-
-  Key idea is that relevance to reasoning by reasoning introducing those premises.
-  Simple example.
-  Some independent belief.
-  Not a \prequ{}.
-  Add in link.
-  Now a \prequ{}.
-  However, some other premises, then not a \prequ{}.
+\begin{note}[Summary of \prequ{0}]
+  In short, a \prequ{0} is simply a \result{0} which follows from the \emph{premises} of the step of reasoning with the added constraint regarding the relevant background commitments of the agent, if there are any.
 \end{note}
 
 \begin{note}
-  Important things.
+  To clarify \ref{def:prequ:subjunctive}, let us consider an example.
 
-  First, may prefer to give up other information that leads to \(\phi\) having value \(v'\).
-  If so, not a \requ{}.
+  \begin{example}
+    Suppose the step of reasoning appeals to premises that \(\alpha\) has value \(v''\) and that \(\beta\) has value \(v'''\).
+    And, suppose the agent holds that
+    \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\)
+    and
+    that \(\beta\) has value \(v'''\) was obtained from \(\psi\) having value \(v'\).
+    Such that, without \(\psi\) no \(\beta\).
+  \end{example}
+  \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\) is background commitment of the agent.
+  However, so long as \(\alpha\) has value \(v''\) and \(\beta\) value \(v'''\), then step.
+  So, background from relation to \(\alpha\) alone does not satisfy.
+  However, relation to \(\beta\).
+  Here, important.
+\end{note}
 
-  Second, though \result{} has global clause, way introduced may be different.
-  Cases.
-  Two different links.
-  Hence, \ref{def:requi:subjunctive} may have different conditions.
+\begin{note}[Also no background]
+  When no background commitments.
+  For, the \(\psi\) having value \(v'\) is really important.
+  However, if background, then these matter for making the step.
+\end{note}
 
-  \result{1}.
-  However, \prequ{} does not require that for any other step, also following from premises.
+\begin{note}[Moving to \crequ{0}]
+  The definition of a \crequ{0} is the same as the definition of a \prequ{0}, but for attention on the conclusion, rather than the premises of the step of reasoning.
 \end{note}
 
 \begin{note}
   \begin{restatable}[\crequ{2} of a step of reasoning]{definition}{defRequisiteC}
-    \label{def:requisite:c}
+    \label{def:crequ}
     \(\psi\) has value \(v'\) is a \emph{\crequ{0}} of a step of reasoning if and only if
-    \begin{enumerate}
-    \item \(\psi\) has value \(v'\) is a \requ{0} of a that step of reasoning.
-    \item\label{def:requi:subjunctive} If \(\psi\) were not to have value \(v'\) then that step of reasoning would involve:
-      \begin{enumerate}
-      \item\label{def:requi:subjunctive:c} Moving to something that is not the case.
+    \begin{enumerate}[label=\arabic*., ref=\named{cR:\arabic*}]
+    \item
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{conclusion} of the step of reasoning \(\delta\).
+    \item
+      \label{def:crequ:subjunctive}
+      It is not epistemically possible for the agent to make step \(\delta\) without either:
+      \begin{enumerate}[label=\alph*., ref=\named{cR:2\alph*}]
+      \item \(\psi\) having value \(v'\), or
+      \item the relevant background conditions (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
       \end{enumerate}
+    \item
+      \requGlobalClause{}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  In cases of purely deductive reasoning, no different from a \prequ{}.
+  Intuitively, moving to something that is not the case, such that no making the step.
+\end{note}
 
-  In other cases of reasoning, distinct from a \prequ{}.
-  Making the step adds something extra.
-  For example, in strengthening cases.
+\begin{note}
+  From the perspective of their definition, \crequ{1} and \prequ{1} are distinguished only by how \(\psi\) having value \(v'\) is a \result{0}.
+  In the case of \prequ{1}, \(\psi\) having value \(v'\) is a \result{0} of the premises, while in the case of \cprequ{1}, it is a \result{0} of the conclusion.
+\end{note}
+
+\begin{note}[No \crequ{1} wrt.\ deductive reasoning]
+  \phantlabel{crequ-only-non-deductive}
+  As noted, we distinguish \prequ{1} and \crequ{1} in part for the definition to follow, but also due to the kind of reasoning the definitions apply to.
+  For, in contrast to \prequ{1}, there are no \crequ{1} in the case of purely deductive reasoning.
+
+  For, in the case of deductive reasoning, any conclusion of the step of reasoning follows from the relevant premises, in the sense that it is not (epistemically) possible for the agent to jointly hold that the premises of the step have their respective values while the conclusion of the step does not have some value.\nolinebreak
+  \footnote{
+    This is only to state that, with respect to \emph{conditional detachment}, it is not (epistemically) possible for an agent to hold that \(\phi\) is true and \(\phi \rightarrow \psi\) is true and not to hold that \(\psi\) is false.
+    And, it is compatible with this statement that the agent holds both the premises but does not entertain \(\psi\) as either true or false.
+  }
+
+  Hence, in order for \(\psi\) having value \(v'\) to be a \crequ{}, the step of reasoning must introduce something which does not directly follow from the premises.
+  For example, moving from inductive considerations for \(\phi\) being true to \(\phi\) being true.
+\end{note}
+
+\paragraph{\cprequ{3}}
+
+\begin{note}
+  We now turn to the third (and final) type of \requ{}.
+  In contrast to \pandcrequ{1}, this type of \requ{} builds on parts of the definition of a \result{}, and on the definition \crequ{}.
 \end{note}
 
 \begin{note}
   \begin{restatable}[\cprequ{2} of (a step of) reasoning]{definition}{defRequisiteCP}
-    \label{def:requisite:cp}
+    \label{def:cprequ}
     \(\psi\) has value \(v'\) is a \emph{\cprequ{0}} of (a step of) reasoning \(\delta\) iff
-    \begin{enumerate}
-    \item \(\chi\) having value \(v''\) is a \crequ{0} of a the step of reasoning \(\delta\).
-    \item \(\chi\) having value \(v''\) then \(\psi\) has value \(v'\) follows from premises of \(\delta\) together with \(\chi\) having value \(v''\).
-    \item 1 and 3 of result hold.
+    \begin{enumerate}[label=\arabic*., ref=\named{cpR:\arabic*}]
+    \item
+      \label{def:cprequ:result}
+      \(\psi\) has value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
+    \item It is the case that both:
+      \label{def:cprequ:conseq}
+      \begin{enumerate}[label=\alph*., ref=\named{cpR:2\alph*}]
+      \item
+        \label{def:cprequ:crequ}
+        \(\chi_{i}\) having values \(v''_{i}\) are \crequ{1} of a the step \(\delta\).
+      \item
+        \label{def:cprequ:subjunctive}
+        It is not (epistemically) possible for the agent to jointly hold
+          \begin{enumerate}
+          \item the premises of \(\delta\),
+          \item that \(\chi_{i}\) have values \(v''_{i}\), and
+          \item that \(\psi\) does not have value \(v'\).
+          \end{enumerate}
+      \end{enumerate}
+    \item
+      \requGlobalClause{}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  Special case of a \prequ{}.
-  Something new from premises when combined with 
+  Intuitively, a \cprequ{} is a special case of a \prequ{} which takes into account proposition-value pairs introduced by making the step of reasoning.
+  Something new from premises when combined with \crequ{1} of the relevant step of reasoning.
 
-  Here, only when the conclusion is introducing something new.
-  So, no \cprequ{1} in cases of purely deductive reasoning.
+  For, \ref{def:cprequ:crequ} requires that the relevant proposition-value pairs which lead to \(\psi\) having value \(v'\) are \crequ{1}.
+
+  Hence, follow from the note \hyperref[crequ-only-non-deductive]{above}, \cprequ{1} are unique to non-deductive reasoning.
+\end{note}
+
+\begin{note}
+  Turning to the clauses of \autoref{def:cprequ}.
+
+  As with the definitions of \pandcrequ{1}, \ref{def:cprequ:conseq} the first clause of the definition of a \cprequ{} requires that \(\psi\) having value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
+  Unlike the definitions of \pandcrequ{1}, \ref{def:cprequ:conseq} does not constrain the way in which \(\psi\) having value \(v'\) is a \result{0}.
+  Instead, the relevant clarification is found in~\ref{def:cprequ:subjunctive}.
+
+  In contrast, an analogue of clauses~\ref{def:prequ:subjunctive} and~\ref{def:crequ:subjunctive} is omitted from the definition of \cprequ{}.
+  For, the importance of \(\psi\) having value \(v'\) to reasoning is secured by the proposition-values pairs \(\chi_{i}\) having values \(v''_{i}\) being a \crequ{} and~\ref{def:cprequ:subjunctive}.
 \end{note}
 
 \begin{note}
   No further regress.
   For, the possibility of a \cprequ{} is due to the step of reasoning introducing something new.
   If anything follows from a \cprequ{}, then it will also be a \cprequ{}.
-\end{note}
-
-\begin{note}
-  \begin{restatable}[\requ{3} of a step of reasoning]{definition}{defRequisite}
-    \label{def:requisite}
-    \(\psi\) has value \(v'\) is a \emph{\requ{}} of a step of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if and only if:
-    \begin{enumerate}
-    \item Some kind of \requ{}
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{restatable}
-\end{note}
-
-\begin{note}
-  Intuitively, a \requ{} of a step of reasoning is a non-disposable consequence of some step of reasoning and the reasoning as a whole, whose failure is epistemic possibility for the agent, and is such that the failure of the \requ{} would mean that the step of reasoning appealed to something that is not the case.
 \end{note}
 
 \begin{note}
@@ -831,7 +997,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  \autoref{def:requisite} is how we build on \ideaCSA{} and \ideaCSB{}.
+  \autoref{def:requsite} is how we build on \ideaCSA{} and \ideaCSB{}.
   For, the definition of a \requ{} applies to reasoning in general, claiming support is an instance of reasoning, and hence applies to instances of claiming support.
   In particular, in instances of claiming support:
   {
@@ -844,140 +1010,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Indeed, \ideaCSB{} will focus on \requ{} for step, rather than reasoning in general.
   }
 
-  Still, as \autoref{def:requisite} is quite complex, we will first work through the clauses and how they combine in some detail before providing a handful of illustrations.
-\end{note}
-
-\paragraph{In detail}
-
-
-\begin{note}
-  The clauses are arranged as follows:
-  \begin{itemize}
-  \item Clause \ref{def:requi:prop} states how \(\psi\) having value \(v'\) relates to the instance reasoning.
-  \item Clause \ref{def:requi:not-v-poss} highlights the relevance of subjective conditional of \ref{def:requi:subjunctive}.
-  \item Clause \ref{def:requi:subjunctive} states a specific way in which \(\psi\) having value \(v'\) matters to the instance of reasoning.
-  \end{itemize}
-  % As such, our focus will be on clauses~\ref{def:requi:prop}~and~\ref{def:requi:subjunctive}.\nolinebreak
-  % \footnote{
-  %   Clause \ref{def:requi:not-v-poss} is separated from \ref{def:requi:subjunctive} simply to ease readability.
-  % }
-\end{note}
-
-\subparagraph*{Clause \ref{def:requi:prop}}
-
-\begin{note}[Clause \ref{def:requi:prop}]
-  Clause \ref{def:requi:prop} requires two properties of \(\psi\) having value \(v'\).
-
-  First, sub-clause~\ref{def:requi:prop:conseq} requires that \(\psi\) having value \(v'\) is a result of making the step of reasoning.
-  Second, sub-clause~\ref{def:requi:prop:persists} requires that \(\psi\) having value \(v'\) persists through to the conclusion of the instance of reasoning.
-
-  We take each sub-clause in turn.
-\end{note}
-
-\subparagraph*{Sub-clause~\ref{def:requi:prop:conseq}}
-
-\begin{note}
-  Starting with sub-clause~\ref{def:requi:prop:conseq}, emphasis is on \(\psi\) having value \(v'\) as a result of \emph{making} the step of reasoning.
-
-  Suppose the step of reasoning concludes with \(\alpha\) having value \(v''\).
-  And, suppose the agent knows that \(\alpha\) has value \(v''\) only if \(\beta\) has value \(v'''\).
-  Then, \(\beta\) having value \(v'''\) follows from the agent making the step of reasoning.
-
-  Suppose the agent has good inductive reasons for thinking that \(\alpha\) has value \(v''\).
-  The step of reasoning involves moving from those good inductive reasons to holding that \(\alpha\) has value \(v''\).
-  And, suppose as before the agent knows that \(\alpha\) has value \(v''\) only if \(\beta\) has value \(v'''\).
-  Then, \(\beta\) having value \(v'''\) follows from the agent making the step of reasoning.
-
-  The term `follows as a result' is quite general.
-  I doubt that it is possible, in general, to provide a clear account of what this amounts to.
-  Further, `follows from as a result' is relative to the agent's perspective.
-  We will try to keep any instance of a \requ{} as uncontroversial as possible.
-\end{note}
-
-\subparagraph*{Sub-clause~\ref{def:requi:prop:persists}}
-
-\begin{note}
-  Turning to sub-clause~\ref{def:requi:prop:persists}, by `persistence' we relate the step of reasoning to the instance of reasoning more broadly.
-  From sub-clause~\ref{def:requi:prop:conseq}, it is a necessary condition of \(\psi\) having value \(v'\) being a \requ{} that \(\psi\) having value \(v'\) follows from a making some step.
-  However, we also wish to ensure that \(\psi\) having value \(v'\) matters with respect to the instance of reasoning as a whole.
-
-  Not only does \(\psi\) having value \(v'\) follow as a result of making the step of reasoning, but making the step of reasoning is such that the conclusion of reasoning is obtained in part by making the relevant step of reasoning.
-
-  Expanding on the previous two examples.
-
-  In the first, the step of reasoning concludes with \(\alpha\) having value \(v''\).
-  Suppose the agent goes on to observe that \(\alpha\) having value \(v''\) only if \(\gamma\) has value \(v''''\), and concludes their reasoning with \(\gamma\) having value \(v''''\).
-  Then, as \(\beta\) having value \(v'''\) followed as a result of \(\alpha\) having value \(v''\), and the agent obtained \(\gamma\) having value \(v''''\) from \(\alpha\) having value \(v''\), \(\beta\) having value \(v'''\) persists through to the conclusion of reasoning.
-
-  The same observation also holds for the second example.
-
-  By contrast, consider an instance of reasoning by cases.
-  The agent reasons about \(\alpha\) having value \(v''\) and \(\alpha\) not having value \(v''\) and observes that \(\beta\) has value \(v'''\) follows regardless.
-  In the first case, \(\alpha\) having value \(v''\) (trivially) follows as a result of assuming that \(\alpha\) having value \(v''\), but \(\alpha\) having value \(v''\) does not persist through to the conclusion of the instance of reasoning as the agent discharges their assumption that \(\alpha\) has value \(v''\) as part of reasoning by cases.
-\end{note}
-
-\subparagraph*{Clause \ref{def:requi:not-v-poss}}
-
-\begin{note}[Clause \ref{def:requi:not-v-poss}]
-  Clause \ref{def:requi:not-v-poss} highlights the relevance of subjective conditional of \ref{def:requi:subjunctive}:
-  The subjunctive antecedent of clause~\ref{def:requi:subjunctive} concerns \(\psi\) not having value \(v'\), and clause~\ref{def:requi:not-v-poss} simply states that \(\psi\) not having value \(v'\) is an epistemic possibility.
-
-  The explicit assumption is important for two reasons.
-
-  First, we have no interest in a consequence of reasoning if there is no epistemic possibility of subjunctive of clause \ref{def:requi:subjunctive} obtaining.
-  The purpose of identifying \requ{1} is to highlight features of an agent's reasoning which are relevant to whether the reasoning indicates that \(\phi\) having value \(v\) is the case.
-
-  Second, that \(\psi\) may not have value \(v'\) is an epistemic possibility ensures that the subjunctive conditional of clause \ref{def:requi:subjunctive} may be evaluated from the agent's epistemic state when making the relevant step of reasoning.\nolinebreak
-  \footnote{
-    Clause~\ref{def:requi:subjunctive} could be expanded to apply in cases of epistemically impossible proposition-value pairs, but it is not clear why such epistemically impossible proposition-value pairs would matter to the agent's reasoning.
-    }
-\end{note}
-
-\subparagraph*{Clause~\ref{def:requi:subjunctive}}
-
-\begin{note}
-  With clause~\ref{def:requisite} we stated how \(\psi\) having value \(v'\) relates to the agents reasoning.
-  With clause~\ref{def:requi:subjunctive} we state a specific way in which \(\psi\) having value \(v'\) matters to the instance of reasoning.\nolinebreak
-  \footnote{
-  May think that clause \ref{def:requi:prop:conseq} follows from \ref{def:requi:subjunctive}.
-  For, \(\lnot p \leadsto \lnot q\), \(\lnot p \rightarrow \lnot q\), so \(q \rightarrow p\).
-  However, this is not quite right.
-
-  Not appeal to something that is not the case, then it is not the case that \(\psi\) were not to have value \(v'\).
-
-  For this to work, would need that in appealing to something, also appealing to it not being the case that one is appealing to something that is not the case.
-  This does not obviously follow.
-  Return to this with illustration.
-  }
-\end{note}
-
-\begin{note}
-  Consider the following example.
-
-  A step of reasoning concludes with \(\alpha\) having value \(v''\) such that the conclusion of the instance of reasoning is obtained in part from \(\alpha\) having value \(v''\).
-  And, the agent is confident that if \(\alpha\) has value \(v''\) then \(\psi\) has value \(v'\) (and if \(\psi\) does not has value \(v'\) then \(\alpha\) does not have value \(v''\)).
-  Further, the agent considers is epistemically possible that \(\psi\) does not have value \(v''\).
-  So, clauses~\ref{def:requi:prop} and~\ref{def:requi:not-v-poss} are both satisfied.
-
-  However, if the agent were to consider the case that \(\psi\) does not has value \(v'\), then the agent would consider this to indicate that \(\alpha\) may have value \(v''\) (even) when \(\psi\) does not has value \(v'\), rather than considering that \(\alpha\) would not have value \(v''\).
-
-  In other words, step of reasoning concludes with \(\alpha\) having value \(v''\), and it is only \(\alpha\) having value \(v''\) that matters with respect to obtaining the conclusion of the instance of reasoning.
-  And, \(\psi\) has value \(v'\) follows as a result of the step of reasoning as the agent is confident that if \(\alpha\) has value \(v''\) then \(\psi\) has value \(v'\).
-  However, as the agent is more confident with the step of reasoning concluding with \(\alpha\) having value \(v''\) over the conditional from \(\alpha\) having value \(v''\) to \(\psi\) having value \(v'\), \(\psi\) not having value \(v'\) would not indicate to the agent that there is any issue with the step of reasoning.
-
-  In this respect, clause~\ref{def:requi:subjunctive} ensures that \(\psi\) (not) having value \(v'\) matters with respect to making the step of reasoning.
-\end{note}
-
-\begin{note}
-  Still, clause~\ref{def:requi:subjunctive} is light on the way in which \(\psi\) (not) having value \(v'\) matters.
-  Sub-clause~\ref{def:requi:subjunctive:p} involves the agent appealing to something that is not the case, while sub-clause~\ref{def:requi:subjunctive:c} involves the agent moving to something that is not the case.
-  In other words, the step of reasoning involves either appealing to some premise which would not be the case, or establishing some sub-conclusion that is not the case.
-
-  With respect to the example in play, \(\psi\) (not) having value \(v'\) would either lead to \(\alpha\) not having value \(v''\), or some premise of the step of reasoning \(\xi\) not having \(v'''\).
-
-  In both cases, we return to the idea of an \emph{undercutting} defeater.
-  If \(\alpha\) does not have value \(v''\) then the agent's reasoning for \(\phi\) having value \(v\) is undercut by appeal to some premise that is would not be the case.
-  And, if \(\xi\) does not have value \(v'''\) then, likewise, the agent's reasoning for \(\phi\) having value \(v\) is undercut by appeal to some premise that is would not be the case.
+  Still, as \autoref{def:requsite} is quite complex, we will first work through the clauses and how they combine in some detail before providing a handful of illustrations.
 \end{note}
 
 \paragraph{Illustrations}
@@ -1054,7 +1087,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \item Equality is a symmetric and transitive (and reflexive) relation.
   \item So, \(2 + 2 = 1 + 3\).
   \end{enumerate}
-  It does not seem that each premise in the reasoning requires an accompanying premise \dots\nolinebreak
+  It does not seem that each premise in the reasoning requres an accompanying premise \dots\nolinebreak
   \footnote{
     \textcite{Carroll:1895uj}.
   }
@@ -1097,10 +1130,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   \begin{restatable}[\mistaken{0} and \misled{}]{definition}{defMoM}\label{def:MoM}
-    Some step of reasoning such that reasoning culminates with \(\phi\) having value \(v\).
+    Some reasoning such that reasoning culminates with \(\phi\) having value \(v\).
     \begin{itemize}
       \item The reasoning is \emph{\mistaken{}} if \(\psi\) having value \(v'\) is a \prequ{} and \(\psi\) does not have value \(v'\).
-    \item The reasoning is \emph{\misled{}} if \(\psi\) having value \(v'\) is a \crequ{} and \(\psi\) does not have value \(v'\).
+    \item The reasoning is \emph{\misled{}} if \(\psi\) having value \(v'\) is either a \crequ{} or a \cprequ{} and \(\psi\) does not have value \(v'\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{restatable}

@@ -465,6 +465,52 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\presult}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{premise-\result{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{premise-\result{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{premise-\result{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Premise-\result{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Premise-\result{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cresult}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{conclusion-\result{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{conclusion-\result{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{conclusion-\result{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Conclusion-\result{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Conclusion-\result{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\requ}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
@@ -534,6 +580,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\pandcrequ}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{premise-\space and\space conclusion-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{premise-\space and\space conclusion-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{premise-\space and\space conclusion-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Premise-\space and\space conclusion-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Premise-\space and\space conclusion-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\cprequ}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
@@ -555,6 +624,10 @@
   }
 }
 \ExplSyntaxOff
+
+\newcommand{\requGlobalClause}{%
+  \obeybreaks{For any other step of reasoning for which \(\psi\) having value \(v'\) is a \result{}, \(\psi\) having value \(v'\) is also a \requ{} (by satisfying the other clauses of this definition).}%
+}
 
 % % % % % % Epistemic possibility, etc % % %
 
