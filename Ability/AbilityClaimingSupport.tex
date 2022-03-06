@@ -639,9 +639,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \begin{restatable}[A \requ{0} of (making a step of) some instance of reasoning]{idea}{ideaRequisite}
     A requ{} is a proposition-value pair, e.g.\ \(\psi\) having value \(v'\), such that
     \begin{enumerate}
+    \item \(\phi\) not having value \(v'\) is an \ep{}.
     \item Involved in reasoning.
     \item Important for reasoning.
-    \item \ep{}.
     \end{enumerate}
   \end{restatable}
 
@@ -669,9 +669,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \paragraph{Definition}
 
 \begin{note}
-  \begin{restatable}[A \result{0} of (making a step of) some instance of reasoning]{definition}{defResult}
+  \begin{restatable}[\result{3} of (making a step of) some reasoning]{definition}{defResult}
     \label{def:result}
-    Let \(R\) be some instance of reasoning which concludes that \(\phi\) has value \(v\):
+    Let \(R\) be some instance of reasoning which concludes that \(\phi\) has value \(v\).
 
     \(\psi\) has value \(v'\) is \emph{\result{}} of a step \(\delta\) of reasoning \(R\) if and only if:
     \begin{enumerate}[label=\arabic*., ref=\named{P:\arabic*}]
@@ -680,10 +680,18 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \(\psi\) not having value \(v'\) is an \ep{}.
     \item
       \label{def:result:conseq}
-      Making step \(\delta\) while holding that \(\psi\) does not have value \(v'\) is not epistemically possible, relative to background commitments of the agent (if any).
+      Making step \(\delta\) while holding that \(\psi\) does not have value \(v'\), relative to other commitments of the agent (if any), would involve either:
+      \begin{enumerate}[label=\alph*., ref=\named{P:2\alph*}]
+      \item
+        \label{def:result:conseq:a}
+        Appeal to something that is not the case.
+      \item
+        \label{def:result:conseq:c}
+        Moving to something that is not the case.
+      \end{enumerate}
     \item
       \label{def:requ:persists}
-      No other part of reasoning shows that \(\phi\) has value \(v\) which does not involve a step \(\delta'\) such that \(\psi\) having value \(v'\) follows from making step \(\delta'\).
+      No other part of the reasoning that concludes that \(\phi\) has value \(v\) involves a step \(\delta'\) such that \(\psi\) having value \(v'\) satisfies \ref{def:result:conseq} with respect to \(\delta'\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -699,57 +707,118 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   But also important to pinpoint step, so local.
 \end{note}
 
-\paragraph{Details}
-
-\subparagraph{Clause~\ref{def:result:ep}}
+\paragraph*{Detailing \autoref{def:result} through an example with a variation}
 
 \begin{note}
-  Only interested in these instances.
+  Consider the following reasoning:
+  \begin{example}\mbox{}
+    The agent is working for some company, and is in a room of an office building which has a clock on the wall.
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item\label{result:ex:temp:w} The clock appears to be working
+    \item\label{result:ex:temp:f} The clock is working. \hfill Step A: From \ref{result:ex:temp:w}
+    \item\label{result:ex:temp:t} The clock reads 5:05pm.
+    \item\label{result:ex:temp:c} It is 5:05pm. \hfill Step B: From \ref{result:ex:temp:f} \& \ref{result:ex:temp:t}
+    \item\label{result:ex:temp:t-to-d} If it is after 5pm, no meetings may be started.
+    \item\label{result:ex:temp:d} No meetings may be started.
+      \hfill Step C: From~\ref{result:ex:temp:c} \&~\ref{result:ex:temp:t-to-d}
+    \end{enumerate}
+  \end{example}
+
+  \ref{def:result:ep} requires that \(\psi\) not having value \(v'\) is an \ep{}.
+  Our interest is only in proposition-value pairs `involved' in some instance of reasoning that may have some other value from the perspective of the agent.
+
+  It is plausible that neither \ref{result:ex:temp:t} nor \ref{result:ex:temp:t-to-d} are \ep{1} for the agent.
+  For, we may assume that~\ref{result:ex:temp:t} is obtained by visual inspection, and that \ref{result:ex:temp:t-to-d} is part of the company's rule-book.
+
+  Still, we may consider the remaining proposition-value pairs as \ep{}.
+  For, the clock may not be working, and, as the agent appeals to the clock working in order to reason to it being 5:05pm, it (also) may not be 5:05pm.
+  In particular, it may be that it is 4:55pm, and so there is a few minutes in which someone may start a meeting.
+  So,~\ref{result:ex:temp:w},~\ref{result:ex:temp:f},~\ref{result:ex:temp:c}, and~\ref{result:ex:temp:d} are all candidates for being \result{1}
 \end{note}
 
-\subparagraph*{Clause~\ref{def:result:conseq}}
-
 \begin{note}
-  Starting with sub-clause~\ref{def:result:conseq}, emphasis is on \(\psi\) having value \(v'\) as a result of \emph{making} the step of reasoning.
-
-  \begin{example}
-    Suppose the step of reasoning appeals to premise that \(\alpha\) has value \(v''\).
-    And, suppose the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
-  \end{example}
-
-  In this example, \ref{def:result:conseq} is satisfied due to appealing to a premise.
-  By contrast, conclusion:
-
-  \begin{example}
-    Suppose the step of reasoning concludes with \(\alpha\) having value \(v''\).
-    And, suppose the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
-  \end{example}
-
-  Both are \result{1}.
-
-  \begin{example}
-    Suppose the agent has available inductive for \(\alpha\) having value \(v''\).
-    The step of reasoning involves moving from inductive premises to \(\alpha\) having value \(v''\).
-
-    As before the agent holds that \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\).
-  \end{example}
+  Still, given \ref{def:result:ep}, any \ep{} proposition-value pair is a candidate for being a \result{}.
+  For example, it being the case that it will rain tomorrow, or that one would enjoy what follows the 10o'clock news this evening.
+  Hence, \ref{def:result:conseq} ensures that the proposition value pair is relevant to the instance reasoning.
 \end{note}
 
-\subparagraph*{Clause~\ref{def:requ:persists}}
+\begin{note}
+  Let us consider steps B and C in detail:
+
+  If the clock is not working, the step B would involve appealing to something that is not the case, and hence \ref{result:ex:temp:f} satisfies \ref{def:result:conseq:a} with respect to step B.
+  Likewise, if the time is not 5:05pm, then step B would involve moving to something that is not the case, and hence \ref{result:ex:temp:c} satisfies \ref{def:result:conseq:c}.
+
+  Similarly, the time being 5:05pm satisfies \ref{def:result:conseq:a} with respect to step C, and the that no meeting may be started satisfies \ref{def:result:conseq:c}.\nolinebreak
+  \footnote{
+    Note, however, that the clock working does not satisfy \ref{def:result:conseq:a} with respect to step C, as the step moves from what the time is, not the report of what the time is by a working clock.
+  }
+
+  And, without any background constraints, no other proposition-value pairs seems to satisfy~\ref{def:result:conseq}.
+\end{note}
 
 \begin{note}
-  However, we also wish to ensure that \(\psi\) having value \(v'\) matters with respect to the instance of reasoning as a whole.
+  Still,~\ref{def:result:conseq} mentions `other commitments' of the agent `(if any)'.
+  Hence, the time being 5:05pm is not the only proposition-value pair which satisfies \ref{def:result:conseq:c}.
+  For,~\ref{result:ex:temp:t-to-d} is a commitment of the agent:
+  If the meeting may be started, then the time is not 5:05p.
+  So, that no meetings may be started \emph{also} satisfies \ref{def:result:conseq:c} with respect to step B.
+\end{note}
+
+\begin{note}[Summary]
+  The preceding is summarised in~\autoref{fig:def:result:conseq:table}, with step A also added.
+  \begin{figure}[!h]
+    \centering
+    \begin{tabular}{  c | c | c | c  }
+      & Step A & Step B & Step C \\
+      \hline
+      \ref{def:result:conseq:a} & \ref{result:ex:temp:w} & \ref{result:ex:temp:f} & \ref{result:ex:temp:c} \\
+      \hline
+      \ref{def:result:conseq:c} & \ref{result:ex:temp:f} & \ref{result:ex:temp:c}, \ref{result:ex:temp:d}  & \ref{result:ex:temp:d}
+    \end{tabular}
+    \caption{Proposition-value pairs satisfying \ref{def:result:conseq} with respect to steps.}
+    \label{fig:def:result:conseq:table}
+  \end{figure}
+\end{note}
+
+\begin{note}
+  The final clause of \ref{def:result} to consider is \ref{def:requ:persists}.
+  As noted, the basic idea behind \ref{def:requ:persists} is to ensure that the relevant proposition-value pair matters to the conclusion of the instance of reasoning for which the step is a part.
+
+  The notion of a `part' of reasoning is left intuitive.
+  However, that the relevant `parts' of reasoning provides sufficient information to observe that the relevant proposition-value pairs identified all satisfy \ref{def:requ:persists}.
+  For, that no meetings may be started is the conclusion of the instance of reasoning, and both steps A and B are involved in obtaining this conclusion.
+
+  Hence,~\ref{result:ex:temp:f},~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are all \result{1} of the instance of reasoning with respect to step B, and~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are \result{1} of reasoning with respect to step C.\nolinebreak
+  \footnote{
+    And both \ref{result:ex:temp:w} and \ref{result:ex:temp:f} are \result{1} with respect to step A.
+  }
+  Intuitively, each proposition-value pair is involved in obtaining the conclusion.
+\end{note}
+
+\begin{note}
+  Still, to illustrate why~\ref{def:requ:persists} is important, consider the agent receiving a memo prior to their reasoning, which states the following:
+  \begin{enumerate}[label=\arabic*\('\), ref=(\arabic*\('\))]
+  \item\label{result:ex:temp:memo} If, and only if, the clock is not working, no meetings shall be held.
+  \end{enumerate}
+  Let us assume the memo is stamped, and therefore that the information contained is not an \ep{}.
+
+  The agent now has the option of reasoning by cases.
+  If the clock is working, then the agent reasons to the conclusion that no meetings may be started as in~\ref{result:ex:temp:f} to~\ref{result:ex:temp:d}, above.
+  However, if the clock is not working, then the agent may obtain the conclusion from \ref{result:ex:temp:memo}.
+  In particular, the agent would not need to appeal to the clock working in order to appeal to the clock not working, so \ref{result:ex:temp:f} would not be a \result{} of step B.
+  And, likewise the agent would obtain the conclusion without appealing to the time being 5:05pm.
+  Hence, \ref{result:ex:temp:c} would neither be a \result{} of step B nor of step C.
+
+  So, only \ref{result:ex:temp:d} would be a \result{} of reasoning by cases.
+\end{note}
+
+\begin{note}
+  The details here are secondary to the key idea:
 
   Not only does \(\psi\) having value \(v'\) follow as a result of making the step of reasoning, but making the step of reasoning is such that the conclusion of reasoning is obtained in part by making the relevant step of reasoning.
 
-  \begin{example}
-    The agent reasons about \(\alpha\) having value \(v''\) and \(\alpha\) not having value \(v''\) and observes that \(\beta\) has value \(v'''\) follows regardless.
-  \end{example}
-  So, \ref{def:requ:persists} fails.
-
-  \begin{example}
-    Both cases need \(\psi\) having value \(v'\).
-  \end{example}
+  If the agent has the option of reasoning by cases, then the agent's reasoning does not depend any proposition-value pair that is unique to a particular case.
+  Hence, that proposition-value pair will not be a \result{}.
 \end{note}
 
 \begin{note}
@@ -766,10 +835,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \label{sec:def-of-requ}
 
 \begin{note}
+  With the definition of a \result{} in hand, we not turn to defining \requ{1}.
+\end{note}
+
+\begin{note}
   Intuitively, a \requ{} of a step of reasoning is a non-disposable consequence of some step of reasoning and the reasoning as a whole, whose failure is epistemic possibility for the agent, and is such that the failure of the \requ{} would mean that the step of reasoning appealed to something that is not the case.
 
-  The definition of a \result{} clarifies how a proposition-value pair is involved in some instance of reasoning, but the definition of a \result{} alone does not account for why it is not possible for the agent to conclude the instance of reasoning without (indirectly) appealing to the proposition-value pair.
-  To capture the mentioned role of proposition-value pair, definition of a \requ{} is broken down into three distinct types of \requ{}, and the definition of a \result{} is then used to clarify two basic \requ{}-types.
+  The definition of a \result{} clarified how a proposition-value pair is important in some instance of reasoning, but the definition of a \result{} alone does not account for why it is not possible for the agent to conclude the instance of reasoning without (indirectly) appealing to the proposition-value pair.
+  To capture the mentioned role of proposition-value pair, the definition of a \requ{} is broken down into three distinct types of \requ{}, with the definition of a \result{} being used to clarify two basic \requ{}-types.
 \end{note}
 
 \begin{note}
@@ -778,7 +851,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{def:requsite}
     \(\psi\) has value \(v'\) is a \emph{\requ{}} of a step of reasoning that concludes that \(\phi\) has value \(v\) (from an agent's perspective) if and only if:
     \begin{enumerate}[label=\arabic*., ref=\named{R:\arabic*}]
-    \item \(\psi\) having value \(v'\) is either:
+    \item[] \(\psi\) having value \(v'\) is either:
       \begin{enumerate}
       \item
         A \prequ{}.
@@ -827,6 +900,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   }
 \end{note}
 
+\subparagraph*{\prequ{3}}
+
 \begin{note}
   \begin{restatable}[\prequ{2} of a step of reasoning]{definition}{defRequisiteP}
     \label{def:prequ}
@@ -834,13 +909,20 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
     \begin{enumerate}[label=\arabic*., ref=\named{pR:\arabic*}]
     \item
-      \(\psi\) has value \(v'\) is a \result{0} of the \emph{premises} of a the step of reasoning \(\delta\).
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{premises} of a the step \(\delta\).\nolinebreak
+      \footnote{
+        I.e.\ by satisfying~\ref{def:result:conseq:a} of~\autoref{def:result}.
+      }
     \item
       \label{def:prequ:subjunctive}
-      It is not epistemically possible for the agent to make step \(\delta\) without either:
+      It is not \epAdv{0} for the agent to make step \(\delta\) without either:
       \begin{enumerate}[label=\alph*., ref=\named{pR:2\alph*}]
-      \item \(\psi\) having value \(v'\), or
-      \item the relevant background conditions (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
+      \item
+        \label{def:prequ:subjunctive:psi}
+        \(\psi\) having value \(v'\), or
+      \item
+        \label{def:prequ:subjunctive:other}
+        the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
       \end{enumerate}
     \item
       \requGlobalClause{}
@@ -850,32 +932,49 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}[Summary of \prequ{0}]
-  In short, a \prequ{0} is simply a \result{0} which follows from the \emph{premises} of the step of reasoning with the added constraint regarding the relevant background commitments of the agent, if there are any.
+  In short, a \prequ{0} is simply a \result{0} which follows from the \emph{premises} of the step of reasoning with the added constraint regarding the relevant commitments of the agent, if there are any.
 \end{note}
 
 \begin{note}
-  To clarify \ref{def:prequ:subjunctive}, let us consider an example.
+  To illustrate the important of \ref{def:prequ:subjunctive}, consider the agent having the following commitments prior to the instance of reasoning:
 
-  \begin{example}
-    Suppose the step of reasoning appeals to premises that \(\alpha\) has value \(v''\) and that \(\beta\) has value \(v'''\).
-    And, suppose the agent holds that
-    \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\)
-    and
-    that \(\beta\) has value \(v'''\) was obtained from \(\psi\) having value \(v'\).
-    Such that, without \(\psi\) no \(\beta\).
-  \end{example}
-  \(\alpha\) has value \(v''\) only if \(\psi\) has value \(v'\) is background commitment of the agent.
-  However, so long as \(\alpha\) has value \(v''\) and \(\beta\) value \(v'''\), then step.
-  So, background from relation to \(\alpha\) alone does not satisfy.
-  However, relation to \(\beta\).
-  Here, important.
+  \begin{enumerate}[label=B\(^{+}\)\arabic*., ref=(B\(^{+}\)\arabic*)]
+  \item
+    \label{result:ex:temp:repair}
+    If the clock is working, then it was repaired yesterday.
+  \item
+    \label{result:ex:temp:chime}
+    If the clock is working, then it chimes on the hour.
+  \end{enumerate}
+
+  Step B involved appeal to the proposition-value pair that the clock is working.
+  So, the consequents of both conditionals are \result{1} of step B (of the reasoning from \ref{result:ex:temp:f} to \ref{result:ex:temp:d}).\nolinebreak
+  \footnote{
+    I.e.\ excluding the possibility instance of reasoning by cases introduced by \ref{result:ex:temp:memo}.
+  }
+  Hence, the consequents of both conditionals are candidates for being \requ{1}.
+
+  However, the two consequents differ with respect to whether it would be \epAdv{} for the agent to make step B.
+  If the clock was not repaired yesterday, then it seems the agent would refrain from appealing to the clock functioning.
+  By contrast, if the clock does not chime on the hour, the agent may hold that \ref{result:ex:temp:chime} is false, rather than being committed to the clock being broken.
+
+  Of course, this evaluation assumes further information.
+  First, that the clock was in need of repair, and second that the agent does not consider whether the clock chimes to be important for whether the clock is telling the correct time.
+
+  In general, the possible \result{1}, and hence \prequ{1}, of a step of reasoning may be substantial, given the range of commitments an agent may have.
+  Still, the key idea of \ref{def:prequ:subjunctive} is hopefully clear:
+  \begin{itemize}
+  \item
+    A \prequ{} of a step of reasoning is a result of that step of reasoning that is not only involved in making the step, but is also important to maintaining that what the agent appeals to when making the step is appropriate.
+  \end{itemize}
 \end{note}
 
-\begin{note}[Also no background]
-  When no background commitments.
-  For, the \(\psi\) having value \(v'\) is really important.
-  However, if background, then these matter for making the step.
+\begin{note}
+  Note, also, that \ref{result:ex:temp:f} is clearly a \prequ{0} with respect to step B.
+  And, \ref{result:ex:temp:c} is clearly a \prequ{} with respect to step C.
 \end{note}
+
+\subparagraph{\crequ{3}}
 
 \begin{note}[Moving to \crequ{0}]
   The definition of a \crequ{0} is the same as the definition of a \prequ{0}, but for attention on the conclusion, rather than the premises of the step of reasoning.
@@ -887,13 +986,16 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \(\psi\) has value \(v'\) is a \emph{\crequ{0}} of a step of reasoning if and only if
     \begin{enumerate}[label=\arabic*., ref=\named{cR:\arabic*}]
     \item
-      \(\psi\) has value \(v'\) is a \result{0} of the \emph{conclusion} of the step of reasoning \(\delta\).
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{conclusion} of step \(\delta\).\nolinebreak
+      \footnote{
+        I.e.\ by satisfying~\ref{def:result:conseq:c} of~\autoref{def:result}.
+      }
     \item
       \label{def:crequ:subjunctive}
-      It is not epistemically possible for the agent to make step \(\delta\) without either:
+      It is not \epAdv{} for the agent to make step \(\delta\) without either:
       \begin{enumerate}[label=\alph*., ref=\named{cR:2\alph*}]
       \item \(\psi\) having value \(v'\), or
-      \item the relevant background conditions (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
+      \item the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
       \end{enumerate}
     \item
       \requGlobalClause{}
@@ -907,6 +1009,37 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
+  For example, consider the following two conditionals with respect to step C:
+  \begin{enumerate}[label=C\(^{+}\)\arabic*., ref=(C\(^{+}\)\arabic*)]
+  \item
+    \label{result:ex:temp:B:summon}
+    If no meetings may be started, then I may not summon my team for a meeting.
+  \item
+    \label{result:ex:temp:B:see}
+    If no meetings may be started, then I won't see \nagent{12} until tomorrow, at the earliest.
+  \end{enumerate}
+  The consequents of both conditionals are \result{1} of making step C, and as they follow from what step C establishes, both consequents are candidates for being \crequ{1}.
+  However, while the agent may not give up \ref{result:ex:temp:B:summon}, it seems the agent would easily give up \ref{result:ex:temp:B:see} if \nagent{12} were to (unexpectedly) visit the office.
+  Hence, only the consequent of \ref{result:ex:temp:B:summon} is a \crequ{1} of step C.
+\end{note}
+
+\begin{note}
+  As before, the possible \result{1}, and hence \crequ{1}, of a step of reasoning may be substantial, given the range of commitments an agent may have.
+  Still, the key idea of \ref{def:crequ:subjunctive} is hopefully clear:
+  \begin{itemize}
+  \item
+    A \crequ{} of a step of reasoning is a result of that step of reasoning that is not only involved in making the step, but is also important for maintaining that what follows from making the step is appropriate.
+  \end{itemize}
+\end{note}
+
+\begin{note}
+  Note, also, that \ref{result:ex:temp:d} is clearly a \crequ{} of step C.
+  And, both \ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are clearly \crequ{1} of step B.
+\end{note}
+
+\subparagraph*{Summarising}
+
+\begin{note}
   From the perspective of their definition, \crequ{1} and \prequ{1} are distinguished only by how \(\psi\) having value \(v'\) is a \result{0}.
   In the case of \prequ{1}, \(\psi\) having value \(v'\) is a \result{0} of the premises, while in the case of \cprequ{1}, it is a \result{0} of the conclusion.
 \end{note}
@@ -916,9 +1049,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   As noted, we distinguish \prequ{1} and \crequ{1} in part for the definition to follow, but also due to the kind of reasoning the definitions apply to.
   For, in contrast to \prequ{1}, there are no \crequ{1} in the case of purely deductive reasoning.
 
-  For, in the case of deductive reasoning, any conclusion of the step of reasoning follows from the relevant premises, in the sense that it is not (epistemically) possible for the agent to jointly hold that the premises of the step have their respective values while the conclusion of the step does not have some value.\nolinebreak
+  For, in the case of deductive reasoning, any conclusion of the step of reasoning follows from the relevant premises, in the sense that it is not \epAdv{} for the agent to jointly hold that the premises of the step have their respective values while the conclusion of the step does not have some value.\nolinebreak
   \footnote{
-    This is only to state that, with respect to \emph{conditional detachment}, it is not (epistemically) possible for an agent to hold that \(\phi\) is true and \(\phi \rightarrow \psi\) is true and not to hold that \(\psi\) is false.
+    This is only to state that, with respect to \emph{conditional detachment}, it is not \epAdv{} for an agent to hold that \(\phi\) is true and \(\phi \rightarrow \psi\) is true and not to hold that \(\psi\) is false.
     And, it is compatible with this statement that the agent holds both the premises but does not entertain \(\psi\) as either true or false.
   }
 
@@ -931,6 +1064,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   We now turn to the third (and final) type of \requ{}.
   In contrast to \pandcrequ{1}, this type of \requ{} builds on parts of the definition of a \result{}, and on the definition \crequ{}.
+
+  The key idea is that:
+  \begin{itemize}
+  \item
+    In the case of non-deductive reasoning, a step of reasoning may introduce a proposition-value pair which interacts with the premises of the step to yield further proposition-value pairs that are important for maintaining that what follows from making the step is appropriate.
+  \end{itemize}
+  Hence, follow from the note \hyperref[crequ-only-non-deductive]{above}, \cprequ{1} are unique to non-deductive reasoning.
 \end{note}
 
 \begin{note}
@@ -942,18 +1082,21 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \label{def:cprequ:result}
       \(\psi\) has value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
     \item It is the case that both:
-      \label{def:cprequ:conseq}
+      \label{def:cprequ:subjunctive}
       \begin{enumerate}[label=\alph*., ref=\named{cpR:2\alph*}]
       \item
-        \label{def:cprequ:crequ}
+        \label{def:cprequ:subjunctive:chi}
         \(\chi_{i}\) having values \(v''_{i}\) are \crequ{1} of a the step \(\delta\).
       \item
-        \label{def:cprequ:subjunctive}
-        It is not (epistemically) possible for the agent to jointly hold
+        \label{def:cprequ:subjunctive:relation}
+        It is not \epAdv{} for the agent to jointly hold
           \begin{enumerate}
-          \item the premises of \(\delta\),
-          \item that \(\chi_{i}\) have values \(v''_{i}\), and
-          \item that \(\psi\) does not have value \(v'\).
+          \item
+            the premises of \(\delta\),
+          \item
+            that \(\chi_{i}\) have values \(v''_{i}\), and
+          \item
+            that \(\psi\) does not have value \(v'\).
           \end{enumerate}
       \end{enumerate}
     \item
@@ -964,24 +1107,38 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Intuitively, a \cprequ{} is a special case of a \prequ{} which takes into account proposition-value pairs introduced by making the step of reasoning.
-  Something new from premises when combined with \crequ{1} of the relevant step of reasoning.
+  As with the definitions of \pandcrequ{1}, the first clause of the definition of a \cprequ{} requires that \(\psi\) having value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
+  However, unlike the definitions of \pandcrequ{1}, \ref{def:cprequ:result} does not constrain the way in which \(\psi\) having value \(v'\) is a \result{0}.
 
-  For, \ref{def:cprequ:crequ} requires that the relevant proposition-value pairs which lead to \(\psi\) having value \(v'\) are \crequ{1}.
-
-  Hence, follow from the note \hyperref[crequ-only-non-deductive]{above}, \cprequ{1} are unique to non-deductive reasoning.
+  Instead, the relevant clarification is found in~\ref{def:cprequ:subjunctive}.
+  In short,~\ref{def:cprequ:subjunctive} states that
+  \begin{enumerate}[label=\alph*.]
+  \item There are some proposition-value pairs which follow from the conclusion, and
+  \item \(\psi\) having value \(v'\) follows from those proposition-value pairs.
+  \end{enumerate}
+  In other words, then, the importance of \(\psi\) having value \(v'\) to reasoning is secured by the proposition-values pairs \(\chi_{i}\) having values \(v''_{i}\) being a \crequ{}.
 \end{note}
 
 \begin{note}
-  Turning to the clauses of \autoref{def:cprequ}.
-
-  As with the definitions of \pandcrequ{1}, \ref{def:cprequ:conseq} the first clause of the definition of a \cprequ{} requires that \(\psi\) having value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
-  Unlike the definitions of \pandcrequ{1}, \ref{def:cprequ:conseq} does not constrain the way in which \(\psi\) having value \(v'\) is a \result{0}.
-  Instead, the relevant clarification is found in~\ref{def:cprequ:subjunctive}.
-
-  In contrast, an analogue of clauses~\ref{def:prequ:subjunctive} and~\ref{def:crequ:subjunctive} is omitted from the definition of \cprequ{}.
-  For, the importance of \(\psi\) having value \(v'\) to reasoning is secured by the proposition-values pairs \(\chi_{i}\) having values \(v''_{i}\) being a \crequ{} and~\ref{def:cprequ:subjunctive}.
+  As \(\chi\) having value \(v''\) trivially follows from \(\chi\) having value \(v''\), any \crequ{} is (trivially also) a \cprequ{}.
+  However, not all \cprequ{1} are \crequ{1}.
 \end{note}
+
+
+{
+  \color{red}
+  \begin{enumerate}[label=A\(^{+}\)\arabic*., ref=(A\(^{+}\)\arabic*)]
+  \item
+    \label{result:ex:temp:repair}
+    If the clock is working, then it was repaired yesterday.
+  \item
+    \label{result:ex:temp:chime}
+    If the clock is working, then it chimes on the hour.
+  \end{enumerate}
+
+}
+
+\hozline
 
 \begin{note}
   No further regress.

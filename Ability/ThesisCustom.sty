@@ -445,20 +445,20 @@
 \DeclareDocumentCommand{\result}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{product}%
+    \obeybreaks{proto-\requ{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{product}%
+      \obeybreaks{proto-\requ{}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{products}%
+      \obeybreaks{proto-\requ{1}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Product}%
+      \obeybreaks{Proto-\requ{}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Products}%
+      \obeybreaks{Proto-\requ{1}}%
     \fi
   }
 }
@@ -677,6 +677,52 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\possibilityAdv}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viable}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viable}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{viable}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epAdv}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \possibilityAdv{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \possibilityAdv{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 % % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\expec}{ m }{% Expectation
@@ -784,6 +830,9 @@
     \fi
     \ifnum11=#1\relax
       Robin%
+    \fi
+    \ifnum12=#1\relax
+      Grayson%
     \fi
   }
 }
