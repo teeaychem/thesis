@@ -1,4 +1,4 @@
-\chapter{Claiming support (and claimed support)}
+ \chapter{Claiming support (and claimed support)}
 \label{cha:claiming-support}
 
 \paragraph*{Overview}
@@ -389,8 +389,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{idea:defs-for-CS}
     Claimed support for \(\phi\) having value \(v\) is always compatible (from the perspective of the agent) with:
     \begin{enumerate}
-    \item The reasoning appeals to some proposition \(\psi\) having value \(v'\), while \(\psi\) plausibly does not value \(v'\).
-    \item \(\phi\) plausibly does not have value \(v\).
+    \item
+      \(\phi\) not having value \(v\) is an \ep{}.
+    \item
+      The reasoning appealing to some proposition \(\psi\) having value \(v'\), such that \(\psi\) not having value \(v'\) is an \ep{}.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -620,7 +622,33 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   As noted, claiming support is still quite general, and this is by design.
 \end{note}
 
-\subsection{\requ{3}}
+\begin{note}
+  \ideaCSB{}.
+  Claiming support indicates regardless.
+
+  Developing this.
+
+  Key idea is reasoning.
+
+  What it is to `appeal' to a proposition-value pair.
+  Develop this through a series of definitions.
+  These are, unfortunately, complex.
+
+  The basic idea, however, is sort of okay.
+  What we are interested in is proposition-value pairs that are important to the premises.
+
+  \begin{idea}
+    Appeal, then \dots
+  \end{idea}
+
+  Term this a \requ{}.
+
+  Of course, in a broader sense of `appeal', reasoning involves appeal to proposition-value pairs which are not \ep{1}.
+  However, no particular interest in these.
+  The sense of appeal is stronger.
+\end{note}
+
+\subsection{Appeal: \result{3} and \requ{1}}
 \label{sec:claim-supp-requ}
 
 \begin{note}
@@ -637,7 +665,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   The basic idea behind a `\requ{}' of a step of reasoning is simple:
   \begin{restatable}[A \requ{0} of (making a step of) some instance of reasoning]{idea}{ideaRequisite}
-    A requ{} is a proposition-value pair, e.g.\ \(\psi\) having value \(v'\), such that
+    A \requ{} is a proposition-value pair, e.g.\ \(\psi\) having value \(v'\), such that
     \begin{enumerate}
     \item \(\phi\) not having value \(v'\) is an \ep{}.
     \item Involved in reasoning.
@@ -684,10 +712,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \begin{enumerate}[label=\alph*., ref=\named{P:2\alph*}]
       \item
         \label{def:result:conseq:a}
-        Appeal to something that is not the case.
+        A premise having some other value.
       \item
         \label{def:result:conseq:c}
-        Moving to something that is not the case.
+        The conclusion having some other value.
       \end{enumerate}
     \item
       \label{def:requ:persists}
@@ -715,12 +743,12 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     The agent is working for some company, and is in a room of an office building which has a clock on the wall.
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item\label{result:ex:temp:w} The clock appears to be working
-    \item\label{result:ex:temp:f} The clock is working. \hfill Step A: From \ref{result:ex:temp:w}
+    \item\label{result:ex:temp:f} The clock is working. \hfill \CStepA{}: From \ref{result:ex:temp:w}
     \item\label{result:ex:temp:t} The clock reads 5:05pm.
-    \item\label{result:ex:temp:c} It is 5:05pm. \hfill Step B: From \ref{result:ex:temp:f} \& \ref{result:ex:temp:t}
+    \item\label{result:ex:temp:c} It is 5:05pm. \hfill \CStepB{}: From \ref{result:ex:temp:f} \& \ref{result:ex:temp:t}
     \item\label{result:ex:temp:t-to-d} If it is after 5pm, no meetings may be started.
     \item\label{result:ex:temp:d} No meetings may be started.
-      \hfill Step C: From~\ref{result:ex:temp:c} \&~\ref{result:ex:temp:t-to-d}
+      \hfill \CStepC{}: From~\ref{result:ex:temp:c} \&~\ref{result:ex:temp:t-to-d}
     \end{enumerate}
   \end{example}
 
@@ -743,14 +771,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Let us consider steps B and C in detail:
+  Let us consider Steps B and C in detail:
 
-  If the clock is not working, the step B would involve appealing to something that is not the case, and hence \ref{result:ex:temp:f} satisfies \ref{def:result:conseq:a} with respect to step B.
-  Likewise, if the time is not 5:05pm, then step B would involve moving to something that is not the case, and hence \ref{result:ex:temp:c} satisfies \ref{def:result:conseq:c}.
+  If the clock is not working, the \CStepB{} would involve appealing to something that is not the case, and hence \ref{result:ex:temp:f} satisfies \ref{def:result:conseq:a} with respect to \CStepB{}.
+  Likewise, if the time is not 5:05pm, then \CStepB{} would involve moving to something that is not the case, and hence \ref{result:ex:temp:c} satisfies \ref{def:result:conseq:c}.
 
-  Similarly, the time being 5:05pm satisfies \ref{def:result:conseq:a} with respect to step C, and the that no meeting may be started satisfies \ref{def:result:conseq:c}.\nolinebreak
+  Similarly, the time being 5:05pm satisfies \ref{def:result:conseq:a} with respect to \CStepC{}, and the that no meeting may be started satisfies \ref{def:result:conseq:c}.\nolinebreak
   \footnote{
-    Note, however, that the clock working does not satisfy \ref{def:result:conseq:a} with respect to step C, as the step moves from what the time is, not the report of what the time is by a working clock.
+    Note, however, that the clock working does not satisfy \ref{def:result:conseq:a} with respect to \CStepC{}, as the step moves from what the time is, not the report of what the time is by a working clock.
   }
 
   And, without any background constraints, no other proposition-value pairs seems to satisfy~\ref{def:result:conseq}.
@@ -761,15 +789,15 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Hence, the time being 5:05pm is not the only proposition-value pair which satisfies \ref{def:result:conseq:c}.
   For,~\ref{result:ex:temp:t-to-d} is a commitment of the agent:
   If the meeting may be started, then the time is not 5:05p.
-  So, that no meetings may be started \emph{also} satisfies \ref{def:result:conseq:c} with respect to step B.
+  So, that no meetings may be started \emph{also} satisfies \ref{def:result:conseq:c} with respect to \CStepB{}.
 \end{note}
 
 \begin{note}[Summary]
-  The preceding is summarised in~\autoref{fig:def:result:conseq:table}, with step A also added.
+  The preceding is summarised in~\autoref{fig:def:result:conseq:table}, with \CStepA{} also included.
   \begin{figure}[!h]
     \centering
     \begin{tabular}{  c | c | c | c  }
-      & Step A & Step B & Step C \\
+      & \CStepA{} & \CStepB{} & \CStepC{} \\
       \hline
       \ref{def:result:conseq:a} & \ref{result:ex:temp:w} & \ref{result:ex:temp:f} & \ref{result:ex:temp:c} \\
       \hline
@@ -788,9 +816,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   However, that the relevant `parts' of reasoning provides sufficient information to observe that the relevant proposition-value pairs identified all satisfy \ref{def:requ:persists}.
   For, that no meetings may be started is the conclusion of the instance of reasoning, and both steps A and B are involved in obtaining this conclusion.
 
-  Hence,~\ref{result:ex:temp:f},~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are all \result{1} of the instance of reasoning with respect to step B, and~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are \result{1} of reasoning with respect to step C.\nolinebreak
+  Hence,~\ref{result:ex:temp:f},~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are all \result{1} of the instance of reasoning with respect to \CStepB{}, and~\ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are \result{1} of reasoning with respect to \CStepC{}.\nolinebreak
   \footnote{
-    And both \ref{result:ex:temp:w} and \ref{result:ex:temp:f} are \result{1} with respect to step A.
+    And both \ref{result:ex:temp:w} and \ref{result:ex:temp:f} are \result{1} with respect to \CStepA{}.
   }
   Intuitively, each proposition-value pair is involved in obtaining the conclusion.
 \end{note}
@@ -805,9 +833,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   The agent now has the option of reasoning by cases.
   If the clock is working, then the agent reasons to the conclusion that no meetings may be started as in~\ref{result:ex:temp:f} to~\ref{result:ex:temp:d}, above.
   However, if the clock is not working, then the agent may obtain the conclusion from \ref{result:ex:temp:memo}.
-  In particular, the agent would not need to appeal to the clock working in order to appeal to the clock not working, so \ref{result:ex:temp:f} would not be a \result{} of step B.
+  In particular, the agent would not need to appeal to the clock working in order to appeal to the clock not working, so \ref{result:ex:temp:f} would not be a \result{} of \CStepB{}.
   And, likewise the agent would obtain the conclusion without appealing to the time being 5:05pm.
-  Hence, \ref{result:ex:temp:c} would neither be a \result{} of step B nor of step C.
+  Hence, \ref{result:ex:temp:c} would neither be a \result{} of \CStepB{} nor of \CStepC{}.
 
   So, only \ref{result:ex:temp:d} would be a \result{} of reasoning by cases.
 \end{note}
@@ -860,6 +888,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \item
         A \cprequ{}.
       \end{enumerate}
+      \vspace{-\baselineskip}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -905,24 +934,24 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\prequ{2} of a step of reasoning]{definition}{defRequisiteP}
     \label{def:prequ}
-    \(\psi\) has value \(v'\) is a \emph{\prequ{0}} of a step of reasoning if and only if
+    \(\psi\) has value \(v'\) is a \emph{\prequ{0}} of some step \(\delta\) of reasoning if and only if
 
     \begin{enumerate}[label=\arabic*., ref=\named{pR:\arabic*}]
     \item
-      \(\psi\) has value \(v'\) is a \result{0} of the \emph{premises} of a the step \(\delta\).\nolinebreak
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{premises} of Step \(\delta\).\nolinebreak
       \footnote{
         I.e.\ by satisfying~\ref{def:result:conseq:a} of~\autoref{def:result}.
       }
     \item
       \label{def:prequ:subjunctive}
-      It is not \epAdv{0} for the agent to make step \(\delta\) without either:
+      It is not \epAdv{0} for the agent to make Step \(\delta\) without either:
       \begin{enumerate}[label=\alph*., ref=\named{pR:2\alph*}]
       \item
         \label{def:prequ:subjunctive:psi}
-        \(\psi\) having value \(v'\), or
+        \(\psi\) having value \(v'\) prior to Step \(\delta\), or
       \item
         \label{def:prequ:subjunctive:other}
-        the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
+        the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of Step \(\delta\) prior to making Step \(\delta\).
       \end{enumerate}
     \item
       \requGlobalClause{}
@@ -947,14 +976,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     If the clock is working, then it chimes on the hour.
   \end{enumerate}
 
-  Step B involved appeal to the proposition-value pair that the clock is working.
-  So, the consequents of both conditionals are \result{1} of step B (of the reasoning from \ref{result:ex:temp:f} to \ref{result:ex:temp:d}).\nolinebreak
+  \CStepB{} involved appeal to the proposition-value pair that the clock is working.
+  So, the consequents of both conditionals are \result{1} of \CStepB{} (of the reasoning from \ref{result:ex:temp:f} to \ref{result:ex:temp:d}).\nolinebreak
   \footnote{
     I.e.\ excluding the possibility instance of reasoning by cases introduced by \ref{result:ex:temp:memo}.
   }
   Hence, the consequents of both conditionals are candidates for being \requ{1}.
 
-  However, the two consequents differ with respect to whether it would be \epAdv{} for the agent to make step B.
+  However, the two consequents differ with respect to whether it would be \epAdv{} for the agent to make \CStepB{}.
   If the clock was not repaired yesterday, then it seems the agent would refrain from appealing to the clock functioning.
   By contrast, if the clock does not chime on the hour, the agent may hold that \ref{result:ex:temp:chime} is false, rather than being committed to the clock being broken.
 
@@ -970,8 +999,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Note, also, that \ref{result:ex:temp:f} is clearly a \prequ{0} with respect to step B.
-  And, \ref{result:ex:temp:c} is clearly a \prequ{} with respect to step C.
+  Note, also, that \ref{result:ex:temp:f} is clearly a \prequ{0} with respect to \CStepB{}.
+  And, \ref{result:ex:temp:c} is clearly a \prequ{} with respect to \CStepC{}.
 \end{note}
 
 \subparagraph{\crequ{3}}
@@ -986,16 +1015,16 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \(\psi\) has value \(v'\) is a \emph{\crequ{0}} of a step of reasoning if and only if
     \begin{enumerate}[label=\arabic*., ref=\named{cR:\arabic*}]
     \item
-      \(\psi\) has value \(v'\) is a \result{0} of the \emph{conclusion} of step \(\delta\).\nolinebreak
+      \(\psi\) has value \(v'\) is a \result{0} of the \emph{conclusion} of Step \(\delta\).\nolinebreak
       \footnote{
         I.e.\ by satisfying~\ref{def:result:conseq:c} of~\autoref{def:result}.
       }
     \item
       \label{def:crequ:subjunctive}
-      It is not \epAdv{} for the agent to make step \(\delta\) without either:
+      It is not \epAdv{} for the agent to make Step \(\delta\) without either:
       \begin{enumerate}[label=\alph*., ref=\named{cR:2\alph*}]
       \item \(\psi\) having value \(v'\), or
-      \item the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of step \(\delta\).
+      \item the other commitments (if any) which lead to \(\psi\) having value \(v'\) being a \result{0} of Step \(\delta\).
       \end{enumerate}
     \item
       \requGlobalClause{}
@@ -1009,7 +1038,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  For example, consider the following two conditionals with respect to step C:
+  For example, consider the following two conditionals with respect to \CStepC{}:
   \begin{enumerate}[label=C\(^{+}\)\arabic*., ref=(C\(^{+}\)\arabic*)]
   \item
     \label{result:ex:temp:B:summon}
@@ -1018,9 +1047,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{result:ex:temp:B:see}
     If no meetings may be started, then I won't see \nagent{12} until tomorrow, at the earliest.
   \end{enumerate}
-  The consequents of both conditionals are \result{1} of making step C, and as they follow from what step C establishes, both consequents are candidates for being \crequ{1}.
+  The consequents of both conditionals are \result{1} of making \CStepC{}, and as they follow from what \CStepC{} establishes, both consequents are candidates for being \crequ{1}.
   However, while the agent may not give up \ref{result:ex:temp:B:summon}, it seems the agent would easily give up \ref{result:ex:temp:B:see} if \nagent{12} were to (unexpectedly) visit the office.
-  Hence, only the consequent of \ref{result:ex:temp:B:summon} is a \crequ{1} of step C.
+  Hence, only the consequent of \ref{result:ex:temp:B:summon} is a \crequ{1} of \CStepC{}.
 \end{note}
 
 \begin{note}
@@ -1033,11 +1062,11 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Note, also, that \ref{result:ex:temp:d} is clearly a \crequ{} of step C.
-  And, both \ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are clearly \crequ{1} of step B.
+  Note, also, that \ref{result:ex:temp:d} is clearly a \crequ{} of \CStepC{}.
+  And, both \ref{result:ex:temp:c} and~\ref{result:ex:temp:d} are clearly \crequ{1} of \CStepB{}.
 \end{note}
 
-\subparagraph*{Summarising}
+\subparagraph*{Summarising \prequ{1} and \crequ{1}}
 
 \begin{note}
   From the perspective of their definition, \crequ{1} and \prequ{1} are distinguished only by how \(\psi\) having value \(v'\) is a \result{0}.
@@ -1059,6 +1088,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   For example, moving from inductive considerations for \(\phi\) being true to \(\phi\) being true.
 \end{note}
 
+\begin{note}
+  \phantlabel{step-a-non-deductive}
+  Indeed, \CStepA{} is an example of a non-deductive step.
+  
+  It does not deductively follow from the clock appearing to be working that the clock is working.
+\end{note}
+
 \paragraph{\cprequ{3}}
 
 \begin{note}
@@ -1076,23 +1112,26 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\cprequ{2} of (a step of) reasoning]{definition}{defRequisiteCP}
     \label{def:cprequ}
-    \(\psi\) has value \(v'\) is a \emph{\cprequ{0}} of (a step of) reasoning \(\delta\) iff
+    \(\psi\) has value \(v'\) is a \emph{\cprequ{0}} of a step of reasoning \(\delta\) iff
     \begin{enumerate}[label=\arabic*., ref=\named{cpR:\arabic*}]
     \item
       \label{def:cprequ:result}
       \(\psi\) has value \(v'\) is a \result{0} of the step of reasoning \(\delta\).
-    \item It is the case that both:
+    \item It is the case that:
       \label{def:cprequ:subjunctive}
       \begin{enumerate}[label=\alph*., ref=\named{cpR:2\alph*}]
       \item
         \label{def:cprequ:subjunctive:chi}
-        \(\chi_{i}\) having values \(v''_{i}\) are \crequ{1} of a the step \(\delta\).
+        \(\chi_{i}\) having values \(v''_{i}\) are \crequ{1} of \(\delta\).
+      \item
+        \label{def:cprequ:subjunctive:unique}
+        \(\psi \ne \chi_{i}\) for any \(i\).
       \item
         \label{def:cprequ:subjunctive:relation}
-        It is not \epAdv{} for the agent to jointly hold
+        It is not \epAdv{} for the agent to jointly hold:
           \begin{enumerate}
           \item
-            the premises of \(\delta\),
+            The \prequ{1} of \(\delta\),
           \item
             that \(\chi_{i}\) have values \(v''_{i}\), and
           \item
@@ -1111,22 +1150,26 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   However, unlike the definitions of \pandcrequ{1}, \ref{def:cprequ:result} does not constrain the way in which \(\psi\) having value \(v'\) is a \result{0}.
 
   Instead, the relevant clarification is found in~\ref{def:cprequ:subjunctive}.
-  In short,~\ref{def:cprequ:subjunctive} states that
+  In short,~\ref{def:cprequ:subjunctive} holds when:
   \begin{enumerate}[label=\alph*.]
-  \item There are some proposition-value pairs which follow from the conclusion, and
+  \item There are some proposition-value pairs which follow from the conclusion of the step,
+  \item \(\psi\) having value \(v'\) is not (merely) a \crequ{}, and
   \item \(\psi\) having value \(v'\) follows from those proposition-value pairs.
   \end{enumerate}
-  In other words, then, the importance of \(\psi\) having value \(v'\) to reasoning is secured by the proposition-values pairs \(\chi_{i}\) having values \(v''_{i}\) being a \crequ{}.
+  In other words, then, the importance of \(\psi\) having value \(v'\) to the step of reasoning is introduced by the proposition-values pairs \(\chi_{i}\) having values \(v''_{i}\) being a \crequ{}.
+
+  In this respect, \ref{def:cprequ:subjunctive:unique} is important to ensure that \(\psi\) having value \(v'\) is not a \crequ{}.
+  For, \(\chi\) having value \(v''\) trivially follows from \(\chi\) having value \(v''\), and hence without the restriction imposed by \ref{def:cprequ:subjunctive:unique}, any \crequ{} would also be a \cprequ{}.
 \end{note}
 
 \begin{note}
-  As \(\chi\) having value \(v''\) trivially follows from \(\chi\) having value \(v''\), any \crequ{} is (trivially also) a \cprequ{}.
-  However, not all \cprequ{1} are \crequ{1}.
-\end{note}
+  As noted \hyperref[step-a-non-deductive]{above}, \CStepA{} is a non-deductive step.
+  It is not the case that the clock is working follows deductive from the appearance that the clock is working.
+  So, with respect to \CStepA{}, that it is the case that the clock is working is a relevant \(\chi_{i}\) having value \(v''\) instance of \ref{def:crequ:subjunctive}.
 
+  And, as \CStepB{} involved the clock working as a premise, both conditionals we considered as commitments prior to the instance of reasoning may lead to \cprequ{1} with respect to \CStepA{}.
+  Restated:
 
-{
-  \color{red}
   \begin{enumerate}[label=A\(^{+}\)\arabic*., ref=(A\(^{+}\)\arabic*)]
   \item
     \label{result:ex:temp:repair}
@@ -1136,22 +1179,43 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     If the clock is working, then it chimes on the hour.
   \end{enumerate}
 
-}
+  In both cases, the consequents of the conditionals follow from a \crequ{} of \CStepA{} --- the conclusion of the step itself.
+  Hence, the consequents of both conditionals are relevant instance of \(\psi\) having value \(v'\).
+
+  As before, it seems that (granting a natural interpretation of the agent's epistemic state), that it is not \epAdv{} for the agent to hold that the clock is working \emph{and} that the clock was not repaired yesterday, hence the consequent of \ref{result:ex:temp:repair} is plausibly a \cprequ{} of \CStepA{}.
+
+  And, as before, by contrast it seems \epAdv{} for the agent to abandon \ref{result:ex:temp:chime} if the clock does not chime, and so the consequent of \ref{result:ex:temp:chime} it plausibly not a \cprequ{} of \CStepA{}.
+\end{note}
 
 \hozline
 
-\begin{note}
-  No further regress.
-  For, the possibility of a \cprequ{} is due to the step of reasoning introducing something new.
-  If anything follows from a \cprequ{}, then it will also be a \cprequ{}.
+\begin{note}[No further interactions]
+  An important observation to make is that any proposition-value pair which follows from a \cprequ{} is also a \cprequ{}.
+  In short, this is because something being a \cprequ{} of some step requires the step to have introduced a novel proposition-value pair, and assessing whether some proposition-value pair is a \cprequ{} does not involve steps which may introduce novel proposition-value pairs.\nolinebreak
+  \footnote{
+    In more detail:
+
+    Suppose \(\psi\) having value \(v'\) is a \cprequ{} of some step of reasoning.
+    And, suppose that \(\psi_{+}\) having value \(v'_{+}\) follows from the combination of some \crequ{1} of the step, the \prequ{1} of the step. and \(\psi\) having value \(v'\) (and is distinct from any \(\chi_{i}\)).
+
+    If so, then \(\psi_{+}\) having value \(v'_{+}\) satisfies \ref{def:cprequ:subjunctive}.
+    For, if \(\psi_{+}\) were not to have value \(v'_{+}\), then \(\psi\) would not have value \(v'\).
+    Hence, holding that \(\psi_{+}\) were not to have value \(v'_{+}\) would not be \epAdv{}.
+  }
+
+  Hence, the combination of \prequ{1}, \crequ{1}, and \cprequ{1} exhaust the scope of the intuitive idea of a \requ{}.
 \end{note}
 
+\paragraph{Summary}
+
 \begin{note}
-  Important.
-  \autoref{def:result}.
-  Other steps of reasoning.
-  However, \requ{} is tied to particular step.
+  Key thing with \requ{1} is that the proposition-value pair is important for making the step.
+
+  This is a difficult boundary to draw.
+  Only interested in things which deductively follow and are important.
+  Consequence of this is that in deductive steps, any \crequ{} is also a \prequ{}.
 \end{note}
+
 
 \begin{note}
   \autoref{def:requsite} is how we build on \ideaCSA{} and \ideaCSB{}.
@@ -1216,7 +1280,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Such that possible \(\phi \rightarrow (\psi \rightarrow \xi)\) is not the case.
   \end{illustration}
 
-  Here, \((\phi \text{ and } \psi) \rightarrow \xi\) is a \requ{} of the agent's reasoning.
+  Here, \((\phi \text{ and } \psi) \rightarrow \xi\) is a \prequ{} of the step from 2 to 3.
   For, if \(\phi \rightarrow (\psi \rightarrow \xi)\) then also \((\phi \text{ and } \psi) \rightarrow \xi\).
   Hence, if \((\phi \text{ and } \psi) \rightarrow \xi\) is not the case, then \(\phi \rightarrow (\psi \rightarrow \xi)\) is also not the case.
 \end{note}
@@ -1226,31 +1290,18 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   No all things that would highlight faults in reasoning are \requ{1}.
 \end{note}
 
-\begin{note}
-  \begin{illustration}[Higher-order propositions]
-    Proposal:
-    \begin{itemize}
-    \item That I have not appealed to something that is not the case.
-    \end{itemize}
-  \end{illustration}
-  This is not a \requ{}, because it is not a consequence of the step.
-  For this, would need it to be the case that making the step alone ensures that there is no fault.
-  However, this is not, in general, the case.
 
-  For example:
-  \begin{enumerate}
-  \item \(2 + 2 = 4\).
-  \item \(1 + 3 = 4\).
-  \item Equality is a symmetric and transitive (and reflexive) relation.
-  \item So, \(2 + 2 = 1 + 3\).
-  \end{enumerate}
-  It does not seem that each premise in the reasoning requres an accompanying premise \dots\nolinebreak
-  \footnote{
-    \textcite{Carroll:1895uj}.
+\begin{note}
+  {
+    \color{red}
+    This is a \requ{}.
+    Point is that should indicate that the textbook answer is the same!
+    It doesn't follow that it is the same.
+    But, should indicate at least.
+
+    Or, if textbook having the wrong answer is not \epAdv{}, not a \requ{}, because not a \result{}.
+    Agent doesn't need to indicate this is the case.
   }
-\end{note}
-
-\begin{note}
   \begin{illustration}[Textbook answers]
     \label{illu:textbook-answers}
     Suppose an agent is working through a logic textbook with practice problems at the end of each chapter to test a student's understanding.
@@ -1276,11 +1327,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   Because, although it something not being the case would ensure the step of reasoning is bad, it does not follow that by making the step of reasoning, it is a consequence that there is no mistake.
 
-  Key point is that a \requ{} follows from some part of the agent's reasoning, not from things that would hold if the agent's reasoning is successful.\nolinebreak
-  \footnote{
-    Well, meta-beliefs with inference.
-    While I do not think particularly plausible, there is also a question of whether any such meta-belief is part of the agent's reasoning, \dots
-  }
+  Key point is that a \requ{} follows from some part of the agent's reasoning, not from things that would hold if the agent's reasoning is successful.
 \end{note}
 
 \subsubsection{Being \mistaken{} or \misled{}}
@@ -1304,7 +1351,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   \begin{illustration}[Clock]
     \label{illu:mom:clock}
-    Suppose I glance at the clock on the wall. The clock reads 11:45a, so I claim support that it is 11:45a.
+    Suppose I glance at the clock on the wall.
+    The clock reads 11:45a, so I reason that it is 11:45a.
   \end{illustration}
 
   Two possibilities:
@@ -1343,17 +1391,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   }
 \end{note}
 
-
 \paragraph{Summary}
-
-\begin{note}[Conclusion of reasoning is a \requ{}.]
-  Conclusion of reasoning is a \requ{}.
-
-  This is somewhat tricky.
-  Intuitively, conclusion is not something that matters.
-  However, it would not do to simply exclude.
-  For, conclusion may be introduced as a \requ{} by some intermediate step.
-\end{note}
 
 \begin{note}
   Not the case that any thing that is appealed to is a \requ{}.
@@ -1411,38 +1449,75 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
     Suppose that:
     \begin{enumerate}[label=\Alph*., ref=(\Alph*)]
-    \item\label{assu:supp:ind:step} \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning that concludes with \(\phi\) having value \(v\).
+    \item\label{assu:supp:ind:step} \(\psi\) having value \(v'\) is a \requ{} of some step \(\delta\) of reasoning that concludes with \(\phi\) having value \(v\).
     \end{enumerate}
 
     The instance of reasoning that concludes with \(\phi\) having value \(v\) is an instance of claiming support \emph{only if}
 
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item\label{assu:supp:ind:indicate} The reasoning that concludes with \(\phi\) having value \(v\) includes some sub-reasoning that indicates that \(\psi\) has value \(v'\).
-    \end{enumerate}
-    Such that:
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume]
-    \item If \(\psi\) having value \(v'\) is a \prequ{} of step of \ref{assu:supp:ind:step} then:
-      \begin{enumerate}[resume]
-      \item\label{assu:supp:ind:circular} The reasoning of \ref{assu:supp:ind:indicate} does not involve appeal to a proposition-value pair that is only obtained from the step of reasoning for which \(\psi\) having value \(v'\) is a \prequ{}.
+    \item
+      \label{assu:supp:ind:indicate}
+      It is either the case that:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        The agent has engaged in prior reasoning that indicates that \(\psi\) has value \(v'\).
       \end{enumerate}
-      \item If \(\psi\) having value \(v'\) is  a \cprequ{} of step of \ref{assu:supp:ind:step} then:
-      \begin{enumerate}[resume]
-      \item\label{assu:supp:ind:circular} The reasoning of \ref{assu:supp:ind:indicate} does not involve appeal to a proposition-value pair that is only obtained from the step of reasoning and \crequ{1} which leads to \(\psi\) having value \(v'\) being a \prequ{}.
+      Or:
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \item
+        The reasoning that concludes with \(\phi\) having value \(v\) includes some sub-reasoning that indicates that \(\psi\) has value \(v'\).
+      \end{enumerate}
+    \item
+      \label{assu:supp:ind:circular}
+      If Step \(\delta\) is a non-deductive step then:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{assu:supp:ind:circular:p}
+        If \(\psi\) having value \(v'\) is a \prequ{} of Step \(\delta\) then:
+        \begin{itemize}
+        \item
+          The reasoning of \ref{assu:supp:ind:indicate} did or does not involve appeal to a proposition-value pair that is only obtained from conclusion of Step \(\delta\).
+        \end{itemize}
+      \item
+        \label{assu:supp:ind:circular:cp}
+        If \(\psi\) having value \(v'\) is  a \cprequ{} of Step \(\delta\) then:
+        \begin{itemize}
+        \item
+          The reasoning of \ref{assu:supp:ind:indicate} did or does not involve appeal to a proposition-value pair that is only obtained from the step of reasoning and \crequ{1} which leads to \(\psi\) having value \(v'\) being a \prequ{}.
+        \end{itemize}
       \end{enumerate}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
-  {
-    \color{red}
-    \(X \vdash \phi\) and \(\phi \rightarrow \psi\) fine to get \(X \vdash \psi\).
-    So long as not the case that \(X \vdash \psi\).
-    If so, need to find some \(Y\) such that \(Y \vdash \psi\).
-  }
+\end{note}
 
+\begin{note}
+  To capture the intuition behind \autoref{assu:supp:independence}, let us focus on \ref{assu:supp:ind:indicate} which requires past or present reasoning about any \requ{} of the instance of reasoning.
+  We will then turn to \ref{assu:supp:ind:circular} to clarify why restrictions are placed on the reasoning about certain \requ{1} with the core intuition in hand.
+\end{note}
+
+\begin{note}
+  If \(\psi\) having value \(v'\) is a \requ{} of some step \(\delta\), then it is \ep{} for the agent that \(\psi\) does not have value \(v'\) \emph{and} if \(\psi\) does not have value \(v'\), the step would involve some premise or conclusion having some other value.
+
+  Hence, if the agent has not previously engaged in reasoning that indicates that \(\psi\) has value \(v'\), or does not engage in reasoning that indicates that \(\psi\) has value \(v'\) as part of the present reasoning, then the reasoning that the agent has performed does not indicate that \(\phi\) has value \(v\) regardless of whether \dots
+
+  \emph{because} in the event that \(\psi\) does not have value \(v'\), the reasoning does not indicate.
+\end{note}
+
+
+
+\begin{note}
   {
     \color{red}
     I need separate clauses here because, there's nothing clearly wrong with taking some result of the step of inference that doesn't lead to the feedback.
     At issue is not the step itself, but the step paired with some result of the step.
+  }
+
+  {
+    \color{red}
+    Key observation here is that in the deductive case, the premises alone are sufficient to get the conclusion, so they will also be good to get anything else which deductively follows.
+    The agent doesn't introduce anything new.
+    So, the non-deductive qualification makes sense.
   }
 
 
@@ -1451,24 +1526,21 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
+  Before turning to the details of \autoref{assu:supp:independence}, an immediate clarification is in order:
+  \ref{assu:supp:ind:indicate} requires that the agent does or has reasoned about any \requ{1} of the relevant instance of reasoning.
+  However, we do not require the relevant reasoning to be explicitly recognised by the agent.
+  Holding that some instance of reasoning is an instance of claiming support is the attribution of a property to some activity of the agent.
+  However, it is a property of interest from our perspective as observers of the agent, and from this is does not follow that the agent needs to reflexively recognise that their reasoning is an instance of claiming support.
+
+  Of course, an agent may recognise that their reasoning would not satisfy \autoref{assu:supp:independence} and explicitly reason about a \requ{1} in light of such a recognition.
+  However, the observation that an agent may adjust their reasoning in order to ensure that they do not fail to satisfy \autoref{assu:supp:independence} does not, in turn, require that it must always be possible for the agent to recognise that their reasoning does \autoref{assu:supp:independence}, nor that the recognition of such satisfaction is itself important for claiming support.
+\end{note}
+
+\begin{note}
 
   \autoref{assu:supp:independence} includes two constraints on the reasoning.
   Indicates.
   `No-circularity'.
-\end{note}
-
-\begin{note}
-  First, claiming support?
-
-  \begin{quote}
-    Some arguments are composed solely of existential generalizations.
-
-    Some arguments are composed solely of existential generalizations.
-
-    \citeyear[249]{Sorensen:1991wh}
-  \end{quote}
-  Here, no doubt.
-  Hence, no claiming support.
 \end{note}
 
 \paragraph{`Indicates'}
@@ -1508,11 +1580,11 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   There is nothing more assumed than this.
   
 
-
-
   From a different perspective, however, 
   We do not wish to place significant constraints on what `indication' amounts to in order for \autoref{assu:supp:independence} to be compatible with as many interpretations as possible.
 \end{note}
+
+\hozline
 
 \paragraph{Constraint}
 
@@ -1705,32 +1777,84 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  \color{red}
+  One may question whether the agent needs to reason about \crequ{1}.
+  For, while {\color{red} XXX} does not constrain how the agent reasons, still some reasoning.
 
-  no-lose investigations from ~\cite{Weisberg:2012vs}.
+  The observation is simple.
+  If no reasoning, then possible that agent would retract step in recognition of conclusion.
+  This is a point observed by \citeauthor{Harman:1973ww}.
 
-  \begin{quote}
-    Disconﬁrmability If you know that a test cannot disconﬁrm a hypothesis, no result of the test can conﬁrm the hypothesis either.
-  \end{quote}
-
-  \begin{quote}
-    No Risk, No Gain ‘‘To test a hypothesis we must do something that could result in presumptive evidence against the hypothesis.’’ (Glymour 1980: 115)
-  \end{quote}
-
-  \begin{quote}
-    No-Lose Investigation (NLI) A no-lose investigation is one where:
-
-    1. P is not justiﬁed for the agent at t1 ,
-
-    2. at t 1 the agent knows that ØP will not be justiﬁed for her at t2 , and
-
-    3. at t 1 the agent knows that if P is true, P will be justiﬁed for her at t2 .
-\end{quote}
-
-\begin{quote}
-  without any epistemic risk, there is no epistemic gain.
-\end{quote}
+  In other words, reasoning about \crequ{} ensures that the step of reasoning, and hence the instance of reasoning is `stable' with respect to the agent's present epistemic state.
 \end{note}
+
+\paragraph{Meta-proposition-value pairs}
+
+\begin{note}
+  A possible concern regarding \ref{assu:supp:independence}, and by extension the definitions of a \requ{} and a \result{} is meta-proposition-value pairs.
+  For, \autoref{assu:supp:independence} requires that the agent either does or has reasoned about any \requ{0} of a step of reasoning if they are claiming support, while meta-proposition-value pairs suggest that this requirement is either unreasonable due to the abundance of proposition-value pairs which follow from a source proposition-value pair, or implausible due to the existence of proposition-value pairs regarding the step of reasoning itself.
+
+  We briefly elaborate on two ways in which the concern may be raised and offer brief responses.
+\end{note}
+
+\subparagraph*{Meta-proposition-value pairs: Proposition-value pairs}
+
+\begin{note}
+  The first kind of meta-proposition-value pairs we consider are reflexively generated from some source proposition-value pair that the agent clearly appeals to in reasoning.
+  For example, suppose that agent explicitly appeals to \(\psi\) having \(v'\) as a premise, and consider the following proposition-value pairs:
+  \begin{itemize}
+    \item It is true that \(\psi\) has value \(v'\).
+    \item It is true that it is true that \(\psi\) has value \(v'\).
+    \item It is not the case that \(\psi\) does not have value \(v'\).
+    \item It is not the case that I am appealing to something that is not the case when I appeal to \(\psi\) having value \(v'\).
+    \end{itemize}
+\end{note}
+
+\begin{note}
+  The response to these type of meta-proposition-value pairs is straightforward.
+  As these proposition-value pairs concern whether \(\psi\) has value \(v'\), we consider any reasoning that indicates that \(\psi\) has value \(v'\) as reasoning which also indicates that these meta-proposition-value pairs have the respective values.
+
+  Our perspective on an agent's reasoning is from an observers' standpoint, and hence it does not matter whether the agent recognises some meta-proposition-value, nor whether they explicitly reason about it.
+  What matters, rather, is that the agent's reasoning indicates that the relevant (meta)-proposition-value pair involves the required value.
+\end{note}
+
+\subparagraph*{Meta-proposition-value pairs: Steps of reasoning}
+
+\begin{note}
+  Meta-proposition-value pairs are a distinct concern.
+  For, though it may be that reasoning about some proposition-value pair applies to any meta-proposition-value pair concerning that source proposition-value pair, it is not clear that any combination of reasoning about the premises or conclusions of a step of reasoning will apply to the step of reasoning itself.
+\end{note}
+
+\begin{note}
+  The important observation with respect to \requ{1} is that they are defined in terms of \result{1}, and hence for a meta-proposition-value pairs about a step of reasoning to be of concern, it may not reduce to issues concerning the \requ{1} of the step.
+
+  For example, consider the following proposition-value pair.
+  \begin{itemize}
+  \item By making this step of reasoning I am not appealing to a proposition-value pair that is not the case.
+  \end{itemize}
+  As the proposition-value pair reduces to a question of whether the agent is appealing to proposition-value pairs that the agent is appealing to when making the step of reasoning, the combined reasoning about those proposition-value pairs may apply to the meta-proposition-value pair.
+\end{note}
+
+\begin{note}
+  Hence, for the meta-proposition-value pair to be of interest as an objection, it must concern the step itself.
+  For example.
+  \begin{itemize}
+  \item This step of reasoning is a \(\{\text{good},\text{suitable},\text{rational},\dots\}\) step of reasoning.
+  \end{itemize}
+  The relevant adjective is unimportant.
+  Rather, the idea is that whatever the adjective is, it does not reduce to the proposition-value pairs appealed to in making the step.
+
+  However, any meta-proposition-value pair of this kind will fail to be a \requ{1} of the step of reasoning \emph{because} it does reduce to issues concerning the \requ{1} of the step.
+\end{note}
+
+\subparagraph*{Summary of meta-proposition-value pairs}
+
+\begin{note}
+  To summarise, if a meta-proposition-value pair follows from a \requ{0} of reasoning, then while it may be the case that the meta-proposition-value is also a \requ{0} of reasoning, the reasoning about the source-\requ{0} may be taken to apply to the meta-proposition-value.
+  Hence, \autoref{assu:supp:independence} does not require that an agent explicitly reasons about such meta-proposition-value pairs.
+
+  And, conversely, if a meta-proposition-value pair does not follow from a \requ{0} of reasoning, then \autoref{assu:supp:independence} does not require that an agent reasons about such meta-proposition-value pairs, neither explicitly nor implicitly.
+\end{note}
+
 
 \subsubsection{Proposition}
 \label{sec:proposition}
@@ -1764,6 +1888,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   Again, it does not seem impossible for an agent to adopt an attitude that recognises the possibility but assumes regardless.
 \end{note}
+
+
 
 \begin{note}
   \phantlabel{independence-and-assu:R-closure}
