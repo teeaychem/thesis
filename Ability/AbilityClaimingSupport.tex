@@ -337,57 +337,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Both.
 \end{note}
 
-\subsection{Claiming support}
-\label{sec:claiming-support}
-
-\begin{note}
-  \begin{restatable}[Claiming support and how things are]{assumption}{assuCSWordly}
-    \label{assu:CSWordly}
-    An instance of reasoning is an instance of claiming support just in case the reasoning is about how things are.
-  \end{restatable}
-
-  Contrast the two instance of reasoning of~\autoref{fig:Rover}.
-  \begin{figure}[h!]
-    \mbox{}\hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}
-      \item
-        \label{fig:Rover:CS:1}
-        Rover is tired.
-      \item
-        \label{fig:Rover:CS:2}
-        Rover will fall asleep soon.
-      \end{enumerate}
-      \caption{(Possibly) claiming support}
-      \label{fig:Rover:CS}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}[label=\arabic*\('\).,ref=(\arabic*\('\))]
-      \item
-        \label{fig:Rover:nCS:1}
-        \emph{Supposing} Rover is tired.
-      \item
-        \label{fig:Rover:nCS:2}
-        Rover will fall asleep soon.
-      \end{enumerate}
-      \caption{Not claiming support}
-      \label{fig:Rover:nCS}
-    \end{subfigure}
-    \hfill\mbox{}
-    \caption{Two instance of reasoning}
-    \label{fig:Rover}
-  \end{figure}
-  The two instances of reasoning are distinguishing by whether or not the premise that Rover is tired is a supposition or not.
-
-  \autoref{fig:Rover:nCS} is not an instance of claiming support because the premise does not concern the actual state of Rover, and hence the conclusion (also) does not concern the actual state of Rover.
-  Of course, if Rover is (in fact tired) then it may be the case that Rover will fall asleep soon, but is it possible for the agent to obtain~\ref{fig:Rover:nCS:2} from~\ref{fig:Rover:nCS:1} while maintaining that Rover is not tried.
-
-  By contrast,~\autoref{fig:Rover:CS} is (possibly) an instance of claiming support because the reasoning is about how things are.
-  The agent is holding that it is the case that Rover is tired, and therefore it is the case that Rover will fall asleep soon.
-  The `(Possibly)' qualification is added for the simple reason that reasoning being about how things are is not itself sufficient for the reasoning to be an instance of claiming support.
-\end{note}
-
 \subsection{Summary of basic assumptions}
 \label{sec:summary}
 
@@ -511,10 +460,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   \begin{restatable}[\ideaCSB{0} --- \ideaCSB{}]{idea}{ideaEIS}
     \label{idea:eiS}
-    Claimed support for \(\phi\) having value \(v\):
+    An instance of reasoning is an instance of claiming support just in case the reasoning is about how things are.
+
+    In particular:
+
+    An instance of reasoning that concludes that \(\phi\) has value \(v\) is an instance of claiming support for \(\phi\) having value \(v\) \emph{only if}:
     \begin{enumerate}
-    \item indicates that \(\phi\) has value \(v\)
-    \item indicates that any proposition-value pair appealed to in reasoning is the case.
+    \item The instance of reasoning indicates that \(\phi\) has value \(v\).
+    \item For any proposition-value pair \(\psi\) having value \(v'\) appealed to in reasoning, the agent has indication that \(\psi\) has value \(v'\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -523,55 +476,322 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  From~\autoref{assu:CSWordly}, claiming support is reasoning about how things are.
-  \ideaCSA{} narrows down claiming support to proposition-value pair which are \ep{}.
-  Hence, claiming support is a weak attitude\dots
-
-  \ideaCSB{} adds strength\dots
-\end{note}
-
-\begin{note}
-  From~\autoref{assu:CSWordly}, claiming support is reasoning about how things are.
   Given \ideaCSA{}.
   \ep{1}.
   So, possible (and in particular \possibilityAdv{}) that conclusion or some proposition-value pair appealed to does not have value.
 
   \autoref{idea:eiS} has two components.
   \begin{enumerate}
-  \item indication.
-  \item appeal.
+  \item Indication.
+  \item Appeal.
   \end{enumerate}
+\end{note}
+
+\paragraph{How things are}
+
+\begin{note}[Core constraint]
+  Claiming support for \(\phi\) having value \(v\) from premises that \(\chi_{i}\) having value \(v_{i}\).
+  The result of claiming support is that \(\phi\) has value \(v\).
+  Not (merely), that if \(\chi_{i}\) have values \(v_{i}\) then \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}
+  Contrast the two instance of reasoning of~\autoref{fig:Rover}.
+  \begin{figure}[h!]
+    \mbox{}\hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item
+        \label{fig:Rover:CS:1}
+        Rover is tired.
+      \item
+        \label{fig:Rover:CS:2}
+        Rover will fall asleep soon.
+      \end{enumerate}
+      \caption{(Possibly) claiming support}
+      \label{fig:Rover:CS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}[label=\arabic*\('\).,ref=(\arabic*\('\))]
+      \item
+        \label{fig:Rover:nCS:1}
+        \emph{Supposing} Rover is tired.
+      \item
+        \label{fig:Rover:nCS:2}
+        Rover will fall asleep soon.
+      \end{enumerate}
+      \caption{Not claiming support}
+      \label{fig:Rover:nCS}
+    \end{subfigure}
+    \hfill\mbox{}
+    \caption{Two instance of reasoning}
+    \label{fig:Rover}
+  \end{figure}
+\end{note}
+
+\begin{note}
+  The two instances of reasoning are distinguishing by whether or not the premise that Rover is tired is a supposition or not.
+
+  \autoref{fig:Rover:nCS} is not an instance of claiming support because the premise does not concern the actual state of Rover, and hence the conclusion (also) does not concern the actual state of Rover.
+  Of course, if Rover is (in fact tired) then it may be the case that Rover will fall asleep soon, but is it possible for the agent to obtain~\ref{fig:Rover:nCS:2} from~\ref{fig:Rover:nCS:1} while maintaining that Rover is not tried.
+
+  By contrast,~\autoref{fig:Rover:CS} is (possibly) an instance of claiming support because the reasoning is about how things are.
+  The agent is holding that it is the case that Rover is tired, and therefore it is the case that Rover will fall asleep soon.
+  The `(Possibly)' qualification is added for the simple reason that reasoning being about how things are is not itself sufficient for the reasoning to be an instance of claiming support.
+\end{note}
+
+\begin{note}
+  Explicit supposition.
+  However, extend to implicit supposition.
+
+  No indication that some premise is the case.
+  And, no indication that some proposition-value pair appealed to is the case.
+
+  Begin by developing with {\color{red} N} implicit ideas, focusing on conclusion.
+  Then extend to implicit ideas covering other aspects of reasoning.
+\end{note}
+
+\paragraph{Implicit ideas}
+
+\begin{note}
+  \begin{implicitIdea}
+    If \(\phi\) not having value \(v\) is an \ep{}, then reasoning \indicateV{1} that \(\phi\) has value \(v\) only if \indicateV{1} even if it happens to be the case that \(\phi\) does not have value \(v\).
+  \end{implicitIdea}
+
+  Implicit idea does not provide any analysis of `\indicateV{0}'.
+  However, informative in that it shows preserved under strengthening.
+
+  Consider Rover.
+  It is quite possible that Rover will not, in fact, fall asleep soon.
+  However, that Rover is tired suggests that Rover will fall asleep soon, even if Rover does not.
+\end{note}
+
+\begin{note}
+  Further examples:
+
+  \begin{figure}[h!]
+    \mbox{}\hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item That persons' eyes have been closed for a long time and their breathing is slow.
+      \item That person is asleep.
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item A newspaper with a strong record of accurate reporting and reported that \(S\) said \(p\).
+      \item \(S\) said \(p\).
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill\mbox{}
+
+    \mbox{}\hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item S knows me very well.
+      \item Whatever S has gifted me satisfies some desire I have.
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item The die has rolled even if \(5251\) of \(6000\) samples.
+      \item The die is biased.
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill\mbox{}
+
+    \caption{}
+    \label{fig:ideaCSB:basic-examples}
+  \end{figure}
+
+  Intuitive `even if\dots' test.
+
+  \begin{enumerate}[label=\ref{fig:ideaCSB:basic-examples}\alph*., ref=(\ref{fig:ideaCSB:basic-examples}\alph*)]
+  \item Even if not asleep\dots
+  \item Even if \(S\) did not say \(p\), \dots
+  \item Even if the gift does not satisfy some desire I have \dots
+  \item Even if the die is not biased \dots
+  \end{enumerate}
+\end{note}
+
+\subparagraph{Sensitivity}
+
+\begin{note}
+  Contrast to sensitivity
+  \begin{enumerate}
+  \item If \(\phi\) were not to have value \(v\), \(S\) would not reason to \(\phi\) having value \(v\).
+  \end{enumerate}
+  I.e.\ reasoning only in good cases.
+
+  No.
+
+  \begin{enumerate}
+  \item If \(\phi\) were not to have value \(v\), \(S\)' reasoning would (still) indicate that \(\phi\) has value \(v\).
+  \end{enumerate}
+
+  This seems weaker, though implied.
+  For, if not, then I wouldn't reason, and so as I have reasoned, then because I think I would not have if \(\phi\) was not the case, this suggests that \(\phi\) is the case.
+\end{note}
+
+\paragraph{Second implicit}
+
+\begin{note}
+  \begin{implicitIdea}
+    No indication if the agent only considers their reasoning to indicate that \(\phi\) has value \(v\) only if \(\phi\) has value \(v\).
+  \end{implicitIdea}
+
+  For, if an instance of claiming support, then \(\phi\) not having value \(v\) is an \ep{}.
+  Hence, if the agent's reasoning only indicates that \(\phi\) has value \(v\) if it is in fact the case that \(\phi\) has value \(v\), then the agent's reasoning does not \indicateV{0} that \(\phi\) has value \(v\) in the \epAdv{} state of affairs in which \(\phi\) does not have value \(v\).
+\end{note}
+
+
+\paragraph{Extends to premises}
+
+\begin{note}
+  As noted with `\emph{supposing}'.
+  So, the implicit ideas apply not only to conclusion, but also to premises.
+\end{note}
+
+\begin{note}
+  With Rover, appearance of being tired.
+  That this is not the case is not an \ep{}.
+  Then, with figure 4, arguably the premises are not \ep{1}.
+
+  This gives one way.
+\end{note}
+
+\begin{note}
+  However, variations on the Rover case.
+\end{note}
+
+\paragraph{Beyond premises}
+
+\begin{note}
+  Also, other proposition-values that are appealed to.
+\end{note}
+
+\begin{note}
+  Issue is that this is now a strong requirement.
+  However, the core idea remains.
+  To the extent that these proposition-value pairs are important for the reasoning to be about how things are, if they fail to have value, then problem.
+\end{note}
+
+\paragraph{Difficulty?}
+
+\begin{note}
+  `Appeal'.
+  From the examples given, the scope of appeal is not clear.
+  That is, there is no clear bound.
+  Depending on how you view premises or commitments of the agent.
+\end{note}
+
+\begin{note}
+  Presents a difficulty.
+  For, given scope of appeal, it seems, perhaps, implausible for the agent to either reason or have reason about all the proposition-value pairs appealed to.
+
+  So,
+  \begin{itemize}
+  \item explicit reasoning,
+  \item recognition,
+  \item access.
+  \end{itemize}
+
+  However, \indicateO{0} is such that it does not require that the agent recognises.
+
+  What we're interested in is a this core intuition.
+  It doesn't follow that the agent needs to recognise that they have satisfied the core intuition.
+
+  Do not need to recognise that I have run 100m in order to have run 100m.
+  Do not need to recognise that I have claimed support in order to have claimed support.
+
+  Do not need to recognise that I have run 10m in order to have run 100m.
+  Do not need to recognise that I have reasoned about any proposition-value pair appealed to in order to have claimed support.
+
+  Core intuition extends.
+  This much is unavoidable.
+  And, without further assumptions, there is no need to build in this idea of explicit reasoning, recognition, or access.
+  So, to the extent that there is tension, clear to reject recognition over core intuition.
+  Of course, if no tension, then free to build whatever else you like into claiming support.
+
+  Term this `an observers' standpoint'.
+\end{note}
+
+\begin{note}
+  Okay for `hunches' or `intuition'.
+    \begin{quote}
+    Okay for the agent's reasoning to be the hunch.
+    So long as hunch includes this subjunctive component.
+  \end{quote}
+
+\end{note}
+
+\begin{note}
+  Claiming support is both weak and strong.
+  Still, important is that it is intuitive that there are cases of claiming support.
+  Even though it is a strong attitude.
+\end{note}
+
+\begin{note}
+  In particular, ability.
+  That is, special case.
+  Here, seems okay.
+  Plausible for the premises.
+  And, seem sufficient to indicate the conclusion.
+
+  Even if it's not the case\dots
+\end{note}
+
+
+\subparagraph{Incompatible with externalism}
+
+\begin{note}
+  Incompatible with externalism.
+  It either being the case that \(\phi\) has value \(v\) or that \(\phi\) does not have value \(v\) doesn't matter.
+
+  This does not mean that there's no place for externalism.
+  If claiming support is viewed as a component of something broader, say justification, then other components may be independent of the agent's reasoning.
+
+  Further, does not go as far as \emph{access} internalism.
+  Here, we're interested in necessary conditions.
+  Failure is something that may be recognised.
 \end{note}
 
 \paragraph{Indication}
 
+
 \begin{note}
-  Indication is a variable, and we allow for really weak interpretation.
-  Some positive account of why \(\psi\) has value \(v\) over any other possible value.
-
-  In particular, indication may fall short of justification.
-
-  Perhaps sufficient for belief (though this will depend on what you think goes for belief).
+  Important thing is don't assume a truth connexion.
+  It being the case that \(\phi\) has value \(v\) is not taken to be important.
+  This may be the case, and you may view taking with the addition of this idea.
+  However, is not assumed.
 \end{note}
 
 
+
+
+
 \begin{note}
-  Leaving part of \autoref{assu:supp:independence} open to interpretation may be unsatisfying.
-  For, without any account of what it is for some reasoning to indicate that some proposition \(\xi\) has some value \(v''\), it is not clear what commitments follow from this assumption.
+  Key restriction is that no indication for \(\psi\) having value \(v'\) if reasoning involves appeal to \(\psi\) having value \('\).
 
-  Core idea of indicating is \requ{1} and \ep{0}.
-  Concern is that appeal to something that is not the case.
-  Some examples.
-  Remain, but reasoning considers to sufficient degree.
-  As see in various illustrations, grant that these may be quite weak.
-  You may want to strengthen, and that is fine.
-  There will be one instance where deny that reasoning indicates.
-  However, uncontroversial.
+  Extend implicit ideas to proposition-value pairs appealed to.
 
-  There is nothing more assumed than this.
+  \begin{implicitIdea}
+    Key thing is that positive for \(\psi\) having value \(v'\) even if \(\psi\) does not have value \(v'\).
+  \end{implicitIdea}
 
-  From a different perspective, however, 
-  We do not wish to place significant constraints on what `indication' amounts to in order for \autoref{assu:supp:independence} to be compatible with as many interpretations as possible.
+
+  \begin{implicitIdea}
+    Not if requires \dots
+  \end{implicitIdea}
+
+  Issue is `appeal'.
 \end{note}
 
 \paragraph{Appeal}
@@ -580,8 +800,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   This is the strength of claiming support.
   There are two important aspects.
   \begin{itemize}
-  \item relation to agent's own epistemic state.
-  \item relation to \autoref{assu:CSWordly}.
+  \item Relation to agent's own epistemic state.
+  \item Relation to how things are.
   \end{itemize}
 \end{note}
 
@@ -623,32 +843,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \item Permissible to appeal to \(\phi\) having value \(v\) only if think it is the case that \(\phi\) has value \(v\).
   \end{enumerate}
   In other words, \emph{subjectively} sound.
-
-  Problem here is that whether the reasoning is an instance of claiming support depends on factors external to the epistemic state of the agent.
-
-  In particular, given \ideaCSA{}, factors which the agent thinks are \ep{}.
-  Reject this.
-  Then:
-  \begin{enumerate}
-  \item Permissible to appeal to \(\phi\) having value \(v\) as a premise and for \(\phi\) not to have value \(v\).
-  \end{enumerate}
-  Question is why is this permissible?
-
-  This we don't need an detailed answer to.
-  We need is that it is possible for \(\phi\) to not have value \(v\), but for it to be okay for the agent to appeal to \(\phi\) having value \(v\).
-  Here, some reasoning that \emph{indicates} that \(\phi\) has value \(v\).
-
-  Where, indication is some reasoning which suggests that \(\phi\) has value \(v\) that is compatible with \(\phi\) not having value \(v\).
-  Where, compatible just reduces to not requiring that \(\phi\) has value \(v\).
 \end{note}
 
-\begin{note}
+\begin{note}[Circularity?]
   View this in terms of circularity.
   Must get \(\phi\) having value \(v\) without appealing to \(\phi\) having value \(v\).
   However, this is not general circularity.
   Only interested in cases where \(\phi\) not having value \(v\) is an \epAdv{}.
   And, motivation is that if need \(\phi\) to have value \(v\), then reasoning doesn't indicate how things are.
-
 
   What matters is that this rests on \(\phi\) being the case.
 \end{note}
@@ -1995,6 +2197,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Rather, the idea is that whatever the adjective is, it does not reduce to the proposition-value pairs appealed to in making the step.
 
   However, any meta-proposition-value pair of this kind will fail to be a \requ{1} of the step of reasoning \emph{because} it does reduce to issues concerning the \requ{1} of the step.
+\end{note}
+
+\begin{note}
+  \color{red}
+  Leaves open the possibility that you may hold the agent needs to have some reasoning to indicate the relevant proposition.
+  However, this does not follow from the assumptions made.
+  Therefore, we may take a neutral stance on such propositions.
 \end{note}
 
 \subparagraph*{Summary of meta-proposition-value pairs}

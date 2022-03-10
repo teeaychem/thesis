@@ -770,6 +770,52 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateV}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicate}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicate}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{indicates}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indicate}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Indicates}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateO}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indication}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indication}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} indications}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indication}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} Indications}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 
 
 % % % Other
