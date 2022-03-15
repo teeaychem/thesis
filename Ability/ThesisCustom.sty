@@ -103,7 +103,7 @@
   }
   {%
   \ifnum0=#1\relax%
-      \obeybreaks{Treacherousness\space of\space claimed\space support}%
+      \obeybreaks{Persistence\space of\space claimed\space support}%
     \fi
 
   }
@@ -115,11 +115,26 @@
 \DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:eiS]{\named{\hand\cancel{\(\dag\)}}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:cs:EIS]{\named{\hand\cancel{\(\dag\)}}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \ifnum0=#1\relax%
       \obeybreaks{Constancy\space of\space claimed\space support}%
+    \fi
+
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ideaCSC}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:cs:imp-stp]{\named{無用}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Impotence}%
     \fi
 
   }
@@ -434,6 +449,30 @@
 %    \ifnum0=#1\relax%
       \hyperref[def:aben]{\obeybreaks{#1\space ability\space entailment}}%
  %   \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\impotent}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{impotent}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{impotent}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} ?}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Impotent}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} ?}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -817,6 +856,32 @@
 \ExplSyntaxOff
 
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\world}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{state\space of\space affairs}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{state\space of\space affairs}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{states\space of\space affairs}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{State\space of\space affairs}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{States\space of\space affairs}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+
+
 
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
@@ -992,11 +1057,11 @@
 
 \newcommand{\saMtxEmpty}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
-      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \SetCell[c=2]{c} test & & \adA{} & \adB{} \\
       \hline
-      \multicolumn{2}{c}{\WR{}} & ? & ? \\
+      \SetCell[c=2]{c} \WR{} & & ? & ? \\
       \hline
-      \multirow{2}{*}{\AR{}} & Basic & ? & ? \\
+      \SetCell[r=2]{c} \AR{} & Basic & ? & ? \\
       \cline[dashed]{2-4}
       & Derived & ?  & ? \\
     \end{tblr}%
@@ -1005,11 +1070,11 @@
 
 \newcommand{\saMtxInterpreted}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
-      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
       \hline
-      \multicolumn{2}{c}{\WR{}} & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Parts of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
+      \SetCell[c=2]{c} \WR{} & & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Parts of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
       \hline
-      \multirow[c]{2}{*}{\AR{}} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & --- \\
+      \SetCell[r=2]{c} \AR{} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & --- \\
       \cline[dashed]{2-4}
       & Derived & That there is some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) & Parts of some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) \\
     \end{tblr}%
@@ -1018,11 +1083,11 @@
 
 \newcommand{\saMtxRuledOut}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
-      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
       \hline
-      \multicolumn{2}{c}{\WR{}} & Ruled out by \nI{}  & Ruled out by \ESU{} \\
+      \SetCell[c=2]{c} \WR{} & & Ruled out by \nI{}  & Ruled out by \ESU{} \\
       \hline
-      \multirow{2}{*}{\AR{}} & Basic  & Ruled out by \nI{}  & ---  \\
+      \SetCell[r=2]{c} \AR{} & Basic  & Ruled out by \nI{}  & ---  \\
       \cline[dashed]{2-4}
       & Derived & Ruled out by \nI{}  & Ruled out by \ESU{} \\
     \end{tblr}%
@@ -1033,11 +1098,11 @@
 
 \newcommand{\saMtxRuledOutESU}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
-      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
       \hline
-      \multicolumn{2}{c}{\WR{}} &  & Ruled out by \ESU{} \\
+      \SetCell[c=2]{c} \WR{} & &  & Ruled out by \ESU{} \\
       \hline
-      \multirow{2}{*}{\AR{}} & Basic  &  & --- \\
+      \SetCell[r=2]{c} \AR{} & Basic  &  & --- \\
       \cline[dashed]{2-4}
       & Derived &  & Ruled out by \ESU{} \\
     \end{tblr}%
@@ -1045,11 +1110,11 @@
 
 \newcommand{\saMtxRuledOutLCS}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
-      \multicolumn{2}{c}{} & \adA{} & \adB{} \\
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
       \hline
-      \multicolumn{2}{c}{\WR{}} & Ruled out by \nI{}  &  \\
+      \SetCell[c=2]{c} \WR{} & & Ruled out by \nI{}  &  \\
       \hline
-      \multirow{2}{*}{\AR{}} & Basic  & Ruled out by \nI{}  & ---  \\
+      \SetCell[r=2]{c} \AR{} & Basic  & Ruled out by \nI{}  & ---  \\
       \cline[dashed]{2-4}
       & Derived & Ruled out by \nI{}  &  \\
     \end{tblr}%
