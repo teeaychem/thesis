@@ -89,11 +89,39 @@
 
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
 
+% \newcommand{\eState}[1]{\ensuremath{\mathcal{S}_{#1}}}
+
 % % % Premise Commands
 % Perhaps:
 % S\(\rightarrow\)C for main premise
 % S\(\leftarrow\)C for denied premise
 % And S\(\circ\dashes\)C for exception
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eState}{ m O{} }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \tl_if_empty:nTF {#2}
+    {
+      \ensuremath{\mathcal{S}}
+    }
+    {
+    \ensuremath{\mathcal{S}^{#2}}
+    }
+
+  }
+  {%
+      \tl_if_empty:nTF {#2}
+      {
+        \ensuremath{\mathcal{S}_{#1}}
+      }
+      {
+      \ensuremath{\mathcal{S}^{#2}_{#1}}
+      }
+
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ideaCSA}{ m }{% No inertia
@@ -762,6 +790,29 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \possibilityAdv{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \possibilityAdv{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 % % %
 \ExplSyntaxOn
 \DeclareDocumentCommand{\expec}{ m }{% Expectation
@@ -855,31 +906,51 @@
 }
 \ExplSyntaxOff
 
-
 \ExplSyntaxOn
 \DeclareDocumentCommand{\world}{ m }{% Requisite
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{state\space of\space affairs}%
+    \obeybreaks{situation}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{state\space of\space affairs}%
+      \obeybreaks{situation}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{states\space of\space affairs}%
+      \obeybreaks{situations}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{State\space of\space affairs}%
+      \obeybreaks{Situation}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{States\space of\space affairs}%
+      \obeybreaks{Situations}%
     \fi
   }
 }
 \ExplSyntaxOff
 
-
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sink}{ m }{% Requisite
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{cynosure}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{cynosure}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} cynosures}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Cynosure}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} Cynosures}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 
 
@@ -1214,6 +1285,22 @@
     \draw[draw = white] (0,0) rectangle (0.3,0.3);
     \begin{scope}[overlay]
     %\draw[dash pattern=on \pgflinewidth off .5pt] (0.15,.01) circle (2.25pt);
+    \node[scale=0.9] (1,0.1) [label={[xshift=0.155cm, yshift=-.3125cm]\reflectbox{\textsf{e}}}] {};
+    \draw (0.15,.2) circle (1.125pt);
+    \draw (0.05,.15) circle (1.125pt);
+    \draw (0.25,.15) circle (1.125pt);
+    \end{scope}
+      \end{tikzpicture}
+  }%
+}
+
+\newcommand{\sinkSymb}{%
+  \mathrel{%
+  \begin{tikzpicture}
+
+    \draw (0,0) rectangle (0.3,0.3);
+    \begin{scope}[overlay]
+
     \node[scale=0.9] (1,0.1) [label={[xshift=0.155cm, yshift=-.3125cm]\reflectbox{\textsf{e}}}] {};
     \draw (0.15,.2) circle (1.125pt);
     \draw (0.05,.15) circle (1.125pt);
