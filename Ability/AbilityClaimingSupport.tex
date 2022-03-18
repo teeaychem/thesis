@@ -562,7 +562,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\ideaCSA{0} --- \ideaCSA{}]{idea}{iCSA}
     \label{idea:defs-for-CS}
-    An agent \emph{S} claims support that \(\phi\) has value \(v\) \emph{only if} \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state with no constraints.
+    An agent \emph{S} has claimed support for \(\phi\) having value \(v\) \emph{only if} \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state with no constraints.
 \end{restatable}
 \end{note}
 
@@ -576,21 +576,21 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \(\phi\) having value \(v\) is a \emph{\sink{}} with respect to an agent \(a\)'s epistemic state \(\eState{a}\) and collection of proposition-value pairs \(\Phi\) just in case:
 
     For any \epAdv{} \world{} \(s\) compatible with \(\eState{a}\) and \(\Phi\).
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \begin{enumerate}[label=\(\circlearrowright\)\arabic*., ref=(\(\circlearrowright\)\arabic*)]
     \item
       \label{def:sink:restrict}
       If \(a\) were to relax \(\eState{a}\) to  \(\eState{a}[']\) such that \(s\) is compatible with being the actual world relative to \(\eState{a}[']\), then either:
-      \begin{enumerate}[label=\alph*., ref=(1\alph*)]
+      \begin{enumerate}[label=\alph*., ref=(\(\circlearrowright\)1\alph*)]
       \item
         \label{def:sink:restrict:phi:get}
         If \(a\) were to reason about whether \(\phi\) has value \(v\) from \(\eState{a}[']\) together with \(\Phi\), \(a\) would conclude that \(\phi\) has value \(v\).
       \end{enumerate}
       Or:
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \begin{enumerate}[label=\alph*., ref=(\(\circlearrowright\)1\alph*), resume]
       \item
         \label{def:sink:restrict:psi}
         There is some proposition-value pair \(\psi\) having value \(v'\) such that
-        \begin{enumerate}[label=\roman*., ref=(1b\roman*)]
+        \begin{enumerate}[label=\roman*., ref=(\(\circlearrowright\)1b\roman*)]
         \item
           \label{def:sink:restrict:psi:get}
           If \(a\) were to reason from about whether \(\psi\) has value \(v'\) from \(\eState{a}[']\) together with \(\Phi\), \(a\) would conclude that \(\psi\) has value \(v'\), and
@@ -610,7 +610,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Observe that both the agent's epistemic state and the collection of proposition-value pairs are revised when passed to the recursive clause~\ref{def:sink:restrict:psi:recurse}.
   }
 
-  Clause \ref{def:sink:restrict:phi:get} of \autoref{def:sink} specifies a base case, while clause \ref{def:sink:restrict:psi} specifies the relevant recursive step.
+  Clause \ref{def:sink:restrict:phi:get} specifies a base case, while clause \ref{def:sink:restrict:psi} specifies the relevant recursive step.
 \end{note}
 
 \begin{note}[Key idea of \sink{}]
@@ -657,12 +657,11 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   With this rough understanding of relaxing a epistemic state, we now observe two ways in which Step~\ref{ideaCSA:sink:step:C} may be satisfied.\nolinebreak
   \footnote{
     I implicitly assume that relaxing an epistemic state does not introduce novel \epN{} \world{1}.
-
-    Still, if this assumption is discarded, then the collection of constraints is somewhat interesting.
+    Still, if this assumption is discarded, then further consideration is required.
 
     For,~\autoref{def:sink} does not require the agent to `relax' the collection of proposition-value pairs obtained from an instance of the recursive step.
-
     Consider the following case:
+
     \eState{} is relaxed to \eState{}{'} which allows for \(\psi_{1}\) having value \(v_{1}\).
     The agent then reasons to \(\psi_{2}\) having value \(v_{2}\).
     Hence, \(\psi_{2}\) having value \(v_{2}\) is part of the collection of propositions.
@@ -671,11 +670,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Yet, as the agent concluded \(\psi_{2}\) has value \(v_{2}\) from \eState{}{'}, the agent may appeal to \(\psi_{2}\) having value \(v_{2}\) with respect to~\eState{}{''}.
 
     Hence,~\autoref{def:sink} implicitly rules out certain novel \epN{} \world{1}.
-
     However, this reasoning does not extend to ruling out for novel \world{1} that are compatible with proposition-value pairs the agent has reasoned to.
 
-    Depending on your intuition (if you have any) then the definition may need to be revised to extend relaxing to the collection of proposition-value pairs.
-    However, as I have no clear intuition regarding such a possibility and as excluding such a possibility will increase the complexity of the definition, I leave the assumption implicit.
+    So, depending on your intuition (if you have any) then the definition may need to be revised to extend relaxing to the collection.
+    However, without clear intuition, and as excluding such a possibility will increase the complexity of the definition, I leave the assumption implicit.
   }
 \end{note}
 
@@ -757,6 +755,18 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
+  \color{red}
+  Intuitive `even if\dots' test.
+
+  \begin{enumerate}[label=\ref{fig:ideaCSA:basic-examples}\alph*., ref=(\ref{fig:ideaCSA:basic-examples}\alph*)]
+  \item Even if not asleep\dots
+  \item Even if \(S\) did not say \(p\), \dots
+  \item Even if the gift does not satisfy some desire I have \dots
+  \item Even if the die is not biased \dots
+  \end{enumerate}
+\end{note}
+
+\begin{note}
   An important for emphasis, though inessential for practice, feature of \ideaCSA{} is that whether an agent has claimed support for \(\phi\) having value \(v\) is independent of whether \(\phi\) has value \(v\).
 
   For, \ideaCSA{} requires the agent would reason to \(\phi\) having value \(v\) were the agent to entertain any \epN{} \world{} as a candidate for the actual \world{}.
@@ -826,39 +836,78 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   As I suspect that this intuition is sufficiently clear, we will move on.
 \end{note}
 
-\subsection{Idea 2}
+\subsection{Idea B}
 \label{sec:idea-2}
 
 \begin{note}
+  \ideaCSA{}, claimed support.
+
+  In short, if agent has claimed support for \(\phi\) having value \(v\), there is no \epN{} \world{} such that if the agent considered the \epN{} \world{} as a candidate for the actual \world{}, then the agent would not conclude that \(\phi\) has value \(v\).
+
+  Both this short characterisation, and the definition of a \sink{} on which \ideaCSA{} relies involve complex counterfactual considerations.
+
+  We now refine \ideaCSA{} via \ideaCSB{}.
+
+  The refinement is useful in two respects.
+  \begin{itemize}
+  \item Relates directly to claiming support, rather than whether an agent has claimed support.
+  \item Does not employ the notion of a \sink{}, nor the relaxation of an epistemic state.
+  \end{itemize}
+  Indeed, \ideaCSB{} is strictly weaker than \ideaCSA{}.
+  Still, we will appeal to \ideaCSA{} in order to motivate \ideaCSB{}, hence \ideaCSB{} is characterised as a refinement of \ideaCSA{}.
+\end{note}
+
+\begin{note}
+  Begin with statement of \ideaCSB{}.
+  Clarify the contents of \ideaCSB{}.
+  Motivate \ideaCSB{} via \ideaCSA{}.
+\end{note}
+
+\begin{note}
   \begin{restatable}[\ideaCSB{0} --- \ideaCSB{}]{idea}{ideaEIS}
-    \label{idea:eiS} % to remove, as I've used eiS too much
-    \label{idea:cs:EIS}
-    Suppose that:
-    \begin{enumerate}
-      \item
-        \label{idea:eiS:p-v-pair:ep}
-        \(\psi\) not having value \(v'\) is an \ep{}.
-      \item
-        There is some step of reasoning \(\delta\) which moves from premises \(\chi_{i}\) having values \(v_{i}''\) to the conclusion that \(\xi\) has value \(v'''\).
-      \item
-        \label{idea:eiS:p-v-pair:commit}
-        \emph{S} is committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
-        \begin{enumerate}
-        \item
-          \label{idea:eiS:p-v-pair:commit:p}
-          Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}''\).
-        \item
-          \label{idea:eiS:p-v-pair:commit:c}
-          \(\xi\) does not have value \(v'''\).
-        \end{enumerate}
-      \end{enumerate}
-
-    An instance of reasoning that concludes that \(\phi\) has value \(v\) is an instance of claiming support for \(\phi\) having value \(v\) \emph{only if}:
-
+    \label{idea:CS:B}
+    For any instance of reasoning:
+    \begin{itemize}[leftmargin=*]
+    \item
+      If:
       \begin{enumerate}[resume]
       \item
-        \label{idea:eiS:p-v-pair:recurse}
-        The agent has witnessed some reasoning which \indicateV{1} --- relative to the agent's current epistemic state --- that \(\psi\) has value \(v'\).\nolinebreak
+        \label{idea:CS:B:step}
+        The reasoning relies on some step of reasoning \(\delta\) which moves from premises \(\chi_{i}\) having values \(v_{i}''\) to the conclusion that \(\xi\) has value \(v'''\).
+        \begin{itemize}
+        \item
+          Such that:
+          \begin{enumerate}
+          \item
+            \label{idea:CS:B:step:commit}
+            \emph{S} is committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
+            \begin{enumerate}
+            \item
+              \label{idea:CS:B:step:commit:p}
+              Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}''\).
+            \item
+              \label{idea:CS:B:step:commit:c}
+              \(\xi\) does not have value \(v'''\).
+            \end{enumerate}
+          \end{enumerate}
+        \item
+          And:
+          \begin{enumerate}[resume]
+          \item
+            \label{idea:CS:B:step:psi-ep}
+            Prior to \(\delta\) some \epAdv{} \world{} such that \(\psi\) does not have value \(v'\) and \(\xi\) does not have value \(v'''\).
+          \item
+            \label{idea:CS:B:step:connexion}
+            If \(\xi\) does not have value \(v''\) then \(\psi\) does not have value \(v''\).
+          \end{enumerate}
+        \end{itemize}
+      \end{enumerate}
+    \item
+      Then, the instance of reasoning is an instance of claiming support for \(\phi\) having value \(v\) \emph{only if}:
+      \begin{enumerate}[resume]
+      \item
+        \label{idea:CS:B:prior-reasoning}
+        The agent may --- prior to making \(\delta\) --- witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).\nolinebreak
         \footnote{
           This clause is non-committal about the details of the reasoning that \indicateV{1} that \(\psi\) has value \(v'\).
           In particular:
@@ -866,12 +915,106 @@ In most cases the value will be clear (i.e. that the proposition is true, though
           And, with respect to \autoref{prop:EAS}, the reasoning may involve appeal to some unwitnessed reasoning.
         }
       \end{enumerate}
+    \end{itemize}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  \autoref{idea:eiS} expresses a necessary condition for an instance of reasoning to be an instance of claiming support.
+  As with \ideaCSA{}, \ideaCSB{} is a necessary condition.
+  In contrast, \ideaCSB{} concerns claiming, rather than claimed, support.
+  In particular, \ideaCSB{} focuses on a condition that any step of reasoning must satisfy in order for the instance of reasoning to be an instance of claiming support.
+\end{note}
+
+\begin{note}
+  Intuitively:
+  Suppose it is not possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+  Then, the agent would not be in a position to distinguish between \(\psi\) having value \(v'\) and \(\psi\) not having value \(v'\) with respect to the actual \world{}.
+  Hence, hence the agent would be committed to uncertainty about whether the premises or the conclusion of the step reflect the actual \world{}.
+  So, the agent would be committed to the step being uninformative with regards to how things actually are.
+
+  In other words, if an agent is committed to it being that case that some step of reasoning in informative about the actual \world{} \emph{just in case} some proposition \(\psi\) has value \(v\), then it must be possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}
+  This intuition is brief, and in place of a detailed account \ideaCSB{} in isolation, we will clarify \ideaCSB{} by observing both how \ideaCSB{} is motivated by \ideaCSA{} and how \ideaCSB{} is (significantly) weaker than \ideaCSA{}.
+
+  Before doing so, we make two brief observations.
+\end{note}
+
+\begin{note}
+  First, a subtle, but important, distinction is that the reasoning must \emph{rely} on the relevant step.
+  Intuitively, some instance of reasoning which concludes that \(\phi\) has value \(v\) relies on a step of reasoning just in case the reasoning requires both the premises and conclusion of the step to actually have their respective values in order to conclude that \(\phi\) has value \(v\).
+
+  In other words, \ideaCSB{} does not extend to steps made where the step is part of some hypothetical reasoning, such as reasoning by cases.
+  We provide an explicit characterisation of reliance on a step in~\autoref{sec:assumpt-from-ideas}.
+\end{note}
+
+\begin{note}
+  Second, we only require that the agent \emph{may} witness some reasoning that \emph{\indicateV{1}} that \(\psi\) has value \(v'\).
+  In other words, we do not require that the agent does witness some reasoning, nor that the relevant reasoning would explicitly concludes that \(\psi\) has value \(v'\).
+  Simply, we have no interest in any stronger constraints than those presented.
+\end{note}
+
+
+\paragraph{Motivation from \ideaCSA{}}
+
+\begin{note}
+  Suppose \ref{idea:CS:B:step} holds and \ref{idea:CS:B:prior-reasoning} does not.
+
+
+  Focus on the step.
+  Treat this as instance of claiming support.
+
+  Question is not whether the agent may claim support for \(\psi\) having value \(v'\), but whether the agent may claim support for \(\xi\) having value \(v''\).
+
+  So, relax so that \(\xi\) not having value \(v''\) is a candidate for the actual \world{}.
+  Know this is possible given \ref{idea:CS:B:step:psi-ep}.
+  Further, for any \epAdv{} \world{} in which \(\xi\) does not have value \(v''\), \(\psi\) does not have value \(v'\).
+
+  Now, no reasoning for \(\psi\) having value \(v'\) with respect to agent's current epistemic state.
+  So, no reasoning for \(\psi\) having value \(v'\) given relaxed epistemic state.
+  For, minimal change to be compatible with \epAdv{} \world{}.
+  Hence, relaxed epistemic state only lacks various proposition-value pairs from current epistemic state.
+  So, \(\xi\) having value \(v''\) is not a \sink{} with respect to current epistemic state.
+
+  And, as reasoning relies on step, and the conclusion of the step is not a \sink{}, then conclusion of reasoning is not a \sink{}.
+\end{note}
+
+\begin{note}
+  So, if fail, then surely a failure of \ideaCSA{}.
+
+  Still, weaker.
+  Just about this \(\psi\) having value \(v'\).
+
+  And, may be plausible that this holds without \ideaCSA{}.
+  Difficulty is that \(\psi\) not having value \(v'\) is only an \ep{}.
+  I actually don't need this.
+  So, I can have the clause which states that \(\psi\) not having value \(v'\) is a candidate for the actual \world{}.
+  However, I need to be careful not to suggest that the agent \emph{regonises} that \(\psi\) does(n't) have value \(v'\).
+  In the case of ability, \(\psi\) is what one gets from witnessing the ability, and as it's novel information, it's going to be \epAdv{}.
+
+  Then, weaker, in part, because we have a strong assumption about the agent's relation to \(\psi\) having value \(v'\).
+  Yet, still, without the background idea, it is unclear how to motivate.
+
+  For, at issue is not the agent getting something wrong, as we're interested (in part) with non-deductive steps.
+
+  And, so even if \(\psi\) is a live possibility, the point can't simply be that the agent is open to getting something wrong.
+  So, the issue is about whether the agent's reasoning is `robust' with respect to \epAdv{} \world{1}.
+  And I don't see a clear distinction between candidates for actual \world{} and \epAdv{} \world{1} in this respect.
+
+  Still, if you think there is a plausible distinction, then dismiss \ideaCSA{}.
+\end{note}
+
+
+
+
+
+
+\hozlinedash
+
+\begin{note}
+  \autoref{idea:CS:B} expresses a necessary condition for an instance of reasoning to be an instance of claiming support.
 \end{note}
 
 \paragraph{Breaking down idea}
@@ -893,157 +1036,30 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   For, then either premises or conclusion would not apply to how things are.
 
   Restricted: If the actual world is such that \(\psi\) has value \(v'\), then indicates that \(\xi\) has value \(v'\).
+\end{note}
 
-  Hence, \ref{idea:eiS:p-v-pair:recurse}.
-  Past or present reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+\paragraph{Motivation from \ideaCSA{}}
 
-  \begin{idea}
-    If \(\phi\) not having value \(v\) is an \ep{}.
-    Then:
-    Reasoning indicates that \(\phi\) has value \(v\) only if things appealed to are compatible with \(\phi\) not having value \(v\), and without further things, suggest that \(\phi\) has value \(v\).
-  \end{idea}
+\begin{note}
+  If no reasoning for \(\psi\) having value \(v'\), then \(\psi\) not having value \(v'\) is a candidate for the actual \world{}.
+  Hence, given need for \(\psi\) to have value \(v'\), \(\psi\) having value \(v\) is not a \sink{} with respect to the agent's epistemic state.
 
-  Tweety flies, so Tweety is not a mammal.
-  \ep{} that Tweety is a bat.
-  Bats are mammals.
-  However, suggests that Tweety is not a mammal.
-
-  Other examples.
-
-  This is hard to evaluate.
-  Hence, treat \autoref{idea:eiS} not only as an idea, but as an \emph{ideal}.
-  To the extent non-deductive reasoning is possible, this ideal is going to be satisfied.
-  What we avoid is \emph{how} it is satisfied.
-  Assume weak.
-
-  Important idea is that this ensures that the scope of the step of reasoning \(\delta\) is not restricted to candidates such that \(\psi\) has value \(v'\).
-  For, in \ep{} where \(\psi\) does not have value \(v'\), agent's epistemic state points to \(\psi\) having value \(v'\).
-
-  Second.
-  \indicateV{1}.
-
-  Issue is restriction, not whether agent recognises that their reasoning is restricted.
+  For, possible to relax to \(\psi\) not having value \(v'\).
+  Something here that means not actual \world{}.
 \end{note}
 
 \begin{note}
-  \color{red}
-  Note somewhere that the step doesn't have to be deductive.
-\end{note}
-
-
-\begin{note}
-  An instance of reasoning is an instance of claiming support \emph{only if} for any proposition-value pair \(\psi\) having value \(v'\) that would restrict the scope of the reasoning to instances where \(\psi\) having value \(v'\), the agent has reasoned (past or present) to \(\psi\) having value \(v'\) which ensures that the scope of the proposed instance of claiming support extends to \ep{} that \(\psi\) having value \(v'\)
+  Still, weaker than \ideaCSA{}.
+  For, satisfying \ideaCSB{} does not imply that \(\psi\) having value \(v\) is a \sink{} with respect to the agent's epistemic state.
 \end{note}
 
 \begin{note}
-  \color{red}
-  Note, the step.
-  As before, this is about how things are.
-  Therefore, will not apply to instances such as reasoning by cases.
-  For, these will not be steps from \(\chi_{i}\) having values \(v_{i}''\).
-
-  Necessary condition.
+  Given that \ideaCSB{} is weaker, then independent motivation for \ideaCSB{}.
+  However, as \(\psi\) not having value \(v'\) is (only) an \epAdv{}, \ideaCSB{} continues to rely on entertaining such possibilities.
+  And, if not strictly necessary, I see \ideaCSA{} as capturing a plausible general account of an attitude that is responsive to entertaining such \ep{1}.
 \end{note}
-
-\paragraph{Some examples}
-
-
-\begin{note}
-  \autoref{idea:eiS} is complex.
-
-  Above, clarified reasoning that concludes that \(\phi\) has value \(v\).
-  Key is how the reasoning relates to what is \epAdv{} for the agent.
-
-  Intuitively, consider failure of \ref{idea:eiS:p-v-pair}.
-  If there were such a proposition pair, then there is some \ep{} such that the reasoning does not apply.
-  Hence, \ref{idea:eiS:p-v-pair:recurse}, that present or past reasoning which concludes that \(\psi\) has value \(v'\).
-  Though it is an \ep{} that \(\psi\) does not have value \(v'\), past or present reasoning \indicateV{1} that \(\psi\) has value \(v'\), and hence that the reasoning is about how things are.
-
-  \begin{quote}
-    An instance of reasoning is an instance of claiming support just in case the reasoning is, from the agent's perspective, about how things are.
-  \end{quote}
-
-  Alternatively:
-
-  \begin{quote}
-    Claiming support for \(\phi\) having value \(v\) from premises that \(\chi_{i}\) having value \(v_{i}\).
-    The result of claiming support is that \(\phi\) has value \(v\).
-    Not (merely), that if \(\chi_{i}\) have values \(v_{i}\) then \(\phi\) has value \(v\).
-  \end{quote}
-\end{note}
-
-\begin{note}
-  Intuitive `even if\dots' test.
-
-  \begin{enumerate}
-  \item Even if Rover will not fall asleep soon\dots
-  \end{enumerate}
-
-  \begin{enumerate}[label=\ref{fig:ideaCSA:basic-examples}\alph*., ref=(\ref{fig:ideaCSA:basic-examples}\alph*)]
-  \item Even if not asleep\dots
-  \item Even if \(S\) did not say \(p\), \dots
-  \item Even if the gift does not satisfy some desire I have \dots
-  \item Even if the die is not biased \dots
-  \end{enumerate}
-\end{note}
-
-\begin{note}
-  Explicit premises and conclusion are candidates.
-  Hence, \label{idea:eiS:p-v-pair:commit} constrains the reasoning in general.
-\end{note}
-
-\begin{note}
-  Strictly, this goes beyond because it adds in the agent's perspective.
-  There is nothing to reasoning that concludes that \(\phi\) has value \(v\) alone which requires.
-\end{note}
-
-\begin{note}
-  However, the agent's perspective is limited.
-  We do not include a clause that holds that the agent recognises.
-
-  Delicate.
-  Committed.
-  We (attempt to) make precise in \autoref{sec:claim-supp-requ}.
-  For the moment, intuitive.
-  Paired with an intuitive worry: agent may be committed even if they do not recognise.
-
-  Balance, the agent's reasoning may satisfy without recognition.
-
-  Here, \indicateV{1} terminology of \ref{idea:eiS:p-v-pair:recurse}.
-  If explicitly concludes, then \indicateV{1}.
-  However, if implicitly concludes, then \indicateV{1}.
-
-  Difficulty is that commitment allows possibility even when not possible to recognise.
-  In principle, at least.
-  Relative to agent's epistemic state.
-  Important, \ep{}.
-
-  This does not completely diminish the concern, still possible that agent does not recognise how they are committed.
-  However, I am not clear on how to resolve this.
-  So, leave this open.
-
-  On the other hand, \indicateO{0} may be too weak.
-  Certain problems may need to be recognised.
-  This, we also leave open.
-\end{note}
-
-\begin{note}
-  Idea may be recursive.
-
-  For, \indicateO{0}.
-  May think that \indicateV{1} only if satisfies idea.
-  Plausibly follows from motivation that will be given for idea.
-  Though, we will not explicitly assume that this is the case.
-\end{note}
-
 
 \paragraph{Core of the idea}
-
-\begin{note}
-  Above, given some intuition.
-  Here, motivate intuition.
-  Relate to safety.
-\end{note}
 
 \begin{note}
   Strip away relativisation to the agent:
@@ -1095,10 +1111,107 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Hence, if the agent's reasoning only indicates that \(\phi\) has value \(v\) if it is in fact the case that \(\phi\) has value \(v\), then the agent's reasoning does not \indicateV{0} that \(\phi\) has value \(v\) in the \epAdv{} state of affairs in which \(\phi\) does not have value \(v\).
 \end{note}
 
-\subparagraph{Safety}
+
+\paragraph{???}
+
+\begin{note}
+  \color{red}
+  Note somewhere that the step doesn't have to be deductive.
+\end{note}
 
 
-\subparagraph{Contrast to safety}
+\begin{note}
+  An instance of reasoning is an instance of claiming support \emph{only if} for any proposition-value pair \(\psi\) having value \(v'\) that would restrict the scope of the reasoning to instances where \(\psi\) having value \(v'\), the agent has reasoned (past or present) to \(\psi\) having value \(v'\) which ensures that the scope of the proposed instance of claiming support extends to \ep{} that \(\psi\) having value \(v'\)
+\end{note}
+
+\begin{note}
+  \color{red}
+  Note, the step.
+  As before, this is about how things are.
+  Therefore, will not apply to instances such as reasoning by cases.
+  For, these will not be steps from \(\chi_{i}\) having values \(v_{i}''\).
+
+  Necessary condition.
+\end{note}
+
+\paragraph{Some examples}
+
+
+\begin{note}
+  \autoref{idea:CS:B} is complex.
+
+  Above, clarified reasoning that concludes that \(\phi\) has value \(v\).
+  Key is how the reasoning relates to what is \epAdv{} for the agent.
+
+  Intuitively, consider failure of \ref{idea:eiS:p-v-pair}.
+  If there were such a proposition pair, then there is some \ep{} such that the reasoning does not apply.
+  Hence, \ref{idea:CS:B:prior-reasoning}, that present or past reasoning which concludes that \(\psi\) has value \(v'\).
+  Though it is an \ep{} that \(\psi\) does not have value \(v'\), past or present reasoning \indicateV{1} that \(\psi\) has value \(v'\), and hence that the reasoning is about how things are.
+
+  \begin{quote}
+    An instance of reasoning is an instance of claiming support just in case the reasoning is, from the agent's perspective, about how things are.
+  \end{quote}
+
+  Alternatively:
+
+  \begin{quote}
+    Claiming support for \(\phi\) having value \(v\) from premises that \(\chi_{i}\) having value \(v_{i}\).
+    The result of claiming support is that \(\phi\) has value \(v\).
+    Not (merely), that if \(\chi_{i}\) have values \(v_{i}\) then \(\phi\) has value \(v\).
+  \end{quote}
+\end{note}
+
+\begin{note}
+  Explicit premises and conclusion are candidates.
+  Hence, \label{idea:CS:B:step:commit} constrains the reasoning in general.
+\end{note}
+
+\begin{note}
+  Strictly, this goes beyond because it adds in the agent's perspective.
+  There is nothing to reasoning that concludes that \(\phi\) has value \(v\) alone which requires.
+\end{note}
+
+\begin{note}
+  However, the agent's perspective is limited.
+  We do not include a clause that holds that the agent recognises.
+
+  Delicate.
+  Committed.
+  We (attempt to) make precise in \autoref{sec:claim-supp-requ}.
+  For the moment, intuitive.
+  Paired with an intuitive worry: agent may be committed even if they do not recognise.
+
+  Balance, the agent's reasoning may satisfy without recognition.
+
+  Here, \indicateV{1} terminology of \ref{idea:CS:B:prior-reasoning}.
+  If explicitly concludes, then \indicateV{1}.
+  However, if implicitly concludes, then \indicateV{1}.
+
+  Difficulty is that commitment allows possibility even when not possible to recognise.
+  In principle, at least.
+  Relative to agent's epistemic state.
+  Important, \ep{}.
+
+  This does not completely diminish the concern, still possible that agent does not recognise how they are committed.
+  However, I am not clear on how to resolve this.
+  So, leave this open.
+
+  On the other hand, \indicateO{0} may be too weak.
+  Certain problems may need to be recognised.
+  This, we also leave open.
+\end{note}
+
+\begin{note}
+  Idea may be recursive.
+
+  For, \indicateO{0}.
+  May think that \indicateV{1} only if satisfies idea.
+  Plausibly follows from motivation that will be given for idea.
+  Though, we will not explicitly assume that this is the case.
+\end{note}
+
+
+
 
 \paragraph{Difficulty?}
 
@@ -1332,7 +1445,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   In particular, the way we will expand on \ideaCSB{} will be with respect to what the agent reasons about in instances of claiming support rather than whether the agent's reasoning satisfies some property such as preserving (or establishing) justification --- it may, but this will not be important.
 \end{note}
 
-\section{Impotent steps of reasoning}
+\section{Idea C}
 \label{sec:claim-supp-impot}
 
 \begin{note}
@@ -1354,14 +1467,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \item Some premise \(\phi_{i}\) having value \(v_{i}\) is obtained from a prior step of reasoning \(\delta'\) such that:
       \begin{enumerate}
       \item
-        \label{idea:eiS:p-v-pair:commit}
+        \label{idea:CS:B:step:commit}
         When making step \(\delta'\), \emph{S} was committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
         \begin{enumerate}
         \item
-          \label{idea:eiS:p-v-pair:commit:p}
+          \label{idea:CS:B:step:commit:p}
           Some premise of \(\delta\) does not have value.
         \item
-          \label{idea:eiS:p-v-pair:commit:c}
+          \label{idea:CS:B:step:commit:c}
           \(\phi_{i}\) does not have value \(v_{i}\).
         \end{enumerate}
       \end{enumerate}
@@ -1371,7 +1484,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  If \autoref{idea:eiS} is satisfied, then reasoning.
+  If \autoref{idea:CS:B} is satisfied, then reasoning.
   \autoref{idea:cs:imp-stp} is weaker.
 
   So, this is a structural constraint.
@@ -1395,7 +1508,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   \autoref{idea:cs:imp-stp} as this is the thing that's going to do the work.
-  Hence, following is compatible with rejecting \autoref{idea:eiS} while maintaining \autoref{idea:cs:imp-stp}.
+  Hence, following is compatible with rejecting \autoref{idea:CS:B} while maintaining \autoref{idea:cs:imp-stp}.
 
   Likewise, no doubt.
   So nothing of the kind Jackson suggests.

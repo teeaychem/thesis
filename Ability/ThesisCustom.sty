@@ -7,6 +7,7 @@
 
 \RequirePackage{xparse} % For creating commands with complex arguments
 
+
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \newcommand*\cancel[2][thin]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
@@ -127,7 +128,7 @@
 \DeclareDocumentCommand{\ideaCSA}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:defs-for-CS]{\named{\diamond\(\dag\)}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
+    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\) CS:A}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
   }
   {%
   \ifnum0=#1\relax%
@@ -143,7 +144,7 @@
 \DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:cs:EIS]{\named{\hand\cancel{\(\dag\)}}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS:B}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \ifnum0=#1\relax%
@@ -158,7 +159,7 @@
 \DeclareDocumentCommand{\ideaCSC}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:cs:imp-stp]{\named{無用}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:cs:imp-stp]{\named{\(\dag\) CS:C}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \ifnum0=#1\relax%
