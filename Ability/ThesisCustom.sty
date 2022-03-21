@@ -484,7 +484,7 @@
 
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\impotent}{ m }{% Requisite
+\DeclareDocumentCommand{\impotent}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{impotent}%
@@ -509,8 +509,33 @@
 % % % Abbreviations % % %
 
 % % % % % % Requisites etc % % %
+
 \ExplSyntaxOn
-\DeclareDocumentCommand{\result}{ m }{% Requisite
+\DeclareDocumentCommand{\requ}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{requisite}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{requisite}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{requisites}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Requisite}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Requisites}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\result}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{proto-\requ{}}%
@@ -533,7 +558,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\presult}{ m }{% Requisite
+\DeclareDocumentCommand{\presult}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{premise-\result{0}}%
@@ -556,7 +581,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\cresult}{ m }{% Requisite
+\DeclareDocumentCommand{\cresult}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{conclusion-\result{0}}%
@@ -579,30 +604,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\requ}{ m }{% Requisite
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{requisite}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{requisite}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{requisites}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Requisite}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Requisites}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\prequ}{ m }{% Requisite
+\DeclareDocumentCommand{\prequ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{premise-\requ{0}}%
@@ -625,7 +627,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\crequ}{ m }{% Requisite
+\DeclareDocumentCommand{\crequ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{conclusion-\requ{0}}%
@@ -648,7 +650,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\pandcrequ}{ m }{% Requisite
+\DeclareDocumentCommand{\pandcrequ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{premise-\space and\space conclusion-\requ{0}}%
@@ -671,7 +673,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\cprequ}{ m }{% Requisite
+\DeclareDocumentCommand{\cprequ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{conclusion-premise-\requ{0}}%
@@ -791,24 +793,190 @@
 }
 \ExplSyntaxOff
 
+% % % % % % Commands for worlds which should be considered, but are not candidates for the actual world % % %
+
 \ExplSyntaxOn
-\DeclareDocumentCommand{\epN}{ m }{% Illustration
+\DeclareDocumentCommand{\plausibility}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{epistemically\space \possibilityAdv{0}}%
+    \obeybreaks{plausibility}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+      \obeybreaks{plausibility}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{1}}%
+      \obeybreaks{plausibilities}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{0}}%
+      \obeybreaks{Plausibility}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Epistemically\space \possibilityAdv{1}}%
+      \obeybreaks{Plausibilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epP}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \plausibility{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \plausibility{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \plausibility{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic\space \plausibility{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \plausibility{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\PAd}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viable}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{plausible}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Plausible}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epPAd}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \PAd{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \PAd{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \PAd{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \PAd{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \PAd{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+% % % % % % Commands for worlds which are candidates for the actual world % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\viablity}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viability}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epV}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \viablity{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \viablity{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \viablity{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic\space \viablity{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \viablity{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\viablityAd}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viable}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viable}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{viable}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epVAd}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \viablityAd{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \viablityAd{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \viablityAd{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \viablityAd{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \viablityAd{1}}%
     \fi
   }
 }
@@ -862,7 +1030,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\indicateV}{ m }{% Requisite
+\DeclareDocumentCommand{\indicateV}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{indicate}%
@@ -885,7 +1053,31 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\indicateO}{ m }{% Requisite
+\DeclareDocumentCommand{\indicateVed}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicated}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicated}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indicated}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateN}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{indication}%
@@ -908,7 +1100,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\world}{ m }{% Requisite
+\DeclareDocumentCommand{\world}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{situation}%
@@ -931,7 +1123,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\sink}{ m }{% Requisite
+\DeclareDocumentCommand{\sink}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{cynosure}%
