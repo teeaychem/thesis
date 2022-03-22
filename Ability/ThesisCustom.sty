@@ -90,8 +90,6 @@
 
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
 
-% \newcommand{\eState}[1]{\ensuremath{\mathcal{S}_{#1}}}
-
 % % % Premise Commands
 % Perhaps:
 % S\(\rightarrow\)C for main premise
@@ -104,20 +102,20 @@
   {%
     \tl_if_empty:nTF {#2}
     {
-      \ensuremath{\mathcal{S}}
+      \ensuremath{\mathcal{E}}
     }
     {
-    \ensuremath{\mathcal{S}^{#2}}
+    \ensuremath{\mathcal{E}^{#2}}
     }
 
   }
   {%
       \tl_if_empty:nTF {#2}
       {
-        \ensuremath{\mathcal{S}_{#1}}
+        \ensuremath{\mathcal{E}_{#1}}
       }
       {
-      \ensuremath{\mathcal{S}^{#2}_{#1}}
+      \ensuremath{\mathcal{E}^{#2}_{#1}}
       }
 
   }
@@ -132,9 +130,11 @@
   }
   {%
   \ifnum0=#1\relax%
-      \obeybreaks{Persistence\space of\space claimed\space support}%
+      \obeybreaks{Idea\space regarding\space claiming\space support\space A}%
     \fi
-
+    \ifnum1=#1\relax%
+      \obeybreaks{Idea\space A}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -148,9 +148,11 @@
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Constancy\space of\space claimed\space support}%
+      \obeybreaks{Idea\space regarding\space claiming\space support\space B}%
     \fi
-
+    \ifnum1=#1\relax%
+      \obeybreaks{Idea\space B}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -163,9 +165,11 @@
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Impotence}%
+      \obeybreaks{Idea\space regarding\space claiming\space support\space C}%
     \fi
-
+    \ifnum1=#1\relax%
+      \obeybreaks{Idea\space C}%
+    \fi
   }
 }
 \ExplSyntaxOff
@@ -747,52 +751,6 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\possibilityAdv}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{viable}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{viable}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{viable}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epAdv}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemically\space \possibilityAdv{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemically\space \possibilityAdv{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemically\space \possibilityAdv{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
 % % % % % % Commands for worlds which should be considered, but are not candidates for the actual world % % %
 
 \ExplSyntaxOn
@@ -1163,6 +1121,20 @@
 
 
 % % % Agents % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\vAgent}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\emph{S}}
+  }
+  {%
+    \text{\emph{#1}}
+  }
+}
+\ExplSyntaxOff
+
+
 \ExplSyntaxOn
 \newcommand{\nagent}[1]{%
 \tl_if_empty:nTF {#1}
@@ -1212,7 +1184,6 @@
   }
 }
 \ExplSyntaxOff
-
 
 % % % % Propositions % % %
 

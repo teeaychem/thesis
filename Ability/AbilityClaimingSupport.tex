@@ -1,6 +1,11 @@
  \chapter{Claiming support}
 \label{cha:claiming-support}
 
+\begin{note}
+  \color{red}
+  Note somewhere that the step doesn't have to be deductive.
+\end{note}
+
 \paragraph*{Overview}
 
 \begin{note}
@@ -65,17 +70,17 @@
 \end{note}
 
 \begin{note}
-  \begin{definition}[An epistemic state]
+  \begin{restatable}[An epistemic state]{definition}{defEState}
     \begin{enumerate}
     \item \epPAd{2} \world{1}
     \item \epVAd{2} \world{1}
     \end{enumerate}
     Where,
     \begin{itemize}
-    \item \epVAd{2} \world{1} are candidates for the actual \world{} given agent's claimed support.
-    \item \epPAd{2} \world{1} are candidates for the actual \world{} without claimed support.
+    \item \epVAd{2} \world{1} are candidates for the actual \world{}.
+    \item \epPAd{2} \world{1} are candidates for the actual \world{}, if the actual world is not an \epVAd{0} \world{1}.
     \end{itemize}
-  \end{definition}
+  \end{restatable}
 \end{note}
 
 \begin{note}
@@ -177,8 +182,7 @@
 \label{sec:basic-assumptions}
 
 \begin{note}
-  Three basic assumptions to narrow reasoning.
-  Following sections then narrow down what type of thing claiming support is.
+  Overview of basic assumptions.
 \end{note}
 
 
@@ -455,9 +459,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\indicateN{2}]{definition}{defIndicate}
     \label{def:indication}
-    An instance of reasoning performed by some agent \emph{S} which concludes that \(\phi\) has value \(v\) \emph{\indicateV{1}} \(\psi\) has value \(v'\) if and only if:
+    An instance of reasoning performed by some agent \vAgent{} which concludes that \(\phi\) has value \(v\) \emph{\indicateV{1}} \(\psi\) has value \(v'\) if and only if:
     \begin{itemize}
-    \item It is not \epPAd{}, relative to \emph{S}' epistemic state, that \(\psi\) has value \(v'\) while \(\psi\) does not have value \(v'\).
+    \item It is not \epPAd{}, relative to \vAgent{}' epistemic state, that \(\psi\) has value \(v'\) while \(\psi\) does not have value \(v'\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -522,7 +526,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \color{red} \dots
 \end{note}
 
-\section{Ideas}
+\section{Ideas regarding claiming support}
 \label{sec:two-ideas}
 
 \begin{note}
@@ -566,40 +570,47 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   To obtain this structural consequence we will first relate \ideaCSA{} to steps of reasoning through an intermediary idea, \ideaCSB{}, and then introduce the structural consequence as \ideaCSB{}.
 \end{note}
 
-\subsection{\ideaCSA{}}
-\label{sec:idea-1}
+\subsection{\ideaCSA{1}}
+\label{sec:ideaCSB}
 
 \begin{note}
+  \color{red}
+  This is the strength of claiming support.
+  There are two important aspects.
+  \begin{itemize}
+  \item Relation to agent's own epistemic state.
+  \item Relation to how things are.
+  \end{itemize}
+\end{note}
+
+\begin{note}[Overview of \ideaCSA{}]
   Above we paraphrased \ideaCSA{} as holding that that an instance of reasoning that concludes \(\phi\) has value \(v\) is an instance of claiming support that \(\phi\) has value \(v\) \emph{only if} the agent would conclude that \(\phi\) has value \(v\) were it to be the case that the actual \world{} is some \epPAd{} \world{}.
 
   We now state \ideaCSA{} explicitly.
 \end{note}
 
-\begin{note}
+\begin{note}[Statement of \ideaCSA{}]
   \begin{restatable}[\ideaCSA{0} --- \ideaCSA{}]{idea}{iCSA}
     \label{idea:defs-for-CS}
-    An agent \emph{S} has claimed support for \(\phi\) having value \(v\) \emph{only if} \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state with no constraints.
+    An agent \vAgent{} has claimed support for \(\phi\) having value \(v\) \emph{only if} \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state with no constraints.
 \end{restatable}
 \end{note}
 
-\begin{note}
+\begin{note}[Statement of a \sink{0}]
   Where:
-\end{note}
-
-\begin{note}
-  \begin{definition}[A \sink{0}]
+  \begin{restatable}[A \sink{0}]{notion}{defSink}
     \label{def:sink}
-    \(\phi\) having value \(v\) is a \emph{\sink{}} with respect to an agent \(a\)'s epistemic state \(\eState{a}\) and collection of proposition-value pairs \(\Phi\) just in case:
+    \(\phi\) having value \(v\) is a \emph{\sink{}} with respect to an agent \vAgent{}' epistemic state \(\eState{\vAgent{}}\) and collection of proposition-value pairs \(\Phi\) just in case:
 
-    For any \epPAd{} \world{} \(s\) compatible with \(\eState{a}\) and \(\Phi\).
+    For any \epPAd{} \world{} \(s\) compatible with \(\eState{\vAgent{}}\) and \(\Phi\).
     \begin{enumerate}[label=\(\circlearrowright\)\arabic*., ref=(\(\circlearrowright\)\arabic*)]
     \item
       \label{def:sink:restrict}
-      If \(a\) were to relax \(\eState{a}\) to  \(\eState{a}[']\) such that \(s\) is compatible with being the actual \world{} relative to \(\eState{a}[']\), then either:
+      If \vAgent{} were to relax \(\eState{\vAgent{}}\) to  \(\eState{\vAgent{}}[']\) such that \(s\) is compatible with being the actual \world{} relative to \(\eState{\vAgent{}}[']\), then either:
       \begin{enumerate}[label=\alph*., ref=(\(\circlearrowright\)1\alph*)]
       \item
         \label{def:sink:restrict:phi:get}
-        If \(a\) were to reason about whether \(\phi\) has value \(v\) from \(\eState{a}[']\) together with \(\Phi\), \(a\) would conclude that \(\phi\) has value \(v\).
+        If \vAgent{} were to reason about whether \(\phi\) has value \(v\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\phi\) has value \(v\).
       \end{enumerate}
       Or:
       \begin{enumerate}[label=\alph*., ref=(\(\circlearrowright\)1\alph*), resume]
@@ -609,15 +620,15 @@ In most cases the value will be clear (i.e. that the proposition is true, though
         \begin{enumerate}[label=\roman*., ref=(\(\circlearrowright\)1b\roman*)]
         \item
           \label{def:sink:restrict:psi:get}
-          If \(a\) were to reason from about whether \(\psi\) has value \(v'\) from \(\eState{a}[']\) together with \(\Phi\), \(a\) would conclude that \(\psi\) has value \(v'\), and
+          If \vAgent{} were to reason from about whether \(\psi\) has value \(v'\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\psi\) has value \(v'\), and
         \item
           \label{def:sink:restrict:psi:recurse}
-          \(\phi\) having value \(v\) is a \sink{} with respect to \(\eState{a}[']\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
+          \(\phi\) having value \(v\) is a \sink{} with respect to \(\eState{\vAgent{}}[']\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
         \end{enumerate}
       \end{enumerate}
       \vspace{-\baselineskip}
     \end{enumerate}
-  \end{definition}
+  \end{restatable}
 \end{note}
 
 \begin{note}
@@ -635,7 +646,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   In other words, the agent the agent would conclude that \(\phi\) has value \(v\) even if\dots\space --- where the ellipses indicate some description of an \epPAd{} \world{}.
 \end{note}
 
-\begin{note}
+\begin{note}[A three step process]
   In order to ensure the agent has some way of concluding that \(\phi\) has value \(v\), the quantification of all \epPAd{} \world{1} is important.
   Still, the core of \autoref{def:sink} is a type of nested subjunctive conditional which constraints, in part, how the agent may conclude that \(\phi\) has value \(v\).
 
@@ -653,7 +664,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \end{enumerate}
 \end{note}
 
-\begin{note}
+\begin{note}[Satisfying step~\ref{ideaCSA:sink:step:B}]
   Step~\ref{ideaCSA:sink:step:A} is arbitrary choice.
   Step~\ref{ideaCSA:sink:step:B}, however, relies on the idea of relaxing an agent's epistemic state to be compatible with some \epPAd{} \world{} being the actual \world{}.
 
@@ -693,7 +704,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   }
 \end{note}
 
-\begin{note}
+\begin{note}[Option 1]
   First, the relaxed epistemic state may (still) allow the agent to conclude that \(\psi\) has value \(v'\).
   For example, the relaxed epistemic state may still strongly suggest that \(\psi\) has value \(v'\).
 
@@ -710,7 +721,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   And, as it is plausible that someone would have noticed that the clock is not functioning, it seems the agent may still conclude that the clock is functioning.
 \end{note}
 
-\begin{note}
+\begin{note}[Option 2]
   Second, clause~\ref{def:sink:restrict:psi} allows for the possibility for the agent reason to \(\phi\) has value \(v\) by establishing any number of intermediary proposition-value pairs.
   And, if the reapplication of clause~\ref{def:sink:restrict:psi} terminates, then it will terminate by the agent concluding that \(\psi\) has value \(v'\).
 
@@ -724,8 +735,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Hence, it seems the agent may conclude that the clock has been seen by many people, and with this intermediary proposition-value pair in hand then conclude that the clock is functioning.
 \end{note}
 
-\begin{note}
-  For a handful of additional examples, consider the instances of reasoning in \ref{fig:ideaCSA:basic-examples}.
+\begin{note}[Additional examples]
+  For a handful of additional examples, consider the instances of reasoning in \autoref{fig:ideaCSA:basic-examples}.
   In each instance, it seems plausible that the agent may conclude the conclusion from the premise, and further, to continue to maintain the premise even if the conclusion is not the case.
   Hence, each instance of reasoning plausibly satisfies \ideaCSA{}.
 
@@ -768,9 +779,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \caption{}
     \label{fig:ideaCSA:basic-examples}
   \end{figure}
-\end{note}
 
-\begin{note}
   \color{red}
   Intuitive `even if\dots' test.
 
@@ -782,14 +791,37 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \end{enumerate}
 \end{note}
 
-\begin{note}
-  An important for emphasis, though inessential for practice, feature of \ideaCSA{} is that whether an agent has claimed support for \(\phi\) having value \(v\) is independent of whether \(\phi\) has value \(v\).
+\begin{note}[Independence of claiming support]
+  An important for emphasis, though inessential for practice, feature of \ideaCSA{} is that whether an agent has claimed support for \(\phi\) having value \(v\) is independent of whether \(\phi\) (actually) has value \(v\).
 
   For, \ideaCSA{} requires the agent would reason to \(\phi\) having value \(v\) were the agent to entertain any \epPAd{} \world{} as a candidate for the actual \world{}.
   Hence the agent would conclude that \(\phi\) (actually) has value \(v\).
   However, no requirement is placed on the agent \emph{concluding} that \(\phi\) has value \(v\) and \(\phi\) having value \(v\).
 
   In this respect, \ideaCSA{} is distinct, though compatible with, variants of safety and sensitivity applied to claiming support.
+\end{note}
+
+\begin{note}[An extreme example]
+  \color{red}
+  The `Even if\dots' test queries whether an agent's claimed support permits an agent to expect that some (epistemically) possible defeater fails to obtain `even if' it does obtain.
+
+  For example, even if \(0.999\dots = 1\), there must be \emph{some} difference between \(0.999\dots\) and \(1\) --- no matter how small --- and some difference between to things is sufficient to establish that they are not equal.
+
+  Implied in this response is something like the observation that \(0.9 = (1 - 0.1)\) and \(0.99 = (1 - 0.01)\), and so \(0.999\dots = (1 - 0.000\dots 1)\), hence \(1 = (0.999\dots + 0.000\dots 1)\), and because \(0.999\dots\) refers to some quantity, \(0.000\dots 1\) likewise refers to some quantity.
+  It seems reasonable for an agent to expect that the Archimedean property does not hold for real numbers.
+
+  The example given is an instance of the applied to the possibility that the agent's claimed support that \(0.999\dots \ne 1\) may be misleading, as the antecedent supposes that \(0.999\dots = 1\).
+
+  Generalising, we have outlined two kinds of defeaters that would prevent an agent from claiming support.
+  The two types of defeaters suggest two basic instances of the test:
+  \begin{enumerate}
+  \item[(ML)] Even if \(\phi\) does not have value my claimed support indicates, I consider it to be the case that\dots
+  \item[(MT)] Even if I some part (or whole) of my claimed support for the value of \(\phi\) is mistaken, I consider it to be the case that\dots
+  \end{enumerate}
+  Below we provide three examples for each basic instance of the test, two (plausibly) successful responses and one (plausibly) unsuccessful response..\nolinebreak
+  \footnote{
+    You may think that some of the adequate responses I suggest are too weak, but for future purposes I require only that some positive answer many be given, and so you may strengthen the requirements on a positive answer as you see fit.
+  }
 \end{note}
 
 \begin{note}[Safety and sensitivity]
@@ -828,7 +860,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   What matters, rather, is that there is no \epPAd{} \world{} for which the agent would not reason to \(\phi\) having value \(v\).
 \end{note}
 
-\begin{note}
+\begin{note}[Problem with evaluating subjunctive conditionals]
   Though we have developed \ideaCSA{} in some detail, the central role of (nested) subjunctive conditionals leaves \ideaCSA{} somewhat unclear.
   For, without a detailed account of what it is for an agent to relax an epistemic state, and a detail account of reasoning about whether some proposition has some value, we lack a way to verify that any given proposition-value pair is a \sink{} with respect to an agent's epistemic state.
 
@@ -842,13 +874,499 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   We will then, finally, develop \ideaCSC{} into an assumption that we will draw consequences from.
 \end{note}
 
-\begin{note}
+\begin{note}[Summary of \ideaCSA{}]
   Again, the key idea of some proposition-value pair \(\phi\) having value \(v\) being a \sink{} is that for any \epPAd{} \world{} that the agent may entertain, the agent has some way of concluding that \(\phi\) has value \(v\).
   And, the key idea of \ideaCSA{} is that an agent has claimed support for \(\phi\) having value \(v\) pair only if \(\phi\) having value \(v\) is a \sink{} with respect to the agent's (present) epistemic state.
-  Hence, an agent has claimed support for \(\phi\) having value \(v\) only if for any \epPAd{} \world{} that the agent may entertain, the agent has some way of concluding that \(\phi\) has value \(v\).
+  Hence, an agent has claimed support for \(\phi\) having value \(v\) only if, for any \epPAd{} \world{} that the agent may entertain, the agent has some way of concluding that \(\phi\) has value \(v\).
+
+  In short, then, \ideaCSA{} states that an agent has claimed support for \(\phi\) having value \(v\) \emph{only if} there is no \epPAd{} \world{} such that if the agent considered the \epPAd{} \world{} as a candidate for the actual \world{}, then the agent would not conclude that \(\phi\) has value \(v\).
+
+  Both this short characterisation, and the definition of a \sink{} on which \ideaCSA{} relies involve complex subjunctive conditionals.
+  Still, the functional role of \ideaCSA{} is relatively straightforward:
+  To ensure that the conclusion of the agent's reasoning is about how things are, and not (merely) how things would be if the various propositions have particular values.
+\end{note}
+
+\begin{note}[Moving to \ideaCSB{}/Looking ahead to \ideaCSC{}]
+  As I suspect that this intuition is sufficiently clear, we will move on.
+
+  The following two ideas, \ideaCSB{} and \ideaCSC{} will focus claiming, rather than claimed, support.
+  And, in further contrast to \ideaCSA{}, both \ideaCSB{} and \ideaCSC{} will consider specific configurations of an agent's epistemic state.
+
+  In particular, \ideaCSB{} will focus on a substantive constraint on an agent's reasoning given certain \epVAd{} \world{1}.
+  And, \ideaCSC{} will focus on structural constraints on an agent's reasoning given certain \epVAd{} \world{1}.
+
+  Still, we will appeal to \ideaCSA{} to motivate \ideaCSB{}, and as we will appeal to \ideaCSB{} to motivate \ideaCSC{}, \ideaCSA{} also (indirectly) motivates \ideaCSC{}.
+\end{note}
+
+\subsection{\ideaCSB{1}}
+\label{sec:ideaCSB}
+
+\begin{note}[Introducing \ideaCSB{}]
+  \ideaCSA{} provided a general constraint on having \emph{claimed} support.
+  We now turn our attention to \emph{claiming} support.
+
+  \begin{itemize}
+  \item We first state \ideaCSB{}.
+  \item We then provide some broad intuition and make a number of clarifying remarks.
+  \item Following, we motivate \ideaCSB{} from \ideaCSA{} by observing how \ideaCSA{} seems to entail \ideaCSB{} \emph{and} \ideaCSA{} may be recovered from \ideaCSB{}.
+  \item Relate to defeaters.
+  \item As with \ideaCSA{}, \ideaCSB{} contains some difficulties.
+    Hence, \ideaCSC{}.
+  \end{itemize}
+\end{note}
+
+\paragraph{Statement of \ideaCSB{}}
+
+\begin{note}[Statement of \ideaCSB{}]
+  \begin{restatable}[\ideaCSB{0} --- \ideaCSB{}]{idea}{ideaEIS}
+    \label{idea:CS:B}
+    For any agent \vAgent{}, and any instance of reasoning:
+    \begin{itemize}[leftmargin=*]
+    \item
+      If:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \item
+        \label{idea:CS:B:step}
+        The reasoning relies on some step \(\delta\) which moves from premises \(\chi_{i}\) having values \(v_{i}''\) to the conclusion that \(\xi\) has value \(v'''\).
+        \begin{itemize}
+        \item
+          Such that:
+          \begin{enumerate}[label=\alph*., ref=(\alph*)]
+          \item
+            \label{idea:CS:B:step:commit}
+            \vAgent{} is committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
+            \begin{enumerate}[label=\roman*., ref=(\roman*)]
+            \item
+              \label{idea:CS:B:step:commit:p}
+              Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}''\).
+            \item
+              \label{idea:CS:B:step:commit:c}
+              \(\xi\) does not have value \(v'''\).
+            \end{enumerate}
+          \end{enumerate}
+        \item
+          And:
+          \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+          \item
+            \label{idea:CS:B:step:psi-ep}
+            Prior to making \(\delta\) there is some \epVAd{} \world{} such that \(\psi\) does not have value \(v'\) and \(\xi\) does not have value \(v'''\).
+          % \item
+            % \label{idea:CS:B:step:connexion}
+            % If \(\xi\) does not have value \(v''\) then \(\psi\) does not have value \(v''\).
+          \end{enumerate}
+        \end{itemize}
+      \end{enumerate}
+    \item
+      Then, the instance of reasoning is an instance of claiming support for \(\phi\) having value \(v\) \emph{only if}:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume]
+      \item
+        \label{idea:CS:B:prior-reasoning}
+        The agent --- prior to making \(\delta\) --- may witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).\nolinebreak
+        \footnote{
+          This clause is non-committal about the details of the reasoning that \indicateV{1} that \(\psi\) has value \(v'\).
+          In particular:
+          With respect to \autoref{denied-claim}, the reasoning include the reasoning of some other agent.
+          And, with respect to \autoref{prop:EAS}, the reasoning may involve appeal to some unwitnessed reasoning.
+        }
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\paragraph{Clarifying \ideaCSB{}}
+
+\begin{note}
+  As with \ideaCSA{}, \ideaCSB{} is a necessary condition.
+  In contrast, \ideaCSB{} concerns claiming, rather than claimed, support.
+  In particular, \ideaCSB{} focuses on a condition that any step of reasoning must satisfy in order for the instance of reasoning to be an instance of claiming support.
+\end{note}
+
+\begin{note}
+  Intuitively:
+  Suppose it is not possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+  Then, the agent would not be in a position to distinguish between \(\psi\) having value \(v'\) and \(\psi\) not having value \(v'\) with respect to the actual \world{}.
+  Hence, hence the agent would be committed to uncertainty about whether the premises or the conclusion of the step reflect the actual \world{}.
+  So, the agent would be committed to the step being uninformative with regards to how things actually are.
+
+  In other words, if an agent is committed to it being that case that some step of reasoning in informative about the actual \world{} \emph{just in case} some proposition \(\psi\) has value \(v\), then it must be possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}
+  This intuition is brief, and in place of a detailed account \ideaCSB{} in isolation, we will clarify \ideaCSB{} by observing both how \ideaCSB{} is motivated by \ideaCSA{} and how \ideaCSB{} is (significantly) weaker than \ideaCSA{}.
+
+  Before doing so, we make two brief observations.
+\end{note}
+
+\begin{note}
+  First, a subtle, but important, distinction is that the reasoning must \emph{rely} on the relevant step.
+  Intuitively, some instance of reasoning which concludes that \(\phi\) has value \(v\) relies on a step of reasoning just in case the reasoning requires both the premises and conclusion of the step to actually have their respective values in order to conclude that \(\phi\) has value \(v\).
+
+  In other words, \ideaCSB{} does not extend to steps made where the step is part of some hypothetical reasoning, such as reasoning by cases.
+  We provide an explicit characterisation of reliance on a step in~\autoref{sec:assumpt-from-ideas}.
+\end{note}
+
+\begin{note}
+  The refinement is useful in two respects.
+  \begin{itemize}
+  \item Relates directly to claiming support, rather than whether an agent has claimed support.
+  \item Does not employ the notion of a \sink{}, nor the relaxation of an epistemic state.
+  \end{itemize}
+  Indeed, \ideaCSB{} is strictly weaker than \ideaCSA{}.
+  Still, we will appeal to \ideaCSA{} in order to motivate \ideaCSB{}, hence \ideaCSB{} is characterised as a refinement of \ideaCSA{}.
+\end{note}
+
+\begin{note}
+  Second, we only require that the agent \emph{may} witness some reasoning that \emph{\indicateV{1}} that \(\psi\) has value \(v'\).
+  In other words, we do not require that the agent does witness some reasoning, nor that the relevant reasoning would explicitly concludes that \(\psi\) has value \(v'\).
+  Simply, we have no interest in any stronger constraints than those presented.
+\end{note}
+
+\paragraph{Motivation from \ideaCSA{}}
+
+\begin{note}
+  Two parts.
+
+  First, if \ideaCSB{} fails to hold, then \ideaCSA{} fails to hold.
+
+  Second, \ideaCSA{} plausibly follows from \ideaCSB{} when all \epPAd{} \world{1} are \epVAd{}.
+\end{note}
+
+\begin{note}
+  First, failure.
+\end{note}
+
+\begin{note}
+  Second, relative equivalence.
+\end{note}
+
+\begin{note}
+  Suppose \ref{idea:CS:B:step} holds and \ref{idea:CS:B:prior-reasoning} does not.
+
+
+  Focus on the step.
+  Treat this as instance of claiming support.
+
+  Question is not whether the agent may claim support for \(\psi\) having value \(v'\), but whether the agent may claim support for \(\xi\) having value \(v''\).
+
+  So, relax so that \(\xi\) not having value \(v''\) is a candidate for the actual \world{}.
+  Know this is possible given \ref{idea:CS:B:step:psi-ep}.
+  Further, for any \epVAd{} \world{} in which \(\xi\) does not have value \(v''\), \(\psi\) does not have value \(v'\).
+
+  Now, no reasoning for \(\psi\) having value \(v'\) with respect to agent's current epistemic state.
+  So, no reasoning for \(\psi\) having value \(v'\) given relaxed epistemic state.
+  For, minimal change to be compatible with \epVAd{} \world{}.
+  Hence, relaxed epistemic state only lacks various proposition-value pairs from current epistemic state.
+  So, \(\xi\) having value \(v''\) is not a \sink{} with respect to current epistemic state.
+
+  And, as reasoning relies on step, and the conclusion of the step is not a \sink{}, then conclusion of reasoning is not a \sink{}.
+
+  So, if fail, then surely a failure of \ideaCSA{}.
+\end{note}
+
+\begin{note}
+  Still, weaker.
+  Satisfying \ideaCSB{} isn't going to ensure \ideaCSA{} is satisfied.
+
+  Two reasons.
+  First, step of reasoning.
+  This does not extend to the reasoning as a whole.
+  Still, if extend to every step then still.
+  For\dots
+
+  Second, only concerns candidates for the actual \world{}.
+  \ideaCSA{} considers not only \epVAd{} \world{1}, but any \epPAd{} \world{}.
+
+  However, if \epVAd{} and \epPAd{} \world{1} are the same, then plausibly come down to the same thing.
+
+    For, the underlying issue is that if no motivation for \(\psi\) having value \(v'\), then no account of why the step of reasoning is about how things actually are, rather than what follows from a restriction of how things actually are.
+  \(\psi\) not having value \(v'\) remains a candidate, and so long as this is the case, then concluding that \(\xi\) has value \(v''\) is not a conclusion about what is the case.
+
+  Hence, if every step of reasoning satisfies \ideaCSB{} from \epPAd{} \world{}, and the reasoning for \(\psi\) having value \(v'\) is sufficient, then it seems \ideaCSA{} will also be satisfied.
+
+  Again, to emphasise.
+  At issue is not the agent getting something wrong.
+
+  Still, if distinct motivation, then disregard \ideaCSA{}.
+  And, indeed, as \ideaCSB{} will be used to motivate \ideaCSC{}, it may be possible to disregard \ideaCSB{} also.
+\end{note}
+
+\begin{note}
+  So, the reasoning.
+\end{note}
+
+\begin{note}
+  Again, necessary condition, so we will not look into this further.
+  Instead, \ideaCSC{} will develop a constraint on such reasoning.
+
+  Okay for `hunches' or `intuition'.
+    \begin{quote}
+    Okay for the agent's reasoning to be the hunch.
+    So long as hunch includes this subjunctive component.
+  \end{quote}
+\end{note}
+
+\begin{note}
+  Handful of important points.
+  \begin{itemize}
+  \item I need to be careful not to suggest that the agent \emph{regonises} that \(\psi\) does(n't) have value \(v'\).
+    Though, this may be relaxed.
+  \item Explicit premises and conclusion are candidates.
+  Hence, \label{idea:CS:B:step:commit} constrains the reasoning in general.
+  \end{itemize}
+\end{note}
+
+\hozlinedash
+
+
+\paragraph{???}
+
+\begin{note}
+  \color{red}
+  An instance of reasoning is an instance of claiming support \emph{only if} for any proposition-value pair \(\psi\) having value \(v'\) that would restrict the scope of the reasoning to instances where \(\psi\) having value \(v'\), the agent has reasoned (past or present) to \(\psi\) having value \(v'\) which ensures that the scope of the proposed instance of claiming support extends to \ep{} that \(\psi\) having value \(v'\)
+\end{note}
+
+\begin{note}
+  \color{red}
+  Note, the step.
+  As before, this is about how things are.
+  Therefore, will not apply to instances such as reasoning by cases.
+  For, these will not be steps from \(\chi_{i}\) having values \(v_{i}''\).
+
+  Necessary condition.
+\end{note}
+
+\begin{note}
+  However, the agent's perspective is limited.
+  We do not include a clause that holds that the agent recognises.
+
+  Delicate.
+  Committed.
+  We (attempt to) make precise in \autoref{sec:claim-supp-requ}.
+  For the moment, intuitive.
+  Paired with an intuitive worry: agent may be committed even if they do not recognise.
+
+  Balance, the agent's reasoning may satisfy without recognition.
+
+  Here, \indicateV{1} terminology of \ref{idea:CS:B:prior-reasoning}.
+  If explicitly concludes, then \indicateV{1}.
+  However, if implicitly concludes, then \indicateV{1}.
+
+  Difficulty is that commitment allows possibility even when not possible to recognise.
+  In principle, at least.
+  Relative to agent's epistemic state.
+  Important, \ep{}.
+
+  This does not completely diminish the concern, still possible that agent does not recognise how they are committed.
+  However, I am not clear on how to resolve this.
+  So, leave this open.
+
+  On the other hand, \indicateN{0} may be too weak.
+  Certain problems may need to be recognised.
+  This, we also leave open.
+\end{note}
+
+
+\paragraph{\illu{3}}
+
+\subparagraph{Clear failure}
+
+\begin{note}
+  Fair coin.
+  Flipped.
+  The coin landed heads.
+
+  Trivial, but without clear limitations on reasoning, mostly trivial.
+  Here, given that it's a coin, there's no way to tell.
+\end{note}
+
+\begin{note}
+  This library uses either LCC or DDC indexing.
+  \begin{enumerate}
+  \item A search for `H61 .R593' returned no results.
+  \item The library does not have a copy of `Measurement Theory'.
+  \end{enumerate}
+
+  Holding that a library does not have a copy of a book because a search for the book under a particular indexing system would be a mistake.
+  For, if the library does not use the particular indexing system then a search using that indexing system will always fail, regardless of whether or not the library has a copy of the book.
+
+  In turn, a failed search for an LCC index in the library's database does not seems sufficient for an agent to claim that the library does not have a copy of the book unless the agent is in a position to claim support that the library uses LCC indexing.
+  Following, it seems the failed response to the `Even if\dots' test may be supplemented by noting that the library is a research library, and therefore likely uses LCC indexing, etc.\
+\end{note}
+
+\subparagraph{Spot the difference}
+
+\begin{note}[Spot the difference]
+  \begin{illustration}[Spot the difference]
+    \label{illu:CS:spot-the-diff}
+    The agent has been working through a spot-the-difference to pass some time.
+
+    Though the time is not completely passed, the agent examined the two images with what seems sufficient care to claim support that they have found all the differences.
+    However, the agent did not keep track of the number of differences.
+
+    The agent announces `I have found all the differences' and their companion responds `All fifteen?'.
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*)]
+      \setcounter{enumi}{-1}
+    \item\label{illu:CS:spot-the-diff:info} If I have found all the differences, I have found fifteen differences.
+    \end{enumerate}
+
+    The agent then reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*), resume]
+    \item Exhaustive search.
+    \item\label{illu:CS:spot-the-diff:all} I found all the differences.
+    % \item\label{illu:CS:spot-the-diff:info} My companion has testified that there are fifteen differences.
+    % \item\label{illu:CS:spot-the-diff:cond} If I have found all the differences, I have found fifteen differences.
+    \item\label{illu:CS:spot-the-diff:fif} So, I have found fifteen differences. \hfill (From \ref{illu:CS:spot-the-diff:info} and \ref{illu:CS:spot-the-diff:all})
+    \end{enumerate}
+  \end{illustration}
+
+  Before going further, structure of this.
+
+  The agent performed some reasoning, and concluded that they found all the differences.
+  However, that reasoning is mentioned but not stated in the \illu{0}.
+  Rather, present is distinct instance of reasoning after being provided with information.
+  ``If not 15, then problem''.
+  Present reasoning appeals to past reasoning, and draws out consequence of this given new information.
+  Important: the present reasoning does not consider possibility that the agent did not find all 15 differences.
+  Instead, consequence of conclusion of previous instance of reasoning.
+  Still, epistemically possible that the agent did not find 15 differences.
+\end{note}
+
+\begin{note}
+    Providing additional information about what the agent has claimed support for.
+  Recall, \autoref{assu:CSVP}, information rather than \world{}.
+  \nolinebreak
+  \footnote{
+    Still slight issue.
+    Offering a redescription.
+    You met Clark Kent, so you met Superman.
+    In this case, rather than claiming support for meeting Superman, provided information is seen as an equivalent formulation.
+    It is possible to read \autoref{illu:CS:spot-the-diff} in this way, and this might be the most natural interpretation.
+    However, it is not the interpretation under which see the problem.
+    Rather, problem is where the conditional is explicit.
+    Unlike Superman case, proper conditional.
+  }
+\end{note}
+
+\begin{note}
+  Information leads to \requ{}.
+
+  Possibility of not fifteen.
+  And, not merely that the agent performed the reasoning, but that the reasoning identified all.
+  If not fifteen, then not all, so would involve appeal to something that is not the case.
+
+  And, present reasoning does not include reasoning about \requ{}.
+\end{note}
+
+\begin{note}[Avoiding the problem]
+  This doesn't rule out some additional reasoning.
+  \begin{enumerate}
+  \item Exhausted search.
+  \end{enumerate}
+  Difference here is that the agent is not only appealing to having found.
+  In addition, what they recall about reasoning.
+  What matters is not that found all but rather that exhaustivity of search.
+  This is not specific to 15.
+  Up to some \(k\) such that agent is still confident that they performed an exhaustive search.
+
+  Whether you think this is enough is up to you.
+  On the one hand, intuitive that this does enough.\nolinebreak
+  \footnote{
+    Indeed, reasoning framed with all as I think it is much less clear here.
+  }
+
+  On the other hand, the agent did not keep track of the number of differences.
+  So, may hold that they should go back and count.\nolinebreak
+  \footnote{
+    Looking ahead, \nI{}.
+    Difficulty here is that don't need to go to \(\phi\).
+    Indeed, note somewhere that \nI{} really only clearly takes hold when need some sort of factivity in play.
+    We'll return to this.
+  }
+
+  {
+    \color{red} As observed in the footnote above, the trick here is that the agent doesn't really `need' to go to having found all the differences.
+
+    Alternatively, not enough to show that the reasoning is bad.
+    E.g.\ then I would have been deceived, some trick, etc.
+    Something \emph{I} wouldn't count as a difference.
+  }
+\end{note}
+
+\begin{note}
+  Argued above against circularity.
+  Here, additional consideration.
+
+  If the agent were to have had the information first time, then plausibly an instance of circularity.
+  And, may think that this is also circularity as must also all must amount to fifteen.
+\end{note}
+
+\subparagraph{Where's Wally}
+
+\begin{note}
+  \autoref{illu:CS:spot-the-diff} had something that could be obtained from the reasoning if re-examined.
+  Just need to add a counter.
+
+  Now, something that follows if the reasoning was \nmom{}.
+\end{note}
+
+\begin{note}
+  \begin{illustration}[Where's Wally]
+    \label{illu:CS:wheres-wally}
+    Searching for Wally.
+    On front of book is an image of wally in contrast to a number of other characters.
+    Takes not of a number of features.
+    Glasses, hat, striped jumper.
+    In isolation, necessary but insufficient.
+    Combined, sufficient.
+
+    Search through the image.
+    I've found Wally.
+    Did you spot the cane first?
+
+    The question carries implicit information:
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
+      \setcounter{enumi}{-1}
+    \item\label{illu:CS:wheres-wally:info} The individual identified is Wally only if the individual is holding a cane.
+    \end{enumerate}
+
+    The agent then reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*), resume]
+    \item Collection of features sufficient.
+    \item\label{illu:CS:wheres-wally:ante} Had features.
+    % \item The individual identified is Wally only if the individual is holding a cane.
+    \item The individual was holding a cane. \hfill (From \ref{illu:CS:wheres-wally:info} and \ref{illu:CS:wheres-wally:ante})
+    \end{enumerate}
+  \end{illustration}
+
+  As with \autoref{illu:CS:spot-the-diff}, the reasoning of \autoref{illu:CS:wheres-wally} is such that the individual was holding the cane is an \requ{} of the claimed support that the individual was Wally, and no reasoning about it.
+\end{note}
+
+\begin{note}
+  Problem.
+  \requ{}.
+  Agent didn't notice, so possibility.
+  And, agent is appealing to it being Wally.
+  Not merely that they identified as Wally.
+
+  It's not clear need to give up claimed support, but does not extend to having a cane.
+
+  In contrast to \ref{illu:CS:spot-the-diff}, does not seem there is anything weaker to fall back on.
+  However, no strong claim here.
+  Rely on stronger principles about claiming support.
 \end{note}
 
 \paragraph{Defeaters}
+
+\begin{note}
+  \begin{proposition}
+    No indication if the agent only considers their reasoning to indicate that \(\phi\) has value \(v\) only if \(\phi\) has value \(v\).
+  \end{proposition}
+\end{note}
+
 
 \begin{note}
   \phantlabel{first-mention-undercutting-defeater} % first mention of undercutting defeaters
@@ -919,424 +1437,76 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   \color{red}
-  Idea is that, given constraint, not getting a \sink{} is going to be an undercutting defeater.
+  Idea is that the \epVAd{} \world{} acts as an undercutting defeater.
+  Incorporating \ideaCSA{}, not getting a \sink{} is going to be an undercutting defeater.
 \end{note}
 
-\paragraph{Moving on}
+
+
+\section{\ideaCSC{1}}
+\label{sec:ideaCSC}
 
 \begin{note}
-  As I suspect that this intuition is sufficiently clear, we will move on.
-\end{note}
+  Started with \ideaCSA{}.
+  Necessary condition for an agent having claimed support.
+  \ideaCSB{}, necessary condition for an instance of reasoning to be an instance of claiming support.
+  In particular, \ideaCSB{} focuses on steps of reasoning.
+  Still, \ideaCSB{} left open reasoning.
+  With \ideaCSC{} we identify a structural constraint on any such reasoning.
 
-\subsection{\ideaCSB{}}
-\label{sec:ideaCSB}
-
-\begin{note}
-  \ideaCSA{}, claimed support.
-
-  In short, if agent has claimed support for \(\phi\) having value \(v\), there is no \epPAd{} \world{} such that if the agent considered the \epPAd{} \world{} as a candidate for the actual \world{}, then the agent would not conclude that \(\phi\) has value \(v\).
-
-  Both this short characterisation, and the definition of a \sink{} on which \ideaCSA{} relies involve complex counterfactual considerations.
-
-  We now refine \ideaCSA{} via \ideaCSB{}.
-
-  The refinement is useful in two respects.
-  \begin{itemize}
-  \item Relates directly to claiming support, rather than whether an agent has claimed support.
-  \item Does not employ the notion of a \sink{}, nor the relaxation of an epistemic state.
-  \end{itemize}
-  Indeed, \ideaCSB{} is strictly weaker than \ideaCSA{}.
-  Still, we will appeal to \ideaCSA{} in order to motivate \ideaCSB{}, hence \ideaCSB{} is characterised as a refinement of \ideaCSA{}.
+  As with \ideaCSB{}, focus is on \epVAd{} \world{1}.
 \end{note}
 
 \begin{note}
-  Begin with statement of \ideaCSB{}.
-  Clarify the contents of \ideaCSB{}.
-  Motivate \ideaCSB{} via \ideaCSA{}.
+  Basic idea.
+  If some step which required \(\psi\) to have value \(v'\), yet \(\psi\) not having value \(v'\) was \epVAd{} when making the step, then from consequence of step to \(\psi\) having value \(v'\) is no good.
 \end{note}
 
 \begin{note}
-  \begin{restatable}[\ideaCSB{0} --- \ideaCSB{}]{idea}{ideaEIS}
-    \label{idea:CS:B}
-    For any instance of reasoning:
-    \begin{itemize}[leftmargin=*]
-    \item
-      If:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \begin{restatable}[\ideaCSC{0} --- \ideaCSC{}]{idea}{iCSC}
+    \label{idea:cs:imp-stp}
+    An instance of reasoning is an instance of claiming support \emph{only if} the reasoning does not contain any \impotent{0} steps.
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  Where:
+  \begin{restatable}[\impotent{2} steps of reasoning]{notion}{defImpotence}
+    A step of reasoning \(\delta\), made by agent \vAgent{}, from premises \(\chi_{1},\dots,\chi_{j}\) having values \(v_{1}, \dots, v_{j}\) to conclusion \(\psi\) having value \(v'\) is \emph{\impotent{}} just in case:
+
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item \(\psi\) not having vale \(v'\) is \epVAd{} prior to making \(\delta\).
+    \item Some premise \(\chi_{i}\) having value \(v_{i}\) is obtained from a prior step of reasoning \(\delta'\) such that:
+      \begin{enumerate}[label=\alph*., ref=(2\alph*)]
       \item
-        \label{idea:CS:B:step}
-        The reasoning relies on some step of reasoning \(\delta\) which moves from premises \(\chi_{i}\) having values \(v_{i}''\) to the conclusion that \(\xi\) has value \(v'''\).
-        \begin{itemize}
+        \label{idea:CS:B:step:commit}
+        When making step \(\delta'\), \vAgent{} was committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
+        \begin{enumerate}[label=\roman*., ref=(2a\roman*)]
         \item
-          Such that:
-          \begin{enumerate}[label=\alph*., ref=(\alph*)]
-          \item
-            \label{idea:CS:B:step:commit}
-            \emph{S} is committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
-            \begin{enumerate}[label=\roman*., ref=(\roman*)]
-            \item
-              \label{idea:CS:B:step:commit:p}
-              Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}''\).
-            \item
-              \label{idea:CS:B:step:commit:c}
-              \(\xi\) does not have value \(v'''\).
-            \end{enumerate}
-          \end{enumerate}
+          \label{idea:CS:B:step:commit:p}
+          Some premise \(\rho_{j}\) of \(\delta'\) does not have value \(v_{j}\).
         \item
-          And:
-          \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
-          \item
-            \label{idea:CS:B:step:psi-ep}
-            Prior to making \(\delta\) there is some \epVAd{} \world{} such that \(\psi\) does not have value \(v'\) and \(\xi\) does not have value \(v'''\).
-          % \item
-            % \label{idea:CS:B:step:connexion}
-            % If \(\xi\) does not have value \(v''\) then \(\psi\) does not have value \(v''\).
-          \end{enumerate}
-        \end{itemize}
+          \label{idea:CS:B:step:commit:c}
+          \(\chi_{i}\) does not have value \(v_{i}\).
+        \end{enumerate}
       \end{enumerate}
-    \item
-      Then, the instance of reasoning is an instance of claiming support for \(\phi\) having value \(v\) \emph{only if}:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume]
-      \item
-        \label{idea:CS:B:prior-reasoning}
-        The agent may --- prior to making \(\delta\) --- witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).\nolinebreak
-        \footnote{
-          This clause is non-committal about the details of the reasoning that \indicateV{1} that \(\psi\) has value \(v'\).
-          In particular:
-          With respect to \autoref{denied-claim}, the reasoning include the reasoning of some other agent.
-          And, with respect to \autoref{prop:EAS}, the reasoning may involve appeal to some unwitnessed reasoning.
-        }
-      \end{enumerate}
-    \end{itemize}
+    \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  As with \ideaCSA{}, \ideaCSB{} is a necessary condition.
-  In contrast, \ideaCSB{} concerns claiming, rather than claimed, support.
-  In particular, \ideaCSB{} focuses on a condition that any step of reasoning must satisfy in order for the instance of reasoning to be an instance of claiming support.
+  Focusing in on the structure of some instance of reasoning.
 \end{note}
 
 \begin{note}
-  Intuitively:
-  Suppose it is not possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
-  Then, the agent would not be in a position to distinguish between \(\psi\) having value \(v'\) and \(\psi\) not having value \(v'\) with respect to the actual \world{}.
-  Hence, hence the agent would be committed to uncertainty about whether the premises or the conclusion of the step reflect the actual \world{}.
-  So, the agent would be committed to the step being uninformative with regards to how things actually are.
-
-  In other words, if an agent is committed to it being that case that some step of reasoning in informative about the actual \world{} \emph{just in case} some proposition \(\psi\) has value \(v\), then it must be possible for the agent to witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
-\end{note}
-
-\begin{note}
-  This intuition is brief, and in place of a detailed account \ideaCSB{} in isolation, we will clarify \ideaCSB{} by observing both how \ideaCSB{} is motivated by \ideaCSA{} and how \ideaCSB{} is (significantly) weaker than \ideaCSA{}.
-
-  Before doing so, we make two brief observations.
-\end{note}
-
-\begin{note}
-  First, a subtle, but important, distinction is that the reasoning must \emph{rely} on the relevant step.
-  Intuitively, some instance of reasoning which concludes that \(\phi\) has value \(v\) relies on a step of reasoning just in case the reasoning requires both the premises and conclusion of the step to actually have their respective values in order to conclude that \(\phi\) has value \(v\).
-
-  In other words, \ideaCSB{} does not extend to steps made where the step is part of some hypothetical reasoning, such as reasoning by cases.
-  We provide an explicit characterisation of reliance on a step in~\autoref{sec:assumpt-from-ideas}.
-\end{note}
-
-\begin{note}
-  Second, we only require that the agent \emph{may} witness some reasoning that \emph{\indicateV{1}} that \(\psi\) has value \(v'\).
-  In other words, we do not require that the agent does witness some reasoning, nor that the relevant reasoning would explicitly concludes that \(\psi\) has value \(v'\).
-  Simply, we have no interest in any stronger constraints than those presented.
-\end{note}
-
-
-\paragraph{Motivation from \ideaCSA{}}
-
-\begin{note}
-  Suppose \ref{idea:CS:B:step} holds and \ref{idea:CS:B:prior-reasoning} does not.
-
-
-  Focus on the step.
-  Treat this as instance of claiming support.
-
-  Question is not whether the agent may claim support for \(\psi\) having value \(v'\), but whether the agent may claim support for \(\xi\) having value \(v''\).
-
-  So, relax so that \(\xi\) not having value \(v''\) is a candidate for the actual \world{}.
-  Know this is possible given \ref{idea:CS:B:step:psi-ep}.
-  Further, for any \epAdv{} \world{} in which \(\xi\) does not have value \(v''\), \(\psi\) does not have value \(v'\).
-
-  Now, no reasoning for \(\psi\) having value \(v'\) with respect to agent's current epistemic state.
-  So, no reasoning for \(\psi\) having value \(v'\) given relaxed epistemic state.
-  For, minimal change to be compatible with \epAdv{} \world{}.
-  Hence, relaxed epistemic state only lacks various proposition-value pairs from current epistemic state.
-  So, \(\xi\) having value \(v''\) is not a \sink{} with respect to current epistemic state.
-
-  And, as reasoning relies on step, and the conclusion of the step is not a \sink{}, then conclusion of reasoning is not a \sink{}.
-
-  So, if fail, then surely a failure of \ideaCSA{}.
-\end{note}
-
-\begin{note}
-  Still, weaker.
-  Satisfying \ideaCSB{} isn't going to ensure \ideaCSA{} is satisfied.
-
-  Two reasons.
-  First, step of reasoning.
-  This does not extend to the reasoning as a whole.
-  Still, if extend to every step then still.
-  For\dots
-
-  Second, only concerns candidates for the actual \world{}.
-  \ideaCSA{} considers not only \epVAd{} \world{1}, but any \epPAd{} \world{}.
-
-  However, if \epVAd{} and \epPAd{} \world{1} are the same, then plausibly come down to the same thing.
-
-    For, the underlying issue is that if no motivation for \(\psi\) having value \(v'\), then no account of why the step of reasoning is about how things actually are, rather than what follows from a restriction of how things actually are.
-  \(\psi\) not having value \(v'\) remains a candidate, and so long as this is the case, then concluding that \(\xi\) has value \(v''\) is not a conclusion about what is the case.
-
-  Hence, if every step of reasoning satisfies \ideaCSB{} from \epPAd{} \world{}, and the reasoning for \(\psi\) having value \(v'\) is sufficient, then it seems \ideaCSA{} will also be satisfied.
-
-  Again, to emphasise.
-  At issue is not the agent getting something wrong.
-
-  Still, if distinct motivation, then disregard \ideaCSA{}.
-  And, indeed, as \ideaCSB{} will be used to motivate \ideaCSC{}, it may be possible to disregard \ideaCSB{} also.
-\end{note}
-
-\begin{note}
-  So, the reasoning.
-\end{note}
-
-\begin{note}
-  Again, necessary condition, so we will not look into this further.
-  Instead, \ideaCSC{} will develop a constraint on such reasoning.
-
-  Okay for `hunches' or `intuition'.
-    \begin{quote}
-    Okay for the agent's reasoning to be the hunch.
-    So long as hunch includes this subjunctive component.
-  \end{quote}
-\end{note}
-
-\begin{note}
-  Handful of important points.
-  \begin{itemize}
-  \item I need to be careful not to suggest that the agent \emph{regonises} that \(\psi\) does(n't) have value \(v'\).
-    Though, this may be relaxed.
-  \item Explicit premises and conclusion are candidates.
-  Hence, \label{idea:CS:B:step:commit} constrains the reasoning in general.
-  \end{itemize}
-\end{note}
-
-\hozlinedash
-
-\paragraph{Breaking down idea}
-
-\begin{note}[Breaking down idea]
-  Breaking this down.
-
-  \(\psi\) not having value \(v'\) is \epVAd{}.
-  Therefore, \(\psi\) not having value \(v'\) is a candidate for how the \world{} is, given the agent's claimed support.
-
-  Step \(\delta\).
-  If the \world{} is such that \(\chi_{i}\) have values \(v_{i}''\), then \(\xi\) has value \(v'''\).
-
-  However, agent is committed to\dots
-
-  In particular, each \(\chi_{i}\) and \(\xi\) are candidates for \(\psi\).
-
-  Problem here is that if \(\psi\) does not have value \(v'\), then the scope of the reasoning is restricted.
-  For, then either premises or conclusion would not apply to how things are.
-
-  Restricted: If the actual \world{} is such that \(\psi\) has value \(v'\), then indicates that \(\xi\) has value \(v'\).
-\end{note}
-
-\paragraph{Motivation from \ideaCSA{}}
-
-\begin{note}
-  If no reasoning for \(\psi\) having value \(v'\), then \(\psi\) not having value \(v'\) is a candidate for the actual \world{}.
-  Hence, given need for \(\psi\) to have value \(v'\), \(\psi\) having value \(v\) is not a \sink{} with respect to the agent's epistemic state.
-
-  For, possible to relax to \(\psi\) not having value \(v'\).
-  Something here that means not actual \world{}.
-\end{note}
-
-\begin{note}
-  Given that \ideaCSB{} is weaker, then independent motivation for \ideaCSB{}.
-  However, as \(\psi\) not having value \(v'\) is (only) an \epAdv{}, \ideaCSB{} continues to rely on entertaining such possibilities.
-  And, if not strictly necessary, I see \ideaCSA{} as capturing a plausible general account of an attitude that is responsive to entertaining such \epV{1}.
-\end{note}
-
-\paragraph{Core of the idea}
-
-\begin{note}
-  So, this core ideal sets up the target of an ordering.
-  All the candidates for the actual \world{} are such that there is no \(\psi\).
-
-  Now, this gives us a variant of safety.
-  Here, must be the case that \world{} is such that\dots
-
-  However, weaken this.
-  Need not be the case that \world{} is such that, instead, that the best candidate for the \world{} is such that.
-
-  At issue is not whether it is the case, but instead whether there is a good candidate such that \(\psi\) is not the case.
-\end{note}
-
-\begin{note}
-  Important part of this assumption is that as property of the agent's reasoning, it does not need to be such that the agent's reasoning directly deals with such propositions.
-  However, this does lead to `internal problems', so to speak.
-\end{note}
-
-
-\begin{note}
-  \begin{proposition}
-    No indication if the agent only considers their reasoning to indicate that \(\phi\) has value \(v\) only if \(\phi\) has value \(v\).
-  \end{proposition}
-\end{note}
-
-
-\paragraph{???}
-
-\begin{note}
-  \color{red}
-  Note somewhere that the step doesn't have to be deductive.
-\end{note}
-
-
-\begin{note}
-  \color{red}
-  An instance of reasoning is an instance of claiming support \emph{only if} for any proposition-value pair \(\psi\) having value \(v'\) that would restrict the scope of the reasoning to instances where \(\psi\) having value \(v'\), the agent has reasoned (past or present) to \(\psi\) having value \(v'\) which ensures that the scope of the proposed instance of claiming support extends to \ep{} that \(\psi\) having value \(v'\)
+  \impotent{} because, does not go anywhere.
 \end{note}
 
 \begin{note}
   \color{red}
-  Note, the step.
-  As before, this is about how things are.
-  Therefore, will not apply to instances such as reasoning by cases.
-  For, these will not be steps from \(\chi_{i}\) having values \(v_{i}''\).
-
-  Necessary condition.
-\end{note}
-
-\paragraph{Some examples}
-
-
-\begin{note}
-  \autoref{idea:CS:B} is complex.
-
-  Above, clarified reasoning that concludes that \(\phi\) has value \(v\).
-  Key is how the reasoning relates to what is \epVAd{} for the agent.
-
-  Intuitively, consider failure of \ref{idea:eiS:p-v-pair}.
-  If there were such a proposition pair, then there is some \ep{} such that the reasoning does not apply.
-  Hence, \ref{idea:CS:B:prior-reasoning}, that present or past reasoning which concludes that \(\psi\) has value \(v'\).
-  Though it is an \ep{} that \(\psi\) does not have value \(v'\), past or present reasoning \indicateV{1} that \(\psi\) has value \(v'\), and hence that the reasoning is about how things are.
-
-  \begin{quote}
-    An instance of reasoning is an instance of claiming support just in case the reasoning is, from the agent's perspective, about how things are.
-  \end{quote}
-
-  Alternatively:
-
-  \begin{quote}
-    Claiming support for \(\phi\) having value \(v\) from premises that \(\chi_{i}\) having value \(v_{i}\).
-    The result of claiming support is that \(\phi\) has value \(v\).
-    Not (merely), that if \(\chi_{i}\) have values \(v_{i}\) then \(\phi\) has value \(v\).
-  \end{quote}
-\end{note}
-
-\begin{note}
-  However, the agent's perspective is limited.
-  We do not include a clause that holds that the agent recognises.
-
-  Delicate.
-  Committed.
-  We (attempt to) make precise in \autoref{sec:claim-supp-requ}.
-  For the moment, intuitive.
-  Paired with an intuitive worry: agent may be committed even if they do not recognise.
-
-  Balance, the agent's reasoning may satisfy without recognition.
-
-  Here, \indicateV{1} terminology of \ref{idea:CS:B:prior-reasoning}.
-  If explicitly concludes, then \indicateV{1}.
-  However, if implicitly concludes, then \indicateV{1}.
-
-  Difficulty is that commitment allows possibility even when not possible to recognise.
-  In principle, at least.
-  Relative to agent's epistemic state.
-  Important, \ep{}.
-
-  This does not completely diminish the concern, still possible that agent does not recognise how they are committed.
-  However, I am not clear on how to resolve this.
-  So, leave this open.
-
-  On the other hand, \indicateN{0} may be too weak.
-  Certain problems may need to be recognised.
-  This, we also leave open.
-\end{note}
-
-\paragraph{Appeal}
-
-\begin{note}
-  This is the strength of claiming support.
-  There are two important aspects.
-  \begin{itemize}
-  \item Relation to agent's own epistemic state.
-  \item Relation to how things are.
-  \end{itemize}
-\end{note}
-
-\paragraph{Ideals}
-
-\begin{note}[Circularity?]
-  View this in terms of circularity.
-  Must get \(\phi\) having value \(v\) without appealing to \(\phi\) having value \(v\).
-  However, this is not general circularity.
-  Only interested in cases where \(\phi\) not having value \(v\) is \epVAd{}.
-  And, motivation is that if need \(\phi\) to have value \(v\), then reasoning doesn't indicate how things are.
-
-  What matters is that this rests on \(\phi\) being the case.
-\end{note}
-
-\section{\ideaCSC{}}
-\label{sec:claim-supp-impot}
-
-\begin{note}
-  Final idea.
-\end{note}
-
-\begin{note}
-  \begin{definition}[\impotent{2} steps of reasoning]
-    A step of reasoning \(\delta\) from premises \(\phi_{1},\dots,\phi_{j}\) having values \(v_{1}, \dots, v_{j}\) to conclusion \(\psi\) having value \(v'\) is \emph{\impotent{}} just in case:
-
-    \begin{enumerate}
-    \item \(\psi\) having vale \(v'\) is \epVAd{}.
-    \end{enumerate}
-
-    \begin{enumerate}[resume]
-    \item Some premise \(\phi_{i}\) having value \(v_{i}\) is obtained from a prior step of reasoning \(\delta'\) such that:
-      \begin{enumerate}
-      \item
-        \label{idea:CS:B:step:commit}
-        When making step \(\delta'\), \emph{S} was committed to it being the case that if \(\psi\) does not have value \(v'\) then either:
-        \begin{enumerate}
-        \item
-          \label{idea:CS:B:step:commit:p}
-          Some premise of \(\delta\) does not have value.
-        \item
-          \label{idea:CS:B:step:commit:c}
-          \(\phi_{i}\) does not have value \(v_{i}\).
-        \end{enumerate}
-      \end{enumerate}
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{definition}
-\end{note}
-
-\begin{note}
-  \begin{idea}[\ideaCSC{}]
-    \label{idea:cs:imp-stp}
-    No \impotent{} steps.
-  \end{idea}
+  Note, it's not the case that making step \(\delta\) alone is sufficient for a problem.
+  For, agent may go on to conclude that \(\psi\) has value \(v'\) from some independent instance of reasoning.
 \end{note}
 
 \begin{note}
@@ -1422,6 +1592,345 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Still, it seems clear that there's no additional proposition.
   Either because deductive, and hence no possibility.
   Or, because getting premise is sufficient, and get premise without the conclusion.
+\end{note}
+
+\subparagraph{Previous \illu{1}}
+
+
+
+\subparagraph{Circularity?}
+
+\begin{note}[Circularity?]
+  View this in terms of circularity.
+  Must get \(\phi\) having value \(v\) without appealing to \(\phi\) having value \(v\).
+  However, this is not general circularity.
+  Only interested in cases where \(\phi\) not having value \(v\) is \epVAd{}.
+  And, motivation is that if need \(\phi\) to have value \(v\), then reasoning doesn't indicate how things are.
+
+  What matters is that this rests on \(\phi\) being the case.
+\end{note}
+
+\subparagraph{\illu{2} to be revised}
+
+\begin{note}[Testimony 1]
+  \begin{illustration}[Testimony 1]
+    \label{illu:CS:test:basic}
+    \mbox{}
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item\label{ex:eiS:t:basic:test} \nagent{11} testified that they are trustworthy when speaking on matters regarding their personal character.
+    \item Any agent and proposition, agent testified that proposition is the case only if proposition is the case.
+    \item \nagent{11} testified that p is the case only if p is the case.
+    \item\label{ex:eiS:t:basic:ok} \nagent{11} is trustworthy when speaking on matters regarding their personal character.
+    \end{enumerate}
+  \end{illustration}
+
+  I take the reasoning of~\autoref{illu:CS:test:basic} to be intuitively problematic.
+
+  I am also somewhat confident that you will have seen some variant of the reasoning in relation to circularity before.
+
+  The goal for the moment is to explain why the two ideas expressed in relation to claiming support (\nfcs{} and \eiS{}) highlight a way in which the reasoning is problematic.
+  And, to distinguish the way in which the ideas highlight a problem from a pair of nearby considerations.
+\end{note}
+
+\begin{note}
+  Observe, however, that the intuitive problem is not that the agent has any reason(ing) to think that \nagent{11} is \emph{not} trustworthy when speaking on matters regarding their personal character.
+
+  Rather, the intuitive problem is that the agent does not have any reason(ing) to think that \nagent{11} \emph{is} trustworthy when speaking on matters regarding their personal character.
+
+  In particular, that that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is simply a possibility.
+  It may be the case that \nagent{11} is trustworthy.\nolinebreak
+  \footnote{
+    \color{red}
+    It's not like this suggests that they are not trustworthy.
+    Asking for directions.
+    These are fine, but addition is not.
+  }
+\end{note}
+
+\begin{note}
+  Following, let us consider why the reasoning of~\autoref{illu:CS:test:basic} is intuitively problematic from the perspective of claiming support.\nolinebreak
+  \footnote{
+    Of course, the reasoning of \autoref{illu:CS:test:basic} seems problematic without constraints on the purpose.
+    However, our interest is with claiming support.
+  }
+
+  \ideaCSA{} and \ideaCSB{}.
+
+  The role of \ideaCSA{} is simple: It is possible for the agent's reasoning to be \mom{}.
+  For example.
+
+  Possibility of \mistaken{}.
+  Well, misheard, speaking sarcastically.
+  Possibility of \misled{}.
+  Possible that S is not trustworthy.
+
+  It is the possibility of being \misled{} that is of interest.
+
+  Here, \ideaCSB{}.
+  In order for the reasoning to be an instance of claiming support, the reasoning should indicate that \nagent{11} is not trustworthy on matters regarding their personal character regardless of whether the reasoning that \nagent{11} is trustworthy on matters regarding their personal character is \mom{}.
+
+  In particular, it should be possible for the agent to entertain the possibility that \nagent{11} is not trustworthy on matters regarding their personal character while maintaining that their reasoning indicates that \nagent{11} is trustworthy on matters regarding their personal character.
+\end{note}
+
+\begin{note}[The problem]
+  The problem, then, is that it does not seem possible for the agent to entertain the possibility that \nagent{11} is not trustworthy when speaking on matters regarding their personal character while maintaining that their reasoning indicates that \nagent{11} is trustworthy when speaking on matters regarding their personal character.
+
+  For, it may be the case that \nagent{11} is not trustworthy when speaking on matters regarding their personal character.
+  And, \nagent{11}'s testimony involves speaking on a matter regarding their personal character.
+  Hence, by entertaining the the possibility that \nagent{11} is not trustworthy on matters regarding their personal character, the agent is required to entertain the possibility that \nagent{11}'s statement did not amount to an instance of testimony.
+  And, if \nagent{11}'s statement did not amount to an instance of testimony then it would seem the agent lacks a line of reasoning that indicates that \nagent{11} is trustworthy when speaking on matters regarding their personal character.
+\end{note}
+
+\begin{note}
+  The preceding is only an expression of an intuition.
+  \ideaCSA{} and \ideaCSB{} are ideas, and the arguments that follow will rest on the assumptions and propositions drawn from these ideas, rather than the ideas themselves.
+  Still, to the extent motivation for those assumptions and propositions rest on these ideas, \autoref{illu:CS:test:basic} highlights the constraints the ideas place on claiming support.
+
+  \begin{itemize}
+  \item given \ideaCSA{}, the agent is required to consider the possibility that conclusion of their reasoning is not the case, and
+  \item given \ideaCSB{}, the agent is required to hold that their reasoning indicates that the conclusion of their reasoning is not the case regardless of whether the possibility that conclusion of their reasoning is not the case obtains.
+  \end{itemize}
+  The reasoning of \autoref{illu:CS:test:basic} fails to be an instance of claiming support because the possibility that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is sufficient to undercut the premise that \nagent{11} testified.
+\end{note}
+
+\begin{note}
+  Now, granting that the above identifies a problem, an immediate question is:
+  Is the problem an instance of (vicious) circularity?\nolinebreak
+  \footnote{
+    In advance of following discussion, variation on~\textcite{Sorensen:1991wh}.
+
+    Claim support for the following proposition from the following sentence:
+
+    \begin{quote}
+      Some sentences are typed on a computer.
+    \end{quote}
+
+    In line with suggestions of \citeauthor{Sorensen:1991wh}, seems fine.
+    No difficulty with ideas as compatible with something else happening.
+    But, background that this is so incredibly unlikely.
+  }
+
+  Circularity is certainly in the ballpark, but I do not think there is a straightforward reduction.
+\end{note}
+
+\begin{note}
+  First, the problem was motivated by view the agent's reasoning as an instance of claiming support and applying the two basic ideas of claiming support (\ideaCSA{} and \ideaCSB{}).
+  And, in general, it seems that circularity extends beyond the scope of claiming support.
+
+  For example, consider knowledge:
+  The reasoning of \autoref{illu:CS:test:basic} seems problematic when view from the perspective of establishing knowledge.
+  Yet, from such a viewpoint it seems \ideaCSA{} would not apply --- if the agent had come to know that \nagent{11} is trustworthy when speaking on matters regarding their personal character then it would not be possible (at least relative to the conclusion of their reasoning) that \nagent{11} is not trustworthy.
+  Hence, neither \ideaCSA{} nor \ideaCSB{} would apply.
+
+  To be clear, our interest is not that the claiming support explains why the reasoning is problematic.
+  Rather, the point is that the sketch given of why the reasoning is problematic when viewed as an instance of claiming support is distinct from circularity, as it seems circularity would extend to cases for which \ideaCSA{} nor \ideaCSB{} would not apply.
+\end{note}
+
+\begin{note}
+  Second, the term `circularity' suggests that the reasoner has taken the conclusion of the reasoning for granted.
+
+  For example, consider what \citeauthor{Sgaravatti:2013wu} terms the `Justification Account' of circularity.\nolinebreak
+  \footnote{
+    As \citeauthor{Sgaravatti:2013wu} notes, the Justification Account of circularity is a rewriting of the third type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
+    Neither \citeauthor{Pryor:2004ws} nor \citeauthor{Sgaravatti:2013wu} endorse the Justification Account, but I take the spirit of the account to sufficient for interest.
+    Still, the considerations which follow also apply to distinguish the {\color{red} problem identified} from \citeauthor{Sgaravatti:2013wu}'s favoured account (\Citeyear[\S3]{Sgaravatti:2013wu}) and the fifth type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
+  }
+
+  \begin{quote}
+    \begin{enumerate}[label=(JA), ref=(JA)]
+    \item\label{sg:JA} An argument is circular if and only if for you to have justification to believe the premisses, it is necessary that you have justification to believe the conclusion.\nolinebreak
+      \mbox{}\hfill\mbox{(\Citeyear[754]{Sgaravatti:2013wu})}
+    \end{enumerate}
+  \end{quote}
+  Where `justification to believe' is to be read as in terms of having formed the belief in an epistemically appropriate way as opposed to (merely) possessing sufficient resources to form formed the belief in an epistemically appropriate way.\nolinebreak
+  \footnote{
+    Or, however you prefer to characterise \citeauthor{Firth:1978vi}'s (\Citeyear{Firth:1978vi}) distinction between doxastic and propositional justification (or warrant).
+    See also \citeauthor{Silva:2020aa} (\Citeyear{Silva:2020aa}) --- esp.\ fn.\ 1.
+  }
+  (\citeauthor[Cf.][754--755]{Sgaravatti:2013wu})
+
+  Observe, \ref{sg:JA} applies to \autoref{illu:CS:test:basic} only if the agent requires a justified belief that \nagent{11} is trustworthy prior to the conclusion of the agent's reasoning.
+
+  Such may be the case, and plausibly is, but to the extent that the instance of claiming support is an instance of forming a justified belief, the problem highlighted by appeal to \ideaCSA{} and \ideaCSB{} relied only on entertaining the possibility that \nagent{11} is not trustworthy.
+  Still, that it was necessary for the agent to have claimed support for \nagent{11} being trustworthy in order to claim support for the premises does not follow without additional argument --- no matter how plausible this may be.\nolinebreak
+  \footnote{
+    Though I have doubts about whether this really is the case.
+  }
+
+  % {
+  % \color{red}
+  % Necessary, as could argue that this is an implicit assumption.
+  % Hence, .
+  % Given plausibility, possible.
+
+  % Yet, equally, that these two things don't go together regardless of perspective on premise.
+
+  % And, in this sense order of explanation would be reversed.
+  % Still a question of why required.
+  % }
+
+  %   Admittedly this is a somewhat delicate point.
+  %   One may argue that \ref{sg:JA} (or some variant) explains why it is (intuitively) not possible for the agent to entertain possibility that \nagent{11} is not trustworthy given their reasoning.
+
+  %   Indeed, even if it is the case that the agent is required to have claimed support (or a justified belief) for \nagent{11} being trustworthy to claim support for the premises, the problem identified via \ideaCSB{} would remain distinct and would seem at best to motivate such an additional restriction.
+  Leaves open the possibility that problem highlighted by \ideaCSA{} and \ideaCSB{} does not reduce.
+  Hence, seems that distinguish intuitions from \ideaCSA{} and \ideaCSB{} from intuitions about why or how the agent introduced \nagent{11} testifying as a premise.
+\end{note}
+
+\begin{note}
+  The basic intuition, really, is that from \ideaCSA{} there is the possibility of being \mom{}.
+  In particular, \mistaken{} about testimony.
+  So, various ways in which this premise may fail.
+  The conclusion not holding is one such way.
+  And, if this is the case then whatever considerations the agent has for testimony, those considerations do not extend.
+\end{note}
+
+\begin{note}
+  Still, rather than toy in the abstract, let's investigate further by granting the agent with a way of claiming support for the initial premise of the reasoning.
+  The problem identified by \ideaCSA{} and \ideaCSB{} will remain, but to press the problem of circularity will require stronger assumptions.
+\end{note}
+
+\begin{note}[Testimony 2]
+  \begin{illustration}[Testimony 2]
+    \label{illu:CS:test:with-CS-for-premise}
+    \mbox{}
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item I was assured that \nagent{11} will be honest with me throughout the meeting.
+    \item\label{ex:eiS:tt:test} \nagent{11} testified that they are trustworthy on matters regarding their personal character.
+    \item Any agent and proposition, agent testified that proposition is the case only if proposition is the case.
+    \item \nagent{11} testified that p is the case only if p is the case.
+    \item\label{ex:eiS:tt:ok} \nagent{11} is trustworthy on matters regarding their personal character.
+    \end{enumerate}
+  \end{illustration}
+
+  \autoref{illu:CS:test:with-CS-for-premise} seems intuitively problematic to a similar degree as \ref{illu:CS:test:basic}.
+
+  The prior assurance does not help, at least given context that the friend was not aware of what \nagent{11} would say.
+
+  However, the prior assurance does provide a clear account of how the agent introduced \nagent{11} testifying as a premise.
+\end{note}
+
+\begin{note}
+  Problem here remains.
+  Now, two instances of claiming support.
+
+  Observe, vouched for particular instance, but not general.
+  Assurance went for statements in general, but now have information about particular statement.
+  Seems okay in various cases.
+
+  \begin{itemize}
+  \item The venue will be crowded.
+  \item A squirrel took the birdseed.
+  \item \TeX is Turing-complete
+  \end{itemize}
+  (Observe, in these instances not a \requ{}.)
+  Assurance is sufficient.
+  In general, so long as appeal to instance of testimony while granting that content of that instance of testimony (and hence the testimony itself) may fail, then there is no tension with the assumptions made regarding claimed support.
+
+  Yet, the reasoning seems to remain problematic with respect to self-attribution of trustworthiness.
+\end{note}
+
+\begin{note}
+  The issue for \ref{sg:JA} is that it does not seem necessary for the agent to have justification to believe that \nagent{11} is trustworthy on matters regarding their personal character in order to have justification to believe that \nagent{11} would be honest throughout the meeting.
+
+  Instead, it seems that there is a limitation on the scope of the assurance that is sensitive to the content of what \nagent{11} said (or would say).
+  In turn, the agent's reasoning is problematic because the reasoning exceeds the relevant limitation.
+  And, while it may be the case that would need justification for conclusion to have unlimited justification for the premises, the limitation alone is sufficient identify the problem.
+
+  This is preferred understanding of the problem raised by \ideaCSA{} and \ideaCSB{}.
+\end{note}
+
+\begin{note}
+  However, granting that the problem arises from some limitation, it is important to keep in mind that the limitation arises from entertaining some possibility as opposed to assuming that the possibility obtains.
+\end{note}
+
+\begin{note}[\citeauthor{Pryor:2004ws}'s Type 4]
+  An instance of a limitation arising from assuming that the possibility obtains is the fourth type of dependence between premise and conclusion considered by \citeauthor{Pryor:2004ws}.
+
+  \begin{quote}
+    [Type 4] dependence between premise and conclusion is that the conclusion be such that evidence \emph{against it} would (to at least some degree) undermine the kind of justification you purport to have for the premises.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[359]{Pryor:2004ws})}
+  \end{quote}
+
+  Again, plausible.
+
+  Issue:
+  \begin{enumerate}
+  \item Evidence undermines the kind of justification the agent purports to have for the premises.
+  \end{enumerate}
+
+  Seems to hold for \autoref{illu:CS:test:basic}.
+  Would undermine appeal to \nagent{11}'s testimony.
+  However, fails for \autoref{illu:CS:test:with-CS-for-premise}.
+  Would not undermine the companion's assurance, even if viewed as an instance of testimony.
+
+  Run this through the other instances suggested.
+
+  And, as \citeauthor{Pryor:2004ws} notes, \emph{kind} is important.
+  However, it seems kind is not the only problem.
+\end{note}
+
+\begin{note}
+  Also compatible with \citeauthor{Pryor:2004ws}'s argument that type 4 over-generates.
+  Details are in the following footnote.\footnote{
+  Compatible with \citeauthor{Pryor:2004ws}'s objection to type 4 dependence.
+
+  % \begin{illustration}
+    % \mbox{}
+    % \vspace{-\baselineskip}
+    \begin{quote}
+      Suppose you're watching a cat stalk a mouse. Your visual experiences justify you in believing:
+
+      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
+        \setcounter{enumi}{10}
+      \item\label{illu:Pryor:cat:1} The cat sees the mouse.
+      \end{enumerate}
+
+      You reason:
+
+      \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume]
+      \item\label{illu:Pryor:cat:2} If the cat sees the mouse, then there are some cases of seeing.
+      \item\label{illu:Pryor:cat:3} So there are some cases of seeing.\nolinebreak
+        \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
+      \end{enumerate}
+    \end{quote}
+  % \end{illustration}
+
+  Setting aside whether this is fine.
+
+  Following \citeauthor{Pryor:2004ws}:
+
+  Bad, given proposal, as if no cases of seeing, then the cat is not seeing. (\citeyear[361]{Pryor:2004ws})
+
+  \citeauthor{Pryor:2004ws}'s position is as follows:
+
+  \begin{quote}
+    I don't think you need antecedent justification to believe \ref{illu:Pryor:cat:3}, before your experiences can give you justification to believe \ref{illu:Pryor:cat:1}.
+    I also think it's plausible that your perceptual justification to believe \ref{illu:Pryor:cat:1} contributes to the credibility of \ref{illu:Pryor:cat:3}.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
+  \end{quote}
+
+  This is compatible with \ideaCSA{} and \ideaCSB{}, and the assumptions and premises which have followed.
+  You need not agree with \citeauthor{Pryor:2004ws}
+
+  No clear trouble.
+  The possibility alone isn't going to do enough.
+  Still seems possible for 1 to hold up.
+  Would count against, but not clear that entertaining possibility raises issue for claimed support for premise.
+  Indeed, also compatible with the cat not seeing, but if this is the case then it's not clear why no cases of seeing is any more important than the singular case.
+  }
+\end{note}
+
+\begin{note}
+  Of course, still some question about why entertaining the possibility is sufficient.
+  And, why there does not seem to be considerations for certain consequences of claimed support.
+
+  Nothing insightful beyond broad account.
+
+  Given this, the purpose of the assumptions made is to narrow down a clearer problem.
+  No reasoning, and as an instance of this when there is the impossibility of such reasoning.
+
+  Examples of the former.
 \end{note}
 
 \subsection{Summary of ideas}
@@ -1709,10 +2218,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
-
-\begin{restatable}[Appeal and \requ{1}]{assumption}{assuAppealRequ}
-  If \(\psi\) having value \(v'\) is a \requ{0} of some step of reasoning, then the agent appeals to \(\psi\) having value \(v'\) when the agent makes the step of reasoning.
-\end{restatable}
 
 \begin{note}
   Before proceeding to define the distinct types of \requ{}, a quick note on the definitions that follow.
@@ -2051,13 +2556,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Indeed, \ideaCSB{} will focus on \requ{} for step, rather than reasoning in general.
   }
 
-  Still, as \autoref{def:requsite} is quite complex, we will first work through the clauses and how they combine in some detail before providing a handful of illustrations.
+  Still, as \autoref{def:requsite} is quite complex, we will first work through the clauses and how they combine in some detail before providing a handful of \illu{1}.
 \end{note}
 
-\paragraph{Illustrations}
+\paragraph{\illu{3}}
 
 \begin{note}
-  Four illustrations.
+  Four \illu{1}.
   The first pair identify \requ{1}.
   Second pair concern consequences of steps of reasoning which fail to be \requ{1}.
 \end{note}
@@ -2237,8 +2742,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\eiS{0} --- \eiS{}]{assumption}{assuCSRReq}
     \label{assu:supp:independence}
-
-    Suppose that:
+    Let \vAgent{} be an agent and suppose that:
     \begin{enumerate}[label=\Alph*., ref=(\Alph*)]
     \item
       \label{assu:supp:ind:step}
@@ -2250,7 +2754,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item
       \label{assu:supp:ind:indicate}
-      \emph{S} may --- prior to making \(\delta\) --- witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
+      \vAgent{} may --- prior to making \(\delta\) --- may witness some reasoning which \indicateV{1} that \(\psi\) has value \(v'\).
     \end{enumerate}
     And:
     \begin{enumerate}[label=\arabic*., ref=(\arabic*),resume]
@@ -2735,328 +3239,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   After these, corollary of \autoref{prop:CS-only-if-reason-recognised-defeaters} which summarises, some discussion, and an idea.
 \end{note}
 
-\subsection{\illu{3} with respect to ideas}
-
-\begin{note}[Testimony 1]
-  \begin{illustration}[Testimony 1]
-    \label{illu:CS:test:basic}
-    \mbox{}
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item\label{ex:eiS:t:basic:test} \nagent{11} testified that they are trustworthy when speaking on matters regarding their personal character.
-    \item Any agent and proposition, agent testified that proposition is the case only if proposition is the case.
-    \item \nagent{11} testified that p is the case only if p is the case.
-    \item\label{ex:eiS:t:basic:ok} \nagent{11} is trustworthy when speaking on matters regarding their personal character.
-    \end{enumerate}
-  \end{illustration}
-
-  I take the reasoning of~\autoref{illu:CS:test:basic} to be intuitively problematic.
-
-  I am also somewhat confident that you will have seen some variant of the reasoning in relation to circularity before.
-
-  The goal for the moment is to explain why the two ideas expressed in relation to claiming support (\nfcs{} and \eiS{}) highlight a way in which the reasoning is problematic.
-  And, to distinguish the way in which the ideas highlight a problem from a pair of nearby considerations.
-\end{note}
-
-\begin{note}
-  Observe, however, that the intuitive problem is not that the agent has any reason(ing) to think that \nagent{11} is \emph{not} trustworthy when speaking on matters regarding their personal character.
-
-  Rather, the intuitive problem is that the agent does not have any reason(ing) to think that \nagent{11} \emph{is} trustworthy when speaking on matters regarding their personal character.
-
-  In particular, that that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is simply a possibility.
-  It may be the case that \nagent{11} is trustworthy.\nolinebreak
-  \footnote{
-    \color{red}
-    It's not like this suggests that they are not trustworthy.
-    Asking for directions.
-    These are fine, but addition is not.
-  }
-\end{note}
-
-\begin{note}
-  Following, let us consider why the reasoning of~\autoref{illu:CS:test:basic} is intuitively problematic from the perspective of claiming support.\nolinebreak
-  \footnote{
-    Of course, the reasoning of \autoref{illu:CS:test:basic} seems problematic without constraints on the purpose.
-    However, our interest is with claiming support.
-  }
-
-  \ideaCSA{} and \ideaCSB{}.
-
-  The role of \ideaCSA{} is simple: It is possible for the agent's reasoning to be \mom{}.
-  For example.
-
-  Possibility of \mistaken{}.
-  Well, misheard, speaking sarcastically.
-  Possibility of \misled{}.
-  Possible that S is not trustworthy.
-
-  It is the possibility of being \misled{} that is of interest.
-
-  Here, \ideaCSB{}.
-  In order for the reasoning to be an instance of claiming support, the reasoning should indicate that \nagent{11} is not trustworthy on matters regarding their personal character regardless of whether the reasoning that \nagent{11} is trustworthy on matters regarding their personal character is \mom{}.
-
-  In particular, it should be possible for the agent to entertain the possibility that \nagent{11} is not trustworthy on matters regarding their personal character while maintaining that their reasoning indicates that \nagent{11} is trustworthy on matters regarding their personal character.
-\end{note}
-
-\begin{note}[The problem]
-  The problem, then, is that it does not seem possible for the agent to entertain the possibility that \nagent{11} is not trustworthy when speaking on matters regarding their personal character while maintaining that their reasoning indicates that \nagent{11} is trustworthy when speaking on matters regarding their personal character.
-
-  For, it may be the case that \nagent{11} is not trustworthy when speaking on matters regarding their personal character.
-  And, \nagent{11}'s testimony involves speaking on a matter regarding their personal character.
-  Hence, by entertaining the the possibility that \nagent{11} is not trustworthy on matters regarding their personal character, the agent is required to entertain the possibility that \nagent{11}'s statement did not amount to an instance of testimony.
-  And, if \nagent{11}'s statement did not amount to an instance of testimony then it would seem the agent lacks a line of reasoning that indicates that \nagent{11} is trustworthy when speaking on matters regarding their personal character.
-\end{note}
-
-\begin{note}
-  The preceding is only an expression of an intuition.
-  \ideaCSA{} and \ideaCSB{} are ideas, and the arguments that follow will rest on the assumptions and propositions drawn from these ideas, rather than the ideas themselves.
-  Still, to the extent motivation for those assumptions and propositions rest on these ideas, \autoref{illu:CS:test:basic} highlights the constraints the ideas place on claiming support.
-
-  \begin{itemize}
-  \item given \ideaCSA{}, the agent is required to consider the possibility that conclusion of their reasoning is not the case, and
-  \item given \ideaCSB{}, the agent is required to hold that their reasoning indicates that the conclusion of their reasoning is not the case regardless of whether the possibility that conclusion of their reasoning is not the case obtains.
-  \end{itemize}
-  The reasoning of \autoref{illu:CS:test:basic} fails to be an instance of claiming support because the possibility that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is sufficient to undercut the premise that \nagent{11} testified.
-\end{note}
-
-\begin{note}
-  Now, granting that the above identifies a problem, an immediate question is:
-  Is the problem an instance of (vicious) circularity?\nolinebreak
-  \footnote{
-    In advance of following discussion, variation on~\textcite{Sorensen:1991wh}.
-
-    Claim support for the following proposition from the following sentence:
-
-    \begin{quote}
-      Some sentences are typed on a computer.
-    \end{quote}
-
-    In line with suggestions of \citeauthor{Sorensen:1991wh}, seems fine.
-    No difficulty with ideas as compatible with something else happening.
-    But, background that this is so incredibly unlikely.
-  }
-
-  Circularity is certainly in the ballpark, but I do not think there is a straightforward reduction.
-\end{note}
-
-\begin{note}
-  First, the problem was motivated by view the agent's reasoning as an instance of claiming support and applying the two basic ideas of claiming support (\ideaCSA{} and \ideaCSB{}).
-  And, in general, it seems that circularity extends beyond the scope of claiming support.
-
-  For example, consider knowledge:
-  The reasoning of \autoref{illu:CS:test:basic} seems problematic when view from the perspective of establishing knowledge.
-  Yet, from such a viewpoint it seems \ideaCSA{} would not apply --- if the agent had come to know that \nagent{11} is trustworthy when speaking on matters regarding their personal character then it would not be possible (at least relative to the conclusion of their reasoning) that \nagent{11} is not trustworthy.
-  Hence, neither \ideaCSA{} nor \ideaCSB{} would apply.
-
-  To be clear, our interest is not that the claiming support explains why the reasoning is problematic.
-  Rather, the point is that the sketch given of why the reasoning is problematic when viewed as an instance of claiming support is distinct from circularity, as it seems circularity would extend to cases for which \ideaCSA{} nor \ideaCSB{} would not apply.
-\end{note}
-
-\begin{note}
-  Second, the term `circularity' suggests that the reasoner has taken the conclusion of the reasoning for granted.
-
-  For example, consider what \citeauthor{Sgaravatti:2013wu} terms the `Justification Account' of circularity.\nolinebreak
-  \footnote{
-    As \citeauthor{Sgaravatti:2013wu} notes, the Justification Account of circularity is a rewriting of the third type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
-    Neither \citeauthor{Pryor:2004ws} nor \citeauthor{Sgaravatti:2013wu} endorse the Justification Account, but I take the spirit of the account to sufficient for interest.
-    Still, the considerations which follow also apply to distinguish the {\color{red} problem identified} from \citeauthor{Sgaravatti:2013wu}'s favoured account (\Citeyear[\S3]{Sgaravatti:2013wu}) and the fifth type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
-  }
-
-  \begin{quote}
-    \begin{enumerate}[label=(JA), ref=(JA)]
-    \item\label{sg:JA} An argument is circular if and only if for you to have justification to believe the premisses, it is necessary that you have justification to believe the conclusion.\nolinebreak
-      \mbox{}\hfill\mbox{(\Citeyear[754]{Sgaravatti:2013wu})}
-    \end{enumerate}
-  \end{quote}
-  Where `justification to believe' is to be read as in terms of having formed the belief in an epistemically appropriate way as opposed to (merely) possessing sufficient resources to form formed the belief in an epistemically appropriate way.\nolinebreak
-  \footnote{
-    Or, however you prefer to characterise \citeauthor{Firth:1978vi}'s (\Citeyear{Firth:1978vi}) distinction between doxastic and propositional justification (or warrant).
-    See also \citeauthor{Silva:2020aa} (\Citeyear{Silva:2020aa}) --- esp.\ fn.\ 1.
-  }
-  (\citeauthor[Cf.][754--755]{Sgaravatti:2013wu})
-
-  Observe, \ref{sg:JA} applies to \autoref{illu:CS:test:basic} only if the agent requires a justified belief that \nagent{11} is trustworthy prior to the conclusion of the agent's reasoning.
-
-  Such may be the case, and plausibly is, but to the extent that the instance of claiming support is an instance of forming a justified belief, the problem highlighted by appeal to \ideaCSA{} and \ideaCSB{} relied only on entertaining the possibility that \nagent{11} is not trustworthy.
-  Still, that it was necessary for the agent to have claimed support for \nagent{11} being trustworthy in order to claim support for the premises does not follow without additional argument --- no matter how plausible this may be.\nolinebreak
-  \footnote{
-    Though I have doubts about whether this really is the case.
-  }
-
-  % {
-  % \color{red}
-  % Necessary, as could argue that this is an implicit assumption.
-  % Hence, .
-  % Given plausibility, possible.
-
-  % Yet, equally, that these two things don't go together regardless of perspective on premise.
-
-  % And, in this sense order of explanation would be reversed.
-  % Still a question of why required.
-  % }
-
-  %   Admittedly this is a somewhat delicate point.
-  %   One may argue that \ref{sg:JA} (or some variant) explains why it is (intuitively) not possible for the agent to entertain possibility that \nagent{11} is not trustworthy given their reasoning.
-
-  %   Indeed, even if it is the case that the agent is required to have claimed support (or a justified belief) for \nagent{11} being trustworthy to claim support for the premises, the problem identified via \ideaCSB{} would remain distinct and would seem at best to motivate such an additional restriction.
-  Leaves open the possibility that problem highlighted by \ideaCSA{} and \ideaCSB{} does not reduce.
-  Hence, seems that distinguish intuitions from \ideaCSA{} and \ideaCSB{} from intuitions about why or how the agent introduced \nagent{11} testifying as a premise.
-\end{note}
-
-\begin{note}
-  The basic intuition, really, is that from \ideaCSA{} there is the possibility of being \mom{}.
-  In particular, \mistaken{} about testimony.
-  So, various ways in which this premise may fail.
-  The conclusion not holding is one such way.
-  And, if this is the case then whatever considerations the agent has for testimony, those considerations do not extend.
-\end{note}
-
-\begin{note}
-  Still, rather than toy in the abstract, let's investigate further by granting the agent with a way of claiming support for the initial premise of the reasoning.
-  The problem identified by \ideaCSA{} and \ideaCSB{} will remain, but to press the problem of circularity will require stronger assumptions.
-\end{note}
-
-\begin{note}[Testimony 2]
-  \begin{illustration}[Testimony 2]
-    \label{illu:CS:test:with-CS-for-premise}
-    \mbox{}
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item I was assured that \nagent{11} will be honest with me throughout the meeting.
-    \item\label{ex:eiS:tt:test} \nagent{11} testified that they are trustworthy on matters regarding their personal character.
-    \item Any agent and proposition, agent testified that proposition is the case only if proposition is the case.
-    \item \nagent{11} testified that p is the case only if p is the case.
-    \item\label{ex:eiS:tt:ok} \nagent{11} is trustworthy on matters regarding their personal character.
-    \end{enumerate}
-  \end{illustration}
-
-  \autoref{illu:CS:test:with-CS-for-premise} seems intuitively problematic to a similar degree as \ref{illu:CS:test:basic}.
-
-  The prior assurance does not help, at least given context that the friend was not aware of what \nagent{11} would say.
-
-  However, the prior assurance does provide a clear account of how the agent introduced \nagent{11} testifying as a premise.
-\end{note}
-
-\begin{note}
-  Problem here remains.
-  Now, two instances of claiming support.
-
-  Observe, vouched for particular instance, but not general.
-  Assurance went for statements in general, but now have information about particular statement.
-  Seems okay in various cases.
-
-  \begin{itemize}
-  \item The venue will be crowded.
-  \item A squirrel took the birdseed.
-  \item \TeX is Turing-complete
-  \end{itemize}
-  (Observe, in these instances not a \requ{}.)
-  Assurance is sufficient.
-  In general, so long as appeal to instance of testimony while granting that content of that instance of testimony (and hence the testimony itself) may fail, then there is no tension with the assumptions made regarding claimed support.
-
-  Yet, the reasoning seems to remain problematic with respect to self-attribution of trustworthiness.
-\end{note}
-
-\begin{note}
-  The issue for \ref{sg:JA} is that it does not seem necessary for the agent to have justification to believe that \nagent{11} is trustworthy on matters regarding their personal character in order to have justification to believe that \nagent{11} would be honest throughout the meeting.
-
-  Instead, it seems that there is a limitation on the scope of the assurance that is sensitive to the content of what \nagent{11} said (or would say).
-  In turn, the agent's reasoning is problematic because the reasoning exceeds the relevant limitation.
-  And, while it may be the case that would need justification for conclusion to have unlimited justification for the premises, the limitation alone is sufficient identify the problem.
-
-  This is preferred understanding of the problem raised by \ideaCSA{} and \ideaCSB{}.
-\end{note}
-
-\begin{note}
-  However, granting that the problem arises from some limitation, it is important to keep in mind that the limitation arises from entertaining some possibility as opposed to assuming that the possibility obtains.
-\end{note}
-
-\begin{note}[\citeauthor{Pryor:2004ws}'s Type 4]
-  An instance of a limitation arising from assuming that the possibility obtains is the fourth type of dependence between premise and conclusion considered by \citeauthor{Pryor:2004ws}.
-
-  \begin{quote}
-    [Type 4] dependence between premise and conclusion is that the conclusion be such that evidence \emph{against it} would (to at least some degree) undermine the kind of justification you purport to have for the premises.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[359]{Pryor:2004ws})}
-  \end{quote}
-
-  Again, plausible.
-
-  Issue:
-  \begin{enumerate}
-  \item Evidence undermines the kind of justification the agent purports to have for the premises.
-  \end{enumerate}
-
-  Seems to hold for \autoref{illu:CS:test:basic}.
-  Would undermine appeal to \nagent{11}'s testimony.
-  However, fails for \autoref{illu:CS:test:with-CS-for-premise}.
-  Would not undermine the companion's assurance, even if viewed as an instance of testimony.
-
-  Run this through the other instances suggested.
-
-  And, as \citeauthor{Pryor:2004ws} notes, \emph{kind} is important.
-  However, it seems kind is not the only problem.
-\end{note}
-
-\begin{note}
-  Also compatible with \citeauthor{Pryor:2004ws}'s argument that type 4 over-generates.
-  Details are in the following footnote.\footnote{
-  Compatible with \citeauthor{Pryor:2004ws}'s objection to type 4 dependence.
-
-  % \begin{illustration}
-    % \mbox{}
-    % \vspace{-\baselineskip}
-    \begin{quote}
-      Suppose you're watching a cat stalk a mouse. Your visual experiences justify you in believing:
-
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-        \setcounter{enumi}{10}
-      \item\label{illu:Pryor:cat:1} The cat sees the mouse.
-      \end{enumerate}
-
-      You reason:
-
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume]
-      \item\label{illu:Pryor:cat:2} If the cat sees the mouse, then there are some cases of seeing.
-      \item\label{illu:Pryor:cat:3} So there are some cases of seeing.\nolinebreak
-        \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
-      \end{enumerate}
-    \end{quote}
-  % \end{illustration}
-
-  Setting aside whether this is fine.
-
-  Following \citeauthor{Pryor:2004ws}:
-
-  Bad, given proposal, as if no cases of seeing, then the cat is not seeing. (\citeyear[361]{Pryor:2004ws})
-
-  \citeauthor{Pryor:2004ws}'s position is as follows:
-
-  \begin{quote}
-    I don't think you need antecedent justification to believe \ref{illu:Pryor:cat:3}, before your experiences can give you justification to believe \ref{illu:Pryor:cat:1}.
-    I also think it's plausible that your perceptual justification to believe \ref{illu:Pryor:cat:1} contributes to the credibility of \ref{illu:Pryor:cat:3}.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
-  \end{quote}
-
-  This is compatible with \ideaCSA{} and \ideaCSB{}, and the assumptions and premises which have followed.
-  You need not agree with \citeauthor{Pryor:2004ws}
-
-  No clear trouble.
-  The possibility alone isn't going to do enough.
-  Still seems possible for 1 to hold up.
-  Would count against, but not clear that entertaining possibility raises issue for claimed support for premise.
-  Indeed, also compatible with the cat not seeing, but if this is the case then it's not clear why no cases of seeing is any more important than the singular case.
-  }
-\end{note}
-
-\begin{note}
-  Of course, still some question about why entertaining the possibility is sufficient.
-  And, why there does not seem to be considerations for certain consequences of claimed support.
-
-  Nothing insightful beyond broad account.
-
-  Given this, the purpose of the assumptions made is to narrow down a clearer problem.
-  No reasoning, and as an instance of this when there is the impossibility of such reasoning.
-
-  Examples of the former.
-\end{note}
 
 \subsection{\illu{3} with respect to assumptions}
 \label{sec:illustrations-wrt-assumption}
@@ -3079,170 +3261,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Two short, then one in some detail.
 \end{note}
 
-\subsubsection{Spot the difference}
 
-\begin{note}[Spot the difference]
-  \begin{illustration}[Spot the difference]
-    \label{illu:CS:spot-the-diff}
-    The agent has been working through a spot-the-difference to pass some time.
-
-    Though the time is not completely passed, the agent examined the two images with what seems sufficient care to claim support that they have found all the differences.
-    However, the agent did not keep track of the number of differences.
-
-    The agent announces `I have found all the differences' and their companion responds `All fifteen?'.
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*)]
-      \setcounter{enumi}{-1}
-    \item\label{illu:CS:spot-the-diff:info} If I have found all the differences, I have found fifteen differences.
-    \end{enumerate}
-
-    The agent then reasons as follows:
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*), resume]
-    \item Exhaustive search.
-    \item\label{illu:CS:spot-the-diff:all} I found all the differences.
-    % \item\label{illu:CS:spot-the-diff:info} My companion has testified that there are fifteen differences.
-    % \item\label{illu:CS:spot-the-diff:cond} If I have found all the differences, I have found fifteen differences.
-    \item\label{illu:CS:spot-the-diff:fif} So, I have found fifteen differences. \hfill (From \ref{illu:CS:spot-the-diff:info} and \ref{illu:CS:spot-the-diff:all})
-    \end{enumerate}
-  \end{illustration}
-
-  Before going further, structure of this.
-
-  The agent performed some reasoning, and concluded that they found all the differences.
-  However, that reasoning is mentioned but not stated in the \illu{0}.
-  Rather, present is distinct instance of reasoning after being provided with information.
-  ``If not 15, then problem''.
-  Present reasoning appeals to past reasoning, and draws out consequence of this given new information.
-  Important: the present reasoning does not consider possibility that the agent did not find all 15 differences.
-  Instead, consequence of conclusion of previous instance of reasoning.
-  Still, epistemically possible that the agent did not find 15 differences.
-\end{note}
-
-\begin{note}
-    Providing additional information about what the agent has claimed support for.
-  Recall, \autoref{assu:CSVP}, information rather than \world{}.
-  \nolinebreak
-  \footnote{
-    Still slight issue.
-    Offering a redescription.
-    You met Clark Kent, so you met Superman.
-    In this case, rather than claiming support for meeting Superman, provided information is seen as an equivalent formulation.
-    It is possible to read \autoref{illu:CS:spot-the-diff} in this way, and this might be the most natural interpretation.
-    However, it is not the interpretation under which see the problem.
-    Rather, problem is where the conditional is explicit.
-    Unlike Superman case, proper conditional.
-  }
-\end{note}
-
-\begin{note}
-  Information leads to \requ{}.
-
-  Possibility of not fifteen.
-  And, not merely that the agent performed the reasoning, but that the reasoning identified all.
-  If not fifteen, then not all, so would involve appeal to something that is not the case.
-
-  And, present reasoning does not include reasoning about \requ{}.
-\end{note}
-
-\begin{note}[Avoiding the problem]
-  This doesn't rule out some additional reasoning.
-  \begin{enumerate}
-  \item Exhausted search.
-  \end{enumerate}
-  Difference here is that the agent is not only appealing to having found.
-  In addition, what they recall about reasoning.
-  What matters is not that found all but rather that exhaustivity of search.
-  This is not specific to 15.
-  Up to some \(k\) such that agent is still confident that they performed an exhaustive search.
-
-  Whether you think this is enough is up to you.
-  On the one hand, intuitive that this does enough.\nolinebreak
-  \footnote{
-    Indeed, reasoning framed with all as I think it is much less clear here.
-  }
-
-  On the other hand, the agent did not keep track of the number of differences.
-  So, may hold that they should go back and count.\nolinebreak
-  \footnote{
-    Looking ahead, \nI{}.
-    Difficulty here is that don't need to go to \(\phi\).
-    Indeed, note somewhere that \nI{} really only clearly takes hold when need some sort of factivity in play.
-    We'll return to this.
-  }
-
-  {
-    \color{red} As observed in the footnote above, the trick here is that the agent doesn't really `need' to go to having found all the differences.
-
-    Alternatively, not enough to show that the reasoning is bad.
-    E.g.\ then I would have been deceived, some trick, etc.
-    Something \emph{I} wouldn't count as a difference.
-  }
-\end{note}
-
-\begin{note}
-  Argued above against circularity.
-  Here, additional consideration.
-
-  If the agent were to have had the information first time, then plausibly an instance of circularity.
-  And, may think that this is also circularity as must also all must amount to fifteen.
-\end{note}
-
-\subsubsection{Where's Wally}
-
-\begin{note}
-  \autoref{illu:CS:spot-the-diff} had something that could be obtained from the reasoning if re-examined.
-  Just need to add a counter.
-
-  Now, something that follows if the reasoning was \nmom{}.
-\end{note}
-
-\begin{note}
-  \begin{illustration}[Where's Wally]
-    \label{illu:CS:wheres-wally}
-    Searching for Wally.
-    On front of book is an image of wally in contrast to a number of other characters.
-    Takes not of a number of features.
-    Glasses, hat, striped jumper.
-    In isolation, necessary but insufficient.
-    Combined, sufficient.
-
-    Search through the image.
-    I've found Wally.
-    Did you spot the cane first?
-
-    The question carries implicit information:
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
-      \setcounter{enumi}{-1}
-    \item\label{illu:CS:wheres-wally:info} The individual identified is Wally only if the individual is holding a cane.
-    \end{enumerate}
-
-    The agent then reasons as follows:
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*), resume]
-    \item Collection of features sufficient.
-    \item\label{illu:CS:wheres-wally:ante} Had features.
-    % \item The individual identified is Wally only if the individual is holding a cane.
-    \item The individual was holding a cane. \hfill (From \ref{illu:CS:wheres-wally:info} and \ref{illu:CS:wheres-wally:ante})
-    \end{enumerate}
-  \end{illustration}
-
-  As with \autoref{illu:CS:spot-the-diff}, the reasoning of \autoref{illu:CS:wheres-wally} is such that the individual was holding the cane is an \requ{} of the claimed support that the individual was Wally, and no reasoning about it.
-\end{note}
-
-\begin{note}
-  Problem.
-  \requ{}.
-  Agent didn't notice, so possibility.
-  And, agent is appealing to it being Wally.
-  Not merely that they identified as Wally.
-
-  It's not clear need to give up claimed support, but does not extend to having a cane.
-
-  In contrast to \ref{illu:CS:spot-the-diff}, does not seem there is anything weaker to fall back on.
-  However, no strong claim here.
-  Rely on stronger principles about claiming support.
-\end{note}
 
 \subsubsection{A trip to the zoo}
 
