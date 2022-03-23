@@ -126,14 +126,14 @@
 \DeclareDocumentCommand{\ideaCSA}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\) CS:A}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
+    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\) S}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
   }
   {%
   \ifnum0=#1\relax%
-      \obeybreaks{Idea\space regarding\space claiming\space support\space A}%
+      \obeybreaks{Idea\space regarding\space \space support\space}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{Idea\space A}%
+      \obeybreaks{Idea\space S}%
     \fi
   }
 }
@@ -144,14 +144,14 @@
 \DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS:B}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Idea\space regarding\space claiming\space support\space B}%
+      \obeybreaks{Idea\space regarding\space claiming\space support\space}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{Idea\space B}%
+      \obeybreaks{Idea\space CS}%
     \fi
   }
 }
@@ -161,14 +161,14 @@
 \DeclareDocumentCommand{\ideaCSC}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:cs:imp-stp]{\named{\(\dag\) CS:C}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:cs:imp-stp]{\named{\(\dag\) CS\('\)}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Idea\space regarding\space claiming\space support\space C}%
+      \obeybreaks{Idea\space regarding\space claiming\space support\space B\('\)}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{Idea\space C}%
+      \obeybreaks{Idea\space CS\('\)}%
     \fi
   }
 }
@@ -512,6 +512,31 @@
 
 % % % Abbreviations % % %
 
+% % % % % % Support % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\support}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{support}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{support}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Support}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 % % % % % % Requisites etc % % %
 
 \ExplSyntaxOn
@@ -845,6 +870,8 @@
 }
 \ExplSyntaxOff
 
+\newcommand{\epPW}[1]{\epPAd{}\space \world{#1}}
+
 
 % % % % % % Commands for worlds which are candidates for the actual world % % %
 
@@ -939,6 +966,8 @@
   }
 }
 \ExplSyntaxOff
+
+\newcommand{\epVW}[1]{\epVAd{}\space \world{#1}}
 
 % % %
 \ExplSyntaxOn
