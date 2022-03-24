@@ -123,7 +123,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ideaCSA}{ m }{% No inertia
+\DeclareDocumentCommand{\ideaS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
     \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\) S}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
@@ -141,7 +141,7 @@
 
 % % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ideaCSB}{ m }{% No inertia
+\DeclareDocumentCommand{\ideaCS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
     \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
@@ -776,6 +776,102 @@
 }
 \ExplSyntaxOff
 
+% % % % % % Commands for worlds which are possible in general % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\gPossible}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{possible}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{possible}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{possibilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Possible}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Possibilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epG}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \gPossible{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \gPossible{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \gPossible{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic\space \gPossible{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \gPossible{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\GAd}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{possible}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{possible}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Possible}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epGAd}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \GAd{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \GAd{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \GAd{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \GAd{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \GAd{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\epGW}[1]{\epGAd{}\space \world{#1}}
+
 % % % % % % Commands for worlds which should be considered, but are not candidates for the actual world % % %
 
 \ExplSyntaxOn
@@ -828,7 +924,7 @@
 \DeclareDocumentCommand{\PAd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{viable}%
+    \obeybreaks{plausible}%
   }
   {%
     \ifnum0=#1\relax%
@@ -922,7 +1018,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\viablityAd}{ m }{%
+\DeclareDocumentCommand{\viableAd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{viable}%
@@ -948,20 +1044,20 @@
 \DeclareDocumentCommand{\epVAd}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{epistemically\space \viablityAd{0}}%
+    \obeybreaks{epistemically\space \viableAd{0}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{epistemically\space \viablityAd{0}}%
+      \obeybreaks{epistemically\space \viableAd{0}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{epistemically\space \viablityAd{1}}%
+      \obeybreaks{epistemically\space \viableAd{1}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{epistemically\space \viablityAd{0}}%
+      \obeybreaks{epistemically\space \viableAd{0}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Epistemically\space \viablityAd{1}}%
+      \obeybreaks{Epistemically\space \viableAd{1}}%
     \fi
   }
 }
@@ -1054,6 +1150,29 @@
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Indicated}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicatePr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicating}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicating}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{indicating}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
