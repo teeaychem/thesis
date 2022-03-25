@@ -1063,6 +1063,52 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\viableN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viability}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Viability}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epVN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \viableN{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \viableN{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \viableN{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemic\space \viableN{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \viableN{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 \newcommand{\epVW}[1]{\epVAd{}\space \world{#1}}
 
 % % %
