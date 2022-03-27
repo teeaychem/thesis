@@ -957,6 +957,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
           \item
             \label{idea:CS:B:step:epV-requ}
             Prior to reasoning, \(\psi\) not having value \(v'\) is \epVAd{}.
+          \end{enumerate}
+        \item And:
+          \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
           \item
             \label{idea:CS:B:step:requ}
             \(\psi\) having value \(v'\) is a \emph{\requ{}} of \(\delta\).
@@ -972,7 +975,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
           \setcounter{enumii}{1}
         \item
           \label{idea:CS:B:prior-reasoning}
-          The agent, independent of making \(\delta\), witness some reasoning which \indicateV{1} \(\psi\) has value \(v'\) with respect to the agent's present epistemic state prior to concluding reasoning.\nolinebreak
+          The agent, independent of making \(\delta\), has witnessed some reasoning which \indicateV{1} \(\psi\) has value \(v'\) with respect to the agent's epistemic state prior to making \(\delta\).\nolinebreak
           \footnote{
             This clause is non-committal about the reasoning which \indicateV{1} \(\psi\) has value \(v'\).
             In particular:
@@ -997,15 +1000,39 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \begin{enumerate}[label=\alph*., ref=(\circledR2\alph*)]
       \item
         \label{notion:requ:p}
-        Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}\).\newline
-        \mbox{}\hfill(`\(\psi\) having value \(v'\) is a \prequ{}')
+        Some premise \(\chi_{i}\) of \(\delta\) does not have value \(v_{i}\).
+        % \newline
+        % \mbox{}\hfill(`\(\psi\) having value \(v'\) is a \prequ{}')
       \item
         \label{notion:requ:pc}
-        \(\xi\) does not have value \(v''\), where \(\xi\) having value \(v''\) follows from the premises of \(\delta\) when combined with the conclusion of \(\delta\).\newline
-        \mbox{}\hfill(`\(\psi\) having value \(v'\) is a \cprequ{}')
+        If \(\psi\) does not have value \(v'\) then (\(\delta\) does not allow to conclude \(\phi\) from \(\chi\)).
+        % \newline
+        % \mbox{}\hfill(`\(\psi\) having value \(v'\) is a \crequ{}')
+      \end{enumerate}
+
+      \begin{enumerate}
+      \item
+        \(\psi\) having value \(v'\) follows from \(\phi\) having value \(v\).
+      \item
+        If \(\phi\) has value \(v\), then it is `possible' to conclude that \(\psi\) has value \(v'\) without \(\delta\).
+      \item
+        \(\psi\) having value \(v'\) is weaker than \(\phi\) having value \(v\) (with respect to what is\epPAd{}).
       \end{enumerate}
     \end{enumerate}
+    \color{red}
+    Note, focus on what the actual world is is important for the second clause.
+    If it doesn't matter what the actual world is, then it's hard to see why this would matter.
+
+    `Possible' should be restricted in some way.
+    This is also why recursive in the case of \support{} is useful.
+    Though, also should state that it's reasoning, with no further information.
   \end{restatable}
+
+  \requ{} is split into two cases.
+  \ref{notion:requ:p} observes that the premises appealed to cover all \epVW{1} only if \(\psi\) has value \(v'\).
+
+  \ref{notion:requ:c} observes that the result of making the step is a conclusion that \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
+  Alternatively, a conclusion that \(\phi\) has value \(v\) \emph{given} that \(\psi\) has value \(v'\).
 \end{note}
 
 \begin{note}[Intuition for \ideaCS{}]
@@ -1062,25 +1089,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   In each, reasoning which fails to satisfy \ideaCS{}, then suggested reasoning that would satisfy.
 \end{note}
 
-\begin{note}[Testimony 1]
-  \begin{illustration}[Testimony 1]
-    \label{illu:CS:test:basic}
-    \mbox{}
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item\label{ex:eiS:t:basic:test} \nagent{11} testified that they are trustworthy when speaking on matters regarding their personal character.
-    \item Any agent and proposition, agent testified that proposition is the case only if proposition is the case.
-    \item \nagent{11} testified that p is the case only if p is the case.
-    \item\label{ex:eiS:t:basic:ok} \nagent{11} is trustworthy when speaking on matters regarding their personal character.
-    \end{enumerate}
-  \end{illustration}
 
-  I take the reasoning of~\autoref{illu:CS:test:basic} to be intuitively problematic.
-
-  I am also somewhat confident that you will have seen some variant of the reasoning in relation to circularity before.
-
-  The goal for the moment is to explain why \ideaCS{} highlights a way in which the reasoning is problematic.
-  And, to distinguish the way in which the ideas highlight a problem from a pair of nearby considerations.
-\end{note}
 
 \begin{note}
   Observe, however, that the intuitive problem is not that the agent has any reason(ing) to think that \nagent{11} is \emph{not} trustworthy when speaking on matters regarding their personal character.
@@ -1284,6 +1293,33 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Rely on stronger principles about claiming support.
 \end{note}
 
+\subparagraph{Contrast: Testimony}
+
+\begin{note}[Testimony 1]
+  \begin{illustration}[Testimony 1]
+    \label{illu:CS:test:basic}
+    \mbox{}
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item
+      \label{ex:eiS:t:basic:test}
+      \nagent{11} stated that they are trustworthy when speaking on matters regarding their personal character.
+    \item
+      \label{ex:eiS:t:basic:ok}
+      \nagent{11} is trustworthy when speaking on matters regarding their personal character.
+    \end{enumerate}
+  \end{illustration}
+  This kind of case is intuitively problematic.
+  It seems that already need trustworthy.
+  If this assumption is made, then a problem.
+  However, nothing that requires that this assumption is made.
+  Therefore, \ideaCS{} does not necessarily identify anything problematic.
+
+  This contrasts to the other \illu{1}, in which the agent is making an a non-deductive step of reasoning.
+  What we're interested in is overlooking certain things.
+
+  Indeed, \autoref{illu:CS:test:basic} is difficult because different substitutions seem fine.
+\end{note}
+
 \subsubsection{Motivation}
 \label{sec:motivation}
 
@@ -1428,6 +1464,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \subsubsection{Some contrasts}
 \label{sec:some-contrasts}
+
+\paragraph{Circularity}
+
+
 
 \paragraph{Sgaravatti}
 
@@ -3285,7 +3325,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \begin{itemize}
       \item Such that:
         \begin{enumerate}
-        \item \ref{corr:cond:pq}
+        \item
           If \(\psi\) does not have value \(v'\) then \(\phi\) does not have value \(v\).
         \end{enumerate}
       \end{itemize}
