@@ -164,10 +164,25 @@
   {\normalfont\normalsize\bfseries}}
 \makeatother
 
+% https://tex.stackexchange.com/questions/94402/creating-a-subsubparagraph
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{%
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{%
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\z@}                     % indent
+    {3.25ex \@plus 1ex \@minus .2ex} % beforeskip
+    {1.5ex \@plus .2ex}%             % afterskip
+    {\normalfont\normalsize\bfseries}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+
 \usepackage[hidelinks,breaklinks,bookmarks=false]{hyperref}
 
 \usepackage[british]{babel}
-\usepackage{hyperref}
 \addto\extrasbritish{
     \def\chapterautorefname{Chapter}
     \def\sectionautorefname{Section}

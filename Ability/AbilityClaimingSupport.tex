@@ -1105,7 +1105,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
           It is not the case that the agent would revise their epistemic state so that \ref{def:requ:prequ:strcture:chi-subset-psi} does not hold (in order to conclude that \(\phi\) has value \(v\) from \(\delta\)).
         \item
           \label{def:requ:prequ:possible-reason}
-          It is \epVAd{} that \vAgent{} has the potential to witness reasoning which concludes that \(\psi\) has value \(v'\) from \vAgent{}' current epistemic state.
+          For all \epVW{} in which \(\chi_{i}\) have values \(v_{i}\), there is some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
         \end{enumerate}
       \end{itemize}
     \end{enumerate}
@@ -1155,7 +1155,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \end{restatable}
 \end{note}
 
-\paragraph{Structure}
+\subsubsection{Structure}
 
 \begin{note}[Structure of \autoref{def:requ}]
   Structurally,~\autoref{def:requ} provides two conditions sufficient for some proposition-value pair being a \requ{} of some step of reasoning.
@@ -1177,7 +1177,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   We will walk through the relevant structure in detail.
 \end{note}
 
-\subparagraph{\prequ{3}}
+\subsubsection{\prequ{3}}
 
 \begin{note}
   Starting with a \prequ{}
@@ -1193,15 +1193,118 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{prequ:int:reasoning}
     It is possible, given the agent's epistemic state, for the agent to conclude that \(\psi\) has value \(v'\) prior to making the step of reasoning.
   \end{enumerate}
+\end{note}
+
+\paragraph{The structure}
+
+\begin{note}
   \ref{prequ:int:structure} is primarily captured by \ref{def:requ:prequ:strcture}, where:
 
   \ref{def:requ:prequ:strcture:psi-not-v} ensures that \(\psi\) may not have value \(v'\).
   And, \ref{def:requ:prequ:strcture:chi-subset-psi} together with \ref{def:requ:prequ:strcture:chi-propersubset-psi} ensure that the \world{1} in which the premise proposition-value pairs holds are a subset (from \ref{def:requ:prequ:strcture:chi-subset-psi}) and moreover a \emph{proper} subset (from \ref{def:requ:prequ:strcture:chi-propersubset-psi}) of the \world{1} in which \(\psi\) has value \(v'\).
 
-  Still, \ref{def:requ:prequ:no-revision} captures an important subtlety.
-  It may be the case that the relation between the premise proposition-value pairs and \(\psi\) having value \(v'\) is unimportant to the agent.
+  \begin{figure}
+    \mbox{ }\hfill
+    \begin{subfigure}{0.3\linewidth}
+      \begin{tikzpicture}[scale=.85]
+        \coordinate (epVC) at (0,0);
+        \coordinate (epV) at (4,5);
+        \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+        \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+        \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
 
-  Consider a familiar situation from \citeauthor{Harman:1986ux}:
+        \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
+        \coordinate (psiC) at (-.1,-.1);
+        \coordinate (psi) at (3.5,4.7);
+        \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+        \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+        \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+      \end{tikzpicture}
+      \caption{\ref{def:requ:prequ:strcture:psi-not-v}}
+      \label{fig:prequ:intuition:psi-not-v}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\linewidth}
+      \begin{tikzpicture}[scale=.85]
+        \coordinate (epVC) at (0,0);
+        \coordinate (epV) at (4,5);
+        \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+        \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+        \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
+
+        \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
+        \coordinate (psiC) at (-.1,-.1);
+        \coordinate (psi) at (3.5,4.7);
+        \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+        \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+        \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+
+        \filldraw (0.5*-3,0.5*-4) node {\(\chi\)};
+        \coordinate (chiC) at (-.2,-.2);
+        \coordinate (chi) at (3,4);
+        \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
+        \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
+        \draw[rounded corners] (chiLL) rectangle (chiUR);
+      \end{tikzpicture}
+      \caption{\ref{def:requ:prequ:strcture:chi-subset-psi} \& \ref{def:requ:prequ:strcture:chi-propersubset-psi}}
+      \label{fig:prequ:intuition:subset}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\linewidth}
+      \begin{tikzpicture}[scale=.85]
+        \coordinate (epVC) at (0,0);
+        \coordinate (epV) at (4,5);
+        \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+        \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+        \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
+
+        \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
+        \coordinate (psiC) at (-.1,-.1);
+        \coordinate (psi) at (3.5,4.7);
+        \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+        \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+        \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+
+        \filldraw (0.5*-3,0.5*-4) node {\(\chi\)};
+        \coordinate (chiC) at (-.2,-.2);
+        \coordinate (chi) at (3,4);
+        \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
+        \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
+        \draw[rounded corners] (chiLL) rectangle (chiUR);
+
+        \filldraw (0,0) node {\(\phi\)};
+        \coordinate (phiC) at (-.25,-.25);
+        \coordinate (phi) at (2,3);
+        \coordinate (phiLL) at ($(phiC)-0.5*(phi)$);
+        \coordinate (phiUR) at ($(phiC)+0.5*(chi)$);
+        \draw[dashdotted, rounded corners] (phiLL) rectangle (phiUR);
+      \end{tikzpicture}
+      \caption{Prospective conclusion}
+      \label{fig:prequ:intuition:conclusion}
+    \end{subfigure}
+    \hfill\mbox{ }
+    \caption{
+      The structure of an agent's epistemic state with respect to \epVW{} when \ref{def:requ:prequ:strcture} is satisfied.
+    }
+    \label{fig:prequ:intuition}
+  \end{figure}
+  This structure is depicted in \autoref{fig:prequ:intuition}:
+
+  \begin{itemize}
+  \item
+    \autoref{fig:prequ:intuition:psi-not-v} represents the agent's epistemic state (the bold rectangle) being such that there are some \world{1} such that \(\psi\) has value \(v'\) (those within the dashed rectangle), and that there are some \world{1} such that \(\psi\) does not have value \(v'\) (those outside the dashed rectangle).
+  \item
+    \autoref{fig:prequ:intuition:subset} represents the \world{1} in which the collection of premises \(\chi_{i}\) all have respective values \(v_{i}\) are a proper subset of the \world{1} such that \(\psi\) has value \(v'\).
+  \item
+    \autoref{fig:prequ:intuition:conclusion} represents a prospective conclusion, in which \(\phi\) having value \(v\) is obtained via a non-deductive step of reasoning from \(\chi_{i}\) having values \(v_{i}\), though the relevant step may also be deductive.
+  \end{itemize}
+\end{note}
+
+\begin{note}
+  Still, \ref{def:requ:prequ:no-revision} captures an important subtlety that does not reduce to the present relation between various proposition-value pairs.
+  For, it may be the case that the relation between the premise proposition-value pairs and \(\psi\) having value \(v'\) is unimportant to the agent.
+
+  Consider a familiar situation from \textcite{Harman:1986ux}:
 
   Mary believes, prior to looking in the cupboard, that if she looks in the cupboard, then she will see a box of Cheerios.
   Mary then looks in the cupboard and does not see a box of Cheerios.
@@ -1217,158 +1320,174 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   While both \ref{def:requ:prequ:strcture} and \ref{def:requ:prequ:no-revision} relate to the same intuitive point, these are separated in the definition of a \prequ{} as \ref{def:requ:prequ:strcture} concerns the structure of the agent's current epistemic state, while \ref{def:requ:prequ:no-revision} concerns a subjunctive property of the present structure.
 \end{note}
 
+\paragraph{The possibility of reasoning}
+
 \begin{note}
-  And, \ref{prequ:int:reasoning} is captured by \ref{def:requ:prequ:possible-reason}.
-  If an agent may conclude that \(\psi\) has value \(v'\) from their present epistemic state, then the agent need not make the relevant step of reasoning in order to conclude that \(\psi\) has value \(v'\).
+  \ref{prequ:int:reasoning} is captured by \ref{def:requ:prequ:possible-reason}.
+  However, \ref{def:requ:prequ:possible-reason} is significantly more complex than \ref{prequ:int:reasoning}.
 
-  I do not have a precise formulation of the relevant sense of `possibility' at issue.
-  Intuitively, it is not \emph{merely} possible for the agent to witness reasoning which conclude that \(\psi\) has value \(v'\), but rather \emph{practical} for the agent to do so.
+  In order to clarify \ref{def:requ:prequ:possible-reason}, we break down the clause in to three important components, and will discuss each component in turn.
+  The three important components are:
+  \begin{itemize}
+  \item
+    First, the core of the constraint concerning reasoning.
+  \item
+    Second, a relativisation of the core of the constraint to what is \epVAd{} for the agent.
+  \item
+    Third, a restriction on the scope of the core of the constraint relative to what is \epVAd{} for the agent to \epVW{1} in which the premises are true.
+  \end{itemize}
+\end{note}
 
-  What is possible is not necessarily practical.
+\subparagraph{The core constraint}
 
-  For example, it may be possible for an agent to conclude that the liquid in a glass is not poisoned prior to appealing to it being safe to drink in order to conclude that they should drink the liquid, but not practical for the agent to do so.
-  For, the agent may risk dehydration before concluding that the the liquid is not poisoned.
+\begin{note}[Constraint]
+  The constraint:
+  \begin{quote}
+    There is some temporal extension of any relevant \epVW{} in which the agent witnesses reasoning which concludes that \(\psi\) has value \(v'\).
+  \end{quote}
 
-  Likewise, it may be possible for an agent to conclude that they do not also have a preference for various flavours of ice cream prior to appealing to a their preference for chocolate ice cream as a premise, but not practical for the agent to do so.
-  For, the agent may be significantly inconvenienced by the financial burden of purchasing many different flavours.
+  Recall, any (relevant) \epVW{} is a candidate for the actual \world{}.
+  And, by temporal extension we mean the progression of a \world{} up to some future point in time.
 
-  Still, practical should not be understood in terms of convenience.
-  It may be inconvenient for an agent to conclude that they did not leave their car unlocked, but it seems plausible that the agent should reach such a conclusion before appealing to the availability of their car in order to conclude that they may attend a concert.
+  So, at core, the constraint specifies that the agent has the opportunity to reason about whether \(\psi\) has value \(v'\), and if the agent were to reason about whether \(\psi\) has value \(v'\), the agent would conclude that \(\psi\) has value \(v'\).
 
-  Rather than introduce further adjectives, \ref{def:requ:prequ:possible-reason} instead resolves the issue of whether it is possible (or practical) for the agent to reason by reference to the agent's own epistemic state with the placeholder `potential' modality.
+  Note, the core of the constraint only requires that there is \emph{some} temporal extension of any given \epVW{}.
+  Hence, the core of the constraint does not require that the agent \emph{will} conclude that \(\psi\) has value \(v'\).
+\end{note}
 
-  If it is \epVAd{} for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\) from \vAgent{}' current epistemic state, then, 
+\begin{note}[Delicacy]
+  On the one hand it is simple to fail the core of the constraint.
+  For, the core of constraint requires that the agent would not fail to conclude that \(\psi\) has value \(v'\).
+  On the other hand, it is difficult to fail the core constraint.
+  For, the core constraint requires only that there is at least one instance in which the agent would not fail to conclude that \(\psi\) has value \(v'\).
+
+  To illustrate, consider two different kinds of uncertainty.
+
+  On the one hand, and agent may be uncertain about whether they would conclude that \(\psi\) has value \(v'\) due to, say, requiring some information that they may or may not be in a position to acquire.
+  If so, then the agent will be unsure about whether there \emph{is} a temporal extension of the relevant \world{}.
+  For, the existence of the required temporal extension will depend on whether the agent acquires the required information.
+  Hence the core of the constraint will not be satisfied.
+
+  Note, the relevant sense of the copula `is' concerns existence, rather than possibility, however the notion of existence is understood for temporal extensions.
+
+  On the other hand, an agent may be uncertain about whether they really do have the opportunity to conclude that \(\psi\) has value \(v'\) as any instance of reasoning may be interrupted.
+  However, so long as there is no guarantee that the agent's reasoning would be interrupted, then the core of the constraint will be satisfied, even if it is highly unlikely that the agent would conclude the relevant reasoning.
+
+  Somewhere between these two extremes is a more nuanced constraint.
+  Still, in order to keep the complexity of the constraint (relatively) low, we will not add further conditions.
+  In cases where the constraint is to simple to fail, then the definition of a \requ{} may be added to, as \(\psi\) having value \(v'\) being a \prequ{} is only a sufficient condition for \(\psi\) having value \(v'\) being a \requ{}.
+  And, we will avoid applying the definition of \prequ{} in cases where the definition exceeds intuition.
+\end{note}
+
+\subparagraph{The role of the agent}
+
+\begin{note}
+  Our discussion of the core of the constraint focused on there being some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
+
+  In general, whether or not the core of the constraint is satisfied by be evaluated independently of the agent's perspective on how the actual \world{} is.
+  Still, we relativise the core of the constraint to the agent's perspective.
+
+  The motivation is simple and has two (related) parts.
+  \begin{itemize}
+  \item
+    First, we ensure that \(\psi\) having value \(v'\) is relevant to the agent's own reasoning in general.
+  \item
+    Second, we reduce latent issues concerning whether there is some temporal extension of a \world{} to an single source --- the agent.
+  \end{itemize}
+  We expand on both points in turn.
+\end{note}
+
+\subsubparagraph{Relevance}
+
+\begin{note}[Relevance]
+  By relativising the core of the constraint to the agent's perspective we ensure that whether or not \(\psi\) has value \(v'\) is relevant to the agent's own reasoning.
+  In particular, we ensure that whether or not \(\psi\) having value \(v'\) matters to whether or not \(\chi_{i}\) have values \(v_{i}\) by the agent's own lights, so to speak.
+
+  Variations on the idea of a \prequ{} may take into account the epistemic states of other agents. For example if the agent were engaged in not merely reasoning to, but arguing for, some conclusion.
+  Still, for present purposes we only identifying \(\psi\) having value \(v'\) as a \prequ{} if the agent considers it \epVAd{} to `check' their appeal to some premises prior to making a step of reasoning.
+
+  This observation will be important for motivating \ideaCS{} via \ideaS{}.
+
+  For now, observe:
+
+  If \ref{def:requ:prequ:possible-reason} is satisfied, and the agent were to fail to conclude that \(\psi\) has value \(v'\), then the agent would be unable to distinguish an \epVW{} in which \(\psi\) has value \(v'\) and \(\chi_{i}\) have values \(v_{i}\) from an \epVW{} in which \(\psi\) does not have value \(v'\) and \(\chi_{i}\) does not have values \(v_{i}\).
+  Hence, it would seem that from the agent's perspective that they have no basis for concluding that \(\phi\) has value \(v\) by appeal to \(\chi_{i}\) having values \(v_{i}\).
+\end{note}
+
+\subsubparagraph{Latent issues}
+
+\begin{note}
+  The upshot of resolving the relevant sense of possibility to the agent's epistemic state is that we avoid questions about whether it is possible for an agent to recognise that it is possible for them to conclude that \(\psi\) has value \(v'\).
+  For, if it is \epVAd{} for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\), then the agent holds that for every candidate for the actual \world{}, there is some extension of the candidate \world{} in which the agent witnesses the relevant reasoning.\nolinebreak
+  \footnote{
+    Note, this does not guarantee that the agent would witness reasoning which concludes that \(\psi\) has value \(v'\) if the agent were to try, as we do not require that the actual \world{} is always an \epVW{}.
+  }
+
+  For example, it may be `possible' for the agent to conclude that the liquid in a glass is not poisoned prior to appealing to it being safe to drink in order to conclude that they should drink the liquid.
+
+  In order to resolve whether it really is possible the agent to conclude that the liquid in a glass is not poisoned, we need only consider whether the agent considers it \epVAd{} that they may witness such reasoning.
+  And, the answer may be negative as the agent expects dehydration to set in before concluding any such reasoning.
+\end{note}
+
+\begin{note}
+  The upshot comes with a corresponding downshot.
+  For, it may be possible (in the relevant intuitive sense) for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\) without the agent holding that it is \epVAd{} for them to so reason.
+
+  For example, it may be possible (and quite straightforward) for an agent to check the boiler for a simple fault before appealing to the premises that it is broken in order to conclude that they should call for a repair.
+  Yet, so long as the agent does not consider it \epVAd{} for them to check the boiler, any proposition-value pair captured a simple fault will not be a \prequ{}.
+\end{note}
+
+\subsubparagraph{Quantification}
+
+\begin{note}
+  Finally we turn restricting the scope of the core of the constraint to \epVW{1} in which all of the premises that the agent would appeal to when making the step of reasoning have the appropriate values.
+
+  Key here is that the core of the constraint requires that there is some temporal extension of the relevant \epVW{1} in which the agent witnesses reasoning which concludes that \(\psi\) \emph{has} value \(v'\).
+
+  This gives rise to the following problem:
+\end{note}
+
+\begin{note}[Problem]
+  In order for \(\psi\) having value \(v'\) to be a \prequ{} the agent must consider it \epVAd{} that \(\psi\) does not have value \(v'\).
+  Yet, if \(\psi\) does not have value \(v'\), then it may be the case that the agent would fail to conclude that \(\psi\) has value \(v'\).
+  In which case, the core of the constraint will fail to be satisfied.
+\end{note}
+
+\begin{note}[Solution]
+  Still, quantifying over \epVW{1} in which the premises of the step have appropriate values provides a motivated solution.
+
+  For, we are only interested in the idea \(\phi\) having value \(v'\) being \prequ{} as a check on whether it would make sense for an agent to appeal to a collection of premises in order to make some conclusion.
+  Hence, in order for the \prequ{} to be a check of the relevant kind, we are only interested in cases where \(\psi\) must have value \(v'\) in order for the premises of the step of reasoning to have appropriate values.
+  Therefore, we may restrict the interest in the possibility of concluding that \(\psi\) has value \(v'\) to those \epVW{1} in which the premises propositions have the values of interest.
+\end{note}
+
+\begin{note}[Illustration]
+  To illustrate.
+
+  \begin{illustration}
+    Suppose an agent wishes to conclude that they should report that their parcel has gone missing from the premise that their parcel is missing.
+    Still, the agent considers it \epVAd{} that a delivery was attempted, and that a note was left on their front door.
+    Naturally, if the parcel has gone missing, then no delivery attempt will have been made, and no note will be on their front door.
+
+    Still, if the parcel has not gone missing, then a delivery may have been attempted, and a note left on the agent's front door.
+    Yet, if a note has been left on the agent's front door, then it will not be possible for the agent to conclude that there is no note on the front door.
+    For, the agent will only conclude that there is no note on the front door by checking the front door.
+  \end{illustration}
+
+  The agent's epistemic state plausibly satisfies \ref{def:requ:prequ:strcture}.\nolinebreak
+  \footnote{
+    `Missing' will plausibly be a proper subset of `no not on front door' as it may remain \epVAd{} that the parcel is not missing, but not yet delivered.
+  }
+  However, if a note has been left on the agent's front door, then it will not be possible for the agent to conclude that there is no note on the front door.
+  Hence, the core of the constraint would fail given the \epVAd{} that the parcel is not missing.
+
+  Still, as the step of reasoning would move from a missing parcel to a resolution for action, at issue is only whether the agent would fail to conclude that there is no note on the door in the case that the package really is missing.
+  If the agent's reasoning were to fail because of the presence of a note on the agent's front door, then it seems this would be sufficient to indicate to the agent that the parcel is not missing, and that they should not report the parcel missing.
 \end{note}
 
 \hozline
 
-\begin{note}[\prequ{}]
-  \prequ{}.
-  Then, premises of \(\delta\) do not hold with respect to all \epVW{1}.
-  And, there is some way for the agent to reason.
-  Problem here is quite clear.
-  Question is whether something stronger.
-  This depends on possibility of reasoning.
-  If general, then simplifies.
-  Reasoning for anything by required by premises.
-  If not, then \(\psi\) falls outside of our interest.
-  \support{2} is just about reasoning.
-\end{note}
-
-\begin{note}
-  Diagram.
-
-  Start with epistemic state.
-  Then, we have \(\lnot\psi\).
-  So, \(\psi\) is a proper subset of \epVW{1}.
-  Then, second, \(\chi\) is a subset of \(\psi\).
-  Third, \(\chi\) is a proper subset.
-\end{note}
-
-% \begin{figure}[h!]
-%   \centering
-%     \begin{tikzpicture}[scale=.85]
-%       \coordinate (epPC) at (0,0);
-%       \coordinate (epP) at (4.5,5.5);
-%       \coordinate (epPLL) at ($(epPC)-0.5*(epP)$);
-%       \coordinate (epPUR) at ($(epPC)+0.5*(epP)$);
-%       \draw[dotted, rounded corners] (epPLL) rectangle (epPUR);
-
-%       \coordinate (epVC) at (0,0);
-%       \coordinate (epV) at (4,5);
-%       \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-%       \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-%       \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-%     \end{tikzpicture}
-%   \caption{epistemic state}
-%   \label{fig:epistate}
-% \end{figure}
-
-\begin{figure}
-  \mbox{ }\hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
-      \coordinate (psiC) at (-.1,-.1);
-      \coordinate (psi) at (3.5,4.7);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-    \end{tikzpicture}
-    \caption{\(\psi\)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
-      \coordinate (psiC) at (-.1,-.1);
-      \coordinate (psi) at (3.5,4.7);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-
-      \filldraw (0.5*-3,0.5*-4) node {\(\chi\)};
-      \coordinate (chiC) at (-.2,-.2);
-      \coordinate (chi) at (3,4);
-      \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
-      \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
-      \draw[rounded corners] (chiLL) rectangle (chiUR);
-    \end{tikzpicture}
-    \caption{\(\chi\)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*2.9,0.5*4) node {\(\psi\)};
-      \coordinate (psiC) at (-.1,-.1);
-      \coordinate (psi) at (3.5,4.7);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-
-      \filldraw (0.5*-3,0.5*-4) node {\(\chi\)};
-      \coordinate (chiC) at (-.2,-.2);
-      \coordinate (chi) at (3,4);
-      \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
-      \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
-      \draw[rounded corners] (chiLL) rectangle (chiUR);
-
-      \filldraw (0,0) node {\(\phi\)};
-      \coordinate (phiC) at (-.25,-.25);
-      \coordinate (phi) at (2,3);
-      \coordinate (phiLL) at ($(phiC)-0.5*(phi)$);
-      \coordinate (phiUR) at ($(phiC)+0.5*(chi)$);
-      \draw[dashdotted, rounded corners] (phiLL) rectangle (phiUR);
-    \end{tikzpicture}
-    \caption{\(\phi\)}
-  \end{subfigure}
-  \hfill\mbox{ }
-  \caption{\prequ{}}
-  \label{fig:prequ:intuition}
-\end{figure}
-
-\begin{note}
-  Now, this is going to be trivially satisfied if the agent has concluded for each of the premises.
-  For, given that \(\psi\) is strictly weaker than the premises, any reasoning for the premises is going to \indicateV{} that \(\psi\).
-\end{note}
+\subparagraph{Motivation from \support{}}
 
 \begin{note}
   If the agent has not concluded for each of the premises, then it's at least necessary that conclude for \(\psi\).
@@ -1387,8 +1506,26 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   This is because the definition of a \prequ{} does not rely on the agent recognising that \(\psi\) is a \prequ{}.
   Hence, possibility that agent may revise their epistemic state to avoid \(\psi\) being a \prequ{}.
   Simply done by abandoning any link.
+\end{note}
 
-  Example of this.
+\begin{note}[\prequ{}]
+  \prequ{}.
+  Then, premises of \(\delta\) do not hold with respect to all \epVW{1}.
+  And, there is some way for the agent to reason.
+  Problem here is quite clear.
+  Question is whether something stronger.
+  This depends on possibility of reasoning.
+  If general, then simplifies.
+  Reasoning for anything by required by premises.
+  If not, then \(\psi\) falls outside of our interest.
+  \support{2} is just about reasoning.
+\end{note}
+
+\subparagraph{Satisfaction}
+
+\begin{note}
+  Now, this is going to be trivially satisfied if the agent has concluded for each of the premises.
+  For, given that \(\psi\) is strictly weaker than the premises, any reasoning for the premises is going to \indicateV{} that \(\psi\).
 \end{note}
 
 \begin{note}
@@ -1417,7 +1554,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   That's compatible.
 \end{note}
 
-\subparagraph{\crequ{}}
+\subsubsection{\crequ{3}}
 
 \begin{note}[\crequ{}]
   \crequ{} is more complex.
@@ -1581,7 +1718,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Alternatively, it is not clear that the agent concludes that \(\phi\) has value \(v\).
 \end{note}
 
-\subsection{\illu{3}}
+\paragraph{\illu{3}}
 
 \begin{note}
   Some \illu{1}.
@@ -2279,362 +2416,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \hozline
 
-\subsubsection{A trip to the zoo}
-
-\begin{note}
-  \illu{3} \ref{illu:CS:spot-the-diff} and \ref{illu:CS:wheres-wally} looked at reasoning and \requ{1}.
-  Final \illu{0} is no different, structurally similar to \autoref{illu:CS:wheres-wally}.
-  However, surrounding discussion to clarify details.
-
-  After discussion, a corollary and a conjecture.
-\end{note}
-
-\begin{note}
-  Zebra.
-
-  Dretske is about knowledge.
-  Problem for knowledge as factive.
-
-  Still, don't need factive move.
-  Possible not zebra, but vision is sufficient to expect that such a possibility does not obtain.
-
-  Key here is that claiming support is never going to be strong enough to establish knowledge, at least to the extent that knowledge is factive.
-\end{note}
-
-\begin{note}
-  \begin{illustration}[A trip to the zoo]
-    \label{illu:CS:dretske-zebra}
-    \mbox{}
-    \vspace{-\baselineskip}
-  \begin{quote}
-    You take your son to the zoo, see several zebras, and, when questioned by your son, tell him they are zebras.
-    Do you know they are zebras?
-    Well, most of us would have little hesitation in saying that we did know this.
-    We know what zebras look like, and, besides, this is the city zoo and the animals are in a pen clearly marked ``Zebras.''
-    Yet, something's being a zebra implies that it is not a mule and, in particular, not a mule cleverly disguised by the zoo authorities to look like a zebra.
-    Do you know that these animals are not mules cleverly disguised by the zoo authorities to look like zebras?
-
-    \mbox{ }\hfill \(\vdots\) \hfill\mbox{ }
-
-    Did you examine the animals closely enough to detect such a fraud?\linebreak
-    \mbox{}\hfill\mbox{(\citeyear[1015--1016]{Dretske:1970to})}
-  \end{quote}
-  \vspace{-\baselineskip}
-  \end{illustration}
-\end{note}
-
-\begin{note}
-  \citeauthor{Dretske:1970to}'s presentation focuses on knowledge, so let us briefly form a parallel with respect to claiming support:
-
-  \begin{illustration}
-    \label{illu:dretske-zebra-var}
-    \mbox{}
-    `What if those animals are mules cleverly disguised by the zoo authorities to look like zebras?'
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
-      \setcounter{enumi}{-1}
-    \item If zebra, then not cleverly disguised mule.
-    \end{enumerate}
-    Reasons as follows:
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
-    \item That animal appears to be a zebra.
-    \item That animal is a zebra.
-    \item That animal is not a cleverly disguised mule.
-    \end{enumerate}
-  \end{illustration}
-
-  As with \illu{3}~\ref{illu:CS:spot-the-diff} and~\ref{illu:CS:wheres-wally}, no reasoning about the possibility that the animal is a cleverly disguised mule.
-  However, given conditional, \requ{} when moving from appearance to animal.
-
-  Introduction of additional consequence, so same structure as~\autoref{illu:CS:wheres-wally}.
-  And, plausible that the agent may reason about the possibility that the animal is a cleverly disguised mule in a way sufficient to claim support.\nolinebreak
-  \footnote{
-    \citeauthor{Dretske:1970to} has a number of suggestions.
-    \begin{quote}
-    You have some general uniformities on which you rely, regularities to which you give expression by such remarks as, ``That isn't very likely'' or ``Why should the zoo authorities do that?''
-    Granted, the hypothesis (if we may call it that) is not very plausible, given what we know about people and zoos.
-    But the question here is not whether this alternative is plausible, not whether it is more or less plausible than that there are real zebras in the pen, but whether you know that this alternative hypothesis is false.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[1016]{Dretske:1970to})}
-  \end{quote}
-  }
-\end{note}
-
-\begin{note}
-  if think that doesn't know, then not too much of an issue.
-  However, does know?
-  Indeed, \citeauthor{Dretske:1970to}.
-
-  No clear tension.
-  Knowledge and claiming support, different.
-
-  However, problem identified.
-\end{note}
-
-\begin{note}
-  \begin{enumerate}[label=K\Alph*., ref=K\Alph*]
-  \item\label{Dretske:No-C:cond:no-k-then-ep} If an agent does not know that \(\phi\) is true, then \(\phi\) being false is an epistemic possibility for that agent.
-  \item\label{Dretske:No-C:cond:ep-then-no-k} If \(\phi\) being false is an epistemic possibility for some agent, then that agent does not know that \(\phi\) is true.
-  \end{enumerate}
-  When taken together, (\ref{Dretske:No-C:cond:no-k-then-ep}) and (\ref{Dretske:No-C:cond:ep-then-no-k}) state that: An agent knows that \(\phi\) is true if and only if \(\phi\) being false is not an epistemic possibility for the agent.
-  Still, our interest will primarily be with (\ref{Dretske:No-C:cond:ep-then-no-k}).\nolinebreak
-  \footnote{
-    \label{fn:factivity-two-readings}
-    Contrast to `factivity':
-    \begin{itemize}
-    \item If \(S\) knows that \(\phi\), then \(\phi\).
-    \end{itemize}
-    This may be read in at least two different ways.
-    \begin{itemize}
-    \item First, relation between epistemic state of the agent and actual \world{}:\newline
-      \mbox{} \qquad If \(S\) knows that \(\phi\), then the \world{} is such that \(\phi\) is the case.
-    \item Second, how things appear from epistemic state:\newline
-      \mbox{} \qquad If \(S\) knows that \(\phi\) then every way the \world{} may be for \(S\) includes \(\phi\).
-    \end{itemize}
-
-    The two reading are independent of one another.
-
-    For example, suppose you walked to the shop but the only epistemic possibility entertained by your friend is that you drove to the shop.
-    Here, it is not possible for your friend to know that you drove to the shop on the first reading of factivity, but the second reading is not ruled out.
-
-    Conversely, suppose it is the case that you walked to the shop but your friend considers it epistemically possibly that you drove.
-    Here, knowing on the second reading of factivity is ruled out, but the first reading is not ruled out.
-
-    Of course, you may endorse both readings of factivity.
-    Our focus is on the `weaker' reading as we have made no connexion between claiming support and the state of the word.
-    (Perhaps it is of some interest to note that \citeauthor{Dretske:1970to} explicitly denies the second reading, but not the first.)
-  }\(^{,}\)\nolinebreak
-  \footnote{
-    The dogmatism paradox (\cite[39,43--45]{Kripke:2011wv};\cite[148]{Harman:1973ww}) seems to concern the second reading of factivity from~\autoref{fn:factivity-two-readings}, and intuitions concerning evidence.
-
-  Roughly stated, the paradox pairs the following two propositions:
-  \begin{enumerate}[label=D\arabic*., ref=(D\arabic*)]
-  \item\label{dog:1} If an agent is aware that they know that \(\phi\), then the agent may disregard any evidence against \(\phi\).
-  \item\label{dog:2} Rational agents respect their evidence
-    (\cite[Cf.][\S2]{Kelly:2016wk})
-  \end{enumerate}
-  Given~\ref{dog:2}, it seems no agent should not disregard any instance of evidence, even if the antecedent of~\ref{dog:1} is satisfied.
-
-  And, it seems \ref{dog:1} is motivated by factivity.
-  For, if the agent is aware that they know that \(\phi\) then the agent knows that \(\phi\).
-  And, as knowledge is factive it follows (by second reading) that \(\phi\) is the case.
-  In turn, if it is the case that \(\phi\) then any evidence against \(\phi\) is evidence for something that is not the case.
-  Hence, the agent may disregard any evidence against \(\phi\).
-
-
-  Indeed, the second reading of factivity seems required.
-  For, it seems an agent is only (apparently) in a position disregard any evidence against \(\phi\) because there knowledge that \(\phi\) guarantees that \(\phi\) is the case.
-  If \emph{not}-\(\phi\) is (merely) an epistemic impossibility, and it is not clear why evidence may require an agent to revise what they consider possible.
-
-  Note:
-  Neither \citeauthor{Kripke:2011wv} (nor \citeauthor{Harman:1973ww}) make explicit mention of the agent being aware that they know \(\phi\) when formulating the Dogmatism paradox.
-      Still, the paradox is clearer with this stated, as it's require addition work to find issue with a permission (to disregard evidence) if an agent is not aware that they have such a permission.
-
-      More generally, I agree with \citeauthor{Zhaoqing:2015vj}'s (\Citeyear{Zhaoqing:2015vj}) proposal to understand the paradox in terms of knowledge attribution rather than of knowledge proper.
-  }
-  \citeauthor{Dretske:1970to} observes that endorsing (\ref{Dretske:No-C:cond:no-k-then-ep}) and (\ref{Dretske:No-C:cond:ep-then-no-k}) leads to closure.
-  The following is a reconstruction.\nolinebreak
-  \footnote{
-    Specifically, the following passage:
-    \begin{quote}
-      A slightly more elaborate form of the same argument goes like this:
-      If \(S\) does not know whether or not \(Q\) is true, then for all he knows it might be false.
-      If \(Q\) is false, however, then \(P\) must also be false.
-      Hence, for all \(S\) knows, \(P\) may be false.
-      Therefore, \(S\) does not know that \(P\) is true.\nolinebreak
-      \mbox{}\hfill\mbox{(\citeyear[1011]{Dretske:1970to})}
-    \end{quote}
-    Note: (\ref{Dretske:No-C:cond:no-k-then-ep}) is a reformulation of the first conditional of the passage, while a formulation (\ref{Dretske:No-C:cond:ep-then-no-k}) seems required to move from `\(P\) may be false' to `\(S\) does not know that \(P\) is true'.
-  }
-\end{note}
-
-\begin{note}[Closure argument]
-  Let \(S\) be some agent and suppose:
-  \begin{enumerate}[label=\arabic*., ref=\arabic*]
-  \item
-    \label{Dretske:No-C:k-entail}
-    \(S\) knows that \(\phi\) entails \(\psi\).
-  \item
-    \label{Dretske:No-C:dunno-psi}
-    \(S\) does not know that \(\psi\) is true.
-  \end{enumerate}
-  Consider the following argument:
-  \begin{enumerate}[label=\arabic*., ref=\arabic*,resume]
-  \item
-    \label{Dretske:No-C:ep-not-psi}
-    \(\psi\) being false is an epistemic possibility for \(S\).%
-    \hfill (\ref{Dretske:No-C:cond:no-k-then-ep} \& \ref{Dretske:No-C:dunno-psi})
-  \item
-    \label{Dretske:No-C:no-ep-no-entail}
-    \(\phi\) not entailing \(\psi\) is not an epistemic possibility for \(S\)%
-    \hfill (\ref{Dretske:No-C:cond:ep-then-no-k} \& \ref{Dretske:No-C:k-entail})
-  \item
-    \label{Dretske:No-C:ep-not-psi-and-phi}
-    \(\phi\) being true while \(\psi\) is false is not an epistemic possibility for \(S\).%
-    \hfill (\ref{Dretske:No-C:no-ep-no-entail})
-  \item
-    \label{Dretske:No-C:ep-not-phi}
-    \(\phi\) may be false.%
-    \hfill (\ref{Dretske:No-C:ep-not-psi} \& \ref{Dretske:No-C:ep-not-psi-and-phi})
-  \item
-    \label{Dretske:No-C:not-k-phi}
-    \(S\) does not know that \(\phi\) is true.%
-    \hfill (\ref{Dretske:No-C:cond:ep-then-no-k} \& \ref{Dretske:No-C:ep-not-phi})
-  \end{enumerate}
-
-  Hence, we have shown that, given (\ref{Dretske:No-C:cond:no-k-then-ep}) and (\ref{Dretske:No-C:cond:ep-then-no-k}), (\ref{Dretske:No-C:k-entail}) and (\ref{Dretske:No-C:dunno-psi}) imply (\ref{Dretske:No-C:not-k-phi}).
-
-  That is to say, we have shown:
-  \begin{enumerate}[label=K\Alph*., ref=(K\Alph*)]
-    \setcounter{enumi}{2}
-  \item
-    \label{K:closure:from-arg}
-    If \(S\) knows that \(\phi\) entails \(\psi\) and \(S\) does not know that \(\psi\) is true, then \(S\) does not know that \(\phi\) is true.%
-    \mbox{} \hfill \((K_{S}(\phi \rightarrow \psi) \land \lnot K_{S}\psi) \rightarrow \lnot K_{S}\phi\)
-  \end{enumerate}
-  And rewriting:\nolinebreak
-  \footnote{
-    \((\phi \land \lnot\psi) \rightarrow \lnot\xi\) iff \(\phi \rightarrow (\lnot\psi \rightarrow \lnot\xi)\) iff \(\phi \rightarrow (\xi \rightarrow \psi)\).
-  }
-  \begin{enumerate}[label=K\Alph*\('\)., ref=(K\Alph*\('\))]
-    \setcounter{enumi}{2}
-  \item
-    \label{K:closure:standard}
-    If \(S\) knows that \(\phi\) entails \(\psi\), then if \(S\) knows that \(\phi\) is true then \(S\) knows that \(\psi\) is true.%
-    \mbox{} \hfill \(K_{S}(\phi \rightarrow \psi) \rightarrow (K_{S}\phi \rightarrow K_{S}\psi)\)
-  \end{enumerate}
-\end{note}
-
-\begin{note}
-  Return to \autoref{illu:CS:dretske-zebra}.
-
-  Let us assume you know that:
-  \begin{itemize}
-  \item If the animals are zebras then the animals are not cleverly disguised mules. And,
-  \item The animals are zebras.
-  \end{itemize}
-
-  If \ref{K:closure:standard} holds, then you also know that the animals are not cleverly disguised mules.
-  However, following \citeauthor{Dretske:1970to}'s intuition, you do not know that the animals are cleverly disguised mules.
-
-  Hence, to accommodate \citeauthor{Dretske:1970to}'s intuition, either (\ref{Dretske:No-C:cond:no-k-then-ep}) or (\ref{Dretske:No-C:cond:ep-then-no-k}) must be rejected.
-  \citeauthor{Dretske:1970to} rejects (\ref{Dretske:No-C:cond:ep-then-no-k}).\nolinebreak
-  \footnote{
-    See below.
-  }
-\end{note}
-
-\begin{note}
-  We now return to claiming support.
-
-  \autoref{assu:supp:nfactive} requires that claiming support for \(\phi\) is compatible with the (epistemic) possibility that the claimed support is \nmom{}.
-  And, the claimed support is \misled{} just in case \(\phi\) is not the case.
-  Hence~\autoref{assu:supp:nfactive} requires that claimed support for \(\phi\) is compatible with the (epistemic) possibility that \(\phi\) is not the case.
-
-  Therefore, the result of substituting `claimed support' from `knowledge' in (\ref{Dretske:No-C:cond:ep-then-no-k}) conflicts with \autoref{assu:supp:nfactive}.
-  And so~\autoref{assu:supp:nfactive} parallels \citeauthor{Dretske:1970to}'s rejection of (\ref{Dretske:No-C:cond:ep-then-no-k}).
-  However, \citeauthor{Dretske:1970to}'s rejection of (\ref{Dretske:No-C:cond:ep-then-no-k}) is motivated by a rejection of~\ref{K:closure:standard}.
-\end{note}
-
-\begin{note}[Link]
-  The refinement of~\ideaCS{} through \autoref{assu:supp:independence} has lead to a proposition close to~\ref{K:closure:standard}
-
-  \begin{enumerate}[label=P\ref{prop:CS-only-if-reason-recognised-defeaters}\('\).]
-  \item If \(\psi\) having value \(v'\) is a \requ{} of claiming support for \(\phi\), then if the agent has claimed support for \(\phi\) having value \(v\) then the agent has reasoned about whether \(\psi\) has value \(v'\).\newline
-    \mbox{}\hfill \((\phi \leadsto \psi) \rightarrow (\text{CS}\phi \rightarrow \text{R}\psi)\)
-  \end{enumerate}
-
-  Both build on \autoref{def:requisite}.
-  A \requ{}.
-  This is a complex parallel to knowing that \(\phi\) entails \(\psi\).
-  However, somewhat general, and applies to \(K\) also.
-  {\color{red} (Strictly speaking, because of contraposition, make this more explicit below)}
-
-  \autoref{assu:supp:independence} then requires reasoning.
-
-  Requiring something with respect to \(\psi\) having value \(v'\) given some state of the agent an principle which relates \(\psi\) having value \(v'\) to that state.
-
-  For sure, appealing, or having claimed support is distinct, so the closure is not that with respect to an \emph{an} epistemic operator such as knowledge.
-  However, the tension here is in terms of viewing the rejection of \ref{K:closure:standard} as the endorsement of a `locality constraint'.
-  {\color{red} What this means.}
-  And, seem to violate such a constraint.
-\end{note}
-
-\begin{note}[`Locality constraint']
-  \begin{quote}
-    To know that \(x\) is \(A\) is to know that \(x\) is \(A\) within a framework of relevant alternatives, \(B\), \(C\), and \(D\).
-    This set of contrasts, together with the fact that \(x\) is \(A\), serve to define what it is that is known when one knows that \(x\) is \(A\).
-    One cannot change this set of contrasts without changing what a person is said to know when he is said to know that \(x\) is \(A\).\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[1022]{Dretske:1970to})}
-  \end{quote}
-
-  Where:
-  \begin{quote}
-    A relevant alternative is an alternative that might have been realized in the existing circumstances if the actual state of affairs had not materialized.\nolinebreak
-    \footnote{
-      \citeauthor{Dretske:1970to} adds:
-  \begin{quote}
-    \dots alternatives that \emph{might} have been realized in the existing circumstances if the actual state of affairs had not materialized.
-    \dots are not relevant alternatives.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[fn.6][1021]{Dretske:1970to})}
-  \end{quote}
-    }
-    \nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[1021]{Dretske:1970to})}
-  \end{quote}
-  Different from a \requ{}.
-\end{note}
-
-\begin{note}
-  Point is not direct clash.\nolinebreak
-  \footnote{Two problems.
-
-    First, \citeauthor{Dretske:1970to} seems to go with no recognition at time, compatible with claiming support at time.
-    So, would need instance of appealing to knowledge for some other purpose.
-    Restating is not sufficient, assumptions made are compatible with persistence (as noted).
-
-    Second, only get no need to rule out from \citeauthor{Dretske:1970to}, which does not require no reasoning.
-  }
-  At issue, rather, it the degree to which possibility is compatible with the absence of reasoning.
-  That is, if reject closure, is this due to reasoning or due to requirements placed on such reasoning?\nolinebreak
-  \footnote{
-    (Problem here, but also extends to \nI{}.)
-  }
-
-  There is some subtlety, however.
-  Kind of closure seems to break for many attitudes.
-  This is not at issue, distinguishing feature of claiming support is closure, and the constraints this places on an agent.
-  However, reject for stronger attitudes, then why for weaker?
-\end{note}
-
-\begin{note}
-  Reasoning, but haven't placed constraints.
-  So, this allows for something that may be quite weak.
-  % I am here only restating what has gone before, but the added context may help.
-  No reasoning, then leaves open possibility that does lead to a problem with the reasoning performed.
-
-  Consider again relevant alternatives from internalist perspective.
-  It seems, agent determines whether relevant or not will require reasoning.
-
-  Consider:
-  \begin{quote}
-    `What if those reports about the zoo authorities cleverly disguising animals to look like other animals?
-    If there are, could those animals be cleverly disguised mules?'
-  \end{quote}
-  Perhaps not a relevant alternative if the sense of `might' is non-epistemic, but if epistemic, then seems a problem.
-\end{note}
-
-\begin{note}
-  To summarise.
-
-  \citeauthor{Dretske:1970to}'s case.
-  Rejection of closure.
-  Question whether assumptions are okay.
-  Argued that these are given understanding of claimed support, and that they plausibly extend to knowledge (and other attitudes intuitively stronger than that of having claimed support).
-  For, rejection of closure plausibly amounts to rejection on strength of reasoning, rather than requirement to reason.
-
-  Focus on this point for two reasons:
-  First, distinguishing feature of claiming support and following will be about claiming support.
-  Second, appeal to similar limitation later.
-\end{note}
 
 \section{Closing focus on claimed support}
 
