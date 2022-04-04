@@ -1,4 +1,4 @@
- \chapter{Support, and claiming support}
+\chapter{\support{2} and claiming support}
 \label{cha:claiming-support}
 
 \begin{note}
@@ -523,7 +523,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \section{\ideaS{0}}
-\label{sec:ideaCS}
+\label{sec:ideaS}
 
 \begin{note}[Overview of \ideaS{}]
   Above we paraphrased \ideaS{} as holding that that an instance of reasoning that concludes \(\phi\) has value \(v\) is an instance of claiming support that \(\phi\) has value \(v\) \emph{only if} the agent would conclude that \(\phi\) has value \(v\) were it to be the case that the actual \world{} is some \epPAd{} \world{}.
@@ -972,7 +972,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}[Notion: \requ{2}]
-  As with \ideaS{} and the notion of a \sink{}, a significant component of \ideaCS{} is concealed by a piece of technical vocabulary --- that of \(\psi\) having value \(v'\) being a \requ{} of a step of reasoning.
+  As with \ideaS{} and the notion of a \emph{\sink{}}, a significant component of \ideaCS{} is concealed by a piece of technical vocabulary --- that of \(\psi\) having value \(v'\) being a \emph{\requ{}} of a step of reasoning.
+
+  For the moment we provide the intuitive notion of a \requ{}.
 
   \begin{restatable}[A \requ{0}]{notion}{notionRequisite}
     \label{notion:requ}
@@ -983,13 +985,17 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       It is \epVAd{} that \(\psi\) does not have value \(v'\).
     \item
       \label{notion:requ:need-psi}
-      It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) without being committed to \(\psi\) having value \(v'\).
+      It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) unless \(\psi\) has value \(v'\).
     \item
       \label{notion:requ:possible-psi}
       It is possible for the agent to conclude that \(\psi\) having value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
+\end{note}
+
+\begin{note}
+  We will shortly replace this notion with a definition covering two specific types of \requ{}.
 \end{note}
 
 \begin{note}
@@ -1001,29 +1007,89 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   Think of concluding that \(\psi\) has value \(v'\) as an antecedent check on whether it would make sense for the agent to conclude that \(\phi\) has value \(v\).
+
+  Moving back to \ideaCS{}.
+  Intuitively, an agent has claimed \support{0} for some proposition-value pair via some instance of reasoning just in case:
+  \begin{quote}
+    For any step involved in the reasoning, the agent has concluded that any antecedent check on whether it would make sense for the agent to make a step of reasoning has been satisfied.
+  \end{quote}
 \end{note}
 
 \begin{note}
-  Unsure about the milk.
-  Seems fine.
-  Well, committed to within a few days of expiry date.
-  So check the expiry date.
-  If a few days out, then not fine.
-  Weaker, in the sense that there are other things that could be bad, e.g.\ having left it out.
+  A pair of \illu{1} to highlight the two specific type of \requ{1} that we will be interested in:
+\end{note}
+
+\begin{note}[\crequ{3}]
+  \begin{illustration}[Where's Wally]
+    \label{illu:CS:wheres-wally}
+    Searching for Wally.
+    On front of book is an image of wally in contrast to a number of other characters.
+    Takes not of a number of features.
+    Glasses, hat, striped jumper.
+    In isolation, necessary but insufficient.
+    Combined, sufficient.
+
+    Search through the image.
+    ``I think I've found Wally.''
+    Did you spot the cane first?
+
+    The question carries implicit information:
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
+      \setcounter{enumi}{-1}
+    \item\label{illu:CS:wheres-wally:info} The individual identified is Wally only if the individual is holding a cane.
+    \end{enumerate}
+
+    The agent then reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*), resume]
+    \item Collection of features sufficient.
+    \item
+      \label{illu:CS:wheres-wally:ante}
+      Had features.
+      % \item The individual identified is Wally only if the individual is holding a cane.
+    \item
+      The individual was holding a cane. \hfill (From \ref{illu:CS:wheres-wally:info} and \ref{illu:CS:wheres-wally:ante})
+    \end{enumerate}
+  \end{illustration}
+
+  As with \autoref{illu:CS:spot-the-diff}, the reasoning of \autoref{illu:CS:wheres-wally} is such that the individual was holding the cane is an \requ{} of the claimed support that the individual was Wally, and no reasoning about it.
 \end{note}
 
 \begin{note}
-  Sent documents.
-  Up to date.
-  Revised at the end of financial year, past that.
-  Well, at least check the year of the document.
+  Here, there is something weaker.
+  If really is Wally, then good for cane.
+  Still, strictly weaker.
+  Only a cane with other attributes.
+  So, get this and combine with what's been observed.
 \end{note}
 
 \begin{note}
-  Computer, not turning on.
-  Broken.
-  Check that it's plugged in.
+  \begin{illustration}
+    The clock is working.
+    Without any other source for the time, there's nothing to be done.
+    However, it should definitely be ticking.
+    Therefore, at the very least check this.
+  \end{illustration}
+  Or, that it's not clearly daylight outside.
+
+  Not here that it's not clear that the clock would be particularly good.
+  However, with respect to constraints, it's fine.
 \end{note}
+
+\begin{note}
+  \ideaCS{}, then, requires that any agent has witnessed some reasoning which \indicateV{0} that any \requ{} of a step of reasoning is the case prior to making the step of reasoning, so long as the reasoning relies on the relevant step.
+
+  Though, strictly, \ideaCS{}
+\end{note}
+
+\begin{note}
+  Of interest.
+  The collection of properties might be very strong.
+  It may be that there is really little chance that the agent is not Wally.
+  However, of interest is that there is some reasoning that the agent may witness.
+\end{note}
+
+\subsubparagraph{Intuition}
 
 \begin{note}
   There's something that one could have done that would have highlighted a problem.
@@ -1031,6 +1097,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   \ideaCS{}, then, no jumping over intermediate conclusions which may highlight an issue with concluding that \(\phi\) has value \(v\) from relevant premise proposition-value pairs.
 \end{note}
+
+\subsubparagraph{\support{}}
 
 \begin{note}
   Quick motivation from \support{}.
@@ -1061,127 +1129,810 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
     \(\psi\) having value \(v'\) is a \emph{\requ{}} of \(\delta\) with respect to an agent \vAgent{}' epistemic state \emph{if} either:
     \begin{itemize}
-    \item \(\psi\) having value \(v'\) is a \emph{\prequ{}} of \(\delta\)
     \item \(\psi\) having value \(v'\) is a \emph{\crequ{}} of \(\delta\)
+    \item \(\psi\) having value \(v'\) is a \emph{\prequ{}} of \(\delta\)
+    \item \dots
     \end{itemize}
+  \end{restatable}
+\end{note}
 
-    Where:
-    \begin{enumerate}[label=\named{P\(\Re\)}, ref=\named{P\(\Re\)}]
+\begin{note}[Structure of \autoref{def:requ}]
+  Structurally,~\autoref{def:requ} provides two conditions sufficient for some proposition-value pair being a \requ{} of some step of reasoning.
+  These two conditions, are termed `\prequ{}' and `\crequ{}' and will reduce to a collection of necessary and sufficient conditions.
+
+  In other words, we provide necessary and sufficient conditions for two specific ways in which a proposition-value pair is a \requ{}, but we do not hold that these two ways in which a proposition-value pair may be a \requ{} exhaust the intuitive notion of a \requ{}.
+
+  Still, for the purposes of this document we will only be \emph{directly} interested in \crequ{1}, with \prequ{1} being a contrast.
+  Hence, \autoref{def:requ} may be strengthened to a necessary condition, so long as the strengthened definition is not taken to capture the intuitive notion of a \requ{}.
+\end{note}
+
+\begin{note}
+  Further still, the core argument of this document will focus only on the issue of whether some proposition-value pair is a \crequ{1}.
+  Indeed, the purpose of defining a \prequ{} is to provide a an explanatory partner for the definition of a \crequ{} --- we will use the definition of a \prequ{} to help clarify the definition of a \crequ{}.
+\end{note}
+
+\subsubsection{\crequ{3}}
+
+\begin{note}
+  Focus is with \crequ{}, in particular.
+\end{note}
+
+\paragraph{Idea}
+
+\begin{note}
+  Intuitively, \(\psi\) having value \(v'\) is a \prequ{} of some step of reasoning just in case:
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \item
+    \label{crequ:int:structure}
+    \(\psi\) not having value \(v'\) is \epVAd{} and the relevant \emph{conclusion} proposition-value pairs of the step are paired only if \(\psi\) has value \(v'\), and
+  \item
+    \label{crequ:int:reasoning}
+    It is possible, given the agent's epistemic state, for the agent to conclude that \(\psi\) has value \(v'\) prior to making the step of reasoning.
+  \end{enumerate}
+\end{note}
+
+
+ \begin{note}[\crequ{}]
+  \crequ{} is more complex.
+  If the agent were to make the step, then they would be able to reason.
+  So, it doesn't need to be the case that the agent thinks they may reason regardless.
+\end{note}
+
+
+\paragraph{Definition of a \crequ{}}
+
+\begin{note}
+  \begin{restatable}[A \crequ{0}]{definition}{defCRequisite}
+    \label{def:requ:crequ}
+    \(\psi\) having value \(v'\) is a \emph{\crequ{}} of \(\delta\) \emph{if and only if} the following conditions jointly hold:
+    \begin{enumerate}[label=\arabic*., ref=\named{C\(\Re\):\arabic*}]
     \item
-      \label{def:requ:prequ}
-      \(\psi\) having value \(v'\) is a \emph{\prequ{}} of \(\delta\) \emph{if and only if}:
+      \label{def:requ:crequ:strcture}
+      The structure of the \vAgent{}' epistemic state is such that:
+      \begin{enumerate}[label=\alph*., ref=\named{C\(\Re\):1\alph*}]
+      \item
+        \label{def:requ:crequ:strcture:psi-not-v}
+        There is some \epVW{} such that:
+        \begin{itemize}
+        \item
+          \(\psi\) does not have value \(v'\).
+        \end{itemize}
+      \item
+        \label{def:requ:prequ:strcture:psi-subset-psi}
+        There are no \epVW{1} such that:
+        \begin{itemize}
+        \item \(\phi\) has value \(v\) and \(\psi\) does not have value \(v'\).
+        \end{itemize}
+      \item
+        \label{def:requ:prequ:strcture:phi-propersubset-psi}
+        There is some \epVW{} such that:
+        \begin{itemize}
+        \item \(\psi\) has value \(v'\) and \(\phi\) does not have value \(v\).
+        \end{itemize}
+      \end{enumerate}
+    \item
+      For any \epVW{}:
       \begin{itemize}
       \item
-        The following conditions jointly hold:
-        \begin{enumerate}[label=\arabic*., ref=\named{P\(\Re\):\arabic*}]
-        \item
-          \label{def:requ:prequ:strcture}
-          The structure of the \vAgent{}' epistemic state is such that:
-          \begin{enumerate}[label=\alph*., ref=\named{P\(\Re\):1\alph*}]
-          \item
-            \label{def:requ:prequ:strcture:psi-not-v}
-            There is some \epVW{} such that:
-            \begin{itemize}
-            \item
-              \(\psi\) does not have value \(v'\).
-            \end{itemize}
-          \item
-            \label{def:requ:prequ:strcture:chi-subset-psi}
-            There is no \epVW{} such that:
-            \begin{itemize}
-            \item
-              \(\chi_{i}\) have value \(v_{i}\) and \(\psi\) does not have value \(v'\)
-            \end{itemize}
-          \item
-            \label{def:requ:prequ:strcture:chi-propersubset-psi}
-            There is some \epVW{} such that:
-            \begin{itemize}
-            \item
-              \(\psi\) has value \(v'\) and some \(\chi_{i}\) does not have value \(v_{i}\).
-            \end{itemize}
-          \end{enumerate}
-        \item
-          \label{def:requ:prequ:no-revision}
-          It is not the case that the agent would revise their epistemic state so that \ref{def:requ:prequ:strcture:chi-subset-psi} does not hold (in order to conclude that \(\phi\) has value \(v\) from \(\delta\)).
-        \item
-          \label{def:requ:prequ:possible-reason}
-          For all \epVW{} in which \(\chi_{i}\) have values \(v_{i}\), there is some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
-        \end{enumerate}
+        If \(\phi\) has value \(v\), then it is `possible' for \vAgent{} to conclude that \(\psi\) has value \(v'\) from current epistemic state (without concluding that \(\phi\) has value \(v\)).\nolinebreak
+        \footnote{
+          Note, the outer antecedent is to allow it to be the case that the agent may not reason given current epistemic state.
+        }
       \end{itemize}
-    \end{enumerate}
-
-    \begin{enumerate}[label=\named{C\(\Re\)}, ref=\named{C\(\Re\)}]
     \item
-      \label{def:requ:crequ}
-      \(\psi\) having value \(v'\) is a \emph{\crequ{}} of \(\delta\) \emph{if and only if}:
-      \begin{itemize}
-      \item
-        The following conditions jointly hold:
-        \begin{enumerate}[label=\arabic*., ref=\named{C\(\Re\):\arabic*}]
-        \item
-          The structure of the \vAgent{}' epistemic state is such that:
-          \begin{enumerate}[label=\alph*., ref=\named{C\(\Re\):1\alph*}]
-          \item
-            There is some \epVW{} such that:
-            \begin{itemize}
-            \item \(\psi\) does not have value \(v'\).
-            \end{itemize}
-          \item
-            There is no \epVW{1} such that:
-            \begin{itemize}
-            \item \(\phi\) has value \(v\) and \(\psi\) does not have value \(v'\).
-            \end{itemize}
-          \item
-            There is some \epVW{} such that:
-            \begin{itemize}
-            \item \(\psi\) has value \(v'\) and \(\phi\) does not have value \(v\).
-            \end{itemize}
-          \end{enumerate}
-        \item
-          For any \epVW{}:
-          \begin{itemize}
-          \item
-            If \(\phi\) has value \(v\), then it is `possible' for \vAgent{} to conclude that \(\psi\) has value \(v'\) from current epistemic state (without concluding that \(\phi\) has value \(v\)).\nolinebreak
-            \footnote{
-              Note, the outer antecedent is to allow it to be the case that the agent may not reason given current epistemic state.
-            }
-          \end{itemize}
-        \item
-          It is not the case that the agent would revise against \(\psi\) following from \(\phi\) in order to make \(\delta\).
-        \end{enumerate}
-      \end{itemize}
+      It is not the case that the agent would revise against \(\psi\) following from \(\phi\) in order to make \(\delta\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
-\subsubsection{Structure}
-
-\begin{note}[Structure of \autoref{def:requ}]
-  Structurally,~\autoref{def:requ} provides two conditions sufficient for some proposition-value pair being a \requ{} of some step of reasoning.
-  These two conditions, are termed `\prequ{}' and `\crequ{}' and reduce to a collection of necessary and sufficient conditions.
-
-  In other words, we provide necessary and sufficient conditions for two specific ways in which a proposition-value pair is a \requ{}, but we do not hold that these two ways in which a proposition-value pair may be a \requ{} exhaust the intuitive notion of a \requ{}.
-
-  Still, for the purposes of this document we will only be interested in \prequ{1} and \crequ{1}.
-  Hence, \autoref{def:requ} may be strengthened to a necessary condition, so long as the strengthened definition is not taken to capture the intuitive notion of a \requ{}.
-
-  Further still, the core argument of this document will focus only on the issue of whether some proposition-value pair is a \crequ{1}.
-  Indeed, the purpose of defining a \prequ{} is to provide a an explanatory partner for the definition of a \crequ{} --- we will use the definition of a \prequ{} to help clarify the definition of a \crequ{}.
-\end{note}
+\paragraph{The structure of the agent's epistemic state}
 
 \begin{note}[Structure of sub-defs]
-  With respect to the particular (sub-)definitions of a \prequ{} and a \crequ{}, these describe particular epistemic states an agent may have.
+  With respect to the (sub-)definitions of a \crequ{}, these describe particular epistemic states an agent may have.
   Specifically, an epistemic state an agent may have with respect to what is, for the agent, \epVAd{} prior to making the relevant step of reasoning.
 
   We will walk through the relevant structure in detail.
 \end{note}
 
-\subsubsection{\prequ{3}}
+\begin{figure}[h!]
+  \mbox{ }\hfill
+  \begin{subfigure}{0.3\linewidth}
+    \begin{tikzpicture}[scale=.85]
+      \coordinate (epVC) at (0,0);
+      \coordinate (epV) at (4,5);
+      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
+
+      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
+      \coordinate (psiC) at (-.2,-.2);
+      \coordinate (psi) at (3,4);
+      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+    \end{tikzpicture}
+    \caption{\ref{def:requ:crequ:strcture:psi-not-v}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.3\linewidth}
+    \begin{tikzpicture}[scale=.85]
+      \coordinate (epVC) at (0,0);
+      \coordinate (epV) at (4,5);
+      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
+
+      \filldraw (0,0) node {\(\phi\)};
+      \coordinate (phiC) at (-.25,-.25);
+      \coordinate (phi) at (2,3);
+      \coordinate (phiLL) at ($(phiC)-0.5*(phi)$);
+      \coordinate (phiUR) at ($(phiC)+0.5*(psi)$);
+      \draw[dashdotted, rounded corners] (phiLL) rectangle (phiUR);
+
+      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
+      \coordinate (psiC) at (-.2,-.2);
+      \coordinate (psi) at (3,4);
+      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+    \end{tikzpicture}
+    \caption{\ref{def:requ:prequ:strcture:psi-subset-psi} \& \ref{def:requ:prequ:strcture:phi-propersubset-psi}}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.3\linewidth}
+    \begin{tikzpicture}[scale=.85]
+      \coordinate (epVC) at (0,0);
+      \coordinate (epV) at (4,5);
+      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
+      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
+      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
+
+      \filldraw (0.5*2.9,0.5*4) node {\(\chi\)};
+      \coordinate (chiC) at (-.1,-.1);
+      \coordinate (chi) at (3.5,4.7);
+      \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
+      \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
+      \draw[rounded corners] (chiLL) rectangle (chiUR);
+
+      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
+      \coordinate (psiC) at (-.2,-.2);
+      \coordinate (psi) at (3,4);
+      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
+      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
+      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
+
+      \filldraw (0,0) node {\(\phi\)};
+      \coordinate (phiC) at (-.25,-.25);
+      \coordinate (phi) at (2,3);
+      \coordinate (phiLL) at ($(phiC)-0.5*(phi)$);
+      \coordinate (phiUR) at ($(phiC)+0.5*(psi)$);
+      \draw[dashdotted, rounded corners] (phiLL) rectangle (phiUR);
+    \end{tikzpicture}
+    \caption{Example premise(s)}
+  \end{subfigure}
+  \hfill\mbox{ }
+  \caption{\crequ{}}
+  \label{fig:crequ:intuition}
+\end{figure}
 
 \begin{note}
-  Starting with a \prequ{}
+  Important point to stress, is that a \requ{} is defined with respect to \epVAd{} \world{1}, rather than \epPAd{} \world{1}.
+  Primary purpose of this is to avoid subjunctive conditionals.
 \end{note}
+
+
+\begin{note}
+  Still, \ref{def:requ:prequ:no-revision} captures an important subtlety that does not reduce to the present relation between various proposition-value pairs.
+  For, it may be the case that the relation between the premise proposition-value pairs and \(\psi\) having value \(v'\) is unimportant to the agent.
+
+  Consider a familiar situation from \textcite{Harman:1986ux}:
+
+  Mary believes, prior to looking in the cupboard, that if she looks in the cupboard, then she will see a box of Cheerios.
+  Mary then looks in the cupboard and does not see a box of Cheerios.
+  Hence, Mary abandons her belief about what she would see if she looks in the cupboard.
+
+  Likewise, an agent may abandon any relation between the premises of some step and \(\psi\) having value \(v'\) rather than hold that so long as the premises have their respective values then \(\psi\) has value \(v'\).
+  For example, an agent may hold that the fire alarm will active whenever there is a fire.
+  Though, allow for the possibility that the fire alarm may active when there is no fire.
+  However, given the presence of fire with an the appearance of no alarm, the agent may abandon that the fire alarm will active whenever there is fire in order to conclude that someone is in danger, rather than investigating when the alarm really is active.
+
+  In this respect, clause \ref{notion:requ:need-psi} of \autoref{notion:requ} would not be satisfied --- it is \epVAd{} for the agent to conclude that someone is in danger from the presence of fire without being \committed{} to the fire alarm being active.
+
+  While both \ref{def:requ:prequ:strcture} and \ref{def:requ:prequ:no-revision} relate to the same intuitive point, these are separated in the definition of a \prequ{} as \ref{def:requ:prequ:strcture} concerns the structure of the agent's current epistemic state, while \ref{def:requ:prequ:no-revision} concerns a subjunctive property of the present structure.
+\end{note}
+
+\paragraph{The possibility of reasoning}
+
+\begin{note}
+  \ref{prequ:int:reasoning} is primarily captured by \ref{def:requ:prequ:possible-reason}.
+  However, \ref{def:requ:prequ:possible-reason} is significantly more complex than \ref{prequ:int:reasoning}.
+
+  In order to clarify \ref{def:requ:prequ:possible-reason}, we break down the clause in to three important components, and will discuss each component in turn.
+  The three important components are:
+  \begin{itemize}
+  \item
+    First, the core of the constraint concerning reasoning.
+  \item
+    Second, a relativisation of the core of the constraint to what is \epVAd{} for the agent.
+  \item
+    Third, a restriction on the scope of the core of the constraint relative to what is \epVAd{} for the agent to \epVW{1} in which the premises are true.
+  \end{itemize}
+\end{note}
+
+\subparagraph{The core constraint}
+
+\begin{note}[Constraint]
+  The constraint:
+  \begin{quote}
+    There is some temporal extension of any relevant \epVW{} in which the agent witnesses reasoning which concludes that \(\psi\) has value \(v'\).
+  \end{quote}
+
+  Recall, any (relevant) \epVW{} is a candidate for the actual \world{}.
+  And, by temporal extension we mean the progression of a \world{} up to some future point in time.
+
+  So, at core, the constraint specifies that the agent has the opportunity to reason about whether \(\psi\) has value \(v'\), and if the agent were to reason about whether \(\psi\) has value \(v'\), the agent would conclude that \(\psi\) has value \(v'\).
+
+  Note, the core of the constraint only requires that there is \emph{some} temporal extension of any given \epVW{}.
+  Hence, the core of the constraint does not require that the agent \emph{will} conclude that \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}[Delicacy]
+  On the one hand it is simple to fail the core of the constraint.
+  For, the core of constraint requires that the agent would not fail to conclude that \(\psi\) has value \(v'\).
+  On the other hand, it is difficult to fail the core constraint.
+  For, the core constraint requires only that there is at least one instance in which the agent would not fail to conclude that \(\psi\) has value \(v'\).
+
+  To illustrate, consider two different kinds of uncertainty.
+
+  On the one hand, and agent may be uncertain about whether they would conclude that \(\psi\) has value \(v'\) due to, say, requiring some information that they may or may not be in a position to acquire.
+  If so, then the agent will be unsure about whether there \emph{is} a temporal extension of the relevant \world{}.
+  For, the existence of the required temporal extension will depend on whether the agent acquires the required information.
+  Hence the core of the constraint will not be satisfied.
+
+  Note, the relevant sense of the copula `is' concerns existence, rather than possibility, however the notion of existence is understood for temporal extensions.
+
+  On the other hand, an agent may be uncertain about whether they really do have the opportunity to conclude that \(\psi\) has value \(v'\) as any instance of reasoning may be interrupted.
+  However, so long as there is no guarantee that the agent's reasoning would be interrupted, then the core of the constraint will be satisfied, even if it is highly unlikely that the agent would conclude the relevant reasoning.
+
+  Somewhere between these two extremes is a more nuanced constraint.
+  Still, in order to keep the complexity of the constraint (relatively) low, we will not add further conditions.
+  In cases where the constraint is to simple to fail, then the definition of a \requ{} may be added to, as \(\psi\) having value \(v'\) being a \prequ{} is only a sufficient condition for \(\psi\) having value \(v'\) being a \requ{}.
+  And, we will avoid applying the definition of \prequ{} in cases where the definition exceeds intuition.
+\end{note}
+
+\subparagraph{The role of the agent}
+
+\begin{note}
+  Our discussion of the core of the constraint focused on there being some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
+
+  In general, whether or not the core of the constraint is satisfied by be evaluated independently of the agent's perspective on how the actual \world{} is.
+  Still, we relativise the core of the constraint to the agent's perspective.
+
+  The motivation is simple and has two (related) parts.
+  \begin{itemize}
+  \item
+    First, we ensure that \(\psi\) having value \(v'\) is relevant to the agent's reasoning.
+  \item
+    Second, we reduce latent issues concerning whether there is some temporal extension of a \world{} to an single source --- the agent.
+  \end{itemize}
+  We expand on both points in turn.
+\end{note}
+
+\subsubparagraph{Relevance}
+
+\begin{note}[Relevance]
+  By relativising the core of the constraint to the agent's perspective we ensure that whether or not \(\psi\) has value \(v'\) is relevant to the agent's own reasoning.
+  In particular, we ensure that whether or not \(\psi\) having value \(v'\) matters to whether or not \(\chi_{i}\) have values \(v_{i}\) by the agent's own lights, so to speak.
+
+  Variations on the idea of a \prequ{} may take into account the epistemic states of other agents. For example if the agent were engaged in not merely reasoning to, but arguing for, some conclusion.
+  Still, for present purposes we only identifying \(\psi\) having value \(v'\) as a \prequ{} if the agent considers it \epVAd{} to `check' their appeal to some premises prior to making a step of reasoning.
+
+  This observation will be important for motivating \ideaCS{} via \ideaS{}.
+
+  For now, observe:
+
+  If \ref{def:requ:prequ:possible-reason} is satisfied, and the agent were to fail to conclude that \(\psi\) has value \(v'\), then the agent would be unable to distinguish an \epVW{} in which \(\psi\) has value \(v'\) and \(\chi_{i}\) have values \(v_{i}\) from an \epVW{} in which \(\psi\) does not have value \(v'\) and \(\chi_{i}\) does not have values \(v_{i}\).
+  Hence, it would seem that from the agent's perspective that they have no basis for concluding that \(\phi\) has value \(v\) by appeal to \(\chi_{i}\) having values \(v_{i}\).
+\end{note}
+
+\subsubparagraph{Latent issues}
+
+\begin{note}
+  The upshot of resolving the relevant sense of possibility to the agent's epistemic state is that we avoid questions about whether it is possible for an agent to recognise that it is possible for them to conclude that \(\psi\) has value \(v'\).
+  For, if it is \epVAd{} for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\), then the agent holds that for every candidate for the actual \world{}, there is some extension of the candidate \world{} in which the agent witnesses the relevant reasoning.\nolinebreak
+  \footnote{
+    Note, this does not guarantee that the agent would witness reasoning which concludes that \(\psi\) has value \(v'\) if the agent were to try, as we do not require that the actual \world{} is always an \epVW{}.
+  }
+
+  For example, it may be `possible' for the agent to conclude that the liquid in a glass is not poisoned prior to appealing to it being safe to drink in order to conclude that they should drink the liquid.
+
+  In order to resolve whether it really is possible the agent to conclude that the liquid in a glass is not poisoned, we need only consider whether the agent considers it \epVAd{} that they may witness such reasoning.
+  And, the answer may be negative as the agent expects dehydration to set in before concluding any such reasoning.
+\end{note}
+
+\begin{note}
+  The upshot comes with a corresponding downshot.
+  For, it may be possible (in the relevant intuitive sense) for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\) without the agent holding that it is \epVAd{} for them to so reason.
+
+  For example, it may be possible (and quite straightforward) for an agent to check the boiler for a simple fault before appealing to the premises that it is broken in order to conclude that they should call for a repair.
+  Yet, so long as the agent does not consider it \epVAd{} for them to check the boiler, any proposition-value pair captured a simple fault will not be a \prequ{}.
+\end{note}
+
+\subparagraph{Quantification}
+
+\begin{note}
+  Finally we turn restricting the scope of the core of the constraint to \epVW{1} in which all of the premises that the agent would appeal to when making the step of reasoning have the appropriate values.
+
+  Key here is that the core of the constraint requires that there is some temporal extension of the relevant \epVW{1} in which the agent witnesses reasoning which concludes that \(\psi\) \emph{has} value \(v'\).
+
+  This gives rise to the following problem:
+\end{note}
+
+\begin{note}[Problem]
+  In order for \(\psi\) having value \(v'\) to be a \crequ{} the agent must consider it \epVAd{} that \(\psi\) does not have value \(v'\).
+  Yet, if \(\psi\) does not have value \(v'\), then it may be the case that the agent would fail to conclude that \(\psi\) has value \(v'\).\nolinebreak
+  \footnote{
+    In particular, whether \(\psi\) has value \(v'\) may be straightforwardly decidable for the agent, and hence if the agent were to reason about whether \(\psi\) has value \(v'\) and \(\psi\) does not have value \(v'\), then they agent would conclude that \(\psi\) does not have value \(v'\).
+  }
+  In which case, the core of the constraint will fail to be satisfied.
+\end{note}
+
+\begin{note}[Solution]
+  \color{red}
+  Still, quantifying over \epVW{1} in which \(\phi\) has value \(v\) provides a motivated solution.
+
+  For, we are only interested in the idea \(\psi\) having value \(v'\) being \crequ{} as a check on whether it would make sense for an agent to conclude that \(\phi\) has value \(v\) from a collection of premises.
+  Hence, in order for the \crequ{} to be a check of the relevant kind, we are only interested in cases where the agent would (`successfully') make the step.
+
+  In other words, the agent is moving to \(\phi\), and so long as this would make sense, it says something about what the agent can do.
+  It does not need to follow that the agent can reason to \(\psi\) in general.
+
+  Therefore, we may restrict the interest in the possibility of concluding that \(\psi\) has value \(v'\) to those \epVW{1} in which \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}[Illustration]
+  To illustrate.
+
+  \begin{illustration}
+    Suppose an agent wishes to conclude that a parcel has gone missing from the premise that they are not (yet, at least) in possession of the parcel.
+
+    If the parcel has gone missing, then no delivery attempt will have been made, and no note will be on their front door.
+    Still, if the parcel has \emph{not} gone missing, then a delivery may have been attempted, and a note left on the agent's front door.
+    And, the agent considers it \epVAd{} that a delivery was attempted earlier in the day, and that a note was left on their front door.
+  \end{illustration}
+
+  Premise, that the agent is not in possession of the parcel.
+  Conclusion, the parcel has gone missing.
+
+  However, check.
+  That no delivery has been made.
+
+  If the parcel is missing, then no note.
+
+  So, satisfy the core of the constraint in the case of missing.
+
+  However, if the parcel has not gone missing, there may be a note.
+  So, failure to satisfy the core of the constraint in the case of not missing.
+\end{note}
+
+\begin{note}
+  Key is that if not, then expect failure.
+\end{note}
+
+\paragraph{Motivation from \support{}}
+
+\begin{note}
+  We now turn to motivating \ideaCS{} with respect to \prequ{1}.
+\end{note}
+
+\begin{note}
+  If the agent has not concluded for each of the premises, then it's at least necessary that conclude for \(\psi\).
+  For, if not, then if were to reason about \(\psi\), then might go to \(\lnot\psi\).
+  Hence, that the premises do not jointly hold.
+  Therefore, the premises are not a \sink{}, and \(\phi\) is not a \sink{}.
+\end{note}
+
+\begin{note}
+  There are two exceptions.
+
+  First, that it is not possible for the agent to reason.
+  Without this, then no failure of being a \sink{}.
+
+  Second, giving up whatever leads to \(\psi\) being a \prequ{}.
+  This is because the definition of a \prequ{} does not rely on the agent recognising that \(\psi\) is a \prequ{}.
+  Hence, possibility that agent may revise their epistemic state to avoid \(\psi\) being a \prequ{}.
+  Simply done by abandoning any link.
+\end{note}
+
+\begin{note}[\prequ{}]
+  \prequ{}.
+  Then, premises of \(\delta\) do not hold with respect to all \epVW{1}.
+  And, there is some way for the agent to reason.
+  Problem here is quite clear.
+  Question is whether something stronger.
+  This depends on possibility of reasoning.
+  If general, then simplifies.
+  Reasoning for anything by required by premises.
+  If not, then \(\psi\) falls outside of our interest.
+  \support{2} is just about reasoning.
+\end{note}
+
+
+
+\paragraph{\illu{3} of \crequ{1}}
+
+\begin{note}
+  Key is to find a series of necessary conditions for some conclusion.
+\end{note}
+
+
+\subparagraph{Library indexes: Limitation, broadening}
+
+\begin{note}
+  \begin{illustration}
+    For the agent it is \epVAd{} that the library uses one of a number of different indexing systems.
+    E.g.\ LCC or DDC indexing.
+    \begin{enumerate}
+    \item A search for `H61 .R593' returned no results.
+    \item The library does not have a copy of `Measurement Theory'.
+    \end{enumerate}
+  \end{illustration}
+
+  Holding that a library does not have a copy of a book because a search for the book under a particular indexing system would be a mistake.
+  For, if the library does not use the particular indexing system then a search using that indexing system will always fail, regardless of whether or not the library has a copy of the book.
+
+  In turn, a failed search for an LCC index in the library's database does not seems sufficient for an agent to claim that the library does not have a copy of the book unless the agent is in a position to claim support that the library uses LCC indexing.
+  Following, it seems the failed response to the `Even if\dots' test may be supplemented by noting that the library is a research library, and therefore likely uses LCC indexing, etc.\
+\end{note}
+
+\begin{note}
+  In order to keep things a straightforward as possible, the definition of a \prequ{} does not cover such cases.
+  Focus only on what the agent considers \epVAd{}.
+\end{note}
+
+\begin{note}
+  \color{red}
+  The point here is that \support{} motivates a broader constraint.
+  In this case, as the agent has performed the search, it is not the case that there is an \epVW{} in which the right structure holds.
+  Still, if we think about \support{} and relaxing an agent's epistemic state, we can re do the constraint.
+\end{note}
+
+\begin{note}
+  \color{red}
+  However, we will see that \crequ{} covers this case\dots
+  (For, here it's fine for the premises to hold throughout all \epVW{1}.)
+  So, whether or not something additional is needed will depend on whether view premises or moving to conclusion as the problem.
+\end{note}
+
+
+
+\subsubparagraph{Closing}
+
+\begin{note}
+  Now, taxing.
+  Very many things that could be checked.
+  But whether an agent has claimed \support{} is not (necessarily) transparent.
+  Rather, whether there's a clear problem.
+\end{note}
+
+\hozline
+
+
+\subsubsection{\crequ{3}}
+
+\begin{note}
+    \color{red}
+    Note, focus on what the actual world is is important for the second clause.
+    If it doesn't matter what the actual world is, then it's hard to see why this would matter.
+
+    `Possible' should be restricted in some way.
+    This is also why recursive in the case of \support{} is useful.
+    Though, also should state that it's reasoning, with no further information.
+
+    \requ{} is split into two cases.
+
+    \ref{def:requ:crequ} observes that the result of making the step is a conclusion that \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
+    Alternatively, a conclusion that \(\phi\) has value \(v\) \emph{given} that \(\psi\) has value \(v'\).
+
+    \ref{def:requ:prequ} observes that the premises appealed to cover all \epVW{1} only if \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}[Intuition for \ideaCS{}]
+  \ideaCS{}.
+  The notion of a \requ{} specifies how \(\psi\) not having value \(v'\) is involved with step.
+  Required in order to make step.
+  Then, the problem is that the step will only conclude that \(\phi\) has value \(v\) with respect to a restriction of \world{1} which are \epVAd{} for the agent.
+  The agent may conclude that \emph{if} \(\psi\) has value \(v'\), \emph{then} \(\phi\), but as \(\psi\) may not have value \(v'\), the agent may not conclude that \(\phi\) has value \(v\) alone.
+
+  In other words, if an agent is \committed{} to it being that case that some step of reasoning in informative about the actual \world{} \emph{just in case} some proposition \(\psi\) has value \(v\), then unless the agent has witnessed some reasoning which \indicateV{1} that \(\psi\) has value \(v'\), then the step only applies to a restricted collection of \epVW{1}.
+\end{note}
+
+\begin{note}[Dynamics]
+  Stated in this way, \ideaCS{} is perhaps intuitive.
+
+  The delicate part of \ideaCS{} is dynamics.
+  In the cases of interest, the agent has concluded that \(\chi_{i}\) have values \(v_{i}''\) from some prior reasoning, which have satisfied claiming support.
+  However, between concluding that \(\chi_{i}\) have values \(v_{i}''\) and reasoning from \(\chi_{i}\) have values \(v_{i}''\) to \(\phi\) having value \(v\), \(\psi\) (not) having value \(v'\) is introduced as an \epVN{}.
+
+  This is where \ideaCS{} will do significant work.
+\end{note}
+
+\begin{note}[Relying]
+  First, a subtle, but important, distinction is that the reasoning must \emph{rely} on the relevant step.
+  Intuitively, some instance of reasoning which concludes that \(\phi\) has value \(v\) relies on a step of reasoning just in case the reasoning requires both the premises and conclusion of the step to actually have their respective values in order to conclude that \(\phi\) has value \(v\).
+
+  In other words, \ideaCS{} does not extend to steps made where the step is part of some hypothetical reasoning, such as reasoning by cases.
+\end{note}
+
+\begin{note}[Intuition for \requ{}]
+  Key is that \(\psi\) having value \(v'\) is required to make the step.
+
+  ??, ensures that \(\psi\) not having value \(v'\) is relevant to making the step.
+  There is not requirement that agent reasons about arbitrary \epVAd{} propositions.
+  With respect to \ideaCS{}, keep things simple.
+  Though, when defining a \requ{} in ???, strengthen somewhat.
+
+  ??, reduces issues concerning the step to premises and conclusion of the step.
+
+  ??, expands with respect to the agent's epistemic state.
+  The use of the term `\committed{}' is to surpass any form of recognition.
+\end{note}
+
+\begin{note}
+  Of course, it may be that the agent has \support{}.
+  However, the reasoning would performed would not be suitable.
+  Hence, failure of \emph{claiming} \support{}.
+
+  Following \ideaS{}, \(\phi\) having value \(v\) is not a \sink{} with respect to \epVW{1}.
+  Alternatively, it is not clear that the agent concludes that \(\phi\) has value \(v\).
+\end{note}
+
+\paragraph{\illu{3}}
+
+\begin{note}
+  Some \illu{1}.
+  Three \illu{1}.
+  In each, reasoning which fails to satisfy \ideaCS{}, then suggested reasoning that would satisfy.
+\end{note}
+
+\begin{note}
+  Observe, however, that the intuitive problem is not that the agent has any reason(ing) to think that \nagent{11} is \emph{not} trustworthy when speaking on matters regarding their personal character.
+
+  Rather, the intuitive problem is that the agent does not have any reason(ing) to think that \nagent{11} \emph{is} trustworthy when speaking on matters regarding their personal character.
+
+  In particular, that that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is simply a possibility.
+  It may be the case that \nagent{11} is trustworthy.\nolinebreak
+  \footnote{
+    \color{red}
+    It's not like this suggests that they are not trustworthy.
+    Asking for directions.
+    These are fine, but addition is not.
+  }
+\end{note}
+
+\subparagraph{\illu{3}}
+
+\begin{note}
+  Start with a recent \illu{0}.
+  Back to Library.
+  In this case, premises are no longer an issue.
+  Instead, there's something weaker in-between.
+\end{note}
+
+\subparagraph{Where's Wally}
+
+\begin{note}
+  Back to initial \illu{0}.
+\end{note}
+
+\begin{note}
+  Problem.
+  \requ{}.
+  Agent didn't notice, so possibility.
+  And, agent is appealing to it being Wally.
+  Not merely that they identified as Wally.
+
+  It's not clear need to give up claimed support, but does not extend to having a cane.
+
+  In contrast to \ref{illu:CS:spot-the-diff}, does not seem there is anything weaker to fall back on.
+  However, no strong claim here.
+  Rely on stronger principles about claiming support.
+\end{note}
+
+\subparagraph{Spot the difference}
+
+\begin{note}[Spot the difference]
+  \begin{illustration}[Spot the difference]
+    \label{illu:CS:spot-the-diff}
+    The agent has been working through a spot-the-difference to pass some time.
+
+    Though the time is not completely passed, the agent examined the two images with what seems sufficient care to claim support that they have found all the differences.
+    However, the agent did not keep track of the number of differences.
+
+    The agent announces `I have found all the differences' and their companion responds `All fifteen?'.
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*)]
+      \setcounter{enumi}{-1}
+    \item
+      \label{illu:CS:spot-the-diff:info}
+      If I have found all the differences, I have found fifteen differences.
+    \end{enumerate}
+
+    The agent then reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*), resume]
+    \item Exhaustive search.
+    \item
+      \label{illu:CS:spot-the-diff:all}
+      I found all the differences.
+    % \item\label{illu:CS:spot-the-diff:info} My companion has testified that there are fifteen differences.
+    % \item\label{illu:CS:spot-the-diff:cond} If I have found all the differences, I have found fifteen differences.
+    \item
+      \label{illu:CS:spot-the-diff:fif}
+      So, I have found fifteen differences. \hfill (From \ref{illu:CS:spot-the-diff:info} and \ref{illu:CS:spot-the-diff:all})
+    \end{enumerate}
+  \end{illustration}
+
+  Before going further, structure of this.
+
+  The agent performed some reasoning, and concluded that they found all the differences.
+  However, that reasoning is mentioned but not stated in the \illu{0}.
+  Rather, present is distinct instance of reasoning after being provided with information.
+  ``If not 15, then problem''.
+  Present reasoning appeals to past reasoning, and draws out consequence of this given new information.
+  Important: the present reasoning does not consider possibility that the agent did not find all 15 differences.
+  Instead, consequence of conclusion of previous instance of reasoning.
+  Still, epistemically possible that the agent did not find 15 differences.
+\end{note}
+
+\begin{note}
+    Providing additional information about what the agent has claimed support for.
+  Recall, \autoref{assu:CSVP}, information rather than \world{}.
+  \nolinebreak
+  \footnote{
+    Still slight issue.
+    Offering a redescription.
+    You met Clark Kent, so you met Superman.
+    In this case, rather than claiming support for meeting Superman, provided information is seen as an equivalent formulation.
+    It is possible to read \autoref{illu:CS:spot-the-diff} in this way, and this might be the most natural interpretation.
+    However, it is not the interpretation under which see the problem.
+    Rather, problem is where the conditional is explicit.
+    Unlike Superman case, proper conditional.
+  }
+\end{note}
+
+\begin{note}
+  Information leads to \requ{}.
+
+  Possibility of not fifteen.
+  And, not merely that the agent performed the reasoning, but that the reasoning identified all.
+  If not fifteen, then not all, so would involve appeal to something that is not the case.
+
+  And, present reasoning does not include reasoning about \requ{}.
+\end{note}
+
+\begin{note}[Avoiding the problem]
+  This doesn't rule out some additional reasoning.
+  \begin{enumerate}
+  \item Exhausted search.
+  \end{enumerate}
+  Difference here is that the agent is not only appealing to having found.
+  In addition, what they recall about reasoning.
+  What matters is not that found all but rather that exhaustivity of search.
+  This is not specific to 15.
+  Up to some \(k\) such that agent is still confident that they performed an exhaustive search.
+
+  Whether you think this is enough is up to you.
+  On the one hand, intuitive that this does enough.\nolinebreak
+  \footnote{
+    Indeed, reasoning framed with all as I think it is much less clear here.
+  }
+
+  On the other hand, the agent did not keep track of the number of differences.
+  So, may hold that they should go back and count.\nolinebreak
+  \footnote{
+    Looking ahead, \nI{}.
+    Difficulty here is that don't need to go to \(\phi\).
+    Indeed, note somewhere that \nI{} really only clearly takes hold when need some sort of factivity in play.
+    We'll return to this.
+  }
+
+  {
+    \color{red} As observed in the footnote above, the trick here is that the agent doesn't really `need' to go to having found all the differences.
+
+    Alternatively, not enough to show that the reasoning is bad.
+    E.g.\ then I would have been deceived, some trick, etc.
+    Something \emph{I} wouldn't count as a difference.
+  }
+\end{note}
+
+\begin{note}
+  Argued above against circularity.
+  Here, additional consideration.
+
+  If the agent were to have had the information first time, then plausibly an instance of circularity.
+  And, may think that this is also circularity as must also all must amount to fifteen.
+\end{note}
+
+
+\subparagraph{Zebra}
+
+\begin{note}
+  This is somewhat tentative.
+  If you think that you would succeed in checking, then go for it.
+\end{note}
+
+\paragraph{Conditionals}
+
+\begin{note}
+  \color{red}
+  The point of this section should be to note how \ideaCS{} relates to conditionals.
+  In the case of truth-functional conditionals, things are quite straightforward.
+  In the case of non-truth-function conditionals, not so much.
+\end{note}
+
+\begin{note}
+  \(\phi \rightarrow \psi\), \(\lnot\psi \rightarrow \lnot\phi\), \(\psi \not\rightarrow \phi\).
+  These are the key things.
+  Does not extend to probability, because then don't get the overlapping relations.
+\end{note}
+
+\subsection{\prequ{3}}
+\label{sec:prequ3}
+
+\begin{note}
+  Definition of a \requ{} focused on particular structure.
+  However, only a sufficient condition.
+  Here, we consider \prequ{}.
+  Observe this places further constraints.
+  However, stronger.
+  Any \prequ{} is a \crequ{}.
+  Note, however, vice-versa.
+\end{note}
+
+\paragraph{Definition}
+
+\begin{definition}
+  \label{def:requ:prequ}
+  \(\psi\) having value \(v'\) is a \emph{\prequ{}} of \(\delta\) \emph{if and only if} the following conditions jointly hold:
+  \begin{enumerate}[label=\arabic*., ref=\named{P\(\Re\):\arabic*}]
+  \item
+    \label{def:requ:prequ:strcture}
+    The structure of the \vAgent{}' epistemic state is such that:
+    \begin{enumerate}[label=\alph*., ref=\named{P\(\Re\):1\alph*}]
+    \item
+      \label{def:requ:prequ:strcture:psi-not-v}
+      There is some \epVW{} such that:
+      \begin{itemize}
+      \item
+        \(\psi\) does not have value \(v'\).
+      \end{itemize}
+    \item
+      \label{def:requ:prequ:strcture:chi-subset-psi}
+      There is no \epVW{} such that:
+      \begin{itemize}
+      \item
+        \(\chi_{i}\) have value \(v_{i}\) and \(\psi\) does not have value \(v'\)
+      \end{itemize}
+    \item
+      \label{def:requ:prequ:strcture:chi-propersubset-psi}
+      There is some \epVW{} such that:
+      \begin{itemize}
+      \item
+        \(\psi\) has value \(v'\) and some \(\chi_{i}\) does not have value \(v_{i}\).
+      \end{itemize}
+    \end{enumerate}
+  \item
+    \label{def:requ:prequ:no-revision}
+    It is not the case that the agent would revise their epistemic state so that \ref{def:requ:prequ:strcture:chi-subset-psi} does not hold (in order to conclude that \(\phi\) has value \(v\) from \(\delta\)).
+  \item
+    \label{def:requ:prequ:possible-reason}
+    For all \epVW{} in which \(\chi_{i}\) have values \(v_{i}\), there is some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
+  \end{enumerate}
+\end{definition}
+
+\paragraph{Idea}
 
 \begin{note}
   Intuitively, \(\psi\) having value \(v'\) is a \prequ{} of some step of reasoning just in case:
@@ -1300,654 +2051,74 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \end{itemize}
 \end{note}
 
-\begin{note}
-  Still, \ref{def:requ:prequ:no-revision} captures an important subtlety that does not reduce to the present relation between various proposition-value pairs.
-  For, it may be the case that the relation between the premise proposition-value pairs and \(\psi\) having value \(v'\) is unimportant to the agent.
+\paragraph{\illu{1}}
 
-  Consider a familiar situation from \textcite{Harman:1986ux}:
-
-  Mary believes, prior to looking in the cupboard, that if she looks in the cupboard, then she will see a box of Cheerios.
-  Mary then looks in the cupboard and does not see a box of Cheerios.
-  Hence, Mary abandons her belief about what she would see if she looks in the cupboard.
-
-  Likewise, an agent may abandon any relation between the premises of some step and \(\psi\) having value \(v'\) rather than hold that so long as the premises have their respective values then \(\psi\) has value \(v'\).
-  For example, an agent may hold that the fire alarm will active whenever there is a fire.
-  Though, allow for the possibility that the fire alarm may active when there is no fire.
-  However, given the presence of fire with an the appearance of no alarm, the agent may abandon that the fire alarm will active whenever there is fire in order to conclude that someone is in danger, rather than investigating when the alarm really is active.
-
-  In this respect, clause \ref{notion:requ:need-psi} of \autoref{notion:requ} would not be satisfied --- it is \epVAd{} for the agent to conclude that someone is in danger from the presence of fire without being committed to the fire alarm being active.
-
-  While both \ref{def:requ:prequ:strcture} and \ref{def:requ:prequ:no-revision} relate to the same intuitive point, these are separated in the definition of a \prequ{} as \ref{def:requ:prequ:strcture} concerns the structure of the agent's current epistemic state, while \ref{def:requ:prequ:no-revision} concerns a subjunctive property of the present structure.
-\end{note}
-
-\paragraph{The possibility of reasoning}
-
-\begin{note}
-  \ref{prequ:int:reasoning} is captured by \ref{def:requ:prequ:possible-reason}.
-  However, \ref{def:requ:prequ:possible-reason} is significantly more complex than \ref{prequ:int:reasoning}.
-
-  In order to clarify \ref{def:requ:prequ:possible-reason}, we break down the clause in to three important components, and will discuss each component in turn.
-  The three important components are:
-  \begin{itemize}
-  \item
-    First, the core of the constraint concerning reasoning.
-  \item
-    Second, a relativisation of the core of the constraint to what is \epVAd{} for the agent.
-  \item
-    Third, a restriction on the scope of the core of the constraint relative to what is \epVAd{} for the agent to \epVW{1} in which the premises are true.
-  \end{itemize}
-\end{note}
-
-\subparagraph{The core constraint}
-
-\begin{note}[Constraint]
-  The constraint:
-  \begin{quote}
-    There is some temporal extension of any relevant \epVW{} in which the agent witnesses reasoning which concludes that \(\psi\) has value \(v'\).
-  \end{quote}
-
-  Recall, any (relevant) \epVW{} is a candidate for the actual \world{}.
-  And, by temporal extension we mean the progression of a \world{} up to some future point in time.
-
-  So, at core, the constraint specifies that the agent has the opportunity to reason about whether \(\psi\) has value \(v'\), and if the agent were to reason about whether \(\psi\) has value \(v'\), the agent would conclude that \(\psi\) has value \(v'\).
-
-  Note, the core of the constraint only requires that there is \emph{some} temporal extension of any given \epVW{}.
-  Hence, the core of the constraint does not require that the agent \emph{will} conclude that \(\psi\) has value \(v'\).
-\end{note}
-
-\begin{note}[Delicacy]
-  On the one hand it is simple to fail the core of the constraint.
-  For, the core of constraint requires that the agent would not fail to conclude that \(\psi\) has value \(v'\).
-  On the other hand, it is difficult to fail the core constraint.
-  For, the core constraint requires only that there is at least one instance in which the agent would not fail to conclude that \(\psi\) has value \(v'\).
-
-  To illustrate, consider two different kinds of uncertainty.
-
-  On the one hand, and agent may be uncertain about whether they would conclude that \(\psi\) has value \(v'\) due to, say, requiring some information that they may or may not be in a position to acquire.
-  If so, then the agent will be unsure about whether there \emph{is} a temporal extension of the relevant \world{}.
-  For, the existence of the required temporal extension will depend on whether the agent acquires the required information.
-  Hence the core of the constraint will not be satisfied.
-
-  Note, the relevant sense of the copula `is' concerns existence, rather than possibility, however the notion of existence is understood for temporal extensions.
-
-  On the other hand, an agent may be uncertain about whether they really do have the opportunity to conclude that \(\psi\) has value \(v'\) as any instance of reasoning may be interrupted.
-  However, so long as there is no guarantee that the agent's reasoning would be interrupted, then the core of the constraint will be satisfied, even if it is highly unlikely that the agent would conclude the relevant reasoning.
-
-  Somewhere between these two extremes is a more nuanced constraint.
-  Still, in order to keep the complexity of the constraint (relatively) low, we will not add further conditions.
-  In cases where the constraint is to simple to fail, then the definition of a \requ{} may be added to, as \(\psi\) having value \(v'\) being a \prequ{} is only a sufficient condition for \(\psi\) having value \(v'\) being a \requ{}.
-  And, we will avoid applying the definition of \prequ{} in cases where the definition exceeds intuition.
-\end{note}
-
-\subparagraph{The role of the agent}
-
-\begin{note}
-  Our discussion of the core of the constraint focused on there being some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\).
-
-  In general, whether or not the core of the constraint is satisfied by be evaluated independently of the agent's perspective on how the actual \world{} is.
-  Still, we relativise the core of the constraint to the agent's perspective.
-
-  The motivation is simple and has two (related) parts.
-  \begin{itemize}
-  \item
-    First, we ensure that \(\psi\) having value \(v'\) is relevant to the agent's own reasoning in general.
-  \item
-    Second, we reduce latent issues concerning whether there is some temporal extension of a \world{} to an single source --- the agent.
-  \end{itemize}
-  We expand on both points in turn.
-\end{note}
-
-\subsubparagraph{Relevance}
-
-\begin{note}[Relevance]
-  By relativising the core of the constraint to the agent's perspective we ensure that whether or not \(\psi\) has value \(v'\) is relevant to the agent's own reasoning.
-  In particular, we ensure that whether or not \(\psi\) having value \(v'\) matters to whether or not \(\chi_{i}\) have values \(v_{i}\) by the agent's own lights, so to speak.
-
-  Variations on the idea of a \prequ{} may take into account the epistemic states of other agents. For example if the agent were engaged in not merely reasoning to, but arguing for, some conclusion.
-  Still, for present purposes we only identifying \(\psi\) having value \(v'\) as a \prequ{} if the agent considers it \epVAd{} to `check' their appeal to some premises prior to making a step of reasoning.
-
-  This observation will be important for motivating \ideaCS{} via \ideaS{}.
-
-  For now, observe:
-
-  If \ref{def:requ:prequ:possible-reason} is satisfied, and the agent were to fail to conclude that \(\psi\) has value \(v'\), then the agent would be unable to distinguish an \epVW{} in which \(\psi\) has value \(v'\) and \(\chi_{i}\) have values \(v_{i}\) from an \epVW{} in which \(\psi\) does not have value \(v'\) and \(\chi_{i}\) does not have values \(v_{i}\).
-  Hence, it would seem that from the agent's perspective that they have no basis for concluding that \(\phi\) has value \(v\) by appeal to \(\chi_{i}\) having values \(v_{i}\).
-\end{note}
-
-\subsubparagraph{Latent issues}
-
-\begin{note}
-  The upshot of resolving the relevant sense of possibility to the agent's epistemic state is that we avoid questions about whether it is possible for an agent to recognise that it is possible for them to conclude that \(\psi\) has value \(v'\).
-  For, if it is \epVAd{} for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\), then the agent holds that for every candidate for the actual \world{}, there is some extension of the candidate \world{} in which the agent witnesses the relevant reasoning.\nolinebreak
-  \footnote{
-    Note, this does not guarantee that the agent would witness reasoning which concludes that \(\psi\) has value \(v'\) if the agent were to try, as we do not require that the actual \world{} is always an \epVW{}.
-  }
-
-  For example, it may be `possible' for the agent to conclude that the liquid in a glass is not poisoned prior to appealing to it being safe to drink in order to conclude that they should drink the liquid.
-
-  In order to resolve whether it really is possible the agent to conclude that the liquid in a glass is not poisoned, we need only consider whether the agent considers it \epVAd{} that they may witness such reasoning.
-  And, the answer may be negative as the agent expects dehydration to set in before concluding any such reasoning.
-\end{note}
-
-\begin{note}
-  The upshot comes with a corresponding downshot.
-  For, it may be possible (in the relevant intuitive sense) for the agent to witness reasoning which concludes that \(\psi\) has value \(v'\) without the agent holding that it is \epVAd{} for them to so reason.
-
-  For example, it may be possible (and quite straightforward) for an agent to check the boiler for a simple fault before appealing to the premises that it is broken in order to conclude that they should call for a repair.
-  Yet, so long as the agent does not consider it \epVAd{} for them to check the boiler, any proposition-value pair captured a simple fault will not be a \prequ{}.
-\end{note}
-
-\subsubparagraph{Quantification}
-
-\begin{note}
-  Finally we turn restricting the scope of the core of the constraint to \epVW{1} in which all of the premises that the agent would appeal to when making the step of reasoning have the appropriate values.
-
-  Key here is that the core of the constraint requires that there is some temporal extension of the relevant \epVW{1} in which the agent witnesses reasoning which concludes that \(\psi\) \emph{has} value \(v'\).
-
-  This gives rise to the following problem:
-\end{note}
-
-\begin{note}[Problem]
-  In order for \(\psi\) having value \(v'\) to be a \prequ{} the agent must consider it \epVAd{} that \(\psi\) does not have value \(v'\).
-  Yet, if \(\psi\) does not have value \(v'\), then it may be the case that the agent would fail to conclude that \(\psi\) has value \(v'\).
-  In which case, the core of the constraint will fail to be satisfied.
-\end{note}
-
-\begin{note}[Solution]
-  Still, quantifying over \epVW{1} in which the premises of the step have appropriate values provides a motivated solution.
-
-  For, we are only interested in the idea \(\phi\) having value \(v'\) being \prequ{} as a check on whether it would make sense for an agent to appeal to a collection of premises in order to make some conclusion.
-  Hence, in order for the \prequ{} to be a check of the relevant kind, we are only interested in cases where \(\psi\) must have value \(v'\) in order for the premises of the step of reasoning to have appropriate values.
-  Therefore, we may restrict the interest in the possibility of concluding that \(\psi\) has value \(v'\) to those \epVW{1} in which the premises propositions have the values of interest.
-\end{note}
-
-\begin{note}[Illustration]
-  To illustrate.
-
+\begin{note}[\prequ{3}]
   \begin{illustration}
-    Suppose an agent wishes to conclude that they should report that their parcel has gone missing from the premise that their parcel is missing.
-    Still, the agent considers it \epVAd{} that a delivery was attempted, and that a note was left on their front door.
-    Naturally, if the parcel has gone missing, then no delivery attempt will have been made, and no note will be on their front door.
+    Suppose \nagent{13} is interested in concluding that they're set to have coffee before travelling to work from the premises that they have the time and resources to make a cup of coffee.
+    And, the additional premise that they have milk.
+    (For, the milk will cool the coffee quickly enough for \nagent{13} to drink before leaving.)
 
-    Still, if the parcel has not gone missing, then a delivery may have been attempted, and a note left on the agent's front door.
-    Yet, if a note has been left on the agent's front door, then it will not be possible for the agent to conclude that there is no note on the front door.
-    For, the agent will only conclude that there is no note on the front door by checking the front door.
+    Still, \nagent{13} is unsure about whether the milk is safe to drink.
+    The milk smells okay-ish and \nagent{13} is fairly sure that they bought it fairly recently.
+
+    \nagent{13} holds that if the milk is past it's expiry date, then it is not safe to drink.
+    But, if the milk is within it's expiry date, then as it smells okay-ish, \nagent{13} would conclude that the milk is safe to drink.
   \end{illustration}
+  \epVAd{} that the milk is not safe to drink.
+  It is not \epVAd{} for \nagent{13} to conclude conclusion from premises if the milk is not safe to drink.
+  \nagent{13} is holding the milk, so trivial to check the expiry date.
 
-  The agent's epistemic state plausibly satisfies \ref{def:requ:prequ:strcture}.\nolinebreak
-  \footnote{
-    `Missing' will plausibly be a proper subset of `no not on front door' as it may remain \epVAd{} that the parcel is not missing, but not yet delivered.
-  }
-  However, if a note has been left on the agent's front door, then it will not be possible for the agent to conclude that there is no note on the front door.
-  Hence, the core of the constraint would fail given the \epVAd{} that the parcel is not missing.
+  It seems intuitive, at least to me, that \nagent{13} should check the expiry date.
 
-  Still, as the step of reasoning would move from a missing parcel to a resolution for action, at issue is only whether the agent would fail to conclude that there is no note on the door in the case that the package really is missing.
-  If the agent's reasoning were to fail because of the presence of a note on the agent's front door, then it seems this would be sufficient to indicate to the agent that the parcel is not missing, and that they should not report the parcel missing.
-\end{note}
+  For present purposes, this intuition is accounted for by there being an antecedent check on whether it makes sense for the agent to conclude.
+  The expiry date.
 
-\hozline
-
-\subparagraph{Motivation from \support{}}
-
-\begin{note}
-  If the agent has not concluded for each of the premises, then it's at least necessary that conclude for \(\psi\).
-  For, if not, then if were to reason about \(\psi\), then might go to \(\lnot\psi\).
-  Hence, that the premises do not jointly hold.
-  Therefore, the premises are not a \sink{}, and \(\phi\) is not a \sink{}.
+  More broadly, \support{}.
+  If \support{}, then no matter what is plausible, conclude.
+  Well, that the milk is not safe.
+  But, some reasoning that \emph{may} prevent conclusion.
+  As \nagent{13} has not reasoned about expiry date, it does not follow that the milk is either past or within.
+  However, from the epistemic state of \nagent{13}, there is the possibility that they would fail to conclude.
 \end{note}
 
 \begin{note}
-  There are two exceptions.
-
-  First, that it is not possible for the agent to reason.
-  Without this, then no failure of being a \sink{}.
-
-  Second, giving up whatever leads to \(\psi\) being a \prequ{}.
-  This is because the definition of a \prequ{} does not rely on the agent recognising that \(\psi\) is a \prequ{}.
-  Hence, possibility that agent may revise their epistemic state to avoid \(\psi\) being a \prequ{}.
-  Simply done by abandoning any link.
+  \begin{illustration}
+    Computer, not turning on.
+    Broken.
+    Check that it's plugged in.
+  \end{illustration}
 \end{note}
-
-\begin{note}[\prequ{}]
-  \prequ{}.
-  Then, premises of \(\delta\) do not hold with respect to all \epVW{1}.
-  And, there is some way for the agent to reason.
-  Problem here is quite clear.
-  Question is whether something stronger.
-  This depends on possibility of reasoning.
-  If general, then simplifies.
-  Reasoning for anything by required by premises.
-  If not, then \(\psi\) falls outside of our interest.
-  \support{2} is just about reasoning.
-\end{note}
-
-\subparagraph{Satisfaction}
 
 \begin{note}
-  Now, this is going to be trivially satisfied if the agent has concluded for each of the premises.
+  \begin{illustration}
+    Sent documents.
+    Up to date.
+    Revised at the end of financial year, past that.
+    Well, at least check the year of the document.
+  \end{illustration}
+\end{note}
+
+\begin{note}
+  Given the constraints, we mostly get variations on this kind of case.
+  The purpose of a \prequ{} is just clarify how to refine the notion of a \requ{}.
+  In particular, some of the limitations.
+\end{note}
+
+\paragraph{Not completely trivial}
+
+\begin{note}
+  Trivially satisfied if the agent has concluded for each of the premises.
   For, given that \(\psi\) is strictly weaker than the premises, any reasoning for the premises is going to \indicateV{} that \(\psi\).
-\end{note}
 
-\begin{note}
-  Not completely trivial.
+  In this respect, fault is local to the reasoning, and again motivation for broadening to subjunctive considerations regarding relaxing and agent's epistemic state.
+
+  Final: Not completely trivial.
   For, it may be the case that it is not possible for the agent to reason to one of the premises, but that \(\psi\) is still a condition that they could reason to.
-
-  The clock is working.
-  Without any other source for the time, there's nothing to be done.
-  However, it should definitely be ticking.
-  Therefore, at the very least check this.
-  Or, that it's not clearly daylight outside.
-\end{note}
-
-\begin{note}
-  Now, taxing.
-  Very many things that could be checked.
-  But whether an agent has claimed \support{} is not (necessarily) transparent.
-  Rather, whether there's a clear problem.
-\end{note}
-
-\begin{note}
-  Well, you might think this is bad.
-  Agent shouldn't conclude anything about the time.
-  That's fine.
-  Add in additional conditions on claiming support.
-  That's compatible.
-\end{note}
-
-\subsubsection{\crequ{3}}
-
-\begin{note}[\crequ{}]
-  \crequ{} is more complex.
-  If the agent were to make the step, then they would be able to reason.
-  So, it doesn't need to be the case that the agent thinks they may reason regardless.
-\end{note}
-
-\begin{figure}[h!]
-  \mbox{ }\hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
-      \coordinate (psiC) at (-.2,-.2);
-      \coordinate (psi) at (3,4);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-    \end{tikzpicture}
-    \caption{\(\chi\)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*2.9,0.5*4) node {\(\chi\)};
-      \coordinate (chiC) at (-.1,-.1);
-      \coordinate (chi) at (3.5,4.7);
-      \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
-      \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
-      \draw[rounded corners] (chiLL) rectangle (chiUR);
-
-      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
-      \coordinate (psiC) at (-.2,-.2);
-      \coordinate (psi) at (3,4);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-    \end{tikzpicture}
-    \caption{\(\psi\)}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.3\linewidth}
-    \begin{tikzpicture}[scale=.85]
-      \coordinate (epVC) at (0,0);
-      \coordinate (epV) at (4,5);
-      \coordinate (epVLL) at ($(epVC)-0.5*(epV)$);
-      \coordinate (epVUR) at ($(epVC)+0.5*(epV)$);
-      \draw[thick, rounded corners] (epVLL) rectangle (epVUR);
-
-      \filldraw (0.5*2.9,0.5*4) node {\(\chi\)};
-      \coordinate (chiC) at (-.1,-.1);
-      \coordinate (chi) at (3.5,4.7);
-      \coordinate (chiLL) at ($(chiC)-0.5*(chi)$);
-      \coordinate (chiUR) at ($(chiC)+0.5*(chi)$);
-      \draw[rounded corners] (chiLL) rectangle (chiUR);
-
-      \filldraw (0.5*-3,0.5*-4) node {\(\psi\)};
-      \coordinate (psiC) at (-.2,-.2);
-      \coordinate (psi) at (3,4);
-      \coordinate (psiLL) at ($(psiC)-0.5*(psi)$);
-      \coordinate (psiUR) at ($(psiC)+0.5*(psi)$);
-      \draw[dashed, rounded corners] (psiLL) rectangle (psiUR);
-
-      \filldraw (0,0) node {\(\phi\)};
-      \coordinate (phiC) at (-.25,-.25);
-      \coordinate (phi) at (2,3);
-      \coordinate (phiLL) at ($(phiC)-0.5*(phi)$);
-      \coordinate (phiUR) at ($(phiC)+0.5*(psi)$);
-      \draw[dashdotted, rounded corners] (phiLL) rectangle (phiUR);
-    \end{tikzpicture}
-    \caption{\(\phi\)}
-  \end{subfigure}
-  \hfill\mbox{ }
-  \caption{\crequ{}}
-  \label{fig:crequ:intuition}
-\end{figure}
-
-\begin{note}
-  Important point to stress, is that a \requ{} is defined with respect to \epVAd{} \world{1}, rather than \epPAd{} \world{1}.
-  Primary purpose of this is to avoid subjunctive conditionals.
-\end{note}
-
-\begin{note}
-    \color{red}
-    Note, focus on what the actual world is is important for the second clause.
-    If it doesn't matter what the actual world is, then it's hard to see why this would matter.
-
-    `Possible' should be restricted in some way.
-    This is also why recursive in the case of \support{} is useful.
-    Though, also should state that it's reasoning, with no further information.
-
-  \requ{} is split into two cases.
-  \ref{notion:requ:p} observes that the premises appealed to cover all \epVW{1} only if \(\psi\) has value \(v'\).
-
-  \ref{notion:requ:c} observes that the result of making the step is a conclusion that \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
-  Alternatively, a conclusion that \(\phi\) has value \(v\) \emph{given} that \(\psi\) has value \(v'\).
-\end{note}
-
-\begin{note}[Intuition for \ideaCS{}]
-  \ideaCS{}.
-  The notion of a \requ{} specifies how \(\psi\) not having value \(v'\) is involved with step.
-  Required in order to make step.
-  Then, the problem is that the step will only conclude that \(\phi\) has value \(v\) with respect to a restriction of \world{1} which are \epVAd{} for the agent.
-  The agent may conclude that \emph{if} \(\psi\) has value \(v'\), \emph{then} \(\phi\), but as \(\psi\) may not have value \(v'\), the agent may not conclude that \(\phi\) has value \(v\) alone.
-
-  In other words, if an agent is committed to it being that case that some step of reasoning in informative about the actual \world{} \emph{just in case} some proposition \(\psi\) has value \(v\), then unless the agent has witnessed some reasoning which \indicateV{1} that \(\psi\) has value \(v'\), then the step only applies to a restricted collection of \epVW{1}.
-
-  Either prior reasoning, hence \ref{idea:CS:B:step:epV-requ} does not obtain.
-  Or, present reasoning so \ref{idea:CS:B:prior-reasoning} is satisfied.
-\end{note}
-
-\begin{note}[Dynamics]
-  Stated in this way, \ideaCS{} is perhaps intuitive.
-
-  The delicate part of \ideaCS{} is dynamics.
-  In the cases of interest, the agent has concluded that \(\chi_{i}\) have values \(v_{i}''\) from some prior reasoning, which have satisfied claiming support.
-  However, between concluding that \(\chi_{i}\) have values \(v_{i}''\) and reasoning from \(\chi_{i}\) have values \(v_{i}''\) to \(\phi\) having value \(v\), \(\psi\) (not) having value \(v'\) is introduced as an \epVN{}.
-
-  This is where \ideaCS{} will do significant work.
-\end{note}
-
-\begin{note}[Relying]
-  First, a subtle, but important, distinction is that the reasoning must \emph{rely} on the relevant step.
-  Intuitively, some instance of reasoning which concludes that \(\phi\) has value \(v\) relies on a step of reasoning just in case the reasoning requires both the premises and conclusion of the step to actually have their respective values in order to conclude that \(\phi\) has value \(v\).
-
-  In other words, \ideaCS{} does not extend to steps made where the step is part of some hypothetical reasoning, such as reasoning by cases.
-  We provide an explicit characterisation of reliance on a step in~\autoref{sec:assumpt-from-ideas}.
-\end{note}
-
-\begin{note}[Intuition for \requ{}]
-  Key is that \(\psi\) having value \(v'\) is required to make the step.
-
-  ??, ensures that \(\psi\) not having value \(v'\) is relevant to making the step.
-  There is not requirement that agent reasons about arbitrary \epVAd{} propositions.
-  With respect to \ideaCS{}, keep things simple.
-  Though, when defining a \requ{} in ???, strengthen somewhat.
-
-  ??, reduces issues concerning the step to premises and conclusion of the step.
-
-  ??, expands with respect to the agent's epistemic state.
-  The use of the term `committed' is to surpass any form of recognition.
-\end{note}
-
-\begin{note}
-  Of course, it may be that the agent has \support{}.
-  However, the reasoning would performed would not be suitable.
-  Hence, failure of \emph{claiming} \support{}.
-
-  Following \ideaS{}, \(\phi\) having value \(v\) is not a \sink{} with respect to \epVW{1}.
-  Alternatively, it is not clear that the agent concludes that \(\phi\) has value \(v\).
-\end{note}
-
-\paragraph{\illu{3}}
-
-\begin{note}
-  Some \illu{1}.
-  Three \illu{1}.
-  In each, reasoning which fails to satisfy \ideaCS{}, then suggested reasoning that would satisfy.
 \end{note}
 
 
-
-\begin{note}
-  Observe, however, that the intuitive problem is not that the agent has any reason(ing) to think that \nagent{11} is \emph{not} trustworthy when speaking on matters regarding their personal character.
-
-  Rather, the intuitive problem is that the agent does not have any reason(ing) to think that \nagent{11} \emph{is} trustworthy when speaking on matters regarding their personal character.
-
-  In particular, that that \nagent{11} is not trustworthy when speaking on matters regarding their personal character is simply a possibility.
-  It may be the case that \nagent{11} is trustworthy.\nolinebreak
-  \footnote{
-    \color{red}
-    It's not like this suggests that they are not trustworthy.
-    Asking for directions.
-    These are fine, but addition is not.
-  }
-\end{note}
-
-\paragraph{\prequ{3}}
-
-\subparagraph{Library indexes}
-
-\begin{note}
-  This library uses either LCC or DDC indexing.
-  \begin{enumerate}
-  \item A search for `H61 .R593' returned no results.
-  \item The library does not have a copy of `Measurement Theory'.
-  \end{enumerate}
-
-  Holding that a library does not have a copy of a book because a search for the book under a particular indexing system would be a mistake.
-  For, if the library does not use the particular indexing system then a search using that indexing system will always fail, regardless of whether or not the library has a copy of the book.
-
-  In turn, a failed search for an LCC index in the library's database does not seems sufficient for an agent to claim that the library does not have a copy of the book unless the agent is in a position to claim support that the library uses LCC indexing.
-  Following, it seems the failed response to the `Even if\dots' test may be supplemented by noting that the library is a research library, and therefore likely uses LCC indexing, etc.\
-\end{note}
-
-\paragraph{\crequ{3}}
-
-\subparagraph{Spot the difference}
-
-\begin{note}[Spot the difference]
-  \begin{illustration}[Spot the difference]
-    \label{illu:CS:spot-the-diff}
-    The agent has been working through a spot-the-difference to pass some time.
-
-    Though the time is not completely passed, the agent examined the two images with what seems sufficient care to claim support that they have found all the differences.
-    However, the agent did not keep track of the number of differences.
-
-    The agent announces `I have found all the differences' and their companion responds `All fifteen?'.
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*)]
-      \setcounter{enumi}{-1}
-    \item
-      \label{illu:CS:spot-the-diff:info}
-      If I have found all the differences, I have found fifteen differences.
-    \end{enumerate}
-
-    The agent then reasons as follows:
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*), resume]
-    \item Exhaustive search.
-    \item
-      \label{illu:CS:spot-the-diff:all}
-      I found all the differences.
-    % \item\label{illu:CS:spot-the-diff:info} My companion has testified that there are fifteen differences.
-    % \item\label{illu:CS:spot-the-diff:cond} If I have found all the differences, I have found fifteen differences.
-    \item
-      \label{illu:CS:spot-the-diff:fif}
-      So, I have found fifteen differences. \hfill (From \ref{illu:CS:spot-the-diff:info} and \ref{illu:CS:spot-the-diff:all})
-    \end{enumerate}
-  \end{illustration}
-
-  Before going further, structure of this.
-
-  The agent performed some reasoning, and concluded that they found all the differences.
-  However, that reasoning is mentioned but not stated in the \illu{0}.
-  Rather, present is distinct instance of reasoning after being provided with information.
-  ``If not 15, then problem''.
-  Present reasoning appeals to past reasoning, and draws out consequence of this given new information.
-  Important: the present reasoning does not consider possibility that the agent did not find all 15 differences.
-  Instead, consequence of conclusion of previous instance of reasoning.
-  Still, epistemically possible that the agent did not find 15 differences.
-\end{note}
-
-\begin{note}
-    Providing additional information about what the agent has claimed support for.
-  Recall, \autoref{assu:CSVP}, information rather than \world{}.
-  \nolinebreak
-  \footnote{
-    Still slight issue.
-    Offering a redescription.
-    You met Clark Kent, so you met Superman.
-    In this case, rather than claiming support for meeting Superman, provided information is seen as an equivalent formulation.
-    It is possible to read \autoref{illu:CS:spot-the-diff} in this way, and this might be the most natural interpretation.
-    However, it is not the interpretation under which see the problem.
-    Rather, problem is where the conditional is explicit.
-    Unlike Superman case, proper conditional.
-  }
-\end{note}
-
-\begin{note}
-  Information leads to \requ{}.
-
-  Possibility of not fifteen.
-  And, not merely that the agent performed the reasoning, but that the reasoning identified all.
-  If not fifteen, then not all, so would involve appeal to something that is not the case.
-
-  And, present reasoning does not include reasoning about \requ{}.
-\end{note}
-
-\begin{note}[Avoiding the problem]
-  This doesn't rule out some additional reasoning.
-  \begin{enumerate}
-  \item Exhausted search.
-  \end{enumerate}
-  Difference here is that the agent is not only appealing to having found.
-  In addition, what they recall about reasoning.
-  What matters is not that found all but rather that exhaustivity of search.
-  This is not specific to 15.
-  Up to some \(k\) such that agent is still confident that they performed an exhaustive search.
-
-  Whether you think this is enough is up to you.
-  On the one hand, intuitive that this does enough.\nolinebreak
-  \footnote{
-    Indeed, reasoning framed with all as I think it is much less clear here.
-  }
-
-  On the other hand, the agent did not keep track of the number of differences.
-  So, may hold that they should go back and count.\nolinebreak
-  \footnote{
-    Looking ahead, \nI{}.
-    Difficulty here is that don't need to go to \(\phi\).
-    Indeed, note somewhere that \nI{} really only clearly takes hold when need some sort of factivity in play.
-    We'll return to this.
-  }
-
-  {
-    \color{red} As observed in the footnote above, the trick here is that the agent doesn't really `need' to go to having found all the differences.
-
-    Alternatively, not enough to show that the reasoning is bad.
-    E.g.\ then I would have been deceived, some trick, etc.
-    Something \emph{I} wouldn't count as a difference.
-  }
-\end{note}
-
-\begin{note}
-  Argued above against circularity.
-  Here, additional consideration.
-
-  If the agent were to have had the information first time, then plausibly an instance of circularity.
-  And, may think that this is also circularity as must also all must amount to fifteen.
-\end{note}
-
-\subparagraph{Where's Wally}
-
-\begin{note}
-  \autoref{illu:CS:spot-the-diff} had something that could be obtained from the reasoning if re-examined.
-  Just need to add a counter.
-
-  Now, something that follows if the reasoning was \nmom{}.
-\end{note}
-
-\begin{note}
-  \begin{illustration}[Where's Wally]
-    \label{illu:CS:wheres-wally}
-    Searching for Wally.
-    On front of book is an image of wally in contrast to a number of other characters.
-    Takes not of a number of features.
-    Glasses, hat, striped jumper.
-    In isolation, necessary but insufficient.
-    Combined, sufficient.
-
-    Search through the image.
-    I've found Wally.
-    Did you spot the cane first?
-
-    The question carries implicit information:
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
-      \setcounter{enumi}{-1}
-    \item\label{illu:CS:wheres-wally:info} The individual identified is Wally only if the individual is holding a cane.
-    \end{enumerate}
-
-    The agent then reasons as follows:
-
-    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*), resume]
-    \item Collection of features sufficient.
-    \item\label{illu:CS:wheres-wally:ante} Had features.
-    % \item The individual identified is Wally only if the individual is holding a cane.
-    \item The individual was holding a cane. \hfill (From \ref{illu:CS:wheres-wally:info} and \ref{illu:CS:wheres-wally:ante})
-    \end{enumerate}
-  \end{illustration}
-
-  As with \autoref{illu:CS:spot-the-diff}, the reasoning of \autoref{illu:CS:wheres-wally} is such that the individual was holding the cane is an \requ{} of the claimed support that the individual was Wally, and no reasoning about it.
-\end{note}
-
-\begin{note}
-  Problem.
-  \requ{}.
-  Agent didn't notice, so possibility.
-  And, agent is appealing to it being Wally.
-  Not merely that they identified as Wally.
-
-  It's not clear need to give up claimed support, but does not extend to having a cane.
-
-  In contrast to \ref{illu:CS:spot-the-diff}, does not seem there is anything weaker to fall back on.
-  However, no strong claim here.
-  Rely on stronger principles about claiming support.
-\end{note}
-
-\paragraph{Conditionals}
-
-\begin{note}
-  \color{red}
-  The point of this section should be to note how \ideaCS{} relates to conditionals.
-  In the case of truth-functional conditionals, things are quite straightforward.
-  In the case of non-truth-function conditionals, not so much.
-\end{note}
-
-\begin{note}
-  \(\phi \rightarrow \psi\), \(\lnot\psi \rightarrow \lnot\phi\), \(\psi \not\rightarrow \phi\).
-  These are the key things.
-  Does not extend to probability, because then don't get the overlapping relations.
-\end{note}
+\newpage
 
 \subsection{Limitations}
 \label{sec:limitations}
@@ -2159,9 +2330,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \paragraph{Others}
 
 \begin{note}
-  \autoref{idea:cs:imp-stp} as this is the thing that's going to do the work.
-  Hence, following is compatible with rejecting \autoref{idea:CS:B} while maintaining \autoref{idea:cs:imp-stp}.
-
   This also extends to \citeauthor{Wright:2011wn}.
   For, \citeauthor{Wright:2011wn} relies on the idea of doubt.
 
@@ -2263,7 +2431,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   At issue is not the agent getting something wrong.
 
   Still, if distinct motivation, then disregard \ideaS{}.
-  And, indeed, as \ideaCS{} will be used to motivate \ideaCSC{}, it may be possible to disregard \ideaCS{} also.
 \end{note}
 
 \paragraph{\ideaCS{}}
@@ -2274,7 +2441,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \item I need to be careful not to suggest that the agent \emph{regonises} that \(\psi\) does(n't) have value \(v'\).
     Though, this may be relaxed.
   \item Explicit premises and conclusion are candidates.
-  Hence, \label{idea:CS:B:step:requ} constrains the reasoning in general.
+  Hence, \ref{idea:CS:B:step:requ} constrains the reasoning in general.
   \end{itemize}
 \end{note}
 
@@ -2283,10 +2450,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   We do not include a clause that holds that the agent recognises.
 
   Delicate.
-  Committed.
-  We (attempt to) make precise in \autoref{sec:claim-supp-requ}.
+  \committed{2}.
   For the moment, intuitive.
-  Paired with an intuitive worry: agent may be committed even if they do not recognise.
+  Paired with an intuitive worry: agent may be \committed{} even if they do not recognise.
 
   Balance, the agent's reasoning may satisfy without recognition.
 
@@ -2294,12 +2460,12 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   If explicitly concludes, then \indicateV{1}.
   However, if implicitly concludes, then \indicateV{1}.
 
-  Difficulty is that commitment allows possibility even when not possible to recognise.
+  Difficulty is that \commitment{} allows possibility even when not possible to recognise.
   In principle, at least.
   Relative to agent's epistemic state.
   Important, \ep{}.
 
-  This does not completely diminish the concern, still possible that agent does not recognise how they are committed.
+  This does not completely diminish the concern, still possible that agent does not recognise how they are \committed{}.
   However, I am not clear on how to resolve this.
   So, leave this open.
 
@@ -2376,31 +2542,51 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   With a \requ{} we have that \(\psi\) is strictly weaker.
   However, may also think anything equal.
-\end{note}
+  Consider the following \illu{1}:
 
-\begin{note}
   \begin{illustration}
     \label{illu:requ:import-export}
-    Suppose we have some conditional `\(\rightarrow\)' that admits of import-export.\nolinebreak
-    \footnote{
-      For example, the material conditional, but not necessarily the natural language conditional expressed in certain `if \dots then \dots' constructions {\color{red} Vann}.
-    }
-    I.e.:
+    Suppose we have some \emph{non-deductive} conditional `\(\Rightarrow\)' and some either deductive or non-deductive conditional \(\rightarrow\) such that:
     \begin{quote}
-      \(\phi \rightarrow (\psi \rightarrow \xi)\) if and only if \((\phi \text{ and } \psi) \rightarrow \xi\)
+      \(\phi \Rightarrow (\psi \rightarrow \xi)\) if and only if \((\phi \text{ and } \psi) \Rightarrow \xi\)
     \end{quote}
     And, suppose an agent's reasoning has the structure:
     \begin{enumerate}
     \item \(\phi\)
-    \item \(\phi \rightarrow (\psi \rightarrow \xi)\)
-    \item \(\psi \rightarrow \xi\)
+    \item \(\phi \Rightarrow (\psi \Rightarrow \xi)\)
+    \item \(\psi \Rightarrow \xi\)
     \end{enumerate}
     Such that possible \(\phi \rightarrow (\psi \rightarrow \xi)\) is not the case.
   \end{illustration}
 
-  Here, \((\phi \text{ and } \psi) \rightarrow \xi\) is a \prequ{} of the step from 2 to 3.
-  For, if \(\phi \rightarrow (\psi \rightarrow \xi)\) then also \((\phi \text{ and } \psi) \rightarrow \xi\).
-  Hence, if \((\phi \text{ and } \psi) \rightarrow \xi\) is not the case, then \(\phi \rightarrow (\psi \rightarrow \xi)\) is also not the case.
+  Here, \((\phi \text{ and } \psi) \Rightarrow \xi\) is a \prequ{} of the step from 2 to 3.
+  For, if \(\phi \Rightarrow (\psi \Rightarrow \xi)\) then also \((\phi \text{ and } \psi) \Rightarrow \xi\).
+  Hence, if \((\phi \text{ and } \psi) \Rightarrow \xi\) is not the case, then \(\phi \Rightarrow (\psi \Rightarrow \xi)\) is also not the case.
+\end{note}
+
+\begin{note}
+  In other words, the non-deductive conditional admits of import-export.\nolinebreak
+    \footnote{
+      For example, the material conditional, but not necessarily the natural language conditional expressed in certain `if \dots then \dots' constructions {\color{red}~\cite{McGee:1985tz}}.
+    }
+
+    \begin{quote}
+      \begin{quote}
+        If Uncle Otto hadn't found gold but he had struck it rich, it would have been by finding silver.
+      \end{quote}
+      We also believe, as the law of exportation predicts,
+      \begin{quote}
+        If Uncle Otto hadn't found gold, then if he had struck it rich, it would have been by finding silver
+      \end{quote}
+    \end{quote}
+    Well, different things to evaluate.
+    So, gold was the last chance, hence the latter is trivial.
+    However, the former, need to do some work to allow for this possibility, so Otto would have had to have given up the efforts early, and so it's not clear that it would have been silver.
+
+    Well, maybe IE doesn't hold.
+    On the other hand, if committed, then this suggests that one is bad.
+    The second, plausibly, as reasoned about a restricted set of possibilities.
+    Or, the former, because you really shouldn't be revising so much.
 \end{note}
 
 \begin{note}[The difficulty]

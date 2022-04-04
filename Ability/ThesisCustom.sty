@@ -144,7 +144,7 @@
 \DeclareDocumentCommand{\ideaCS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
+    \text{\hyperref[idea:CS:B]{\named{\(\dag\) CS}}}
   }
   {%
     \ifnum0=#1\relax%
@@ -152,23 +152,6 @@
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{Idea\space CS}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ideaCSC}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:cs:imp-stp]{\named{\(\dag\) CS\('\)}}}  %\autoref{idea:eiS}}}  %\named{ICS}}}%\text{\textsf{|ICS|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Idea\space regarding\space claiming\space support\space B\('\)}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{Idea\space CS\('\)}%
     \fi
   }
 }
@@ -211,23 +194,8 @@
   }
 }
 \ExplSyntaxOff
+ % %
 
-% % %
-\newcommand{\OCSacro}[0]{OCS}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\OCS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prem:OCS]{\named{\OCSacro{}}}}% \text{\textsf{|NI|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{An\space observation\space about\space claiming\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 
 \newcommand{\nIacro}[0]{{\color{red} NI}}
@@ -268,7 +236,7 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\LCSBackground}{\hyperref[prem:lcs]{\named{\LCSAcro:1--3}}}
+\newcommand{\LCSBackground}{\hyperref[prop:lcs]{\named{\LCSAcro:1\&2}}}
 
 % % % FCS % % %
 \newcommand{\FCSAcro}[0]{FCS}
@@ -376,36 +344,6 @@
   {%
     \ifnum0=#1\relax%
       \obeybreaks{Scenarios\space exist}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eiS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[assu:supp:independence]{\named{ICS}}}%\text{\textsf{|ICS|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Independence\space of\space claimed\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eiSC}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prop:eiS:consq]{\named{ICS:C}}}%\text{\textsf{|ICS|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Independence\space of\space claimed\space support:\space Consequence}%
     \fi
   }
 }
@@ -1345,6 +1283,56 @@
 }
 \ExplSyntaxOff
 
+% % % % % % Commands commitment % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\commitment}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{commitment}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{commitment}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Commitment}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\committed}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{committed}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{committed}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Committed}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+
 
 
 % % % Other
@@ -1422,6 +1410,9 @@
     \fi
     \ifnum12=#1\relax
       Grayson%
+    \fi
+    \ifnum13=#1\relax
+      Logan%
     \fi
   }
 }
