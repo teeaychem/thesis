@@ -561,9 +561,18 @@ In most cases the value will be clear (i.e. that the proposition is true, though
         \label{def:sink:restrict:phi:get}
         If \vAgent{} were to reason about whether \(\phi\) has value \(v\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\phi\) has value \(v\).
       \item
-        There is no other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\) and \(\phi\) is not a \sink{} with respect to \(\eState{\vAgent{}}[]\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
+        There is no other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\).
       \end{enumerate}
+
       Else:
+      \begin{enumerate}
+      \item {\color{red} This does the work of the next clause. For, either conclude \(\phi\) or make some other conclusion.}
+        For any other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\),
+        \begin{enumerate}
+        \item \(\phi\) is a \sink{} with respect to \(\eState{\vAgent{}}[]\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
+        \end{enumerate}
+      \end{enumerate}
+      Or:
       \begin{enumerate}[label=\alph*., ref=(\(\odot\)1\alph*), resume]
       \item
         \label{def:sink:restrict:psi}
@@ -632,7 +641,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \label{fig:ideaS:basic-examples}
   \end{figure}
 
-  In each instance, it seems plausible that the agent may conclude the conclusion from the premise, and further, to continue to maintain the premise even if the conclusion is not the case.
+  In each instance, it seems plausible that the agent may conclude the conclusion from the premise, and further, would continue to maintain the premise even if the conclusion is not the case.
   Hence, each instance of reasoning plausibly satisfies \ideaS{}.
 
   \color{red}
