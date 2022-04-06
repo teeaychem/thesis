@@ -560,6 +560,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \item
         \label{def:sink:restrict:phi:get}
         If \vAgent{} were to reason about whether \(\phi\) has value \(v\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\phi\) has value \(v\).
+      \item
+        There is no other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\) and \(\phi\) is not a \sink{} with respect to \(\eState{\vAgent{}}[]\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
       \end{enumerate}
       Else:
       \begin{enumerate}[label=\alph*., ref=(\(\odot\)1\alph*), resume]
@@ -581,7 +583,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}[Key idea of \sink{}]
-  The key idea of some proposition-value pair \(\phi\) having value \(v\) being a \sink{} is that for any \epPAd{} \world{} that the agent may entertain, the agent has some way of concluding that \(\phi\) has value \(v\).
+  The key idea of some proposition-value pair \(\phi\) having value \(v\) being a \sink{} is that for any \epPAd{} \world{} that the agent may entertain, the agent both has some way of concluding that \(\phi\) has value \(v\), and would conclude that \(\phi\) has value \(v\).
 
   In other words, the agent the agent would conclude that \(\phi\) has value \(v\) even if\dots\space --- where the ellipses indicate some description of an \epPAd{} \world{}.
 \end{note}
@@ -988,7 +990,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) without requiring that \(\psi\) hasn't value \(v'\).
     \item
       \label{notion:requ:possible-psi}
-      It is possible for the agent to conclude whether \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\).
+      If step of reasoning  it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\) given their present epistemic state.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -996,10 +998,57 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   We will shortly replace this notion with a definition covering two specific types of \requ{}.
+  First, however, we will consider the intuition supporting the notion of a \requ{}.
+
+  Antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of the reasoning the agent may perform from their current epistemic state.
+  Or, in other words, regardless of how the agent may refine their present epistemic state.
+
+  Recall the notion of a \sink{}.
+  An agent has \support{} for some proposition-value pair just in case for any \epPW{}, the agent both has a way to- and would- conclude that \(\phi\) has value \(v\).
+  \ideaCS{} and the notion of a \requ{} narrows the notion of a \sink{} to an agent's present epistemic state and future reasoning.
+  such that if the agent conclude that \(\phi\) has value \(v\) from their current epistemic state, then the would conclude that \(\phi\) has value \(v\) regardless of any other conclusions they may draw from their present epistemic state.
+
+  However, narrow.
+  Only focuses on proposition-value pairs related to the step of reasoning that are `up for grabs'.
 \end{note}
 
 \begin{note}
-  Intuitively, \(\psi\) having value \(v'\) is a \requ{} of a step of reasoning just in case the agent could not conclude that \(\phi\) has value \(v\) without the conclusion also \indicatePr{0} that \(\psi\) has value \(v'\) \emph{such that} prior to making the step the agent conclude that \(\psi\) having value \(v'\), and hence check whether they would conclude that \(\psi\) has value \(v'\).
+  The initial pair of clauses are background.
+  First, if it is \epVAd{} that \(\psi\) does not have value \(v'\), then \(\psi\) not having value \(v'\) is a candidate for the actual \world{}.
+  And, from \ref{notion:requ:need-psi}, result of concluding that \(\phi\) has value \(v\) from step of reasoning is that \(\psi\) has value \(v'\) in all candidates for the actual \world{}.
+  Hence, if were to make \(\delta\), then would restrict candidates.
+
+  The key clause of the notion of a \requ{} is \ref{notion:requ:possible-psi}.
+  Antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of how the agent may refine their present epistemic state.
+
+  Two cases.
+  Either the agent reasons about whether \(\psi\) has value \(v'\) and concludes that \(\psi\) \emph{does} have value \(v'\).
+  Or, the agent reasons about whether \(\psi\) has value \(v'\) and \emph{fails} to conclude that \(\psi\) has value \(v'\).
+
+  In first case, conclude that \(\psi\) has value \(v'\), hence \(\psi\) not having value \(v'\) would not be \epVAd{}.
+  And, so though \(\phi\) needs \(\psi\), the agent will already have \(\psi\).
+
+  The first case is not, however, of particular interest.
+  Rather, it is the second case that is important.
+
+  Simple case, conclude that \(\psi\) does not have value \(v'\).
+  Then, no \epVW{} where \(\phi\) has value \(v\).
+  Hence, the agent would not conclude that \(\phi\) has value \(v\).
+
+  Slightly stronger.
+  Given that it is possible to conclude that \(\psi\) has value \(v'\) if \(\phi\) has value \(v\).
+  Therefore, if the agent were to fail to conclude that \(\psi\) has value \(v'\), then this suggests that the agent would at least re-evaluate what they consider \epVAd{} upon failure to conclude.
+  And, hence there is no guarantee that the agent would conclude \(\phi\) has value \(v\) from \(\delta\) given the failure to conclude that \(\psi\) has value \(v'\).
+
+  In this respect, when \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning, then the agent concluding that \(\psi\) has value \(v'\) prior to making the relevant step of reasoning functions as an antecedent check on whether it makes sense for the agent to make the relevant step given their current epistemic state.
+  For, concluding that \(\psi\) does not have value \(v'\) would block concluding that \(\phi\) has value \(v\) from the step and failure to conclude that \(\psi\) has value \(v'\) would lead to a revision of what the agent considers \epVAd{}.
+
+
+
+
+
+
+  not possible for the agent to conclude that \(\phi\) has value \(v\) without the conclusion also \indicatePr{0} that \(\psi\) has value \(v'\) \emph{such that} prior to making the step the agent conclude that \(\psi\) having value \(v'\), and hence check whether they would conclude that \(\psi\) has value \(v'\).
 
   If the agent would not conclude that \(\psi\) has value \(v'\), then the agent would not reason to \(\phi\) having value \(v\) {\color{red} regardless of whether \(\phi\) has value \(v\)}.
   For, if the agent were to reason about \(\psi\) having value \(v'\) and conclude that \(\psi\) does not have value \(v'\), then the agent would not conclude that \(\phi\) has value \(v\).
@@ -1034,24 +1083,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \nagent{15} has searched through one particular scene, and has identified a character with a variety of the features.
     Before concluding that the character is Wally, \nagent{15} remembers that there is a picture of Wally On the cover of the book, with all the identifying features present.
 
-    Wally is always wearing a pair of round glasses, but this was not a feature \nagent{15} kept in mind when searching for Wally.
-    % The question carries implicit information:
-    % \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*)]
-    %   \setcounter{enumi}{-1}
-    % \item\label{illu:CS:wheres-wally:info} The individual identified is Wally only if the individual is wearing a pair of round glasses.
-    % \end{enumerate}
-    %
-    % The agent then reasons as follows:
-    %
-    % \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:wheres-wally}.\arabic*), resume]
-    % \item Collection of features sufficient.
-    % \item
-    %   \label{illu:CS:wheres-wally:ante}
-    %   Had features.
-    %   % \item The individual identified is Wally only if the individual is wearing a pair of round glasses.
-    % \item
-    %   The individual was wearing a pair of round glasses. \hfill (From \ref{illu:CS:wheres-wally:info} and \ref{illu:CS:wheres-wally:ante})
-    % \end{enumerate}
+    Wally is always wearing a pair of round glasses, but this was not a feature \nagent{15} kept in mind when searching for Wally, and it is \epVAd{} for \nagent{15} that the character they identified is not wearing round glasses  --- \nagent{15} only recalls the features they identified.
   \end{illustration}
 
   Our interest is, generally, in whether \nagent{15} may conclude from the variety of features identified that the character is Wally.
@@ -1059,11 +1091,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Descriptively, of course, there seems no barrier.
   An agent may reason to an arbitrary conclusion to arbitrary premises.
 
-  So, specifically, our interest is in whether \nagent{15} would claim support that the character is Wally from the variety of features identified.
-  And, the difficulty for \nagent{15} is that there an clear check on whether \nagent{15} may reason to a different conclusion.
+  So, specifically, our interest is in whether \nagent{15} would claim support that the character is Wally by concluding that the character is Wally from the variety of features identified.
+
+  The difficulty for \nagent{15} is that so long as they consider it \epVAd{} that the character is not wearing round glasses, then there a clear check on whether \nagent{15} may reason to a different conclusion.
   For, if \nagent{15} were to check whether the character is wearing a pair of round glasses, and the character is not wearing a pair of round glasses, then \nagent{15} would conclude that the character is not Wally.
-  Of course, it may also be that the character is wearing a pair of round glasses.
-  At issue, though, is that \nagent{15} considers it \epVAd{} that the character is not wearing a pair of round glasses --- \nagent{15} only recalls the features they appealed to.
 \end{note}
 
 \begin{note}
