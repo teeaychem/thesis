@@ -527,186 +527,223 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}[Overview of \ideaS{}]
   Above we paraphrased \ideaS{} as holding that that an instance of reasoning that concludes \(\phi\) has value \(v\) is an instance of claiming support that \(\phi\) has value \(v\) \emph{only if} the agent would conclude that \(\phi\) has value \(v\) were it to be the case that the actual \world{} is some \epPAd{} \world{}.
-
-  We now state \ideaS{} explicitly.
 \end{note}
 
-\begin{note}[Statement of \ideaS{}]
-  \begin{restatable}[\ideaS{0} --- \ideaS{}]{idea}{iCSA}
-    \label{idea:defs-for-CS}
-    An agent \vAgent{} has support for \(\phi\) having value \(v\) \emph{only if}
-    \begin{enumerate}
-    \item
-      \(\phi\) has value \(v\) through the \epVW{1} relative to the agent's present epistemic state.
-    \item
-    \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state.\nolinebreak
-    \footnote{Specifically, with respect to the agent's current epistemic state and an empty collection of proposition-value pairs.}
-  \end{enumerate}
-\end{restatable}
-\end{note}
-
-\begin{note}[Statement of a \sink{0}]
-  Where:
-  \begin{restatable}[A \sink{0}]{notion}{defSink}
-    \label{def:sink}
-    \(\phi\) having value \(v\) is a \emph{\sink{}} with respect to an agent \vAgent{}' epistemic state \(\eState{\vAgent{}}\) and collection of proposition-value pairs \(\Phi\) just in case:
-
-    For any \epPAd{} \world{} \(s\) compatible with \(\eState{\vAgent{}}\) and \(\Phi\).
-    \begin{enumerate}[label=\(\odot\)\arabic*., ref=(\(\odot\)\arabic*)]
-    \item
-      \label{def:sink:restrict}
-      If \vAgent{} were to relax \(\eState{\vAgent{}}\) to  \(\eState{\vAgent{}}[']\) such that \(s\) is compatible with being the actual \world{} relative to \(\eState{\vAgent{}}[']\), then:
-      \begin{enumerate}[label=\alph*., ref=(\(\odot\)1\alph*)]
-      \item
-        \label{def:sink:restrict:phi:get}
-        If \vAgent{} were to reason about whether \(\phi\) has value \(v\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\phi\) has value \(v\).
-      \item
-        There is no other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\).
-      \end{enumerate}
-
-      Else:
-      \begin{enumerate}
-      \item {\color{red} This does the work of the next clause. For, either conclude \(\phi\) or make some other conclusion.}
-        For any other proposition-value pair \(\psi\) having value \(v'\) such that \vAgent{} would conclude that \(\psi\) has value \(v'\),
-        \begin{enumerate}
-        \item \(\phi\) is a \sink{} with respect to \(\eState{\vAgent{}}[]\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
-        \end{enumerate}
-      \end{enumerate}
-      Or:
-      \begin{enumerate}[label=\alph*., ref=(\(\odot\)1\alph*), resume]
-      \item
-        \label{def:sink:restrict:psi}
-        There is some proposition-value pair \(\psi\) having value \(v'\) such that
-        \begin{enumerate}[label=\roman*., ref=(\(\odot\)1b\roman*)]
-        \item
-          \label{def:sink:restrict:psi:get}
-          If \vAgent{} were to reason from about whether \(\psi\) has value \(v'\) from \(\eState{\vAgent{}}[']\) together with \(\Phi\), \vAgent{} would conclude that \(\psi\) has value \(v'\), and
-        \item
-          \label{def:sink:restrict:psi:recurse}
-          \(\phi\) having value \(v\) is a \sink{} with respect to \(\eState{\vAgent{}}[']\) and the collection \(\Phi\) \emph{combined with} \(\psi\) having value \(v'\).
-        \end{enumerate}
-      \end{enumerate}
-      \vspace{-\baselineskip}
-    \end{enumerate}
-  \end{restatable}
-\end{note}
-
-\begin{note}[Key idea of \sink{}]
-  The key idea of some proposition-value pair \(\phi\) having value \(v\) being a \sink{} is that for any \epPAd{} \world{} that the agent may entertain, the agent both has some way of concluding that \(\phi\) has value \(v\), and would conclude that \(\phi\) has value \(v\).
-
-  In other words, the agent the agent would conclude that \(\phi\) has value \(v\) even if\dots\space --- where the ellipses indicate some description of an \epPAd{} \world{}.
-\end{note}
-
-\begin{note}
-  Prior to working through~\ideaS{} and~\autoref{def:sink}, we provide a broader intuitive characterisation of the underlying idea.
-  Consider the instances of reasoning in~\autoref{fig:ideaS:basic-examples}.
-
-    \begin{figure}[h!]
-    \mbox{}\hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}
-      \item That persons' eyes have been closed for a long time and their breathing is slow.
-      \item That person is asleep.
-      \end{enumerate}
-      \caption{}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}
-      \item A newspaper with a strong record of accurate reporting and reported that \(S\) said \(p\).
-      \item \(S\) said \(p\).
-      \end{enumerate}
-      \caption{}
-    \end{subfigure}
-    \hfill\mbox{}
-
-    \mbox{}\hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}
-      \item S knows me very well.
-      \item Whatever S has gifted me satisfies some desire I have.
-      \end{enumerate}
-      \caption{}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\linewidth}
-      \begin{enumerate}
-      \item The die has rolled even in \(5251\) of \(6000\) samples.
-      \item The die is biased.
-      \end{enumerate}
-      \caption{}
-    \end{subfigure}
-    \hfill\mbox{}
-    \caption{}
-    \label{fig:ideaS:basic-examples}
-  \end{figure}
-
-  In each instance, it seems plausible that the agent may conclude the conclusion from the premise, and further, would continue to maintain the premise even if the conclusion is not the case.
-  Hence, each instance of reasoning plausibly satisfies \ideaS{}.
-
-  \color{red}
-  Intuitive `even if\dots' test.
-
-  \begin{enumerate}[label=\ref{fig:ideaS:basic-examples}\alph*., ref=(\ref{fig:ideaS:basic-examples}\alph*)]
-  \item Even if not asleep\dots
-  \item Even if \(S\) did not say \(p\), \dots
-  \item Even if the gift does not satisfy some desire I have \dots
-  \item Even if the die is not biased \dots
-  \end{enumerate}
-\end{note}
-
-\begin{note}
-  The `idea' of \ideaS{}, then, is to specify how to evaluate the intuitive `even if\dots' test, and the specification reduces to the notion of a \sink{}.
-  \ideaS{} and \autoref{def:sink} are separated simply because \autoref{def:sink} is a recursive definition, and is not easily stated without allowing for arbitrary epistemic states and collection of proposition-value pairs.\nolinebreak
-  \footnote{
-    Observe that both the agent's epistemic state and the collection of proposition-value pairs are revised when passed to the recursive clause~\ref{def:sink:restrict:psi:recurse}.
-  }
-\end{note}
-
-
-
-\begin{note}
-  Our primary focus will be on clarify the notion of a \sink{}.
-
-  Indeed, the notion of a \sink{} is complex, involving an `outer' subjunctive conditional concerning an agent's epistemic state, and an `inner' subjunctive conditional concerning reasoning that an agent may perform relative to a given epistemic state.
-
-  Our goal, however, is to not provide complete clarity.
-  For, out interest with \support{} is limited to motivating an idea, \ideaCS{}, with respect to \emph{claiming} \support{}.
-  And, with respect to motivating \ideaCS{}, difficulties with the details of how to evaluate the relevant subjunctive conditionals will be mitigated by focusing on \epVW{1}, rather than \epPW{1}.
-\end{note}
 
 \begin{note}
   The present section will be divided as follows:
   \begin{itemize}
-  \item \autoref{sec:ideaS:sink} clarifies \sink{}.
+  \item \autoref{sec:ideaS:statement}, state \ideaS{}, and \sink{}.
+  \item \autoref{sec:ideaS:intuition}, intuition.
+  \item \autoref{sec:ideaS:illus}, provide some \illu{1}.
   \item \autoref{sec:ideaS:contrast} contrasts to safety and sensitivity.
   \item \autoref{sec:ideaS:closing} additional observations.
   \end{itemize}
 \end{note}
 
+\paragraph{Statement of \ideaS{}}
+\label{sec:ideaS:statement}
 
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Skip subsubsections
+\begin{note}[Statement of \ideaS{} and \sink{0}]
+  \begin{restatable}[\ideaS{0} --- \ideaS{}]{idea}{iCSA}
+    \label{idea:defs-for-CS}
+    \label{idea:S}
+    An agent \vAgent{} has support for \(\phi\) having value \(v\) \emph{only if}
+    \begin{enumerate}
+    \item
+      \label{idea:S:phi}
+      \vAgent{} has concluded that \(\phi\) has value \(v\).
+    \item
+      \label{idea:S:sink}
+    \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state.
+  \end{enumerate}
+  \vspace{-\baselineskip}
+\end{restatable}
 
-\subsubsection{The notion of a \sink{0}}
-\label{sec:ideaS:sink}
+  Where:
 
-\begin{note}
-  The notion of a \sink{} is stated by means of a recursive definition.
-  We assume that some proposition-value pair, epistemic state, and collection of propositions has been specified.
-
-  Clause \ref{def:sink:restrict} then quantifies over all \epPW{1} and clauses \ref{def:sink:restrict:phi:get} and \ref{def:sink:restrict:psi} specify a base case and a recursive case, respectively.
-
-  We expand on the base case and recursive case in turn.
+  \begin{restatable}[A \sink{0}]{notion}{defSink}
+    \label{def:sink}
+    \(\phi\) having value \(v\) is a \emph{\sink{}} with respect to an agent \vAgent{}' epistemic state \(\eState{\vAgent{}}\) just in case:
+    \begin{enumerate}[label=\alph*., ref=(\(\odot\)1\alph*)]
+    \item
+      \label{def:sink:base}
+      If \vAgent{} were reason about whether \(\phi\) has value \(v\) from \(\eState{\vAgent{}}\), \vAgent{} would conclude that \(\phi\) has value \(v\).
+    \item
+      For any \epPAd{} proposition \(\psi\) having value \(v'\) with respect to \(\eState{\vAgent{}}\).
+      \begin{enumerate}[label=\alph*., ref=(\(\odot\)2\alph*)]
+      \item
+        \label{def:sink:restrict}
+        If \vAgent{} were to relax \(\eState{\vAgent{}}\) to \(\eState{\vAgent{}}[']\) such that \(\psi\) having value \(v'\) is \epVAd{} with respect to \(\eState{\vAgent{}}[']\) then:
+        \begin{enumerate}[label=\alph*., ref=(\(\odot\)2\alph*)]
+          \setcounter{enumiii}{1}
+        \item
+          For any proposition-value pair \(\chi\) having value \(v''\) such that \vAgent{} would conclude that \(\chi\) has value \(v''\) from \(\eState{\vAgent{}}[']\):
+          \begin{enumerate}[label=\alph*., ref=(\(\odot\)2\alph*)]
+            \setcounter{enumiv}{2}
+          \item
+            \(\phi\) having value \(v\) is a \sink{} with respect to \(\eState{\vAgent{}}['']\), where \(\eState{\vAgent{}}['']\) is the result of concluding \(\chi\) has value \(v''\) from \(\eState{\vAgent{}}[']\).
+          \end{enumerate}
+        \end{enumerate}
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
 \end{note}
 
-\begin{note}[The base case]
-  For the base case, if the agent were to epistemic state is relaxed to be compatible with some \epPW{}, and after doing so would conclude that \(\phi\) has value \(v\), then no further investigation is required with respect to the \epPW{}.
-  In other words, if the agent were to consider the \epPW{} as \viableAd{}, the agent would conclude that \(\phi\) has value \(v\).
+\begin{note}
+  Whether an agent has support for some proposition-value pair \(\langle \phi,v \rangle\) then, primary reduces to~\ref{idea:S:sink}:
+  Whether \(\phi\) having value \(v\) is a \sink{} with respect to the agent's current epistemic state.
 
-  Let us consider a par of quick illustrations.
+  Hence, our focus will be on clarifying the notion of a \sink{}.
+
+  Our goal, however, is to not provide complete clarity.
+  For, out interest with \support{} is limited to motivating an assumption with respect to \emph{claiming} \support{}, \ideaCS{}.
+  And, with respect to motivating \ideaCS{}, difficulties with the details of how to evaluate whether some proposition-value pair is a \sink{} will be mitigated by focusing on specific steps of reasoning with respect to what an agent considers \epVAd{}.
+
+  Still, as \(\phi\) having value \(v\) being a \sink{} does not guarantee that the agent has concluded that \(\phi\) has value \(v\),~\ref{idea:S:phi} ensures the agent has concluded that \(\phi\) has value \(v\).
+  Though, this is both a technical and conceptual distinction.
+  The notion of a \sink{} concerns subjunctive considerations about whether it is possible for an agent to conclude that \(\phi\) has value \(v\) given what the agent considers \epPAd{} from their current epistemic state, while the agent having concluded that \(\phi\) has value \(v\) is a property that need only hold of the agent's current epistemic state, and may not be preserved under the relevant subjunctive considerations.
+\end{note}
+
+\paragraph{Intuition}
+\label{sec:ideaS:intuition}
+
+\begin{note}[Structure]
+  Whether \(\phi\) having value \(v\) is a \sink{} with respect to some epistemic state is an instance of generative recursion.
+  We start with some base property \ref{def:sink:base}, and then expand the property to variant epistemic states generated from the relevant epistemic state under consideration.
+
+  In particular,~\ref{def:sink:restrict} combines of a `forwards' and a `backwards' condition.
+  The key question is whether the agent may fail to conclude, or failed to have concluded, that \(\phi\) has value \(v\) given the alternative conclusions the agent may make, or may have made.
+
+  We start with the forwards condition, and then expand to the backwards condition.
+\end{note}
+
+\begin{note}[Forwards]
+  The \emph{forwards} condition considers the agent's present epistemic state with respect to the trivial `relaxation' of the epistemic state, and requires that for any proposition-value pair \(\chi\) having value \(v''\) such that the agent would conclude that \(\chi\) has value \(v''\), \(\phi\) having value \(v\) remains an \sink{} \emph{after} the agent has concluded that \(\chi\) has value \(v''\).
+
+  In other words, not only would the agent conclude that \(\phi\) has value \(v\) if the agent were to reason about whether \(\phi\) has value \(v\), but further:
+  If the agent were to reason about some other proposition-value pair from the present epistemic state, the agent would continue to conclude that \(\phi\) has value \(v\) if they were to reason about whether \(\phi\) has value \(v\).
+
+  The key point is this:
+  The agent would conclude that \(\phi\) has value \(v\), and there is no other proposition-value pair \(\langle \chi, v'' \rangle\) such that if the agent were to first conclude that \(\chi\) has value \(v''\) then the agent would no longer conclude that \(\phi\) has value \(v\).
+
+  Loosely, not only would the agent conclude that \(\phi\) has value \(v\), but from the agent's perspective there are no considerations that could intervene to prevent the agent from concluding that \(\phi\) has value \(v\).
+
+  Still, in the case of \ideaS{}, an agent has already concluded that \(\phi\) has value \(v\), hence the primary role of the forwards condition is with respect to the backwards condition.
+\end{note}
+
+\begin{note}[Backwards]
+  The \emph{backwards} condition applies in non-trivial `relaxations' to the agent's present epistemic state, and requires that the forward condition holds with respect to any such `relaxation'.
+
+  Intuitively, if the agent were to cancel some previous instance of reasoning such that what the agent considers \epVAd{} is not longer restricted to the conclusion of that instance of reasoning, it remains the case that the agent would conclude that \(\phi\) has value \(v\) and there are no considerations that could intervene with respect to the `relaxed' epistemic state to prevent the agent from concluding that \(\phi\) has value \(v\).\nolinebreak
+  \footnote{
+    Strictly, the backwards condition also requires that the backwards condition holds with respect to any `relaxation', though this is only of interest if what the agent considers \epPAd{} may change.
+    We will ignore this possibility.
+  }
+  The key idea of the backwards, condition, then, is to ensure that some proposition-value pair \(\phi\) having value \(v\) being a \sink{} is that for any \epPN{} that the agent may entertain, the agent both has some way of concluding that \(\phi\) has value \(v\), and would conclude that \(\phi\) has value \(v\) if the agent were to initially conclude some other proposition-value pair from the epistemic state.
+
+  Loosely, the agent the agent would conclude that \(\phi\) has value \(v\) even if\dots\space --- where the ellipses indicate some \epPN{}.
+\end{note}
+
+\begin{note}[The task]
+  Showing that some proposition-value pair is a \sink{} with respect to an agent's epistemic state may be an intractable task.
+  For, there may be no clear bounds on what an agent considers \epPAd{}, nor on how an agent may reason about any given proposition-value pair and one must cover all possibilities.
+
+  However, showing that some proposition-value pair \(\langle \phi,v \rangle\) is \emph{not} a \sink{} with respect to an agent's epistemic state is more straightforward.
+
+  If the agent has not yet concluded that \(\phi\) has value \(v\), then one only needs to find some proposition-value pair \(\langle \chi,v'' \rangle\) such that the agent would conclude that \(\chi\) has value \(v''\) and would not conclude that \(\phi\) has value \(v\) \emph{after} concluding that \(\chi\) has value \(v''\).
+
+  And, if the agent has conclude that \(\phi\) has value \(v\), the one only needs to find some proposition-value pair \(\langle \psi,v' \rangle\), such that the agent considers \(\psi\) having value \(v'\) \epPAd{} and would not conclude that \(\phi\) has value \(v\) if the agent were to revise their epistemic state so that \(\psi\) having value \(v'\) is \epVAd{}.
 \end{note}
 
 \begin{note}
+  Two small points.
+  First, on relaxing, second on the relation between an agent having \support{} and particular instances of reasoning.
+\end{note}
+
+\begin{note}[`Relaxing']
+  Throughout, `relaxing' an epistemic state has been left undeveloped.
+  I expect the terminology is sufficient indicative to provide some intuition as to what this operation amounts to.
+  Still, without a clear statement, the \emph{notion} of a \sink{} falls far short of a \emph{definition}.
+  And, though attempts were made, a clear statement of the operation remains elusive.
+  Now, while this leaves the notion of a \sink{}, and hence \ideaS{} somewhat unclear, the significance of this lack of clarity will be mitigated when we turn to claiming \support{}.
+  For, the assumption we make regarding \emph{claiming} \support{} will not invoke the operation of relaxing an agent's epistemic state.
+\end{note}
+
+\begin{note}
+  You may note that \ideaS{} concerns whether an agent \emph{has} \support{} for some proposition-value pair, as opposed to whether an agent has \support{} for some proposition-value pair \emph{relative to} some prior reasoning.
+  Indeed, you may observe that there is no connexion between the reasoning from which the agent concluded that \(\phi\) has value \(v\) from \ref{idea:S:phi}, and the reasoning relevant to whether \(\phi\) having value \(v\) is a \sink{} with respect to the agent's epistemic state from \ref{idea:S:sink}.
+
+  Abstractly, an agent may have concluded that \(\phi\) has value \(v\) from some reasoning, but the reasoning relies on particulars of the agent's prior epistemic state, and given some further relaxation of the agent's prior epistemic state, the agent may have concluded that \(\phi\) has value \(v\) from a quite distinct line of reasoning.
+
+  Again, \ideaS{} states only a necessary condition on whether an agent has \support{} for some proposition-value pair, allowing the property of having \support{} to be tied closer to the reasoning the agent has witnessed.
+  I avoid doing so for two reasons.
+  First, to keep the notion of a \sink{} relatively simple.
+  Second, I have no clear intuition regarding the issue.
+  A detective may conclude that someone is innocent on a hunch, but have \support{} for the conclusion given the evidence they would bring to mind were they to consider the matter more carefully.
+  What to say is unclear.
+  Certain restrictions will be placed on whether the detective may \emph{claim} \support{}, but these will be postponed to \autoref{sec:ideaCS}.
+\end{note}
+
+\paragraph{\illu{3}}
+\label{sec:ideaS:illus}
+
+\begin{note}
+  \begin{itemize}
+  \item Start with simile.
+  \item Question.
+  \item Clock.
+  \item Simple instances.
+  \item Final illustration in following section, distinguish concluding that \(\phi\) has value \(v\) from whether \(\phi\) has value \(v\).
+\end{itemize}
+\end{note}
+
+\begin{note}
+  \begin{illustration}[Lost keys]
+    Lost keys, searched everywhere.
+    However, \epVAd{} that place haven't looked.
+    And, hence \epVAd{} that they keys are there.
+  \end{illustration}
+  So, that one has lost their keys is not a \sink{}, no matter how tempting.
+
+  Indeed, if I may be granted a simile, question of whether an agent has \support{} for some proposition-value pair \(\langle \phi, v \rangle\) seems like a pair of lost keys.
+  For, at issue is whether there is some line of reasoning from a relaxation of the agent's epistemic state which would prevent them from concluding that \(\phi\) has value \(v\).
+  Without exhausting all possible locations, or lines of reasoning, the keys may turn up, or one may find fault in the reasoning that led them to their current epistemic state.
+\end{note}
+
+\begin{note}[Gifts]
+  \begin{illustration}
+    \label{illu:S:gifts}
+    \begin{enumerate}
+    \item S knows me very well.
+    \item Whatever S has gifted me satisfies some desire I have.
+    \end{enumerate}
+  \end{illustration}
+  Perhaps wishful thinking.
+  Suppose not knowing very well is \epPAd{}.
+  `Relax', no consider previous gifts.
+  Some of these were quite bad.
+  Might not satisfy some desire.
+
+  On the other hand, even if \epPAd{}, the previous gifts may have been ideal.
+  So, even after `relaxing', would arrive at the same conclusion.
+
+  The same basic idea underlying~\autoref{illu:S:gifts} extends to various other premise-conclusion instances.
+  Consider, for example:
+  \begin{enumerate}
+  \item The newspaper reported \(S\) said that \(p\).
+  \item \(S\) said that \(p\).
+  \end{enumerate}
+  It seems plausible that the reasoning from premise to conclusion assumes that the paper has a history of accurate reporting.
+  And, and if available to the agent are various premises which suggest that the paper does not have such a history, then the agent may refrain from concluding that \(S\) said that \(p\) from the report.
+  Still, even if the agent were to relax their epistemic state so that the newspaper lacking such a history is \epVAd{}, the agent may still have sufficient premises to conclude that the newspaper does have the history, those premises may resist questioning, and so on.
+  Hence, whether or not an agent has \support{} for the conclusion broadly depends on the agent's epistemic state.
+  Further, the agent may also have some other premise from which to conclude that \(S\) said that \(p\).
+  For example, by having been in the room when \(S\) said that \(p\).
+\end{note}
+
+    \begin{note}
   \begin{illustration}
     Suppose the check engine light of the agent's car has come on.
     As a result the agent has concluded that their is some fault with their car's engine.
@@ -732,20 +769,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Hence, to entertain the relevant \epP{}, the conclusion that the clock is functioning would need to be relaxed.
   However, a non-functioning clock may still be in the centre of the library and seen by many people.
   And, as it is plausible that someone would have noticed that the clock is not functioning, it seems the agent may still conclude that the clock is functioning.
-\end{note}
-
-\begin{note}[The recursive case]
-  The recursive case,~\ref{def:sink:restrict:psi}, is designed to allow that an agent may only reason to \(\phi\) having value \(v\) through multiple instances of reasoning.
-
-  In other words, the notion of a \sink{} is designed to allow arbitrary upper bounds on what constitutes an instance of reasoning, so long as at a minimum an agent may move from some premises to some conclusion as an instance of reasoning.
-
-  For example, an agent may have concluded that they owe some amount of taxes.
-  And, the conclusion may have been obtained only through multiple instances of reasoning spread out over numerous days.
-  And, the agent may consider it \epPAd{} that they have miscalculated their taxes.
-
-  Still, so long as the agent would repeat the reasoning, then the agent would have \support{} for owing that amount of taxes.
-
-  For, given~\ref{def:sink:restrict:psi}, each instance of reasoning may correspond to a recursive step, and the conclusion of any prior instance of reasoning in preserved through the collection of propositions passed through to the recursive clause.
 
   Likewise, expand \autoref{ideaS:illu:clock} suppose the agent considers it \epPAd{} that the clock is not functioning and no-one has noticed that the clock is broken.
   In such a case, the agent's relaxed epistemic state will not include that the clock has been seen by many people.
@@ -757,64 +780,35 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Hence, it seems the agent may conclude that the clock has been seen by many people, and with this intermediary proposition-value pair in hand then conclude that the clock is functioning.
 \end{note}
 
-\begin{note}[Avoiding things]
-  The recursive construction of a notion of a \sink{}, then, is important only with respect to allowing \ideaS{} to be satisfied by various types of reasoning.
-  In particular,~\ref{def:sink:restrict:psi} avoids two issues.
-  First, requiring that distinct instances of reasoning agglomerate to a single instance of reasoning.
-  Second, requiring that some counterfactual idealisations are made with respect to the agent's capacity to reason.
-  Of course, granting agglomeration or counterfactual idealisations, the recursive clause may be omitted.
+\begin{note}
+  Pair of trivial instances.
+  Inspection immediately grants.
+  \begin{illustration}
+    \begin{figure}[h!]
+    \mbox{}\hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item That persons' eyes have been closed for a long time and their breathing is slow.
+      \item That person is asleep.
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item The die has rolled even in \(5251\) of \(6000\) samples.
+      \item The die is biased.
+      \end{enumerate}
+      \caption{}
+    \end{subfigure}
+    \hfill\mbox{}
+    \caption{}
+    \label{fig:ideaS:basic-examples}
+  \end{figure}
+\end{illustration}
 \end{note}
 
-\begin{note}[A three step process]
-  Summarising, the core of evaluating whether \autoref{def:sink} holds is a three-step process:
-  \begin{enumerate}[label=\Alph*., ref=\Alph*]
-  \item
-    \label{ideaS:sink:step:A}
-    Identify some \epPAd{} \world{}.
-  \item
-    \label{ideaS:sink:step:B}
-    Relax the agent's epistemic state such that the \epPAd{} \world{} is compatible with being the actual \world{}.
-  \item
-    \label{ideaS:sink:step:C}
-    Consider whether the agent would conclude some proposition-value pair from the relaxed epistemic state together with the conclusions of prior instances of reasoning.
-  \end{enumerate}
-  While we have given a brief overview of this process, we have not specified the subjunctive operations of relaxing an agent's epistemic state, or reasoning from a relaxed epistemic state.
-
-  We will leave reasoning intuitive, but provide brief clarification regarding relaxing an epistemic state.
-\end{note}
-
-\begin{note}[Relaxing an epistemic state]
-  Suppose an agent has concluded that \(\psi\) has value \(v'\) but consider it \epPAd{} that \(\psi\) does not have value \(v'\).
-  As the agent has concluded that \(\psi\) has value \(v'\), any \epP{} in which \(\psi\) does not have value \(v'\) is not a candidate for the actual \world{}.
-  Hence, to for the agent's epistemic state to be relaxed so that the relevant \epPAd{} \world{} is a candidate for the actual \world{}, a minimal change is made to the agent's epistemic state such that the agent has not concluded that \(\psi\) has value \(v'\).\nolinebreak
-  \footnote{
-    Note, that if the agent holds that \(\psi\) not having value \(v\) places constraints on other proposition-value pairs, then the agent's epistemic state will also be relaxed with respect to those proposition-value pairs.
-    For example, suppose \(\phi\) does not have value \(v'\) because \(\psi\) has value \(\overline{v'}\).
-    And, suppose, the agent holds that \(\chi\) has value \(v''\) whenever \(\psi\) has value \(\overline{v'}\).
-    Then, if the agent has concluded that \(\chi\) does not have value \(v''\), the minimal change will also involve dropping the conclusion that \(\chi\) does not have value \(v''\).
-  }
-  Note, this minimal change does \emph{not} require the agent to conclude that \(\psi\) does not have value \(v'\), nor does the minimal change require the agent to have not concluded that some proposition-value pair that suggests (but does not entail) that \(\psi\) has value \(v\).\nolinebreak
-  \footnote{
-    I implicitly assume that relaxing an epistemic state does not introduce novel \epPAd{} \world{1}.
-    Still, if this assumption is discarded, then further consideration is required.
-
-    For,~\autoref{def:sink} does not require the agent to `relax' the collection of proposition-value pairs obtained from an instance of the recursive step.
-    Consider the following case:
-
-    \eState{} is relaxed to \eState{}{'} which allows for \(\psi_{1}\) having value \(v_{1}\).
-    The agent then reasons to \(\psi_{2}\) having value \(v_{2}\).
-    Hence, \(\psi_{2}\) having value \(v_{2}\) is part of the collection of propositions.
-    However, \eState{}{'} allows that \(\psi_{2}\) not having value \(v_{2}\) as a novel \epPAd{}.
-    So, we consider a further relaxation, \eState{}{''}, which allows for \(\psi_{2}\) not having value \(v_{2}\).
-    Yet, as the agent concluded \(\psi_{2}\) has value \(v_{2}\) from \eState{}{'}, the agent may appeal to \(\psi_{2}\) having value \(v_{2}\) with respect to~\eState{}{''}.
-
-    Hence,~\autoref{def:sink} implicitly rules out certain novel \epPAd{} \world{1}.
-    However, this reasoning does not extend to ruling out for novel \world{1} that are compatible with proposition-value pairs the agent has reasoned to.
-
-    So, depending on your intuition (if you have any) then the definition may need to be revised to extend relaxing to the collection.
-    However, without clear intuition, and as excluding such a possibility will increase the complexity of the definition, I leave the assumption implicit.
-  }
-\end{note}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Skip subsubsections
 
 \subsubsection{Contrasting constraints}
 \label{sec:ideaS:contrast}
@@ -862,7 +856,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Indeed, \ideaS{} is stated as a necessary condition to allow for additional restrictions.
   However, the importance of the foregoing observation is that without additional constraints, and evaluation of whether an agent has claimed support may be separated from how things actually are.
   Even if \(\phi\) does not have value \(v\), it may be the case that an agent would reason to \(\phi\) having value \(v\).
-  What matters, rather, is that there is no \epPAd{} \world{} for which the agent would not reason to \(\phi\) having value \(v\).
+  What matters, rather, is that there is no \epPN{} for which the agent would not reason to \(\phi\) having value \(v\).
 \end{note}
 
 \begin{note}[An extreme example]
@@ -907,24 +901,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   So, it is to an idea about claiming \support{} to which we now turn.
 \end{note}
 
-% \begin{note}
-%   Focus on truth.
-%   May think that \support{} is limited to truth.
-%   However, this is not the case.
-%   No constraints on the reasoning involved.
-%   So, may include various types.
-
-%   The point is that this is a very general kind of constraint.
-%   If support, then works for all.
-%   There is no requirement that any agent needs to have \support{} for any belief, desire, hope, thought.
-%   However, any agent may, and in particular an agent may claim support.
-%   In each case, `even if\dots'
-%   One may desire on a whim, but one may also desire in a stronger way.
-
-%   For the most part, relevant value will be `true'.
-%   However, key the option for different values explicit.
-% \end{note}
-
 \addtocontents{toc}{\protect\setcounter{tocdepth}{3}} % Include subsubsections
 
 \section{\ideaCS{0}}
@@ -937,6 +913,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \subsection{Statement of \ideaCS{}}
+\label{sec:ideaCS:statement}
 
 \begin{note}[Statement: \ideaCS{}]
   \begin{restatable}[\ideaCS{0} --- \ideaCS{}]{idea}{ideaEIS}
