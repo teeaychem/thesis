@@ -813,29 +813,6 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\epP}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic\space \plausibility{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic\space \plausibility{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \DeclareDocumentCommand{\PAd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -872,7 +849,7 @@
       \obeybreaks{epistemically\space \PAd{1}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{epistemically\space \PAd{0}}%
+      \obeybreaks{Epistemically\space \PAd{0}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Epistemically\space \PAd{1}}%
@@ -881,7 +858,28 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\epPW}[1]{\epPAd{}\space \world{#1}}
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epPW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\epPAd{}\space \world{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\epPAd{}\space \world{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\epPAd{}\space \world{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\epPAd{2}\space \world{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\epPAd{2}\space \world{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\epPN}{ m }{% Illustration
@@ -933,29 +931,6 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\epV}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic\space \viablity{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic\space \viablity{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic\space \viablity{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \viablity{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic\space \viablity{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \DeclareDocumentCommand{\viableAd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -992,7 +967,7 @@
       \obeybreaks{epistemically\space \viableAd{1}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{epistemically\space \viableAd{0}}%
+      \obeybreaks{Epistemically\space \viableAd{0}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Epistemically\space \viableAd{1}}%
@@ -1012,13 +987,13 @@
       \obeybreaks{viability}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{NO-SENSE}%
+      \obeybreaks{viabilities}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Viability}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{NO-SENSE}%
+      \obeybreaks{viabilities}%
     \fi
   }
 }
@@ -1038,7 +1013,7 @@
       \obeybreaks{epistemic\space \viableN{1}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \viableN{0}}%
+      \obeybreaks{Epistemic\space \viableN{0}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Epistemic\space \viableN{1}}%
@@ -1047,7 +1022,28 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\epVW}[1]{\epVAd{}\space \world{#1}}
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epVW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\epVAd{}\space \world{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\epVAd{}\space \world{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\epVAd{}\space \world{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\epVAd{2}\space \world{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\epVAd{2}\space \world{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 % % %
 \ExplSyntaxOn

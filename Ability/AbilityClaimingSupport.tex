@@ -73,27 +73,27 @@
   \begin{restatable}[An epistemic state]{definition}{defEState}
     An epistemic state is a collection of \world{1}, with:
     \begin{enumerate}
-    \item \epPAd{2} \world{1}
-    \item \epVAd{2} \world{1}
+    \item \epVW{3}
+    \item \epPW{3}
     \end{enumerate}
     Where,
     \begin{itemize}
-    \item \epVAd{2} \world{1} are candidates for the actual \world{}.
-    \item \epPAd{2} \world{1} are candidates for the actual \world{}, if the actual world is not an \epVAd{0} \world{1}.
+    \item \epVW{3} are candidates for the actual \world{}.
+    \item \epPW{3} are candidates for the actual \world{}, if the actual world is not an \epVW{0}.
     \end{itemize}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  Worlds, plausibility ordering.
-  Here, 
+  \world{3}, plausibility ordering.
+  Here,
   However, binary ordering.
   And:
   allow that ordering may be world dependent.
   do not require that the actual world is among the most plausible.
 \end{note}
 
-\paragraph{\ep{1}}
+\paragraph{\epPN{3} and \epVN{1}}
 
 \begin{note}
   In these examples, \PAd{0} rather than possible.
@@ -391,6 +391,20 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   So, though claiming support is for some proposition \(\phi\) having some value \(v\), it is not clearly the case that claiming support is restricted to certain proposition-value combinations.
 \end{note}
 
+\paragraph{Simplifying}
+
+\begin{assumption}[Simplifying assumption]
+  \label{assu:simplifying:epPAlways}
+  
+\end{assumption}
+
+\begin{note}
+  Say more below.
+  If an agent concludes that \(\phi\) has value \(v\), we hold that constrains \epVW{1} to \(\phi\) having value \(v\).
+  We assume, for simplicity, that concluding that \(\phi\) has value \(v\) will only lead to any incompatible proposition-value pair being relegated to \epPAd{}.
+  Nothing in principle hangs on this, only adding additional qualifications to the relevant ideas, notions, assumptions, and definitions.
+\end{note}
+
 
 \subsection{\indicateN{2}}
 \label{sec:basic-assumptions:indication}
@@ -526,7 +540,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \label{sec:ideaS}
 
 \begin{note}[Overview of \ideaS{}]
-  Above we paraphrased \ideaS{} as holding that that an instance of reasoning that concludes \(\phi\) has value \(v\) is an instance of claiming support that \(\phi\) has value \(v\) \emph{only if} the agent would conclude that \(\phi\) has value \(v\) were it to be the case that the actual \world{} is some \epPAd{} \world{}.
+  Above we paraphrased \ideaS{} as holding that that an instance of reasoning that concludes \(\phi\) has value \(v\) is an instance of claiming support that \(\phi\) has value \(v\) \emph{only if} the agent would conclude that \(\phi\) has value \(v\) were it to be the case that the actual \world{} is some \epPW{}.
 \end{note}
 
 
@@ -766,7 +780,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \vspace{-\baselineskip}
   \end{illustration}
 
-  Hence, to entertain the relevant \epP{}, the conclusion that the clock is functioning would need to be relaxed.
+  Hence, to entertain the relevant \epPN{1}, the conclusion that the clock is functioning would need to be relaxed.
   However, a non-functioning clock may still be in the centre of the library and seen by many people.
   And, as it is plausible that someone would have noticed that the clock is not functioning, it seems the agent may still conclude that the clock is functioning.
 
@@ -816,7 +830,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}[Independence of support]
   An important for emphasis, though inessential for practice, feature of \ideaS{} is that whether an agent has claimed support for \(\phi\) having value \(v\) is independent of whether \(\phi\) (actually) has value \(v\).
 
-  For, \ideaS{} requires the agent would reason to \(\phi\) having value \(v\) were the agent to entertain any \epPAd{} \world{} as a candidate for the actual \world{}.
+  For, \ideaS{} requires the agent would reason to \(\phi\) having value \(v\) were the agent to entertain any \epPW{} as a candidate for the actual \world{}.
   Hence the agent would conclude that \(\phi\) (actually) has value \(v\).
   However, no requirement is placed on the agent \emph{concluding} that \(\phi\) has value \(v\) and \(\phi\) having value \(v\).
 
@@ -962,33 +976,116 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}[Notion: \requ{2}]
   As with \ideaS{} and the notion of a \emph{\sink{}}, a significant component of \ideaCS{} is concealed by a piece of technical vocabulary --- that of \(\psi\) having value \(v'\) being a \emph{\requ{}} of a step of reasoning.
 
-  For the moment we provide the intuitive notion of a \requ{}.
+  We begin with the intuitive notion of a \requ{}.
+  We will then work through a handful of \illu{1}, and introduce two notions:
+  First, the notion of a \crequ{}, and second the notion of a \prequ{}.
+  Following, in~\autoref{sec:ideaCS:requ:details}, we will further refine the two intuitive notions in to (still somewhat rough) definitions.
 
   \begin{restatable}[A \requ{0}]{notion}{notionRequisite}
     \label{notion:requ}
-    \(\psi\) having value \(v'\) being a \requ{} of a step of reasoning \(\delta\) just in case:
+    \(\psi\) having value \(v'\) being a \requ{} of a step of reasoning \(\delta\) which conclude that \(\phi\) has value \(v\) just in case:
     \begin{enumerate}
     \item
       \label{notion:requ:psi}
       It is \epVAd{} that \(\psi\) does not have value \(v'\).
     \item
       \label{notion:requ:need-psi}
-      It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) without requiring that \(\psi\) hasn't value \(v'\).
+      It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) without the conclusion \indicateV{} that \(\psi\) has value \(v'\).
     \item
       \label{notion:requ:possible-psi}
-      If step of reasoning  it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\) given their present epistemic state.
+      It is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\) given their present epistemic state.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-  We will shortly replace this notion with a definition covering two specific types of \requ{}.
-  First, however, we will consider the intuition supporting the notion of a \requ{}.
+  As noted, we will shortly replace this notion with a definition covering two specific types of \requ{}.
+  First, however, we will consider the intuition underlying the notion of a \requ{}.
 
-  Antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of the reasoning the agent may perform from their current epistemic state.
-  Or, in other words, regardless of how the agent may refine their present epistemic state.
+  Roughly, \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning just in case the agent has the option of concluding that \(\psi\) has value \(v\) as an antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of the reasoning the agent may perform from their current epistemic state.
+\end{note}
 
+\begin{note}[Expanding]
+  Let us expand by noting how the clauses of the notion of a \requ{} interact.
+  First, \ref{notion:requ:psi} holds that the agent, given their current epistemic state has not (yet, at least) concluded that \(\psi\) has value \(v'\).\nolinebreak
+  \footnote{
+    More strictly, either the agent has not yet concluded that \(\psi\) has value \(v'\) \emph{or} the agent has voided some previous instance of reasoning which concluded that \(\psi\) has value \(v'\).
+    Even more strictly, though not explicitly stated, the above but with respect to any instance of reasoning whose conclusion \indicateV{} that \(\psi\) has value \(v'\).
+  }
+  For, if the agent had concluded that \(\psi\) has value \(v\), then \(\psi\) not having value \(v'\) would not be \epVAd{}.
+
+  Still, from the first part of~\ref{notion:requ:possible-psi}, the agent think they have the option of concluding that \(\psi\) has value \(v'\).
+
+  In this respect, that \(\psi\) has value \(v'\) may be described as a hunch, suspicion, feeling in one's bones, conjecture, and so on from the perspective of the agent.
+  However, that \(\psi\) has value \(v'\) is no \emph{mere} hunch.
+  For, concluding that \(\psi\) has value \(v'\) is quite strong:
+  If the agent were to conclude that \(\psi\) has value \(v'\), then the agent would rule out (from their perspective) any \world{} in which \(\psi\) does not have value \(v'\) as a candidate for the actual \world{}.
+  Hence, if the agent thinks that they have the option of concluding that \(\psi\) has value \(v'\), the agent is \emph{almost} committed to \(\psi\) having value \(v'\).
+  The limiting factor is that the agent only \emph{thinks} they have the option of concluding that \(\psi\) has value \(v'\), and allows that they may fail to conclude that \(\psi\) has value \(v'\) if they were to reason.
+
+  Generally, any number of proposition-value pairs may satisfy the above description:
+  I think I have the option of concluding that my passport is up to date, though perhaps if I checked I would notice (unlikely though I think it would be) that it recently expired.
+  Likewise, I think I have the option of concluding that my bicycle tyres are more-or-less fully inflated, though perhaps they have deflated due to a slow puncture.
+  And, I think that I will enjoy reading \emph{Bleeding Edge} (whenever I get around to it), though perhaps it will turn out to be a disaster.
+
+  The role of the second part of~\ref{notion:requ:possible-psi}, combined with~\ref{notion:requ:need-psi}, is to tie the perceived option of concluding that \(\psi\) has value \(v'\) to a particular step of reasoning.
+  Let us fix a certain step of reasoning, and assume it concludes that \(\phi\) has value \(v\).
+
+  From the second part of~\ref{notion:requ:possible-psi}, the agent may conclude that \(\psi\) has value \(v'\) without making the relevant step of reasoning, and more generally without concluding that \(\phi\) has value \(v\).
+  Hence, the agent thinks they have the option of concluding that \(\psi\) has value \(v'\) prior to concluding that \(\phi\) has value \(v\).
+  Concluding that \(\psi\) having value \(v'\), then, weaker (from the agent's perspective) than concluding that \(\phi\) has value \(v\).\nolinebreak
+  \footnote{
+    Though, this is not to say that concluding that \(\psi\) has value \(v'\) is necessarily easier than concluding that \(\phi\) has value \(v\).
+  }
+
+  And, from~\ref{notion:requ:need-psi}, it is not possible for the agent to conclude that \(\phi\) has value \(v\) without the conclusion \indicateV{} that \(\psi\) has value \(v'\).
+  Hence, if the agent were to conclude that \(\phi\) has value \(v\), then in doing so the agent would rule out any \world{} in which \(\psi\) does not have value \(v'\) as a candidate for the actual \world{}.
+  Now, if the agent were to have concluded that \(\psi\) has value \(v'\) prior to concluding that \(\phi\) has value \(v\), then this feature of concluding that \(\phi\) has value \(v\) would be unremarkable --- the agent would have already ruled out any \world{} in which \(\psi\) does not have value \(v'\) as a candidate for the actual \world{}.
+  However, if the agent has not yet concluded that \(\psi\) has value \(v'\), there is potential for trouble.
+
+  There are two cases to consider:
+\end{note}
+
+\begin{note}[First case]
+  First, the agent may conclude that \(\psi\) does not have value \(v'\).
+  As a result, \(\psi\) having value \(v'\) would not be \epVAd{}, and by \ref{notion:requ:need-psi}, \(\phi\) having value \(v\) would not be \epVAd{}.
+  For, if the agent has concluded that \(\psi\) does not have value \(v'\) and concluding that \(\phi\) has value \(v\) \indicateV{0} that \(\psi\) has value \(v'\), then the agent would be committed to \(\psi\) having value \(v'\) \emph{and} \(\psi\) not having value \(v'\).\nolinebreak
+  \footnote{
+    This does not strictly exclude the possibility that an agent may conclude that \(\psi\) has value \(v'\) and that \(\psi\) has value \(v'^{'}\).
+    However, I will assume that if an agent concludes that \(\psi\) has value \(v'\), then this amounts to concluding that \(\psi\) does not have value \(v'^{'}\), as nothing in particular will hang on merging or separating the distinction.
+  }
+  In this respect, the agent certainly would not have \emph{clearly} have \support{} for \(\phi\) having value \(v\), were they to conclude.
+  For, suppose the agent concluded that \(\phi\) has value \(v\).
+  Then, after concluding that \(\phi\) having value \(v\) it remains true that with respect to the agent's epistemic state \emph{prior} to the conclusion that the agent may have concluded that \(\psi\) does not have value \(v'\), blocking a conclusion to \(\phi\) having value \(v\).
+
+  Now, whether or not an agent \emph{has} \support{} is a distinct matter.
+  If the agent had concluded that \(\psi\) does not have value \(v'\), then some further reasoning may have lead the agent to retract the conclusion in favour of \(\phi\) having value \(v\).
+
+  At issue, though, is whether the agent may \emph{claim} \support{}.
+  And, so long as the above possibility it present, it is by no means clear that the agent would have \support{} for \(\phi\) having value \(v\) if they were to conclude that \(\phi\) has value \(v\).
+  Not merely in the general sense where deciding whether an agent has \support{} for some proposition-value pair seems an intractable notion, but in a specific sense.
+  Specifically, from the agent's current epistemic state (prior to concluding \(\phi\) has value \(v\)), the agent has no guarantee that they would conclude that \(\phi\) has value \(v\) were they to first reason about whether \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}[Second case]
+  The second case is a little more complex.
+  \ref{notion:requ:possible-psi} only states that it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to concluding that \(\phi\) has value \(v\).
+  This does not require that the agent would decide whether \(\psi\) has value \(v'\) prior to concluding \(\phi\) has value \(v\).
+  
+
+
+  Slightly stronger.
+  Given that it is possible to conclude that \(\psi\) has value \(v'\) if \(\phi\) has value \(v\).
+  Therefore, if the agent were to fail to conclude that \(\psi\) has value \(v'\), then this suggests that the agent would at least re-evaluate what they consider \epVAd{} upon failure to conclude.
+  And, hence there is no guarantee that the agent would conclude \(\phi\) has value \(v\) from \(\delta\) given the failure to conclude that \(\psi\) has value \(v'\).
+
+  
+\end{note}
+
+
+
+\begin{note}[\sink{3}]
   Recall the notion of a \sink{}.
   An agent has \support{} for some proposition-value pair just in case for any \epPW{}, the agent both has a way to- and would- conclude that \(\phi\) has value \(v\).
   \ideaCS{} and the notion of a \requ{} narrows the notion of a \sink{} to an agent's present epistemic state and future reasoning.
@@ -1007,24 +1104,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   The key clause of the notion of a \requ{} is \ref{notion:requ:possible-psi}.
   Antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of how the agent may refine their present epistemic state.
 
-  Two cases.
-  Either the agent reasons about whether \(\psi\) has value \(v'\) and concludes that \(\psi\) \emph{does} have value \(v'\).
-  Or, the agent reasons about whether \(\psi\) has value \(v'\) and \emph{fails} to conclude that \(\psi\) has value \(v'\).
-
-  In first case, conclude that \(\psi\) has value \(v'\), hence \(\psi\) not having value \(v'\) would not be \epVAd{}.
-  And, so though \(\phi\) needs \(\psi\), the agent will already have \(\psi\).
-
-  The first case is not, however, of particular interest.
-  Rather, it is the second case that is important.
-
-  Simple case, conclude that \(\psi\) does not have value \(v'\).
-  Then, no \epVW{} where \(\phi\) has value \(v\).
-  Hence, the agent would not conclude that \(\phi\) has value \(v\).
-
-  Slightly stronger.
-  Given that it is possible to conclude that \(\psi\) has value \(v'\) if \(\phi\) has value \(v\).
-  Therefore, if the agent were to fail to conclude that \(\psi\) has value \(v'\), then this suggests that the agent would at least re-evaluate what they consider \epVAd{} upon failure to conclude.
-  And, hence there is no guarantee that the agent would conclude \(\phi\) has value \(v\) from \(\delta\) given the failure to conclude that \(\psi\) has value \(v'\).
+  
 
   In this respect, when \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning, then the agent concluding that \(\psi\) has value \(v'\) prior to making the relevant step of reasoning functions as an antecedent check on whether it makes sense for the agent to make the relevant step given their current epistemic state.
   For, concluding that \(\psi\) does not have value \(v'\) would block concluding that \(\phi\) has value \(v\) from the step and failure to conclude that \(\psi\) has value \(v'\) would lead to a revision of what the agent considers \epVAd{}.
@@ -1181,7 +1261,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Important point to stress, is that a \requ{} is defined with respect to \epVAd{} \world{1}, rather than \epPAd{} \world{1}.
+  Important point to stress, is that a \requ{} is defined with respect to \epVW{1}, rather than \epPW{1}.
   Primary purpose of this is to avoid subjunctive conditionals.
 \end{note}
 
@@ -1210,12 +1290,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Specifically, two types of \requ{}.
 \end{note}
 
-\begin{note}
-  Given the central role of a \requ{} with respect to \ideaCS{}, we immediately turn to refined     \autoref{notion:requ} to a definition, and clarifying the content of the definition.
-\end{note}
-
-\subsection{\requ{3}}
+\subsection{\requ{3}: Definitions and details}
 \label{sec:requ3}
+\label{sec:ideaCS:requ:details}
 
 
 \begin{note}[Definition: \requ{2}]
@@ -2415,7 +2492,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   The issue here is what is required in order to doubt.
   One may need to revise one's epistemic state.
 
-  Of course, if idea of claiming support is taken generally, then it should be the case that for any \epP{} \world{}, it is possible for the agent to conclude from reasoning that \(\phi\) having value \(v\) holds for any \epVAd{} \world{}.
+  Of course, if idea of claiming support is taken generally, then it should be the case that for any \epPW{}, it is possible for the agent to conclude from reasoning that \(\phi\) having value \(v\) holds for any \epVAd{} \world{}.
 
   So, if satisfy claiming support, then may satisfy doubt idea.
   However, ideal.
