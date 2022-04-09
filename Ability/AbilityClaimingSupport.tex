@@ -864,7 +864,15 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   }
 
   So, given that the definition of a \sink{} is compatible with the agent concluding that p is true when p is (actually) false and safety and sensitivity rule out such a possibility, \ideaS{} does not follow from either safety or sensitivity, and conversely, neither safety nor sensitivity follow from \ideaS{}.
+\end{note}
 
+\begin{note}
+  \color{red} The point is that these notions are about two quite different things.
+  When relaxing an agent's epistemic state, this doesn't require any change to `base level' proposition-value pairs.
+  However, that is what safety and sensitivity require.
+\end{note}
+
+\begin{note}
   Still, as the definition of a \sink{} is \emph{merely} compatible with the agent concluding that p is true when p is (actually) false, there is no restriction on placing either safety, sensitivity, or some other condition on claiming support in conjunction with \ideaS{}.
 
   Indeed, \ideaS{} is stated as a necessary condition to allow for additional restrictions.
@@ -930,45 +938,48 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \label{sec:ideaCS:statement}
 
 \begin{note}[Statement: \ideaCS{}]
-  \begin{restatable}[\ideaCS{0} --- \ideaCS{}]{idea}{ideaEIS}
+  \begin{restatable}[\ideaCS{0} --- \ideaCS{}]{assumption}{ideaEIS}
     \label{idea:CS:B}
-    For any agent \vAgent{}, and any instance of reasoning:
-    \begin{itemize}[leftmargin=*]
+    \label{assumption:CS}
+    For an agent \vAgent{}, and some instance of reasoning:
+
+    The instance of reasoning is an instance of claiming \support{} only if:
+    \begin{enumerate}
     \item
-      If:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \label{idea:CS:B:step}
+      For any step \(\delta\), which moves from premises \(\chi_{i}\) having values \(v_{i}\) to the conclusion that \(\phi\) has value \(v\):
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
-        \label{idea:CS:B:step}
-        The reasoning relies on some step \(\delta\) which moves from premises \(\chi_{i}\) having values \(v_{i}\) to the conclusion that \(\phi\) has value \(v\).
-        \begin{itemize}
-        \item
-          Such that:
-          \begin{enumerate}[label=\alph*., ref=(\alph*)]
-          \item
-            \label{idea:CS:B:step:requ}
-            \(\psi\) having value \(v'\) is a \emph{\requ{}} of \(\delta\).
-          \end{enumerate}
-        \end{itemize}
+        There is no proposition-value pair \(\langle \psi, v' \rangle\) such that \(\psi\) having value \(v'\) is a \emph{\requ{}} of the step of reasoning.
+    %     \begin{itemize}
+    %     \item
+    %       Such that:
+    %       \begin{enumerate}[label=\alph*., ref=(\alph*)]
+    %       \item
+    %         \label{idea:CS:B:step:requ}
+    %         \(\psi\) having value \(v'\) is a \emph{\requ{}} of \(\delta\).
+    %       \end{enumerate}
+    %     \end{itemize}
+    %   \end{enumerate}
+    % \item
+    %   Then:
+    %   \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    %   \item
+    %     The instance of reasoning is an instance of claiming support \emph{only if}:
+    %     \begin{enumerate}[label=\alph*., ref=(\alph*)]
+    %       \setcounter{enumii}{1}
+    %     \item
+    %       \label{idea:CS:B:prior-reasoning}
+    %       The agent, independent of making \(\delta\), has witnessed some reasoning which \indicateV{1} \(\psi\) has value \(v'\) with respect to the agent's epistemic state (prior to making \(\delta\)).\nolinebreak
+    %       \footnote{
+    %         This clause is non-committal about the reasoning which \indicateV{1} \(\psi\) has value \(v'\).
+    %         In particular:
+    %         With respect to \ESU{}, the reasoning may include the reasoning of some other agent.
+    %         And, with respect to \EAS{}, the reasoning may itself involve appeal to some unwitnessed reasoning.
+    %       }
+    %     \end{enumerate}
       \end{enumerate}
-    \item
-      Then:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-      \item
-        The instance of reasoning is an instance of claiming support \emph{only if}:
-        \begin{enumerate}[label=\alph*., ref=(\alph*)]
-          \setcounter{enumii}{1}
-        \item
-          \label{idea:CS:B:prior-reasoning}
-          The agent, independent of making \(\delta\), has witnessed some reasoning which \indicateV{1} \(\psi\) has value \(v'\) with respect to the agent's epistemic state (prior to making \(\delta\)).\nolinebreak
-          \footnote{
-            This clause is non-committal about the reasoning which \indicateV{1} \(\psi\) has value \(v'\).
-            In particular:
-            With respect to \ESU{}, the reasoning may include the reasoning of some other agent.
-            And, with respect to \EAS{}, the reasoning may itself involve appeal to some unwitnessed reasoning.
-          }
-        \end{enumerate}
-      \end{enumerate}
-    \end{itemize}
+    \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
@@ -981,19 +992,24 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   First, the notion of a \crequ{}, and second the notion of a \prequ{}.
   Following, in~\autoref{sec:ideaCS:requ:details}, we will further refine the two intuitive notions in to (still somewhat rough) definitions.
 
-  \begin{restatable}[A \requ{0}]{notion}{notionRequisite}
+  \begin{restatable}[A \requ{0} --- \named{\dag \Re}]{notion}{notionRequisite}
     \label{notion:requ}
     \(\psi\) having value \(v'\) being a \requ{} of a step of reasoning \(\delta\) which conclude that \(\phi\) has value \(v\) just in case:
-    \begin{enumerate}
+    \begin{enumerate}[label=\arabic*., ref=\named{\dag \Re:\arabic*}]
     \item
-      \label{notion:requ:psi}
-      It is \epVAd{} that \(\psi\) does not have value \(v'\).
-    \item
-      \label{notion:requ:need-psi}
-      It is not \epVAd{} for agent to conclude \(\phi\) has value \(v\) from \(\delta\) without the conclusion \indicateV{} that \(\psi\) has value \(v'\).
+      \label{notion:requ:structure}
+      The structure of the agent's epistemic state is such that:
+      \begin{enumerate}[label=\alph*., ref=\named{\dag \Re:1\alph*}]
+      \item
+        \label{notion:requ:structure:psi}
+        \requNotionEpVAd{}.
+      \item
+        \label{notion:requ:structure:need-psi}
+        \requNotionSubset{}.
+      \end{enumerate}
     \item
       \label{notion:requ:possible-psi}
-      It is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\) given their present epistemic state.
+      \requNotionReasoningUC{}.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -1008,7 +1024,14 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}[Expanding]
   Let us expand by noting how the clauses of the notion of a \requ{} interact.
-  First, \ref{notion:requ:psi} holds that the agent, given their current epistemic state has not (yet, at least) concluded that \(\psi\) has value \(v'\).\nolinebreak
+  To keep things short, we consider only the case where~\ref{notion:requ:structure:need-psi} is satisfied because it is not \epVAd{} for \(\phi\) to have value \(v\) and for \(\psi\) to not have value \(v'\).\nolinebreak
+  \footnote{
+    Analogous reasoning holds in the \(\chi_{1},\dots,\chi_{k}\) having values \(v_{1},\dots,v_{k}\) case.
+  }
+\end{note}
+
+\begin{note}[\ref{notion:requ:structure:psi}]
+  First,~\ref{notion:requ:structure:psi} holds that the agent, given their current epistemic state has not (yet, at least) concluded that \(\psi\) has value \(v'\).\nolinebreak
   \footnote{
     More strictly, either the agent has not yet concluded that \(\psi\) has value \(v'\) \emph{or} the agent has voided some previous instance of reasoning which concluded that \(\psi\) has value \(v'\).
     Even more strictly, though not explicitly stated, the above but with respect to any instance of reasoning whose conclusion \indicateV{} that \(\psi\) has value \(v'\).
@@ -1027,9 +1050,9 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Generally, any number of proposition-value pairs may satisfy the above description:
   I think I have the option of concluding that my passport is up to date, though perhaps if I checked I would notice (unlikely though I think it would be) that it recently expired.
   Likewise, I think I have the option of concluding that my bicycle tyres are more-or-less fully inflated, though perhaps they have deflated due to a slow puncture.
-  And, I think that I will enjoy reading \emph{Bleeding Edge} (whenever I get around to it), though perhaps it will turn out to be a disaster.
+  And, I think that I will enjoy reading \emph{Bleeding Edge}, though perhaps it will turn out to be a disaster.
 
-  The role of the second part of~\ref{notion:requ:possible-psi}, combined with~\ref{notion:requ:need-psi}, is to tie the perceived option of concluding that \(\psi\) has value \(v'\) to a particular step of reasoning.
+  The role of the second part of~\ref{notion:requ:possible-psi}, combined with~\ref{notion:requ:structure:need-psi}, is to tie the perceived option of concluding that \(\psi\) has value \(v'\) to a particular step of reasoning.
   Let us fix a certain step of reasoning, and assume it concludes that \(\phi\) has value \(v\).
 
   From the second part of~\ref{notion:requ:possible-psi}, the agent may conclude that \(\psi\) has value \(v'\) without making the relevant step of reasoning, and more generally without concluding that \(\phi\) has value \(v\).
@@ -1039,7 +1062,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     Though, this is not to say that concluding that \(\psi\) has value \(v'\) is necessarily easier than concluding that \(\phi\) has value \(v\).
   }
 
-  And, from~\ref{notion:requ:need-psi}, it is not possible for the agent to conclude that \(\phi\) has value \(v\) without the conclusion \indicateV{} that \(\psi\) has value \(v'\).
+  And, from~\ref{notion:requ:structure:need-psi}, it is not possible for the agent to conclude that \(\phi\) has value \(v\) without the conclusion \indicateV{} that \(\psi\) has value \(v'\).
   Hence, if the agent were to conclude that \(\phi\) has value \(v\), then in doing so the agent would rule out any \world{} in which \(\psi\) does not have value \(v'\) as a candidate for the actual \world{}.
   Now, if the agent were to have concluded that \(\psi\) has value \(v'\) prior to concluding that \(\phi\) has value \(v\), then this feature of concluding that \(\phi\) has value \(v\) would be unremarkable --- the agent would have already ruled out any \world{} in which \(\psi\) does not have value \(v'\) as a candidate for the actual \world{}.
   However, if the agent has not yet concluded that \(\psi\) has value \(v'\), there is potential for trouble.
@@ -1049,7 +1072,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}[First case]
   First, the agent may conclude that \(\psi\) does not have value \(v'\).
-  As a result, \(\psi\) having value \(v'\) would not be \epVAd{}, and by \ref{notion:requ:need-psi}, \(\phi\) having value \(v\) would not be \epVAd{}.
+  As a result, \(\psi\) having value \(v'\) would not be \epVAd{}, and by \ref{notion:requ:structure:need-psi}, \(\phi\) having value \(v\) would not be \epVAd{}.
   For, if the agent has concluded that \(\psi\) does not have value \(v'\) and concluding that \(\phi\) has value \(v\) \indicateV{0} that \(\psi\) has value \(v'\), then the agent would be committed to \(\psi\) having value \(v'\) \emph{and} \(\psi\) not having value \(v'\).\nolinebreak
   \footnote{
     This does not strictly exclude the possibility that an agent may conclude that \(\psi\) has value \(v'\) and that \(\psi\) has value \(v'^{'}\).
@@ -1072,72 +1095,43 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   The second case is a little more complex.
   \ref{notion:requ:possible-psi} only states that it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to concluding that \(\phi\) has value \(v\).
   This does not require that the agent would decide whether \(\psi\) has value \(v'\) prior to concluding \(\phi\) has value \(v\).
-  
 
+  For example, I may think I have the option to conclude that a store has inventory in stock before concluding that it is worthwhile to place an order.
+  However, the `check stock' button may do nothing, or return an error --- either remains compatible with the store having inventory.
 
-  Slightly stronger.
-  Given that it is possible to conclude that \(\psi\) has value \(v'\) if \(\phi\) has value \(v\).
-  Therefore, if the agent were to fail to conclude that \(\psi\) has value \(v'\), then this suggests that the agent would at least re-evaluate what they consider \epVAd{} upon failure to conclude.
-  And, hence there is no guarantee that the agent would conclude \(\phi\) has value \(v\) from \(\delta\) given the failure to conclude that \(\psi\) has value \(v'\).
+  In contrast to concluding that \(\psi\) does not have value \(v'\), the issue here is less pronounced, but still sufficient for trouble.
 
-  
+  For, by \ref{notion:requ:possible-psi}, it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\).
+  Hence, failing to conclude that \(\psi\) has value \(v'\) would lead to a revision of what the agent considers \epVAd{}.
+  And, without further information there is no guarantee that the agent would still conclude that \(\phi\) has value \(v\) from the revised epistemic state (after failing to conclude that \(\psi\) has value \(v'\)).\nolinebreak
+  \footnote{
+    If the `check stock' button does nothing, then I may conclude the store is not sufficiently trustworthy, and hence refrain from concluding that it is worthwhile to place a order.
+  }
+  Hence, again, the agent has no guarantee that they would conclude that \(\phi\) has value \(v\) were they to first reason about whether \(\psi\) has value \(v'\).
+\end{note}
+
+\begin{note}[Summary]
+  To summarise, and link back to \ideaCS{}:
+
+  If \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning which concludes that \(\phi\) has value \(v\), then there is (form the agent's perspective) the possibility that the agent would not conclude that \(\phi\) has value \(v\) if they were to first reason about whether \(\psi\) has value \(v'\), relative to their current epistemic state.
+
+  Hence, \ideaCS{} holds that an instance of reasoning is an instance of claiming \support{} \emph{only if} no step of the instance of reasoning has an associated \requ{}.
+
+  In particular, for any would be \requ{}, \(\psi\) having value \(v'\), of the step of reasoning, the agent will have already witnessed reasoning which concluded (or \indicateVed{}) that \(\psi\) has value \(v'\).
+
+  And, in order to show that an agent has failed to claim \support{} by some instance of reasoning, one needs only identify a \requ{} of some step of the instance of reasoning.
+
+  In this respect, when \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning, then the agent \emph{first} concluding that \(\psi\) has value \(v'\) prior to making the step of reasoning functions as an antecedent check on whether it makes sense for the agent to make the relevant step given their current epistemic state.
 \end{note}
 
 
-
-\begin{note}[\sink{3}]
-  Recall the notion of a \sink{}.
-  An agent has \support{} for some proposition-value pair just in case for any \epPW{}, the agent both has a way to- and would- conclude that \(\phi\) has value \(v\).
-  \ideaCS{} and the notion of a \requ{} narrows the notion of a \sink{} to an agent's present epistemic state and future reasoning.
-  such that if the agent conclude that \(\phi\) has value \(v\) from their current epistemic state, then the would conclude that \(\phi\) has value \(v\) regardless of any other conclusions they may draw from their present epistemic state.
-
-  However, narrow.
-  Only focuses on proposition-value pairs related to the step of reasoning that are `up for grabs'.
-\end{note}
-
-\begin{note}
-  The initial pair of clauses are background.
-  First, if it is \epVAd{} that \(\psi\) does not have value \(v'\), then \(\psi\) not having value \(v'\) is a candidate for the actual \world{}.
-  And, from \ref{notion:requ:need-psi}, result of concluding that \(\phi\) has value \(v\) from step of reasoning is that \(\psi\) has value \(v'\) in all candidates for the actual \world{}.
-  Hence, if were to make \(\delta\), then would restrict candidates.
-
-  The key clause of the notion of a \requ{} is \ref{notion:requ:possible-psi}.
-  Antecedent check on whether the agent would conclude that \(\phi\) has value \(v\) regardless of how the agent may refine their present epistemic state.
-
-  
-
-  In this respect, when \(\psi\) having value \(v'\) is a \requ{} of some step of reasoning, then the agent concluding that \(\psi\) has value \(v'\) prior to making the relevant step of reasoning functions as an antecedent check on whether it makes sense for the agent to make the relevant step given their current epistemic state.
-  For, concluding that \(\psi\) does not have value \(v'\) would block concluding that \(\phi\) has value \(v\) from the step and failure to conclude that \(\psi\) has value \(v'\) would lead to a revision of what the agent considers \epVAd{}.
-
-
-
-
-
-
-  not possible for the agent to conclude that \(\phi\) has value \(v\) without the conclusion also \indicatePr{0} that \(\psi\) has value \(v'\) \emph{such that} prior to making the step the agent conclude that \(\psi\) having value \(v'\), and hence check whether they would conclude that \(\psi\) has value \(v'\).
-
-  If the agent would not conclude that \(\psi\) has value \(v'\), then the agent would not reason to \(\phi\) having value \(v\) {\color{red} regardless of whether \(\phi\) has value \(v\)}.
-  For, if the agent were to reason about \(\psi\) having value \(v'\) and conclude that \(\psi\) does not have value \(v'\), then the agent would not conclude that \(\phi\) has value \(v\).
-\end{note}
-
-\begin{note}
-  Think of concluding that \(\psi\) has value \(v'\) as an antecedent check on whether it would make sense for the agent to conclude that \(\phi\) has value \(v\).
-
-  Moving back to \ideaCS{}.
-  Intuitively, an agent has claimed \support{0} for some proposition-value pair via some instance of reasoning just in case:
-  \begin{quote}
-    For any step involved in the reasoning, the agent has concluded that any antecedent check on whether it would make sense for the agent to make a step of reasoning has been satisfied.
-  \end{quote}
-\end{note}
-
-\paragraph{A pair of \illu{1}}
+\paragraph{\illu{3}}
 
 \begin{note}
   A pair of \illu{1} to highlight the two specific type of \requ{1} that we will be interested in.
-  \illu{2}, and then notion.
 \end{note}
 
-\subparagraph{\crequ{3}}
+\paragraph*{The conclusion of a step}
 
 \begin{note}[Wally]
   \begin{illustration}[Where's Wally]
@@ -1192,38 +1186,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \begin{note}
-  Specifically, a \crequ{}.
-\end{note}
-
-\begin{note}
-  Capture the intuitive notion:
-  \begin{restatable}[A \crequ{}]{notion}{notionCReq}
-    \(\psi\) having value \(v'\) is a \crequ{} of some step of reasoning \(\delta\) from premises \(\chi_{1},\dots,\chi_{j}\) having values \(v_{1},\dots,v_{j}\) to conclusion \(\phi\) having value \(v\) just in case:
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item
-      \label{crequ:int:structure:a}
-      \(\psi\) not having value \(v'\) is \epVAd{}.
-    \item
-      \label{crequ:int:structure:b}
-      It is not \epVAd{} for \(\phi\) has value \(v\) and \(\psi\) to not have value \(v'\).
-    \item
-      \label{crequ:int:reasoning}
-      It is possible for the agent to conclude whether \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\).
-    \end{enumerate}
-  \end{restatable}
-
-  The intuitive notion of a \crequ{} follows the intuitive notion of a \requ{}, expanding only on why it is not \epVAd{} for the agent to conclude that \(\phi\) has value \(v\) from \(\delta\) without requiring that \(\psi\) has value \(v'\).
-  For, \(\psi\) having value \(v'\) follows, relative to what is \epVAd{} for the agent, from \(\phi\) having value \(v\).
-\end{note}
-
-\begin{note}
   Of interest.
   The collection of properties might be very strong.
   It may be that there is really little chance that the agent is not Wally.
   However, of interest is that there is some reasoning that the agent may witness.
 \end{note}
 
-\subparagraph{\prequ{3}}
+\paragraph*{The premise(s) of a step}
 
 \begin{note}[\prequ{3}]
   \begin{illustration}
@@ -1260,36 +1229,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Though, strictly, \ideaCS{}
 \end{note}
 
-\begin{note}
-  Important point to stress, is that a \requ{} is defined with respect to \epVW{1}, rather than \epPW{1}.
-  Primary purpose of this is to avoid subjunctive conditionals.
-\end{note}
-
-
-
-\subsubparagraph{Intuition}
-
-\begin{note}
-  There's something that one could have done that would have highlighted a problem.
-  Hence, failure to claim support.
-
-  \ideaCS{}, then, no jumping over intermediate conclusions which may highlight an issue with concluding that \(\phi\) has value \(v\) from relevant premise proposition-value pairs.
-\end{note}
-
-\subsubparagraph{\support{}}
-
-\begin{note}
-  Quick motivation from \support{}.
-  For, if not \(\psi\), then not a \sink{}.
-\end{note}
-
-\begin{note}
-  Now, basic \illu{1}, I hope, are intuitive.
-  Of course, building up to something more controversial.
-  So, detailed definition of a \requ{}.
-  Specifically, two types of \requ{}.
-\end{note}
-
 \subsection{\requ{3}: Definitions and details}
 \label{sec:requ3}
 \label{sec:ideaCS:requ:details}
@@ -1298,7 +1237,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}[Definition: \requ{2}]
   To be precise, we refine the notion of a \requ{} into a partial definition which covers two ways in which a proposition-value pair may be a \requ{} of some step of reasoning.
 
-  \begin{restatable}[A \requ{0}]{definition}{defRequisite}
+  \begin{restatable}[A \requ{0} --- \named{\ddag\Re}]{definition}{defRequisite}
     \label{def:requ}
     Let \(\delta\) be a step of reasoning from premises \(\chi_{1},\dots,\chi_{k}\) with values \(v_{1},\dots,v_{k}\) to \(\phi\) having value \(v\).
 
@@ -1348,21 +1287,25 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \paragraph{Definition of a \crequ{}}
 
+\begin{note}
+  The definition of a \crequ{} largely follows the notion of a \requ{}.
+  The key difference between a \crequ{} and a \requ{} is that we focus only considerations regarding what would follow from having made the relevant step of reasoning.
+
+  In this respect,~\ref{notion:requ:structure} and~\ref{notion:requ:possible-psi} are tightened to consider on the relation between the conclusion of the step of reasoning and some proposition-value pair.
+  Still, the definition of a \crequ{} expands on the relevant parts of the notion of a \requ{} in order to cover various edge cases.
+\end{note}
 
 \begin{note}
-  The definition of a \crequ{} largely follows the notion of a \crequ{}.
-  \ref{crequ:int:structure:a} and \ref{crequ:int:structure:b} are collapsed to a general account of the agent's epistemic state, while \ref{crequ:int:reasoning} is expanded to cover some edge cases.
-
-  \begin{restatable}[A \crequ{0}]{definition}{defCRequisite}
+  \begin{restatable}[A \crequ{0} --- \named{\ddag C\Re}]{definition}{defCRequisite}
     \label{def:requ:crequ}
     Let \(\delta\) be a step of reasoning from premises \(\chi_{1},\dots,\chi_{k}\) with values \(v_{1},\dots,v_{k}\) to \(\phi\) having value \(v\).
 
     \(\psi\) having value \(v'\) is a \emph{\crequ{}} of \(\delta\) \emph{if and only if} the following conditions jointly hold:
-    \begin{enumerate}[label=\arabic*., ref=\named{C\(\Re\):\arabic*}]
+    \begin{enumerate}[label=\arabic*., ref=\named{\ddag C\(\Re\):\arabic*}]
     \item
       \label{def:requ:crequ:strcture}
       The structure of the \vAgent{}' epistemic state is such that:
-      \begin{enumerate}[label=\alph*., ref=\named{C\(\Re\):1\alph*}]
+      \begin{enumerate}[label=\alph*., ref=\named{\ddag C\(\Re\):1\alph*}]
       \item
         \label{def:requ:crequ:strcture:psi-not-v}
         There is some \epVW{} such that:
@@ -1385,13 +1328,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \end{enumerate}
     \item
       \label{def:requ:crequ:no-revision}
-      It is not the case that the agent would revise their epistemic state so that \ref{def:requ:crequ:strcture:propersubset} does not hold (in order to conclude that \(\phi\) has value \(v\) from \(\delta\)).
+      It is not the case that the agent would revise their epistemic state so that \ref{def:requ:crequ:strcture:propersubset} does not hold, in order to conclude that \(\phi\) has value \(v\) from \(\delta\).
     \item
       \label{def:requ:crequ:possible-reason}
-      For all \epVW{} in which \(\phi\) has value \(v\), there is some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\) (without concluding that \(\phi\) has value \(v\)).\nolinebreak
-      \footnote{
-        Note, the outer antecedent is to allow it to be the case that the agent may not reason given current epistemic state.
-      }
+      For all \epVW{} in which \(\phi\) has value \(v\), there is some temporal extension of the \world{} in which \vAgent{} witnesses reasoning which concludes that \(\psi\) has value \(v'\) (without first concluding \(\phi\) has value \(v\)).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -1410,7 +1350,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \subsubparagraph{The structure of the agent's epistemic state}
 
 \begin{note}
-  \ref{def:requ:crequ:strcture} describes structure.
+  \ref{def:requ:crequ:strcture} describes the relevant structure of the agent's epistemic state.
   In short:
   \begin{itemize}
   \item
@@ -1508,50 +1448,57 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   \label{fig:crequ:intuition}
 \end{figure}
 
-\begin{note}[Premises]
-  Note, \ref{def:requ:crequ:strcture:psi-not-v} does not place any constraints on how the premises of the step of reasoning relate to \(\psi\) having value \(v'\) (or \(\phi\) having value \(v\)).
-
-  \autoref{fig:crequ:intuition:prem-ex} suggestion, but in general, arbitrary.
-  Hence, satisfying definition will not ensure that the step is `reasonable'.
-  May be that there is no \epVW{} where \(\chi_{1},\dots,\chi_{k}\) have values \(v_{1},\dots,v_{k}\).
-  Still, \ideaCS{} is only a necessary condition on claiming support, and in turn a \requ{}, and specifically a \crequ{}, need not capture every way in which a step of reasoning may be problematic (with respect to claiming support).
-
-  Though, as we have and will observe, the parallel idea of a \prequ{} will place some constraints on when an agent may appeal to some premises to claim support for some conclusion.
-\end{note}
-
 \begin{note}[Weaker]
-  That \(\psi\) having value \(v'\) is strictly weaker than \(\phi\) having value \(v\) captures the relevant sense in which whether \(\psi\) has value \(v'\) is an antecedent check on concluding that \(\phi\) has value \(v\) from \(\delta\).
-  For, if \(\phi\) were to have value \(v\) in every \epVW{} for which \(\psi\) has value \(v'\) it would not be possible for the agent to conclude that \(\psi\) has value \(v'\) without the conclusion also \indicateV{} that \(\phi\) has value \(v\).
+  That \(\psi\) having value \(v'\) is strictly weaker than \(\phi\) having value \(v\) captures an intuitive sense in which whether \(\psi\) has value \(v'\) is an antecedent check on concluding that \(\phi\) has value \(v\) from \(\delta\).
 
-  However, the relevant structure alone does not guarantee that it is possible for the agent to conclude that \(\psi\) has value \(v'\) without concluding that \(\phi\) has value \(v\) without a background assumption stating, roughly, that it is possible for an agent reason about any proposition-value pair.
-  And, as it is not immediately clear that an agent may conclude reasoning about arbitrary proposition-value pairs, such an assumption seems excessively strong.
+  Further, that \(\psi\) having value \(v'\) is strictly weaker than \(\phi\) having value \(v\) ensures that the definition of a \crequ{} is compatible with granting that concluding any proposition-value pair also \indicateV{} any weaker proposition-value pair.
 
-  For example, one may wish to conclude from some premises that \nagent{14} has left work for the day, while it remains \epVAd{} that \nagent{14} is in their office.
-  That \nagent{14} is not in their office is strictly weaker that \nagent{14} having left for the day, as \nagent{14} may be in a meeting somewhere else.
-  Still, without access to \nagent{14}'s office, one may not have the option of settling the weaker proposition either way.
+  For, if \(\phi\) were to have value \(v\) in every \epVW{} for which \(\psi\) has value \(v'\) it would not be possible for the agent to conclude that \(\psi\) has value \(v'\) without the conclusion also \indicateV{} that \(\phi\) has value \(v\).\nolinebreak
+  \footnote{
+    Note, \ref{def:requ:crequ:strcture:psi-not-v} does not place any constraints on how the premises of the step of reasoning relate to \(\psi\) having value \(v'\) (or \(\phi\) having value \(v\)).
+    \autoref{fig:crequ:intuition:prem-ex} depicts a possibility, but in general the agent may entertain arbitrary proposition-value pairs as premises.
 
-  There may be some variant of a \ideaCS{}, and hence a \requ{}, which applies to cases such as the one described, but our attention is (and will be) focused on the possibility of an agent reasoning given their current circumstances.
-  Hence, \ref{def:requ:crequ:possible-reason} explicitly requires the possibility of the relevant reasoning.
+    Hence, satisfying the definition of a \crequ{} will not ensure that the step is `reasonable'.
+    For example, be that there is no \epVW{} where \(\chi_{1},\dots,\chi_{k}\) all have values \(v_{1},\dots,v_{k}\), and hence the agent would, if they were to conclude \(\phi\) has value \(v\), reason from premise proposition-value pairs that the agent do not consider \epVAd{}.
+
+    Still, \ideaCS{} is only a necessary condition on claiming support, and in turn a \requ{}, and specifically a \crequ{}, need not capture every way in which a step of reasoning may be problematic (with respect to claiming support).
+
+    And, as we will observe, the partner definition of a \prequ{} will place some constraints on when an agent may appeal to some premises to claim support for some conclusion.
+  }
+
+  It also follows from both \(\psi\) having value \(v'\) is strictly weaker than \(\phi\) having value \(v\) and the \epVN{} of \(\psi\) not having value \(v'\), that there is some \epVW{} in which \(\phi\) does not have value \(v\).
+  In this respect, the definition of a \crequ{} is restricted to non-deductive steps of reasoning.\nolinebreak
+  \footnote{
+    This is not to deny that the definition of a \requ{} may be extended to cover cases of deductive reasoning.
+    Still, it is unclear to me (at least) how the intuitive idea of a \crequ{} \emph{could} be extended to deductive steps.
+    For, at issue is whether the agent may have first witnessed some other reasoning which would prevent the agent from concluding that \(\phi\) has value \(v\), but if \(\phi\) having value \(v\) follows deductively, then no other reasoning is possible without the agent having concluded that some proposition has multiple incompatible values, or the agent revising their current epistemic state.
+
+    Still, this is not to deny that an agent may make a non-deductive step of reasoning by appeal to a deductive step.
+    For example, the agent may fail to note a key restriction on a theorem before applying it to a specific case.
+    However, the distinction between whether a step of reasoning is deductive or non-deductive is made independently of the agent's perspective.
+  }
 \end{note}
 
 
+\begin{note}[\ref{def:requ:prequ:no-revision}]
+  However, \ref{def:requ:prequ:no-revision} captures an important subtlety regarding the agent's epistemic state that does not reduce to the present relation between various proposition-value pairs.
+  For, it may be that the extant relation between \(\phi\) having value \(v\) and \(\psi\) having value \(v'\) is unimportant to the agent.
 
-\begin{note}
-  Still, \ref{def:requ:prequ:no-revision} captures an important subtlety that does not reduce to the present relation between various proposition-value pairs.
-  For, it may be the case that the relation between the premise proposition-value pairs and \(\psi\) having value \(v'\) is unimportant to the agent.
+  Consider a familiar situation from \citeauthor{Harman:1986ux}:
 
-  Consider a familiar situation from \textcite{Harman:1986ux}:
+  \begin{quote}
+    Mary believes, prior to looking in the cupboard, that if she looks in the cupboard, then she will see a box of Cheerios.
+    Mary then looks in the cupboard and does not see a box of Cheerios.
+    Hence, Mary abandons her belief about what she would see if she looks in the cupboard.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[Cf.][Chs.1\&2]{Harman:1986ux})}
+  \end{quote}
 
-  Mary believes, prior to looking in the cupboard, that if she looks in the cupboard, then she will see a box of Cheerios.
-  Mary then looks in the cupboard and does not see a box of Cheerios.
-  Hence, Mary abandons her belief about what she would see if she looks in the cupboard.
-
-  Likewise, an agent may abandon any relation between the premises of some step and \(\psi\) having value \(v'\) rather than hold that so long as the premises have their respective values then \(\psi\) has value \(v'\).
+  In a similar way, an agent may abandon any relation between the premises of some step and \(\psi\) having value \(v'\) rather than hold that so long as the premises have their respective values then \(\psi\) has value \(v'\).
   For example, an agent may hold that the fire alarm will active whenever there is a fire.
   Though, allow for the possibility that the fire alarm may active when there is no fire.
   However, given the presence of fire with an the appearance of no alarm, the agent may abandon that the fire alarm will active whenever there is fire in order to conclude that someone is in danger, rather than investigating when the alarm really is active.
 
-  In this respect, clause \ref{notion:requ:need-psi} of \autoref{notion:requ} would not be satisfied --- it is \epVAd{} for the agent to conclude that someone is in danger from the presence of fire without being \committed{} to the fire alarm being active.
+  In this respect, clause \ref{notion:requ:structure:need-psi} of \autoref{notion:requ} would not be satisfied --- it is \epVAd{} for the agent to conclude that someone is in danger from the presence of fire without being \committed{} to the fire alarm being active.
 
   While both \ref{def:requ:prequ:strcture} and \ref{def:requ:prequ:no-revision} relate to the same intuitive point, these are separated in the definition of a \prequ{} as \ref{def:requ:prequ:strcture} concerns the structure of the agent's current epistemic state, while \ref{def:requ:prequ:no-revision} concerns a subjunctive property of the present structure.
 \end{note}
