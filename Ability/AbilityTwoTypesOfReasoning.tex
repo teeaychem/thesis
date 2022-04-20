@@ -287,14 +287,13 @@
 
 \begin{note}
   \begin{restatable}[\adA{}]{definition}{defADA}\label{AR:adA}\label{def:adA}
-    Fix an agent and suppose:
-    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), series=adA_counter]
-    % \item\label{def:adA:p-to-p} Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
-    \item\label{def:adA:phi} The agent has claimed support for \(\phi\) having value \(v\).
-    \end{enumerate}
-    Then, agent claims support for \(\psi\) having value \(v'\) by `\adA{}' from \(\phi\) having value \(v\) when:
-    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), resume*=adA_counter]
-    \item\label{def:adA:psi} The agent claims support for \(\psi\) having value \(v'\) (in part) by their claimed support that \(\phi\) has value \(v\).
+    % Fix an agent and suppose:
+    % \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*), series=adA_counter]
+    % \item\label{def:adA:phi} The agent has concluded that \(\nu\) having value \(v\).
+    % \end{enumerate}
+    An, agent concludes \(\psi\) has value \(v'\) by `\adA{}' when:
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*)]%, resume*=adA_counter]
+    \item\label{def:adA:psi} The agent concludes \(\phi\) has value \(v\) by witnessing reasoning from premises \(\chi_{1},\dots,\chi_{k}\) with values \(v_{1},\dots,v_{k}\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -317,14 +316,14 @@
   {
     \small
     \begin{enumerate}[label=\arabic*., ref=\arabic*]
-    \item\label{def:adA:ex:C:Cp} I have claimed support that \(\phi\) has value \(v\).
-    \item\label{def:adA:ex:C:p} So, if my claimed support is \nmom{}, \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cp})
-    \item\label{def:adA:ex:C:Cps} Likewise, I have claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
-    \item\label{def:adA:ex:C:ps} So, if my claimed support is \nmom{}, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cps})
+    \item\label{def:adA:ex:C:Cp} I have concluded that \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:p} So, \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cp})
+    \item\label{def:adA:ex:C:Cps} Likewise, I have concluded that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cps})
     \item\label{def:adA:ex:C:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
-    \item\label{def:adA:ex:C:s} Hence, if my claimed support is \nmom{}, \(\psi\) has value \(v'\).\newline
+    \item\label{def:adA:ex:C:s} Hence, \(\psi\) has value \(v'\).\newline
       \mbox{}\hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
-    \item Therefore, I claim support that \(\psi\) has value \(v'\) as I expect the claimed support of (\ref{def:adA:ex:C:Cp}) and (\ref{def:adA:ex:C:Cps}) is, respectively, \nmom{}. \hfill (From \ref{def:adA:ex:C:Cp} -- \ref{def:adA:ex:C:s})
+    \item Therefore, I conclude that \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:Cp} -- \ref{def:adA:ex:C:s})
     \end{enumerate}
   }
   The reasoning is a verbose because claimed support is not necessarily factive
@@ -359,22 +358,24 @@
     \begin{restatable}[\adB{}]{definition}{defADB}\label{AR:adB}\label{def:adB}
     Fix an agent and suppose:
     \begin{enumerate}[label=\textsf{I:\arabic*}., ref=(\textsf{I}:\arabic*), series=adB_counter]
-    % \item Agent has claimed support that \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).\nolinebreak
-      % \footnote{
-      %   It doesn't matter whether claiming support for \(\phi\) is sufficient to claim support for \(\psi\).
-      % }
-    \item\label{def:adB:poss} Claimed support for \(\phi\) ensures there is some (distinct) collection of propositions premises \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\), such that it is possible to claim support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\), with respective values, and \(\delta_{1},\dots,\delta_{m}\).
+    \item
+      \label{def:adB:poss}
+      \(\mu\) having value \(v\) ensures there is some (distinct) collection of propositions premises \(\chi_{1},\dots,\chi_{k}\) with respective values \(v_{1},\dots,v_{k}\), such that it is possible to claim support for \(\phi\) having value \(v\) by appeal to \(\chi_{1},\dots,\chi_{k}\), with respective values \(v_{1},\dots,v_{k}\).
     \end{enumerate}
-    Then, agent claims support for \(\psi\) having value \(v'\) by `\adB{}'\nolinebreak
+    Then, agent concludes \(\phi\) has value \(v\) by `\adB{}'\nolinebreak
     \footnote{
       Motivated in part by similarity to Craig's interpolation theorem.
       Find something `in-between' that does the work.
       However, that's the extent of the relation.
     }
-    from \(\phi\) having value \(v\) when:
+    when:
     \begin{enumerate}[label=\textsf{I}:\arabic*., ref=(\textsf{I}:\arabic*), resume*=adB_counter]
-    \item\label{def:adB:inter} Claim support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\) with respective values and the possibility of claiming support for \(\psi\) having value \(v'\) by appeal to \(\rho_{1},\dots,\rho_{k}\) with respective values and steps \(\delta_{1},\dots,\delta_{m}\).
+    \item
+      \label{def:adB:inter}
+      Claim support for \(\phi\) having value \(v\) by appeal to \(\chi_{1},\dots,\chi_{k}\) with respective values \(v_{1},\dots,v_{k}\) and the possibility of concluding that \(\phi\) has value \(v\) by witnessing reasoning via \(\mu\).
     \end{enumerate}
+    Here, \(\mu\) is not a premise.
+    The agent is concluding \(\phi\) has value \(v\) from \(\chi_{1},\dots,\chi_{k}\) having values \(v_{1},\dots,v_{k}\).
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
