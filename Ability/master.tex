@@ -15,15 +15,20 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb, mtpcal]{mtpro2}
-   \usepackage{bm}% Access to bold math symbols
-   \usepackage[no-math]{fontspec}
-   \defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
-   \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-   \setmainfont[Microtype,Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
-   \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
-   \setmonofont[Scale=0.8]{Source Code Pro}
-   % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+\usepackage{bm}% Access to bold math symbols
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
+   % \protrudechars=2 % or \pdfprotrudechars=2 and
+\adjustspacing=2 %    \pdfadjustspacing=2 with luatex < v0.85
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\directlua{fonts.protrusions.setups.default.factor=.5}
+\setmainfont[Microtype,Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif Pro}
+\setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans Pro}
+\setmonofont[Scale=0.8]{Source Code Pro}
+
+% \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
 % % % % % % %
+
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{xfrac}
@@ -245,13 +250,10 @@
 
 \pagenumbering{arabic}
 
-\part{Introduction}
+\part*{Introduction}
 \label{part:introduction}
 
 \include{AbilityIntroduction}
-
-\part{Overview}
-\label{part:overview}
 
 \include{AbilityOutline}
 
@@ -261,6 +263,7 @@
 \include{AbilityClaimingSupport}
 
 \part{Reasoning}
+\label{part:reasoning}
 
 \include{AbilityReasoning0Introduction}
 
@@ -270,11 +273,16 @@
 
 
 \part{Ability}
+\label{part:ability}
 
 
 \part{Tension}
 
+\include{AbilityTensionA}
 
+\include{AbilityTensionB}
+
+\include{AbilityTensionEstablished}
 
 
 
@@ -290,21 +298,11 @@
 \include{AbilityPlanForTension}
 
 \part{Claiming support II}
-\label{part:ability}
 \label{part:claimingSupportII}
 
 \include{AbilityAbility}
 
 \include{AbilityTwoTypesOfReasoning}
-
-\part{Tension II}
-\label{part:tension}
-
-\include{AbilityTensionA}
-
-\include{AbilityTensionB}
-
-\include{AbilityTensionEstablished}
 
 \part{Supplements}
 \label{part:supplements}

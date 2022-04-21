@@ -11,6 +11,7 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \newcommand*\cancel[2][thin]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+\newcommand*\Cancel[2][thick]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
 
 \RequirePackage{pifont}
 \newcommand{\hand}{\ding{43}}
@@ -126,7 +127,7 @@
 \DeclareDocumentCommand{\ideaS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\) S}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
+    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\)S}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
   }
   {%
   \ifnum0=#1\relax%
@@ -140,11 +141,15 @@
 \ExplSyntaxOff
 
 % % %
+
+\newcommand{\ideaCSacro}[0]{{\(\ddag\)CS}}
+
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ideaCS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[assumption:CS]{\named{\(\ddag\) CS}}}
+    \text{\hyperref[assumption:CS]{\named{\ideaCSacro{}}}}
   }
   {%
     \ifnum0=#1\relax%
@@ -217,13 +222,13 @@
 \newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
 
 
-\newcommand{\LCSAcro}[0]{LCS}
+\newcommand{\LCSAcro}[0]{\ideaCSacro{}} %{LCS}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\LCS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:lcs]{\named{\LCSAcro{}}}}% \text{\textsf{|NI|}}%
+    \text{\hyperref[idea:CS:B]{\named{\LCSAcro{}}}}% \text{\textsf{|NI|}}% %prop:lcs
   }
   {%
     \ifnum0=#1\relax%
@@ -271,7 +276,7 @@
 \ExplSyntaxOff
 
 % % %
-\newcommand{\ESUacro}[0]{CSU}
+\newcommand{\ESUacro}[0]{USE}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\ESU}{ m }{% Main premise / access to support
@@ -288,7 +293,7 @@
 \ExplSyntaxOff
 
 % % %
-\newcommand{\EASacro}[0]{ACS}
+\newcommand{\EASacro}[0]{\Cancel{USE}}
 % \newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
 
 \ExplSyntaxOn
