@@ -66,18 +66,18 @@
 
 \newcommand{\sem}[1]{\ensuremath{[\![\text{#1}]\!]}}
 
-% % % Attribution and witnessing
+% % % Property and event
 
 \newcommand{\RBV}[0]{\textsf{RBV}}
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
 
-\newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Witnessing}}}
+\newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Event}}}
 
-\newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Attribution}}}
-\newcommand{\ARB}[0]{\hyperref[AR:def]{\textsf{Attribution:Basic}}}
-\newcommand{\ARD}[0]{\hyperref[AR:def]{\textsf{Attribution:Derived}}}
+\newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Property}}}
+\newcommand{\ARB}[0]{\hyperref[AR:def]{\textsf{Property:Basic}}}
+\newcommand{\ARD}[0]{\hyperref[AR:def]{\textsf{Property:Derived}}}
 
 \newcommand{\future}[0]{\textsf{Forward}}
 \newcommand{\agent}[0]{\emph{S}}
@@ -87,7 +87,7 @@
 
 \newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
 
-\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Substantiation}}}
+\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Witnessing}}}
 
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
 
@@ -201,26 +201,23 @@
 \ExplSyntaxOff
  % %
 
-
-
 \newcommand{\nIacro}[0]{{\color{red} NI}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\nI}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prem:ni]{\named{\nIacro{}}}}% \text{\textsf{|NI|}}%
+    \text{\named{\nIacro{}}}% \text{\textsf{|NI|}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Limitation\space on\space claiming\space support}%
+      \obeybreaks{\color{red} Limitation\space on\space claiming\space support}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
-
 
 \newcommand{\LCSAcro}[0]{\ideaCSacro{}} %{LCS}
 
@@ -429,30 +426,6 @@
 }
 \ExplSyntaxOff
 
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\impotent}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{impotent}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{impotent}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} ?}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Impotent}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} ?}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
 % % % Abbreviations % % %
 
 % % % % % % Support % % %
@@ -472,6 +445,121 @@
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Support}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csV}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claims\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claims\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claims\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csVP}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claiming\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claiming\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claiming\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csVImp}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claiming\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claiming\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claiming\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csVed}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claimed\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claimed\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claimed\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claiming\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claiming\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claiming\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -500,76 +588,6 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Requisites}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\result}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{proto-\requ{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{proto-\requ{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{proto-\requ{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Proto-\requ{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Proto-\requ{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\presult}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{premise-\result{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{premise-\result{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{premise-\result{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Premise-\result{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Premise-\result{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\cresult}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{conclusion-\result{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{conclusion-\result{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{conclusion-\result{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Conclusion-\result{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Conclusion-\result{1}}%
     \fi
   }
 }
@@ -616,29 +634,6 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Conclusion-\requ{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\pandcrequ}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{premise-\space and\space conclusion-\requ{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{premise-\space and\space conclusion-\requ{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{premise-\space and\space conclusion-\requ{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Premise-\space and\space conclusion-\requ{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Premise-\space and\space conclusion-\requ{1}}%
     \fi
   }
 }
@@ -697,52 +692,6 @@
 \ExplSyntaxOff
 
 % % % % % % Commands for worlds which are possible in general % % %
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\gPossible}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{possible}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{possible}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{possibilities}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Possible}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Possibilities}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epG}{ m }{% Illustration
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic\space \gPossible{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic\space \gPossible{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic\space \gPossible{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \gPossible{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic\space \gPossible{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\GAd}{ m }{%
@@ -1052,29 +1001,6 @@
 
 % % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\expec}{ m }{% Expectation
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{expectation}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{expectation}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{expectations}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Expectation}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Expectations}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \DeclareDocumentCommand{\illu}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
@@ -1333,9 +1259,6 @@
 \ExplSyntaxOff
 
 
-
-
-
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
 \makeatletter
@@ -1432,9 +1355,6 @@
     If agent claims support for some proposition \(\phi\), then the support claimed indicates value of \(\phi\) regardless whether \(\phi\) has that value.
   \end{proposition}
 }
-
-
-
 
 % % % Labels % % %
 
@@ -1573,7 +1493,6 @@
 }
 
 % % % https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
-
 \newcommand{\repeatCaption}[2]{%
   \renewcommand{\thefigure}{\ref{#1}}%
   \captionsetup{list=no}%
@@ -1587,13 +1506,6 @@
   \caption{#2}%
   \addtocounter{figure}{-1}% So that next figure after the repeat gets the right number.
 }
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
-\newcommand{\CStepA}[0]{\obeybreaks{Step A}}
-\newcommand{\CStepB}[0]{\obeybreaks{Step B}}
-\newcommand{\CStepC}[0]{\obeybreaks{Step C}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % Commands that I don't think are needed
