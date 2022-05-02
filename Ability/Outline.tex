@@ -129,7 +129,7 @@
 
   Specifically:
   \begin{assumption}[Concluding is `description-free']
-    \label{assu:d-free}
+    \label{assu:conc:d-free}
     It is not the case that an agent concludes \(\phi\) has value \(v\) only if the agent concludes \(\phi\) has value \(v\) under some description \emph{d}, where \emph{d} includes ``\(\phi\) has value \(v\)''.
   \end{assumption}
 
@@ -143,13 +143,13 @@
 
   As observed, there is an intuitive sense in which an agent concludes \(\phi\) has value \(v\) only if the agent recognises that \(\phi\) has value \(v\).
   And, a restriction to equivalent proposition-value pairs provides is also intuitive.
-  However, we leave~\autoref{assu:d-free} as is.
-  While some specifics of argument to follow will rely on~\autoref{assu:d-free} denying the requirement of a description in general, the spirit is independent.\nolinebreak
+  However, we leave~\autoref{assu:conc:d-free} as is.
+  While some specifics of argument to follow will rely on~\autoref{assu:conc:d-free} denying the requirement of a description in general, the spirit is independent.\nolinebreak
   \footnote{
-    In particular, if~\autoref{assu:d-free} were rewritten to hold that `it is the case' rather than `it is not the case', our attention would turn to instances in which an agent recognises that \(\phi\) has value \(v\) only if they have the option of concluding \(\psi\) has value \(v'\).
+    In particular, if~\autoref{assu:conc:d-free} were rewritten to hold that `it is the case' rather than `it is not the case', our attention would turn to instances in which an agent recognises that \(\phi\) has value \(v\) only if they have the option of concluding \(\psi\) has value \(v'\).
   }
 
-  Still, it is perhaps important to note that~\autoref{assu:d-free} is motivated only by proposition-value pairs which are equivalent from the perspective of the agent.
+  Still, it is perhaps important to note that~\autoref{assu:conc:d-free} is motivated only by proposition-value pairs which are equivalent from the perspective of the agent.
   In particular, we not assume a general `closure' condition%
   \footnote{
     Consider by parallel closure of knowledge under known entailment:
@@ -180,6 +180,18 @@
   These premises, and therefore \(\phi\) has value \(v\).
 
   The `follow' or `therefore' may be deductive or non-deductive.
+\end{note}
+
+\begin{note}[Unique]
+  \begin{assumption}[Conclusions are unique]
+    \label{assu:conc:unique}
+    If an agent has the option of concluding \(\langle \phi,v \rangle\), then the agent does not have the option of concluding \(\langle \phi,\overline{v} \rangle\).
+  \end{assumption}
+  In other words, there are no cases where an agent may choose between concluding \(\phi\) has value \(v\) and concluding \(\phi\) has some value other than \(v\).
+
+  This is weaker than voluntarism.
+  An agent may choose whether or not to conclude.
+  And, may choose to whether to retract some previous conclusion.
 \end{note}
 
 \subsection{\csN{2}}
@@ -230,83 +242,200 @@
   Likewise, a friend's story may be entertaining, but one doesn't \csN{} that it actually happened without first checking that the details add up.
 \end{note}
 
-\begin{note}
-  \begin{figure}[h]
-    \centering
-    \begin{tikzpicture}
-      \node (origin) at (1,0) {};
-      \node (psiSplit) at (3,0) {};
-      \node (psiV) at  (5,-1) {\(\langle \psi,v' \rangle\)};
-      \node (psiNv) at (5,-2) {\(\langle \psi,\overline{v'} \rangle\)};
-      \node (psiQ) at (5,-3) {\(\langle \psi,? \rangle\)};
-      \node (psiVPhiV) at (8,-1) {\(\langle \psi,v \rangle\)};
-      \node (psiNvPhiU) at (8,-2) {\(\langle \psi,\{v,\overline{v},?\} \rangle\)};
-      \node (psiQPhiU) at (8,-3) {\(\langle \psi,\{v,\overline{v},?\} \rangle\)};
-      \node (phiSplit) at (5,0) {};
-      \node (phiQ) at (9,1) {\(\langle \phi,? \rangle\)};
-      \node (phiNv) at (9,2) {\(\langle \phi,\overline{v} \rangle\)};;
-      \node (phiV) at (11,0) {\(\langle \phi,v \rangle\)};
-
-      \draw[-]  (origin) -- (phiV);
-
-      \draw[-]  (psiSplit) -- (psiV);
-      \draw[-]  (psiSplit) -- (psiNv);
-      \draw[-]  (psiSplit) -- (psiQ);
-
-      \draw[-]  (phiSplit) -- (phiNv);
-      \draw[-]  (phiSplit) -- (phiQ);
-
-      \draw[-] (psiV) -- (psiVPhiV);
-      \draw[-] (psiNv) -- (psiNvPhiU);
-      \draw[-] (psiQ) -- (psiQPhiU);
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \node (origin) at (0,0) {};
+    \node (psiSplit) at (1,0) {};
+    \node (phiSplit) at (4,0) {};
+    %
+    \node[anchor=west] (psiV) at  (6,-1)  {\(\langle \psi,v' \rangle\)};
+    \node[anchor=west] (psiNv) at (6,-2) {\(\langle \psi,\overline{v'} \rangle\)};
+    \node[anchor=west] (psiQ) at (6,-3) {\(\langle \psi,? \rangle\)};
+    %
+    \node[anchor=west] (psiVPhiV) at (9,-1) {\(\langle \phi,v \rangle\)};
+    \node[anchor=west] (psiNvPhiU) at (9,-2) {\(\langle \phi,\{\overline{v},?\} \rangle\)};
+    \node[anchor=west] (psiQPhiU) at (9,-3) {\(\langle \phi,\{\overline{v},?\} \rangle\)};
+    %
+    \node[anchor=west] (phiQ) at (10,1) {\(\langle \phi,? \rangle\)};
+    \node[anchor=west] (phiNv) at (10,2) {\(\langle \phi,\overline{v} \rangle\)};;
+    \node[anchor=west] (phiV) at (10,0) {\(\langle \phi,v \rangle\)};
+    %
+    \draw[-]  (origin) -- (phiV);
+    %
+    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiNv);
+    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiQ);
+    %
+    \path[-.] (psiSplit) edge [out=0, in=180] (psiV);
+    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiNv);
+    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiQ);
+    %
+    \draw[<-,dotted] (psiV) edge (psiVPhiV);
+    \draw[->, dotted] (psiNv) edge (psiNvPhiU);
+    \draw[->, dotted] (psiQ) edge (psiQPhiU);
     \end{tikzpicture}
-    \caption{\csN{} \illu{}}
+    \caption{A visualisation of when an agent has \csVed{} for \(\langle \phi,v \rangle\).}
     \label{fig:csN:illu:overview}
   \end{figure}
+
+\begin{note}[Figure]
+  \autoref{fig:csN:illu:overview} provides a rough visualisation of the constraint~\ref{idea:CS:overview} imposes on an instance of reasoning for the reasoning to be an instance of \csN{}.
+
+  The flat line captures the agent's reasoning, which concludes with \(\langle \phi, v \rangle\).
+  In concluding \(\langle \phi,v \rangle\) the agent rules out two possibilities with respect to \(\phi\).
+  First, that \(\phi\) does not have value \(v\), indicated by \(\langle \phi,\overline{v} \rangle\).
+  Second, that the agent does not assign any value to \(v\), indicated by \(\langle \phi,? \rangle\).
+  Prior to concluding \(\langle \phi,v \rangle\), the agent's reasoning may have branched to either alternative path, but as the agent has concluded \(\langle \phi,v \rangle\), neither path is viable, and hence both paths are represented with a dashed line.
+
+  So far, we have seen only that the agent has concluded \(\langle \phi,v \rangle\).
+
+  With respect to \csN{}, observe that prior to ruling out alternative branches with respect to \(\phi\), the agent may have reasoned about whether \(\psi\) has value \(v\).
+  And, from the agent's perspective, \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
+  If \(\psi\) does not have value \(v'\), then either \(\phi\) does not have value \(v\), or the agent's reasoning would not conclude with a value for \(\phi\), indicated by \(\langle \phi,\{\overline{v},?\} \rangle\).
+
+  Hence, prior to concluding \(\langle \phi,v \rangle\), the agent has concluded \(\langle \psi,v' \rangle\).
 \end{note}
 
-\begin{note}
+\begin{note}[Following visual]
+  Broadly, then, we may say that an agent has \csVed{} for \(\langle \phi,v \rangle\) just in case when concluding \(\langle \phi,v \rangle\) it is not the case that the agent's reasoning could have branched to a different conclusion with respect to \(\phi\).
 
-  \autoref{cha:claiming-support} will explore \csN{} in some detail.
-  For the moment, we work with the following sketch which captures they key components:
-  \begin{idea}[\csN{2}]
-    \label{assu:CS:overview}
-    An agent \csV{} for \(\phi\) having value \(v\) when concluding \(\langle \phi,v \rangle\) \emph{only if}:
-    \begin{itemize}
-    \item
-      There is no proposition-value pair \(\langle \psi, v' \rangle\) such that the following jointly hold:
-      \begin{enumerate}
-      \item \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\),
-      \item \(\phi\) has value \(v\) only if the agent has the option of concluding \(\langle \psi, v' \rangle\) from some pool of premises.
-      \item The agent has not concluded whether they would conclude \(\langle \psi, v' \rangle\) from the pool of premises \emph{without concluding \(\langle \phi, v \rangle\)}.
-      \end{enumerate}
-    \end{itemize}
-  \end{idea}
-  
+  However, the visualisation of~\autoref{fig:csN:illu:overview} and this broad statement of \csN{} are a little too broad.
+  For, we are only interested in proposition-value pairs guaranteed by \(\phi\) having value \(v\).
+  \csN{} is not global with respect to all proposition-value pairs that the agent may have reasoned about, but local to those guaranteed by the proposition.
+
+  This restriction may seem arbitrary, and to some degree I think it is.
+  Ideally, an agent concluding \(\langle \phi,v \rangle\) is an instance of \csN{} just in case the agent would not have reasoned to a different conclusion if they were ti reason first about any other proposition-value pair.
+  However, the advantage of focusing on some proposition-value pair `required' by \(\phi\) having value \(v\) is a significant constraint on the range of proposition-value pairs an agent needs to consider in order to \csN{}.
+
+  In general, it may not be clear which proposition-value pairs may lead an agent to fail to conclude \(\phi\) has value \(v\), but so long the proposition-value pair of interest is given by \(\phi\) having value \(v\), an exhaustive search over all other proposition-value pairs may be avoided.
+
+  Indeed, we will say that an agent has \emph{\support{}} for \(\phi\) having value \(v\) just in case they would not have reasoned otherwise, and reserve \emph{\claiming{}} \support{} for the weaker notion.
+
+  We save discussion of \support{} for~\autoref{cha:claiming-support}, which will explore both \support{} and \csN{} in some detail.
 \end{note}
 
-\begin{note}[\csN{2}]
-  In other words, an agent concluding \(\phi\) has value \(v\) is an instance of \csN{} just in case there is no proposition-value pair \(\langle \psi, v' \rangle\) such that if the agent may fail to conclude that \(\phi\) has value \(v\) if the agent were to reason about whether \(\psi\) has value \(v'\) \emph{independently} of whether \(\phi\) has value \(v\).
-\end{note}
+\begin{note}[\csN{} idea]
+  With the general notion of \csN{} in hand, and a few \illu{1} considered, we refine the notion of \csN{} into an idea.
 
-\begin{note}[\requ{3}]
-  \begin{notion}[A \requ{2} of a conclusion]
-    \(\langle \psi, v' \rangle\) such that \(\phi\) has value \(v\) only if the agent has the option of concluding \(\langle \psi, v' \rangle\) from some independent pool of premises \emph{without concluding \(\langle \phi, v \rangle\)}.
-  \end{notion}
+  First, we introduce the help notion of some proposition-value pair being a \requ{} of concluding some (other) proposition-value pair.
 
-  \begin{notion}[Satisfied and unsatisfied \requ{1}]
-    Two definitions.
-
+  \begin{notion}
+    \label{notion:overview:requ}
+    \(\langle \psi,v' \rangle\) is a \requ{} of concluding \(\langle \phi,v \rangle\) if:
     \begin{enumerate}
-    \item
-      A \requ{} is \emph{unsatisfied} if the agent not concluded whether they would conclude \(\langle \psi, v' \rangle\) from the pool of premises.
-    \item
-      A \requ{} is \emph{satisfied} if the agent has concluded they would conclude \(\langle \psi, v' \rangle\) from the pool of premises.
+    \item From the perspective of the agent, \(\phi\) has value \(v\) only if:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{notion:overview:requ:pool}
+        The agent has the option of concluding \(\langle \psi, v' \rangle\) from some pool of premises \(\mathcal{P}\) where:
+        \begin{enumerate}[label=\roman*., ref=(\roman*), series=csIdeaCounter]
+        \item
+          \label{notion:overview:requ:pool:incl}
+          \(\mathcal{P}\) does not include \(\langle \phi,v \rangle\).
+        \item
+          \label{notion:overview:requ:pool:int}
+          \(\langle \phi,v \rangle\) would not be needed as an intermediary step of concluding \(\langle \psi,v' \rangle\) from \(\mathcal{P}\).
+        \item
+          \label{notion:overview:requ:pool:ind}
+          For any proposition-value pair \(\langle \chi_{i}, v_{i} \rangle\) in \(\mathcal{P}\), the agent may conclude \(\langle \chi_{i}, v_{i} \rangle\) without concluding \(\langle \phi,v \rangle\).
+        \end{enumerate}
+      \item
+        \label{notion:overview:requ:nPsi-nPhi}
+        If fail to conclude \(\langle \psi,v' \rangle\) from \(\mathcal{P}\) then would not conclude \(\langle \phi,v \rangle\).
+      \end{enumerate}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{notion}
 
-  So,~\autoref{assu:CS:overview}, no unsatisfied \requ{1}.
+  \begin{idea}[\csN{2}]
+    \label{idea:CS:overview}
+    An agent \csV{} for \(\phi\) having value \(v\) when concluding \(\langle \phi,v \rangle\) \emph{only if}:
+    \begin{enumerate}
+    \item
+      \label{idea:CS:overview:requ}
+      For any proposition-value pair \(\langle \psi, v' \rangle\) which is a \requ{} of concluding \(\langle \phi,v \rangle\) either:
+      \begin{enumerate}
+      \item
+        \label{idea:CS:overview:requ-sat:Past}
+        The agent has concluded that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\mathcal{P}\).
+      \item
+        \label{idea:CS:overview:requ-sat:Pres}
+        In concluding \(\langle \phi,v \rangle\) the agent (also) concludes that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\mathcal{P}\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{idea}
+
+  \autoref{idea:CS:overview} states that any \requ{} of concluding \(\langle \phi,v \rangle\) has been satisfied in one of two ways.
+
+  First:
+  The agent having concluded that they would conclude \(\langle \psi,v' \rangle\) from the relevant pool of premises prior to concluding \(\langle \phi,v \rangle\).
+
+  Second:
+  The agent simultaneously concluding that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\mathcal{P}\) while concluding \(\langle \phi,v \rangle\).
+
+  Observe, neither option (immediately, at least) requires the agent concludes \(\langle \psi,v' \rangle\) from the relevant pool of premises.
+  What~\autoref{idea:CS:overview} states is weaker, concerning only whether or not they (the agent) would conclude \(\langle \psi,v' \rangle\) from the relevant pool of premises.
+
+  For example, counterexample for some formula of propositional logic.
+  Constructed a truth table.
+  Identified a line.
+  If counterexample, then line makes any tautology of propositional logic true.
+  And, do not need to appeal to the line being a counterexample to the relevant formula to do so.
+  However, do not need to reason from line to any recognised tautology.
+  Conclude that if were to reason, tautology would be true.\nolinebreak
+  \footnote{
+    Though, it is also plausible that conclude the provides a model, and in doing so conclude that all tautologies hold.
+    Any particular tautology need not be a distinct conclusion.
+    Recall~\autoref{assu:conc:d-free}.
+  }
+\end{note}
+
+\begin{note}
+  Still, the second option may be of some concern.
+  Note, however, this is only an option.
+  If you go for negative resolution, then ruled out, but then first option alone.
+  However, this is not obviously required.
+
+  Propositional logic.
+  These premises allow to conclude two things.
+  Then, conclusion that \(\phi \land \psi\) is simultaneously a conclusion that \(\phi\) and that \(\psi\).
+
+  Or, apples in a bag.
+  Five.
+  Well, could do at least four, three, etc.
+  Conclude at the same time.
+\end{note}
+
+\begin{note}[\requ{1}]
+  Now, the primary feature of \(\langle \psi,v' \rangle\) being a \requ{} of concluding \(\langle \phi,v \rangle\) is the option of concluding \(\langle \psi,v' \rangle\) from some pool of premises.
+  However, the majority of the content of \label{idea:CS:overview:requ} concerns the relationship between \(\langle \phi,v \rangle\) and the pool of premises.
+  In short, \autoref{notion:overview:requ:pool:incl},~\autoref{notion:overview:requ:pool:int}, and~\autoref{notion:overview:requ:pool:ind} combine to ensure that the agent has the option of concluding \(\langle \psi,v' \rangle\) independently of whether they have concluded \(\langle \phi,v \rangle\).
+\end{note}
+
+
+\begin{note}[Expanding pool constraints]
+  To~\autoref{notion:overview:requ:pool} of~\autoref{notion:overview:requ} the following clause may also be added:
+  \begin{enumerate}[label=]
+  \item
+    \begin{enumerate}[label=]
+    \item
+      \begin{enumerate}[label=\roman*., ref=(\roman*), resume*=csIdeaCounter]
+        \setcounter{enumiii}{3}
+      \item
+        \label{notion:overview:requ:pool:method}
+        Concluding \(\langle  \psi,v' \rangle\) from \(\mathcal{P}\) involves the same general method the agent would use to conclude \(\langle \phi,v \rangle\).
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+  We omit~\autoref{notion:overview:requ:pool:method} from the idea of \csN{} for two (related) reasons.
+  First, it is not clear what `the same general method' amounts to in details.
+  Second, avoiding questions about method affords flexibility when providing \illu{1} of \csN{}.
+  However,~\autoref{notion:overview:requ:pool:method} may be imposed with no loss to the role of \csN{} in the overall argument.
+\end{note}
+
+\begin{note}[\requ{3}]
+  So,~\autoref{idea:CS:overview}, no unsatisfied \requ{1}.
 
   Keys.
   Lost keys, but until I've checked everywhere, might find them.
@@ -353,6 +482,38 @@
   NTP server.
   Not from clock, but from NTP.
   Here, no way to check this.
+\end{note}
+
+
+\begin{note}[Keys case]
+  Without \(\langle \phi,v \rangle\) is important.
+  Keys.
+  In hand.
+  Well, then conclude not in drawer, which haven't yet looked.
+
+  There are two options.
+  First, \requ{}.
+  Hence, conclude that if look in drawer then would not find.
+  This seems plausible.
+
+  Second, not a \requ{}.
+  Indeed, despite intuitiveness of first option, it is the second that is the case.
+  \autoref{notion:overview:requ:nPsi-nPhi} is important.
+  If looked in drawer and found a pair of keys.
+  Well, this would not prevent you from concluding you're found your keys.
+  Rather, confusion over a having a pair of keys.
+  This would not show a mistake in reasoning, but rather a mistake your understanding of how things are.
+  And, revised, there is no telling what conclusions you may reach.
+
+  Now, there may be some analogue to \csN{} which entertains revised information.
+  Indeed, conditional belief.
+  However, \csN{} is about reasoning.
+
+  The original keys example, then, is limited to reasoning about a possible location.
+  If location, then would not clearly conclude lost.
+  At issue was not finding and then concluding not lost.
+
+  In this respect, reasoning after finding keys is significantly different.
 \end{note}
 
 \begin{note}[\illu{3}]
@@ -562,9 +723,250 @@
   The agent is concluding \(\phi\) has value \(v\) from \(\chi_{1},\dots,\chi_{k}\) having values \(v_{1},\dots,v_{k}\).
 \end{note}
 
+\section{Tension}
+\label{sec:tension}
+
+\begin{note}[Intro]
+  Seen \csN{} and \ESU{}.
+  Task is now to develop tension.
+\end{note}
+
+\begin{note}[Basic idea of tension]
+  The basic idea is relatively straightforward.
+  Identify some abstract phenomenon.
+  Observe possible tension.
+  Motivate instances of this phenomenon.
+  Observe tension.
+  Resolve tension by rejecting \ESU{}.
+\end{note}
+
+\begin{note}[Goal]
+  To establish tension between \ESU{} and \csN{} we have the following goal:
+
+  \begin{goal}
+    \label{goal:tension}
+    There are instances in which concluding \(\langle \phi,v \rangle\) from \(\Phi\) seems to be an instance of \csN{} for \(\langle \phi,v \rangle\) where:
+    \begin{enumerate}[label=\arabic*., ref=\named{G\ref{goal:tension}:\arabic*}]
+    \item
+      \label{goal:tension:requ}
+      There is some \(\langle \psi,v',\Psi \rangle\) which is a \requ{} of \(\langle \phi,v,\Phi \rangle\) such that:
+      \begin{enumerate}[label=\alph*., ref=\named{G\ref{goal:tension}:1\alph*}]
+      \item
+        \label{goal:tension:requ:conclude}
+        It is not possible for the agent to conclude that they would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) \emph{without} concluding \(\langle \psi,v' \rangle\) from \(\Psi\).
+      \item
+        \label{goal:tension:requ:no-reason}
+        The agent does not witness any reasoning from premises \(\Psi\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{goal}
+
+  If there are instance of the type described by \autoref{goal:tension}, then \ESU{} and \csN{} are in tension.
+
+  For, we will have some proposition-value-premise pair \(\langle \phi,v,\Phi \rangle\) such that an agent conclude \(\langle \phi,v \rangle\) from \(\Phi\), and in doing so \csV{} for \(\langle \phi,v \rangle\).
+  And, by \autoref{goal:tension:requ} we have some \requ{} \(\langle \psi,v',\Psi \rangle\).
+
+  Now, as \(\langle \psi,v',\Psi \rangle\) is a \requ{0} of concluding \(\langle \phi,v \rangle\) from \(\Phi\), it must be the case that the agent either has concluded or simultaneously concludes that they would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) when concluding \(\langle \phi,v \rangle\) from \(\Phi\).
+
+  Further, the \requ{} \(\langle \psi,v',\Psi \rangle\) has two key properties.
+
+  First, from~\autoref{goal:tension:requ:conclude}, the agent may only conclude that they would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) by concluding \(\langle \psi,v' \rangle\) from \(\Psi\).
+  Hence, by \ESU{} it must be the case that the agent witnesses reasoning from \(\Psi\) which concludes with \(\langle \psi,v' \rangle\).
+
+  Second, from~\autoref{goal:tension:requ:no-reason} the agent does not witness any reasoning from \(\Psi\).
+  Hence, the agent does not witness reasoning from \(\Psi\) which concludes with \(\langle \psi,v' \rangle\).
+
+  From the above, tension.
+  For, if concluding \(\langle \phi,v \rangle\) from \(\Phi\) really is an instance of \csN{}, then the agent must have concluded \(\langle \psi,v' \rangle\) from \(\Psi\) without witnessing reasoning from \(\Psi\) to \(\langle \psi,v' \rangle\).
+  However, if \ESU{} holds then it is not possible for the agent to conclude \(\langle \psi,v' \rangle\) from \(\Psi\) without witnessing reasoning from \(\Psi\) to \(\langle \psi,v' \rangle\).
+  So, either the agent has not \csN{} for \(\langle \phi,v \rangle\) or \ESU{} does not hold.
+  Hence, either \csN{} or \ESU{} must be restricted in some way.
+
+  Of course, the exact nature of the tension, and how it should be resolved, depends in part on the proposition-value-premise pairs which satisfy \autoref{goal:tension}.
+
+  Indeed,~\autoref{prop:tension:requ:conclude} and~\autoref{prop:tension:requ:no-reason} are significant restrictions, and it is not clear from the abstract statement that these correspond to sufficiently interesting phenomenon.
+\end{note}
+
+\begin{note}[Ability]
+  Here, then, our interest turns to ability.
+  I take it as given that there are various instances of concluding \(\langle \phi,v \rangle\) from \(\Phi\) for which the reasoning from \(\Phi\) to \(\langle \phi,v \rangle\) is an instance of a general ability.
+
+  For example, I conclude \(31 + 53 = 84\) from some premises, and the reasoning falls under my general ability to perform (simple) arithmetic.
+  The specifics may differ, but there is sufficient overlap with concluding \(43 + 81 = 123\) and \(91 + 54 = 145\) to consider the reasoning of the same type.
+  Indeed, \(532 - 91 = 441\), \(19 * 32 = 608\), and \(126/36 = 3.5\) may also fall under the same (general) ability.
+  In other words, in concluding each equation I witness a specific instance of the general ability.
+
+  Likewise, one may have the (general) ability to solve chess problems, complete \(\{ \text{Sudoku}, \text{KenKen}, \text{Nonogram}, \dots\}\) puzzles, or parse sentences in a given language.
+
+  So long as you have the (general) ability, I expect each instance of witness the ability is intuitively an instance of \csN{}.
+  I would not have concluded \(31 + 53 \ne 84\) and you would not have failed to identify the relevant winning strategy of some chess problem.
+
+  However, in each of the examples of ability noted, every other specific instance of the general ability functions as an independent check on whether one has the relevant ability.
+  I should make no mistake about \(85 + 21\) and you should make no mistake with the next chess problem.
+  Granting, of course, that we do have the relevant abilities.
+
+  Hence, it seems clear that if one \csV{} for \(\langle \phi,v \rangle\) when concluding \(\langle \phi,v \rangle\) from \(\Phi\) and one's reasoning is a specific instance of a general ability, then there at least various \requ{1} associated with concluding \(\langle \phi,v \rangle\) from \(\Phi\).
+  The finer task is to show that~\autoref{prop:tension:requ:conclude} and~\autoref{prop:tension:requ:no-reason} hold with respect to at least some such instances of concluding.
+\end{note}
+
+\begin{note}
+  \autoref{prop:tension:requ:no-reason}, from specifics.
+  But,~\autoref{prop:tension:requ:conclude} from more general properties.
+\end{note}
+
+\begin{note}
+  Key abstract phenomenon, in general, is a `\cluster{}':
+  A \cluster{0} is a collection of proposition-value-premise pairs such that every proposition-value-premise pair is a \requ{} of every other proposition-value-premise pair in the collection.
+
+  Intuitively, every proposition-value-premise pair of the \cluster{0} is an independent check on every other proposition-value-premise pair of the \cluster{0}.
+
+  \cluster{3} have a few interesting properties, and certain kinds of \cluster{1} have further interesting properties.
+
+  Indeed, obtain~\autoref{goal:tension:requ:conclude} from \cluster{1} in general, and certain kinds of \cluster{1} will ease our argument for~\autoref{goal:tension:requ:no-reason}.
+\end{note}
+
+
+\subsection{\cluster{3} of \requ{1}}
+\label{sec:cluster3}
+
+\begin{note}[Main idea]
+  A \cluster{0} is a collection of proposition-value-premise pairs such that everyq proposition-value-premise pair is a \requ{} of every other proposition-value-premise pair in the collection.
+\end{note}
+
+\begin{note}[\requCluster{3}]
+  \begin{definition}[A \requCluster{1}]
+    \label{def:requCluster}
+    Some collection of proposition-value-premise pairs \(\mathcal{C} = \{\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\}_{i}\) is a \emph{\cluster{}} just in case:
+    \begin{itemize}
+    \item
+      For any \(\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\) in \(\mathcal{C}\), each \(\langle \phi_{j}, v_{j}, \Phi_{j} \rangle\) in \(\mathcal{C}\) (such that \(j \ne i\)) is a \requ{} of \(\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  Key link:
+
+  \begin{proposition}[\cluster{3} and \csN{0}]
+    \label{prop:cluster:csN}
+    Suppose we have some \cluster{0} \(\mathcal{C}\).
+    Consider some proposition-value-premise pair \(\langle \phi,v,\Phi \rangle\) in \(\mathcal{C}\).
+    Now, for concluding \(\langle \phi,v \rangle\) from \(\Sigma\) to be an instance of \csN{}, need to have had concluded, or to simultaneously conclude, that would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) for any \(\langle \psi,v',\Psi \rangle\) in \(\mathcal{C}\).
+  \end{proposition}
+
+  \autoref{prop:cluster:csN} follows from~\autoref{idea:CS:overview} and~\autoref{def:requCluster}.
+
+  \begin{proposition}
+    \label{prop:cluster:simul}
+    Need to do everything in a cluster at the same time.
+    \begin{proof}
+      Straightforward.
+      For, anything is a \requ{} for any other.
+      So, only \csV{} at the same time.
+    \end{proof}
+  \end{proposition}
+\end{note}
+
+\begin{note}[No \(\gamma\)]
+  Consequence:
+
+  \begin{proposition}
+    \label{prop:cluster:no-general}
+    No general \(\langle \gamma,v,\Gamma \rangle\).
+    \begin{proof}
+      Quickly, because of~\ref{prop:cluster:simul}.
+      Only \(\gamma\) at same time as others.
+
+      In more detail.
+      For, by assumption, \requ{} means that it's possible for the agent to conclude.
+      By the each other \requ{} functions as a check on \(\gamma\).
+      If haven't figured out each individual, then the general is in question.
+    \end{proof}
+  \end{proposition}
+\end{note}
+
+\begin{note}
+  \autoref{prop:cluster:simul} is kind of wild.
+  Though, this doesn't prevent reasoning, and then only getting \csN{} after the fact.
+  However, this does prevent ruling out conflict when concluding.
+
+  Of course, concluding each and then \csVImp{}, plausible.
+  As, have not found an issue.
+
+  Also, may conclude all from premises.
+  For, special cases of \cluster{} in which all premises are the same.
+  If so, then no clear tension.
+  For, agent reasons from premises, well all the same premises.
+  So, conclude simultaneously.
+\end{note}
+
+\begin{note}
+  Indeed, narrow interest to \ragCluster{1}.
+
+  \begin{definition}[\ragCluster{3}]
+    Let \(\mathcal{C}\) is a cluster.
+    Then \emph{\ragCluster{}} just in case
+    \begin{itemize}
+    \item
+      There is some \(\langle \phi_{i},v_{i},\Sigma_{i} \rangle\) and \(\langle \phi_{j},v_{j},\Sigma_{j} \rangle\) such that \(\Sigma_{i}\) and \(\Sigma_{j}\) do not overlap.
+    \end{itemize}
+  \end{definition}
+
+  A \ragCluster{}, then, is just a cluster where at least some distinct premises.
+  Hence, avoid issue where same premises allow simultaneous conclusion, and fail to establish tension with \ESU{}.
+
+  \begin{proposition}
+    With \ragCluster{} concluded previous or violate \ESU{}.
+  \end{proposition}
+
+  Now, some caution.
+  It may be the case that reason from some non-minimal collection of premises.
+  Hence, some care when establishing \ragged{}.
+  This means, argue that \cluster{} \emph{and} argue \cluster{} is \ragged{}.
+  Again, without any clear bounds on premises, this argument is non-deductive.
+  However, plausible in various cases.
+\end{note}
+
+\begin{note}[\jag{2}]
+  Given importance of \ragged{} and specific proposition-value-premise pairs of \ragged{}, terminology:
+
+  \begin{definition}[\jag{3} of a \ragCluster{}]
+    \(\mathcal{C}\) some \ragCluster{}.
+    Suppose \(\langle \phi,v,\Phi \rangle\) main.
+    \(\langle \psi,v',\Psi \rangle\) is a \emph{\jag{0}} if \(\Psi\) differs from \(\Phi\).
+  \end{definition}
+
+  \csN{} while presence of some \jag{} when premises are no general.
+\end{note}
+
+\begin{note}
+  Suppose \ragged{}, no prior conclusion for some \jag{}.
+  Then, if \csN{}, violation of \ESU{}.
+
+  For, only \csN{} simultaneously.
+  \jag{}, some not from current premises.
+  And, no previous, so not from previous premises.
+  Hence, \csN{} from premises of the \jag{}.
+
+  Hence, need instances of \ragged{} with no prior conclusion for some \jag{}.
+\end{note}
+
 
 \subsection{Ability}
 \label{sec:ability}
+
+\begin{note}[Ability]
+  Ability to reason in certain ways leads to \cluster{1}.
+  However, not interested in ability in general, but rather relatively simple instances of ability concerning specific problem types.
+
+  Arithmetic.
+  Sudoku.
+  Chess.
+
+  Indeed, the latter pair for \requCluster{1}.
+  For, different starting positions.
+  
+\end{note}
 
 \begin{note}
   Finally, ability.
@@ -608,8 +1010,6 @@
   Intuitively, satisfied all \requ{1}.
 \end{note}
 
-\section{Tension}
-\label{sec:tension}
 
 \begin{note}
   Key argument, then, is that only satisfy a \requ{} by concluding \(\psi\) from \(\rho\).
@@ -639,6 +1039,9 @@
   So, either, allow to bypass independent check.
   Or, do not require witnessing reasoning from premises to conclusion.
 \end{note}
+
+\subsection{Resolving the tension}
+\label{sec:overview:resolving-tension}
 
 \begin{note}
   Now, possible to resolve tension various ways.
@@ -706,6 +1109,38 @@
 
   Concluding is still of interest.
   Or, as noted, `reason', in the weak term.
+\end{note}
+
+\subsection{Observations}
+\label{sec:observations}
+
+\begin{note}[Conditionals, a point of interest]
+  More generally, we have the following result.\nolinebreak
+  \footnote{
+    So long as we do not add~\autoref{notion:overview:requ:pool:method} to~\autoref{notion:overview:requ:pool} of the notion of a \requ{}.
+    If so, then result will be constrained accordingly.
+  }
+  If appeal to some conditional which links premises to a conclusion, such that agent may reason from premises to conclusion, then the agent has always concluded premises from conclusion.
+
+  This is interesting.
+  If agent has concluded from conditional in this way, then in effect the conditional drops out as a premise.
+
+  If \(\Sigma, \phi \rightarrow \psi \vdash \psi\) then \(\Sigma, \phi \vdash \psi\).
+
+  If \(\Sigma, \phi \vdash \phi \rightarrow \psi\) then \(\Sigma, \phi \vdash \psi\).
+
+  The second is close to a restricted form of the deduction theorem.
+
+  Note, this is only when the conditional has a special \requ{}.
+
+  In cases where no checking the conditional, then the elimination does not hold.
+
+  Whether anything of independent interest follows from this, unclear.
+  One example, responsibility.
+  Then, to another person, not only reasoning with conditional, but also full reasoning.
+  No way to distinguish between the two cases.
+  Or, from the converse perspective, no need to add any additional clauses to account of responsibility.
+  However, issues of this kind are far beyond the scope of this document.
 \end{note}
 
 \subsection{Matrix}

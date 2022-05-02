@@ -454,6 +454,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\claiming}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{claiming}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{claiming}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Claiming}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\csV}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
@@ -659,10 +682,10 @@
       \obeybreaks{viabilities}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{viability}%
+      \obeybreaks{Viability}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{viabilities}%
+      \obeybreaks{Viabilities}%
     \fi
   }
 }
@@ -875,10 +898,10 @@
       \obeybreaks{viabilities}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{viability}%
+      \obeybreaks{Viability}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{viabilities}%
+      \obeybreaks{Viabilities}%
     \fi
   }
 }
@@ -947,7 +970,7 @@
       \obeybreaks{Viability}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{viabilities}%
+      \obeybreaks{Viabilities}%
     \fi
   }
 }
@@ -1352,6 +1375,122 @@
     \fi
     \ifnum18=#1\relax
     Cassidy
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cluster}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{cluster}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{cluster}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{clusters}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Cluster}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Clusters}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\requCluster}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\cluster{0}\space of\space \requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\cluster{0}\space of\space \requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\cluster{0}\space of\space \requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\cluster{2}\space of\space \requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\cluster{2}\space of\space \requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ragged}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{ragged}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{ragged}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Ragged}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ragCluster}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\ragged{0}\space \cluster{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\ragged{0}\space \cluster{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\ragged{0}\space \cluster{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\ragged{2}\space \cluster{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\ragged{2}\space \cluster{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\jag}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{jag}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{jag}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{jags}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Jag}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Jags}%
     \fi
   }
 }
