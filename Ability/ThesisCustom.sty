@@ -6,6 +6,7 @@
 % % % % % % % % %
 
 \RequirePackage{xparse} % For creating commands with complex arguments
+\usepackage{environ}
 
 
 \RequirePackage{tikz}
@@ -87,9 +88,15 @@
 
 \newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
 
-\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Witnessing}}}
+\NewEnviron{argument}{%
+    \par\smallskip
+    \noindent\emph{Argument.}%
+    \mbox{ }\newline
+    \reversemarginpar
+      \BODY
+}
 
-\newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
+
 
 % % % Premise Commands
 % Perhaps:
@@ -1281,6 +1288,34 @@
 }
 \ExplSyntaxOff
 
+% % % % % % Witnessing and Interpolation % % %
+
+\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Witnessing}}}
+
+\newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\itp}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{interpolant}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{interpolant}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{interpolants}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Interpolant}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Interpolants}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 % % % Other
 % https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
@@ -1661,10 +1696,10 @@
 \newcommand{\dr}[0]{\emph{de re}}
 
 
-
-
-
 % % % Transmission
 \newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\newcommand{\illEproofMem}[0]{\obeybreaks{I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).}}
