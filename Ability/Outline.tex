@@ -891,10 +891,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
       \begin{enumerate}
       \item
         \label{idea:CS:overview:requ-sat:Past}
-        The agent has concluded that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\Psi\).
+        \vAgent{} has concluded that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\Psi\).
       \item
         \label{idea:CS:overview:requ-sat:Pres}
-        In concluding \(\langle \phi,v \rangle\) the agent \emph{also} concludes that they would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\Psi\).
+        In concluding \(\langle \phi,v \rangle\) \vAgent{} \emph{also} concludes that \vAgent{} would conclude \(\langle \psi, v' \rangle\) from the relevant pool of premises \(\Psi\).
       \end{enumerate}
     \end{enumerate}
     \vspace{-\baselineskip}
@@ -2166,7 +2166,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
         It is not possible for the agent to conclude that they would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) \emph{without} concluding \(\langle \psi,v' \rangle\) from \(\Psi\).
       \item
         \label{goal:tension:requ:no-reason}
-        The agent does not witness any reasoning from premises \(\Psi\).
+        The agent does not witness any reasoning from \(\Psi\).
       \end{enumerate}
     \end{enumerate}
     \vspace{-\baselineskip}
@@ -2266,21 +2266,18 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \color{red}
     \begin{itemize}
     \item
-      \autoref{sec:cluster3}, \cluster{1}.
-      Abstract.
-      Show how clusters lead to \ref{goal:tension:requ}.
+      In~\autoref{sec:cluster3} we develop tension in the abstract.
+      Our attention will be focused solely on drawing out how \csN{} and \ESU{} are in tension if cases of a certain type exist.
+      In particular, we develop the notion of a \cluster{} introduced above through a handful of definitions, and state relevant consequences in a number of propositions.
     \item
-      \autoref{sec:overview:ability}.
-      More details on ability.
+      With an abstract understanding of how \csN{} is in conflict with \ESU{} given the existence of certain cases, we then turn to arguing for the existence of such cases in~\autoref{sec:concrete-tension}.
+      Follow the sketch given, these cases will center around the relationship between the general ability to reason about certain types of problems and specific instances of the general ability.
     \item
-      \autoref{sec:overview:tension:subsection}.
-      Tension in more detail.
+      In~\autoref{sec:tension:adb} abstract a little.
+      Relationship between general ability and \itp{1}.
+      Broader understanding of what the tension amounts to, and the relationship between \EAS{} and \adB{}.
     \item
-      \autoref{sec:overview:resolving-tension}.
-      Resolving tension.
-    \item
-      \autoref{sec:overview:observations}.
-      So observations.
+      Finally, in~\autoref{sec:overview:resolving-tension} we turn to resolving the tension and a number of latent issues.
     \end{itemize}
   }
 \end{note}
@@ -2288,17 +2285,20 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \subsection{Tension in the abstract}
 \label{sec:tension-abstract}
 
-\subsubsection{\cluster{3} of \requ{1}}
-\label{sec:cluster3}
+\begin{note}[Plan]
+  In this section we establish how \csN{} and \ESU{} are in tension from an abstract perspective.
+  Our immediate goal is to provide a clear characterisation of the kind of cases which will lead to tension between \csN{} and \ESU{}, if concrete instances of those cases exist.
+  In the following section (\ref{sec:concrete-tension}) we will then argue for the existence of such cases.
 
-\begin{note}[Main idea]
-  A \cluster{0} is a collection of proposition-value-premise pairings such that every proposition-value-premise pairing is a \requ{} of every other proposition-value-premise pairing in the collection.
+  We begin by defining a \cluster{1} of \requ{1}, and will then refine the definition of a \cluster{1} to that of a \ragCluster{} to further clarify the kind of cases of interest.
+  The two-step definition will allow us to observe exactly what is required of cases for tension.
 \end{note}
 
 \begin{note}[\requCluster{3}]
+  We begin with the definition of a \cluster{}.
   \begin{definition}[A \requCluster{1}]
     \label{def:requCluster}
-    Some collection of proposition-value-premise pairings \(\mathcal{C} = \{\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\}_{i}\) is a \emph{\cluster{}} just in case:
+    Some collection of proposition-value-premise pairings \(\mathcal{C} = \{\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\}_{i}\) is a \emph{\cluster{}} with respect to some agent \vAgent{}('s epistemic state) just in case:
     \begin{itemize}
     \item
       For any \(\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\) in \(\mathcal{C}\), each \(\langle \phi_{j}, v_{j}, \Phi_{j} \rangle\) in \(\mathcal{C}\) (such that \(j \ne i\)) is a \requ{} of \(\langle \phi_{i}, v_{i}, \Phi_{i} \rangle\).
@@ -2306,19 +2306,58 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     \vspace{-\baselineskip}
   \end{definition}
 
-  Key link:
+  Intuitively, a \cluster{0} is a collection of proposition-value-premise pairings such that every proposition-value-premise pairing is a \requ{} of every other proposition-value-premise pairing in the collection.
+\end{note}
+
+\begin{note}
+  With the definition of a \cluster{} in hand, we are ready to state our first proposition.
 
   \begin{proposition}[\cluster{3} and \csN{0}]
     \label{prop:cluster:csN}
-    Suppose we have some \cluster{0} \(\mathcal{C}\).
-    Consider some proposition-value-premise pairing \(\langle \phi,v,\Phi \rangle\) in \(\mathcal{C}\).
-    Now, for concluding \(\langle \phi,v \rangle\) from \(\Sigma\) to be an instance of \csN{}, need to have had concluded, or to simultaneously conclude, that would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) for any \(\langle \psi,v',\Psi \rangle\) in \(\mathcal{C}\).
+    Suppose \(\mathcal{C}\) is a \requCluster{0} with respect to an agent \vAgent{}('s epistemic state).
+    And, let \(\langle \phi,v,\Phi \rangle\) be some proposition-value-premise pairing in \(\mathcal{C}\).
+
+    \begin{itemize}
+    \item
+      \vAgent{} \csV{} for \(\langle \phi,v \rangle\) when concluding \(\langle \phi,v \rangle\) from \(\Phi\) only if \emph{either}:
+      \begin{itemize}
+      \item
+        For any \(\langle \psi,v',\Psi \rangle\) in \(\mathcal{C}\):
+        \begin{itemize}
+        \item \vAgent{} has at some point in the past concluded that \vAgent{} would conclude \(\langle \psi,v' \rangle\) from \(\Psi\).
+        \item
+          When concluding \(\langle \phi,v \rangle\) from \(\Phi\), \vAgent{} simultaneously concludes that \vAgent{} would conclude \(\langle \psi,v' \rangle\) from \(\Psi\).
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
   \end{proposition}
 
-  \begin{argument}
-    Follows from~\autoref{idea:CS:overview} and~\autoref{def:requCluster}
-  \end{argument}
+  \autoref{prop:cluster:csN} follows directly from~\autoref{idea:CS:overview} and~\autoref{def:requCluster}.
 
+  \begin{argument}
+    Suppose \(\mathcal{C}\) is a \requCluster{0} with respect to an agent \vAgent{}('s epistemic state).
+    Let \(\langle \phi,v,\Phi \rangle\) be some proposition-value-premise pairing in \(\mathcal{C}\).
+    And, let \(\langle \psi,v',\Psi \rangle\) be some proposition-value-premise pairing in \(\mathcal{C}\).
+
+    By~\autoref{def:requCluster} we have that \vAgent{} concluding that \vAgent{} would conclude \(\langle \psi,v' \rangle\) from \(\Psi\) is a \requ{} of concluding \(\langle \phi,v \rangle\) from \(\Phi\).
+    And, by~\autoref{idea:CS:overview}, it must be the case that either:
+    \begin{itemize}
+    \item
+      \vAgent{} has concluded that they would conclude \(\langle \psi, v' \rangle\) from \(\Psi\), by~\ref{idea:CS:overview:requ-sat:Past}.
+      Or,
+    \item
+      In concluding \(\langle \phi,v \rangle\) \vAgent{} also concludes that \vAgent{} would conclude \(\langle \psi, v' \rangle\) from \(\Psi\), by~\ref{idea:CS:overview:requ-sat:Pres}.
+    \end{itemize}
+    Hence, we have established~\ref{prop:cluster:csN}.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  
+\end{note}
+
+
+\begin{note}
   \begin{proposition}
     \label{prop:cluster:simul}
     Need to do everything in a cluster at the same time.
@@ -2444,9 +2483,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Ability, as we have seen.
 \end{note}
 
-\subsubsection{Ability}
-\label{sec:overview:ability}
-
 \begin{note}[Ability]
   Ability to reason in certain ways leads to \cluster{1}.
   However, not interested in ability in general, but rather relatively simple instances of ability concerning specific problem types.
@@ -2532,7 +2568,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 \subsubsection{\adB{}}
-\label{sec:adb}
+\label{sec:tension:adb}
 
 \begin{note}
   Now, these cases of ability.
