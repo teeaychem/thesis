@@ -1703,3 +1703,26 @@
 
 
 \newcommand{\illEproofMem}[0]{\obeybreaks{I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\stance}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{stance}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{stance}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Stance}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
