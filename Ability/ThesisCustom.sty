@@ -96,6 +96,8 @@
       \BODY
 }
 
+\newcommand{\pv}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\pvp}[3]{\ensuremath{\langle \langle #1, #2 \rangle, #3 \rangle}}
 
 
 % % % Premise Commands
@@ -576,20 +578,89 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\csN}{ m }{% Illustration
+\DeclareDocumentCommand{\claiming}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{claiming\space \support{}}%
+    \obeybreaks{claiming}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{claiming\space \support{}}%
+      \obeybreaks{claiming}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Claiming\space \support{}}%
+      \obeybreaks{Claiming}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\claiming{0}\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\claiming{0}\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\claiming{2}\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cspN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\claiming{0}\(^{+}\)\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\claiming{0}\(^{+}\)\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\claiming{2}\(^{+}\)\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csmN}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\claiming{0}\(^{-}\)\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\claiming{0}\(^{-}\)\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\claiming{2}\(^{-}\)\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -1722,6 +1793,48 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\iCS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:CS:overview]{\(\named{CS}\)}}
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\csN{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\iCSp}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:CpS:overview]{\(\named{CS\(^{+}\)}\)}}
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\cspN{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\iCSm}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:CSm:overview]{\(\named{CS\(^{-}\)}\)}}
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\csmN{0}}%
     \fi
   }
 }
