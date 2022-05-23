@@ -1842,15 +1842,37 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\qCS}{ m }{% No inertia
+\DeclareDocumentCommand{\qzs}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[question:CS]{\(\named{?CS}\)}}
+    \text{\hyperref[question:ZS]{\named{?:\(\zeta\)S}}}
   }
   {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\(\named{?CS}\)}%
-    \fi
+    \text{\hyperref[question:ZS]{\named{?:\(\zeta\)-support}}}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\zs}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[def:zs]{\named{\(\zeta\)S}}}
+  }
+  {%
+    \text{\hyperref[def:zs]{\named{\(\zeta\)-support}}}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\Zs}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:Zs:overview]{\named{\(Z\)S}}}
+  }
+  {%
+    \text{\hyperref[idea:Zs:overview]{\named{\(Z\)-support}}}
   }
 }
 \ExplSyntaxOff
@@ -1859,23 +1881,46 @@
 \newcommand*{\rleadsto}{\reflectbox{$\leadsto$}}%
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\zs}{ m }{% Illustration
+\DeclareDocumentCommand{\zgb}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{zingiberaceae}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{zingiberaceae}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Zingiberaceae}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\zsN}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\(\zeta\)-support}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{Zingiberaceae\space support}%
+      \obeybreaks{\zgb{0}\space support}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{Zingiberaceae\space support}%
+      \obeybreaks{\color{red} !no-sense!}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Zingiberaceae\space support}%
+      \obeybreaks{\zgb{2}\space support}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Zingiberaceae\space support}%
+      \obeybreaks{\color{red} !no-sense!}%
     \fi
   }
 }
