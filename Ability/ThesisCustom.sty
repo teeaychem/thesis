@@ -333,21 +333,6 @@
 
 % % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\EASw}{ m }{% Restricted claim
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[thought:EASw]{\named{\EASacro{}:W}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\EASacro{}\space (Witnessing)}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
 \DeclareDocumentCommand{\eA}{ m }{% Cases exists
   \tl_if_empty:nTF {#1}
   {%
@@ -1362,7 +1347,7 @@
 
 % % % % % % Witnessing and Interpolation % % %
 
-\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Witnessing}}}
+\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Attestment}}}
 
 \newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
 
@@ -1964,6 +1949,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\fc}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{foregone-conclusion}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{foregone-conclusion}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{foregone-conclusions}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Foregone-conclusion}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Foregone-conclusions}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\zSN}{ m }{% Illustration
   \tl_if_empty:nTF {#1}
   {
@@ -1992,4 +2000,91 @@
 
 \newcommand{\squishB}[1]{\obeybreaks{%
   \(\chi\) entails #1 agent has satisfied \iZS{}}%
+}
+
+
+
+% Some customizable styles
+    \tikzset {
+        highlight/.style = {yellow, opacity=0.3},
+        digit/.style = {minimum height = 5mm, minimum width=5mm, anchor=center },
+        circle/.style = {draw=green!80!black, dotted, very thick},
+        cross/.style = {red, opacity=.5, shorten >=1mm, shorten <=1mm, very thick, line cap=round},
+        hint/.style={blue, font=\sf, minimum width=3mm, minimum height=3mm}
+    }
+
+% Original code-----------------------------------------------------------
+% Modified the \node to give a unique name to each one, which is the
+% row number, a dash and the column number. E.g: 1-1, 4-5, etc.
+    \newcounter{row}
+    \newcounter{col}
+
+    \newcommand\setrow[9]{
+        \setcounter{col}{1}
+        \foreach \n in {#1, #2, #3, #4, #5, #6, #7, #8, #9} {
+            \edef\x{\value{col} - 0.5}
+            \edef\y{9.5 - \value{row}}
+            \node[digit,name={\arabic{row}-\arabic{col}}] at (\x, \y) {\n};
+            \stepcounter{col}
+        }
+        \stepcounter{row}
+    }
+
+% New code -------------------------------------------------------------
+    \def\highlightcell#1#2{
+        \fill[highlight] (#1-#2.north west) rectangle (#1-#2.south east);
+    }
+
+    \def\circlecell#1#2{
+        \draw[circle] (#1-#2) circle(4mm);
+    }
+
+    \def\crosscell#1#2{
+        \draw[cross] (#1-#2.north west) -- (#1-#2.south east);
+        \draw[cross] (#1-#2.north east) -- (#1-#2.south west);
+    }
+
+    \def\highlightrow#1{
+       \fill[highlight] (#1-1.north west) rectangle (#1-9.south east);
+    }
+
+    \def\highlighcolumn#1{
+        \fill[highlight] (1-#1.north west) rectangle (9-#1.south east);
+    }
+
+    \def\hintcell#1#2#3{
+        \node at (#1-#2) {\hintbox{#3}};
+    }
+
+    \def\highlightrectangle#1#2#3#4{
+        \begin{pgfonlayer}{background}
+        \fill[highlight] (#1-#2.north west) rectangle (#3-#4.south east);
+        \end{pgfonlayer}
+    }
+
+% UGLY code. Do not read :-)
+\def\hintbox#1{
+    \resizebox{4.5mm}{4.5mm}{%
+        \tikz[scale=0.3]{%
+            \def\auxc{0}
+            \foreach \m in {1,...,9} {
+                \pgfmathparse{mod(\auxc,3)}
+                \xdef\x{\pgfmathresult}
+                \pgfmathparse{-floor(\auxc/3)}
+                \xdef\y{\pgfmathresult}
+                \xdef\hintprinted{0}
+                \foreach \n in {#1} {
+                    \ifnum\n=\m
+                        \node[hint] at (\x,\y) {\n};
+                        \xdef\hintprinted{1}
+                    \fi
+                }
+                \ifnum\hintprinted=0
+                      \node[hint, opacity=0.1] at (\x,\y) {\m};
+                \fi
+                \pgfmathparse{\auxc+1}
+                \xdef\auxc{\pgfmathresult}
+            }
+        }%
+    }
 }

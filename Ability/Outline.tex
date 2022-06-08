@@ -1,24 +1,528 @@
 \chapter{Overview}
 \label{cha:overview}
 
-\section{The issue}
+\section{The topic}
 \label{sec:issue}
 
+\paragraph*{Initial \illu{1}}
+
+\begin{note}
+  \begin{illustration}[Calculator]
+    \label{illu:gist:calc}
+    An agent enters \(23 \times 15\) into a calculator and presses the button marked `\(=\)'.
+    The calculator displays \(345\).
+
+    The agent concludes \(23 \times 15 = 345\).
+  \end{illustration}
+
+  Intuitively, the agent has concluded \(23 \times 15 = 345\) from the calculator.
+  Personifying a little, we may say the agent has concluded \(23 \times 15 = 345\) from the testimony of the calculator.
+
+  Of course, the agent may have a good understanding of arithmetic and could have calculated \(23 \times 15 = 345\) without the aid of the calculator.
+  In particular, there is an intuitive sense in which prior to entering \(23 \times 15\) into a calculator the agent knew \emph{whether} \(23 \times 15 = 345\).
+
+  Indeed, I suspect you know whether:
+  \begin{enumerate*}[label=]
+  \item
+    \(324 + 321 = 645\), whether
+  \item
+    \(\sfrac{645}{5} = 129\), and whether
+  \item
+    \(129 \times 3 = 385\).
+  \end{enumerate*}
+  If you performed the mental arithmetic, then we may say you concluded, say, \(\sfrac{645}{5} = 129\) from your understanding of arithmetic.
+  Or, if like the agent you used a calculator, we may say you concluded \(\sfrac{645}{5} = 129\) from the testimony of the calculator.
+
+  There is an intuitive sense in which the source of your conclusion depends on what happens.
+
+  It may also make sense to say that your understanding of arithmetic is an equally good source to conclude \(\sfrac{645}{5} = 129\), if you used a calculator.
+  Or, to say that the testimony of the calculator is an equally good source to conclude \(\sfrac{645}{5} = 129\), if you used performed the mental arithmetic.
+  However, if you did not perform the arithmetic or did not use the calculator, then neither your understanding of arithmetic or the testimony of the calculator factor into your conclusion.
+
+  Stated in other terms:
+  If you used the calculator, then your understanding of arithmetic is not why you hold \(\sfrac{645}{5} = 129\).
+  And, if you performed the mental arithmetic, then the testimony of the calculator is not why you hold \(\sfrac{645}{5} = 129\).
+
+  Is this intuition correct?
+  Or, is your understanding of arithmetic part of why you hold \(\sfrac{645}{5} = 129\), even if you used the calculator?
+\end{note}
+
+\begin{note}
+  And additional pair of \illu{1}.
+  \begin{illustration}[Sudoku]
+    \label{illu:gist:sudoku}
+    % https://tex.stackexchange.com/questions/91422/tikz-sudoku-circle-and-connect-with-lines-some-cells
+    \begin{figure}[H]
+      \mbox{ }\hfill
+      \begin{subfigure}{0.45\linewidth}
+        \centering
+        \begin{tikzpicture}[scale=.5]
+          \begin{scope}
+            \draw (0, 0) grid (9, 9);
+            \draw[very thick, scale=3] (0, 0) grid (3, 3);
+            \setcounter{row}{1}
+
+            % Single entries
+            \setrow {7}{4}{ }  { }{8}{ }  { }{ }{5}
+            \setrow { }{ }{ }  {4}{ }{6}  { }{ }{ }
+            \setrow { }{ }{1}  { }{2}{ }  {4}{ }{ }
+
+            \setrow { }{6}{ }  { }{ }{ }  { }{2}{ }
+            \setrow {5}{ }{8}  { }{7}{ }  {1}{ }{3}
+            \setrow { }{3}{ }  { }{ }{ }  { }{9}{ }
+
+            \setrow { }{ }{4}  { }{5}{ }  {9}{ }{ }
+            \setrow { }{ }{ }  {1}{ }{2}  { }{ }{ }
+            \setrow {3}{ }{ }  { }{9}{ }  { }{ }{8}
+        \end{scope}
+      \end{tikzpicture}
+      \caption{Grid}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \centering
+      \begin{tikzpicture}[scale=.5]
+        \begin{scope}
+          \draw (0, 0) grid (9, 9);
+          \draw[very thick, scale=3] (0, 0) grid (3, 3);
+          \setcounter{row}{1}
+          % Single entries
+          \setrow {7}{4}{ }  { }{8}{ }  { }{ }{5}
+          \setrow { }{ }{ }  {4}{ }{6}  { }{ }{ }
+          \setrow { }{ }{1}  { }{2}{ }  {4}{ }{ }
+          %
+          \setrow { }{6}{ }  { }{ }{ }  { }{2}{ }
+          \setrow {5}{ }{8}  { }{7}{ }  {1}{ }{3}
+          \setrow { }{3}{ }  { }{ }{ }  { }{9}{ }
+          %
+          \setrow { }{ }{4}  { }{5}{ }  {9}{ }{ }
+          \setrow { }{ }{ }  {1}{ }{2}  { }{ }{ }
+          \setrow {3}{ }{ }  { }{9}{ }  { }{ }{8}
+          % Hints
+          % * Row 1
+          \hintcell{1}{3}{2,3,6,9}
+          \hintcell{1}{4}{3,9}
+          \hintcell{1}{6}{1,3,9}
+          \hintcell{1}{7}{2,3,6}
+          \hintcell{1}{8}{1,3,6}
+          % * Row 2
+          \hintcell{2}{1}{2,8,9}
+          \hintcell{2}{2}{2,5,8,9}
+          \hintcell{2}{3}{2,3,5,9}
+          \hintcell{2}{5}{1,3}
+          \hintcell{2}{7}{2,3,7,8}
+          \hintcell{2}{8}{1,3,7,8}
+          \hintcell{2}{9}{1,2,7,9}
+          % * Row 3
+          \hintcell{3}{1}{6,8,9}
+          \hintcell{3}{2}{5,8,9}
+          \hintcell{3}{4}{3,5,7,9}
+          \hintcell{3}{6}{3,5,7,9}
+          \hintcell{3}{8}{3,6,7,8}
+          \hintcell{3}{9}{6,7,9}
+          % * Row 4
+          \hintcell{4}{1}{1,4,9}
+          \hintcell{4}{3}{7,9}
+          \hintcell{4}{4}{3,5,8,9}
+          \hintcell{4}{5}{1,3,4}
+          \hintcell{4}{6}{1,3,4,5,8,9}
+          \hintcell{4}{7}{5,7,8}
+          \hintcell{4}{9}{4,7}
+          % * Row 5
+          \hintcell{5}{2}{2,9}
+          \hintcell{5}{4}{2,6,9}
+          \hintcell{5}{6}{4,9}
+          \hintcell{5}{8}{4,6}
+          % * Row 6
+          \hintcell{6}{1}{1,2,4}
+          \hintcell{6}{3}{2,7}
+          \hintcell{6}{4}{2,5,6,8}
+          \hintcell{6}{5}{1,4,6}
+          \hintcell{6}{6}{1,4,5,8}
+          \hintcell{6}{7}{5,6,7,8}
+          \hintcell{6}{9}{4,6,7}
+          % * Row 7
+          \hintcell{7}{1}{1,2,6,8}
+          \hintcell{7}{2}{1,2,7,8}
+          \hintcell{7}{4}{3,6,7,8}
+          \hintcell{7}{6}{3,7,8}
+          \hintcell{7}{8}{1,3,6,7}
+          \hintcell{7}{9}{1,2,6,7}
+          % * Row 8
+          \hintcell{8}{1}{6,8,9}
+          \hintcell{8}{2}{5,7,8,9}
+          \hintcell{8}{3}{5,6,7,9}
+          \hintcell{8}{5}{3,4,6}
+          \hintcell{8}{7}{3,5,6,7}
+          \hintcell{8}{8}{3,4,5,6,7}
+          \hintcell{8}{9}{4,6,7}
+          % * Row 9
+          \hintcell{9}{2}{1,2,5,7}
+          \hintcell{9}{3}{2,5,6,7}
+          \hintcell{9}{4}{6,7}
+          \hintcell{9}{6}{4,7}
+          \hintcell{9}{7}{2,5,6,7}
+          \hintcell{9}{8}{1,4,5,6,7}
+        \end{scope}
+      \end{tikzpicture}
+      \caption{Hints}
+    \end{subfigure}
+    \hfill\mbox{ }
+    \caption{Sudoku}
+    \label{fig:sudoku}
+  \end{figure}
+    An agent presses the `hint' button next to the Sudoku grid.
+    The Sudoku grid is updated.
+
+    The agent concludes that the current state of the grid rules out \dots
+  \end{illustration}
+
+  As with~\autoref{illu:gist:calc}, know whether \dots
+  However, pressed the hint button.
+  Didn't work through the constraints.
+
+  \begin{illustration}[Chess]
+    \begin{figure}[H]
+      \centering
+      \mbox{ }
+      \hfill
+      \begin{subfigure}{.45\textwidth}
+        \begin{adjustbox}{minipage=\linewidth,scale=0.8}
+          \centering
+          \newchessgame[
+          setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5},
+          addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4},
+          ]%
+          \setchessboard{showmover=false}%
+          \chessboard
+        \end{adjustbox}
+        \caption{Board}
+        \label{fig:chess:board:intro}
+      \end{subfigure}
+      \mbox{ }
+      \hfill
+      \mbox{ }
+      \begin{subfigure}{.45\textwidth}
+        \begin{adjustbox}{minipage=\linewidth,scale=0.8}
+          \centering
+          \newchessgame[
+          setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5},
+          addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4},
+          ]%
+          \setchessboard{showmover=false}%
+          \chessboard[
+          arrow=latex, linewidth=1pt,
+          shortenstart=.8ex, shortenend=.5ex,
+          pgfstyle=straightmove,
+          strokeopacity=0.4, fillopacity=0.4,
+          color=black, pgfstyle=border,
+          markfields={c4,a3,a5,g6,c5},
+          ]
+        \end{adjustbox}
+        \caption{Highlights}
+        \label{fig:chess:move}
+      \end{subfigure}
+      \hfill
+      \mbox{ }
+      \caption{Chess.}%\protect\footnotemark}
+      \label{fig:chess:intro}
+    \end{figure}
+
+    An agent highlights the queen.
+    Squares are highlighted.
+
+    The agent concludes that they have the option of moving the queen to \dots
+  \end{illustration}
+
+  As with \illu{1} \autoref{illu:gist:calc} and \ref{illu:gist:sudoku}, know whether, but automatic highlighting.
+\end{note}
+
+\begin{note}[Support]
+  \begin{assumption}[Support]
+    If an agent has concluded, then either a pool of premises or some pools of premises which support the conclusion.
+  \end{assumption}
+
+  Understanding of support is generic.
+
+  State in terms of reasons.
+
+  Pool of premises, difficult to specify.
+  Clear sense in which \(p\) and \(p \rightarrow q\) are premises from which an agent concludes \(q\) via modus pones.
+
+  Perhaps the rules of sudoku and chess are the relevant premises together with the relevant game states.
+  Though, understanding of arithmetic is less clear.
+  Robinson or Peano arithmetic together with the two numbers joined by an operator.
+  Though, I doubt this.
+
+  Something the agent appeals to.
+  Conclusion doesn't come for free, and pool of premises identifies whatever.
+
+  Pools of premises, for multiple pools.
+  For example, testimony of calculator and understanding of arithmetic.
+\end{note}
+
+\begin{note}[How and why]
+  Instance of concluding.
+  Some process, from inputs to an output, the conclusion.
+
+  \begin{idea}[How and why]
+    \mbox{ }
+    \begin{itemize}
+    \item
+      Why has the agent concluded?
+      Which pool of premises, or pools of premises, support the conclusion?
+    \item
+      How did the agent conclude?
+      What information was appealed to by the agent to conclude?
+    \end{itemize}
+  \end{idea}
+
+  In the example given\dots
+\end{note}
+
+\begin{note}
+  Initial issue:
+
+  \begin{issue}[Inclusion]
+    \label{issue:why-inc-in-how}
+    Is an answer to why always included in an answer to how?
+  \end{issue}
+
+  May seem natural.
+  Indeed, always have the resources.
+  Above example, calculator is both how and why.
+  If had reasoned from understanding of arithmetic, then that would be both how and why.
+\end{note}
+
+\begin{note}[Some clarification]
+  \begin{quote}
+    What is the relation between a reason and an action when the reason explains the action by giving the agent's reason for doing what he did?
+    \nolinebreak
+    \mbox{}\hfill\mbox{({\citeyear[685]{Davidson:1963aa}})}
+  \end{quote}
+
+  Burgular case.
+  There are reasons that an agent has to act which are not necessarily reasons for which the agent acts.
+
+  Davidson distinction between \emph{reasons that one has to act} and \emph{reasons for which one acts}.
+
+  \begin{quote}
+    Davidson’s article [asserts] a demand for a more ordinary form of explanation: an explanation which shows, not merely what, from another’s point of view, \emph{could} count in favour of acting, but why that person did, in fact, act.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[417]{Hieronymi:2011aa})}
+  \end{quote}
+
+  Following Neta, Anscombe.
+
+  \begin{quote}
+    a reason for which you act is always an answer to “a certain sense of the question ‘Why?’ \dots that in which the answer, if positive, gives a reason for acting”
+  \end{quote}
+
+  Answer question from observer or the agent's perspective.
+
+  With respect to reasoning, a pool of premises, or pools of premises.
+
+  Distinction between \emph{how} and \emph{why} is with respect to \emph{reasons for which one acts}.
+
+  Conclusion from some reasoning.
+  Some trace.
+
+  It seems not all components of the trace are relevant to why.
+  Possible to go on a detour, or to simplify a line of reasoning.
+\end{note}
+
+
+
+\begin{note}[Inclusion]
+  Note, a positive resolution to \autoref{issue:why-inc-in-how} does not require an answer to why to be equivalent to an answer to how.
+
+  Cases of redundancy.
+\end{note}
+
+\begin{note}[Causation]
+  Ways of understanding causation on which this seems right.
+
+  However, question is broader than causation.
+\end{note}
+
+\begin{note}[Boghossian]
+    Consider \citeauthor{Boghossian:2014aa}'s Taking Condition:
+  \begin{quote}
+    (Taking Condition): Inferring necessarily involves the thinker \emph{taking} his premises to support his conclusion and drawing his conclusion because of that fact.\nolinebreak
+    \mbox{}\hfill\mbox{(\Citeyear[5]{Boghossian:2014aa})}
+  \end{quote}
+  As with \citeauthor{Armstrong:1968vh}, inference --- and hence reasoning with beliefs --- rather than reasoning more broadly (\Citeyear[cf][2]{Boghossian:2014aa}).
+
+  \begin{quote}
+    The intuition behind the Taking Condition is that no causal process counts as inference, unless it consists in an attempt to arrive at a belief by figuring out what, in some suitably broad sense, is supported by other things one believes.
+
+    In the relevant sense, reasoning is something we \emph{do}, not just something that happens to us.
+    And it is something \emph{we} do, not just something that is done by sub-personal bits of us.
+    And it is something that we do with an \emph{aim}---that of figuring out what follows or is supported by other things one believes.
+    It’s hard to see how to respect these features of reasoning without something like the Taking Condition.\nolinebreak
+    \mbox{}\hfill\mbox{(\Citeyear[5]{Boghossian:2014aa})}
+  \end{quote}
+
+  \begin{quote}
+    \dots the property of a person’s thinking something \emph{for a reason} is not response-dependent.
+    To say that R was S's reason for A'ing implies that S took R to support his A'ing at the time that he A'ed, and that his so taking it led to his A'ing.
+
+    I don't see how S's being disposed to \emph{say} that R was his reason for A'ing could \emph{make it the case} that he took R to support his A'ing and that this taking had a certain causal impact.
+    His saying it might be very good evidence that R was his reason.
+    But saying that R was his reason can’t be \emph{constitutive} of R's being his reason.
+    Causation is part of the idea of R's being his reason---and causation can't be a response-dependent property.\nolinebreak
+    \mbox{}\hfill\mbox{(\citeyear[10--11]{Boghossian:2014aa})}
+  \end{quote}
+\end{note}
+
+\begin{note}[Wedgwood]
+  \begin{quote}
+    Reasoning is a causal process, in which one mental event (say, one's accepting the conclusion of a certain argument) is caused by an antecedent mental event (say, one's considering the premises of the argument).\nolinebreak
+    \mbox{}\hfill\mbox{(\cite[660]{Wedgwood:2006ui})}
+  \end{quote}
+\end{note}
+
+\begin{note}
+  \begin{issue}[Witness]
+    \label{issue:has-witnessed}
+    If \(\Phi\) reason why, then agent has answered about how.
+  \end{issue}
+
+  In other words, witnessed.
+
+  Simple cases, witnessing is present reasoning.
+  However, may have reasoned in the past.
+
+  `Use'.
+
+  Negative resolution, some pool of premises, why.
+  Yet, agent does not have a specific account of how.
+
+  Inclusion entails witness.
+  For, how, witnessed, etc.
+  Not conversely.
+  Past reasoning.
+  For example, look through a diary.
+
+  Consider cases with reasoning.
+  Though, to motivate the idea, something a little more emotional.
+
+  Note from a loved one.
+  Tear up.
+  Not the note, it's them saying the words.
+
+  Of course, might go the other way.
+  Well, you can't see something that's not there, but on the other hand piece of paper.
+
+  Likewise, scared of spider, but the spider left sight a long time ago.
+
+  So, may take~\autoref{issue:has-witnessed} to be weaker than~\autoref{issue:why-inc-in-how}.
+  If not, then recast.
+\end{note}
+
+\begin{note}[Pre-theoretical constraint]
+  No account of why without an account of how.
+  Witnessing a pre-theoretical constraint.
+\end{note}
+
+\begin{note}
+  A note on \citeauthor{Valaris:2014un} here would be useful.
+  For, \citeauthor{Valaris:2014un} offers something close, but suitably distinct.
+  Reasoning is not to be identified with a causal process, but that's different.
+  Constructs a coherent account of reasoning which does not involve causation.
+
+  It's also limited.
+  Because, there's a difference between believing p from availability of premises, and believing p from premises.
+
+  It looks as though \citeauthor{Valaris:2014un} falls under witnessing.
+\end{note}
+
+\begin{note}[Goal]
+  Negative resolution to~\autoref{issue:has-witnessed}.
+  Hence, also, negative resolution to~\autoref{issue:why-inc-in-how}.
+\end{note}
+
+\begin{note}[Subtlety]
+  It is not so simple.
+
+  Grant for a moment, understanding of arithmetic is involved in why.
+
+  Not understanding of arithmetic, but that I, or you, understand arithmetic.
+  Not understanding, but \emph{that} understand.
+
+  This is the key issue.
+\end{note}
+
+\paragraph*{Sketch}
+
+\begin{note}
+  Here, idea of a \fc{0}.
+  Basics of the idea is that X is a \fc{0} just in case would not fail to conclude X.
+
+  In this respect, X supports Y, given epistemic state.
+
+  There is nothing apart from witnessing.
+
+  Here, then, open to go from \emph{that} \fc{0} to \(\Phi\).
+
+  Given \(\Phi\), everything else is redundant.
+
+  With a \fc{0}, the pool of premises, these do the work of establishing the possibility of how.
+
+  Of course, \emph{that} \fc{0} is key with respect to how.
+  If the agent has not witnessed reasoning, then need some source of information.
+  However, not for \emph{why}.
+
+  Note, possibility of witnessing is given by X, as is that X supports Y.
+  X is sufficient.
+  Nothing more is needed for X to support Y.
+
+  Have the idea of a \fc{0}, and so of X supporting Y.
+  However, this doesn't show that this is involved in why.
+
+  Indeed, \fc{0} from understanding of arithmetic.
+  But, it is not obvious that this is why.
+  Calculator does it all.
+
+  Sum from calculator if and only if sum from understanding.
+  Particular kind of support, \zS{}.
+\end{note}
+
+
+\begin{note}
+  Main this is resolving issue.
+  Two upshots.
+
+  \begin{enumerate}
+  \item
+    Reduction of concluding.
+    In various cases, abundance of \fc{0} suggests witnessing is not explanatory.
+    Limited to how.
+  \item
+    Concluding without witnessing.
+    {
+      \color{red}
+      I think I get close to this regardless, by looking at cases where an agent develops some general ability.
+    }
+    Stronger variation.
+    If \fc{0}, then don't need to witness.
+    Note, this is strictly stronger.
+    For, main issue only tells us that some pool of premises is involved in why.
+  \end{enumerate}
+\end{note}
+
 {
-  \color{red}
-  Start with a some \illu{1}\dots
+  Goal is to argue that witnessing is the only distinguishing feature.
+  There are cases, such as the one described above, in which equal role.
 
-  Maps.
+  Core idea, supports to more general points of interest.
 
-  Calculator.
-
-  Not the case that concluded from understanding of (basic) arithmetic.
+  More broadly, separate witnessing from concluding.
+  Suggest there are cases in which conclude without witnessing.
 }
 
-\begin{note}[Main issue]
-  Assume concluding identifies some phenomena.
-  Some relation between premises and conclusion.
-  Intuitively, reasons, basis, etc.
+\paragraph{More detail}
+
+\begin{note}
   Does this relation hold only if witnessing?
   Indeed, granting that witnessing is sufficient, this question is an if and only if:
   Does this relation hold if and only if witnessing?
@@ -60,349 +564,12 @@
   \end{restatable}
 \end{note}
 
-\begin{note}
-  Indeed, the negative solution may seem intuitive.
-  Going by examples given.
-
-  For sure, negative may hold in many cases.
-  The positive resolution only argues that there are cases.
-  And, cases which we identify will involve witnessing reasoning from some premises.
-  However, we will motivate the idea that in so concluding, the agent also concludes different without witnessing.
-\end{note}
-
-\begin{note}
-  So, key interest is understanding concluding.
-
-  Negative resolution, then in a variety of cases, separate concluding from witnessing.
-
-  Two possible outcomes.
-
-  \begin{itemize}
-  \item
-    In general, witnessing may be reduced to various different components.
-  \item
-    No unified phenomenon.
-  \end{itemize}
-
-  Which of these, beyond scope.
-  Focus is on motivating this.
-
-  Two threads.
-
-  \begin{itemize}
-  \item
-    Instances, how to understand this idea.
-  \item
-    Interesting instances.
-  \end{itemize}
-
-  Second is of most interest.
-
-  Grant concluding is just a term, then perhaps not too much interest in providing an account of the term which allows separation.
-
-  Possible reduction in some cases, even if granting the possibility of this reduction, it serves no interesting role.
-  No need to separate in order to understand agents.
-
-  Why there is some interest in doing this.
-  Broad target is witnessing a pre-theoretical constraint.
-  Plausible pre-theoretical constraint.
-  Abundant.
-  Process.
-  So, always some start point.
-  Hence, always some premises.
-
-  Broad strategy for pre-theoretical constraint:
-
-  For every instance where reduction, alternative analysis where same benefits of reduction are obtained via analysis involving witnessing.
-
-  `General pre-theoretic argument'.
-  In short, always resources to construct such an analysis.
-
-  Problem going against pre-theoretic constraint, related to the counterexample fallacy.
-  In short, counterexample fallacy, counterexample to any specific proposal is not a counterexample to any particular analysis is not a counterexample to a style of analysis.
-  Need to show problem with the style.
-  A general recipe for generating counterexamples.
-
-  If some pre-theoretical constraint, no good to come up with instances which do not necessarily obey the constraint.
-  For, this does not show that it's worth the reduction.
-
-  Of course, this does not guarantee that the theory is any good.
-  However, it seems the pre-theoretical constraint is intuitive.
-
-  So, a general recipe for generating bases for reduction.
-
-  Basics of the counterexample fallacy, varied to cover alternative theories.
-  Possibility of reduction, but also general account.
-  Sufficiently general to place strain on the pre-theoretical constraint.
-
-  That's the target, pressure on non-reduction.
-  Motivation against taking witnessing as a pre-theoretical constraint.
-
-  Then, future, broaden this.
-
-  {
-    \color{red}
-    Should put in somewhere, about `has', allowing agent to `re-conclude'.
-    Concluding involves witnessing or having witnessed.
-    Then, section on the two options is also good, and kind of interesting.
-  }
-\end{note}
-
-\begin{note}
-  For a parallel, consider knowledge.
-  Knowledge, justified true belief.
-  Given counterexamples:
-  X.
-  Or, knowledge first.
-
-  If reduction, then see how these distinct components function, and how the interact independently.
-  Justification, distinct from truth.
-  Hence, justification even without truth.
-  Belief without justification.
-  conversely, if no reduction, then even if knowledge entails independently, is it the case that the specific kind of justification involved in knowing tied to truth?
-\end{note}
-
-
-\begin{note}
-  Positive resolution, limited, as only instances.
-\end{note}
-
-
-\begin{note}[Foregone-conclusions]
-  So, \autoref{issue:Main}, whether concluding is the composition of some relation \(R\) and witnessing.
-  Or, whether it is the case that in some cases an agent witnesses reasoning when concluding and in other cases the agent does not.
-
-  Talk of concluding, to keep things straightforward.
-
-  Key idea governing our use of the term `concluding' is re-assignment.
-  If some composite, the re-assign concluding to non-witnessing components.
-
-  \begin{restatable}[Foregone-conclusions]{definition}{definitionForegoneC}
-    For any X from W,
-    present determines whether or not X from agent's point of view, then forgone conclusion.
-
-    In other words, agent's present epistemic state determines.
-    Agent may need to witness to figure out how determined, but witnessing does not influence.
-  \end{restatable}
-\end{note}
-
-\begin{note}
-  Now, \(p, p \rightarrow q \vdash q\) case.
-  Well, determines \(q\), if we ignore possibility of revision.
-  However, this doesn't tell us about all X.
-
-  This is much stronger.
-  There is nothing witnessing adds which is not already determined.
-
-  2 + 2, peano arithmetic.
-
-  More intuitive.
-  Though, still question about deriving 2 + 2 = 4 from peano arithmetic.
-
-  Understanding of arithmetic.
-  Then, add two numbers.
-  Forgone-conclusion.
-
-  % Sudoku puzzle.
-  % Solution is a foregone-conclusion.
-\end{note}
-
-\begin{note}
-  To \illu{0}, questions and answers.
-
-  Do you know whether \(83\) is prime?
-
-  Not off the top of my head.
-
-  Do you know whether \(28 + 55 = 83\)?
-
-  Sure, but give me a moment.
-
-  Do you know whether \dots
-
-  No.
-
-  Of course, might hold that the agent needs to have figured things out.
-  But, then we have a plausible reduction.
-  Knowing whether, and witnessing whether.
-  Common component.
-
-  Now, idea is a little different, as knowledge implies factivity.
-  Interest with concluding is that not necessarily factive.
-  From the agent's perspective.
-
-  `Determining whether'.
-  Or, rather `foregone-conclusion'.
-\end{note}
-
-\begin{note}
-  Similar to Goldman, etc.?
-  The idea is justification\dots
-\end{note}
-
-\begin{note}
-  \begin{idea}[Reduction]
-    If foregone-conclusion, then witness relation established by being a foregone-conclusion.
-    Hence, reduction.
-  \end{idea}
-  Here, reduction.
-  Restriction to `some'.
-  It is not the case that every conclusion is a foregone-conclusion.
-
-  However, if foregone-conclusions are of interest, then some motivation.
-
-  Still, why of interest?
-  What role do foregone-conclusion have?
-
-  In particular.
-  Need to get that some conclusion is a foregone-conclusion.
-  From some reasoning.
-  So, some pool of premises.
-  And, that pool of premises is sufficient for conclusion.
-
-  So, source for 2 + 2 = 4 and general ability.
-  Already concluded that 2 + 2 = 4.
-  Not quite, still going from general ability to 2 + 2 = 4.
-
-  So, it's not clear that reduction is irrelevant.
-
-  However, it is also not clear that this reduction is general.
-  Want to show that foundation for reduction is not limited.
-\end{note}
-
-\begin{note}[Foregone-concluding]
-  Pair this with a key idea.
-
-  \begin{restatable}[Foregone-concluding]{idea}{ideaForegoneCing}
-    \label{idea:reassignment}
-    If foregone-conclusion, then may conclude.
-
-    For any \(R\):
-
-    If:
-    \begin{itemize}
-    \item
-      `Concluding' \(\coloneq\) the combination of \(R\) and witnessing \(R\)
-    \end{itemize}
-    Then:
-    \begin{itemize}
-    \item
-      `Concluding' \(\coloneq\) \(R\)
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{restatable}
-
-  Cases where concluding by witnessing reduces to witnessing forgone conclusion.
-  \emph{Concluding \(\pv{\psi}{v'}\) from \(\Psi\) is just witnessing foregone-conclusion.}
-  So, reduction, in certain cases.
-  Further, if forgone conclusion, then conclude.
-  At least, in certain cases.
-\end{note}
-
-
-
-\begin{note}[???]
-  Only argue for a positive resolution to~\autoref{issue:Main} given~\autoref{idea:reassignment}.
-
-  And, leave~\autoref{idea:reassignment} as an idea.
-  Insight into adopting this idea, or something like this.
-\end{note}
-
-\begin{note}
-  Positive resolution may read easier if something like `in committing'.
-  Commit to location from map, sum from arithmetic.
-  Indeed, perhaps intuitive sense is just commitment via witnessing reasoning.
-
-  But, we then have a reduction.
-  Question is, what work does commitment do, and what work does witnessing do?
-
-  Still, why think this?
-  Why not think that concluding leads to commitments.
-  Independent consequence.
-  In same way that knowledge as basic entails justification, same for commitments.
-  Indeed, in same way that relevant justification may be distinctive in the case of knowledge, same for commitment with concluding.
-\end{note}
-
-\begin{note}
-  Assume motivate.
-  What exactly is concluding?
-  This will be beyond the scope of this document.
-  I hope motivating a difference in extension motivates further questions about what the relation is, and the importance of witnessing in certain cases.
-  As we will see, making this argument is by no means straightforward.
-
-  I think there needs to be some instance of witnessing --- concluding does not arise from nowhere.
-  Still, if witnessing leads to additional conclusions, then what do we get from concluding?
-  What we will get is a general closure condition.
-
-  To do so we narrow things down a little.
-  Focus on particular types of concluding, and when concluding is accompanied by an additional property.
-  Still, if in these instances no witnessing, then not more generally.
-  Additional property, concluding some proposition from some premises.
-
-  Argument, won't directly rely on intuitions about whether agent has concluded.
-\end{note}
-
-\paragraph*{The general pre-theoretic argument}
-
-\begin{note}[The general pre-theoretic argument]
-  At least, the positive resolution is not straightforward without placing some constraints on \emph{which} premises an agent may appeal to when reasoning, and we will motivate the positive resolution without such constraints.
-
-  For, without constraints on which premises an agent may appeal to when reasoning, one may argue as follows:
-  \begin{enumerate}
-  \item Any instance of reasoning is some process with start and end points and intermediary steps.
-  \item If an agent has concluded \(\phi\) has value \(v\) by some reasoning, then the reasoning has start points and intermediary steps.
-  \item Hence, the agent has concluded \(\phi\) has value \(v\) by witnessing some reasoning from some start points via some intermediary steps.
-  \item In other words, the agent has concluded \(\phi\) has value \(v\) by witnessing some reasoning from some premises.
-  \end{enumerate}
-
-  In short, so long as an agent has concluded \(\phi\) has value \(v\), the agent has always witnessed reasoning from some premises.
-
-  \begin{enumerate}[resume]
-  \item So, either the start points are the premises of interest mentioned in the issue, or the agent has concluded \(\phi\) has value \(v\) from a distinct set of premises.
-  \end{enumerate}
-
-  In other words, either the agent has witnessed reasoning from the premises of interest, or the premises of interest (and any reasoning from them) are not required to conclude \(\phi\) has value \(v\).
-\end{note}
-
-\begin{note}[More on the quick argument]
-  The quick argument does not directly lead to a negative resolution to the issue.
-  Still, the quick argument does suggest that any appeal to premises \emph{without} witnessing reasoning from those premises is redundant.
-
-  Now, perhaps redundancy isn't so bad.
-  I only need a single key to ensure I have the option of unlocking a door, but a second key is useful if the first is lost.
-
-  Still, I take it to be the case that redundancy provides leverage for a wide range of arguments motivating a negative resolution in the case of reasoning.
-
-  For, if appeal to some premises is redundant, then any argument that requires witnessing need only observe that a counterargument must find some role for something which is not needed.
-
-  Reasoning is an event, and distinct way of concluding \(\phi\) has value \(v\) may be useful, it is unclear why the distinct way of concluding \(\phi\) has value \(v\) is of use when concluding \(\phi\) has value \(v\) from present premises.
-  To push the analogy, a second key may have various uses, but the second key is irrelevant in the event of unlocking the door with the first key.
-  That the second key is would unlock the door if the first was lost has no role in the event of unlocking the door with the first key.
-
-  From a different perspective, if appeal to certain premises without witnessing reasoning from those premises is redundant, then it seems any positive role given to appeal to those premises may be redistributed to the premises of the reasoning the agent did witness.
-
-  More concretely, even if I were to show that there was some benefit for concluding \(\phi\) has value \(v\) via unwitnessed reasoning with respect to some particular account of reasoning, it seems at least plausible that the account of reasoning may be reformulated to derive the same benefit from the premises of the reasoning the agent witnessed.
-
-  More generally, it may seem (and I suspect it does seem) intuitive that the issue should be resolved negatively.
-  Reasoning just is obtaining a conclusion by witnessing reasoning from premises.
-  And, if the quick argument succeeds, then there surely is some way to preserve the intuition.
-\end{note}
-
-\begin{note}
-  So, part of the task is to show that the quick argument fails.
-  Concluding \(\phi\) has value \(v\) from certain premises without witnessing reasoning that concludes \(\phi\) has value \(v\) from those premises has some role.
-  Or, rather, that the quick argument is not without cost.
-  Perhaps the issue really should be resolved in the negative, but this will require giving up some at least equally (I think) intuitive ideas.
-
-  The result will be motivation for a positive resolution to the issue.
-  However, the motivation will be somewhat narrow.
-  To escape the tension, the positive resolution need only hold for a restricted pattern of reasoning.
-  Still, with the existential motivated, I hope future work may expand the positive resolution to other patterns of reasoning.
-  And, while such expansions may still need to argue that concluding \(\phi\) has value \(v\) from unwitnessed reasoning is makes sense with respect to the specific topic at hand, observing that the broad idea of concluding \(\phi\) has value \(v\) from unwitnessed reasoning may not be dismissed without cost may be an option.
-\end{note}
-
-\section{Ideas}
+\section{Concluding}
 \label{sec:ideas-1}
+
+\begin{note}[Outline]
+  Here, clarify our use of the terms `concludes', `concluding', `concluded', and so on.
+\end{note}
 
 \subsection{The agent's epistemic state}
 \label{sec:agents-epist-state}
@@ -458,7 +625,7 @@
 \end{note}
 
 
-\paragraph{Values and propositions}
+\paragraph*{Values and propositions}
 
 \begin{note}[Value proposition]
   Reasoning and claims to support focus.
@@ -480,6 +647,12 @@
     If you prefer, you may expand the proposition (\world{}) to include additional factors, and consider only the values `true' and `false'.
     For example, the proposition that \emph{I desire the bath to be warm} is false, as opposed me assigned the proposition that \emph{the bath is warm} the value `undesirable'.
   }
+\end{note}
+
+\begin{note}[Notation]
+  \begin{notation}[Proposition-value pair]
+    Proposition-value pair, abbreviate \(\pv{\phi}{v}\).
+  \end{notation}
 \end{note}
 
 \begin{note}
@@ -507,7 +680,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   However, we do not assume this, and if you do not think this is the case either, then I would like to not suggest that the assumptions and arguments to follow concern only those propositions which may be evaluated as true or false.
 \end{note}
 
-\paragraph{Premises are not assumptions}
+\paragraph*{Premises are not assumptions}
 
 \begin{note}
   By premises, we mean inputs of reasoning.
@@ -524,7 +697,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Rather, observing that I do have sufficient bank balance.
 \end{note}
 
-\paragraph{Culmination of reasoning}
+\paragraph*{Culmination of reasoning}
 
 \begin{note}
   Given the positive resolution, concluding.
@@ -534,14 +707,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   Result of some event.
   No special significance is attached to the term.
 
-  \begin{restatable}[Claiming support is the result of reasoning]{assumption}{assuCSRR}
-    \label{assu:CS-culmination-of-R}
-    An agent concludes \(\phi\) has value \(v\) just when \(\phi\) having value \(v\) is the culmination of reasoning from some premises \(\Phi\).
+  \begin{restatable}[Concluding is the result of reasoning]{assumption}{assuCRR}
+    \label{assu:C-culmination-of-R}
+    An agent concludes \(\phi\) has value \(v\) just when \(\phi\) having value \(v\) is the culmination of reasoning from some inputs.
   \end{restatable}
-
-  \begin{notation}
-    Proposition-value-premise pairing, abbreviate \(\pvp{\phi}{v}{\Phi}\) .
-  \end{notation}
 
   Just the result of finishing a process.
   No special significance is attached to the term.
@@ -549,8 +718,27 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   In this respect, positive resolution, reasoning, but premises of reasoning are not the premises from which agent concludes \(\phi\) has value \(v\).
 \end{note}
 
+\paragraph*{Premises}
+
 \begin{note}
-  The role of~\autoref{assu:CS-culmination-of-R} is primarily to ensure that claiming support always guarantee the existence of premises and steps.
+  \begin{restatable}[Concluding from premises]{assumption}{assuCP}
+    \label{assu:C-E-premises}
+    An agent concludes \(\phi\) has value \(v\) just when \(\phi\) having value \(v\) is supported by some pool of premises \(\Phi\).
+  \end{restatable}
+\end{note}
+
+\begin{note}[Notation]
+  \begin{notation}[Proposition-value-premise pairing]
+    Proposition-value-premise pairing, abbreviate \(\pvp{\phi}{v}{\Phi}\).
+  \end{notation}
+  Have seen \(\Phi\) supports \(\pv{\phi}{v}\).
+  Relation of support applies to \(\pvp{\phi}{v}{\Phi}\).
+
+  However, more general use.
+\end{note}
+
+\begin{note}
+  The role of~\autoref{assu:C-E-premises} is primarily to ensure that concluding always guarantee the existence of premises and steps.
   With the exception of some broad constraints to be outlined in further assumptions below, we (will) have little to say about the specifics of what the reasoning consists of.
 \end{note}
 
@@ -565,11 +753,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   Instances of reasoning may culminate in other ways, so we are only interested in a specific type of reasoning.
-\end{note}
-
-\begin{note}[Claiming support]
-  Expand on this below.
-  Briefly mention that this falls short of \emph{establishing} \(\phi\) has value \(v\).
 \end{note}
 
 \begin{note}[Understanding `having value \(v\)']
@@ -608,7 +791,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   The `follow' or `therefore' may be deductive or non-deductive.
 \end{note}
 
-\paragraph{Three distinct options}
+\paragraph*{Three distinct options}
 
 \begin{assumption}
   Fix \(\phi\), \(v\), and \(\Phi\).
@@ -629,7 +812,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{assumption}
 
 
-\paragraph{Delicacy}
+\paragraph*{Delicacy}
 
 \begin{note}
   Reasoning that concludes \(\phi\) has value \(v\) is distinct from reasoning:
@@ -726,19 +909,19 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     However, the agent only concludes from \(\chi_{i}\) having values \(v_{i}\) that there is some (objective or subjective) chance that Rover is asleep.
   \end{enumerate}
   So, though claiming support is for some proposition \(\phi\) having some value \(v\), it is not clearly the case that claiming support is restricted to certain proposition-value combinations.
-\end{begin}
+\end{note}
 
-\note{note}[Analogue]
+\begin{note}[Analogue]
   Analogue of concluding for conditional.
   Here, bundle into \(\phi\).
   More generally, not much need for conditional stuff.
 \end{note}
 
-\paragraph*{Conclusions are `unique'}
+\paragraph*{Conclusions are determined}
 
-\begin{note}[Conclusions are unique]
-  \begin{assumption}[Conclusions are `unique']
-    \label{assu:conc:unique}
+\begin{note}[Conclusions are determined]
+  \begin{assumption}[Conclusions are determined]
+    \label{assu:conc:determined}
     For any value type \(v_{\tau}\):
 
     If an agent has the option of concluding \(\pv{\phi}{v_{\tau}}\), then the agent does not have the option of concluding \(\pv{\phi}{\overline{v_{\tau}}}\).
@@ -748,8 +931,28 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
   For example, if an agent has the option of concluding \(\phi\) is true, then the agent does not have the option of concluding \(\phi\) is false.
   Likewise, if the agent has the option of concluding \(\phi\) is undesirable, then the agent does not have the option of concluding \(\phi\) is desirable.
-  However, as truth and desirability are distinct value types, an agent may conclude \(\phi\) is false but desirable.
+  However, as truth and desirability are distinct value types, an agent may conclude, e.g., \(\phi\) is false but desirable.
+\end{note}
 
+\begin{note}
+  \Autoref{assu:conc:determined} is delicate.
+  If the agent has the option, then it's determined.
+  So, if the agent has concluded, then has the option.
+  However, this does not guarantee that prior to reasoning the agent has the option.
+  May be that in concluding, change in epistemic state, such that either \(\pv{\phi}{v}\) or \(\pv{\phi}{\overline{v}}\) is determined.
+
+  For example, favourite flavour.
+  The agent does not have the option of concluding they have a preference.
+  However, conclude that X is favourite flavour.
+  Now the agent has the option, and the agent does not have the option of concluding Y.
+\end{note}
+
+\begin{note}
+  Though \autoref{assu:conc:determined} is delicate, will be important.
+  However, key present epistemic state in mind.
+\end{note}
+
+\begin{note}
   We do not make any explicit assumptions about relations between value types, though we take for granted sensible constraints.
   For example, if an agent has the option of concluding \(\phi\) is true, the agent does not have the option of concluding \(\phi\) is impossible, though whether some proposition is possible or impossible is distinct from whether the proposition is true or false.
 \end{note}
@@ -947,7 +1150,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   In some cases, concluding one would conclude \(\pv{\phi}{v}\) from some premises \(\Phi\) is equivalent to concluding \(\pv{\phi}{v}\) from \(\Phi'\), where \(\Phi\) and \(\Phi'\) are distinct.
 \end{note}
 
-\paragraph{Summary}
+\paragraph*{Summary}
 
 \begin{note}[Summary]
   Handful of assumptions regarding concluding.
@@ -964,6 +1167,1085 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   And, would rather avoid issues regarding phenomenology of concluding.
   Well, do avoid such issues.
 \end{note}
+
+\section{Two ways of concluding}
+\label{sec:overview:two-types-reasoning}
+
+\begin{note}[Goal]
+  The goal here is to motivate a distinction between how and why.
+
+  Introduce idea of an \itp{}.
+
+  Suggest the possibility of negative resolution to~\autoref{issue:why-inc-in-how}, though not to~\autoref{issue:has-witnessed}.
+
+  In part, motivation for focusing on~\autoref{issue:has-witnessed}.
+
+  However, sufficient motivation as negative to~\autoref{issue:has-witnessed} entails negative to~\autoref{issue:why-inc-in-how}.
+\end{note}
+
+\begin{note}[Two ways of concluding]
+  In this section, broad idea.
+  \adA{} and \adB{}.
+\end{note}
+
+\paragraph*{The first type of reasoning: \adA{}}
+
+\begin{note}
+  \begin{restatable}[\adA{}]{definition}{defADA}
+    \label{AR:adA}
+    \label{def:adA}
+    \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) by `\adA{}' if:
+    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*)]
+    \item
+      \label{def:adA:psi}
+      \vAgent{} concludes \(\pv{\phi}{v}\) by witnessing reasoning from some pool of premises \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\)
+    \item
+      \(\Phi\) is the collection of all and only the premises \(\pv{\phi_{i}}{v_{i}}\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+  \adA{} is straightforward.
+
+  As before, concern may be raised about what the relevant premises are, and whether the relevant agent identifies those premises as premises.
+  However, granting that an agent always concludes from some collection of premises, the relevant collection exists.
+
+  The restriction to the \emph{exact} collection of premises the agent reasons from is for convenience.
+  Nothing in particular hangs on this distinction, but equally nothing much is gained by allowing the inclusion of redundant proposition-value pairs.
+\end{note}
+
+\begin{note}[\illu{1}]
+  Time from positions of hands on a clock and understanding of how time is represented by such a clock.
+
+  Whether to make a bet from tolerance for risk, distribution of cards in a pack, cards in hand, and rules of the game.
+\end{note}
+
+\begin{note}
+  \adA{} does not outline a specific way of reasoning.
+  Deductive, inductive, etc.\
+\end{note}
+
+\begin{note}
+  \phantlabel{abstract-adA}
+  Basic (abstract) instance of \adA{}:
+
+  {
+    \small
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
+    \item\label{def:adA:ex:C:Cp} I have concluded \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:p} So, \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cp})
+    \item\label{def:adA:ex:C:Cps} Likewise, I have concluded \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+    \item\label{def:adA:ex:C:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cps})
+    \item\label{def:adA:ex:C:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
+    \item\label{def:adA:ex:C:s} Hence, \(\psi\) has value \(v'\).\newline
+      \mbox{}\hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
+    \item Therefore, I conclude \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:Cp} -- \ref{def:adA:ex:C:s})
+    \end{enumerate}
+  }
+  From this reasoning, two clear premises.
+  \(\pv{CS(\pv{\phi}{v})}{\top}\) and \(\pv{CS(\pv{\pv{\phi}{v} \Rightarrow \pv{\psi}{v'}}{\top})}{\top}\).
+  Witness reasoning from these premises.
+  The reasoning is verbose, premises are that the agent has concluded.
+  Here, concluding is not factive.
+
+  % (Consider parallel reasoning with knowledge.%
+  % \footnote{The parallel reasoning in full:
+  %   \begin{enumerate}[label=\arabic*., ref=\arabic*]
+  %   \item\label{def:adA:ex:K:Kp} I know \(\phi\) has value \(v\).
+  %   \item\label{def:adA:ex:K:p} So, \(\phi\) has value \(v\). \hfill (From~\ref{def:adA:ex:K:Kp})
+  %   \item\label{def:adA:ex:K:Kps} I know \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
+  %   \item\label{def:adA:ex:K:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:K:Kps})
+  %   \item\label{def:adA:ex:K:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
+  %   \item\label{def:adA:ex:K:s} Hence, \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
+  %   \item So, I know \(\psi\) has value \(v'\) as \(\psi\) having value \(v'\) follows from~(\ref{def:adA:ex:K:Kp}) and~(\ref{def:adA:ex:K:Kps}).
+  %     \mbox{}\hfill (From \ref{def:adA:ex:K:Kp} -- \ref{def:adA:ex:K:s})
+  %   \end{enumerate}
+  % }%
+  % )
+\end{note}
+
+
+\paragraph*{The second type of reasoning: \adB{}}
+
+\begin{note}[Turning to \adB{}]
+  We now turn to the second type of reasoning: `\adB{}'.
+
+  We begin with a definition of \adB{}.
+  However, our attention will quickly turn to a pair of helper definitions which relate some proposition-value pair we identify as an `\itp{}' to some other proposition-value pair and pool of premises.
+\end{note}
+
+\begin{note}
+  \begin{restatable}[\adB{}]{definition}{defADB}
+    \label{def:adB}
+    \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) by `\adB{}' if:
+    \begin{enumerate}[label=\textsf{I}:\arabic*., ref=(\textsf{I}:\arabic*)]
+    \item
+      \label{def:adB:itp}
+      \vAgent{} has concluded \(\pv{\mu}{v}\) and  \(\pv{\mu}{v}\) is either:
+      \begin{enumerate}
+      \item
+        \label{def:adB:itp:between}
+        An \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\), or:
+      \item
+        \label{def:adB:itp:for}
+        An \itp{} \emph{for} \(\pv{\phi}{v}\), with \(\Phi\) as the relevant pool of premises.
+      \end{enumerate}
+    \item
+      \label{def:adB:conclude}
+      \vAgent{} concludes \(\pv{\phi}{v}\) by appeal to the premises \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) from the pool of premises \(\Phi\) via the possibility of witnessing the relevant reasoning from \(\pv{\mu}{v}\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{restatable}
+\end{note}
+
+\begin{note}
+  Without definitions of what an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) is, or what an \itp{0} for \(\pv{\phi}{v}\) is,~\autoref{def:adB} is incomplete.
+  We will shortly turn to the relevant helper definitions.
+
+  Though, working backwards from~\autoref{def:adB} gives a hint.
+  An \itp{} should contain information that it is possible for the agent to witness reasoning that conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
+\end{note}
+
+\begin{note}
+  Still, before turning to the pair of helper definitions, let me stress a key aspect of~\autoref{def:adB}:
+  From~\ref{def:adB:conclude}, the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) and \(\Phi\) alone (without witnessing the relevant reasoning).
+  The agent does not conclude \(\pv{\phi}{v}\) from \(\Phi\) and \(\pv{\mu}{v}\).
+  From the perspective of defining \adB{}, the latter option may be included, but the possibility of the former will be important when we turn to tension.
+\end{note}
+
+\paragraph*{Contrast}
+
+\begin{note}
+  The key difference between \adA{} and \adB{}:
+  \begin{itemize}
+  \item \adA{} involves the agent appealing to \(\pv{\mu}{v}\) in order to conclude \(\pv{\phi}{v}\), while
+  \item \adB{} does not involve the agent appealing to \(\pv{\mu}{v}\) to conclude \(\pv{\phi}{v}\).
+    Instead, the role of \(\phi\) is to highlight \(\rho_{1},\dots,\rho_{k}\) and the agent appeals to propositions \(\rho_{1},\dots,\rho_{k}\) to claim support for \(\psi\).
+  \end{itemize}
+
+  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
+  Hence, \(\phi\) is not irrelevant.
+  Still, the agent does not appeal to \(\phi\).
+\end{note}
+
+\paragraph*{\adB{}: Helper definitions}
+
+\begin{note}[]
+  We briefly noted, working backwards from~\autoref{def:adB}, that an \itp{} should contain information that it is possible for the agent to witness reasoning that conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
+  We now detail what an \itp{0}.
+  Or, rather, what \itp{1} are.
+
+  There are two cases.
+  First, an \itp{0} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\).
+  Second, an \itp{0} \emph{for} \(\pv{\phi}{v}\).
+  The distinction between these cases is whether the relevant \itp{0} identifies a particular pool of premises.
+
+  In practice, we will blur the distinction, but from a definitional perspective the latter is best seen as a generalisation of the former.
+\end{note}
+
+\subparagraph*{An \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\)}
+
+\begin{note}[\itp{} between]
+  \begin{definition}[An \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) \hfill \named{I.b}]
+    \label{def:itp:b}
+    \(\pv{\mu}{v}\) is an \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\) if and only if:
+
+    \begin{enumerate}[label=\arabic*., ref=\named{\textsf{I.b}:\arabic*}]
+    \item
+      \label{def:itp:b:pR}
+      \(\mu\) having value \(v\) ensures:
+      \begin{itemize}
+      \item
+        It is possible for \vAgent{} to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\), given \vAgent{}'s present epistemic state.
+      \end{itemize}
+    \item
+      \label{def:itp:b:distinct}
+      \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\), given \vAgent{}'s present epistemic state.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\begin{note}[Plan]
+  The definition of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) consists of two components:~\ref{def:itp:b:pR} and~\ref{def:itp:b:distinct}.
+
+  \ref{def:itp:b:pR} is the core of the definition, while~\ref{def:itp:b:distinct} narrows the definition to cases of interest.
+
+  We begin by expanding on~\ref{def:itp:b:pR}, and then motivate the restriction given by~\ref{def:itp:b:distinct}.
+\end{note}
+
+\begin{note}[Expanding on~\ref{def:itp:b:pR}]
+  Intuitively, think of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) as a particular kind of conditional of the (rough) form `if \(\Phi\) then \(\pv{\phi}{v}\)'.
+
+  Indeed, an `\emph{if} \dots \emph{then} \dots' statement between \(\Phi\) and \(\pv{\phi}{v}\) may be constructed from any \itp{} between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  For, if it is possible for an agent to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\), then (from the agent's perspective at least), \(\pv{\phi}{v}\) whenever \(\pv{\phi_{i}}{v_{i}}\) for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\).
+  So, if every proposition \(\phi_{i}\) in \(\Phi\) has it's respective value \(v_{i}\), then \(\phi\) also has value \(v\).
+  Or, more colloquially, if \(\Phi\) then \(\pv{\phi}{v}\).
+
+  However, an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) is stronger than `if \(\Phi\) then \(\pv{\phi}{v}\)'.
+  For, not only is it the case that \(\pv{\phi}{v}\) whenever \(\pv{\phi_{i}}{v_{i}}\) for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), but in addition it is possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) given the agent's present epistemic state.
+
+  Naturally, the possibility for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) goes beyond a plain conditional between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  Breaking down \autoref{def:itp:b:pR}, observe we have an `inner' statement:
+  \begin{quote}
+     It is possible for \vAgent{} to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\).
+  \end{quote}
+  And, a qualifier:
+  \begin{quote}
+    [G]iven \vAgent{}'s present epistemic state.
+  \end{quote}
+
+  The statement is simple.
+  The relevant possibility is just for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) by an instance of \adA{}.
+  Indeed, the relevant instances of \EAS{} we motivate by developing tension will always involve an \itp{}, and hence will always involve the possibility of witnessing reasoning to the relevant conclusion from some pool of premises.
+
+  Turn now to the qualifier:
+  \begin{quote}
+    [G]iven \vAgent{}'s present epistemic state.
+  \end{quote}
+  This is a qualifier on possible witnessing.
+
+  Generally speaking, it may be possible for an agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) by an instance of \adA{} from a distinct epistemic state.
+  For example, if the agent were to learn some \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\) is the case, or if the agent were to improve their reasoning skills.
+  However, the innermost qualifier ensures that it possible for an agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) without any revision to the agent's epistemic state.
+
+  An important consequence of this qualifier is that the agent must already hold that for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), \(\phi_{i}\) has value \(v_{i}\).
+  For, if not, then \(\pv{\phi_{i}}{v_{i}}\) would not be available as a premise.
+  Of course, the definition of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) may be given without this assumption, but we have no use for any more general definition.
+\end{note}
+
+\begin{note}[\illu{2}]
+  \color{red}
+    For example, consider being informed that the first player in a game of tic-tac-toe may always guarantee a draw.
+  No premises are specified, but on reflection it is clear to see that one may reason through all the possible games to identify the strategy.
+  The relevant \itp{0}, then, is the combination of the novel information and one's understanding of tic-tac-toe, the premises, some general results about tic-tac-toe, and the conclusion the required strategy.
+
+  What guarantees the possibility of concluding --- general properties of tic-tac-toe which follow from the rules --- is intuitively distinct from the relevant pool of premises, which likely be limited to the rules themselves combined with the \dots
+
+\end{note}
+
+\begin{note}
+  A quick observation.
+
+  \(\pv{\mu}{v}\) being an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) depend on whether or not it is actually possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\), given their epistemic state.
+  If it is not possible for the agent to witness reasoning from \(\Phi\) to \(\pv{\phi}{v}\), then no such \itp{} will exist.
+
+  However, whether or not an agent \emph{concludes} \(\pv{\mu}{v}\) is an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) does not depend on whether or not it is actually possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\), given their epistemic state.
+  We do not assume that an agent concludes \(\pv{\phi}{v}\) only if \(\phi\) actually has value \(v\).
+  And, our interest with \itp{1} will typically be from the perspective of the agent's present epistemic state.
+\end{note}
+
+\begin{note}[Expanding on~\ref{def:itp:b:distinct}]
+  The above has expanded on~\ref{def:itp:b:pR}.
+  Finally, we turn to~\ref{def:itp:b:distinct}.
+
+  In short,~\ref{def:itp:b:distinct} ensures that if \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\), then \(\pv{\mu}{v}\) is not a premise that the agent would appeal to when witnessing the reasoning from \(\Phi\) to \(\pv{\phi}{v}\) captured by~\ref{def:itp:b:pR}.
+
+  More strictly, not only is \(\pv{\mu}{v}\) not a premise, but is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\).
+  Where, again, equivalence is evaluated from the perspective of the agent.
+
+  From an abstract perspective, if \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\), then \(\pv{\mu}{v}\) is purely descriptive of the relationship between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  In other words, \(\pv{\mu}{v}\) is not required to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Now,~\ref{def:itp:b:distinct} is a somewhat arbitrary restriction.
+
+  In general, it is plausible that some \(\pv{\mu}{v}\) may both inform an agent that they may conclude \(\pv{\phi}{v}\) from \(\Phi\), but is also a member of \(\Phi\).
+
+  Indeed, consider the conditional `if \(\pv{\alpha}{v}\) then \(\pv{\beta}{v'}\)'.
+  Granting the conditional allows detachment, then it is surely possible for an agent to reason from the pool of premises \(\{\pv{\alpha}{v}, \text{if} \pv{\alpha}{v} \text{ then } \pv{\beta}{v'}\}\) to \(\pv{\beta}{v'}\).%
+  \footnote{
+    So long as the agent has already concluded \(\pv{\alpha}{v}\).
+  }
+
+  Indeed, without~\ref{def:itp:b:distinct}, \itp{1} would be abundant.
+  Hence,~\ref{def:itp:b:distinct} narrows our attention to cases of interest, cases where \(\pv{\mu}{v}\) merely describes --- and does not partake --- in the reasoning of interest.%
+  \footnote{
+    Our course, ruling out an abundance of potential \itp{1} via~\ref{def:itp:b:distinct} carries risk of ruling out interesting \itp{1}.
+    I encourage further investigation.
+    Still, as \itp{1} are only of indirect interest, simplicity via arbitrary restrictions is favoured over complexity from general definitions.
+  }
+\end{note}
+
+\begin{note}[Summary of \itp{0} between]
+  \dots
+\end{note}
+
+\subparagraph*{An \itp{} for \(\pv{\phi}{v}\)}
+
+\begin{note}[\itp{2} for]
+  We now turn to the second helper definition, that of an \itp{0} for some proposition-value pair.
+  In short, an \itp{0} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\) ensures the possibility of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  And, by contrast, an \itp{0} \emph{for} \(\pv{\phi}{v}\) ensures there is some \(\Phi\) such that it is possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+\begin{note}[def: \itp{2} for]
+  \begin{definition}[An \itp{0} for \(\pv{\phi}{v}\) \dots --- \named{I.f}]
+    \label{def:itp:f}
+    \(\pv{\mu}{v}\) is an \itp{} \emph{for} \(\pv{\phi}{v}\) if and only if:
+    \begin{enumerate}[label=\arabic*., ref=\named{I.f:\arabic*}]
+    \item
+      \label{def:itp:f:pR}
+      \(\mu\) having value \(v\) ensures there is some pool of proposition-value pairs \(\Phi\) and proposition-value pair \(\pv{\mu'}{v'}\) such that:
+      \begin{itemize}
+      \item
+        \(\pv{\mu'}{v'}\) is an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\).
+      \end{itemize}
+    \item
+      \label{def:itp:f:distinct}
+      \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\), given \vAgent{}'s present epistemic state.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\begin{note}
+  As with~\autoref{def:itp:b},~\autoref{def:itp:f} contains two components; a core and a restriction.
+\end{note}
+
+\begin{note}
+  The core is straightforward.
+  \ref{def:itp:f:pR} requires \(\pv{\mu}{v}\) to do ensure two things:
+  \begin{enumerate}
+  \item The existence of some pool of proposition-value pairs \(\Phi\), and
+  \item The existence of an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\).
+  \end{enumerate}
+  In other words, then, an \itp{0} \emph{for} \(\pv{\phi}{v}\) just is the guarantee of an \itp{0} \emph{between} \(\pv{\phi}{v}\) and some pool of premises \(\Phi\).
+
+  Simply as it may be, the definition of a \itp{0} for will prove quite useful, as we avoid the need to specify any particular pool of premises.
+
+  Further, any \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) is always an \itp{0} for \(\pv{\phi}{v}\).
+  For, suppose \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\).
+  Then, \(\Phi\) is the relevant pool of premises and \(\pv{\mu}{v}\) itself is the relevant \(\pv{\mu'}{v'}\), and by definition \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), given the agent's present epistemic state.
+
+  Note, however, that in general, if \(\pv{\mu}{v}\) is an \itp{0} for \(\pv{\phi}{v}\) then \(\pv{\mu}{v}\) need not be an \itp{0} between \(\pv{\phi}{v}\) and some pool of premises.
+  Simply, though any \itp{0} between is also an \itp{0} for, the converse does not hold.
+  For, an \itp{0} requires a pool of premises to be specified.
+  Therefore, \(\pv{\mu}{v}\) and \(\pv{\mu'}{v'}\) must, in general, be distinct.
+
+  Of course, an \itp{0} for \(\pv{\phi}{v}\) may have the same general statement as an \itp{0} between \(\langle \phi,\Phi \rangle\).
+
+  Consider again tic-tac-toe.
+  Above, we considered the \itp{0} between the existence of a strategy for first player in a game to guarantee a draw from the rules of tic-tac-toe.
+  Though, with a moments reflection the statement that there existence of a strategy for first player in a game to guarantee a draw will typically lead to an \itp{0} for the existence of the relevant strategy.
+  For, some premises must exist, and given the simplicity of tic-tac-toe these are surely within the grasp of an agent who understands the rules of tic-tac-toe.
+\end{note}
+
+\begin{note}
+  Finally, the restriction~\ref{def:itp:f:distinct} functions in parallel to the restriction \ref{def:itp:b:distinct} of~\autoref{def:itp:b}.
+  An \itp{0} for \(\pv{\phi}{v}\) is purely descriptive, and does not participate in concluding \(\pv{\phi}{v}\) from the relevant pool of premises.
+  A more general definition may be given without this restriction, but such a definition is beyond present interest.
+\end{note}
+
+\paragraph*{\adB{}}
+
+\begin{note}
+  With the two helper definitions in hand, let us return to the definition of \adB{}.
+
+  Recall two components:~\ref{def:adB:itp} and~\ref{def:adB:conclude}.
+
+  \ref{def:adB:itp} stated that the agent has concluded \(\pv{\mu}{v}\) where \(\pv{\mu}{v}\) is either:
+  \begin{enumerate}[label=(\alph*)]
+  \item An \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\), or
+  \item An \itp{} \emph{for} \(\pv{\phi}{v}\), with \(\Phi\) as the relevant pool of premises
+  \end{enumerate}
+  We have seen the relevant definitions.
+
+  So, given the agent has concluded \(\pv{\mu}{v}\), for some \itp{0} \(\pv{\mu}{v}\) then it is possible for the agent to conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
+
+  \ref{def:adB:conclude} is key.
+
+  The agent concludes \(\pv{\phi}{v}\) by appeal to the pool of premises \(\Phi\) \emph{via} the possibility of witnessing the relevant reasoning from \(\Phi\) to \(\pv{\phi}{v}\) given by the \itp{0} \(\pv{\mu}{v}\).
+
+  Hence, the agent does \emph{not} conclude \(\pv{\phi}{v}\) from \(\pv{\mu}{v}\) or indeed from some pool of premises for which \(\pv{\mu}{v}\) is a member.
+  Indeed, the latter point follows from~\ref{def:itp:b:distinct} and~\ref{def:itp:f:distinct} --- an \itp{0} is always purely descriptive of some possible reasoning.
+
+  Instead, the pool of premises the agent concludes \(\pv{\phi}{v}\) from is the collection of those premises that they agent would appeal to if they were to witness the relevant instance of reasoning given by the \itp{0}.
+
+  Of course, the presence of an \itp{0} is, intuitively, crucial.
+  For, without an \itp{0} the agent would lack information that it is possible to conclude \(\pv{\phi}{v}\) from some pool of premises.
+\end{note}
+
+\paragraph{A pair of \illu{3}}
+
+\begin{note}
+  To \illu{0} \adA{} and \adB{} we work through two \illu{1} in some detail.
+  Both \illu{1} share two components:
+  \begin{enumerate}[label=\alph*., ref=(\alph*)]
+  \item
+    \label{adX:illu:struc:mem}
+    Memory of creating a syntactic proof for some first order formula.
+  \item
+    \label{adX:illu:struc:concl}
+    Concluding that the relevant formula is a theorem of first-order logic.
+  \end{enumerate}
+
+  The key difference between the two \illu{1} is whether the memory~\ref{adX:illu:struc:mem} serves as a premise or an \itp{0} for the conclusion~\ref{adX:illu:struc:concl}.
+
+\end{note}
+\begin{note}[Two premises]
+  \begin{quote}
+    \begin{enumerate}[%
+      label={(Mem)},%
+      ref={(Mem)}%
+      ]
+    \item
+      \label{ill:Eproof:mem}
+      I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).%
+      \footnote{
+        We use the phrasing `having created' rather than `creating' to imply completion.
+      }
+    \end{enumerate}
+  \end{quote}
+  And:
+  \begin{quote}
+    \begin{enumerate}[%
+      label={(\(\exists\mathord{\vdash}{,}\top\))},%
+      ref={(\(\exists\mathord{\vdash}{,}\top\))}%
+      ]
+    \item
+      \label{ill:Eproof:def}
+      The existence of a syntactic proof of a formula (using a sound first-order system) is sufficient to establish the formula is a (syntactic) theorem of first-order logic.
+    \end{enumerate}
+  \end{quote}
+\end{note}
+
+\paragraph{First \illu{0} (\adA{})}
+
+\begin{note}
+  \begin{illustration}[\adA{}]
+    \label{ill:ad:proof:mem}
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{enumerate}[%
+      label=\arabic*,%
+      ref=({I}.{\ref{ill:ad:proof:mem}}:\arabic*)%
+      ]
+    \item \illEproofMem{} \hfill \ref{ill:Eproof:mem}
+    \item
+      \label{ill:Eproof:exP}
+      So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
+    \item
+      \label{ill:Eproof:thm}
+      Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{illustration}
+\end{note}
+
+\begin{note}[Discussion of \autoref{ill:ad:proof:mem}]
+  I take \autoref{ill:ad:proof:mem} to be a straightforward case of concluding.
+  \ref{ill:Eproof:mem}, memory,
+
+
+  and \ref{ill:Eproof:def}, to recast the existence of a proof from \ref{ill:Eproof:mem} in terms of the formula being a theorem.
+
+  Neither premise from anything more basic, and without either premise the conclusion would not be obtained.
+  For, without \ref{ill:Eproof:mem} no proof, and without \ref{ill:Eproof:def} no recasting.
+\end{note}
+
+\begin{note}
+  It seems sufficient, generally speaking, to conclude some proposition has value \(v\) by appeal to memory, hence the agent claims support that there was some event which culminated in a syntactic proof of the formula.
+
+  Of course, the agent may have misremembered.
+  Still, we do not require that any agent concludes \(\pv{\phi}{v}\) from \(\Phi\) only if \(\phi\) \emph{actually} has value \(v\) and each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), \(\phi_{i}\) \emph{actually} has value \(v_{i}\).
+
+  Following, this allows the agent to conclude a syntactic proof of the formula exists.
+  As before, the agent may have failed to \emph{actually} create a syntactic proof of the formula
+  Still, from the same perspective this does not prevent the agent from concluding they did (actually) create such a proof.
+
+  Hence, finally, the agent claims support that the formula is a (syntactic) theorem of first-order logic.
+\end{note}
+
+\begin{note}
+  To concisely summarise, we may say that the agent conclude the is a (syntactic) theorem of first-order logic \emph{because} of their understanding of syntactic theorem-hood and their memory of proving the formula.
+
+  For sure,~\autoref{ill:ad:proof:mem} is designed to be as straightforward as possible.
+  Of interest is not whether the agent claims support, but how the role the agent gives to their memory in claiming support.
+
+  The agent appeals to their memory to establish that there exists a syntactic proof of the formula, and then combines the existence of a syntactic proof with~\ref{ill:Eproof:def} to claim support that the formula is a theorem.
+  Hence, the agent's memory is directly involved in their claimed support for the formula being a theorem.\nolinebreak
+    \footnote{
+      \color{red}
+      Whether proving is an unsatisfied \requ{}.
+      However, recall that allowed a \requ{} to be satisfied by some instance of concluding.
+      And, memory of concluding.
+      Still question about original proof, but no problem with memory.
+      Also, method.
+    }
+\end{note}
+
+\paragraph{Second \illu{0} (\adB{})}
+
+\begin{note}
+  \begin{illustration}[\adB{}]
+    \label{ill:ad:proof:eve}
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{enumerate}
+    \item \illEproofMem{} \hfill \ref{ill:Eproof:mem}
+    \item
+      \label{ill:ad:proof:eve:app}
+      In creating the syntactic proof I appealed to various aspects of some sound first-order system.
+    \item
+      \label{ill:ad:proof:eve:pos}
+      As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
+    \item
+      Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{illustration}
+
+  {
+    \color{red}
+    Premises are rules are part of a sound system, may be combined in this way.%
+    \footnote{
+      Indeed, relative simplicity is why we chose a syntactic rather than semantic proof.
+      With semantic, need an argument which covers all models, and while premises plausibly exist, these have no common codification.
+    }
+  }
+
+  As with~\autoref{ill:ad:proof:mem}, the agent's memory has a role in~\autoref{ill:ad:proof:eve}, but the role is quite different.
+  Above, the agent claimed support for the formula being a theorem primarily \emph{because} they remembered creating a proof.
+  By contrast, here the agent claims support for the formula being a theorem primarily because of the properties of some sound first-order system.
+
+  Step~\ref{ill:ad:proof:eve:app} appeals to various aspects of some sound first-order system and, in turn, step~\ref{ill:ad:proof:eve:app} observes that those aspects are sufficient to ensure a proof exists.
+  The agent claims support for the existence of a proof by appeal to the various aspects of some first-order system they appealed to when constructing the proof, rather than their memory of constructing the proof.
+\end{note}
+
+\begin{note}
+  To help clarify, let's fix a particular syntactic proof using the Fitch-style proof system of~\textcite[557--560]{Barwise:1999tu}:
+
+  \begin{figure}[H]
+    \centering
+    \begin{quote}
+      \fitchprf{}{
+        \subproof{\pline[1.]{\forall x P x}}{
+          \subproof{\pline[2.]{\exists x \lnot Px}}{
+            \boxedsubproof[3.]{a}{\lnot Pa}{
+              \pline[4.]{Pa}[\lalle{1}] \\
+              \pline[5.]{\bot}[\lfalsei{3}{4}]
+            }
+            \pline[6.]{\bot}[\lexie{2}{3--5}]
+          }
+          \pline[7.]{\lnot \exists x \lnot Px}[\lnoti{2--6}]
+        }
+        \pline[8.]{\forall x Px \rightarrow \lnot \exists x \lnot Px}[\lifi{1--7}]
+      }
+    \end{quote}
+    \caption{A syntactic proof}\label{fig:syntx-prf}
+  \end{figure}
+
+  The proof consists of single instances of five introduction or elimination rules.
+  Each rule is part of the Fitch-style proof system, and the specific application of the rules constitute the proof.
+\end{note}
+
+
+\begin{note}[Before\dots]
+  Before returning to~\autoref{ill:ad:proof:eve}, let us observe that with the proof in hand one may claim support that a proof of the formula exists via the contents of~\autoref{fig:syntx-prf}.
+
+  Broadly stated:
+
+  \begin{enumerate}
+  \item The proof is constructed from a sound first-order proof system.
+  \item And, the particular application of some rules of the system to formulae is such that the proof begins with no assumptions and the last line of the proof is not part of any assumption made during the course of the proof.
+  \end{enumerate}
+\end{note}
+
+\begin{note}
+  Note, appeal to creation of the proof involves appeal to various aspects of the Fitch-style proof system.
+
+  The object itself is mute to whether or not it is a proof.
+
+  For example, adding `\formula{Ba}' as an assumption would void the proof, but you would need to observe that the appeal to existential elimination on line 6 requires that `\formula{a}' does not appear in the proof prior to its introduction on line 3 in order to claim support that the proof is void.
+
+  Indeed, the proof consists of eight steps, each step is permitted by the first-order system, the proof begins with no assumptions, the last line of the proof is not part of any assumption made during the course of the proof and the proof, and so on.
+
+  Sparing the details, claimed support that~\autoref{fig:syntx-prf} is a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} from the creation of~\autoref{fig:syntx-prf} is a matter of claiming support for each step of the creation.
+
+  Indeed, to spare the details in general, let us instead talk of some collection of propositions and steps of reasoning.
+  Claiming support that a proof exists from the some creation in the way under discussion is an instance of reasoning from details of the creation to the conclusion that a proof exists.
+  Hence, as an instance of reasoning involves certain premises and steps of reasoning.
+  And, whatever these turn out to be, the proceed from the creation of the proof rather than from some other source such as memory, testimony, and so on.
+\end{note}
+
+\begin{note}
+  In other words, one may claim support that a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} exists (primarily) \emph{because} of their reasoning from some collection of premises and steps of reasoning concerning the creation to the existence of a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x}.
+\end{note}
+
+\begin{note}[Return to \ref{ill:ad:proof:eve}]
+  Now let us return to the reasoning of~\autoref{ill:ad:proof:eve}, and in particular steps~\ref{ill:ad:proof:eve:app} and~\ref{ill:ad:proof:eve:pos}:
+  \begin{quote}
+    \begin{enumerate}
+      \setcounter{enumi}{1}
+    \item In creating the syntactic proof I appealed to various aspects of some sound first-order system.
+    \item As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
+    \end{enumerate}
+  \end{quote}
+  Given that the agent remembers having created a syntactic proof, the `various aspects of some sound first-order system' of step~\ref{ill:ad:proof:eve} may be taken as those aspects of the first-order system that were appealed to in the premises and steps of reasoning when the agent created the proof.
+  And step \ref{ill:ad:proof:eve}, in turn, appeals to how those various aspects of some sound first-order system were sufficient for the agent to claim support that a proof exists by the reasoning that occurred.
+
+  In short, the agent remembers creating a syntactic proof and claiming support that a proof exists from the creation.
+  The instance of claiming support involved reasoning from premises via steps to the relevant conclusion.
+  Hence, it is possible to claim support for the conclusion by those premises and steps of reasoning.
+  So, in~\ref{ill:ad:proof:eve} the agent observes that those premises and steps of reasoning are sufficient to claim support by way of their memory, and in turn appeals to those premises and steps of reasoning to claim support for the relevant conclusion.
+\end{note}
+
+\begin{note}
+  {
+    \color{red}
+    Propositional support.
+    (If I talk about this, it should be after the definitions.)
+  }
+\end{note}
+
+\begin{note}
+  Generalising, the way in which the agent claims support in~\autoref{ill:ad:proof:eve} is of interest because the agent appeals to premises and steps of reasoning that are not `part' of their present reasoning.
+  The role of memory in the \illu{0} is (merely) a way for the agent to recognise that there are such premises and steps of reasoning.
+  And, in the definitions that follow, we will abstract from any particular way in which the recognises that relevant premises and steps of reasoning are available.
+
+  Still, even though memory is contingent, we may briefly observe that the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is compatible with \ESU{}.
+  For, \ESU{} requires that an agent may claim support for some conclusion from premises and steps of reasoning only if the agent has witnessed reasoning to the conclusion from those premises via those steps of reasoning.
+  So, if the initial instance of claiming support conformed to \ESU{} then the agent will have witnessed reasoning from those steps and premises to the conclusion --- the instance of claiming support in~\autoref{ill:ad:proof:eve} does not involve such witnessing, but the agent's memory would be about how the relevant premises and steps were used to claim support.
+
+  Of course, the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is incompatible with a strengthened variant of \ESU{} which requires the agent to use any premises and steps they appeal to in the \emph{present} instance of reasoning, but the point for the moment is that the way in which the agent claims support in~\autoref{ill:ad:proof:eve} does not already require what we are arguing against: \ESU{}.
+\end{note}
+
+\begin{note}
+  \color{red}
+  In this case, \adB{} is not incompatible with \ESU{}.
+  For, the agent has witnessed reasoning (granting memory).
+  So, \ESU{} does not lead to an immediate rejection of \adB{}.
+
+  Oh, this is noted.
+\end{note}
+
+\subsubsection{Additional illustrations}
+
+\begin{note}
+
+  \begin{illustration}
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item If bag are overweight then they can't be taken on the flight.
+    \item Machine reads\dots
+    \item Bag can't be taken on the flight.
+    \end{itemize}
+  \end{illustration}
+  Contents of the bag are overweight.
+
+  Combined weight of the items versus the combination of the individual weights.
+
+  Compare, filling the bag and weighing it, versus summing the weight of the items as you fill the bag.
+
+  Now, seems possible to fill the bag and weight it, then appeal to the sum of the items.
+
+  So, this is a little more subtle.
+  The bag has been weighed, and the distinction is between the weight of the contents of the bag, and the combined weight of the items that make up the contents of the bag.
+
+  This is particularly interesting.
+  Because, it seems clear that something is strange if someone talks about the weight of the contents of the bag without recognising that this is a function of the combined weight of all the individual elements of the bag.
+  However, no idea what the contents of the bag are.
+
+  So, claiming support from what is has been observed, the combined weight, rather than what must be the case in order to have made the observation.
+\end{note}
+
+\begin{note}[Fire alarm]
+  \begin{illustration}
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item Fire alarm is ringing.
+    \item Fire in the building.
+    \item Should leave by the nearest exit.
+    \end{itemize}
+  \end{illustration}
+  So, claiming for getting out of the building.
+  Fire alarm.
+  Or, fire, fire alarm has picked this up.
+
+  So, difference between that there is a fire in the building, and \emph{the} fire in the building.
+
+  The point here is that, okay, you need to go from alarm to fire, that's all fine, but fire itself is sufficient to claim support.
+\end{note}
+
+\begin{note}
+
+  \begin{illustration}\label{ill:ad:factorial}
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item It is possible to write recursive functions in C.
+    \item It is possible to write a recursive implementation of the factorial function in C.
+    \end{itemize}
+  \end{illustration}
+  With proofs, abstract objects.
+
+  Consider programming.
+
+  Recursive implementation of factorial in C (chosen to make the implication clear).
+
+  So, \adA{} is just the fact, so to speak.
+  But, \adB{} points to the key step of calling function.
+  Of course, this is just recursion, but appeal here is to the concept, so to speak, rather than the truth of the statement.
+
+  Don't need to understand details.
+  Go by form, so to speak.
+
+  Claiming support by logical relation, rather than the states of affairs that ensure those logical relations hold up.
+
+  Or, the definition is such that\dots
+\end{note}
+
+
+
+\section{\fc{3}}
+\label{sec:foregone-conclusions}
+
+\begin{note}[Foregone-conclusions]
+  Basic idea of a foregone-conclusion.
+
+  \begin{restatable}[Foregone-conclusions]{definition}{definitionForegoneC}
+    \(\pv{\phi}{v}\) is a foregone-conclusion from some pool of premises \(\Phi\) just in case, given the agent's present epistemic, the agent would not fail to conclude \(\pv{\phi}{v}\) from \(\Phi\) were the agent to reason.
+  \end{restatable}
+
+  Whether foregone-conclusion takes agent's present epistemic state as a function.
+  However, does not need to be the case that the agent recognises foregone-conclusion.
+
+  At most, witnessing provides information about method.
+
+  For any property \(P\) which would follow from any instance of witnessing reasoning \(\pv{\phi}{v}\) from \(\Phi\), the agent's present epistemic state is sufficient to determine \(P\) without witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\).
+
+  Suppose \(P\) follows from concluding.
+  Forgegone-conclusion.
+  So, agent's present epistemic state, agent would not fail.
+  However, it then follows that \(P\).
+
+  Here, restricted \(P\) to follow from any.
+  Hence, if there are multiple methods, \(P\) may be restricted.
+
+  However, broaden.
+\end{note}
+
+\begin{note}[Intuitive cases]
+  Knowing whether and knowing how to.
+  More or less interchangeable.
+
+  Know whether \(x + y = z\).
+  Know how to calculate \(x + y\).
+  Indeed, for any \(z\), know whether \(x + y = z\).
+
+  Sudoku puzzles.
+  Know how to figure out.
+  So, know whether any solution is valid.
+
+  Of course, in certain cases, there are shortcuts.
+  Two even numbers, then know whether by checking whether the last digit is even or odd.
+  And, other cases, contingent shortcut, such as two of the same number in a square for Sudoku.
+
+  So, really, knowing how to.
+\end{note}
+
+\begin{note}[Weaken]
+  \fc{2} is weaker.
+  Knowing, factive.
+  Though, plausible that these amount to the same thing in various cases.
+  Either because \fc{} is determined by knowing how to.
+  Or, because knowing is weakened to the agent's perspective.
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    For any path, present epistemic state determines availability of path.
+  \end{proposition}
+
+  Start.
+  Then, continue.
+  Started from \(\Phi\), so will conclude.
+  Hence, no matter choice made, must have taken the possibility of this choice into account.
+  So, it must be the case that determined.
+
+  Hence, if witness, then via some path.
+
+  So, witnessing predetermined path.
+  Any instances of concluding by witnessing reduces to witnessing predetermined path.
+
+  Witnessing may provide information about path, but witnessing doesn't 
+
+
+  For any X from W,
+  present determines whether or not X from agent's point of view, then forgone conclusion.
+
+  In other words, agent's present epistemic state determines.
+  Agent may need to witness to figure out how determined, but witnessing does not influence.
+\end{note}
+
+\begin{note}[Non-cases]
+  Now, \(p, p \rightarrow q \vdash q\) case.
+  Well, determines \(q\), if we ignore possibility of revision.
+  However, this doesn't tell us about all X.
+
+  This is much stronger.
+  There is nothing witnessing adds which is not already determined.
+
+  2 + 2, peano arithmetic.
+
+  More intuitive.
+  Though, still question about deriving 2 + 2 = 4 from peano arithmetic.
+
+  Understanding of arithmetic.
+  Then, add two numbers.
+  Forgone-conclusion.
+
+  % Sudoku puzzle.
+  % Solution is a foregone-conclusion.
+\end{note}
+
+\begin{note}
+  To \illu{0}, questions and answers.
+
+  Do you know whether \(83\) is prime?
+
+  Not off the top of my head.
+
+  Do you know whether \(28 + 55 = 83\)?
+
+  Sure, but give me a moment.
+
+  Do you know whether \dots
+
+  No.
+
+  Of course, might hold that the agent needs to have figured things out.
+  But, then we have a plausible reduction.
+  Knowing whether, and witnessing whether.
+  Common component.
+
+  Now, idea is a little different, as knowledge implies factivity.
+  Interest with concluding is that not necessarily factive.
+  From the agent's perspective.
+
+  `Determining whether'.
+  Or, rather `\fc{0}'.
+\end{note}
+
+\begin{note}
+  Similar to Goldman, etc.?
+  The idea is justification\dots
+\end{note}
+
+\begin{note}[Trimming]
+  \begin{proposition}
+    Basically, there's no role for anything beyond \(\Phi\) in the case of a foregone-conclusion.
+
+    \(\Phi\), in the context of the agent's present epistemic state is sufficient to secure the conclusion, and the possibility of witnessing reasoning.
+  \end{proposition}
+
+  \begin{proposition}
+    Foregone-conclusion just in case \(\Phi\) supports \(\pv{\phi}{v}\).
+    \begin{argument}
+      In short, given agent's present epistemic state, there's a guaranteed path from \(\Phi\) to \(\pv{\phi}{v}\).
+    \end{argument}
+    In other words, if \(\Phi\) does not support \(\pv{\phi}{v}\), then \(\pvp{\phi}{v}{\Phi}\) is not a foregone-conclusion.
+  \end{proposition}
+
+  Now, as the agent has not witnessed reasoning, need information that \(\pvp{\phi}{v}{\Phi}\) is a foregone-conclusion in order to recognise this.
+  However, with information that \(\pvp{\phi}{v}{\Phi}\) is a foregone-conclusion, the information has no role in supporting \(\pv{\phi}{v}\).
+\end{note}
+
+\begin{note}
+  So, that \(\pvp{\phi}{v}{\Phi}\) is a \fc{0} provides information, and explains, in part or whole, \emph{how} the agent concludes \(\pv{\phi}{v}\).
+  However, \emph{why} is accounted for by \(\Phi\).
+\end{note}
+
+\begin{note}
+  Why does it matter which?
+
+  \begin{idea}[Reduction]
+    If foregone-conclusion, then witness relation established by being a foregone-conclusion.
+    Hence, reduction.
+  \end{idea}
+  Here, reduction.
+  Restriction to `some'.
+  It is not the case that every conclusion is a foregone-conclusion.
+
+  However, if foregone-conclusions are of interest, then some motivation.
+
+  Still, why of interest?
+  What role do foregone-conclusion have?
+
+  In particular.
+  Need to get that some conclusion is a foregone-conclusion.
+  From some reasoning.
+  So, some pool of premises.
+  And, that pool of premises is sufficient for conclusion.
+
+  So, source for 2 + 2 = 4 and general ability.
+  Already concluded that 2 + 2 = 4.
+  Not quite, still going from general ability to 2 + 2 = 4.
+
+  So, it's not clear that reduction is irrelevant.
+
+  However, it is also not clear that this reduction is general.
+  Want to show that foundation for reduction is not limited.
+\end{note}
+
+\begin{note}[Two worries]
+  Two worries.
+
+  First, that even though \fc{0}, the agent would not conclude.
+  Either because \(\Phi\) is unavailable, or because no potential witnessing event.
+  So, can't remove \fc{0} from account of why.
+
+  However, then \fc{0} does not support.
+
+  If grant that \fc{0} supports, then this seems to work out.
+  Further, if require existence, then things that support get very messy.
+  Dopeganger cases.
+  Reason is I saw A, but it wasn't A, appealing to something that doesn't exist.
+  Various other cases like this.
+
+  Difference.
+  In these cases, have premise, thing is that the truth value is distinct.
+  Here, possibly no premise.
+
+  Well, this is different.
+  However, I don't think this is sufficient to reject the idea.
+  Just because this distinction doesn't arise in the case of witnessing doesn't really do much.
+
+  Look, a `bad' premise offers no more support for the agent than no premise.
+
+  Second, need \emph{that} \fc{0}.
+  However, the point is that this is about the agent's present epistemic state.
+  \emph{Without} \fc{0}, the agent would reason.
+  This is just the key point reiterated.
+  Know whether, \fc{0} just adds information about which.
+\end{note}
+
+
+\paragraph{Foregone-concluding}
+
+\begin{note}[Foregone-concluding]
+  Pair this with a key idea.
+
+  \begin{restatable}[Foregone-concluding]{idea}{ideaForegoneCing}
+    \label{idea:reassignment}
+    If foregone-conclusion, then may conclude.
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+  Cases where concluding by witnessing reduces to witnessing forgone conclusion.
+  \emph{Concluding \(\pv{\psi}{v'}\) from \(\Psi\) is just witnessing foregone-conclusion.}
+  So, reduction, in certain cases.
+  Further, if forgone conclusion, then conclude.
+  At least, in certain cases.
+\end{note}
+
+
+
+\begin{note}[???]
+  Only argue for a positive resolution to~\autoref{issue:Main} given~\autoref{idea:reassignment}.
+
+  And, leave~\autoref{idea:reassignment} as an idea.
+  Insight into adopting this idea, or something like this.
+\end{note}
+
+\begin{note}
+  Positive resolution may read easier if something like `in committing'.
+  Commit to location from map, sum from arithmetic.
+  Indeed, perhaps intuitive sense is just commitment via witnessing reasoning.
+
+  But, we then have a reduction.
+  Question is, what work does commitment do, and what work does witnessing do?
+
+  Still, why think this?
+  Why not think that concluding leads to commitments.
+  Independent consequence.
+  In same way that knowledge as basic entails justification, same for commitments.
+  Indeed, in same way that relevant justification may be distinctive in the case of knowledge, same for commitment with concluding.
+\end{note}
+
+\begin{note}
+  Assume motivate.
+  What exactly is concluding?
+  This will be beyond the scope of this document.
+  I hope motivating a difference in extension motivates further questions about what the relation is, and the importance of witnessing in certain cases.
+  As we will see, making this argument is by no means straightforward.
+
+  I think there needs to be some instance of witnessing --- concluding does not arise from nowhere.
+  Still, if witnessing leads to additional conclusions, then what do we get from concluding?
+  What we will get is a general closure condition.
+
+  To do so we narrow things down a little.
+  Focus on particular types of concluding, and when concluding is accompanied by an additional property.
+  Still, if in these instances no witnessing, then not more generally.
+  Additional property, concluding some proposition from some premises.
+
+  Argument, won't directly rely on intuitions about whether agent has concluded.
+\end{note}
+
+\paragraph*{The general pre-theoretic argument}
+
+\begin{note}[The general pre-theoretic argument]
+  At least, the positive resolution is not straightforward without placing some constraints on \emph{which} premises an agent may appeal to when reasoning, and we will motivate the positive resolution without such constraints.
+
+  For, without constraints on which premises an agent may appeal to when reasoning, one may argue as follows:
+  \begin{enumerate}
+  \item Any instance of reasoning is some process with start and end points and intermediary steps.
+  \item If an agent has concluded \(\phi\) has value \(v\) by some reasoning, then the reasoning has start points and intermediary steps.
+  \item Hence, the agent has concluded \(\phi\) has value \(v\) by witnessing some reasoning from some start points via some intermediary steps.
+  \item In other words, the agent has concluded \(\phi\) has value \(v\) by witnessing some reasoning from some premises.
+  \end{enumerate}
+
+  In short, so long as an agent has concluded \(\phi\) has value \(v\), the agent has always witnessed reasoning from some premises.
+
+  \begin{enumerate}[resume]
+  \item So, either the start points are the premises of interest mentioned in the issue, or the agent has concluded \(\phi\) has value \(v\) from a distinct set of premises.
+  \end{enumerate}
+
+  In other words, either the agent has witnessed reasoning from the premises of interest, or the premises of interest (and any reasoning from them) are not required to conclude \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}[More on the quick argument]
+  The quick argument does not directly lead to a negative resolution to the issue.
+  Still, the quick argument does suggest that any appeal to premises \emph{without} witnessing reasoning from those premises is redundant.
+
+  Now, perhaps redundancy isn't so bad.
+  I only need a single key to ensure I have the option of unlocking a door, but a second key is useful if the first is lost.
+
+  Still, I take it to be the case that redundancy provides leverage for a wide range of arguments motivating a negative resolution in the case of reasoning.
+
+  For, if appeal to some premises is redundant, then any argument that requires witnessing need only observe that a counterargument must find some role for something which is not needed.
+
+  Reasoning is an event, and distinct way of concluding \(\phi\) has value \(v\) may be useful, it is unclear why the distinct way of concluding \(\phi\) has value \(v\) is of use when concluding \(\phi\) has value \(v\) from present premises.
+  To push the analogy, a second key may have various uses, but the second key is irrelevant in the event of unlocking the door with the first key.
+  That the second key is would unlock the door if the first was lost has no role in the event of unlocking the door with the first key.
+
+  From a different perspective, if appeal to certain premises without witnessing reasoning from those premises is redundant, then it seems any positive role given to appeal to those premises may be redistributed to the premises of the reasoning the agent did witness.
+
+  More concretely, even if I were to show that there was some benefit for concluding \(\phi\) has value \(v\) via unwitnessed reasoning with respect to some particular account of reasoning, it seems at least plausible that the account of reasoning may be reformulated to derive the same benefit from the premises of the reasoning the agent witnessed.
+
+  More generally, it may seem (and I suspect it does seem) intuitive that the issue should be resolved negatively.
+  Reasoning just is obtaining a conclusion by witnessing reasoning from premises.
+  And, if the quick argument succeeds, then there surely is some way to preserve the intuition.
+\end{note}
+
+\begin{note}
+  So, part of the task is to show that the quick argument fails.
+  Concluding \(\phi\) has value \(v\) from certain premises without witnessing reasoning that concludes \(\phi\) has value \(v\) from those premises has some role.
+  Or, rather, that the quick argument is not without cost.
+  Perhaps the issue really should be resolved in the negative, but this will require giving up some at least equally (I think) intuitive ideas.
+
+  The result will be motivation for a positive resolution to the issue.
+  However, the motivation will be somewhat narrow.
+  To escape the tension, the positive resolution need only hold for a restricted pattern of reasoning.
+  Still, with the existential motivated, I hope future work may expand the positive resolution to other patterns of reasoning.
+  And, while such expansions may still need to argue that concluding \(\phi\) has value \(v\) from unwitnessed reasoning is makes sense with respect to the specific topic at hand, observing that the broad idea of concluding \(\phi\) has value \(v\) from unwitnessed reasoning may not be dismissed without cost may be an option.
+\end{note}
+
 
 \section{\zSN{2}}
 \label{sec:overview:zS}
@@ -1701,7 +2983,10 @@ In most cases the value will be clear (i.e. that the proposition is true, though
         \vAgent{} has concluded \(\pv{\psi}{v'}\) from \(\Psi\).
       \item
         \label{idea:Zs:overview:requ-sat:Pres}
-        In concluding \(\pv{\phi}{v}\) \vAgent{} simultaneously concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+        In concluding \(\pv{\phi}{v}\), \vAgent{} simultaneously concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+      \item
+        \label{idea:Zs:overview:requ-sat:Forgone}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \fc{0}.
       \end{enumerate}
     \end{enumerate}
   \end{itemize}
@@ -1720,13 +3005,13 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     For any agent, the following are equivalent:
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item
-      \label{prop:qzs-tick-equals-iCS:qzs}
+      \label{prop:qzs-tick-equals-iCS:qzS}
       \qzS{} has a negative resolution when concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \item
-      \label{prop:qzs-tick-equals-iCS:zs}
+      \label{prop:qzs-tick-equals-iCS:zS}
       The agent has \zS{} when concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \item
-      \label{prop:qzs-tick-equals-iCS:Zs}
+      \label{prop:qzs-tick-equals-iCS:ZS}
       The agent has \ZS{} when concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \end{enumerate}
     \vspace{-\baselineskip}
@@ -1743,8 +3028,8 @@ In most cases the value will be clear (i.e. that the proposition is true, though
     the agent simultaneously concluding \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
   \end{enumerate*}
 
-  Note, the equivalence between~\ref{prop:qzs-tick-equals-iCS:qzs} and~\ref{prop:qzs-tick-equals-iCS:qzs} is immediate, given that we introduced \zS{} as shorthand for a negative resolution to \qzS{}.
-  Hence, the interesting content of \autoref{prop:qzs-tick-equals-iCS} is the equivalence between~\ref{prop:qzs-tick-equals-iCS:Zs} and~\ref{prop:qzs-tick-equals-iCS:qzs}/\ref{prop:qzs-tick-equals-iCS:zs}.
+  Note, the equivalence between~\ref{prop:qzs-tick-equals-iCS:qzS} and~\ref{prop:qzs-tick-equals-iCS:qzS} is immediate, given that we introduced \zS{} as shorthand for a negative resolution to \qzS{}.
+  Hence, the interesting content of \autoref{prop:qzs-tick-equals-iCS} is the equivalence between~\ref{prop:qzs-tick-equals-iCS:ZS} and~\ref{prop:qzs-tick-equals-iCS:qzS}/\ref{prop:qzs-tick-equals-iCS:zS}.
 \end{note}
 
 \begin{note}
@@ -2731,7 +4016,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\ESU{0} --- \ESU{}]{target}{targetESU}
     \label{denied-claim}
-    An agent concluding \(\pv{\phi}{v}\) is an instance of claiming support \emph{only if}:
+    An agent concluding \(\pv{\phi}{v}\) is an instance of \zS{} \emph{only if}:
 
     For any pool of proposition-value pairs \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) appealed to as premises, the agent \emph{has} witnessed reasoning which concludes \(\phi\) has value \(v\) from \(\phi_{i}\) having values \(v_{i}\).\nolinebreak
     \footnote{More generally, the agent has witnessed reasoning whose conclusion \emph{indicates} \(\phi\) has value \(v\).}
@@ -2741,7 +4026,7 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \begin{note}
   \begin{restatable}[\EAS{0} --- \EAS{}]{goal}{goalEAS}
     \label{prop:EAS}
-    There are instances of reasoning in which an agent concludes \(\pv{\phi}{v}\) from some pool of proposition-value pairs \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) as premises \emph{without} witnessing reasoning from \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) to \(\pv{\phi}{v}\) is an instance of claiming support.
+    There are instances of reasoning in which an agent concludes \(\pv{\phi}{v}\) from some pool of proposition-value pairs \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) as premises \emph{without} witnessing reasoning from \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) to \(\pv{\phi}{v}\) is an instance of \zS{}.
   \end{restatable}
 \end{note}
 
@@ -2880,414 +4165,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
   This is for the following section, to which we now turn.
 \end{note}
 
-\subsection{Two types of reasoning}
-\label{sec:overview:two-types-reasoning}
-
-\begin{note}[Two types]
-  Here, expand on \ESU{} and \EAS{}.
-  \ESU{} is, I expect, fairly clear.
-  \EAS{}, does not provide detail regarding the reasoning involved.
-
-  From assumptions regarding concluding, some premises.
-  But, this does not tell us much.
-  In part, question of when.
-  Turn to this when developing tension.
-  Initial question, though, of general structure.
-
-  In this section, broad idea.
-  \adA{} and \adB{}.
-  \adA{} pairs with \USE{}.
-  \adB{} the type of reasoning we're interested in for \EAS{}.
-
-  Of course, if \ESU{}, then no instances of \adB{}.
-  However, pairs of upshots.
-  A view of the horizon, where argument for \EAS{} may expand.
-  Insight into how tension will be developed, \csN{} and information about possibility of reasoning from premises to some conclusion.
-\end{note}
-
-\paragraph*{The first type of reasoning: \adA{}}
-
-\begin{note}
-  \begin{restatable}[\adA{}]{definition}{defADA}
-    \label{AR:adA}
-    \label{def:adA}
-    \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) by `\adA{}' if:
-    \begin{enumerate}[label=\textsf{S:\arabic*}., ref=(\textsf{S}:\arabic*)]
-    \item
-      \label{def:adA:psi}
-      \vAgent{} concludes \(\pv{\phi}{v}\) by witnessing reasoning from some pool of premises \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\)
-    \item
-      \(\Phi\) is the collection of all and only the premises \(\pv{\phi_{i}}{v_{i}}\).
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{restatable}
-
-  \adA{} is straightforward.
-
-  As before, concern may be raised about what the relevant premises are, and whether the relevant agent identifies those premises as premises.
-  However, granting that an agent always concludes from some collection of premises, the relevant collection exists.
-
-  The restriction to the \emph{exact} collection of premises the agent reasons from is for convenience.
-  Nothing in particular hangs on this distinction, but equally nothing much is gained by allowing the inclusion of redundant proposition-value pairs.
-\end{note}
-
-\begin{note}[\illu{1}]
-  Time from positions of hands on a clock and understanding of how time is represented by such a clock.
-
-  Whether to make a bet from tolerance for risk, distribution of cards in a pack, cards in hand, and rules of the game.
-\end{note}
-
-\begin{note}
-  \adA{} does not outline a specific way of reasoning.
-  Deductive, inductive, etc.\
-\end{note}
-
-\begin{note}
-  \phantlabel{abstract-adA}
-  Basic (abstract) instance of \adA{}:
-
-  {
-    \small
-    \begin{enumerate}[label=\arabic*., ref=\arabic*]
-    \item\label{def:adA:ex:C:Cp} I have \csVed{0} \(\phi\) has value \(v\).
-    \item\label{def:adA:ex:C:p} So, \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cp})
-    \item\label{def:adA:ex:C:Cps} Likewise, I have \csVed{0} \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
-    \item\label{def:adA:ex:C:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:C:Cps})
-    \item\label{def:adA:ex:C:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
-    \item\label{def:adA:ex:C:s} Hence, \(\psi\) has value \(v'\).\newline
-      \mbox{}\hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
-    \item Therefore, I conclude \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:Cp} -- \ref{def:adA:ex:C:s})
-    \end{enumerate}
-  }
-  From this reasoning, two clear premises.
-  \(\pv{CS(\pv{\phi}{v})}{\top}\) and \(\pv{CS(\pv{\pv{\phi}{v} \Rightarrow \pv{\psi}{v'}}{\top})}{\top}\).
-  Witness reasoning from these premises.
-  The reasoning is verbose, premises are that the agent has \csVed{0}.
-  Grant availability of factive inference from \csVed{0}.
-
-  Indeed, plausibly an instance of \csVImp{}.
-  For, \csVed{} for premises, an no other conclusion.
-  Of course, in practice, check from \requ{}.
-
-  % (Consider parallel reasoning with knowledge.%
-  % \footnote{The parallel reasoning in full:
-  %   \begin{enumerate}[label=\arabic*., ref=\arabic*]
-  %   \item\label{def:adA:ex:K:Kp} I know \(\phi\) has value \(v\).
-  %   \item\label{def:adA:ex:K:p} So, \(\phi\) has value \(v\). \hfill (From~\ref{def:adA:ex:K:Kp})
-  %   \item\label{def:adA:ex:K:Kps} I know \(\psi\) has value \(v'\) when \(\phi\) has value \(v\).
-  %   \item\label{def:adA:ex:K:ps} So, \(\psi\) has value \(v'\) when \(\phi\) has value \(v\). \hfill(From~\ref{def:adA:ex:K:Kps})
-  %   \item\label{def:adA:ex:K:T} If \(\psi\) has value \(v'\) when \(\phi\) has value \(v\) and \(\phi\) has value \(v\), then it must be the case that \(\psi\) has value \(v'\). \hfill (From understanding of `if\dots then\dots')
-  %   \item\label{def:adA:ex:K:s} Hence, \(\psi\) has value \(v'\). \hfill (From \ref{def:adA:ex:C:p},~\ref{def:adA:ex:C:ps}~and~\ref{def:adA:ex:C:T})
-  %   \item So, I know \(\psi\) has value \(v'\) as \(\psi\) having value \(v'\) follows from~(\ref{def:adA:ex:K:Kp}) and~(\ref{def:adA:ex:K:Kps}).
-  %     \mbox{}\hfill (From \ref{def:adA:ex:K:Kp} -- \ref{def:adA:ex:K:s})
-  %   \end{enumerate}
-  % }%
-  % )
-\end{note}
-
-
-\paragraph*{The second type of reasoning: \adB{}}
-
-\begin{note}[Turning to \adB{}]
-  We now turn to the second type of reasoning: `\adB{}'.
-
-  We begin with a definition of \adB{}.
-  However, our attention will quickly turn to a pair of helper definitions which relate some proposition-value pair we identify as an `\itp{}' to some other proposition-value pair and pool of premises.
-\end{note}
-
-\begin{note}
-  \begin{restatable}[\adB{}]{definition}{defADB}
-    \label{def:adB}
-    \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) by `\adB{}' if:
-    \begin{enumerate}[label=\textsf{I}:\arabic*., ref=(\textsf{I}:\arabic*)]
-    \item
-      \label{def:adB:itp}
-      \vAgent{} has concluded \(\pv{\mu}{v}\) and  \(\pv{\mu}{v}\) is either:
-      \begin{enumerate}
-      \item
-        \label{def:adB:itp:between}
-        An \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\), or:
-      \item
-        \label{def:adB:itp:for}
-        An \itp{} \emph{for} \(\pv{\phi}{v}\), with \(\Phi\) as the relevant pool of premises.
-      \end{enumerate}
-    \item
-      \label{def:adB:conclude}
-      \vAgent{} concludes \(\pv{\phi}{v}\) by appeal to the premises \(\pv{\phi_{1}}{v_{1}},\dots,\pv{\phi_{k}}{v_{k}}\) from the pool of premises \(\Phi\) via the possibility of witnessing the relevant reasoning from \(\pv{\mu}{v}\).
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{restatable}
-\end{note}
-
-\begin{note}
-  Without definitions of what an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) is, or what an \itp{0} for \(\pv{\phi}{v}\) is,~\autoref{def:adB} is incomplete.
-  We will shortly turn to the relevant helper definitions.
-
-  Though, working backwards from~\autoref{def:adB} gives a hint.
-  An \itp{} should contain information that it is possible for the agent to witness reasoning that conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
-\end{note}
-
-\begin{note}
-  Still, before turning to the pair of helper definitions, let me stress a key aspect of~\autoref{def:adB}:
-  From~\ref{def:adB:conclude}, the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) and \(\Phi\) alone (without witnessing the relevant reasoning).
-  The agent does not conclude \(\pv{\phi}{v}\) from \(\Phi\) and \(\pv{\mu}{v}\).
-  From the perspective of defining \adB{}, the latter option may be included, but the possibility of the former will be important when we turn to tension.
-\end{note}
-
-\paragraph{Contrast}
-
-\begin{note}
-  The key difference between \adA{} and \adB{}:
-  \begin{itemize}
-  \item \adA{} involves the agent appealing to \(\phi\) in order to claim support for \(\psi\), while
-  \item \adB{} does not involve the agent appealing to \(\psi\) to claim support for \(\psi\).
-    Instead, the role of \(\phi\) is to highlight \(\rho_{1},\dots,\rho_{k}\) and the agent appeals to propositions \(\rho_{1},\dots,\rho_{k}\) to claim support for \(\psi\).
-  \end{itemize}
-
-  For the definition to be satisfied, \(\phi\) needs only be involved to the extent that it provides the link.
-  Hence, \(\phi\) is not irrelevant.
-  Still, the agent does not appeal to \(\phi\).
-\end{note}
-
-\paragraph*{\adB{}: Helper definitions}
-
-\begin{note}[]
-  We briefly noted, working backwards from~\autoref{def:adB}, that an \itp{} should contain information that it is possible for the agent to witness reasoning that conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
-  We now detail what an \itp{0}.
-  Or, rather, what \itp{1} are.
-
-  There are two cases.
-  First, an \itp{0} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\).
-  Second, an \itp{0} \emph{for} \(\pv{\phi}{v}\).
-  The distinction between these cases is whether the relevant \itp{0} identifies a particular pool of premises.
-
-  In practice, we will blur the distinction, but from a definitional perspective the latter is best seen as a generalisation of the former.
-\end{note}
-
-\subparagraph*{An \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\)}
-
-\begin{note}[\itp{} between]
-  \begin{definition}[An \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) \hfill \named{I.b}]
-    \label{def:itp:b}
-    \(\pv{\mu}{v}\) is an \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\) if and only if:
-
-    \begin{enumerate}[label=\arabic*., ref=\named{\textsf{I.b}:\arabic*}]
-    \item
-      \label{def:itp:b:pR}
-      \(\mu\) having value \(v\) ensures:
-      \begin{itemize}
-      \item
-        It is possible for \vAgent{} to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\), given \vAgent{}'s present epistemic state.
-      \end{itemize}
-    \item
-      \label{def:itp:b:distinct}
-      \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\), given \vAgent{}'s present epistemic state.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{definition}
-\end{note}
-
-\begin{note}[Plan]
-  The definition of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) consists of two components:~\ref{def:itp:b:pR} and~\ref{def:itp:b:distinct}.
-
-  \ref{def:itp:b:pR} is the core of the definition, while~\ref{def:itp:b:distinct} narrows the definition to cases of interest.
-
-  We begin by expanding on~\ref{def:itp:b:pR}, and then motivate the restriction given by~\ref{def:itp:b:distinct}.
-\end{note}
-
-\begin{note}[Expanding on~\ref{def:itp:b:pR}]
-  Intuitively, think of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) as a particular kind of conditional of the (rough) form `if \(\Phi\) then \(\pv{\phi}{v}\)'.
-
-  Indeed, an `\emph{if} \dots \emph{then} \dots' statement between \(\Phi\) and \(\pv{\phi}{v}\) may be constructed from any \itp{} between \(\pv{\phi}{v}\) and \(\Phi\).
-
-  For, if it is possible for an agent to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\), then (from the agent's perspective at least), \(\pv{\phi}{v}\) whenever \(\pv{\phi_{i}}{v_{i}}\) for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\).
-  So, if every proposition \(\phi_{i}\) in \(\Phi\) has it's respective value \(v_{i}\), then \(\phi\) also has value \(v\).
-  Or, more colloquially, if \(\Phi\) then \(\pv{\phi}{v}\).
-
-  However, an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) is stronger than `if \(\Phi\) then \(\pv{\phi}{v}\)'.
-  For, not only is it the case that \(\pv{\phi}{v}\) whenever \(\pv{\phi_{i}}{v_{i}}\) for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), but in addition it is possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) given the agent's present epistemic state.
-
-  Naturally, the possibility for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) goes beyond a plain conditional between \(\pv{\phi}{v}\) and \(\Phi\).
-
-  Breaking down \autoref{def:itp:b:pR}, observe we have an `inner' statement:
-  \begin{quote}
-     It is possible for \vAgent{} to conclude \(\phi\) has value \(v\) by witnessing reasoning from \(\Phi\) to \(\pv{\phi}{v}\).
-  \end{quote}
-  And, a qualifier:
-  \begin{quote}
-    [G]iven \vAgent{}'s present epistemic state.
-  \end{quote}
-
-  The statement is simple.
-  The relevant possibility is just for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) by an instance of \adA{}.
-  Indeed, the relevant instances of \EAS{} we motivate by developing tension will always involve an \itp{}, and hence will always involve the possibility of witnessing reasoning to the relevant conclusion from some pool of premises.
-
-  Turn now to the qualifier:
-  \begin{quote}
-    [G]iven \vAgent{}'s present epistemic state.
-  \end{quote}
-  This is a qualifier on possible witnessing.
-
-  Generally speaking, it may be possible for an agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) by an instance of \adA{} from a distinct epistemic state.
-  For example, if the agent were to learn some \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\) is the case, or if the agent were to improve their reasoning skills.
-  However, the innermost qualifier ensures that it possible for an agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) without any revision to the agent's epistemic state.
-
-  An important consequence of this qualifier is that the agent must already hold that for each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), \(\phi_{i}\) has value \(v_{i}\).
-  For, if not, then \(\pv{\phi_{i}}{v_{i}}\) would not be available as a premise.
-  Of course, the definition of an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) may be given without this assumption, but we have no use for any more general definition.
-\end{note}
-
-\begin{note}[\illu{2}]
-  \color{red}
-    For example, consider being informed that the first player in a game of tic-tac-toe may always guarantee a draw.
-  No premises are specified, but on reflection it is clear to see that one may reason through all the possible games to identify the strategy.
-  The relevant \itp{0}, then, is the combination of the novel information and one's understanding of tic-tac-toe, the premises, some general results about tic-tac-toe, and the conclusion the required strategy.
-
-  What guarantees the possibility of concluding --- general properties of tic-tac-toe which follow from the rules --- is intuitively distinct from the relevant pool of premises, which likely be limited to the rules themselves combined with the \dots
-
-\end{note}
-
-\begin{note}
-  A quick observation.
-
-  \(\pv{\mu}{v}\) being an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) depend on whether or not it is actually possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\), given their epistemic state.
-  If it is not possible for the agent to witness reasoning from \(\Phi\) to \(\pv{\phi}{v}\), then no such \itp{} will exist.
-
-  However, whether or not an agent \emph{concludes} \(\pv{\mu}{v}\) is an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\) does not depend on whether or not it is actually possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\), given their epistemic state.
-  We do not assume that an agent concludes \(\pv{\phi}{v}\) only if \(\phi\) actually has value \(v\).
-  And, our interest with \itp{1} will typically be from the perspective of the agent's present epistemic state.
-\end{note}
-
-\begin{note}[Expanding on~\ref{def:itp:b:distinct}]
-  The above has expanded on~\ref{def:itp:b:pR}.
-  Finally, we turn to~\ref{def:itp:b:distinct}.
-
-  In short,~\ref{def:itp:b:distinct} ensures that if \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\), then \(\pv{\mu}{v}\) is not a premise that the agent would appeal to when witnessing the reasoning from \(\Phi\) to \(\pv{\phi}{v}\) captured by~\ref{def:itp:b:pR}.
-
-  More strictly, not only is \(\pv{\mu}{v}\) not a premise, but is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\).
-  Where, again, equivalence is evaluated from the perspective of the agent.
-
-  From an abstract perspective, if \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\), then \(\pv{\mu}{v}\) is purely descriptive of the relationship between \(\pv{\phi}{v}\) and \(\Phi\).
-
-  In other words, \(\pv{\mu}{v}\) is not required to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Now,~\ref{def:itp:b:distinct} is a somewhat arbitrary restriction.
-
-  In general, it is plausible that some \(\pv{\mu}{v}\) may both inform an agent that they may conclude \(\pv{\phi}{v}\) from \(\Phi\), but is also a member of \(\Phi\).
-
-  Indeed, consider the conditional `if \(\pv{\alpha}{v}\) then \(\pv{\beta}{v'}\)'.
-  Granting the conditional allows detachment, then it is surely possible for an agent to reason from the pool of premises \(\{\pv{\alpha}{v}, \text{if} \pv{\alpha}{v} \text{ then } \pv{\beta}{v'}\}\) to \(\pv{\beta}{v'}\).%
-  \footnote{
-    So long as the agent has already concluded \(\pv{\alpha}{v}\).
-  }
-
-  Indeed, without~\ref{def:itp:b:distinct}, \itp{1} would be abundant.
-  Hence,~\ref{def:itp:b:distinct} narrows our attention to cases of interest, cases where \(\pv{\mu}{v}\) merely describes --- and does not partake --- in the reasoning of interest.%
-  \footnote{
-    Our course, ruling out an abundance of potential \itp{1} via~\ref{def:itp:b:distinct} carries risk of ruling out interesting \itp{1}.
-    I encourage further investigation.
-    Still, as \itp{1} are only of indirect interest, simplicity via arbitrary restrictions is favoured over complexity from general definitions.
-  }
-\end{note}
-
-\begin{note}[Summary of \itp{0} between]
-  \dots
-\end{note}
-
-\subparagraph*{An \itp{} for \(\pv{\phi}{v}\)}
-
-\begin{note}[\itp{2} for]
-  We now turn to the second helper definition, that of an \itp{0} for some proposition-value pair.
-  In short, an \itp{0} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\) ensures the possibility of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  And, by contrast, an \itp{0} \emph{for} \(\pv{\phi}{v}\) ensures there is some \(\Phi\) such that it is possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
-
-\begin{note}[def: \itp{2} for]
-  \begin{definition}[An \itp{0} for \(\pv{\phi}{v}\) \dots --- \named{I.f}]
-    \label{def:itp:f}
-    \(\pv{\mu}{v}\) is an \itp{} \emph{for} \(\pv{\phi}{v}\) if and only if:
-    \begin{enumerate}[label=\arabic*., ref=\named{I.f:\arabic*}]
-    \item
-      \label{def:itp:f:pR}
-      \(\mu\) having value \(v\) ensures there is some pool of proposition-value pairs \(\Phi\) and proposition-value pair \(\pv{\mu'}{v'}\) such that:
-      \begin{itemize}
-      \item
-        \(\pv{\mu'}{v'}\) is an \itp{} between \(\pv{\phi}{v}\) and \(\Phi\).
-      \end{itemize}
-    \item
-      \label{def:itp:f:distinct}
-      \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\), given \vAgent{}'s present epistemic state.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{definition}
-\end{note}
-
-\begin{note}
-  As with~\autoref{def:itp:b},~\autoref{def:itp:f} contains two components; a core and a restriction.
-\end{note}
-
-\begin{note}
-  The core is straightforward.
-  \ref{def:itp:f:pR} requires \(\pv{\mu}{v}\) to do ensure two things:
-  \begin{enumerate}
-  \item The existence of some pool of proposition-value pairs \(\Phi\), and
-  \item The existence of an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\).
-  \end{enumerate}
-  In other words, then, an \itp{0} \emph{for} \(\pv{\phi}{v}\) just is the guarantee of an \itp{0} \emph{between} \(\pv{\phi}{v}\) and some pool of premises \(\Phi\).
-
-  Simply as it may be, the definition of a \itp{0} for will prove quite useful, as we avoid the need to specify any particular pool of premises.
-
-  Further, any \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\) is always an \itp{0} for \(\pv{\phi}{v}\).
-  For, suppose \(\pv{\mu}{v}\) is an \itp{0} between \(\pv{\phi}{v}\) and \(\Phi\).
-  Then, \(\Phi\) is the relevant pool of premises and \(\pv{\mu}{v}\) itself is the relevant \(\pv{\mu'}{v'}\), and by definition \(\pv{\mu}{v}\) is not equivalent to any \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), given the agent's present epistemic state.
-
-  Note, however, that in general, if \(\pv{\mu}{v}\) is an \itp{0} for \(\pv{\phi}{v}\) then \(\pv{\mu}{v}\) need not be an \itp{0} between \(\pv{\phi}{v}\) and some pool of premises.
-  Simply, though any \itp{0} between is also an \itp{0} for, the converse does not hold.
-  For, an \itp{0} requires a pool of premises to be specified.
-  Therefore, \(\pv{\mu}{v}\) and \(\pv{\mu'}{v'}\) must, in general, be distinct.
-
-  Of course, an \itp{0} for \(\pv{\phi}{v}\) may have the same general statement as an \itp{0} between \(\langle \phi,\Phi \rangle\).
-
-  Consider again tic-tac-toe.
-  Above, we considered the \itp{0} between the existence of a strategy for first player in a game to guarantee a draw from the rules of tic-tac-toe.
-  Though, with a moments reflection the statement that there existence of a strategy for first player in a game to guarantee a draw will typically lead to an \itp{0} for the existence of the relevant strategy.
-  For, some premises must exist, and given the simplicity of tic-tac-toe these are surely within the grasp of an agent who understands the rules of tic-tac-toe.
-\end{note}
-
-\begin{note}
-  Finally, the restriction~\ref{def:itp:f:distinct} functions in parallel to the restriction \ref{def:itp:b:distinct} of~\autoref{def:itp:b}.
-  An \itp{0} for \(\pv{\phi}{v}\) is purely descriptive, and does not participate in concluding \(\pv{\phi}{v}\) from the relevant pool of premises.
-  A more general definition may be given without this restriction, but such a definition is beyond present interest.
-\end{note}
-
-\paragraph*{\adB{}}
-
-\begin{note}
-  With the two helper definitions in hand, let us return to the definition of \adB{}.
-
-  Recall two components:~\ref{def:adB:itp} and~\ref{def:adB:conclude}.
-
-  \ref{def:adB:itp} stated that the agent has concluded \(\pv{\mu}{v}\) where \(\pv{\mu}{v}\) is either:
-  \begin{enumerate}[label=(\alph*)]
-  \item An \itp{} \emph{between} \(\pv{\phi}{v}\) and \(\Phi\), or
-  \item An \itp{} \emph{for} \(\pv{\phi}{v}\), with \(\Phi\) as the relevant pool of premises
-  \end{enumerate}
-  We have seen the relevant definitions.
-
-  So, given the agent has concluded \(\pv{\mu}{v}\), for some \itp{0} \(\pv{\mu}{v}\) then it is possible for the agent to conclude \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
-
-  \ref{def:adB:conclude} is key.
-
-  The agent concludes \(\pv{\phi}{v}\) by appeal to the pool of premises \(\Phi\) \emph{via} the possibility of witnessing the relevant reasoning from \(\Phi\) to \(\pv{\phi}{v}\) given by the \itp{0} \(\pv{\mu}{v}\).
-
-  Hence, the agent does \emph{not} conclude \(\pv{\phi}{v}\) from \(\pv{\mu}{v}\) or indeed from some pool of premises for which \(\pv{\mu}{v}\) is a member.
-  Indeed, the latter point follows from~\ref{def:itp:b:distinct} and~\ref{def:itp:f:distinct} --- an \itp{0} is always purely descriptive of some possible reasoning.
-
-  Instead, the pool of premises the agent concludes \(\pv{\phi}{v}\) from is the collection of those premises that they agent would appeal to if they were to witness the relevant instance of reasoning given by the \itp{0}.
-
-  Of course, the presence of an \itp{0} is, intuitively, crucial.
-  For, without an \itp{0} the agent would lack information that it is possible to conclude \(\pv{\phi}{v}\) from some pool of premises.
-\end{note}
 
 \subparagraph*{Role in argument}
 
@@ -3350,259 +4227,6 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 \end{note}
 
 
-\paragraph{A pair of \illu{3}}
-
-\begin{note}
-  To \illu{0} \adA{} and \adB{} we work through two \illu{1} in some detail.
-  Both \illu{1} share two components:
-  \begin{enumerate}[label=\alph*., ref=(\alph*)]
-  \item
-    \label{adX:illu:struc:mem}
-    Memory of creating a syntactic proof for some first order formula.
-  \item
-    \label{adX:illu:struc:concl}
-    Concluding that the relevant formula is a theorem of first-order logic.
-  \end{enumerate}
-
-  The key difference between the two \illu{1} is whether the memory~\ref{adX:illu:struc:mem} serves as a premise or an \itp{0} for the conclusion~\ref{adX:illu:struc:concl}.
-
-\end{note}
-\begin{note}[Two premises]
-  \begin{quote}
-    \begin{enumerate}[%
-      label={(Mem)},%
-      ref={(Mem)}%
-      ]
-    \item
-      \label{ill:Eproof:mem}
-      I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).%
-      \footnote{
-        We use the phrasing `having created' rather than `creating' to imply completion.
-      }
-    \end{enumerate}
-  \end{quote}
-  And:
-  \begin{quote}
-    \begin{enumerate}[%
-      label={(\(\exists\mathord{\vdash}{,}\top\))},%
-      ref={(\(\exists\mathord{\vdash}{,}\top\))}%
-      ]
-    \item
-      \label{ill:Eproof:def}
-      The existence of a syntactic proof of a formula (using a sound first-order system) is sufficient to establish the formula is a (syntactic) theorem of first-order logic.
-    \end{enumerate}
-  \end{quote}
-\end{note}
-
-\paragraph{First \illu{0} (\adA{})}
-
-\begin{note}
-  \begin{illustration}[\adA{}]
-    \label{ill:ad:proof:mem}
-    \mbox{}
-    \vspace{-\baselineskip}
-    \begin{enumerate}[%
-      label=\arabic*,%
-      ref=({I}.{\ref{ill:ad:proof:mem}}:\arabic*)%
-      ]
-    \item \illEproofMem{} \hfill \ref{ill:Eproof:mem}
-    \item
-      \label{ill:Eproof:exP}
-      So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
-    \item
-      \label{ill:Eproof:thm}
-      Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{illustration}
-\end{note}
-
-\begin{note}[Discussion of \autoref{ill:ad:proof:mem}]
-  I take \autoref{ill:ad:proof:mem} to be a straightforward case of concluding.
-  \ref{ill:Eproof:mem}, memory,
-
-
-  and \ref{ill:Eproof:def}, to recast the existence of a proof from \ref{ill:Eproof:mem} in terms of the formula being a theorem.
-
-  Neither premise from anything more basic, and without either premise the conclusion would not be obtained.
-  For, without \ref{ill:Eproof:mem} no proof, and without \ref{ill:Eproof:def} no recasting.
-\end{note}
-
-\begin{note}
-  It seems sufficient, generally speaking, to conclude some proposition has value \(v\) by appeal to memory, hence the agent claims support that there was some event which culminated in a syntactic proof of the formula.
-
-  Of course, the agent may have misremembered.
-  Still, we do not require that any agent concludes \(\pv{\phi}{v}\) from \(\Phi\) only if \(\phi\) \emph{actually} has value \(v\) and each \(\pv{\phi_{i}}{v_{i}}\) in \(\Phi\), \(\phi_{i}\) \emph{actually} has value \(v_{i}\).
-
-  Following, this allows the agent to conclude a syntactic proof of the formula exists.
-  As before, the agent may have failed to \emph{actually} create a syntactic proof of the formula
-  Still, from the same perspective this does not prevent the agent from concluding they did (actually) create such a proof.
-
-  Hence, finally, the agent claims support that the formula is a (syntactic) theorem of first-order logic.
-\end{note}
-
-\begin{note}
-  To concisely summarise, we may say that the agent conclude the is a (syntactic) theorem of first-order logic \emph{because} of their understanding of syntactic theorem-hood and their memory of proving the formula.
-
-  For sure,~\autoref{ill:ad:proof:mem} is designed to be as straightforward as possible.
-  Of interest is not whether the agent claims support, but how the role the agent gives to their memory in claiming support.
-
-  The agent appeals to their memory to establish that there exists a syntactic proof of the formula, and then combines the existence of a syntactic proof with~\ref{ill:Eproof:def} to claim support that the formula is a theorem.
-  Hence, the agent's memory is directly involved in their claimed support for the formula being a theorem.\nolinebreak
-    \footnote{
-      \color{red}
-      Whether proving is an unsatisfied \requ{}.
-      However, recall that allowed a \requ{} to be satisfied by some instance of concluding.
-      And, memory of concluding.
-      Still question about original proof, but no problem with memory.
-      Also, method.
-    }
-\end{note}
-
-\paragraph{Second \illu{0} (\adB{})}
-
-\begin{note}
-  \begin{illustration}[\adB{}]
-    \label{ill:ad:proof:eve}
-    \mbox{}
-    \vspace{-\baselineskip}
-    \begin{enumerate}
-    \item \illEproofMem{} \hfill \ref{ill:Eproof:mem}
-    \item
-      \label{ill:ad:proof:eve:app}
-      In creating the syntactic proof I appealed to various aspects of some sound first-order system.
-    \item
-      \label{ill:ad:proof:eve:pos}
-      As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
-    \item
-      Hence, by \ref{ill:Eproof:def}, \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} is a theorem of first-order logic.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{illustration}
-
-  {
-    \color{red}
-    Premises are rules are part of a sound system, may be combined in this way.%
-    \footnote{
-      Indeed, relative simplicity is why we chose a syntactic rather than semantic proof.
-      With semantic, need an argument which covers all models, and while premises plausibly exist, these have no common codification.
-    }
-  }
-
-  As with~\autoref{ill:ad:proof:mem}, the agent's memory has a role in~\autoref{ill:ad:proof:eve}, but the role is quite different.
-  Above, the agent claimed support for the formula being a theorem primarily \emph{because} they remembered creating a proof.
-  By contrast, here the agent claims support for the formula being a theorem primarily because of the properties of some sound first-order system.
-
-  Step~\ref{ill:ad:proof:eve:app} appeals to various aspects of some sound first-order system and, in turn, step~\ref{ill:ad:proof:eve:app} observes that those aspects are sufficient to ensure a proof exists.
-  The agent claims support for the existence of a proof by appeal to the various aspects of some first-order system they appealed to when constructing the proof, rather than their memory of constructing the proof.
-\end{note}
-
-\begin{note}
-  To help clarify, let's fix a particular syntactic proof using the Fitch-style proof system of~\textcite[557--560]{Barwise:1999tu}:
-
-  \begin{figure}[H]
-    \centering
-    \begin{quote}
-      \fitchprf{}{
-        \subproof{\pline[1.]{\forall x P x}}{
-          \subproof{\pline[2.]{\exists x \lnot Px}}{
-            \boxedsubproof[3.]{a}{\lnot Pa}{
-              \pline[4.]{Pa}[\lalle{1}] \\
-              \pline[5.]{\bot}[\lfalsei{3}{4}]
-            }
-            \pline[6.]{\bot}[\lexie{2}{3--5}]
-          }
-          \pline[7.]{\lnot \exists x \lnot Px}[\lnoti{2--6}]
-        }
-        \pline[8.]{\forall x Px \rightarrow \lnot \exists x \lnot Px}[\lifi{1--7}]
-      }
-    \end{quote}
-    \caption{A syntactic proof}\label{fig:syntx-prf}
-  \end{figure}
-
-  The proof consists of single instances of five introduction or elimination rules.
-  Each rule is part of the Fitch-style proof system, and the specific application of the rules constitute the proof.
-\end{note}
-
-
-\begin{note}[Before\dots]
-  Before returning to~\autoref{ill:ad:proof:eve}, let us observe that with the proof in hand one may claim support that a proof of the formula exists via the contents of~\autoref{fig:syntx-prf}.
-
-  Broadly stated:
-
-  \begin{enumerate}
-  \item The proof is constructed from a sound first-order proof system.
-  \item And, the particular application of some rules of the system to formulae is such that the proof begins with no assumptions and the last line of the proof is not part of any assumption made during the course of the proof.
-  \end{enumerate}
-\end{note}
-
-\begin{note}
-  Note, appeal to creation of the proof involves appeal to various aspects of the Fitch-style proof system.
-
-  The object itself is mute to whether or not it is a proof.
-
-  For example, adding `\formula{Ba}' as an assumption would void the proof, but you would need to observe that the appeal to existential elimination on line 6 requires that `\formula{a}' does not appear in the proof prior to its introduction on line 3 in order to claim support that the proof is void.
-
-  Indeed, the proof consists of eight steps, each step is permitted by the first-order system, the proof begins with no assumptions, the last line of the proof is not part of any assumption made during the course of the proof and the proof, and so on.
-
-  Sparing the details, claimed support that~\autoref{fig:syntx-prf} is a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} from the creation of~\autoref{fig:syntx-prf} is a matter of claiming support for each step of the creation.
-
-  Indeed, to spare the details in general, let us instead talk of some collection of propositions and steps of reasoning.
-  Claiming support that a proof exists from the some creation in the way under discussion is an instance of reasoning from details of the creation to the conclusion that a proof exists.
-  Hence, as an instance of reasoning involves certain premises and steps of reasoning.
-  And, whatever these turn out to be, the proceed from the creation of the proof rather than from some other source such as memory, testimony, and so on.
-\end{note}
-
-\begin{note}
-  In other words, one may claim support that a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} exists (primarily) \emph{because} of their reasoning from some collection of premises and steps of reasoning concerning the creation to the existence of a proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x}.
-\end{note}
-
-\begin{note}[Return to \ref{ill:ad:proof:eve}]
-  Now let us return to the reasoning of~\autoref{ill:ad:proof:eve}, and in particular steps~\ref{ill:ad:proof:eve:app} and~\ref{ill:ad:proof:eve:pos}:
-  \begin{quote}
-    \begin{enumerate}
-      \setcounter{enumi}{1}
-    \item In creating the syntactic proof I appealed to various aspects of some sound first-order system.
-    \item As I created a proof, those various aspects of the sound first-order system are sufficient to ensure there exists a proof.
-    \end{enumerate}
-  \end{quote}
-  Given that the agent remembers having created a syntactic proof, the `various aspects of some sound first-order system' of step~\ref{ill:ad:proof:eve} may be taken as those aspects of the first-order system that were appealed to in the premises and steps of reasoning when the agent created the proof.
-  And step \ref{ill:ad:proof:eve}, in turn, appeals to how those various aspects of some sound first-order system were sufficient for the agent to claim support that a proof exists by the reasoning that occurred.
-
-  In short, the agent remembers creating a syntactic proof and claiming support that a proof exists from the creation.
-  The instance of claiming support involved reasoning from premises via steps to the relevant conclusion.
-  Hence, it is possible to claim support for the conclusion by those premises and steps of reasoning.
-  So, in~\ref{ill:ad:proof:eve} the agent observes that those premises and steps of reasoning are sufficient to claim support by way of their memory, and in turn appeals to those premises and steps of reasoning to claim support for the relevant conclusion.
-\end{note}
-
-\begin{note}
-  {
-    \color{red}
-    Propositional support.
-    (If I talk about this, it should be after the definitions.)
-  }
-\end{note}
-
-\begin{note}
-  Generalising, the way in which the agent claims support in~\autoref{ill:ad:proof:eve} is of interest because the agent appeals to premises and steps of reasoning that are not `part' of their present reasoning.
-  The role of memory in the \illu{0} is (merely) a way for the agent to recognise that there are such premises and steps of reasoning.
-  And, in the definitions that follow, we will abstract from any particular way in which the recognises that relevant premises and steps of reasoning are available.
-
-  Still, even though memory is contingent, we may briefly observe that the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is compatible with \ESU{}.
-  For, \ESU{} requires that an agent may claim support for some conclusion from premises and steps of reasoning only if the agent has witnessed reasoning to the conclusion from those premises via those steps of reasoning.
-  So, if the initial instance of claiming support conformed to \ESU{} then the agent will have witnessed reasoning from those steps and premises to the conclusion --- the instance of claiming support in~\autoref{ill:ad:proof:eve} does not involve such witnessing, but the agent's memory would be about how the relevant premises and steps were used to claim support.
-
-  Of course, the way in which the agent claim support in~\autoref{ill:ad:proof:eve} is incompatible with a strengthened variant of \ESU{} which requires the agent to use any premises and steps they appeal to in the \emph{present} instance of reasoning, but the point for the moment is that the way in which the agent claims support in~\autoref{ill:ad:proof:eve} does not already require what we are arguing against: \ESU{}.
-\end{note}
-
-\begin{note}
-  \color{red}
-  In this case, \adB{} is not incompatible with \ESU{}.
-  For, the agent has witnessed reasoning (granting memory).
-  So, \ESU{} does not lead to an immediate rejection of \adB{}.
-
-  Oh, this is noted.
-\end{note}
 
 
 \subsubsection{Looking to tension: \adB{} and ability}
@@ -4031,6 +4655,17 @@ In most cases the value will be clear (i.e. that the proposition is true, though
 
 \begin{note}
   Abstract tension, then, follows if there are instances of \ragCluster{1} with no prior conclusion for some \jag{}.
+\end{note}
+
+\begin{note}[Pointed cluster]
+    \begin{definition}[Pointed cluster]
+    For any cluster \(\mathcal{C}\), \(\mathcal{C}\) is a \emph{pointed cluster} if and only if:
+    \begin{enumerate}
+    \item
+      Some conclusions are the same.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
 \end{note}
 
 \subsection{Concrete tension}
