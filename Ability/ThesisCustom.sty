@@ -70,6 +70,9 @@
 
 % % % Property and event
 
+\newcommand{\qWhy}[0]{\hyperref[q:why]{\textsf{Why}}}
+\newcommand{\qHow}[0]{\hyperref[q:how]{\textsf{How}}}
+
 \newcommand{\RBV}[0]{\textsf{RBV}}
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
@@ -2087,4 +2090,110 @@
             }
         }%
     }
+}
+
+\newcommand{\sudokuGrid}[0]{
+  \begin{tikzpicture}[scale=.5]
+          \begin{scope}
+            \draw (0, 0) grid (9, 9);
+            \draw[very thick, scale=3] (0, 0) grid (3, 3);
+            \setcounter{row}{1}
+            % Single entries
+            \setrow { }{ }{ }  {2}{ }{ }  { }{ }{ }
+            \setrow { }{6}{5}  { }{ }{ }  {9}{ }{ }
+            \setrow { }{7}{ }  { }{ }{6}  { }{4}{ }
+            \setrow { }{ }{ }  { }{ }{1}  { }{ }{5}
+            \setrow {7}{1}{ }  { }{ }{ }  { }{ }{9}
+            \setrow { }{ }{9}  { }{2}{ }  { }{1}{ }
+            \setrow { }{ }{1}  { }{ }{ }  {7}{ }{ }
+            \setrow { }{8}{7}  {3}{ }{4}  { }{2}{ }
+            \setrow { }{ }{ }  { }{6}{ }  { }{9}{4}
+        \end{scope}
+      \end{tikzpicture}
+}
+
+\newcommand{\sudokuGridHints}[0]{
+\begin{tikzpicture}[scale=.5]
+        \begin{scope}
+          \draw (0, 0) grid (9, 9);
+          \draw[very thick, scale=3] (0, 0) grid (3, 3);
+          \setcounter{row}{1}
+          % Single entries
+          \setrow { }{ }{ }  {2}{ }{ }  { }{ }{ }
+          \setrow { }{6}{5}  { }{ }{ }  {9}{ }{ }
+          \setrow { }{7}{ }  { }{ }{6}  { }{4}{ }
+          \setrow { }{ }{ }  { }{ }{1}  { }{ }{5}
+          \setrow {7}{1}{ }  { }{ }{ }  { }{ }{9}
+          \setrow { }{ }{9}  { }{2}{ }  { }{1}{ }
+          \setrow { }{ }{1}  { }{ }{ }  {7}{ }{ }
+          \setrow { }{8}{7}  {3}{ }{4}  { }{2}{ }
+          \setrow { }{ }{ }  { }{6}{ }  { }{9}{4}
+          % Hints
+          % * Row 1
+          \hintcell{1}{1}{1,3,4,8,9}
+          \hintcell{1}{2}{3,4,9}
+          \hintcell{1}{3}{3,4,8}
+          \hintcell{1}{5}{1,3,4,5,7,8,9}
+          \hintcell{1}{6}{3,5,7,8,9}
+          \hintcell{1}{7}{1,3,5,6,8}
+          \hintcell{1}{8}{3,5,6,7,8}
+          \hintcell{1}{9}{1,3,6,7,8}
+          % * Row 2
+          \hintcell{2}{1}{1,2,3,4,8}
+          \hintcell{2}{4}{1,4,7,8}
+          \hintcell{2}{5}{1,3,4,7,8}
+          \hintcell{2}{6}{3,7,8}
+          \hintcell{2}{8}{3,7,8}
+          \hintcell{2}{9}{1,2,3,7,8}
+          % * Row 3
+          \hintcell{3}{1}{1,2,3,8,9}
+          \hintcell{3}{3}{2,3,8}
+          \hintcell{3}{4}{1,5,8,9}
+          \hintcell{3}{5}{1,3,5,8,9}
+          \hintcell{3}{7}{1,3,5,8}
+          \hintcell{3}{9}{1,2,3,8}
+          % * Row 4
+          \hintcell{4}{1}{2,3,4,8}
+          \hintcell{4}{2}{2,3,4}
+          \hintcell{4}{3}{2,3,4,6,8}
+          \hintcell{4}{4}{4,6,7,8,9}
+          \hintcell{4}{5}{3,4,7,8,9}
+          \hintcell{4}{7}{2,3,4,6,8}
+          \hintcell{4}{8}{3,6,7,8}
+          % * Row 5
+          \hintcell{5}{3}{2,3,4,6,8}
+          \hintcell{5}{4}{4,5,6,8}
+          \hintcell{5}{5}{3,4,5,8}
+          \hintcell{5}{6}{3,5,8}
+          \hintcell{5}{7}{2,3,4,6,8}
+          \hintcell{5}{8}{3,6,8}
+          % * Row 6
+          \hintcell{6}{1}{3,4,5,8}
+          \hintcell{6}{2}{3,4,5}
+          \hintcell{6}{4}{4,6,7,8}
+          \hintcell{6}{6}{3,7,8}
+          \hintcell{6}{7}{3,4,6,8}
+          \hintcell{6}{9}{3,6,7,8}
+          % * Row 7
+          \hintcell{7}{1}{2,3,4,6,9}
+          \hintcell{7}{2}{2,3,4,9}
+          \hintcell{7}{4}{5,8,9}
+          \hintcell{7}{5}{5,8,9}
+          \hintcell{7}{6}{2,5,8,9}
+          \hintcell{7}{8}{3,5,6,8}
+          \hintcell{7}{9}{3,6,8}
+          % * Row 8
+          \hintcell{8}{1}{6,9}
+          \hintcell{8}{5}{1,5,9}
+          \hintcell{8}{7}{1,5,6}
+          \hintcell{8}{9}{1,6}
+          % * Row 9
+          \hintcell{9}{1}{2,3,5}
+          \hintcell{9}{2}{2,3,5}
+          \hintcell{9}{3}{2,3}
+          \hintcell{9}{4}{1,7,8}
+          \hintcell{9}{6}{7,8}
+          \hintcell{9}{7}{1,8}
+        \end{scope}
+      \end{tikzpicture}
 }
