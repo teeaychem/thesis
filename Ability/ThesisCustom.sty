@@ -1843,6 +1843,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\bS}{ m }{% Illustration
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{support}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{support}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Support}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\zSAb}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
