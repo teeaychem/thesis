@@ -4,16 +4,16 @@
 \section{The topic}
 \label{sec:issue}
 
-\paragraph*{Initial \illu{10}}
+\paragraph*{Initial \scen{1}}
 
 \begin{note}
-  \begin{illustration}[Calculator]
+  \begin{scenario}[Multiplication]
     \label{illu:gist:calc}
     An agent enters \(23 \times 15\) into a calculator and presses the button marked `\(=\)'.
     The calculator displays \(345\).
 
     The agent concludes \(23 \times 15 = 345\).
-  \end{illustration}
+  \end{scenario}
 
   Intuitively, the agent has concluded \(23 \times 15 = 345\) from the calculator.
   Personifying a little, we may say the agent has concluded \(23 \times 15 = 345\) from the testimony of the calculator.
@@ -45,45 +45,136 @@
 
   Is this intuition correct?
   Or, is your understanding of arithmetic part of why you hold \(\sfrac{645}{5} = 129\), even if you used the calculator?
+
+  I am not sure.
 \end{note}
 
 \begin{note}
-  An additional \illu{0}\dots
-  \begin{illustration}[Sudoku]
-    \label{illu:gist:sudoku}
-    % https://tex.stackexchange.com/questions/91422/tikz-sudoku-circle-and-connect-with-lines-some-cells
-    \begin{figure}[H]
-      \mbox{ }\hfill
-      \begin{subfigure}{0.45\linewidth}
-        \centering
-        \sudokuGrid{}
-        \caption{The starting grid \dots}
-        \label{fig:sudoku:grid}
-      \end{subfigure}
-      \hfill
-      \begin{subfigure}{0.45\linewidth}
-        \centering
-        \sudokuGridHints{}
-        \caption{\dots with hints}
-        \label{fig:sudoku:hint}
-      \end{subfigure}
-      \hfill\mbox{ }
-      \caption{Sudoku}
-      \label{fig:sudoku}
-    \end{figure}
-    An agent presses the `hint' button next to the Sudoku grid shown in~\autoref{fig:sudoku:grid}
-    The Sudoku grid is updated as in~\autoref{fig:sudoku:hint}.
+  The general type of scenario \autoref{illu:gist:calc} conforms to falls just outside the scope of the core argument of this document.
+  And, when the time is appropriate we will expand on exactly why.%
 
-    The agent concludes that the current state of the grid rules out \(1\) as a candidate for the bottom left cell of the bottom left square.
-  \end{illustration}
+  Still, we open with \autoref{illu:gist:calc} for two reasons.
+  First, because I take the relevant intuition to be fairly clear.
+  Second, because I expect there will, for at least some time, be some mystery about what distinguishes this general type of scenario.%
+  \footnote{
+    Well, it's testimony.
+    Oops.
+    But why is this important?
+  }
 
+  Let us now turn to the type of scenario that falls inside the scope of the core argument of this document.
+\end{note}
+
+\begin{note}
+  \begin{scenario}[Quadratic roots]
+    \label{illu:gist:roots}
+    An agent is given the following statement:
+
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item
+      \label{illu:gist:roots:eq}
+      For some \(x \in \mathbb{R}\), \(2x^{2} - x - 1 = 0\).
+    \end{enumerate}
+
+    The agent reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume, itemsep=.125em]
+    \item
+      \label{illu:gist:roots:qf}
+      The quadratic formula is \(x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}\) \hfill Memory
+    \item
+      \label{illu:gist:roots:subs}
+      \(a = 2\), \(b = -1\), \(c = -1\) \hfill \ref{illu:gist:roots:eq}, How to use \ref{illu:gist:roots:qf}%
+      \footnote{
+        \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the x term, and \(c\) is the constant.
+      }
+    \item
+      \label{illu:gist:roots:qf-subs}
+      \(x = \frac{-(-1) \pm \sqrt{(-1)^{2} - 4(2)(-1)}}{2(2)}\) \hfill \ref{illu:gist:roots:qf}, \ref{illu:gist:roots:subs}, Substitution
+    \item
+      \label{illu:gist:roots:qf:1}
+      \(x = \sfrac{1 \pm 3}{4}\) \hfill \ref{illu:gist:roots:qf-subs}, Simplification
+    \item
+      \label{illu:gist:roots:qf:3}
+      \(x = \sfrac{1 + 3}{4}\) or \(x = \sfrac{1 - 3}{4}\) \hfill \ref{illu:gist:roots:qf:1}, Expansion
+    \item
+      \label{illu:gist:roots:qf:4}
+      \(x = 1\) or \(x = -\sfrac{1}{2}\) \hfill \ref{illu:gist:roots:qf:3}, Simplification
+    \end{enumerate}
+    Hence, the agent concludes: if \(2x^{2} - x - 1 = 0\), \(x = 1\) or \(x = -\sfrac{1}{2}\).
+  \end{scenario}
+
+  The particular details of \autoref{illu:gist:roots} are present primarily to present a clear instance of reasoning.
+  Indeed, for present purposes, our interest is with steps \ref{illu:gist:roots:qf}, \ref{illu:gist:roots:subs}, and \ref{illu:gist:roots:qf-subs}.
+
+  Intuitively, the agent concludes `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' in part from their understanding of arithmetic.
+  And, specifically, in part from their understanding of the quadratic formula and how to use it.
+
+  In other words, the quadratic formula is, intuitively, a premise of the agent's reasoning.
+\end{note}
+
+\begin{note}
+  Still, in the same way the agent may have calculated \(23 \times 15 = 345\) without the aid of a calculator in \autoref{illu:gist:calc}, the agent may have concluded \(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\) without the aid of the quadratic formula in \autoref{illu:gist:roots}.
+
+  For example, consider the following variant:
+  \begin{quote}
+    \begin{enumerate}[label=\arabic*\('\)., ref=(\arabic*\('\)), itemsep=.125em]
+    \setcounter{enumi}{1}
+  \item
+    \label{illu:gist:roots:factor}
+    \((2x + 1)(x - 1) = 0\) \hfill \ref{illu:gist:roots:eq}, Factoring
+  \item
+    \label{illu:gist:roots:zero}
+    Either \((2x + 1) = 0\) or \((x - 1) = 0\) \hfill \ref{illu:gist:roots:factor}, Arithmetic
+  \item
+    \label{illu:gist:roots:case:a}
+    If \((x - 1) = 0\), then \(x = 1\) \hfill \ref{illu:gist:roots:factor}, \ref{illu:gist:roots:zero}, Arithmetic
+  \item
+    \label{illu:gist:roots:case:b}
+    If \((2x + 1) = 0\), then \(x = -\sfrac{1}{2}\) \hfill \ref{illu:gist:roots:factor}, \ref{illu:gist:roots:zero}, Arithmetic
+  \item
+    Either \(x = 1\) or \(x = -\sfrac{1}{2}\). \hfill \ref{illu:gist:roots:zero}, \ref{illu:gist:roots:case:a}, \ref{illu:gist:roots:case:b}
+  \end{enumerate}
+  \end{quote}
+\end{note}
+
+\begin{note}[Difference between the scenarios]
+  The key difference between \scen{1} \ref{illu:gist:calc} and \ref{illu:gist:roots} is the presence and then absence of (roughly) testimony.
+
+  With \autoref{illu:gist:roots}, the agent did not receive information that `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' from an external source.
+
+  Intuitively, the agent \emph{concluded} `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' from pool of premises which includes the quadratic formula.
+  Intuitively, the agent \emph{did not conclude} `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' from a pool of premises that do not involve the quadratic formula.
+\end{note}
+
+\begin{note}
   As with~\autoref{illu:gist:calc}, know whether \dots
   However, pressed the hint button.
   Didn't work through the constraints.
   In particular, did not notice presence of \(1\) in the top right cell of the bottom left square, and did not combine this with understanding that each cell in a square must be distinct.
+
+  
+
+  Relatively simple, wealth of more complex examples.%
+  \footnote{
+    For example:
+    See~\textcite{Fine:1997vc} for three distinct proofs of the fundamental theorem of algebra (i.e.\ any complex polynomial must have a complex root).
+    Likewise, \textcite{Ribenboim:2012ts} contains eight proofs that their exist infinitely many prime numbers.
+    And, \textcite{Wagon:1987vm} details fourteen proofs of a result about tiling a rectangle (specifically, whenever a rectangle is tiled by rectangles each of which has at least one integer side, then the tiled rectangle has at least one integer side).
+  }
 \end{note}
 
-\paragraph*{Clarifying}
+\paragraph*{Interest}
+
+\begin{note}
+  Our interest is with concluding.
+  As seen from \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:roots}, there is an intuitive sense in which an agent concluding some proposition \(\phi\) has some value \(v\) involves certain pools of premises and does not involve other pools of premises.
+
+  Calculator, understanding of arithmetic.
+  Hints, understanding of Sudoku.
+
+  
+\end{note}
 
 \begin{note}
   Some process, from inputs to an output, the conclusion.
@@ -149,11 +240,6 @@
   Basically, reference.
 \end{note}
 
-\begin{note}[How and why]
-  Concluding, relation of support between conclusion and premises.
-  Two questions.
-\end{note}
-
 \begin{note}
   {
     \color{red}
@@ -169,19 +255,44 @@
   }
 \end{note}
 
+\begin{note}[How and why]
+  Concluding, relation of support between conclusion and premises.
+  Two questions.
+\end{note}
+
 \begin{note}[Why]
   \begin{question}[\qWhy{}?]
     \label{q:why}
-    Why has the agent concluded \(\phi\) has value \(v\)?
-  \end{question}
+    \mbox{ }
+    \begin{itemize}
+    \item
+      \emph{Why} has the agent concluded \(\phi\) has value \(v\)?
+    \end{itemize}
 
-  Which relation, or relations, of support matter.
+    Alternatively:
+
+    \begin{itemize}
+    \item
+      \emph{Which} relations of support are involved in the agent concluding \(\phi\) has value \(v\)?
+    \end{itemize}
+  \end{question}
 \end{note}
 
 \begin{note}[How]
   \begin{question}[\qHow{}?]
     \label{q:how}
-    How did the agent conclude \(\phi\) has value \(v\)?
+    \mbox{ }
+    \begin{itemize}
+    \item
+      \emph{How} did the agent conclude \(\phi\) has value \(v\)?
+    \end{itemize}
+
+    Alternatively:
+
+    \begin{itemize}
+    \item
+      For all the relations of support involved in the agent concluding \(\phi\) has value \(v\), \emph{in what way} did those relations of support come to be involved in the agent concluding \(\phi\) has value \(v\)?
+    \end{itemize}
   \end{question}
 
   What information was appealed to by the agent to conclude \(\phi\) has value \(v\)?
@@ -1155,7 +1266,7 @@
 \paragraph*{Cases}
 
 \begin{note}[Shifting]
-  Started with \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:sudoku}.
+  Started with \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:roots}.
   Here, calculator and check.
   More generally, testimony.
 
@@ -1165,7 +1276,7 @@
   Motivating \zS{}, focus is on own reasoning.
 
   To keep parallel, variant case.
-  Return to cases similar \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:sudoku} to later, and highlight connexion.
+  Return to cases similar \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:roots} to later, and highlight connexion.
 \end{note}
 
 \begin{note}[New \illu{0}]
@@ -1192,10 +1303,9 @@
     \end{quote}
   \end{illustration}
 
-  Intuitively, if the agent were to \emph{conclude} the construction is a proof of \(A\), the agent would also, at the same time, conclude \(A\) is true given an arbitrary valuation.
+  Intuitively, if the agent were to reason about whether \(A\) is true given an arbitrary valuation and failed to conclude \(A\) is true given an arbitrary valuation, then the agent would not conclude the construction is a proof of \(A\).
 
   If were to go for semantic, then by soundness, works out.
-
 \end{note}
 
 
@@ -1208,7 +1318,6 @@
     Understood \citeauthor{Tolliver:1982us}'s case only after.
   }
 
-  
   \begin{illustration}
     \label{illu:sketch:math}
     An agent calculates \(23 \times 15 = 345\).
