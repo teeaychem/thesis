@@ -1138,6 +1138,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\cScen}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\textsf{CoRe-scenario}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\textsf{CoRe-scenario}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\textsf{CoRe-scenarios}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\textsf{CoRe-scenario}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\textsf{CoRe-scenarios}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\indicateV}{ m }{%
   \tl_if_empty:nTF {#1}
   {
