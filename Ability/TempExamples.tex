@@ -1,0 +1,340 @@
+\chapter{TempExamples}
+\label{cha:tempexamples}
+
+\begin{note}
+  \begin{illustration}[Sudoku]
+    \label{illu:gist:sudoku}
+    % https://tex.stackexchange.com/questions/91422/tikz-sudoku-circle-and-connect-with-lines-some-cells
+    \begin{figure}[H]
+      \mbox{ }\hfill
+      \begin{subfigure}{0.45\linewidth}
+        \centering
+        \sudokuGrid{}
+        \caption{The starting grid \dots}
+        \label{fig:sudoku:grid}
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}{0.45\linewidth}
+        \centering
+        \sudokuGridHints{}
+        \caption{\dots with hints}
+        \label{fig:sudoku:hint}
+      \end{subfigure}
+      \hfill\mbox{ }
+      \caption{Sudoku}
+      \label{fig:sudoku}
+    \end{figure}
+    An agent presses the `hint' button next to the Sudoku grid shown in~\autoref{fig:sudoku:grid}
+    The Sudoku grid is updated as in~\autoref{fig:sudoku:hint}.
+
+    The agent concludes that the current state of the grid rules out \(1\) as a candidate for the bottom left cell of the bottom left square.
+  \end{illustration}
+\end{note}
+
+
+% \begin{note}[Illustration of \USE{}]
+%   \begin{illustration}
+%     \label{ill:rectangle:basic}
+%     \mbox{}
+%     \vspace{-\baselineskip}
+%     \begin{enumerate}
+%     \item The length of this rectangle measures \(19\text{cm}\) and the breadth of this rectangle measures \(7\text{cm}\).
+%     \item So, the length of this rectangle is \(19\text{cm}\) and the breadth of this rectangle is \(7\text{cm}\).
+%     \item
+%       It is possible that my measuring device in inaccurate, but I purchased it from a reliable hardware store.
+%     \item
+%       To calculate the area of a rectangle, one multiples the length of the rectangle by breadth.
+%     \item
+%       \label{ill:rectangle:basic:reasoning}
+%       \(19\text{cm}\) multiplied by \(7\text{cm}\) is \(133\text{cm}^{2}\).
+%     \item
+%       So, the area of the rectangle is \(133\text{cm}^{2}\).
+%     \end{enumerate}
+%     \vspace{-\baselineskip}
+%   \end{illustration}
+% \end{note}
+
+\subparagraph{Theorem \illu{1}}
+
+\begin{note}[A few illustrations]
+  Let us now turn to a few illustrations before discussing \nI{} in further detail.
+
+  We'll begin with a somewhat detailed illustration.
+  \nI{} identifies a particular way in which an agent may fail to claim support, and the primary goal of the initial demonstration is to highlight why the agent would fail to claim support.
+  Hence, the illustration treads a fine line between highlighting a problematic method, but not necessarily a problematic result.
+  This is by design.
+  And, I will continue to stress that \nI{} concerns a way of claiming support for some proposition, rather than the possibility of claiming support for some proposition.
+
+  Following two illustrations will be variations on the initial.
+
+  Still, it may be helpful to observe how \nI{} relates to an intuitively problematic result.
+  Therefore, we will provide an additional, simple, illustration of a failure to claim support.
+
+  The final illustration in the trio will complement the initial par of illustrations by highlighting an instance where~\nI{} does not apply.
+
+  \phantlabel{dogmatism-wrt-nI}
+  The reader may note structural similarities between these illustrations and \citeauthor{Kripke:2011wv}'s Dogmatism paradox.
+  We will discuss the relation after the illustrations.
+\end{note}
+
+\paragraph{First}
+
+\begin{note}[Brief illustration of \nI{}]
+  The first illustration considers theories and counterexamples.
+
+  \begin{illustration}
+    \label{ill:CE:main}
+    Suppose a researcher have constructed a theory of some general phenomenon.
+
+    The theory seems to capture the phenomenon, and the researcher has claimed (inductive) support that the theory is adequate by applying it to various instances of the general phenomenon.
+    Even if the theory isn't adequate, the theory has been (seemingly) successful applied to sufficient specific instances of the phenomenon.
+    Hence, even if \mom{}.
+
+    However, as the phenomenon is a \emph{general} phenomenon it also makes various predictions about what must happen in all other instances to which the researcher has not (yet, at least) applied the theory to.
+
+    Hence, there is a possible counterexample to the theory associated with each instance the researcher has not (yet) applied the theory to.
+    If some particular instance does not conform to the theory, the theory is inadequate.
+    Conversely, if the theory is adequate, every particular instance of the phenomenon conforms the theory.
+    In other words, if the theory is adequate, then there are no counterexamples to the theory.
+
+    Of course, it may be simple to revise the theory is a counterexample exists, and the fundamental ideas of the theory may remain sound (\cite[Cf.][]{Bonevac:2011tz}).
+    And, the theory may have sufficient resources to explain why any apparent counterexample is not a counterexample.
+    Yet, it remains the case that the theory would need to be revised in light of a counterexample.
+
+    Now, to summarise, the researcher may claim support for two propositions allow the agent to claim support that there are no counterexamples.
+
+    \begin{enumerate}
+    \item The theory is adequate, and
+    \item If the theory is adequate, then there are no counterexamples.
+    \end{enumerate}
+
+    At issue is whether the researcher may claim support that there are no counterexamples to the theory from the claimed support for the two propositions in the following way:
+
+    \begin{enumerate}
+    \item I have claimed support that the theory is adequate.
+    \item So, given the claimed support, theory is adequate.
+    \item Therefore, as the theory is adequate, given the claimed support, it follows that there are no counterexamples.
+    \item Hence, I claim support that there are no counterexamples to the theory.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{illustration}
+\end{note}
+
+\begin{note}[Seems problematic]
+  Seems problematic.
+  Claimed support that the theory is adequate is qualified by the possibility of counterexamples.
+  {
+    \color{red}
+    Note, agent is, here, only claiming support that there are no counterexamples.
+    And, claiming support may be \mom{}.
+    So, it does not follow that the agent is ruling out the possibility of counterexamples to the theory.
+    Plausible that the agent \emph{may} claim support.
+    Problem is the way in which the agent goes about this.
+  }
+
+  {
+    Even if not convinced about support, this way of claiming support seems problematic.
+    Relying on theory being adequate.
+    However, if this is the case, then no possible counterexamples.
+    Issue is that such counterexamples are possible given the state of your claimed support.
+    Hence, claiming support in this way seems to take for granted that there are no counterexamples.
+  }
+
+  Problem is that the reasoning only works if there are no counterexamples.
+  If there are counterexamples, misled.
+  Hence, problem to go from the theory is adequate.
+  However, without this step, researcher doesn't get to no counterexamples.
+\end{note}
+
+\begin{note}
+  So, relation between theory and counterexample \emph{undercuts} using way of using theory to get no counterexample.
+
+  Now, given that the researcher has claimed support that the theory is adequate, the researcher may \emph{expect} that there are no counterexamples to the theory.
+  And, it doesn't follow that the researcher may not claim support.
+  Plausible that details of the theory provide some way of claiming support.
+
+  Indeed, it seems the researcher is require to take the alternative path --- to show that the proposed counterexample is accounted for by the contents of the theory, regardless of whether the theory is true.
+
+  Fault here is with respect to \ideaCS{}.
+  {
+    \color{red}
+    Here, conditions of~{\color{red} inclusion} are satisfied, but we did not explicitly appeal to them.
+    Purpose of~{\color{red} inclusion} is conditions sufficient for this kind of problem to arise.
+    So, to do in argument for \nI{} is to develop is why~{\color{red} inclusion} does something similar.
+    Upshot is that \nI{} is general.
+
+    In the third illustration, we'll see why the way of claiming support is okay in some cases.
+  }
+  Difficult part is to account for why~{\color{red} inclusion} sets things up and ensures that things don't go too far.
+\end{note}
+
+\paragraph{Second}
+
+\begin{note}[Idea main part of \nI{} works]
+  As noted above, it is unclear whether or not there may be some way for the researcher to claim that there are no counterexamples to the theory.
+
+  In other words, one may be wondering whether \ideaCS{} is a plausible constraint on claiming support.
+  We gave a general argument for \ideaCS{} in~\autoref{cha:claiming-support}.
+  However, it may help to see how the issue highlighted relates to an intuitively problematic instance of reasoning, regardless of how support is claimed.
+
+  \begin{illustration}\label{ill:CE:colleague}
+    Suppose a colleague has studied the researcher's theory, and they (the colleague) thinks they have found a counterexample.
+
+    The colleague has informed the researcher that they think they have observed a counterexample.
+
+    However, the colleague has not provided the researcher with any further details about the counterexample.
+
+    Now, the conditional of interest may be made more precise:
+    \begin{enumerate}
+    \item If the theory is adequate, then the colleague has failed to identify a counterexample to the theory.
+    \end{enumerate}
+
+    Now, let's replicate the way of claiming support from before.
+
+    \begin{enumerate}
+    \item I have claimed support that the theory is adequate.
+    \item So, given the claimed support, theory is adequate.
+    \item Therefore, as the theory is adequate, given the claimed support, it follows that the colleague has failed to identify a counterexample to the theory.
+    \item Hence, I claim support that the colleague has failed to identify a counterexample to the theory.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{illustration}
+
+  I take this illustration to be intuitively problematic.
+  In short, if claim support, then doesn't need to examine counterexample to claim support that it is not a counterexample.
+
+  Possible response is that researcher does claim support, but information colleague impacts claimed support for theory.
+  However, this is also puzzling.
+  Researcher has no information.
+  Hence, if retain confidence, then equally against counterexample.
+  And, if does not retain confidence, then down the theory in a way that seems implausible.
+
+  Seems, instead, that claimed support for theory persists, but that this doesn't extend to counterexample.\nolinebreak
+  \footnote{
+    Inclined to apply this to previous illustration.
+
+    However, there's a difference between two illustrations.
+    Here, someone (the colleague) has reason to think there is a counterexample, and this seems a sufficiently important difference to draw any quick conclusions.
+    And, as we don't require a resolution to this issue, I won't explore further.
+  }
+
+  Perhaps more detail is needed.
+  I have some doubts that claiming support is always bad.
+  However, clearer that developed in a way such that problem remains.
+
+  Now, seems that the researcher doesn't get to claim support because if counterexample, then theory is bad.
+  Hence, requires that counterexample is not true in order to progress.
+  But, then, doesn't make the move regardless of whether or not there is a counterexample.
+
+  So, it seems \ideaCS{} does the work.
+\end{note}
+
+
+\begin{note}
+  ``Undercuts using \(\phi\) for \(\psi\).''
+  Same problem, failure of \ideaCS{}.
+
+  For, the agent has already `assumed' that they may reason.
+
+  Problem is that the agent doesn't get to claim support for \(\psi\) because fail the \ideaCS{} thing.
+  If \(\psi\) isn't really the case, then reasoning collapses.
+  Key thing about our understanding of claimed support is that it holds up even if the agent is \mom{} about the value of the proposition.
+
+  {
+    \color{red}
+    Note:
+    There's possible tension here.
+    It seems that if the first illustration is okay, then this (second) illustration should also be okay.
+    Maybe.
+    But, this is too quick.
+    Additional information here.
+
+    Now, still some difficulty, as I think \EAS{} might apply to the first.
+    So, shouldn't it apply to this?
+    Well, no.
+    For, \EAS{} only suggests possibility in some cases.
+    Fine to think of this additional information as constraint on appeal via ability.
+    For, if the colleague thinks they've found a counterexample, then this suggests a problem with the agent's ability.
+  }
+\end{note}
+
+\paragraph{Third}
+
+\begin{note}[Variation where \nI{} does not apply]
+  \begin{illustration}\label{ill:CE:testimony}
+    Suppose the researcher has published a paper containing the details of the theory.
+
+    Our attention now turns to a novice who has read far enough into the paper to understand, at least, the general phenomenon that the theory applies to and that the researcher has claimed inductive support for the theory.
+    We'll also assume that the novice does not possess the expertise required to apply the theory.\nolinebreak
+    \footnote{
+      Though I don't think this assumption is important.
+    }
+
+    The novice is thinking about instances of the general phenomenon, and identifies one.
+
+    The conditional of interest is:
+    \begin{enumerate}
+    \item If theory is adequate, it accounts for this instance of the phenomenon.
+    \end{enumerate}
+
+    Of course, the novice also recognises that the theory is inadequate if it  does not account for the particular instance of the phenomenon.
+    Still, the novice claims support in the familiar manner.
+
+    \begin{enumerate}
+    \item I have claimed support that the theory is adequate (this time by reading a published paper).
+    \item So, given the claimed support, the theory is adequate.
+    \item Therefore, as the theory is adequate, given the claimed support, it follows that the theory accounts for this instance of the phenomenon.
+    \item Hence, I claim support that the theory accounts for this instance of the phenomenon.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{illustration}
+
+  In contrast to the previous illustrations, it seems the novice may claim support in such a way.
+
+  Possibility of being either \mom{} remains.
+  Still, not in position to reason through theory and phenomena.
+  Hence, claiming support from something like status of peer review --- or testimony.
+  And, not accounting would not show peer review is bad.
+\end{note}
+
+\paragraph{Summary of illustration and variations}
+
+\begin{note}
+  These three illustrations.
+  First, kind of scenario that's the main interest.
+  Where claiming support in a certain way seems problematic, even if it not clear that the agent may claim support in some other way.
+
+  To stress the problem, considered a cleaner case, where it seems agent may not claim support, and argued that same problem is a plausible account of why.
+
+  Third illustration, way of claiming support is okay.
+  As all instances of \nI{}, and hence the previous two illustrations, focus on particular way of claiming support illustrated that it's okay.
+\end{note}
+
+\begin{note}[Intuition]
+  In short, \nI{} captures a limitation: An agent is not in a position to claim support for some proposition \(\psi\) when circumstances are such that the claimed support requires (from agent's point of view) that the agent is already in position to claim support for \(\psi\).
+
+  No claiming support for\(\psi\) if failure to establish support for \(\psi\) independently of the value of \(\phi\) would reveal problem with the support claim for \(\phi\).
+
+  Hence, \nI{} focuses on when an agent may claim support for some proposition by noting that (from the agent's perspective) that the value of the proposition is determined by further propositions the agent has claimed support for.
+
+  Some other way of claiming support for \(\psi\).
+  However, not merely an alternative path, but an alternative path that must be possible given claimed support for \(\phi\).
+
+  Issue is that given {\color{red} background} and~{\color{red} inclusion}, agent expect that they have the resources, and hence expects \(\psi\) is the case.
+
+  So, that \(\phi\) has value \(v\).
+  In doing so, resources to claim support for \(\psi\) has value \(v'\).
+  Hence, \(\psi\) has value \(v'\).
+  So, \(\psi\) having value \(v'\) is a requirement on claimed support for \(\phi\) being any good.
+  However, no support claimed for \(\psi\) having value \(v'\).
+
+  In cases of reasoning with a conditional, such as the illustrations given, that value of \(\phi\) constrains value of \(\psi\) is in general helpful information, but in these specific cases it does not help the agent claim support for \(\psi\) having value \(v'\) because if \(\psi\) isn't already so constrained, then no appeal to \(\phi\) having value \(v\).
+
+  Similar to other principles, failure because establishing something that needs to be the case in order to be in a position to establish.
+\end{note}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
