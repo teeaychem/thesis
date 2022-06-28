@@ -457,6 +457,26 @@
 \end{illustration}
 \end{note}
 
+\begin{note}
+  Similar to verifying an algorithm may be implemented.
+  Break down all of the steps in the algorithm, and then ensure that it is possible to express each of the steps in the programming language of choice.
+
+  \begin{quote}
+    \textsc{factorial}(\(n\)):\newline
+    \textbf{if} \(n = 1\)\newline
+    \mbox{}\indent \textbf{return} \(1\)\newline
+    \textbf{else}\newline
+    \mbox{}\indent \textbf{return} \(n \times\) \textsc{factorial}(\(n-1\))
+  \end{quote}
+
+  Fortran 77 does not support recursion, a function may not call an instance of itself.\nolinebreak
+  \footnote{
+    This is not to say that one may not compute factorials using Fortran 77.
+    It's a Turing complete language.
+    However, would require a different (non-recursive) algorithm.
+  }
+  By contrast, the recursive factorial algorithm may implemented in languages that support recursion, such as Lisp or Python.
+\end{note}
 
 %%% Local Variables:
 %%% mode: latex
