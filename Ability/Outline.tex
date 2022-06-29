@@ -82,12 +82,15 @@
   \phantlabel{how-and-why-first-mention}
   Still, concluding is something an agent does, and in this respect there are (at least) two distinct questions intuitions of the above form may answer:%
 
-  \begin{itemize}
-  \item
-    \howBasic{}
-  \item
-    \whyBasic{}
-  \end{itemize}
+  \begin{restatable}[\qWhy{}]{question}{questionWhyBasic}
+    \label{q:why}
+    Which proposition-value-premises pairings explain \emph{why} the agent concluded \(\phi\) has value \(v\)?
+  \end{restatable}
+
+  \begin{restatable}[\qHow{}]{question}{questionHowBasic}
+    \label{q:how}
+    Which proposition-value-premises pairings explain \emph{how} the agent concluded \(\phi\) has value \(v\)?
+  \end{restatable}
 
   In basic form, focus is on what the agent did, or alternatively whether some action way performed.
   Did the agent conclude \(\phi\) has value \(v\)?
@@ -100,12 +103,17 @@
 \end{note}
 
 \begin{note}
+  \color{red}
+  Designed to allow intermediate conclusions.
+\end{note}
+
+\begin{note}
   `How?' and `why?' are distinct questions.
   So, generally speaking, `how?' and `why?' may have distinct answers.
 
-  For example, consider replacing `conclude \(\phi\) has value \(v\)'  with `arrive at location \(l\)'.
+  For example, consider asking why and how some agent arrived at some location.
   `By bicycle' answers how the agent arrived at the post office, but does not answer why the agent arrived at the post office.
-  likewise, `to post a letter' intuitively answers why the agent arrived at the post office, but does not answer how the agent arrived at the post office.%
+  Likewise, `to post a letter' intuitively answers why the agent arrived at the post office, but does not answer how the agent arrived at the post office.%
   \footnote{
     Of course, things get complex.
     Action, motivating reason, belief-desire pair.
@@ -130,7 +138,7 @@
   The agent did not use their understanding of arithmetic to conclude \(23 \times 15 = 345\), and the agent did not appeal to their understanding of arithmetic to conclude \(23 \times 15 = 345\).
 \end{note}
 
-\paragraph{Relationship between questions}
+\paragraph{Relationship between \qWhy{} and \qHow{}}
 
 \begin{note}
   Our observation that the testimony of the calculator seems to answer both `how?' and `why?' the agent concluded \(23 \times 15 = 345\) suggests, even if --- as a single \scen{0} --- only slightly, the following basic idea:%
@@ -142,10 +150,10 @@
   }
 
   \phantlabel{how-and-why-relation-first-mention}
-  \begin{restatable}[Inclusion]{idea}{ideaInclusionFirst}
-    \label{idea:how-why-relation-first}
+  \begin{restatable}[Inclusion]{issue}{issueInclusionFirst}
+    \label{issue:how-why-relation-first}
     \label{issue:why-inc-in-how}
-    Some proposition-value-premises pairing is, in part, an answer to `why?' only if that proposition-value-premises pairing is (also), in part, an answer to `how?'.
+    Some proposition-value-premises pairing is, in part, an answer to \qWhy{} only if that proposition-value-premises pairing is (also), in part, an answer to \qHow{}.
   \end{restatable}
 
   In other words, in order for premise to, in part, answer \emph{why} an agent concluded \(\phi\) has value \(v\), that premise must also, in part, answer \emph{how} the agent concluded \(\phi\) has value \(v\).
@@ -365,7 +373,6 @@
   What it is about concluding we're interested in.
   This is support.
   Leads to a refinement of why? and how?
-  
 \end{note}
 
 \begin{note}
@@ -379,8 +386,10 @@
 \begin{note}
   Our interest is with the process of an agent concluding some proposition-value pair from some pool of premises.
 
-  An agent concluding some proposition-value pair from some pool of premises is an event --- concluding is something that happens --- and, in particular, concluding is an act --- the agent is involved in that something happening.%
+  Concluding is an event --- concluding is something that happens.
+  And, in particular, concluding is an act --- an agent concludes.%
   \footnote{
+    \color{red}
     This passive construction is to avoid characterising an act as something brought about by an agent.
     Of course, agent being involved doesn't make an act.
     Involvement of agent, exist, but not an act.
@@ -394,32 +403,101 @@
       \color{red} This line of inquiry doesn't really matter.
     }
   }
-  Concluding also involves some proposition-value pair, the conclusion, and some pool of premises.
-  Concluding is directed.
-  Agent concluded the proposition-value pair from the pool of premises.
 
-  When I think of prefectures, I think of Gifu.
+  Two important assumptions were implicit in \autoref{cha:overview}.
 
-  Distinguish.
-  Relation of support.
-  Rather than provide an independent characterisation of support, we instead hold this as a necessary condition.
+  \begin{assumption}
+    \label{assu:concluding:pvp}
+    What an agent concludes is always some proposition-value pair.
+  \end{assumption}
 
-  Assumption:
+  \begin{assumption}
+    \label{assu:concluding:pools}
+    An agent always concludes some proposition-value pair from some pool of premises, where a pool of premises is some collection of proposition-value pairs.
+  \end{assumption}
+\end{note}
 
-  \begin{assumption}[Support]
-    \label{assumption:support}
-    If:
+\begin{note}
+  I take \autoref{assu:concluding:pvp} to be fairly straightforward.
+  In natural language, \emph{that} clauses.
+  Default interpretation, true.
+
+  However, propositions describe some state of affairs, and values are how the agent evaluates a state of affairs.
+
+  True, false, desirable, etc.%
+  \footnote{
+    Nothing in particular hangs on the distinction between different values.
+    If you prefer, you may expand the proposition (\world{}) to include additional factors, and consider only the values `true' and `false'.
+    For example, the proposition that \emph{I desire the bath to be warm} is false, as opposed me assigned the proposition that \emph{the bath is warm} the value `undesirable'.
+  }
+
+  In terms of reasoning, understanding of concluding includes both theoretical and practical, and if you think this division is non-exhaustive, then some long as the result of the type of reasoning is the agent's evaluation of some situation, \autoref{assu:concluding:pvp} is designed, at least, to not rule out the culmination of the type of reasoning as an instance of concluding.%
+  \footnote{
+    Though, concluding may be stronger.
+  }
+\end{note}
+
+\begin{note}
+  \autoref{assu:concluding:pools} may be a little less straightforward.
+
+  Not so clear that concluding always involves premises.
+
+  Indeed, have seen in \autoref{cha:overview} some difficulty in stating what premises would be involved in concluding via understanding of arithmetic.
+
+    Robinson or Peano arithmetic together with the two numbers joined by an operator.
+  Though, I doubt this.
+
+  For a clear example, consider the rule for conditional introduction a Fitch-style rule for propositional logic.%
+  \footnote{
+    \citeauthor[cf.][206]{Barwise:1999tu}
+  }
+
+  \begin{quote}
+    \fitchprf{}{
+      \subproof{\pline[]{P}}{
+        \pline[]{\vdots} \\
+        \pline[]{Q}
+      }
+      \pline[]{P \rightarrow Q}
+    }
+  \end{quote}
+
+  Start with an assumption , derive proposition-value pair.
+  Conclude if X then Y.
+  Indeed,~\citeauthor{Ramsey:1929tf} test for conditionals.%
+  \footnote{
+    See, for example,~\textcite{Read:1995wf}.
+  }
+
+  No premises.
+
+  Parallel, pool of premises may be empty.
+
+  Rather than being motivated by some pre-theoretical understanding of concluding, \autoref{assu:concluding:pools} is primarily a matter of convenience.
+  Far easier to talk about concluding proposition-value pair from some pool of premises, than to cover distinct cases.
+
+  What it means to say an agent concluded from empty pool of premises, set aside.
+
+  Indeed, taking in terms of proposition-value-premises pairings will be key for our statement of \autoref{idea:support}, a key idea concerning concluding.
+\end{note}
+
+\begin{note}
+  \begin{idea}[Support]
+    \label{idea:support}
+    \emph{If:}
     \begin{itemize}
     \item
       An agent has concluded some proposition \(\phi\) has some value \(v\) from some pool of premises \(\Phi\).
     \end{itemize}
-    Then:
+    \emph{Then:}
     \begin{itemize}
     \item
       From the perspective of the agent's epistemic state when concluding \(\phi\) has value \(v\) from \(\Phi\), a \emph{relation of support} holds between \(\Phi\) and \(\phi\) having value \(v\).
     \end{itemize}
     \vspace{-\baselineskip}
-  \end{assumption}
+  \end{idea}
+
+  Role of \autoref{idea:support} is to distinguish concluding from other acts.
 \end{note}
 
 \begin{note}
@@ -434,6 +512,8 @@
   Support involved in providing explanatory reason.
 \end{note}
 
+\paragraph{Motivation for support}
+
 \begin{note}
   For example, \citeauthor{Boghossian:2014aa}'s Taking Condition:%
   \footnote{
@@ -444,11 +524,11 @@
     \citeauthor{Hlobil:2014tq} argues against the Taking Condition as it distracts from what accounts of reasoning out to explain, rather than arguing against the Taking Condition directly.
 
     \citeauthor{McHugh:2016vp} summarise various objects to the taking condition, and present district arguments against against (distinct) ideas in favour of the taking condition.
-    In particular,~\autoref{assumption:support} is closer to what \citeauthor{McHugh:2016vp} term the `Consequence Condition' (\citeyear[cf.][316]{McHugh:2016vp}), which \citeauthor{McHugh:2016vp} also (indirectly) argue against.
-    However, \citeauthor{McHugh:2016vp} does not consider an alternative account of what distinguishes concluding from any other action, and as~\autoref{assumption:support} is designed to capture this distinction, it is unclear to me whether \citeauthor{McHugh:2016vp}'s arguments apply to~\autoref{assumption:support} (if, indeed, they are sound).
+    In particular,~\autoref{idea:support} is closer to what \citeauthor{McHugh:2016vp} term the `Consequence Condition' (\citeyear[cf.][316]{McHugh:2016vp}), which \citeauthor{McHugh:2016vp} also (indirectly) argue against.
+    However, \citeauthor{McHugh:2016vp} does not consider an alternative account of what distinguishes concluding from any other action, and as~\autoref{idea:support} is designed to capture this distinction, it is unclear to me whether \citeauthor{McHugh:2016vp}'s arguments apply to~\autoref{idea:support} (if, indeed, they are sound).
 
     \citeauthor{Wright:2014tt} denies that reasoning must involve a state which connects premises to conclusions. (\citeyear[Cf.][33-34]{Wright:2014tt})
-    Note,~\autoref{assumption:support} is compatible with \citeauthor{Wright:2014tt}'s objection.
+    Note,~\autoref{idea:support} is compatible with \citeauthor{Wright:2014tt}'s objection.
   }
 
   \begin{quote}
@@ -491,11 +571,12 @@
   \citeauthor{Broome:2002aa} endorses rule following.
 
   \begin{quote}
-    Active reasoning is a particular sort of process by which conscious premiseattitudes cause you to acquire a conclusion-attitude. The process is that you operate on the contents of your premise-attitudes following a rule, to construct the conclusion, which is the content of a new attitude of yours that you acquire in the process.\newline
+    Active reasoning is a particular sort of process by which conscious premise-attitudes cause you to acquire a conclusion-attitude.
+    The process is that you operate on the contents of your premise-attitudes following a rule, to construct the conclusion, which is the content of a new attitude of yours that you acquire in the process.\newline
     \mbox{ }\hfill\mbox{(\citeyear[234]{Broome:2002aa})}
   \end{quote}
 
-  Understand support of \autoref{assumption:support} in terms of having followed a rule.
+  Understand support of \autoref{idea:support} in terms of having followed a rule.
 \end{note}
 
 \begin{note}
@@ -503,56 +584,11 @@
 \end{note}
 
 \begin{note}
-  Concluding, involves: agent, proposition-value pair as conclusion, pool of premises, and relation of support between pool of premises and conclusion.
-\end{note}
-
-\begin{note}
   Key assumption regarding concluding.
   Further assumptions detailed in~\autoref{chapter:concluding}.
 \end{note}
 
-\begin{note}
-  Understand relation of support to, at least in part, capture why.
-
-  Simple example.
-
-  \begin{enumerate}
-  \item
-    \(a\) testified \(\phi\) has value \(v\).
-  \item
-    \(\phi\) has value \(v\)
-  \end{enumerate}
-
-  Support, for the agent, only possible to testify if is the case.
-
-  Break this down further, but, unopinionated on what counts as a premise and how pools of premises may support proposition-value pairs.
-\end{note}
-
-
-\begin{note}[Pool of premises]
-  Pool of premises, difficult to specify.
-  Clear sense in which \(p\) and \(p \rightarrow q\) are premises from which an agent concludes \(q\) via modus pones.
-
-  Understanding of arithmetic is not so clear.
-  Robinson or Peano arithmetic together with the two numbers joined by an operator.
-  Though, I doubt this.
-  Still, something.
-
-  Conclusion doesn't come for free, and pool of premises identifies whatever.
-
-  Empty set, why not.
-\end{note}
-
-\section{Support, why, and how}
-\label{sec:support-why-how}
-
-\begin{note}
-  Support is important.
-  Relate to the two questions, and relation between these.
-\end{note}
-
-\subsubsection{Why}
-\label{sec:why-support}
+\paragraph{Support and why}
 
 \begin{note}
   Assumption about support.
@@ -560,62 +596,173 @@
 
   Relation of support also \emph{why}.
 
-  \begin{restatable}[Proposition-value-premises pairing only if support]{assumption}{assumptionSupportWhy}
+  \begin{restatable}[Proposition-value-premises pairing only if support]{idea}{ideaWhySupport}
     \label{assu:why:pvpp:support}
-    \mbox{ }
-    \vspace{-\baselineskip}
+    \emph{If:}
     \begin{itemize}
     \item
       Some proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) is, in part, an answer to why an agent concludes \(\phi\) has value \(v\) from some pool of premises \(\Phi\).
     \end{itemize}
-
-    \emph{Only if:}
-
+    \emph{Then:}
     \begin{itemize}
     \item
-      From the perspective of the agent's epistemic state when concluding \(\phi\) has value \(v\) from \(\Phi\), a relation of support holds between \(\Psi\) and \(\psi\) having value \(v'\), in part, answers why the agent concluded \(\phi\) has value \(v\) from \(\Phi\).
+      The relation of support holding between \(\Psi\) and \(\psi\) having value \(v'\) is, in part, an answer to why the agent concluded \(\phi\) has value \(v\) from \(\Phi\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
 \begin{note}
-    \autoref{assumption:support}, concluding only if relation of support.
+  Interest in support is with respect to why an agent concluded.
 
-  \autoref{assu:why:pvpp:support}, answer to why an agent concludes only if relation of support.
+  Support captures relation between proposition-value pair and pool of premises from perspective of agent when concluding.
+  If relation between proposition-value pair and pool of premises explains, in part, why, then so does relation of support.
+\end{note}
 
-  Constrain understanding of support.
+\paragraph{Examples}
+
+\begin{note}
+  For example, from agent's point of view, support between testimony of calculator and sum.
+
+  Other examples \dots
+\end{note}
+
+
+\paragraph{Subtle}
+
+\begin{note}
+  Somewhat subtle, however.
+
+  Antecedent, then answer to \qWhy{}.
+  And, motivated constraint between \qWhy{} and \qHow{}.
+
+  Important that consequent is not necessarily an answer to \qHow{}.
+
+  This is obtained because \qWhy{} and \qHow{} only consider proposition-value-premises pairings.
+
+  So, \autoref{assu:why:pvpp:support} does not require that relation of support is, in part, an answer to \qHow{}.
+
+  Of course, on a theory like \citeauthor{Boghossian:2014aa}'s, support does have a role in how, as the taking condition requires the agent takes conclusion.
+  Here, relevant that relation of support, taking is then evaluation, and this does not need to be intentional.%
+  \footnote{
+    Problems of rule following.
+  }
+
+  In some respects, plausible.
+  Given \autoref{idea:support}, support is key to characterising some act as concluding.
+  From the agent's perspective, \(\Phi\) support \(\pv{\phi}{v}\).
+  However, this is a state of affairs.
+  Does not follow that relation of support from the agent's perspective is also part of that state of affairs.
+
+  Consider, for example, \citeauthor{Wright:2014tt}'s `Simple Proposal':
+  \begin{quote}
+    But consider instead the proposal, not that the status of the transition as inferential depends on the thinker's judgments about his reasons, but that it depends on \emph{what his reasons are}.
+    We want his acceptance of the premises to supply his \emph{actual} reasons for accepting the conclusion.
+
+    \mbox{}\hfill\(\vdots\)\hfill\mbox{}
+
+    Call this the Simple Proposal.
+    It says that a thinker infers q from p\(_{1}\) \(\cdots\) p\(_{\text{n}}\) when he accepts each of p\(_{1}\) \(\cdots\) p\(_{\text{n}}\), moves to accept q, and does so for the reason that he accepts p\(_{1}\) \(\cdots\) p\(_{\text{n}}\).\newline
+    \mbox{}\hfill\mbox{(\Citeyear[33]{Wright:2014tt})}
+  \end{quote}
+
+  Relation of support from accepting pool of premises and then accepting conclusion.
+  However, from agent's perspective, relation between pool of premises and conclusion is not part of why agent moves to accept conclusion, pool of premises alone is sufficient.
+
+  Still, from our perspective, still an account of why.
+  Rejected here is that relation should be part of how.
 \end{note}
 
 \begin{note}
-  Proposition-value-premises pairing as answer to why.
-  This is somewhat delicate.
-  If viewed as paring between some proposition-value pair and a set of proposition-value pairs, then this is bad.
-  In principle, could be that such a pairing answers why, in part, without support.
-  For, thought about \(\Phi\), led to thinking about \(\pv{\phi}{v}\), but then concluded \(\pv{\phi}{v}\) from \(\Phi'\).
-  However, as conclusion from premises.
+  So, \autoref{assu:why:pvpp:support} links support to \qWhy{}, but in a cautious way.
+  Explanatory, but only for why from our perspective.
+  Does not necessarily relate to \qHow{}.
+\end{note}
 
-  Designed to allow intermediate conclusions.
+\subsubsection{Notes on support}
+\label{sec:notes-support}
+
+\begin{note}
+  Understanding of support is generic.
+
+  From agent's perspective.
+  Perhaps the calculator is faulty, or the agent has an a unsteady grip on arithmetic.
+  Still, conclusion from somewhere.
+  Something account for why the agent holds.
+\end{note}
+
+\begin{note}[Support \emph{from the agent's perspective}]
+    \begin{illustration}[A box of flan(nels)]
+    \label{illu:flan-nels}
+    Suppose `flan' is written on the side of a container.
+    I may claim support that the container contains flan.
+    And, it may be that the writing on the side of the container is support for the box containing flan.
+    However, the straps ensuring the container remains closed is unfortunately placed, and if moved would reveal the side of the container reads `flannels'.
+  \end{illustration}
+
+  The unfortunate placing of the straps does not seem to prevent concluding, but I'm not sure whether it is right to say that the writing on the side of the box (straps in place) hence support.
+
+  However, from an employee of the factory, no concluding, no support.
 \end{note}
 
 \begin{note}
-  Support is involved.
-  And, support is also, in part, an answer why.
-  Captured by \autoref{assu:why:support:pvpp}.
+  \phantlabel{mention:concluding-non-factive}
+  In this respect, doesn't matter whether premises have values, or whether conclusion has value.
+  Provide an \illu{0} of this in~\autoref{chapter:concluding}.%
+  \footnote{
+    \color{red}
+    On page~\pageref{concluding:not-factive}.
+  }
 \end{note}
 
 \begin{note}
-  \begin{restatable}[Support only if proposition-value-premises pairing]{assumption}{assumptionSupportWhy}
+  {
+    \color{red}
+    Not assuming that concluding involves belief.
+  }
+\end{note}
+
+\section{\qWhy{} and \qHow{}, refined}
+\label{sec:support-why-how}
+
+\begin{note}
+  Recall:
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \questionWhyBasic*
+
+    \questionHowBasic*
+
+    \issueInclusionFirst*
+  \end{quote}
+
+  Goal is to refine understanding of these questions.
+
+  In particular, connecting \qWhy{} to relations of support.
+
+  Also, \qHow{}.
+\end{note}
+
+\subsection{\qWhy{}}
+\label{sec:why-support}
+
+\begin{note}
+  Have~\autoref{assu:why:pvpp:support}.
+
+  \autoref{assu:why:pvpp:support} links answers to \qWhy{} to support.
+  However, does not link explanatory role of support to \qWhy{}.
+  For this, converse.
+\end{note}
+
+\begin{note}
+  \begin{restatable}[Support only if proposition-value-premises pairing]{idea}{ideaSupportWhy}
     \label{assu:why:support:pvpp}
-    \mbox{ }
-    \vspace{-\baselineskip}
+    \emph{If:}
     \begin{itemize}
     \item
-      A relation of support holding, from the perspective of the agent's epistemic state between \(\Psi\) and \(\psi\) having value \(v'\) is, in part, an answer to why the agent concluded \(\phi\) has value \(v\) from from some pool of premises \(\Phi\).
+      A relation of support holding, from the perspective of the agent's epistemic state, between \(\Psi\) and \(\psi\) having value \(v'\) is, in part, an answer to why the agent concluded \(\phi\) has value \(v\) from from some pool of premises \(\Phi\).
     \end{itemize}
-
-    \emph{Only if:}
-
+    \emph{Then:}
     \begin{itemize}
     \item
       The proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) is, in part, an answer to why the agent concluded \(\phi\) has value \(v\) from \(\Phi\).
@@ -625,92 +772,92 @@
 \end{note}
 
 \begin{note}
-  Relations of support constrain answers to why.
+  So, if support answers why, then the related proposition-value pair and pool of premises, in part, answer why.
 
-  Why an agent concludes.
-  \autoref{assumption:support}, support is required for concluding.
-  \autoref{assu:why:pvpp:support}, support is required to explain concluding.
-
-  However, take why as fixed, and \autoref{assu:why:pvpp:support} is adding further clarity to what a relation of support amounts to.
-  In part an answer to why.
+  Take this to be fairly straightforward.
 \end{note}
 
 \begin{note}
-  Support, something distinctive about relation between premises and conclusion from agent's point of view.
-  Hence, in part, why agent concludes.
+  General picture.
+
+  Support, why.
+  So, proposition-value-premises pairing why.
+  So, if positive resolution to issue, then proposition-value-premises pairing how.
+
+  In other words, if positive resolution to issue, then account of how is going to constraint whether some relation of support answers why.
+
+  We haven't learnt much about what support is.
+  However, we have abstracted.
+  Our perspective, linked with what happens in the agent.
+  If positive answer, constrained by what happens in the agent.
+
+  Way we're talking about support, somehow links to what the agent does when they conclude.
+  Clear on this.
+  But, figuring out this link is task for a theory.
+  We're not providing a theory.
+  \textbf{Understanding of support is fairly theory neutral.}
 \end{note}
 
-\paragraph{Variants on `how' and `why'}
 
-\begin{note}[\qWhy{} and \qHow{}]
-  \begin{question}[\qWhy{}?]
-    \label{q:why}
-    \mbox{ }
-    \vspace{-\baselineskip}
-    \begin{itemize}
-    \item
-      \emph{Why} has the agent concluded \(\phi\) has value \(v\)?
-    \end{itemize}
 
-    Alternatively:
+\begin{note}
+  Difficulty.
+  Testimony, then support, but then, \qWhy{}, and so \qHow{}.
+  However, motivated relation in terms of causal theories.
+  Pairing between \(\pv{\phi}{v}\) and \(\Phi\) is, intuitively, not how.
+  Paired only in terms of support.
 
-    \begin{itemize}
-    \item
-      \emph{Which} relations of support are involved in the agent concluding \(\phi\) has value \(v\)?
-    \item
-      \emph{Which} proposition-value-premises pairings are such that support between involved in why agent concludes.
-    \end{itemize}
-    \vspace{-\baselineskip}
-    \vspace{-\baselineskip}
+  Here, need to be careful about how support is involved.
+  Not \emph{just} from relation between \(\pv{\phi}{v}\) and \(\Phi\).
+  That partner testified.
+
+  Need it to be the case that \(\Phi\) alone.
+  And, this is not the case.
+
+  So, this idea isn't going to give rise to this problem.
+\end{note}
+
+\paragraph{Variant on `why'}
+
+\begin{note}[\qWhy{}, refined]
+  Given role of support, and ideas, variant of \qWhy{}:
+
+  \begin{question}[\qWhyV{}]
+    \label{q:why:v}
+    \emph{Which} proposition-value-premises pairings are such that support between involved in why agent concludes.
   \end{question}
 
-  \Autoref{q:why}, why.
-  Given a conclusion, which relations of support matter.
-  From perspective of agent.
+  \begin{proposition}
+    \label{prop:qWhy-and-qWhyV}
+    For any conclusion-premises pairing \(\pvp{\phi}{v}{\Phi}\):
+
+    \(\pvp{\phi}{v}{\Phi}\) is, in part, an answer to \qWhyV{} \emph{if and only if} \(\pvp{\phi}{v}{\Phi}\) is, in part, an answer to \qWhy{}.
+  \end{proposition}
+
+  \begin{argument}
+    \autoref{prop:qWhy-and-qWhyV} is immediate given \autoref{assu:why:pvpp:support} and \autoref{assu:why:support:pvpp}.
+
+    
+    relation of support answers this, then proposition-value-premises pairing answers \qWhy{}.
+
+    proposition-value-premises pairing answer \qWhy{}, then relation of support.
+  \end{argument}
 \end{note}
 
 \begin{note}
-  Our interest is with answers to \qWhy{}, rather than providing an answer to \qWhy{}.
-  For, answers to \emph{why} an agent concluded may be constrained by \emph{how} an agent concluded.
-  In other words, answers to \qWhy{} may be constrained by answers to \qHow{}:
-
-  \begin{question}[\qHow{}?]
-    \label{q:how}
-    \mbox{ }
-    \vspace{-\baselineskip}
-    \begin{itemize}
-    \item
-      \emph{How} did the agent conclude \(\phi\) has value \(v\)?
-    \end{itemize}
-
-    Alternatively:
-
-    \begin{itemize}
-    \item
-      For all the relations of support involved in the agent concluding \(\phi\) has value \(v\), \emph{in what way} did those relations of support come to be involved in the agent concluding \(\phi\) has value \(v\)?
-    \item
-      Which proposition-value-premises pairings were part of the agent's reasoning?
-    \end{itemize}
-    \vspace{-\baselineskip}
-    \vspace{-\baselineskip}
-  \end{question}
-
-  What information was appealed to by the agent to conclude \(\phi\) has value \(v\)?
-
-  Which premises did the agent use, which conclusions did the agent draw from those premises?
-
-  For example, \autoref{illu:gist:calc}, agent concluded \(23 \times 15 = 345\) from the testimony of the calculator.
+  \emph{Here}, note that we're not dealing with pairing of a proposition-value pair and a collection of proposition-value pairs.
+  Instead, conclusion-premises pairing.
 \end{note}
 
 \begin{note}
-  Note, \autoref{idea:how-why-relation-first} was carefully stated.
+  Note, \autoref{issue:how-why-relation-first} was carefully stated.
   Recall:
   \begin{quote}
-    \ideaInclusionFirst*
+    \issueInclusionFirst*
   \end{quote}
 
   Proposition-value-premises pairings as partial answers.
-  \autoref{idea:how-why-relation-first} does not state that \emph{something} is, in part, an answer to `why?' only if that something is, in part, an answer to `how?'.
+  \autoref{issue:how-why-relation-first} does not state that \emph{something} is, in part, an answer to `why?' only if that something is, in part, an answer to `how?'.
 
   Combination of ideas do not entail that if relation of support is, in part, an answer to `why?' then relation of support is also, in part, an answer to `how?'.
 \end{note}
@@ -768,89 +915,8 @@
   As we will see below, many accounts of concluding seem to fall in line with this.
 \end{note}
 
-\subsection{Why? and How?}
 
-\begin{note}
-  Inclined to think intuitions expressed may be correct.
-  Though, not because the resolution to \autoref{issue:why-inc-in-how} is positive.
-
-  For, general type of scenario \autoref{illu:gist:calc} conforms to falls just outside the scope of the core argument of this document.
-
-  Hence, no clear reason to resist.
-  Negative resolution to \autoref{issue:why-inc-in-how} is existential rather than universal.
-\end{note}
-
-\begin{note}
-  Still, motivating a negative resolution to \autoref{issue:why-inc-in-how} is a goal of this document.
-
-  \begin{goal}
-    Motivate a negative resolution to~\autoref{issue:why-inc-in-how}.
-  \end{goal}
-
-  Different type of \scen{0}.
-  Though, I expect initial intuitions will be similar.
-  If skip ahead \dots
-
-  First, loosen \autoref{issue:why-inc-in-how} slightly.
-\end{note}
-
-\begin{note}
-  So, now have \autoref{issue:why-inc-in-how}.
-  This cleans up what went on in {\color{red} chapter} somewhat.
-
-  Two problems.
-
-  First, given weak assumptions regarding support, \autoref{issue:why-inc-in-how} is somewhat strained.
-
-  Second, quite strong.
-
-  Attention will go to a weaker issue, that is somewhat more straightforward.
-\end{note}
-
-\subsubsection{Notes on support}
-\label{sec:notes-support}
-
-\begin{note}
-  Understanding of support is generic.
-
-  From agent's perspective.
-  Perhaps the calculator is faulty, or the agent has an a unsteady grip on arithmetic.
-  Still, conclusion from somewhere.
-  Something account for why the agent holds.
-\end{note}
-
-\begin{note}[Support \emph{from the agent's perspective}]
-    \begin{illustration}[A box of flan(nels)]
-    \label{illu:flan-nels}
-    Suppose `flan' is written on the side of a container.
-    I may claim support that the container contains flan.
-    And, it may be that the writing on the side of the container is support for the box containing flan.
-    However, the straps ensuring the container remains closed is unfortunately placed, and if moved would reveal the side of the container reads `flannels'.
-  \end{illustration}
-
-  The unfortunate placing of the straps does not seem to prevent concluding, but I'm not sure whether it is right to say that the writing on the side of the box (straps in place) hence support.
-
-  However, from an employee of the factory, no concluding, no support.
-\end{note}
-
-\begin{note}
-  \phantlabel{mention:concluding-non-factive}
-  In this respect, doesn't matter whether premises have values, or whether conclusion has value.
-  Provide an \illu{0} of this in~\autoref{chapter:concluding}.%
-  \footnote{
-    \color{red}
-    On page~\pageref{concluding:not-factive}.
-  }
-\end{note}
-
-\begin{note}
-  {
-    \color{red}
-    Not assuming that concluding involves belief.
-  }
-\end{note}
-
-\subsubsection{How support}
+\subsection{How}
 
 \begin{note}
   \begin{idea}
@@ -872,7 +938,6 @@
   \begin{idea}
     Relation of support answers how only if witnessed.
   \end{idea}
-  
 \end{note}
 
 \begin{note}
@@ -884,6 +949,100 @@
   Then, add in, that it's unclear to me exactly how well this fares with causal theories.
   \emph{However}, necessary rather than sufficient, and if stronger, then still relation.
   This, I already have an argument for.
+\end{note}
+
+\begin{note}
+  For example, look through this document.
+  Read~\autoref{prop:IssueRelation}.
+  Recall providing the argument.
+  Whatever pool of premises are extracted from the argument, rather than testimony of my current self.
+
+  Though, to motivate the idea, something a little more emotional.
+
+  Note from a loved one.
+  Tear up.
+  Not the note, it's them saying the words.
+
+  Of course, might go the other way.
+  Well, you can't see something that's not there, but on the other hand piece of paper.
+
+  Likewise, scared of spider, but the spider left sight a long time ago.
+\end{note}
+
+\begin{note}
+  So, may take~\autoref{issue:has-witnessed} to be weaker than~\autoref{issue:why-inc-in-how}.
+  If not, then recast.
+
+  Negative resolution to~\autoref{issue:has-witnessed}.
+  Hence, also, negative resolution to~\autoref{issue:why-inc-in-how}.
+
+  Still, \iWitness{} as our main point of interest.
+\end{note}
+
+\paragraph{Variant on \qHow{}}
+
+\begin{note}
+  Our interest is with answers to \qWhy{}, rather than providing an answer to \qWhy{}.
+  For, answers to \emph{why} an agent concluded may be constrained by \emph{how} an agent concluded.
+  In other words, answers to \qWhy{} may be constrained by answers to \qHow{}:
+
+  \begin{question}[\qHowV{}]
+    \label{q:how:v}
+    For all the relations of support involved in the agent concluding \(\phi\) has value \(v\), \emph{in what way} did those relations of support come to be involved in the agent concluding \(\phi\) has value \(v\)?
+
+    \textbf{Which proposition-value-premises pairings were part of the agent's reasoning?}
+  \end{question}
+
+  What information was appealed to by the agent to conclude \(\phi\) has value \(v\)?
+
+  Which premises did the agent use, which conclusions did the agent draw from those premises?
+
+  For example, \autoref{illu:gist:calc}, agent concluded \(23 \times 15 = 345\) from the testimony of the calculator.
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    \label{prop:qHow-and-qHowV}
+    For any conclusion-premises pairing \(\pvp{\phi}{v}{\Phi}\):
+
+    \emph{If} \(\pvp{\phi}{v}{\Phi}\) is, in part, an answer to \qHow{} \emph{then} \(\pvp{\phi}{v}{\Phi}\) is, in part, an answer to \qHowV{}.
+  \end{proposition}
+
+  \begin{argument}
+    So, this comes from lack of specification about what \qHow{} amounts to.
+  \end{argument}
+
+  \autoref{prop:qHow-and-qHowV} contrasts with~\autoref{prop:qWhy-and-qWhyV}.
+  \qHowV{} and \qHow{} are not equivalent.
+\end{note}
+
+\subsection{Issue}
+\label{sec:issue-refined-proper}
+
+\begin{note}
+  \begin{restatable}[Witnessing]{idea}{ideaWitnessing}
+    \label{idea:Witnessing}
+    A relation of support holds between a pool of premises \(\Phi\) and a conclusion that \(\phi\) has value \(v\) is in part an answer to \qWhy{} \emph{only if} the agent has witnessed reasoning from \(\Phi\) to \(\phi\) having value \(v\).
+  \end{restatable}
+
+  When concluding, witnesses reasoning from pool of premises to conclusion.
+
+  Relation of support between pool of premises and conclusion determines why the agent concluded \(\phi\) has value \(v\).
+
+  Concluding, result of reasoning.
+  Some relation of support between conclusion and pool of premises.
+  From some inputs to some output.
+  Process information.
+  Relation of support from some of this information.
+
+  May seem natural.
+  Indeed, always have the resources.
+  Above example, calculator is both how and why.
+  If had reasoned from understanding of arithmetic, then that would be both how and why.
+\end{note}
+
+\begin{note}
+  Here, the issue.
 \end{note}
 
 \begin{note}
@@ -907,28 +1066,6 @@
 
   In contrast to~\autoref{issue:why-inc-in-how},~\autoref{issue:has-witnessed} does not require a relation of support which answers \qWhy{} to involve a pool of premises drawn from the agent's present reasoning.
   Instead, so long as the agent has --- either through their present reasoning or in some past reasoning --- witnessed reasoning from the pool of premises to the conclusion, the relevant relation of support may answer \qWhy{}.
-\end{note}
-
-\begin{note}
-  \begin{restatable}[Witnessing]{idea}{ideaWitnessing}
-    \label{idea:Witnessing}
-    A relation of support holds between a pool of premises \(\Phi\) and a conclusion that \(\phi\) has value \(v\) is in part an answer to \qWhy{} \emph{only if} the agent has witnessed reasoning from \(\Phi\) to \(\phi\) having value \(v\).
-  \end{restatable}
-
-  When concluding, witnesses reasoning from pool of premises to conclusion.
-
-  Relation of support between pool of premises and conclusion determines why the agent concluded \(\phi\) has value \(v\).
-
-  Concluding, result of reasoning.
-  Some relation of support between conclusion and pool of premises.
-  From some inputs to some output.
-  Process information.
-  Relation of support from some of this information.
-
-  May seem natural.
-  Indeed, always have the resources.
-  Above example, calculator is both how and why.
-  If had reasoned from understanding of arithmetic, then that would be both how and why.
 \end{note}
 
 \begin{note}
@@ -962,39 +1099,8 @@
   Hence, as our goal is to motivate a negative resolution to~\autoref{issue:has-witnessed}, \dots
 \end{note}
 
-\begin{note}
-  \begin{goal}
-    Motivate a negative resolution to~\autoref{issue:has-witnessed}.
-  \end{goal}
-\end{note}
 
-\begin{note}
-  For example, look through this document.
-  Read~\autoref{prop:IssueRelation}.
-  Recall providing the argument.
-  Whatever pool of premises are extracted from the argument, rather than testimony of my current self.
 
-  Though, to motivate the idea, something a little more emotional.
-
-  Note from a loved one.
-  Tear up.
-  Not the note, it's them saying the words.
-
-  Of course, might go the other way.
-  Well, you can't see something that's not there, but on the other hand piece of paper.
-
-  Likewise, scared of spider, but the spider left sight a long time ago.
-\end{note}
-
-\begin{note}
-  So, may take~\autoref{issue:has-witnessed} to be weaker than~\autoref{issue:why-inc-in-how}.
-  If not, then recast.
-
-  Negative resolution to~\autoref{issue:has-witnessed}.
-  Hence, also, negative resolution to~\autoref{issue:why-inc-in-how}.
-
-  Still, \iWitness{} as our main point of interest.
-\end{note}
 
 \section{The type of \scen{0} we will focus on}
 \label{overview:sec:type-of-scen}
@@ -1758,7 +1864,7 @@
 
   If \fc{0}, then some pool of premises \(\Phi\) available to the agent such that it is possible for the agent to witness reasoning from \(\Phi\) to \(\phi\) having value \(v\).
 
-  Future variant of~\autoref{assumption:support}.
+  Future variant of~\autoref{idea:support}.
   If agent has concluded, then support.
   Agent has not concluded, but sufficient.
 
