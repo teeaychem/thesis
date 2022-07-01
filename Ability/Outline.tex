@@ -25,7 +25,7 @@
 
     \mbox{ }
 
-    The agent observes that they have the option to calculate \(23 \times 15\) via their understanding of arithmetic.
+    The agent observes they have the option to calculate \(23 \times 15\) via their understanding of arithmetic.
     And, \emph{if} the calculator is trustworthy, then they would not fail to conclude \(23 \times 15 = 345\) via their understanding of arithmetic.
 
     \mbox{ }
@@ -150,7 +150,7 @@
   }
 
   \phantlabel{how-and-why-relation-first-mention}
-  \begin{restatable}[Inclusion]{issue}{issueInclusionFirst}
+  \begin{restatable}[\issueInclusion{}]{issue}{issueInclusionFirst}
     \label{issue:why-inc-in-how}
     Some proposition-value-premises pairing is, in part, an answer to \qWhy{} only if that proposition-value-premises pairing is (also), in part, an answer to \qHow{}.
   \end{restatable}
@@ -323,19 +323,13 @@
     Idea of a \fc{} and how \fc{1} may be involved in concluding.
   \end{enumerate}
 
-  These three 
-\end{note}
 
-\begin{note}
-  This chapter will be split into three parts.
-
+  Chapter will be split into three parts
   In \autoref{overview:sec:interest}, we will clarify what is of interest.
   In particular, \autoref{overview:sec:interest} will be split into two subsections.
 
-  In~\autoref{overview:sec:support} we will clarify why we are interested in intuitions regarding \scen{1} such as \autoref{illu:gist:calc}.
-  And, more generally, 
-  
-  
+  In~\autoref{sec:overview:support} we will clarify why we are interested in intuitions regarding \scen{1} such as \autoref{illu:gist:calc}.
+
 
   First, clarify what is of interest.
   Two things in particular.
@@ -379,8 +373,11 @@
   And, to introduce type of \scen{} of interest.
 \end{note}
 
-\section{Concluding and support}
-\label{overview:sec:support}
+\section{Support and reasoning}
+\label{sec:overview:support-reasoning}
+
+\subsection{Concluding and support}
+\label{sec:overview:support}
 
 \begin{note}
   Our interest is with the process of an agent concluding some proposition-value pair from some pool of premises.
@@ -452,14 +449,19 @@
   }
 
   \begin{quote}
-    \fitchprf{}{
-      \subproof{\pline[]{P}}{
-        \pline[]{\vdots} \\
-        \pline[]{Q}
-      }
-      \pline[]{P \rightarrow Q}
-    }
+    \fitchctx{
+     \subproof{\pline{P}}{
+         \ellipsesline\\
+         \pline{Q}
+     }
+     \pline{P \lif Q}
+   }
   \end{quote}
+
+  {
+    \color{red}
+    The rule states that at any point in a proof, assume \formula{P}, then, after deriving \formula{Q} from \formula{P} discharge assumption of \formula{P} and introduce \formula{P \lif Q}.
+  }
 
   Start with an assumption , derive proposition-value pair.
   Conclude if X then Y.
@@ -727,29 +729,263 @@
   }
 \end{note}
 
-\section{\qWhy{} and \qHow{}, refined}
-\label{sec:support-why-how}
+\subsection{Reasoning}
+\label{sec:overview:reasoning}
 
 \begin{note}
-  Recall:
-  \vspace{-\baselineskip}
+  \begin{idea}
+    \label{assu:C-culmination-of-R}
+    If concluded \(\pv{\phi}{v}\) from \(\Phi\), then reasoned from \(\Phi\) to \(\pv{\phi}{v}\).
+  \end{idea}
+
+  In other words, conclude \(\pv{\phi}{v}\) then reasoned from some pool of premises to \(\Phi\).
+\end{note}
+
+\begin{note}[No constraints]
+  No constraints placed on reasoning.
+
+  In line with, for example, \citeauthor{Broome:2013aa}.
+
   \begin{quote}
-    \questionWhyBasic*
+    Following this rule would lead you to believe you hear trumpets when you believe it is raining and believe that if it is raining the snow will melt. If you did this, should we count you as reasoning?
 
-    \questionHowBasic*
+    I think we should. If you derive this conclusion by operating on the premises, following the rule, we should count you as reasoning.
 
-    \issueInclusionFirst*
+    \mbox{}\hfill\(\vdots\)\hfill\mbox{}
+
+    I think we should not impose a limit on rules.%
+    \mbox{}\hfill\mbox{(\citeyear[233]{Broome:2013aa})}
+  \end{quote}
+\end{note}
+
+\begin{note}
+  Plausibly contrasts with an account of reasoning such as \citeauthor{Wedgwood:2006ui}'s (\citeyear{Wedgwood:2006ui}) account of reasoning.
+
+  \begin{quote}
+    % So, the disposition that one must manifest in forming a belief in \emph{p} by means of reasoning must be one that can be specified by means of a function that, for \emph{any} proposition \emph{q} within the relevant range, maps the stimulus event-type \emph{coming to be in some mental states or other that rationalize forming a belief in q} onto the response event-type \emph{forming a belief in q}.
+    [T]he disposition that one must manifest in reasoning is a disposition that responds to the fact that one is in some mental states or other that rationalize one's forming the belief or intention in question.\newline
+    \mbox{ }\hfill\mbox{(\citeyear[672]{Wedgwood:2006ui})}
   \end{quote}
 
-  Goal is to refine understanding of these questions.
+  Where:
+
+  \begin{quote}
+    If a set of antecedent mental states makes it rational for one to form a new belief or intention, then those antecedent mental states are surely of a suitable type and content so that it is \emph{intelligible} that they could represent one's reason for forming that belief or intention.\newline
+    \mbox{ }\hfill\mbox{(\citeyear[662]{Wedgwood:2006ui})}
+  \end{quote}
+
+  Of course, this is only sufficient condition, but \citeauthor{Wedgwood:2006ui}'s account of reasoning is developed under the assumption the condition is also necessary.%
+  \footnote{
+    So, here, problem with fallacious reasoning that \citeauthor{Wedgwood:2006ui} notes.
+    Following brief discussion:
+    \begin{quote}
+      I shall proceed on the idealizing assumption that the only way in which a set of antecedent mental states can rationalize the formation of a belief or intention is by making that new belief or intention a \emph{rational} belief or intention to form.\newline
+      \mbox{ }\hfill\mbox{(\citeyear[662]{Wedgwood:2006ui})}
+    \end{quote}
+    However, it's not clear to me that fallacious reasoning is a pressing problem for an account such as \citeauthor{Wedgwood:2006ui}'s.
+    For, fallacious reasoning may be reasoning in the same way that a fake water pistol is a water pistol.
+    I.e.\ fallacious reasoning need not be reasoning proper.
+  }
+\end{note}
+
+\begin{note}
+  So, allow reasoning to be broad.
+  Hence, concluding also.
+  Still, compatible with account such as \citeauthor{Wedgwood:2006ui}'s.
+
+  No constraints means that we do not place constraints, it does not mean that we assume there are no constraints on reasoning.
+\end{note}
+
+\paragraph[Reasoning-to vs.\ concluding]{Distinction between reasoning-to and concluding \hfill (Optional)}
+
+\begin{note}
+  Reasoning that concludes \(\phi\) has value \(v\) is distinct from reasoning:
+  \begin{enumerate}[label=\Alph*., ref=(\Alph*)]
+  \item
+    \label{CS:delicacy:O}
+    Whose conclusion is (merely) \emph{about} \(\phi\) having value \(v\), and does not `require' \(\phi\) has value \(v\).
+  \item
+    \label{CS:delicacy:A}
+    That concludes \(\phi\) has value \(v\) \emph{assuming} \dots\space --- where `\emph{assuming} \dots\space' is expanded to include some proposition-value pair \(\pv{\chi}{v}\) such that they agent has \emph{not} concluded \(\pv{\chi}{v}\).
+  \end{enumerate}
+\end{note}
+
+\begin{note}[Epistemic operator]
+  The statement of \ref{CS:delicacy:O} is loose, but the underlying idea is straightforward.
+
+  we typically express the conclusion of the agent's reasoning which is (merely) about \(\phi\) having value \(v\) with some adjective.
+  For example:
+
+  \begin{quote}
+    \vAgent{} \(\{ \text{hopes}, \text{imagines}, \text{desires}, \text{thinks}, \dots \}\) \(\phi\) is true.%
+    \footnote{
+      More generally, has value \(v\).
+    }
+  \end{quote}
+  Each candidate adjective may be read in a way which is compatible with past, present, or future reasoning which concludes \(\phi\) is not true.
+  In this sense, the reasoning is (merely) \emph{about} \(\phi\) being true, and does not require \(\phi\) is true.
+
+  However, the relevant adjective may also be read as an evaluation of the relevant situation.
+  It may be \(\phi\) \emph{is} hoped for, imagined, desired, thought, and so on.
+  In this sense, the reasoning concludes \(\phi\) has some value \(v\), where the value is some value distinct from `true'.
+
+  For the most part, `true' will be the relevant value \(v\) when discussing instances of reasoning.
+  And, you may (unless there is clear tension) substitute mention or use of `\(\phi\) having value \(v\)' for `\(\phi\) being true'.
+  Still, we do not require that `true' is the unique value of interest, and on occasion we will observe how various different valuations interact with observations made.
+\end{note}
+
+\begin{note}[Suppositions]
+  \ref{CS:delicacy:A} is more straightforward.
+  Contrast the instances of reasoning in~\autoref{fig:Rover}.
+  \begin{figure}[h!]
+    \mbox{}\hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}
+      \item
+        \label{fig:Rover:CS:1}
+        Rover is tired.
+      \item
+        \label{fig:Rover:CS:2}
+        Rover will fall asleep soon.
+      \end{enumerate}
+      \caption{}
+      \label{fig:Rover:CS}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+      \begin{enumerate}[label=\arabic*\('\).,ref=(\arabic*\('\))]
+      \item
+        \label{fig:Rover:nCS:1}
+        \emph{Supposing} Rover is tired.
+      \item
+        \label{fig:Rover:nCS:2}
+        Rover will fall asleep soon.
+      \end{enumerate}
+      \caption{}
+      \label{fig:Rover:nCS}
+    \end{subfigure}
+    \hfill\mbox{}
+    \caption{Two instance of reasoning}
+    \label{fig:Rover}
+  \end{figure}
+
+  \ref{fig:Rover:CS} and \ref{fig:Rover:nCS} are distinguishing by whether or not the premise that Rover is tired is a supposition (\ref{fig:Rover:nCS}) or not (\ref{fig:Rover:CS}).
+
+  It may be the case that Rover would fall asleep soon if Rover were tired, but as \ref{fig:Rover:nCS:1} does not concern the actual state of Rover, \ref{fig:Rover:nCS:2} need not concern the actual state of Rover.
+
+  By contrast,~\ref{fig:Rover:CS} is an instance of reasoning about how things are.
+  The agent is holding that it is the case that Rover is tired, and therefore it is the case that Rover will fall asleep soon.
+
+  I take this distinction to be straightforward.
+  Though, it is not always immediately clear how the distinction applies to some conclusion of reasoning when stated independently of the preceding reasoning.
+  Consider the conclusion:
+
+  \begin{quote}
+    That Rover is asleep is likely.
+  \end{quote}
+
+  Following the distinction, there are two broad ways of interpreting the conclusion:
+  \begin{enumerate}
+  \item
+    The agent has made some plausible assumptions and granting those assumptions, Rover is asleep.
+  \item
+    For every proposition-value pair \(\chi_{i}\) having value \(v_{i}\) the agent has appealed to, the agent hold it to be the case \(\chi_{i}\) has value \(v_{i}\).
+    However, the agent only concludes from \(\chi_{i}\) having values \(v_{i}\) that there is some (objective or subjective) chance that Rover is asleep.
+  \end{enumerate}
+  So, though claiming support is for some proposition \(\phi\) having some value \(v\), it is not clearly the case that claiming support is restricted to certain proposition-value combinations.
+\end{note}
+
+\begin{note}[Analogue]
+  Analogue of concluding for conditional.
+  Here, bundle into \(\phi\).
+  More generally, not much need for conditional stuff.
+\end{note}
+
+\subsubsection{Summary}
+\label{sec:overview:support-reasoning:summary}
+
+\begin{note}[What we've seen]
+  Support and reasoning.
+\end{note}
+
+\begin{note}[Role in expanding]
+  Following section, use support and reasoning to expand on \qWhy{}, \qHow{}, and \issueInclusion{}.
+\end{note}
+
+\begin{note}[Motivation]
+  Handful of additional theories that motivate positive resolution to \issueInclusion{}.
+\end{note}
+
+\section{\qWhy{}, \qHow{}, and \issueInclusion{}, expanded}
+\label{sec:support-why-how}
+
+\begin{note}[Goal]
+  Goal is to refine understanding of these questions and relation.
 
   In particular, connecting \qWhy{} to relations of support.
 
-  Also, \qHow{}.
+  Also, \qHow{} to reasoning.
+\end{note}
+
+\begin{note}[Division]
+  Three sections.
+
+  First two sections focus on \qWhy{} and \qHow{}, respectively.
+  Introduce an idea, expand on question, and present variant question given introduced idea.
+
+  \qWhy{}, support, converse.
+  \qHow{}, witnessing.
+
+  Third section, bring the expansions together.
+  Present variant of main issue.
+  This variant will be our focus for the document.
+
+  \begin{itemize}
+  \item
+    \autoref{sec:clar:expand:qWhy}.
+  \item
+    \autoref{sec:clar:expand:qHow}.
+  \item
+    \autoref{sec:clar:expand:issue}
+  \end{itemize}
 \end{note}
 
 \subsection{\qWhy{}}
-\label{sec:qWhy:refined}
+\label{sec:clar:expand:qWhy}
+
+\begin{note}[Introduction]
+  We now turn to \qWhy{}:
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \questionWhyBasic*
+  \end{quote}
+  Example, pairing of \(23 \times 15 = 345\) and the testimony of the calculator that \(23 \times 15 = 345\) answers, in part, why the agent concluded \(23 \times 15 = 345\) in \autoref{illu:gist:calc}.
+  Slightly more natural to say `the testimony of the calculator that \(23 \times 15 = 345\)', but \emph{paring}.
+
+  Observed that, intuitively, pairing of \(23 \times 15 = 345\) and whatever pool of premises would be associated with the agent applying their understanding of arithmetic does not answer, in part, why the agent concluded \(23 \times 15 = 345\).
+\end{note}
+
+\begin{note}
+  Intuition.
+
+  Theoretical motivation for this via \issueInclusion{}.
+  Understanding of arithmetic intuitively not part of how.
+\end{note}
+
+\begin{note}
+  Present section, stronger link between relation of support and \qWhy{}.
+  From \autoref{assu:why:pvpp:support}, relation of support between testimony and \(23 \times 15 = 345\) explains why.
+
+  Converse.
+
+  Given positive resolution to \issueInclusion{}, relation of support is not answer why.
+
+  More generally, equivalence between relation of support and proposition-value-premises pairings.
+
+
+  However, possible relation of support also explains why.
+  Rule this out.
+\end{note}
 
 \paragraph{Idea}
 
@@ -822,9 +1058,9 @@
   So, this idea isn't going to give rise to this problem.
 \end{note}
 
-\paragraph{Refinement}
+\paragraph{Variant of \qWhy{}}
 
-\begin{note}[\qWhy{}, refined]
+\begin{note}[The variant]
   Given role of support, and ideas, variant of \qWhy{}:
 
   \begin{question}[\qWhyV{}]
@@ -873,8 +1109,8 @@
 \end{note}
 
 \begin{note}
-  \Autoref{issue:why-inc-in-how} distinguishes classes of theories.
-  A positive resolution to~\autoref{issue:why-inc-in-how} will not directly provide general answer to \qWhy{}.
+  \issueInclusion{} distinguishes classes of theories.
+  A positive resolution to \issueInclusion{} will not directly provide general answer to \qWhy{}.
   Though, a positive answer will rule out certain answers.
 
   For example, wrt.~\autoref{illu:gist:calc}.
@@ -885,13 +1121,45 @@
   As we will see below, many accounts of concluding seem to fall in line with this.
 \end{note}
 
-\subsection{How}
-\label{sec:qHow:refined}
+\subsection{\qHow{}}
+\label{sec:clar:expand:qHow}
 
+\begin{note}[Introduction]
+  We now turn to \qHow{}:
+  \vspace{-\baselineskip}
+  \begin{quote}
+    \questionHowBasic*
+  \end{quote}
+  Example, pairing of \(23 \times 15 = 345\) and the testimony of the calculator that \(23 \times 15 = 345\) answers, in part, how the agent concluded \(23 \times 15 = 345\) in \autoref{illu:gist:calc}.
+  Slightly more natural to say `the testimony of the calculator that \(23 \times 15 = 345\)', but \emph{paring}.
+
+  Observed that, intuitively, pairing of \(23 \times 15 = 345\) and whatever pool of premises would be associated with the agent applying their understanding of arithmetic does not answer, in part, how the agent concluded \(23 \times 15 = 345\).
+\end{note}
+
+\begin{note}[Theoretical motivation]
+  Broader theoretical support from something like \citeauthor{Davidson:1963aa}'s causal theory of action.
+  Also, now, \citeauthor{Boghossian:2014aa} and \citeauthor{Broome:2013aa}.
+  And, \citeauthor{Wright:2014tt}.
+\end{note}
 
 \begin{note}
-  \color{red}
-  \questionHowBasic*
+  In this section we expand via a necessary condition on how.
+  In short, the agent has witnessed reasoning.
+
+  The primary purpose of this expansion is to clarify the way in which, for present purposes, answers to how may be fairly weak.
+
+  Two important things.
+
+  No constraints placed on reasoning.
+  Has, and so temporal component.
+\end{note}
+
+\begin{note}
+  Two parts.
+
+  Ideas, and discussion.
+
+  Variant of \qHow{} given ideas.
 \end{note}
 
 \paragraph{Ideas}
@@ -913,7 +1181,8 @@
 \end{note}
 
 \begin{note}
-  \begin{idea}[Witnessing]
+  \begin{idea}[\ideaWitness{}]
+    \label{idea:Witnessing}
     \label{idea:how-witnessing}
     For any proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\):
     \begin{itemize}
@@ -1003,7 +1272,7 @@
 \end{note}
 
 \begin{note}
-  Argue against positive resolution to \autoref{issue:why-inc-in-how}.
+  Argue against positive resolution to \issueInclusion{}.
   Stronger idea, then in principle, easier counterexamples.
 
   For example, argue that more basic principles really are involved in explaining why.
@@ -1030,7 +1299,7 @@
 \end{note}
 
 
-\paragraph{Refinement}
+\paragraph{Variant of \qHow{}}
 
 \begin{note}
   Our interest is with answers to \qWhy{}, rather than providing an answer to \qWhy{}.
@@ -1066,7 +1335,7 @@
 \end{note}
 
 \begin{note}
-    In contrast to~\autoref{issue:why-inc-in-how},~\autoref{issue:has-witnessed} does not require a relation of support which answers \qWhy{} to involve a pool of premises drawn from the agent's present reasoning.
+    In contrast to \issueInclusion{}, \issueConstraint{} does not require a relation of support which answers \qWhy{} to involve a pool of premises drawn from the agent's present reasoning.
   Instead, so long as the agent has --- either through their present reasoning or in some past reasoning --- witnessed reasoning from the pool of premises to the conclusion, the relevant relation of support may answer \qWhy{}.
 \end{note}
 
@@ -1081,12 +1350,12 @@
   Primary motivation for this revision is that, as witnessing is necessary, \qHowV{} is weaker than \qHow{}.
 \end{note}
 
-\subsection{Issue}
-\label{sec:issue-refined-proper}
+\subsection{\issueInclusion{}}
+\label{sec:clar:expand:issue}
 
 \begin{note}
-  \autoref{sec:qWhy:refined} refined \qWhy{} in terms of support.
-  \autoref{sec:qHow:refined} refined, or perhaps weakened, \qHow{} in terms of witnessing.
+  \autoref{sec:clar:expand:qWhy} refined \qWhy{} in terms of support.
+  \autoref{sec:clar:expand:qHow} refined, or perhaps weakened, \qHow{} in terms of witnessing.
 
   Interest in \qWhy{} and \qHow{} in terms of whether a constraint holds.
 
@@ -1100,7 +1369,7 @@
   And, theoretical motivation via \citeauthor{Davidson:1963aa}' causal theory of action.
   In addition, \citeauthor{Boghossian:2014aa} when discussing support.
 
-  Purpose of the present section is to bring refinements to questions together to provide refinement to~\autoref{issue:why-inc-in-how}.
+  Purpose of the present section is to bring refinements to questions together to provide refinement to \issueInclusion{}.
 
   The refined issue will be the focus.
 \end{note}
@@ -1110,7 +1379,7 @@
 \begin{note}
   \begin{proposition}
     \label{prop:support-and-witnessing}
-    Grating a positive resolution to~\autoref{issue:why-inc-in-how}, and given \autoref{assu:why:support:pvpp} and \autoref{idea:how-witnessing}:
+    Grating a positive resolution to \issueInclusion{}, and given \autoref{assu:why:support:pvpp} and \autoref{idea:how-witnessing}:
     \begin{itemize}
     \item
       A relation of support between \(\pv{\psi}{v'}\) and \(\Psi\) is, in part, an answer to why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
@@ -1129,16 +1398,23 @@
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
-    \node[draw, text width=.45\textwidth] (whyO) at (0,0) %
+    \tikzset{ansStyle/.style={
+        draw=gray,
+        text width=.45\textwidth,
+        rounded corners=2pt,
+      }
+    }
+    %
+    \node[ansStyle] (whyO) at (0,0) %
     {\qWhyV{} is answered by support between \(\pv{\psi}{v'}\) and \(\Psi\).};
     %
-    \node[draw, text width=.45\textwidth] (whyA) at (2,-1.5) %
+    \node[ansStyle] (whyA) at (2,-1.5) %
     {\qWhy{} is answered by \(\pvp{\psi}{v'}{\Psi}\).};
     %
-    \node[draw, text width=.45\textwidth] (howA) at (4,-3) %
+    \node[ansStyle] (howA) at (4,-3) %
     {\qHow{} is answered by \(\pvp{\psi}{v'}{\Psi}\).};
     %
-    \node[draw, text width=.45\textwidth] (witA) at (6,-4.5) %
+    \node[ansStyle] (witA) at (6,-4.5) %
     {\qHowV{} is answered by witnessed reasoning from \(\Psi\) to \(\pv{\psi}{v'}\).};
     %
     \path[->] ($(whyO.south)!0.9!(whyO.south west)$) edge [out=270, in=180] (whyA);
@@ -1148,19 +1424,23 @@
     \node[text width=.5\textwidth] (1) at (1,-.8) %
     {Via \autoref{assu:why:support:pvpp}.};
     %
-    \node[text width=.5\textwidth] (2) at (3,-2.25) %
-    {Via a positive resolution to \autoref{issue:why-inc-in-how}.};
+    \node[text width=.75\textwidth] (2) at (4.5,-2.25) %
+    {Via a positive resolution to \issueInclusion{}.};
     %
     \node[text width=.5\textwidth] (3) at (5,-3.625) %
     {Via \autoref{idea:how-witnessing}.};
+    %
+    \draw[->, gray] ($(whyA.north)!0.9!(whyA.north east)$) to [out=90, in=0] ($(whyO.east)$);
+    %
+    \node[text width=.5\textwidth, text=gray] (1p) at (8,-.8) %
+    {Via \autoref{assu:why:pvpp:support}.};
   \end{tikzpicture}%
-  \caption{Relation between why and hows.}
+  \caption{Relation between positive answers to questions.}
   \label{fig:relations-between-whys-and-hows}
 \end{figure}
 
 \begin{note}
-  \begin{idea}[\iWitness{}]
-    \label{idea:Witnessing}
+  \begin{idea}[Witnessing constraints support]
     A relation of support between \(\psi\) having value \(v'\) and some pool of premises \(\Psi\) is, in part, an answer to, why an agent concluded \(\phi\) has value \(v\) \emph{only if} the agent has witnessed reasoning from \(\Psi\) to \(\psi\) having value \(v'\).
   \end{idea}
 \end{note}
@@ -1172,7 +1452,7 @@
 \paragraph{Issue refined}
 
 \begin{note}
-  \begin{restatable}[Witnessing]{issue}{issueWitnessing}
+  \begin{restatable}[\issueConstraint{}]{issue}{rIssueConstraint}
     \label{issue:has-witnessed}
     Is it the case that:
 
@@ -1181,7 +1461,7 @@
 
   {
     \color{red}
-    \autoref{issue:has-witnessed} generalises~\autoref{issue:why-inc-in-how} in two ways.
+    \issueConstraint{} generalises \issueInclusion{} in two ways.
     \begin{itemize}
     \item
       Current reasoning.
@@ -1195,7 +1475,7 @@
 \paragraph{Negative resolution}
 
 \begin{note}
-  Converse, then either reject ideas or negative resolution to \autoref{issue:why-inc-in-how}.
+  Converse, then either reject ideas or negative resolution to \issueInclusion{}.
 \end{note}
 
 \begin{note}
@@ -1315,7 +1595,7 @@
 
   This, noted.
 
-  Argue this type of \scen{0} motivates negative resolution to~\autoref{issue:has-witnessed}, and, by extension,~\autoref{issue:why-inc-in-how}.
+  Argue this type of \scen{0} motivates negative resolution to \issueConstraint{}, and, by extension, \issueInclusion{}.
 
   Intuitions are difficult.
   Motivation will focus on:
@@ -1357,6 +1637,17 @@
     \end{itemize}
     \vspace{-\baselineskip}
   \end{scenarioType}
+
+  {
+    \color{red}
+    Slight variation on \citeauthor{Tolliver:1982us}'s Pendulum Case.%
+    \footnote{
+      Understood \citeauthor{Tolliver:1982us}'s case only after.
+    }
+    Similar to \citeauthor{Tolliver:1982us}, though a difference.
+  For, here, not lacking information.
+  With the pendulum, didn't have the option of concluding from period, as didn't have information about period.
+  }
 
   For ease of reference, we term scenarios of this type `\cScen{1}', where `CoRe' stands for `check on reasoning', or more carefully `partial check on reasoning'.
 
@@ -1460,59 +1751,41 @@
   Difference is the pools of premises.
 \end{note}
 
-\begin{note}
-
-\end{note}
-
-\begin{note}
-  Conditional holds from the agent's perspective.
-
-  Support.
-
-  Support is relative to agent.
-
-  \begin{idea}
-    If agent has option and fails to conclude, no support.
-  \end{idea}
-
-  \begin{idea}
-    If support between \(\Phi\) and \(\phi\) having value \(v\) only if relation of support between \(\Psi\) and \(\psi\) having value \(v'\).
-  \end{idea}
-\end{note}
-
-\begin{note}
-  Of course, interest in this property has only just been made explicit.
-  Perhaps revise intuition.
-  Though, I expect not.
-
-  Though it is true that the agent would not conclude, did not do the reasoning.
-
-  Stated in other terms, \(\psi\) from \(v'\) is a \fc{} if \(\phi\) has value \(v\).
-  Still, no relevance.
-\end{note}
-
 \paragraph{Additional examples}
 
-\begin{note}[Logician]
-  \begin{illustration}\label{illu:CS:tfc}
-    Novice logician.
-    \begin{enumerate}
-    \item Claimed support that \(\{\land,\lnot\}\) are truth functionally complete.
-    \item If \(\{\land,\lnot\}\) are truth functionally complete then \(\{\lor,\lnot\}\) are truth functionally complete.
-    \item So, \(\{\land,\lnot\}\) are truth functionally complete.
-    \item Hence, \(\{\lor,\lnot\}\) are truth functionally complete.
-    \end{enumerate}
+\begin{note}[New \illu{0}]
+  \begin{illustration}
+    \label{illu:sketch:prop-logic}
+    Suppose an agent has a good grasp of propositional logic.
+    In particular:
+    \begin{itemize}
+    \item
+      The agent has a good understanding of some formal proof system.
+      For example, some Fitch-style system.
+    \item
+      The agent has a good understanding of some method to construct semantic proofs.
+      For example, by constructing truth tables, or reasoning about valuation functions.
+    \item
+      The agent understands the proof system is sound and complete.
+      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
+    \end{itemize}
+    The agent constructs a proof of \(A\).
+
+    Given the agent's understanding of propositional logic, the agent observes:
+    \begin{quote}
+      The construction is a proof of \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
+    \end{quote}
   \end{illustration}
 
-  First, reasoning for \(\{\land,\lnot\}\) did not depend on \(\{\lor,\lnot\}\).
-  But this is quite complex.
-  Not explicit assumption, but perhaps implicit.
-  Still, going back through reasoning, it seems this is fair.
+  Intuitively, if the agent were to reason about whether \(A\) is true given an arbitrary valuation and failed to conclude \(A\) is true given an arbitrary valuation, then the agent would not conclude the construction is a proof of \(A\).
 
-  Second, interdefinability.
-  Hence, good account of why deals with possibility, as in general what holds for \(\{\land,\lnot\}\) will hold form \(\{\lor,\lnot\}\).
+  If were to go for semantic, then by soundness, works out.
+\end{note}
 
-  Indeed, this suggests an alternative way of getting to the conclusion.
+\begin{note}[Interest]
+  Delicate, the equivalence result is not in question.
+  What's at issue is one's reasoning.
+  The result tells me that if reasoning is fine for syntax, then also semantics and vice-versa.
 \end{note}
 
 \begin{note}[Programming]
@@ -1764,14 +2037,14 @@
 \paragraph*{Summarising}
 
 \begin{note}
-  So, motivated positive resolutions to issues~\ref{issue:why-inc-in-how} and~\ref{issue:has-witnessed}.
-  And, in particular, motivated~\autoref{issue:has-witnessed} over~\autoref{issue:why-inc-in-how}.
+  So, motivated positive resolutions to issues \issueInclusion{} and \issueConstraint{}.
+  And, in particular, motivated \issueConstraint{} over \issueInclusion{}.
 \end{note}
 
 \begin{note}
-  Focus on role of \iWitness{}.
+  Focus on role of \issueConstraint{}.
 
-  \issueWitnessing*
+  \rIssueConstraint*
 
   This is the important thing, and in this respect it doesn't matter whether past or present.
   Whether a relation of support holds only if witnessed.
@@ -1779,7 +2052,7 @@
 \end{note}
 
 \begin{note}[Pre-theoretical constraint]
-  \iWitness{} captures intuitive constraint of no account of why without an account of how.
+  Issue captures intuitive constraint of no account of why without an account of how.
   Witnessing a pre-theoretical constraint.
 
   Broader than causation.
@@ -1796,13 +2069,15 @@
   Now turn to sketching out argument.
 \end{note}
 
-\chapter{Overview}
+\chapter{Outline}
 
 \begin{note}
-  In this section we provide an outline the argument we will make for a negative resolution to~\autoref{issue:has-witnessed}.
+  In this chapter we provide an outline the argument we will make for a negative resolution to \issueConstraint{}.
 
   At the highest level, the strategy is fairly straightforward:
-  Provide \scen{0} which motivate a negative resolution to~\autoref{issue:has-witnessed}.
+  \begin{quote}
+    Provide \scen{0} which motivate a negative resolution to \issueConstraint{}.
+  \end{quote}
 
   We being with a very high level overview, detailing the key ideas and how they fit together.
   Following the very high level overview we then provide a slightly more detailed pass.
@@ -1811,16 +2086,16 @@
 \begin{note}
   Though, this may be misleading.
   Considered various \scen{0}, and intuitions with respect to these \scen{0}.
-  Our strategy is not to provide equally intuitive \scen{0} which are incompatible with a positive resolution to~\autoref{issue:has-witnessed}.
+  Our strategy is not to provide equally intuitive \scen{0} which are incompatible with a positive resolution to \issueConstraint{}.
 
-  Rather, our strategy is to provide a detailed account of how a handful of ideas --- which are motivated independently of either a positive or negative resolution to ~\autoref{issue:has-witnessed} --- combine to provide an abstract type of \scen{0}.
+  Rather, our strategy is to provide a detailed account of how a handful of ideas --- which are motivated independently of either a positive or negative resolution to  \issueConstraint{} --- combine to provide an abstract type of \scen{0}.
 
-  Tension between instances of abstract type of \scen{0} and positive resolution to~\autoref{issue:has-witnessed}.
+  Tension between instances of abstract type of \scen{0} and positive resolution to \issueConstraint{}.
 
-  In this respect, I doubt the instantiations of the abstract type of \scen{0} will intuitively motivate a negative resolution to~\autoref{issue:has-witnessed}.
+  In this respect, I doubt the instantiations of the abstract type of \scen{0} will intuitively motivate a negative resolution to \issueConstraint{}.
   Rather, motivation \emph{given} background ideas.%
   \footnote{
-    Indeed, I continue to find positive resolution to~\autoref{issue:has-witnessed} intuitive.
+    Indeed, I continue to find positive resolution to \issueConstraint{} intuitive.
     And, things are constructed very carefully to keep the range of cases as clear as possible.
     As we have seen, no revision to premises.
     Still puzzled about \scen{1} such as \autoref{illu:gist:calc}.
@@ -1859,6 +2134,12 @@
   \end{enumerate}
 \end{note}
 
+\subsection{\fc{3}}
+\label{sec:fc3}
+
+
+\paragraph{Key idea: \fc{1}}
+
 \begin{note}
   Core idea:
   \begin{idea}[\fc{1} and support]
@@ -1884,46 +2165,6 @@
 \end{note}
 
 \begin{note}
-  Motivation for \fc{0} from these kinds of cases.
-
-  In these cases, if \zS{} then either concluded or \fc{0}.
-\end{note}
-
-\begin{note}
-  Here, sort of interesting.
-
-  \zS{}, compatible with positive resolutions to both issues.
-  In these cases, only if concluded.
-  So, then, positive resolution rules out \zS{} in various cases.
-\end{note}
-
-\begin{note}
-  Press against this.
-  Positive resolution rules out \zS{} in a wide variety of scenarios.
-
-  Indeed, \cScen{1}.
-  Show that \scen{1} of this type are common.
-
-  In particular, whenever reasoning is a specific instance of a general ability.
-  However, this is provide a more general schema.
-\end{note}
-
-\begin{note}
-  Focusing on ability, though.
-  Basic thing is that in the context of \zS{}, general ability reduces down to specific abilities.
-  Hence, relation of support with specific abilities matters.
-\end{note}
-
-\begin{note}
-  In one respect, somewhat surprising, and perhaps unintuitive.
-  Have intuition and motivation for positive resolution to issues.
-
-  And, intuitively, general ability, nothing more.
-
-  On the other hand, general ability hides complexity.
-\end{note}
-
-\begin{note}
   So, scope of a fairly natural type of support.%
   \footnote{
     \color{red}
@@ -1932,9 +2173,22 @@
   }
 \end{note}
 
-\paragraph{Lower pass}
+\begin{note}
+  \color{red}
+  Important to note here is that this doesn't entail the relation of support, in part, answers \qWhyV{}.
 
-\subparagraph{\fc{0}}
+  By-product.
+
+  Still, interesting.
+  This will, more-or-less be the basis for our argument.
+\end{note}
+
+\begin{note}
+  \color{blue}
+  Perhaps here include some comments on general and specific ability.
+  This is in part how get these kind of scenarios.
+  In some cases, same ability, different premises, and in other cases links between ability.
+\end{note}
 
 \begin{note}
   \autoref{idea:fc-and-support} is fundamental.
@@ -1954,25 +2208,44 @@
   Not understanding, but \emph{that} understand.
 \end{note}
 
-\begin{note}
-  Argument is split into two parts.
+\begin{note}[Re-evaluate intuitions?]
+  Of course, interest in this property has only just been made explicit.
+  Perhaps revise intuition.
+  Though, I expect not.
 
-  First, possibility.
-  Second, importance.
+  Though it is true that the agent would not conclude, did not do the reasoning.
 
-  Possibility, from \itp{1}.
-  \itp{3} serve two roles.
-  \autoref{idea:fc-and-support} over \autoref{issue:why-inc-in-how}, and, as such, plausible instances of \fc{1}.
-  Past, but also future by paring with ability.
-
-  This is partial, though.
-  Stronger argument for support.
-  This comes from role.
+  Stated in other terms, \(\psi\) from \(v'\) is a \fc{} if \(\phi\) has value \(v\).
+  Still, no relevance.
 \end{note}
 
+\subsection{\zS{}}
+\label{sec:zs}
+
+
+
+\begin{note}
+  \begin{idea}
+    If agent has option and fails to conclude, no support.
+  \end{idea}
+
+  This kind of helps motivate the idea of \zS{}.
+\end{note}
+
+\subsection{Tension}
+\label{sec:tension-1}
+
+
+
+
+
+
+
+
+\paragraph{Lower pass}
 
 \begin{note}[Outline]
-  Argue for a negative resolution to~\autoref{issue:has-witnessed}, and by extension~\autoref{issue:why-inc-in-how}.
+  Argue for a negative resolution to \issueConstraint{}, and by extension \issueInclusion{}.
 
   Idea of a \fc{0}.
   \(\phi\) having value \(v\) is a \fc{0} with respect to an agent's epistemic state just in case the agent would not fail to conclude \(\phi\) having value \(v\).
@@ -2055,7 +2328,7 @@
 
   In general, various possible answers to \qWhy{}.
   This is key.
-  Issues~\ref{issue:why-inc-in-how} and~\ref{issue:has-witnessed} narrow down.
+  Issues \issueInclusion{} and \issueConstraint{} narrow down.
 
   \citeauthor{Boghossian:2014aa}, recall.
   Of course, much different that just saying, or being response dependent.
@@ -2194,83 +2467,34 @@
   Return to cases similar \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:roots} to later, and highlight connexion.
 \end{note}
 
-\begin{note}[New \illu{0}]
-  \begin{illustration}
-    \label{illu:sketch:prop-logic}
-    Suppose an agent has a good grasp of propositional logic.
-    In particular:
-    \begin{itemize}
-    \item
-      The agent has a good understanding of some formal proof system.
-      For example, some Fitch-style system.
-    \item
-      The agent has a good understanding of some method to construct semantic proofs.
-      For example, by constructing truth tables, or reasoning about valuation functions.
-    \item
-      The agent understands the proof system is sound and complete.
-      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
-    \end{itemize}
-    The agent constructs a proof of \(A\).
-
-    Given the agent's understanding of propositional logic, the agent observes:
-    \begin{quote}
-      The construction is a proof of \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
-    \end{quote}
-  \end{illustration}
-
-  Intuitively, if the agent were to reason about whether \(A\) is true given an arbitrary valuation and failed to conclude \(A\) is true given an arbitrary valuation, then the agent would not conclude the construction is a proof of \(A\).
-
-  If were to go for semantic, then by soundness, works out.
-\end{note}
-
 
 \begin{note}
-  Discussion of \autoref{illu:sketch:prop-logic} relied on some background familiarity with propositional logic.
-
-  Slight variation on \citeauthor{Tolliver:1982us}'s Pendulum Case.%
-  \footnote{
-    Understood \citeauthor{Tolliver:1982us}'s case only after.
-  }
+  Simplify~\ref{illu:gist:roots} as a slight variation on~\ref{illu:gist:calc}.
 
   \begin{illustration}
     \label{illu:sketch:math}
-    An agent calculates \(23 \times 15 = 345\).
+    An agent calculates \(23 \times 15 = 345\) via their understanding of arithmetic.
 
-    Given the agent's understanding of arithmetic, the agent recognises:
+    \mbox{ }
+
+    Given the agent's understanding of arithmetic, the agent observes:
     \begin{quote}
-      \(23 \times 15 = 345\) \emph{if and only if} \(\sfrac{345}{15} = 23\).
+      \(23 \times 15 = 345\) \emph{if and only if} \(345 \div 15 = 23\).
     \end{quote}
+    And, \emph{if} \(23 \times 15 = 345\), then they would not fail to conclude \(345 \div 15 = 23\).
+
+    \mbox{ }
+
+    The agent concludes \(23 \times 15 = 345\).
   \end{illustration}
 
-  Intuitively, if the agent were to \emph{conclude} \(23 \times 15 = 345\), the agent would also, at the same time, conclude \(\sfrac{345}{15} = 23\).
+  Intuitively, if the agent were to \emph{conclude} \(23 \times 15 = 345\), the agent would also, at the same time, conclude \(345 \div 15 = 23\).
 
   Of course, this intuition may be resisted.
   For example, \(345 = (3 \times 5 \times 23)\) and \(15 = 3 \times 5\).
   Intuitively, it is not the case that the agent would conclude \(23 \times (3 \times 5) = (3 \times 5 \times 23)\).
 
-  Perhaps, with \citeauthor{Tolliver:1982us}, sufficient familiarity with pendulums, then \dots
-
-  However, this is a more complex transformation.
-
   The equivalence between multiplication and division is sufficiently familiar.
-  
-\end{note}
-
-
-\begin{note}[Interest]
-  Propositional logic, soundness and completeness.
-  Here, distinct premises, it seems.
-  \(A\) is a theorem.
-  Either syntax or semantic, strictly this makes a difference, context disambiguate.
-
-  Similar to \citeauthor{Tolliver:1982us}, though a difference.
-  For, here, not lacking information.
-  With the pendulum, didn't have the option of concluding from period, as didn't have information about period.
-  Here, understanding of both proof system and semantics.
-
-  Delicate, the equivalence result is not in question.
-  What's at issue is one's reasoning.
-  The result tells me that if reasoning is fine for syntax, then also semantics and vice-versa.
 \end{note}
 
 \begin{note}
@@ -2731,11 +2955,11 @@
 
   Introduce idea of an \itp{}.
 
-  Suggest the possibility of negative resolution to~\autoref{issue:why-inc-in-how}, though not to~\autoref{issue:has-witnessed}.
+  Suggest the possibility of negative resolution to \issueInclusion{}, though not to \issueConstraint{}.
 
-  In part, motivation for focusing on~\autoref{issue:has-witnessed}.
+  In part, motivation for focusing on \issueConstraint{}.
 
-  However, sufficient motivation as negative to~\autoref{issue:has-witnessed} entails negative to~\autoref{issue:why-inc-in-how}.
+  However, sufficient motivation as negative to \issueConstraint{} entails negative to \issueInclusion{}.
 \end{note}
 
 \begin{note}[Two ways of concluding]
@@ -4176,7 +4400,7 @@
 \end{note}
 
 
-\paragraph{Visualisation of what is at issue when asking~\autoref{question:zs}}
+\paragraph[Visualisation]{Visualisation of what is at issue with \zS{-}}
 
 \begin{figure}[h]
   \centering

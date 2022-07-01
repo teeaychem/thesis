@@ -70,15 +70,16 @@
 
 % % % Property and event
 
-\newcommand{\qWhy}[0]{\hyperref[q:why]{\named{Why}}}
-\newcommand{\qHow}[0]{\hyperref[q:how]{\named{How}}}
+\newcommand{\qWhy}[0]{\hyperref[q:why]{\named{Why?}}}
+\newcommand{\qHow}[0]{\hyperref[q:how]{\named{How?}}}
 
-\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why\('\)}}}
-\newcommand{\qHowV}[0]{\hyperref[q:how:v]{\named{How\('\)}}}
+\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why?\('\)}}}
+\newcommand{\qHowV}[0]{\hyperref[q:how:v]{\named{How?\('\)}}}
 
-\newcommand{\iWitness}[0]{\hyperref[idea:Witnessing]{\textsf{Witnessing}}}
+\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{?Constraint}}}
+\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\named{?Inclusion}}}
 
-\newcommand{\RBV}[0]{\textsf{RBV}}
+\newcommand{\ideaWitness}[0]{\hyperref[idea:Witnessing]{\named{Witnessing}}}
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
@@ -1354,29 +1355,6 @@
 % % % % % % Commands commitment % % %
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\commitment}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{commitment}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{commitment}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Commitment}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \DeclareDocumentCommand{\committed}{ m }{
   \tl_if_empty:nTF {#1}
   {
@@ -1442,7 +1420,6 @@
 \newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
 % % %
 
-
 % % % Agents % % %
 
 \ExplSyntaxOn
@@ -1456,7 +1433,6 @@
   }
 }
 \ExplSyntaxOff
-
 
 \ExplSyntaxOn
 \newcommand{\nagent}[1]{%
@@ -1642,14 +1618,6 @@
 }
 \ExplSyntaxOff
 
-% % % % Propositions % % %
-
-\newcommand{\propSuppIndependence}[0]{
-    \begin{proposition}\label{}
-    If agent claims support for some proposition \(\phi\), then the support claimed indicates value of \(\phi\) regardless whether \(\phi\) has that value.
-  \end{proposition}
-}
-
 % % % Labels % % %
 
 % % % Two symbols for illustrations of rectangle reasoning wrt. ur and nr % % %
@@ -1761,7 +1729,6 @@
 
 % Label = fig:saMtxRuledOut
 
-
 \newcommand{\saMtxRuledOutESU}{%
   \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
       \SetCell[c=2]{c} & & \adA{} & \adB{} \\
@@ -1806,12 +1773,10 @@
 \newcommand{\dd}[0]{\emph{de dicto}}
 \newcommand{\dr}[0]{\emph{de re}}
 
-
 % % % Transmission
 \newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-
 
 \newcommand{\illEproofMem}[0]{\obeybreaks{I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).}}
 
