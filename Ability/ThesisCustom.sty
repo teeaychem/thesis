@@ -12,8 +12,8 @@
 
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
-\newcommand*\cancel[2][thin]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
-\newcommand*\Cancel[2][thick]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+\newcommand*\cancel[2][thin]{\tikz \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+\newcommand*\Cancel[2][thick]{\tikz \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
 
 \RequirePackage{pifont}
 \newcommand{\hand}{\ding{43}}
@@ -1807,10 +1807,10 @@
 \DeclareDocumentCommand{\qzS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[question:zs]{\named{?\(\{\zeta\)S\(\}\)}}}
+    \text{\hyperref[question:zs]{\named{\requ{2}?}}}
   }
   {%
-    \text{\hyperref[question:zs]{\named{?\(\{\zeta\)-support\(\}\)}}}
+    \text{\hyperref[question:zs]{\named{\requ{2}?}}}
   }
 }
 \ExplSyntaxOff

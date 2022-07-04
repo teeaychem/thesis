@@ -897,6 +897,14 @@
   More generally, not much need for conditional stuff.
 \end{note}
 
+\paragraph{Why concluding}
+\label{concluding-consistency}
+
+\begin{note}
+  In simple terms, focus on concluding because bad to \emph{conclude} \(\phi\) has value \(v\) and \(\phi\) has value \(\overline{v}\).
+  Though, it's not so bad to reason to this, at least generally speaking.
+\end{note}
+
 \subsubsection{Summary}
 \label{sec:clarification:support-reasoning:summary}
 
@@ -3488,10 +3496,11 @@
     \mbox{}
     \vspace{-\baselineskip}
     \begin{enumerate}[%
-      label=\arabic*,%
+      label=\arabic*.,%
       ref=({I}.{\ref{ill:ad:proof:mem}}:\arabic*)%
       ]
-    \item \illEproofMem{} \hfill \ref{ill:Eproof:mem}
+    \item
+      \illEproofMem{} \hfill \ref{ill:Eproof:mem}
     \item
       \label{ill:Eproof:exP}
       So, there exists a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system)
@@ -4045,7 +4054,7 @@
   `Palm-tree-support', or `Arecaceae-support' would also work.
 \end{note}
 
-\subsection{The question}
+\section{The question}
 \label{sec:ZS:question}
 
 \begin{note}
@@ -4057,38 +4066,40 @@
 
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item
-      For any proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) such that:
-    \begin{enumerate}[label=\alph*., ref=(\alph*)]
-    \item
-      From \vAgent{}'s perspective:
-      \begin{enumerate}[label=\roman*., ref=(\roman*)]
+      Is there some proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) such that:
+      \begin{itemize}
       \item
-        \label{question:zs:subjunctive}
-        \vAgent{} \emph{would not} conclude \(\pv{\phi}{v}\) from \(\Phi\) if \vAgent{} were to either:
-        \begin{itemize}
-        \item Conclude \(\pv{\psi}{\overline{v'}}\) from \(\Psi\).
-        \item Fail to conclude either \(\pv{\psi}{v'}\) or \(\pv{\psi}{\overline{v'}}\) from \(\Psi\).
-        \end{itemize}
-        \footnote{
-          Clause~\ref{question:zs:subjunctive} is expressed by a subjunctive conditional because we have no guarantee that an agent will attempt to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+        From \vAgent{}' perspective:
+        \begin{enumerate}[label=\alph*., ref=(\alph*)]
+        \item
+          \label{question:zs:subjunctive}
+          If \vAgent{} were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\), \vAgent{} \emph{would not} conclude \(\pv{\phi}{v}\) from \(\Phi\).
+          % either:
+          % \begin{itemize}
+          % \item Conclude \(\pv{\psi}{\overline{v'}}\) from \(\Psi\).
+          % \item Fail to conclude either \(\pv{\psi}{v'}\) or \(\pv{\psi}{\overline{v'}}\) from \(\Psi\).
+          % \end{itemize}
+          \footnote{
+            Clause~\ref{question:zs:subjunctive} is expressed by a subjunctive conditional because we have no guarantee that an agent will attempt to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
 
-          \color{red}
-          As this alternative expression makes clear,~\autoref{question:zs} focuses on the agent (and their epistemic state).
-          At no point do we consider any variation of the agent's epistemic state.
-          Likewise,~\autoref{question:zs} concerns only the agent's perspective on concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-          Whether or not the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\) is irrelevant.
-          What matters is whether, from the agent's perspective, there is potential for reasoning about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) to block concluding \(\pv{\phi}{v}\) from \(\Phi\).
-        }
-      \item
-        \label{question:zs:option}
-        \(\phi\) having value \(v\) ensures \vAgent{} has the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\), given their present epistemic state.
-      \end{enumerate}
-    % \item
-    %   \label{question:zs:not-concluded}
-    %   \vAgent{} has not concluded \(\pv{\psi}{v'}\) from \(\Psi\)
-    \end{enumerate}
-      \label{question:zs:may-fail}
-      Is it the case that, from \vAgent{}' perspective, \vAgent{} may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\)?
+            \color{red}
+            As this alternative expression makes clear,~\autoref{question:zs} focuses on the agent (and their epistemic state).
+            At no point do we consider any variation of the agent's epistemic state.
+            Likewise,~\autoref{question:zs} concerns only the agent's perspective on concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+            Whether or not the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\) is irrelevant.
+            What matters is whether, from the agent's perspective, there is potential for reasoning about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) to block concluding \(\pv{\phi}{v}\) from \(\Phi\).
+          }
+        \item
+          \label{question:zs:option}
+          \(\phi\) having value \(v\) ensures \vAgent{} has the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\), given their present epistemic state.
+        \item
+          \label{question:zs:may-fail}
+          \vAgent{} may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+        \end{enumerate}
+        % \item
+        %   \label{question:zs:not-concluded}
+        %   \vAgent{} has not concluded \(\pv{\psi}{v'}\) from \(\Psi\)
+      \end{itemize}
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
@@ -4242,7 +4253,7 @@
   }
 }
 
-\paragraph{\illu{3}}
+\subsubsection{\illu{3}}
 
 \begin{note}[Simple positive answers]
   My preferred example for a positive answer to~\ref{question:zs} is lost keys.
@@ -4280,7 +4291,7 @@
   Intuitively, if an agent has the option to conclude \(\pv{\phi}{v}\) from \(\Phi\) and there is some \(\pvp{\psi}{v'}{\Psi}\) as described by~\autoref{question:zs}, then check.
 \end{note}
 
-\paragraph{More \illu{3}}
+\subsubsection{More \illu{3}}
 
 \begin{note}[Wally]
   \begin{illustration}[Where's Wally]
@@ -4489,7 +4500,7 @@
 \end{note}
 
 
-\paragraph[Visualisation]{Visualisation of what is at issue with \zS{-}}
+\subsubsection[Visualisation]{Visualisation of what is at issue when asking \qzS{}}
 
 \begin{figure}[h]
   \centering
@@ -4564,7 +4575,7 @@
   \csN{} is not global with respect to all proposition-value pairs that the agent may have reasoned about, but local to those guaranteed by the proposition.
 \end{note}
 
-\paragraph*{\zSN{2}}
+\section{\zSN{2}}
 
 \begin{note}
   We opened this section with a question~---~\autoref{question:zs}.
@@ -4577,7 +4588,7 @@
   We also take this opportunity to refine our understanding of the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings from~\autoref{question:zs}.
 \end{note}
 
-\paragraph*{\requ{3}}
+\subsection{\requ{3}}
 
 \begin{note}
   We begin by refining the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings of interest from~\autoref{question:zs}.
@@ -4667,6 +4678,9 @@
 
   Combining these two ideas, intuitively, \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) just in case there is some pool of premises \(\Psi\) such that determining whether the agent would conclude \(\pv{\psi}{v'}\) is an independent partial check on whether the agent may reason to a conclusion other than \(\pv{\phi}{v}\).
 \end{note}
+
+\subsection{\zS{2}}
+\label{sec:zs2}
 
 \begin{note}
   With the notion of a \requ{} in hand, we now state when an agent has \zSN{0} for some proposition-value pair:
@@ -4985,7 +4999,8 @@
   Here, rather than asking whether the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\), we may ask whether the agent would revise their conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
-\subsection{An equivalent statement of \zS{}, \ZS{}}
+\subsection{Equivalence between \qzS{} and \izS{}}
+%\subsection{An equivalent statement of \zS{}, \ZS{}}
 \label{sec:overview:an-equiv-stat-of-zs}
 
 \begin{note}
@@ -6182,6 +6197,9 @@
 
 
 
+
+\part{Tension}
+
 \section{Resolutions to the issues, refined}
 \label{sec:overview:issue-refined}
 
@@ -6493,8 +6511,6 @@
   We will expand on \itp{1} of interest below.
   Briefly, a handful of \illu{1} which fall outside immediate scope of argument.
 \end{note}
-
-\part{Tension}
 
 \chapter{Overview of Tension}
 \label{sec:tension}
