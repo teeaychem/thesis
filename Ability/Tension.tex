@@ -1,0 +1,762 @@
+\chapter{Overview of Tension}
+\label{sec:tension}
+
+\begin{note}[Intro]
+  We have discussed concluding.
+  Introduced \csN{}.
+  Revised~{\color{red} issue:Main} to \ESU{} and \EAS{}.
+  And, two types of reasoning, \adA{} and \adB{}.
+  Hints regarding ability.
+
+  Task is now to bring these together develop tension.
+\end{note}
+
+\begin{note}[Basic idea of tension]
+  Strategy.
+  Identify some abstract phenomenon.
+  Observe how leads to tension.
+  Motivate instances of this phenomenon.
+  Observe tension.
+
+  Here, phenomenon is consequence of \csN{}.
+  Hence, indirectly relies on assumptions concerning concluding.
+  Split, either \ESU{} or \EAS{}.
+  Construction involve \itp{} introduced with respect to \adB{}.
+  Hence, discussion of \adB{} will both clarify and inform resolution to tension.
+
+  Indeed, \adB{} will offer a more general perspective on the consequences of \csN{}.
+\end{note}
+
+\subsection{Sketch of tension}
+\label{sec:overview-tension}
+
+\begin{note}[Goal]
+  To establish tension between \ESU{} and \csN{} we have the following goal:
+
+  \begin{goal}
+    \label{goal:tension}
+    There are instances in which concluding \(\pv{\phi}{v}\) from \(\Phi\) seems to be an instance of \csN{} for \(\pv{\phi}{v}\) where:
+    \begin{enumerate}[label=\arabic*., ref=\named{G\ref{goal:tension}:\arabic*}]
+    \item
+      \label{goal:tension:requ}
+      There is some \(\pvp{\psi}{v'}{\Psi}\) which is a \requ{} of \(\pvp{\phi}{v}{\Phi}\) such that:
+      \begin{enumerate}[label=\alph*., ref=\named{G\ref{goal:tension}:1\alph*}]
+      \item
+        \label{goal:tension:requ:conclude}
+        It is not possible for the agent to conclude that they would conclude \(\pv{\psi}{v'}\) from \(\Psi\) \emph{without} concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+      \item
+        \label{goal:tension:requ:no-reason}
+        The agent does not witness any reasoning from \(\Psi\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{goal}
+
+  If there are instance of the type described by \autoref{goal:tension}, then \ESU{} and \csN{} are in tension.
+
+  For, we will have some proposition-value-premises pairing \(\pvp{\phi}{v}{\Phi}\) such that an agent conclude \(\pv{\phi}{v}\) from \(\Phi\), and in doing so \csV{} for \(\pv{\phi}{v}\).
+  And, by \autoref{goal:tension:requ} we have some \requ{} \(\pvp{\psi}{v'}{\Psi}\).
+
+  Now, as \(\pvp{\psi}{v'}{\Psi}\) is a \requ{0} of concluding \(\pv{\phi}{v}\) from \(\Phi\), it must be the case that the agent either has concluded or simultaneously concludes that they would conclude \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Further, the \requ{} \(\pvp{\psi}{v'}{\Psi}\) has two key properties.
+
+  First, from~\autoref{goal:tension:requ:conclude}, the agent may only conclude that they would conclude \(\pv{\psi}{v'}\) from \(\Psi\) by concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+  Hence, by \ESU{} it must be the case that the agent witnesses reasoning from \(\Psi\) which concludes with \(\pv{\psi}{v'}\).
+
+  Second, from~\autoref{goal:tension:requ:no-reason} the agent does not witness any reasoning from \(\Psi\).
+  Hence, the agent does not witness reasoning from \(\Psi\) which concludes with \(\pv{\psi}{v'}\).
+
+  From the above, tension.
+  For, if concluding \(\pv{\phi}{v}\) from \(\Phi\) really is an instance of \csN{}, then the agent must have concluded \(\pv{\psi}{v'}\) from \(\Psi\) without witnessing reasoning from \(\Psi\) to \(\pv{\psi}{v'}\).
+  However, if \ESU{} holds then it is not possible for the agent to conclude \(\pv{\psi}{v'}\) from \(\Psi\) without witnessing reasoning from \(\Psi\) to \(\pv{\psi}{v'}\).
+  So, either the agent has not \csN{} for \(\pv{\phi}{v}\) or \ESU{} does not hold.
+  Hence, either \csN{} or \ESU{} must be restricted in some way.
+
+  Of course, the exact nature of the tension, and how it should be resolved, depends in part on the proposition-value-premises pairings which satisfy \autoref{goal:tension}.
+
+  Indeed,~\autoref{goal:tension:requ:conclude} and~\autoref{goal:tension:requ:no-reason} are significant restrictions, and it is not clear from the abstract statement that these correspond to sufficiently interesting phenomenon.
+\end{note}
+
+\begin{note}
+  Whether or not~\autoref{goal:tension:requ:no-reason} is satisfied will depend on the specifics of any given instance.
+  For, we have placed no constraints on which premises an agent appeals to, nor what the contents of those premises may be.
+
+  \autoref{goal:tension:requ:conclude}, by contrast, will follows from a collection of \requ{1} forming a `\cluster{}'.
+
+  In short, a \cluster{} is a collection of proposition-value-premises pairings such that every proposition-value-premises pairing is a \requ{} of every other proposition-value-premises pairing in the collection.
+
+  Intuitively, every proposition-value-premises pairing of the \cluster{0} is an independent check on every other proposition-value-premises pairing of the \cluster{0}.
+
+  Indeed, we will argue that \autoref{goal:tension:requ:conclude} is satisfied whenever \(\pvp{\phi}{v}{\Phi}\) is a member of a \cluster{}.
+
+  Finally, then, we seek some concrete instances.
+\end{note}
+
+\begin{note}[Ability]
+  Here, our interest turns to ability.
+  I take it as given that there are various instances of concluding \(\pv{\phi}{v}\) from \(\Phi\) for which the reasoning from \(\Phi\) to \(\pv{\phi}{v}\) is an instance of a general ability.
+
+  For example, I conclude \(31 + 53 = 84\) from some premises, and the reasoning falls under my general ability to perform (simple) arithmetic.
+  The specifics may differ, but there is sufficient overlap with concluding \(43 + 81 = 123\) and \(91 + 54 = 145\) to consider the reasoning of the same type.
+  Indeed, \(532 - 91 = 441\), \(19 * 32 = 608\), and \(126/36 = 3.5\) may also fall under the same (general) ability.
+  In other words, in concluding each equation I witness a specific instance of the general ability.
+
+  Likewise, one may have the (general) ability to solve chess problems, complete \(\{ \text{Sudoku}, \text{KenKen}, \text{Nonogram}, \dots\}\) puzzles, or parse sentences in a given language.
+
+  So long as you have the (general) ability, I expect each instance of witness the ability is intuitively an instance of \csN{}.
+  I would not have concluded \(31 + 53 \ne 84\) and you would not have failed to identify the relevant winning strategy of some chess problem.
+
+  However, in each of the examples of ability noted, every other specific instance of the general ability functions as an independent check on whether one has the relevant ability.
+  I should make no mistake about \(85 + 21\) and you should make no mistake with the next chess problem.
+  Granting, of course, that we do have the relevant abilities.
+
+  Hence, it seems clear that if an agent \csV{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\) and the agent's reasoning is a specific instance of a general ability, then there at least various \requ{1} associated with concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  More generally, concluding \(\pv{\phi}{v}\) from \(\Phi\) from reasoning which is the specific instance of a general ability leads to a \cluster{}.
+  And, it is perhaps already intuitive that one does not witness reasoning from the premises of at least some proposition-value-premises pairing in the \cluster{}.
+
+  For example, it seems plausible that the configuration the chess board for any given problem forms of a premise of the agent's reasoning, but so long as one has not seen the relevant problem, it seems implausible that one has witnessed reasoning that includes the relevant configuration.
+
+  Of course, it may seem equally implausible that an agent concludes there is some winning strategy for some configuration of a chess board they have not yet seen.
+  However, this intuition should be carefully examined.
+
+  With an unopened chess book by a reputable author before you, I expect you have no problem concluding that each of the solutions are correct.
+  {
+    \color{red}
+    Or, that granting ability, conclude you would (also) conclude winning strategy or not for each chess piece.
+  }
+  Yet, you have not yet seen any of the solutions.
+  So, in general, there seems no issue with an agent concluding there is some winning strategy for some configuration of a chess board they have not yet seen.
+
+  Of course, in the case of the book there is a key premise:
+  The book is written by a reputable author.
+  However, if you wish to conclude there is a winning strategy via your own reasoning, then the above considerations take effect.%
+  \footnote{
+    And, indeed, may already hold with respect to the key premises.
+    For, so long as you hold you have the general ability to reason about chess problems of the relevant kind, you have an independent check on whether the author really is reputable.
+  }
+\end{note}
+
+\begin{note}[Moving on]
+  So much for the rough outline of how~\autoref{goal:tension} leads tension between \csN{} and \ESU{}.
+  Let us turn to the details.
+
+  {
+    \color{red}
+    \begin{itemize}
+    \item
+      In~{\color{red} ???} we develop tension in the abstract.
+      Our attention will be focused solely on drawing out how \csN{} and \ESU{} are in tension if cases of a certain type exist.
+      In particular, we develop the notion of a \cluster{} introduced above through a handful of definitions, and state relevant consequences in a number of propositions.
+    \item
+      With an abstract understanding of how \csN{} is in conflict with \ESU{} given the existence of certain cases, we then turn to arguing for the existence of such cases in~\autoref{cha:concrete-tension}.
+      Follow the sketch given, these cases will center around the relationship between the general ability to reason about certain types of problems and specific instances of the general ability.
+    \item
+      In~\autoref{sec:tension:adb} abstract a little.
+      Relationship between general ability and \itp{1}.
+      Broader understanding of what the tension amounts to, and the relationship between \EAS{} and \adB{}.
+    \item
+      Finally, in~\autoref{cha:overview:resolving-tension} we turn to resolving the tension and a number of latent issues.
+    \end{itemize}
+  }
+\end{note}
+
+\chapter{Abstract tension}
+\label{cha:tension-abstract}
+
+\begin{note}[Plan]
+  In this section we establish how \csN{} and \ESU{} are in tension from an abstract perspective.
+  Our immediate goal is to provide a clear characterisation of the kind of cases which will lead to tension between \csN{} and \ESU{}, if concrete instances of those cases exist.
+  In the following section (\ref{cha:concrete-tension}) we will then argue for the existence of such cases.
+
+  We begin by defining a \cluster{1} of \requ{1}, and will then refine the definition of a \cluster{1} to that of a \ragCluster{} to further clarify the kind of cases of interest.
+  The two-step definition will allow us to observe exactly what is required of cases for tension.
+\end{note}
+
+\begin{note}[\requCluster{3}]
+  We begin with the definition of a \cluster{}.
+  \begin{definition}[A \requCluster{1}]
+    \label{def:requCluster}
+    Some collection of proposition-value-premises pairings \(\mathcal{C} = \{\pvp{\phi_{i}}{v_{i}}{\Phi_{i}}\}_{i}\) is a \emph{\cluster{}} with respect to some agent \vAgent{}('s epistemic state) just in case:
+    \begin{itemize}
+    \item
+      For any \(\pvp{\phi_{i}}{v_{i}}{\Phi_{i}}\) in \(\mathcal{C}\), each \(\pvp{\phi_{j}}{v_{j}}{\Phi_{j}}\) in \(\mathcal{C}\) (such that \(j \ne i\)) is a \requ{} of \(\pvp{\phi_{i}}{v_{i}}{\Phi_{i}}\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  Intuitively, a \cluster{0} is a collection of proposition-value-premises pairings such that every proposition-value-premises pairing is a \requ{} of every other proposition-value-premises pairing in the collection.
+\end{note}
+
+\begin{note}
+  With the definition of a \cluster{} in hand, we are ready to state our first proposition.
+
+  \begin{proposition}[\cluster{3} and \csN{0}]
+    \label{prop:cluster:csN}
+    Suppose \(\mathcal{C}\) is a \requCluster{0} with respect to an agent \vAgent{}('s epistemic state).
+    And, let \(\pvp{\phi}{v}{\Phi}\) be some proposition-value-premises pairing in \(\mathcal{C}\).
+
+    \begin{itemize}
+    \item
+      \vAgent{} \csV{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\) only if \emph{either}:
+      \begin{itemize}
+      \item
+        For any \(\pvp{\psi}{v'}{\Psi}\) in \(\mathcal{C}\):
+        \begin{itemize}
+        \item \vAgent{} has at some point in the past concluded that \vAgent{} would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+        \item
+          When concluding \(\pv{\phi}{v}\) from \(\Phi\), \vAgent{} simultaneously concludes that \vAgent{} would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{proposition}
+
+  \Autoref{prop:cluster:csN} follows directly from~\izetaS{} and~\autoref{def:requCluster}.
+
+  \begin{argument}
+    Suppose \(\mathcal{C}\) is a \requCluster{0} with respect to an agent \vAgent{}('s epistemic state).
+    Let \(\pvp{\phi}{v}{\Phi}\) be some proposition-value-premises pairing in \(\mathcal{C}\).
+    And, let \(\pvp{\psi}{v'}{\Psi}\) be some proposition-value-premises pairing in \(\mathcal{C}\).
+
+    By~\autoref{def:requCluster} we have that \vAgent{} concluding that \vAgent{} would conclude \(\pv{\psi}{v'}\) from \(\Psi\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    And, by~\izetaS{}, it must be the case that either:
+    \begin{itemize}
+    \item
+      \vAgent{} has concluded that they would conclude \(\pv{\psi}{v'}\) from \(\Psi\), ref{idea:Zs:overview:requ-sat:Past}.
+      Or,
+    \item
+      In concluding \(\pv{\phi}{v}\) \vAgent{} simultaneously concludes \(\pv{\psi}{v'}\) from \(\Psi\), ref{idea:Zs:overview:requ-sat:Pres}.
+    \end{itemize}
+    Hence, we have established~\ref{prop:cluster:csN}.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    \label{prop:cluster:simul}
+    Need to do everything in a cluster at the same time.
+  \end{proposition}
+
+  \begin{argument}
+    Straightforward.
+    For, anything is a \requ{} for any other.
+    So, only \csV{} at the same time.
+  \end{argument}
+\end{note}
+
+\begin{note}[No \(\gamma\)]
+  Consequence:
+
+  \begin{corollary}
+    \label{prop:cluster:no-general}
+    No general \(\pvp{\gamma}{v}{\Gamma}\) within cluster.
+  \end{corollary}
+
+  \begin{argument}
+    Quickly, because of~\ref{prop:cluster:simul}.
+    Only \(\gamma\) at same time as others.
+
+    In more detail.
+    For, by assumption, \requ{} means that it's possible for the agent to conclude.
+    By the each other \requ{} functions as a check on \(\gamma\).
+    If haven't figured out each individual, then the general is in question.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  \autoref{prop:cluster:simul} is kind of wild.
+  Though, this doesn't prevent reasoning, and then only getting \csN{} after the fact.
+  However, this does prevent ruling out conflict when concluding.
+
+  Of course, concluding each and then \csVImp{}, plausible.
+  As, have not found an issue.
+
+  Also, may conclude all from premises.
+  For, special cases of \cluster{} in which all premises are the same.
+  If so, then no clear tension.
+  For, agent reasons from premises, well all the same premises.
+  So, conclude simultaneously.
+\end{note}
+
+\begin{note}
+  Indeed, narrow interest to \ragCluster{1}.
+
+  \begin{definition}[\ragCluster{3}]
+    For any cluster \(\mathcal{C}\), \(\mathcal{C}\) is a \emph{\ragCluster{}} if and only if:
+    \begin{enumerate}
+    \item
+      There is some \(\pvp{\phi_{i}}{v_{i}}{\Phi_{i}}\) and \(\pvp{\phi_{j}}{v_{j}}{\Phi_{j}}\) such that \(\Phi_{i}\) and \(\Phi_{j}\) do not overlap.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  A \ragCluster{}, then, is just a cluster where at least some distinct premises.
+  Hence, avoid issue where same premises allow simultaneous conclusion, and fail to establish tension with \ESU{}.
+
+  \begin{proposition}
+    With \ragCluster{} concluded previous or violate \ESU{}.
+  \end{proposition}
+
+  Now, some caution.
+  It may be the case that reason from some non-minimal collection of premises.
+  Hence, some care when establishing \ragged{}.
+  This means, argue that \cluster{} \emph{and} argue \cluster{} is \ragged{}.
+  Again, without any clear bounds on premises, this argument is non-deductive.
+  However, plausible in various cases.
+\end{note}
+
+\begin{note}[Relative \jag{1}]
+  Given importance of \ragged{} and specific proposition-value-premises pairings of \ragged{}, terminology:
+
+  \begin{definition}[Relative \jag{1} of a \ragCluster{}]
+    \(\mathcal{C}\) some \ragCluster{}.
+    \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\jag{0}} relative to \(\pvp{\phi}{v}{\Phi}\) if \(\Psi\) differs from \(\Phi\).
+  \end{definition}
+
+  \csN{} while presence of some \jag{} when premises are no general.
+\end{note}
+
+\begin{note}
+  Suppose \ragged{}, no prior conclusion for some \jag{}.
+  Then, if \csN{}, violation of \ESU{}.
+
+  For, only \csN{} simultaneously.
+  \jag{}, some not from current premises.
+  And, no previous, so not from previous premises.
+  Hence, \csN{} from premises of the \jag{}.
+
+  Hence, need instances of \ragged{} with no prior conclusion for some \jag{}.
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    If \ragCluster{} and no prior conclusion for some \jag{}.
+    Either:
+    \begin{itemize}
+    \item
+      \ESU{} does not hold in general.
+    \item
+      No \csVImp{} for any proposition-value-premises pairing in cluster.
+    \end{itemize}
+      \begin{argument}
+    More-or-less immediate from previous.
+  \end{argument}
+  \end{proposition}
+\end{note}
+
+\begin{note}
+  Abstract tension, then, follows if there are instances of \ragCluster{1} with no prior conclusion for some \jag{}.
+\end{note}
+
+\begin{note}[Pointed cluster]
+    \begin{definition}[Pointed cluster]
+    For any cluster \(\mathcal{C}\), \(\mathcal{C}\) is a \emph{pointed cluster} if and only if:
+    \begin{enumerate}
+    \item
+      Some conclusions are the same.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\chapter{Concrete tension}
+\label{cha:concrete-tension}
+
+\begin{note}
+  \color{red}
+  The key observation is that ability gives rise to \ragCluster{1}.
+  Hence, no \csN{}.
+
+  Why does this lead to tension?
+  Well, in certain cases, it seems clear that an agent has the ability, and the ability ensures that the agent would not have failed to conclude.
+\end{note}
+
+\begin{note}
+  Seen how to develop tension in the abstract.
+  Now, concrete.
+  Ability, as we have seen.
+\end{note}
+
+\begin{note}[Ability]
+  Ability to reason in certain ways leads to \cluster{1}.
+  However, not interested in ability in general, but rather relatively simple instances of ability concerning specific problem types.
+
+  Arithmetic.
+  Sudoku.
+  Chess.
+
+  Indeed, the latter pair for \requCluster{1}.
+  For, different starting positions.
+\end{note}
+
+\begin{note}
+  Finally, ability.
+
+  General ability, specific ability.
+
+  Claim support for having some general ability.
+
+  Now, here, simple cases.
+  Basic arithmetic.
+  Sudoku puzzles.
+  Chess problems with winning strategies.
+
+  Roughly the same.
+  More broadly:
+
+  Logic problems.
+
+  Crossword.
+
+  Reading novels up to a certain level.
+  Here, if you can't read, then the writing is bad.
+
+  Fluency.
+
+  So, specific instances of the general ability.
+\end{note}
+
+\begin{note}
+  Well, conclude that you have the general ability, but also claim support.
+  You don't need to go through specific instances.
+  In these cases, fail to be an independent check.
+  You not fail to reach the relevant conclusion.
+
+  Would not reason to some incorrect summation.
+  Would not fill out the Sudoku incorrectly.
+  Would not fail to find a winning strategy.
+
+  Of course, failures of performance, but not failures of competence.
+
+  Intuitively, satisfied all \requ{1}.
+\end{note}
+
+
+\begin{note}
+  Key argument, then, is that only satisfy a \requ{} by concluding \(\psi\) from \(\rho\).
+
+  For, some other premise, get \(\psi\) from \(\rho\).
+  Well, getting \(\psi\) from \(\rho\) is still a \requ{} for this.
+\end{note}
+
+\begin{note}
+  Briefly stated.
+
+  Specific instances, these introduce \requ{}.
+  However, some reasoning.
+  Can't jump to general to get rid of \requ{}, as this is forbidden.
+  Further, if reason from some distinct set of premises, then still a \requ{}.
+
+  If independent reasoning gets that specific instance of general ability, then doing the reasoning is still an independent check on this.
+
+  So, the problem here is that need to ensure that would conclude \(\psi\) has value \(v'\) from certain premises.
+  If appeal to any distinct premises, then failure to claim support.
+
+  Hence, \ESU{} and \ideaCS{}, then no getting general ability without witnessing reasoning for specific instances.
+
+  Core of the tension.
+  Always some independent check with distinct premises with specific instance of general ability.
+
+  So, either, allow to bypass independent check.
+  Or, do not require witnessing reasoning from premises to conclusion.
+\end{note}
+
+\subsubsection{\adB{}}
+\label{sec:tension:adb}
+
+\begin{note}
+  Now, these cases of ability.
+  Work with \adB{}.
+\end{note}
+
+\begin{note}
+  Here, it turns out that obtaining the \itp{} is just concluding.
+\end{note}
+
+\begin{note}[Conditionals, a point of interest]
+  More generally, we have the following result.%
+  \footnote{
+    So long as we do not add~\autoref{notion:overview:requ:pool:method} to~\autoref{notion:overview:requ:pool} of the notion of a \requ{}.
+    If so, then result will be constrained accordingly.
+  }
+  If appeal to some conditional which links premises to a conclusion, such that agent may reason from premises to conclusion, then the agent has always concluded premises from conclusion.
+
+  This is interesting.
+  If agent has concluded from conditional in this way, then in effect the conditional drops out as a premise.
+
+  If \(\Sigma, \phi \rightarrow \psi \vdash \psi\) then \(\Sigma, \phi \vdash \psi\).
+
+  If \(\Sigma, \phi \vdash \phi \rightarrow \psi\) then \(\Sigma, \phi \vdash \psi\).
+
+  The second is close to a restricted form of the deduction theorem.
+
+  Note, this is only when the conditional has a special \requ{}.
+
+  In cases where no checking the conditional, then the elimination does not hold.
+
+  Whether anything of independent interest follows from this, unclear.
+  One example, responsibility.
+  Then, to another person, not only reasoning with conditional, but also full reasoning.
+  No way to distinguish between the two cases.
+  Or, from the converse perspective, no need to add any additional clauses to account of responsibility.
+  However, issues of this kind are far beyond the scope of this document.
+\end{note}
+
+\begin{note}
+  Indeed, given the constraints of \itp{1}, conditional will satisfy just in case it is an \itp{}.
+  Here, need that \(\pv{\mu}{v}\) is not in \(\Phi\) to ensure that \itp{0} is redundant.
+\end{note}
+
+\subsubsection{Thoughts}
+\label{sec:thoughts}
+
+\begin{note}[Difficulty]
+  Here, concrete instantiation of abstract structure.
+  Question is, does the agent really \csN{}?
+  Intuitively, it seems agent does.
+  Adopt \stance{}, I am confident I would not reason otherwise.
+  However, this is from adopting a \stance{}.
+  And, whether or not concluded or \csVed{} is independent of \stance{}.
+  Instead, question is, granting intuition, does this \stance{} reflect on our theory.
+
+  How close these abstractions map to more commonsense reasoning.
+  Motivated in part.
+  Whether \csN{} seems natural.
+
+  Seems to me, key question is the conditional link.
+  It's identifying these two things.
+  Abstracts from specific cases, but gives the general principle.
+  So long as \csN{}, then these two things coincide.
+
+  Of course, senses of `concluding'.
+  However, difficulty in running `concluding' too close to the agent's \stance{} on what the have concluded.
+\end{note}
+
+\subsection{Tension}
+\label{sec:overview:tension:subsection}
+
+\subsubsection{A different path to tension}
+\label{sec:diff-path-tens}
+
+\begin{note}
+  We have developed tension with respect to the definition of a \requ{}.
+  However, noted that an additional constraint may be placed on the notion of a \requ{}.
+  Same type of reasoning.
+
+  If this is the case, then general ability will not be part of \cluster{}.
+  Hence, the argument as given will no go through.
+
+  May seem a compelling alternative.
+  There are two issues.
+
+  First, consequence.
+  General ability functions as a premise in every case of witnessing a specific instance general ability.
+  For, if just specific instance, then part of a \cluster{}.
+
+  One way to resist this is to fine grain specific instances.
+  However, this is very puzzling.
+
+  Still, when paired against \EAS{} this may not be so bad.
+
+  Hence, we turn to the more substantial issue.
+  \csN{2} for the general ability.
+
+  Need to have \csVed{0}.
+  For, else, different conclusion about general ability, and hence no \csVImp{} for specific cases.
+
+  So, \csVImp{} for general ability.
+  Here, each specific instance is a \requ{}.
+  And, we are back to the original problem.
+
+  So, even if you grating general ability as a premise, still a question as to how this premise is obtained.
+
+  Some wiggle room is left.
+  Here, informed that one has the general ability.
+  But, then, any attempt to witness the specific ability would not show mistake.
+  And, no isolated conclusion.
+
+  These, quite puzzling to defend.
+\end{note}
+
+
+\chapter{Resolving tension}
+\label{cha:overview:resolving-tension}
+
+\begin{note}
+  Note, the tension is not about whether \(\phi\) has value \(v\).
+  Instead, the tension is about whether the agent would have a certain property if they were to conclude \(\phi\) has value \(v\).
+  Property of having claimed \support{}.
+  Expanded, property of holding that any independent check is satisfied.
+  Any other reasoning about whether \(\phi\) has value \(v\) would conclude \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}
+  Returning to \EAS{}.
+  Specific instances of the general ability.
+  In this sense, the instances of \EAS{} we argue for are narrow.
+  Need strong sign that the agent has the general ability.
+
+  Further.
+  It does not state that an agent having claimed support that they have the ability to reason to some conclusion is \emph{always permissible} to claim support for the conclusion by appealing to some premises that do not form part of the agent's reasoning.
+  Instead, it states that \emph{may be permissible} for the agent claim support in a certain way.
+
+  In various respects, these aren't particularly interesting cases.
+  However, the goal is to argue that such cases exist.
+  Whether these are constrained to the type of cases we consider for the argument is a further question.
+
+  There may be more interesting cases, but given that \ESU{} is incompatible with all such cases, I see no compelling reason to explore such cases without \emph{first} motivating a rejection of \ESU{}.
+\end{note}
+
+\begin{note}
+  Also suggests that the content of general ability is somewhat interesting.
+  For, the content is itself general.
+  It is a conclusion that ranges over all specific instances of the general ability.
+\end{note}
+
+\begin{note}[Terminology]
+  So, the upshot of this is that an agent concludes various things in certain cases.
+  In concluding \(\phi\), also conclude \(\psi,\dots\).
+  And, in cases of interest, because of generality of the reasoning.
+
+  This is somewhat puzzling.
+  Though, I think less puzzling than first appears.
+  Concluding \(\phi\) has value \(v\) is nothing special.
+  Of course, the agent only explicitly concludes a handful of things, but allowing the generality is nothing that different from equivalences.
+
+  It also doesn't follow that any of the additional properties of the reasoning, if any, are carried over to any \requ{1}.
+  Is just about concluding.
+  Here, then, various ways to keep the intuition for the positive answer.
+  There may be various things that are exclusive to witnessing reasoning from premises to conclusion.
+  However, distinct from concluding.
+
+  Still, stronger than being committed.
+  Ranges over any implication.
+  Conclude no winning strategy, then also conclude various other chess things.
+  However, committed, but do not necessarily conclude that X is going to lose the game.
+
+  Concluding is still of interest.
+  Or, as noted, `reason', in the weak term.
+\end{note}
+
+\subsubsection{Resolving tension by rejecting ideas}
+\label{sec:resolv-tens-reject}
+
+\begin{note}
+  Now, possible to resolve tension various ways.
+  Reject \ideaCS{}, \csN{} is of no interest.
+  Reject \ESU{}, not witnessing is ok.
+  Reject claiming support for general ability.
+
+  Or, any combination of the above.
+
+  Interest is in rejecting \ESU{}.
+  So long as \(\psi\) having value \(v'\) follows from some premises, then the reasoning doesn't matter.
+  \csV{2} for \(\psi\) having value \(v'\) from those premises, given the possibility of witnessing reasoning.
+\end{note}
+
+\subsubsection{Resolving tension by additional ideas}
+\label{sec:resolv-tens-addit}
+
+\begin{note}[Strong closure]
+  So, we have weak constraints on concluding.
+  Is there a way to keep \ESU{} by strengthening closure?
+
+  The idea is that \csN{} relies on the possibility of an independent check.
+  However, strong closure leaves open the option for denying independence.
+
+  In certain cases, this seems viable.
+  Arithmetic.
+  Perhaps this does give everything.
+
+  However, the other cases are more challenging.
+  For, in these cases, specific premises.
+
+  Chess.
+  Winning strategy from board.
+  So, then need to conclude would conclude winning strategy from board.
+  Now, idea is that understanding basics already give you this.
+  Therefore, as the reasoning from the board requires understanding rules, it also follows that before concluding from board, have already concluded winning strategy from board.
+
+  Stepping back, relevant instance of reasoning requires certain premises.
+  Possible obtaining those premises already involves concluding various things.
+  If some of those conclusions are that one would not fail to conclude \dots
+  Then, there is no space for \requ{1} of the relevant kind.
+
+  For, there will be no `gap' between premises and conclusions of interest.
+  Hence, no independent check on whether one would get conclusion from premises.
+
+  This is really strong closure though.
+  Intuitively, there is some gap between introduction and understanding.
+  This is in part why \csN{} is of interest.
+  A sufficiently strong closure principle would need to rule out possibility of failing to \csN{} while having the possibility to reason to the correct answer.
+  And this, I don't see as genuinely viable.
+
+  And, if not viable, then tension arises when an agent goes from `merely' concluding to also \csN{}.
+\end{note}
+
+\subsubsection{Resolving tension by terminology}
+\label{sec:resolv-tens-term}
+
+\begin{note}[`Concluding']
+  Reject some of the assumptions regarding `concluding'.
+  Or, more generally, recast \csN{} in terms of something like commitment.
+
+  Argument has been developed with the terminology of `concluding' as this seems natural.
+
+  Even if not concluding, take the result to be sufficiently interesting.
+\end{note}
+
+
+\subsection{Observations}
+\label{sec:overview:observations}
+
+\subsubsection{Ability}
+
+\begin{note}
+  \begin{figure}[H]
+    \centering
+    \saMtxInterpreted{}
+    \caption{Distinction matrix with \aben{the}}
+    \label{fig:saMtxInterpreted:outline}
+  \end{figure}
+\end{note}
+
+\begin{note}
+  Recap.
+
+  Claiming support.
+  Constraint.
+
+  Ability.
+  In order to be compatible, satisfy constraint.
+  Either of three options.
+  Basic, ignore this.
+  Property. Incompatible with constraint.
+  Witness. Compatible.
+
+  Here, display the matrix.
+  I think this is the easiest way to visualise what is going on.
+\end{note}
+
+\paragraph{Deviant causal chains}
+
+\begin{note}
+  Do these really matter in the case of reasoning?
+\end{note}
+
+\paragraph{Closure principles}
+
+\begin{note}
+  No doubt, already observed.
+  This does lead to a closure principle, constrained by what reasoning it is possible for the agent to witness.
+
+  There are two perspectives.
+  First, leading to tension.
+  Second, no need to reason.
+\end{note}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:

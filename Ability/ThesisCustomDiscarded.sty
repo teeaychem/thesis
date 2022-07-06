@@ -1,4 +1,44 @@
-Deleted from ThesisCustom.sty
+\ProvidesPackage{ThesisCustomDiscarded}
+
+
+% % % TO DO % % %
+% \hyperref[label-name]{link-text}
+% % % % % % % % %
+
+\RequirePackage{xparse} % For creating commands with complex arguments
+\RequirePackage{environ}
+\RequirePackage{graphicx} % for reverse
+
+
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.misc}
+\newcommand*\cancel[2][thin]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+\newcommand*\Cancel[2][thick]{\tikz[baseline] \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+
+\RequirePackage{pifont}
+\newcommand{\hand}{\ding{43}}
+
+% % % Discarded
+
+\newcommand{\propSuppIndependence}[0]{
+    \begin{proposition}\label{}
+    If agent claims support for some proposition \(\phi\), then the support claimed indicates value of \(\phi\) regardless whether \(\phi\) has that value.
+  \end{proposition}
+}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\RBV}{ m }{% Reasoning by value
+  \tl_if_empty:nTF {#1}
+  {
+    \text{\textsf{RBV}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Reasoning\space by\space value}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 \newcommand{\nIp}[0]{\text{[nI\('\)]}}
 
@@ -149,3 +189,37 @@ Deleted from ThesisCustom.sty
       \end{tikzpicture}
   }%
 }
+
+% % %
+
+% % %
+\ExplSyntaxOn
+\DeclareDocumentCommand{\eit}{ m }{% Even if test
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{`Even\space if\dots'}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Even\space if\space I\space am\space #1\space about\space}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % %
+
+% % %
+\ExplSyntaxOn
+\DeclareDocumentCommand{\nfcs}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[assu:supp:nfactive]{\(\named{\diamond\cancel[thick]{\textsf{CS}}}\)}}%{\named{\cancel[thick]{F}CS}}}%\text{\textsf{|ICS|}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Non-factivity\space of\space claimed\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff

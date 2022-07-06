@@ -357,66 +357,6 @@
 
 % % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\nfcs}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[assu:supp:nfactive]{\(\named{\diamond\cancel[thick]{\textsf{CS}}}\)}}%{\named{\cancel[thick]{F}CS}}}%\text{\textsf{|ICS|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Non-factivity\space of\space claimed\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eit}{ m }{% Even if test
-  \tl_if_empty:nTF {#1}
-  {%
-    \obeybreaks{`Even\space if\dots'}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Even\space if\space I\space am\space #1\space about\space}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\RBV}{ m }{% Reasoning by value
-  \tl_if_empty:nTF {#1}
-  {
-    \text{\textsf{RBV}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Reasoning\space by\space value}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\twodefeaters}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \hyperref[idea:defs-for-CS]{\named{2\cancel[thick]{CS}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Two\space defeater\space types\space for\space claimed\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
 \DeclareDocumentCommand{\aben}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {
@@ -465,13 +405,13 @@
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{claiming}%
+      \obeybreaks{\color{red} claiming}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Claiming}%
+      \obeybreaks{\color{red} Claiming}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -484,40 +424,17 @@
 \DeclareDocumentCommand{\csV}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{claims\space \support{}}%
+    \obeybreaks{\color{red} claims\space \support{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{claims\space \support{}}%
+      \obeybreaks{\color{red} claims\space \support{}}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Claims\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\csVP}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{claiming\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{claiming\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Claiming\space \support{}}%
+      \obeybreaks{\color{red} Claims\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -530,17 +447,17 @@
 \DeclareDocumentCommand{\csVImp}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{claiming\space \support{}}%
+    \obeybreaks{\color{red} claiming\space \support{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{claiming\space \support{}}%
+      \obeybreaks{\color{red} claiming\space \support{}}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Claiming\space \support{}}%
+      \obeybreaks{\color{red} Claiming\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -553,17 +470,17 @@
 \DeclareDocumentCommand{\csVed}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{claimed\space \support{}}%
+    \obeybreaks{\color{red} claimed\space \support{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{claimed\space \support{}}%
+      \obeybreaks{\color{red} claimed\space \support{}}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Claimed\space \support{}}%
+      \obeybreaks{\color{red} Claimed\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -599,63 +516,17 @@
 \DeclareDocumentCommand{\csN}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\claiming{0}\space \support{}}%
+    \obeybreaks{\color{red} \claiming{0}\space \support{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\claiming{0}\space \support{}}%
+      \obeybreaks{\color{red} \claiming{0}\space \support{}}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\claiming{2}\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\cspN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\claiming{0}\(^{+}\)\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\claiming{0}\(^{+}\)\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\claiming{2}\(^{+}\)\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\csmN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\claiming{0}\(^{-}\)\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\claiming{0}\(^{-}\)\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\claiming{2}\(^{-}\)\space \support{}}%
+      \obeybreaks{\color{red} \claiming{2}\space \support{}}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -1807,10 +1678,10 @@
 \DeclareDocumentCommand{\qzS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[question:zs]{\named{\requ{2}?}}}
+    \text{\hyperref[question:zs]{\named{Failure?}}}
   }
   {%
-    \text{\hyperref[question:zs]{\named{\requ{2}?}}}
+    \text{\hyperref[question:zs]{\named{Failure?}}}
   }
 }
 \ExplSyntaxOff
@@ -1838,26 +1709,15 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\zSAb}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\(\zeta\)S}
-  }
-  {%
-    \text{\(\zeta\)-support}
-  }
-}
-\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\zS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:zs]{\zSAb{-}}}
+    \text{\hyperref[idea:zs]{\(Z\text{-support}\)}}
   }
   {%
-    \text{\hyperref[idea:zs]{\zSAb{}}}
+    \text{\hyperref[idea:zs]{\(Z\text{-support}\)}}
   }
 }
 \ExplSyntaxOff
@@ -1866,61 +1726,71 @@
 \DeclareDocumentCommand{\izS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:zs]{\named{\zSAb{}}}}
+    \text{\hyperref[idea:zS]{\named{\(Z\text{-support}\)}}}
   }
   {%
-    \text{\hyperref[idea:zs]{\named{\zSAb{-}}}}
+    \text{\hyperref[idea:zS]{\named{\(Z\text{-support}\)}}}
+  }
+}
+\ExplSyntaxOff
+
+% % % zeta support % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\zetaSAb}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\(\zeta\)-support}
+  }
+  {%
+    \text{\(\zeta\)-support}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ZS}{ m }{% No inertia
+\DeclareDocumentCommand{\zetaS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:Zs:overview]{\(Z\text{-support}\)}}
+    \text{\hyperref[idea:zetaS]{\zetaSAb}}
   }
   {%
-    \text{\hyperref[idea:Zs:overview]{\(Z\text{S}\)}}
+    \text{\hyperref[idea:zetaS]{\zetaSAb}}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\iZS}{ m }{% No inertia
+\DeclareDocumentCommand{\izetaS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(Z\)S}}}
+    \text{\hyperref[idea:zetaS]{\named{\zetaSAb{}}}}
   }
   {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(Z\)-support}}}
+    \text{\hyperref[idea:zetaS]{\named{\zetaSAb{-}}}}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ZSm}{ m }{% No inertia
+\DeclareDocumentCommand{\izetaSm}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:Zs:overview]{\(Z^{-}\)S}}
+    \text{\hyperref[idea:Zs:overview]{\named{\(\zeta^{-}\)S}}}
   }
   {%
-    \text{\hyperref[idea:Zs:overview]{\(Z^{-}\)-support}}
+    \text{\hyperref[idea:Zs:overview]{\named{\(\zeta^{-}\)-support}}}
   }
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\iZSm}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(Z^{-}\)S}}}
-  }
-  {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(Z^{-}\)-support}}}
-  }
-}
-\ExplSyntaxOff
+
+
+
+
+
+
+
 
 
 \newcommand*{\rleadsto}{\reflectbox{$\leadsto$}}%
@@ -1995,11 +1865,11 @@
 \ExplSyntaxOff
 
 \newcommand{\squishA}[2]{\obeybreaks{
-  #1 agent satisfying \(\chi\) is sufficient to resolve whether #2 agent has \zS{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\)}%
+  #1 agent satisfying \(\chi\) is sufficient to resolve whether #2 agent has \zetaS{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\)}%
 }
 
 \newcommand{\squishB}[1]{\obeybreaks{%
-  \(\chi\) entails #1 agent has satisfied \iZS{}}%
+  \(\chi\) entails #1 agent has satisfied \izetaS{}}%
 }
 
 \newcommand{\howBasic}[0]{\obeybreaks{%
