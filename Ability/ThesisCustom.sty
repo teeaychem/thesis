@@ -9,7 +9,6 @@
 \RequirePackage{environ}
 \RequirePackage{graphicx} % for reverse
 
-
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \newcommand*\cancel[2][thin]{\tikz \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
@@ -79,7 +78,7 @@
 \newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{?Constraint}}}
 \newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\named{?Inclusion}}}
 
-\newcommand{\ideaWitness}[0]{\hyperref[idea:Witnessing]{\named{Witnessing}}}
+\newcommand{\ideaWitness}[0]{\hyperref[idea:how-witnessing]{\named{Witnessing}}}
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
@@ -298,7 +297,7 @@
 \DeclareDocumentCommand{\ESU}{ m }{% Main premise / access to support
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[denied-claim]{\named{\ESUacro{}}}}%
+    \text{{\color{red} \named{\ESUacro{}}}}%
   }
   {%
     \ifnum0=#1\relax%
@@ -309,28 +308,14 @@
 \ExplSyntaxOff
 
 % % %
-\newcommand{\EASacro}[0]{\Cancel{USE}}
+\newcommand{\EASacro}[0]{\cancel{USE}}
 % \newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Ability\space allows\space for\space claiming\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ACS}{ m }{% Restricted claim
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
+    \text{\color{red} \named{\EASacro{}}}%
   }
   {%
     \ifnum0=#1\relax%
@@ -1678,10 +1663,10 @@
 \DeclareDocumentCommand{\qzS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[question:zs]{\named{Failure?}}}
+    \text{\hyperref[question:zs]{\named{Z\text{-support}?}}}
   }
   {%
-    \text{\hyperref[question:zs]{\named{Failure?}}}
+    \text{\hyperref[question:zs]{\named{Z\text{-support}?}}}
   }
 }
 \ExplSyntaxOff
@@ -1714,10 +1699,10 @@
 \DeclareDocumentCommand{\zS}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:zs]{\(Z\text{-support}\)}}
+    \text{\hyperref[idea:zS]{\(Z\text{-support}\)}}
   }
   {%
-    \text{\hyperref[idea:zs]{\(Z\text{-support}\)}}
+    \text{\hyperref[idea:zS]{\(Z\text{-support}\)}}
   }
 }
 \ExplSyntaxOff
@@ -1776,10 +1761,10 @@
 \DeclareDocumentCommand{\izetaSm}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(\zeta^{-}\)S}}}
+    \text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)S}}}
   }
   {%
-    \text{\hyperref[idea:Zs:overview]{\named{\(\zeta^{-}\)-support}}}
+    \text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)-support}}}
   }
 }
 \ExplSyntaxOff
@@ -1845,7 +1830,7 @@
 \DeclareDocumentCommand{\zSN}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\(\zeta\)-support}%
+    \obeybreaks{\zgb{0}\space support}%
   }
   {%
     \ifnum0=#1\relax%

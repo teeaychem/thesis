@@ -223,3 +223,17 @@
   }
 }
 \ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ACS}{ m }{% Restricted claim
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:EAS]{\named{\EASacro{}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Ability\space allows\space for\space claiming\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff
