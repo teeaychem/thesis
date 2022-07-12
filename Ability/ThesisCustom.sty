@@ -526,20 +526,20 @@
 \DeclareDocumentCommand{\requ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{requisite}%
+    \obeybreaks{\hyperref[idea:requ]{requisite}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{requisite}%
+      \obeybreaks{\hyperref[idea:requ]{requisite}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{requisites}%
+      \obeybreaks{\hyperref[idea:requ]{requisites}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Requisite}%
+      \obeybreaks{\hyperref[idea:requ]{Requisite}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Requisites}%
+      \obeybreaks{\hyperref[idea:requ]{Requisites}}%
     \fi
   }
 }
@@ -1008,7 +1008,7 @@
     \ifnum0=#1\relax%
       \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenario}}}%
     \fi
-    \ifnum1=#1\relax%
+    \ifnum1=#1\relax%f
       \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenarios}}}%
     \fi
     \ifnum2=#1\relax%
@@ -1386,20 +1386,20 @@
 \DeclareDocumentCommand{\requCluster}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\cluster{0}\space of\space \requ{0}}%
+    \obeybreaks{\cluster{0}\space of\space \requ{1}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\cluster{0}\space of\space \requ{0}}%
-    \fi
-    \ifnum1=#1\relax%
       \obeybreaks{\cluster{0}\space of\space \requ{1}}%
     \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\cluster{1}\space of\space \requ{1}}%
+    \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\cluster{2}\space of\space \requ{0}}%
+      \obeybreaks{\cluster{3}\space of\space \requ{1}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\cluster{2}\space of\space \requ{1}}%
+      \obeybreaks{\cluster{3}\space of\space \requ{1}}%
     \fi
   }
 }
@@ -1694,88 +1694,19 @@
 }
 \ExplSyntaxOff
 
+\newcommand{\zS}[0]{\text{\hyperref[idea:zS]{\(Z\)-support}}}
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\zS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:zS]{\(Z\text{-support}\)}}
-  }
-  {%
-    \text{\hyperref[idea:zS]{\(Z\text{-support}\)}}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\izS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:zS]{\named{\(Z\text{-support}\)}}}
-  }
-  {%
-    \text{\hyperref[idea:zS]{\named{\(Z\text{-support}\)}}}
-  }
-}
-\ExplSyntaxOff
+\newcommand{\izS}[0]{\text{\hyperref[idea:zS]{\named{\(Z\)-support}}}}
 
 % % % zeta support % % %
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\zetaSAb}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\(\zeta\)-support}
-  }
-  {%
-    \text{\(\zeta\)-support}
-  }
-}
-\ExplSyntaxOff
+\newcommand{\zetaSAb}[0]{\text{\(\zeta\)-support}}
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\zetaS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:zetaS]{\zetaSAb}}
-  }
-  {%
-    \text{\hyperref[idea:zetaS]{\zetaSAb}}
-  }
-}
-\ExplSyntaxOff
+\newcommand{\zetaS}[0]{\text{\hyperref[idea:zetaS]{\zetaSAb}}}
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\izetaS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:zetaS]{\named{\zetaSAb{}}}}
-  }
-  {%
-    \text{\hyperref[idea:zetaS]{\named{\zetaSAb{-}}}}
-  }
-}
-\ExplSyntaxOff
+\newcommand{\izetaS}[0]{\text{\hyperref[idea:zetaS]{\named{\zetaSAb{}}}}}
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\izetaSm}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)S}}}
-  }
-  {%
-    \text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)-support}}}
-  }
-}
-\ExplSyntaxOff
-
-
-
-
-
-
-
-
+\newcommand{\izetaSm}[0]{\text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)-support}}}}
 
 
 \newcommand*{\rleadsto}{\reflectbox{$\leadsto$}}%

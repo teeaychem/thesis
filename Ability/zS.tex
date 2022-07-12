@@ -293,7 +293,107 @@
   }
 \end{note}
 
-\paragraph{\emph{Why}}
+\subsection[Visualisation]{Visualisation of what is at issue when asking \qzS{}}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \node (origin) at (0,0) {};
+    \node (psiSplit) at (1,0) {};
+    \node (phiSplit) at (4,0) {};
+    %
+    \node[anchor=west] (psiV) at  (6,-1)  {\(\pvp{\psi}{v'}{\Psi}\)};
+    \node[anchor=west] (psiNv) at (6,-2) {\(\pvp{\psi}{\overline{v'}}{\Psi}\)};
+    \node[anchor=west] (psiQ) at (6,-3) {\(\pvp{\psi}{?}{\Psi}\)};
+    %
+    % \node[anchor=west] (psiVPhiV) at (9,-1) {\(\pv{\phi}{v}\)};
+    \node[anchor=west] (psiNvPhiU) at (9,-2) {\(\pv{\phi}{\{\overline{v},?\}}\)};
+    \node[anchor=west] (psiQPhiU) at (9,-3) {\(\pv{\phi}{\{\overline{v},?\}}\)};
+    %
+    \node[anchor=west] (phiQ) at (10,1) {\(\pv{\phi}{?}\)};
+    \node[anchor=west] (phiNv) at (10,2) {\(\pv{\phi}{\overline{v}}\)};;
+    \node[anchor=west] (phiV) at (10,0) {\(\pv{\phi}{v}\)};
+    %
+    \draw[-]  (origin) -- (phiV);
+    %
+    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiNv);
+    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiQ);
+    %
+    \path[-.] (psiSplit) edge [out=0, in=180] (psiV);
+    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiNv);
+    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiQ);
+    %
+    \draw[<-,dotted] (psiV) edge [out=0, in=180] (phiV);
+    \draw[->, dotted] (psiNv) edge (psiNvPhiU);
+    \draw[->, dotted] (psiQ) edge (psiQPhiU);
+    \end{tikzpicture}
+    \caption{Sketch of when \qzS{} has a negative answer.}
+    \label{fig:csN:illu:overview}
+  \end{figure}
+
+\begin{note}[Figure]
+  \autoref{fig:csN:illu:overview} provides a rough visualisation of~\qzS{}.
+
+  The flat line captures the agent's reasoning, which concludes with \(\pv{\phi}{v}\).
+  In concluding \(\pv{\phi}{v}\) the agent rules out two possibilities with respect to \(\phi\).
+  First, that \(\phi\) does not have value \(v\), indicated by \(\pv{\phi}{\overline{v}}\).
+  Second, that the agent does not assign any value to \(v\), indicated by \(\pv{\phi}{?}\).
+  Prior to concluding \(\pv{\phi}{v}\), the agent's reasoning may have branched to either alternative path, but as the agent has concluded \(\pv{\phi}{v}\), neither path is viable, and hence both paths are represented with a dashed line.
+
+  So far, we have seen only that the agent has concluded \(\pv{\phi}{v}\).
+
+  We now consider some proposition-value-premises pairing \(\pv{\psi}{v'}{\Psi}\) such that if the agent were to fail to conclude \(\pv{\psi}{v'}\) from \(\Phi\), the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Intuitively, the dotted arrows from the various combinations of \(\psi\) and \(\{v',\overline{v'},?\}\) read, from top to bottom:
+  \begin{itemize}
+  \item If \(\phi\) has value \(v\) then the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\), and:
+  \item If the agent concludes \(\psi\) has some value \(\overline{v'}\) from \(\Psi\), then the agent either concludes \(\phi\) has some value other than \(v\), or the agent fails to reach a conclusion regarding \(\phi\) from \(\Phi\).
+    Both options are combined via the shorthand \(\pv{\phi}{\{\overline{v},?\}}\).
+  \item
+    And, likewise if the agent fails to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+  \end{itemize}
+
+  With respect to concluding, observe that prior to ruling out alternative branches with respect to \(\pv{\phi}{\{\overline{v},?\}}\), the agent may have reasoned about whether \(\psi\) has value \(v\).
+  And, from the agent's perspective, \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
+  If \(\psi\) does not have value \(v'\), then either \(\phi\) does not have value \(v\), or the agent's reasoning would not conclude with a value for \(\phi\), indicated by \(\pv{\phi}{\{\overline{v},?\}}\).
+
+  Hence, prior to concluding \(\pv{\phi}{v}\), the agent has concluded \(\pv{\psi}{v'}\).
+\end{note}
+
+\begin{note}
+  Broadly, then, we may say that an agent has {\color{red} particular kind of conclusion} for \(\pv{\phi}{v}\) just in case when concluding \(\pv{\phi}{v}\) it is not the case that the agent's reasoning would have branched to a different conclusion with respect to \(\phi\).
+
+  However, the visualisation of~\autoref{fig:csN:illu:overview} and this broad statement of {\color{red} positive answer to \qzS{}} are a little too broad.
+  For, we are only interested in proposition-value pairs guaranteed by \(\phi\) having value \(v\).
+  {\color{red} positive answer to \qzS{}} is not global with respect to all proposition-value pairs that the agent may have reasoned about, but local to those guaranteed by the proposition.
+\end{note}
+
+\section{\emph{Why}}
+
+\begin{note}
+  Intuitively, positive answer in \scen{1}.
+
+  Some care has been taken.
+
+  \autoref{illu:sketch:prop-logic}.
+  Only if semantic proof.
+  Syntactic proofs, at least in my experience, may be out of reach.
+  However, semantic proofs, often straightforward.
+
+  Converse may hold, but more challenging than \autoref{illu:sketch:prop-logic}.
+
+  Similarly, \autoref{illu:gist:roots}.
+  Factorisation isn't too difficult.
+
+  \autoref{illu:sketch:math}.
+  \(345 \div 15 = 23\) \emph{only if} \(23 \times 15 = 345\).
+
+  Agent has the opportunity, and current result looks good.
+\end{note}
+
+\begin{note}
+  Now, answers, in part, why.
+\end{note}
 
 \begin{note}
   Rough understanding.
@@ -344,27 +444,64 @@
 \end{note}
 
 \begin{note}
-  First, need to argue that support is important.
-  This is~\autoref{cha:zS:sec:zetaS}.
-  Specifically, has witnessed or \fc{}.
+  \begin{idea}[\autoref{question:zs} and \emph{Why}]
+    In some cases:
+    \begin{itemize}
+    \item
+      Negative answer to~\autoref{question:zs} answers, in part, why an agent does not conclude.
+    \item
+      Positive answer to~\autoref{question:zs} answers, in part, why an agent does conclude, and hence is, in part, an answer to both \qWhy{} and \qWhyV{}.
+    \end{itemize}
+  \end{idea}
 
-  Then, maybe cases.
-  But, more general pattern and how it relates to ability.
+  The point here is that the negative answer seems sufficiently clear.
+  Hence, the question is important.
+  So, positive answer is also important.
+\end{note}
 
+\begin{note}
+  Run this through \scen{1} listed.
+\end{note}
+
+\begin{note}
+  \fc{}!
+  Or, forgone conclusion, but this is different from a \fc{}.
+\end{note}
+
+\begin{note}
+  What's needed is positive answer only if support.
+
+  Here, maybe illustrate with general ability.
+  Got X.
+  General ability.
+  So, specific ability to Y.
+\end{note}
+
+\begin{note}
   {
     \color{red}
-    So, really, do I want to here motivate the idea that with positive answers, citing some ability does seem to provide a positive answer?
+    There's a difference between answering `no' and failing to answer.
+    But, the point I'm arguing for works given this distinction.
+    There's no real different.
+    I mean, the conditional is either true or false.
+    But, it's possible that the falsity of the conditional has a role where the truth of the conditional does not.
   }
 \end{note}
+
+\subsection{Details}
+\label{cha:zS:sec:details}
+
+\subsubsection{Clauses~\ref{question:zs:option},~\ref{question:zs:subjunctive}, and the idea of a \requ{0}}
+\label{cha:zS:sec:clauses-idea-requ1}
 
 \paragraph{The components of \qzS{}}
 
 \begin{note}
-  The primary clauses of interest are clauses~\ref{question:zs:subjunctive} and \ref{question:zs:option}.
+  The primary clauses of interest are clauses~\ref{question:zs:option} and~\ref{question:zs:subjunctive}.
 
-  Intuitively, clause~\ref{question:zs:subjunctive} expresses that concluding \(\pv{\psi}{v'}\) from \(\Psi\) is a check on whether it makes sense for the agent, from their perspective, to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  And,~\ref{question:zs:option} means that, so long as \(\phi\) has value \(v\), the agent has the option of checking whether it makes sense for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+  Intuitively, clause~\ref{question:zs:option} means that, so long as \(\phi\) has value \(v\), the agent has the option of checking whether it makes sense for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
+  And, clause~\ref{question:zs:subjunctive} expresses that concluding \(\pv{\psi}{v'}\) from \(\Psi\) is a check on whether it makes sense for the agent, from their perspective, to conclude \(\pv{\phi}{v}\) from \(\Phi\).
 
 \paragraph{General}
 
@@ -439,6 +576,99 @@
             What matters is whether, from the agent's perspective, there is potential for reasoning about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) to block concluding \(\pv{\phi}{v}\) from \(\Phi\).
           }
 
+
+\subsection{\requ{3}}
+
+\begin{note}
+  We begin by refining the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings of interest from~\qzS{}.
+  We term such proposition-value-premises pairings `\requ{1}' of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+\begin{note}[Notion of a \requ{}]
+  \begin{notion}[\requ{3}]
+    \label{idea:requ}
+    \(\pvp{\phi}{v'}{\Psi}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\), with respect to an agent \vAgent{}'s epistemic state if:
+    \begin{enumerate}
+    \item
+      \label{idea:requ:main}
+      From the perspective of \vAgent{}' epistemic state, \(\phi\) has value \(v\) only if:
+      \begin{enumerate}[label=\alph*., ref=\named{R:\alph*}]
+      \item
+        \label{idea:requ:pool}
+        \vAgent{} has the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\) where:
+        \begin{enumerate}[label=\roman*., ref=\named{R:a.\roman*}, series=csIdeaCounter]
+        \item
+          \label{idea:requ:pool:int}
+          \vAgent{} may conclude \(\pv{\psi}{v'}\) from \(\Psi\) without concluding \(\pv{\phi}{v}\) from \(\Phi\) as an intermediary step.
+        \item
+          \label{idea:requ:pool:ind}
+          For any proposition-value pair \(\pv{\psi_{i}}{v_{i}}\) in \(\Psi\), \vAgent{} either has concluded or may conclude \(\pv{\psi_{i}}{v_{i}}\) without concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \end{enumerate}
+      \item
+        \label{idea:requ:nPsi-nPhi}
+        If \vAgent{} were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to reasoning about whether \(\phi\) has value \(v\) given \(\Phi\), \vAgent{} would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{notion}
+
+  With the key clause linking~\autoref{idea:requ} to~\qzS{} is clause~\ref{idea:requ:nPsi-nPhi}.
+  For, clause~\ref{idea:requ:nPsi-nPhi} captures the core idea of failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) leading to failure to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
+  The role of clause~\ref{idea:requ:pool} is explicitly state various properties \(\pv{\psi}{v'}{\Psi}\) must have in order for any failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) is relevant to concluding \(\pv{\phi}{v}\) from \(\Phi\).%
+  \footnote{
+    Indeed, we take \ref{idea:requ:pool:int} and~\ref{idea:requ:pool:ind} to be more-or-less implicit constraints on \(\pvp{\psi}{v'}{\Psi}\) in the statement of \qzS{}.
+  }
+  In particular, \ref{idea:requ:pool:int} and~\ref{idea:requ:pool:ind} are required to ensure the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\) independently of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+    For, if \ref{idea:requ:pool:int} and \ref{idea:requ:pool:ind} were to fail to hold then:
+  \begin{itemize}
+  \item
+    By~\ref{idea:requ:pool:int}, the agent would need to conclude \(\pv{\phi}{v}\) from \(\Phi\) as a sub-conclusion when reasoning from the relevant pool of premises \(\Psi\).
+    Hence, it would not be possible to conclude \(\pv{\psi}{v'}\) from \(\Psi\) without first concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \item
+    And, likewise, by~\ref{idea:requ:pool:ind}, the agent need to have already concluded \(\pv{\phi}{v}\) from \(\Phi\) in order to appeal to some of the proposition-value pairs in the relevant pool of premises \(\Psi\).
+  \end{itemize}
+
+  Conversely, if both~\ref{idea:requ:pool:int} and~\ref{idea:requ:pool:ind} hold, the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\) independently of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Note, however, neither~\ref{idea:requ:pool:int} nor~\ref{idea:requ:pool:ind} rule out the possibility of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\) when concluding \(\pv{\psi}{v'}\) from \(\Psi\) or, conversely, concluding \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v'}\) from \(\Phi\).
+  There may be an interesting variant of the notion of a \requ{} with such a constraint in place, but such a constraint is not of interest with respect to \qzS{}.
+  For, at issue is only whether the agent may at interest is only failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\), and both~\ref{idea:requ:pool:int} and~\ref{idea:requ:pool:ind} ensure lack of concluding \(\pv{\phi}{v}\) from \(\Phi\) will not prevent the agent from reaching a conclusion regarding whether \(\psi\) has value \(v\) given \(\Psi\).
+\end{note}
+
+\begin{note}
+  \color{red}
+  Has the option.
+\end{note}
+
+\begin{note}[\requ{2}: Partial check]
+  Intuitively, concluding \(\pv{\psi}{v'}\) from \(\Psi\) would serve as a partial check on whether the agent may reason to a conclusion other than \(\pv{\phi}{v}\), captured by~\ref{idea:requ:nPsi-nPhi}.
+
+  Concluding \(\pv{\psi}{v'}\) from \(\Psi\) is a check.
+  For, if the agent were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) then, from the perspective of the agent's epistemic state, the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+  Hence, contraposing, the agent would conclude \(\pv{\phi}{v}\) from \(\Phi\) only if the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+  However, the check is partial, as it need not be the case that the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\) only if the agent \(\pv{\phi}{v}\) from \(\Phi\).
+  Therefore, failing to conclude \(\pv{\psi}{v'}\) from \(\Psi\) may block concluding \(\pv{\phi}{v}\) (from the perspective of the agent's epistemic state) though concluding \(\pv{\psi}{v'}\) from \(\Psi\) need not ensure that the agent would conclude \(\pv{\phi}{v}\).
+
+  Now, \ref{idea:requ:nPsi-nPhi} contains a slight subtlety.
+  For, from~\autoref{assu:conc:d-free}, an agent may conclude various proposition-value pairs from some instance of reasoning without explicit recognition.
+  Therefore,~\ref{idea:requ:nPsi-nPhi} does not state that the agent may fail to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+  Rather, \ref{idea:requ:nPsi-nPhi} holds that from the perspective of the agent's epistemic state, the agent may fail to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+  Again, we tread a fine line between the role of an agent's epistemic state and the role of the agent's \stance{}.
+  The role of an agent's epistemic state determines whether \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  And, an agent's epistemic state may determine whether an agent concludes \(\pv{\chi}{v''}\) when concluding \(\pv{\phi}{v}\).%
+  \footnote{
+    Recall the above discussion of \(\pv{\phi}{v}\) \indicatePr{} \(\pv{\chi}{v'}\) in relation to~\autoref{assu:conc:d-free}.
+  }
+  Therefore, the agent's epistemic state --- the agent's perspective on how things are --- is key.
+  However, the agent's \stance{} is unimportant.
+  Whether an agent has concluded \(\pv{\phi}{v}\), or whether \(\pv{\psi}{v'}\) is a \requ{} is not a question of whether the agent recognises the have concluded \(\pv{\phi}{v}\) or recognises \(\pv{\psi}{v'}\) is a \requ{}.
+
+  Combining these two ideas, intuitively, \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) just in case there is some pool of premises \(\Psi\) such that determining whether the agent would conclude \(\pv{\psi}{v'}\) is an independent partial check on whether the agent may reason to a conclusion other than \(\pv{\phi}{v}\).
+\end{note}
+
+
 \paragraph{Abstract}
 
 \begin{note}[Abstract motivation]
@@ -458,9 +688,54 @@
   Still, without need to investigate, we may ignore any such consequences that may arise.
 \end{note}
 
-\begin{note}[Prior to concluding\dots]
-  
+\paragraph*{Narrowing \requ{1}}
 
+\begin{note}[Expanding pool constraints]
+  To~\ref{idea:requ:pool} of~\autoref{idea:requ} the following clause may also be added:
+  \begin{enumerate}[label=]
+  \item
+    \begin{enumerate}[label=]
+    \item
+      \begin{enumerate}[label=\roman*., ref=(\roman*), resume*=csIdeaCounter]
+        \setcounter{enumiii}{3}
+      \item
+        \label{idea:requ:pool:method}
+        Concluding \(\pv{\psi}{v'}\) from \(\Psi\) involves the same general method the agent would use to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+  We omit~\autoref{idea:requ:pool:method} from the idea of \csN{} for two (related) reasons.
+  First, it is not clear what `the same general method' amounts to in detail.
+  Second, avoiding questions about method affords flexibility when providing \illu{1} of \zS{}.
+  However,~\autoref{idea:requ:pool:method} may be imposed with no loss to the role of \zS{} in the overall argument.
+  However, always a check on whether one has the general ability.
+\end{note}
+
+\begin{note}
+  Reasoning, \support{}, would not reason to a different conclusion.
+
+  Specifically, \requ{} of some conclusion.
+  So long as conclusion, then it is possible to reason about whether \(\psi\) has value \(v'\), and unless conclude \(\psi\) has value \(v'\), would not conclude \(\phi\) has value \(v\).
+
+  Intuitively, \requ{} as an independent check on the reasoning.
+  If don't hold \(\psi\) from premises, then question about whether \(\phi\).
+
+  Claiming support, necessary condition is satisfying all \requ{1}.
+  Claiming support, then, is weaker than having support.
+  Restricted to whether conclusion of reasoning would introduce a \requ{}.
+  And, may be further restricted without impact to the tension we will develop to whether the conclusion would `clearly' introduce a \requ{}.
+\end{note}
+
+\begin{note}
+  Now, consequence from \ideaCS{} and \ESU{},
+  If potential witnessing event, then either concluded previously, or witness reasoning.
+\end{note}
+
+
+\paragraph{Prior to concluding\dots}
+
+\begin{note}[Prior to concluding\dots]
+  An important feature of \qzS{} \dots
 
   Not particularly marked.
   Allow agent to have built up a bunch of stuff in the reasoning.
@@ -524,7 +799,8 @@
   Result is either revising inconsistent epistemic state, or abandoning intermediary steps of reasoning.
 \end{note}
 
-\subsection{\zS{}}
+
+\section{\zS{}}
 \label{cha:zS:sec:zS}
 
 \begin{note}[Answers to \qzS{}]
@@ -593,82 +869,8 @@
   \end{proposition}
 \end{note}
 
-\subsection[Visualisation]{Visualisation of what is at issue when asking \qzS{}}
 
-\begin{figure}[h]
-  \centering
-  \begin{tikzpicture}
-    \node (origin) at (0,0) {};
-    \node (psiSplit) at (1,0) {};
-    \node (phiSplit) at (4,0) {};
-    %
-    \node[anchor=west] (psiV) at  (6,-1)  {\(\pvp{\psi}{v'}{\Psi}\)};
-    \node[anchor=west] (psiNv) at (6,-2) {\(\pvp{\psi}{\overline{v'}}{\Psi}\)};
-    \node[anchor=west] (psiQ) at (6,-3) {\(\pvp{\psi}{?}{\Psi}\)};
-    %
-    % \node[anchor=west] (psiVPhiV) at (9,-1) {\(\pv{\phi}{v}\)};
-    \node[anchor=west] (psiNvPhiU) at (9,-2) {\(\pv{\phi}{\{\overline{v},?\}}\)};
-    \node[anchor=west] (psiQPhiU) at (9,-3) {\(\pv{\phi}{\{\overline{v},?\}}\)};
-    %
-    \node[anchor=west] (phiQ) at (10,1) {\(\pv{\phi}{?}\)};
-    \node[anchor=west] (phiNv) at (10,2) {\(\pv{\phi}{\overline{v}}\)};;
-    \node[anchor=west] (phiV) at (10,0) {\(\pv{\phi}{v}\)};
-    %
-    \draw[-]  (origin) -- (phiV);
-    %
-    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiNv);
-    \path[-,dashed] (phiSplit) edge [out=0, in=180] (phiQ);
-    %
-    \path[-.] (psiSplit) edge [out=0, in=180] (psiV);
-    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiNv);
-    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiQ);
-    %
-    \draw[<-,dotted] (psiV) edge [out=0, in=180] (phiV);
-    \draw[->, dotted] (psiNv) edge (psiNvPhiU);
-    \draw[->, dotted] (psiQ) edge (psiQPhiU);
-    \end{tikzpicture}
-    \caption{Sketch of when an agent has a negative resolution for~\autoref{question:zs}.}
-    \label{fig:csN:illu:overview}
-  \end{figure}
-
-\begin{note}[Figure]
-  \autoref{fig:csN:illu:overview} provides a rough visualisation of~\autoref{question:zs}
-
-  The flat line captures the agent's reasoning, which concludes with \(\pv{\phi}{v}\).
-  In concluding \(\pv{\phi}{v}\) the agent rules out two possibilities with respect to \(\phi\).
-  First, that \(\phi\) does not have value \(v\), indicated by \(\pv{\phi}{\overline{v}}\).
-  Second, that the agent does not assign any value to \(v\), indicated by \(\pv{\phi}{?}\).
-  Prior to concluding \(\pv{\phi}{v}\), the agent's reasoning may have branched to either alternative path, but as the agent has concluded \(\pv{\phi}{v}\), neither path is viable, and hence both paths are represented with a dashed line.
-
-  So far, we have seen only that the agent has concluded \(\pv{\phi}{v}\).
-
-  We now consider some proposition-value-premises pairing \(\pv{\psi}{v'}{\Psi}\) such that if the agent were to fail to conclude \(\pv{\psi}{v'}\) from \(\Phi\), the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Intuitively, the dotted arrows from the various combinations of \(\psi\) and \(\{v',\overline{v'},?\}\) read, from top to bottom:
-  \begin{itemize}
-  \item If \(\phi\) has value \(v\) then the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\), and:
-  \item If the agent concludes \(\psi\) has some value \(\overline{v'}\) from \(\Psi\), then the agent either concludes \(\phi\) has some value other than \(v\), or the agent fails to reach a conclusion regarding \(\phi\) from \(\Phi\).
-    Both options are combined via the shorthand \(\pv{\phi}{\{\overline{v},?\}}\).
-  \item
-    And, likewise if the agent fails to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  \end{itemize}
-
-  With respect to concluding, observe that prior to ruling out alternative branches with respect to \(\pv{\phi}{\{\overline{v},?\}}\), the agent may have reasoned about whether \(\psi\) has value \(v\).
-  And, from the agent's perspective, \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
-  If \(\psi\) does not have value \(v'\), then either \(\phi\) does not have value \(v\), or the agent's reasoning would not conclude with a value for \(\phi\), indicated by \(\pv{\phi}{\{\overline{v},?\}}\).
-
-  Hence, prior to concluding \(\pv{\phi}{v}\), the agent has concluded \(\pv{\psi}{v'}\).
-\end{note}
-
-\begin{note}
-  Broadly, then, we may say that an agent has {\color{red} particular kind of conclusion} for \(\pv{\phi}{v}\) just in case when concluding \(\pv{\phi}{v}\) it is not the case that the agent's reasoning would have branched to a different conclusion with respect to \(\phi\).
-
-  However, the visualisation of~\autoref{fig:csN:illu:overview} and this broad statement of {\color{red} positive answer to \qzS{}} are a little too broad.
-  For, we are only interested in proposition-value pairs guaranteed by \(\phi\) having value \(v\).
-  {\color{red} positive answer to \qzS{}} is not global with respect to all proposition-value pairs that the agent may have reasoned about, but local to those guaranteed by the proposition.
-\end{note}
-
-\subsection{Additional \illu{1}}
+\section{Additional \illu{1}}
 \label{cha:zS:sec:question:illu}
 
 \begin{note}
@@ -1121,271 +1323,38 @@
   Parallel in converse cases.
 \end{note}
 
-\section{Refining \zSN{2}: \zetaS{}}
-\label{cha:zS:sec:zetaS}
+\section{Notes}
+\label{cha:zS:sec:notes}
+
+\paragraph*{When}
 
 \begin{note}
-  We opened this section with a question---\qzS{}.
-  We have expanded, in part, on what this question amounts to, and have seen a handful of \illu{1}.
-
-  To ease discussion going forward, we reformulate negative and positive answers to~\qzS{} in terms of whether an agent satisfies a certain property.
-
-  In longform we term this property `\zSN{2}', though with few exceptions we will use the term `\zSN{0}'.
-
-  We also take this opportunity to refine our understanding of the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings from~\qzS{}.
+  \emph{When} concluding \(\pv{\phi}{v}\) from \(\Phi\) in order to keep things simple.
+  A variant of the question may be asked if the agent has (already) concluded \(\pv{\phi}{v}\) from \(\Phi\).
+  Here, rather than asking whether the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\), we may ask whether the agent would revise their conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
-\subsection{\requ{3}}
+\paragraph*{Whether the agent may conclude \(\phi\) has value \(v\), regardless of \(\Phi\)}
 
 \begin{note}
-  We begin by refining the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings of interest from~\qzS{}.
-  We term such proposition-value-premises pairings `\requ{1}' of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  Not about the proposition-value pair.
+  Rather, it is about the concluding.
+  At interest is not whether \(\phi\) has value \(v\), but whether it makes sense to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+  Of course, if the agent has no information about whether \(\phi\) has value \(v\), then this is also part of the picture, but that is a consequence of the base concern.
 \end{note}
 
-\begin{note}[Notion of a \requ{}]
-  \begin{notion}[\requ{3}]
-    \label{notion:overview:requ}
-    \(\pvp{\phi}{v'}{\Psi}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\), with respect to an agent \vAgent{}'s epistemic state if:
-    \begin{enumerate}
-    \item
-      \label{notion:overview:requ:main}
-      From the perspective of \vAgent{}' epistemic state, \(\phi\) has value \(v\) only if:
-      \begin{enumerate}[label=\alph*., ref=\named{R:\alph*}]
-      \item
-        \label{notion:overview:requ:pool}
-        \vAgent{} has the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\) where:
-        \begin{enumerate}[label=\roman*., ref=\named{R:a.\roman*}, series=csIdeaCounter]
-        \item
-          \label{notion:overview:requ:pool:int}
-          \vAgent{} may conclude \(\pv{\psi}{v'}\) from \(\Psi\) without concluding \(\pv{\phi}{v}\) from \(\Phi\) as an intermediary step.
-        \item
-          \label{notion:overview:requ:pool:ind}
-          For any proposition-value pair \(\pv{\psi_{i}}{v_{i}}\) in \(\Psi\), \vAgent{} either has concluded or may conclude \(\pv{\psi_{i}}{v_{i}}\) without concluding \(\pv{\phi}{v}\) from \(\Phi\).
-        \end{enumerate}
-      \item
-        \label{notion:overview:requ:nPsi-nPhi}
-        If \vAgent{} were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to reasoning about whether \(\phi\) has value \(v\) given \(\Phi\), \vAgent{} would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{enumerate}
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{notion}
+\paragraph*{Introduced by \(\pv{\phi}{v}\) from \(\Phi\)}
 
-  With the key clause linking~\autoref{notion:overview:requ} to~\qzS{} is clause~\ref{notion:overview:requ:nPsi-nPhi}.
-  For, clause~\ref{notion:overview:requ:nPsi-nPhi} captures the core idea of failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) leading to failure to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+\begin{note}[Proposition-value-premise pairing introduced by \(\pv{\phi}{v}\) from \(\Phi\)]
+  This restriction may seem arbitrary, and to some degree I think it is.
+  Ideally, an agent concluding \(\pv{\phi}{v}\) is an instance of \csN{} just in case the agent would not have reasoned to a different conclusion if they were to reason first about any other proposition-value pair.
+  However, the advantage of focusing on some proposition-value pair `required' by \(\phi\) having value \(v\) is a significant constraint on the range of proposition-value pairs an agent needs to consider in order to \csN{}.
 
-  The role of clause~\ref{notion:overview:requ:pool} is explicitly state various properties \(\pv{\psi}{v'}{\Psi}\) must have in order for any failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) is relevant to concluding \(\pv{\phi}{v}\) from \(\Phi\).%
-  \footnote{
-    Indeed, we take \ref{notion:overview:requ:pool:int} and~\ref{notion:overview:requ:pool:ind} to be more-or-less implicit constraints on \(\pvp{\psi}{v'}{\Psi}\) in the statement of \qzS{}.
-  }
-  In particular, \ref{notion:overview:requ:pool:int} and~\ref{notion:overview:requ:pool:ind} are required to ensure the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\) independently of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  In general, it may not be clear which proposition-value pairs may lead an agent to fail to conclude \(\phi\) has value \(v\), but so long the proposition-value pair of interest is given by \(\phi\) having value \(v\), an exhaustive search over all other proposition-value pairs may be avoided.
 
-    For, if \ref{notion:overview:requ:pool:int} and \ref{notion:overview:requ:pool:ind} were to fail to hold then:
-  \begin{itemize}
-  \item
-    By~\ref{notion:overview:requ:pool:int}, the agent would need to conclude \(\pv{\phi}{v}\) from \(\Phi\) as a sub-conclusion when reasoning from the relevant pool of premises \(\Psi\).
-    Hence, it would not be possible to conclude \(\pv{\psi}{v'}\) from \(\Psi\) without first concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    And, likewise, by~\ref{notion:overview:requ:pool:ind}, the agent need to have already concluded \(\pv{\phi}{v}\) from \(\Phi\) in order to appeal to some of the proposition-value pairs in the relevant pool of premises \(\Psi\).
-  \end{itemize}
-
-  Conversely, if both~\ref{notion:overview:requ:pool:int} and~\ref{notion:overview:requ:pool:ind} hold, the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\) independently of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Note, however, neither~\ref{notion:overview:requ:pool:int} nor~\ref{notion:overview:requ:pool:ind} rule out the possibility of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\) when concluding \(\pv{\psi}{v'}\) from \(\Psi\) or, conversely, concluding \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v'}\) from \(\Phi\).
-  There may be an interesting variant of the notion of a \requ{} with such a constraint in place, but such a constraint is not of interest with respect to \qzS{}.
-  For, at issue is only whether the agent may at interest is only failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\), and both~\ref{notion:overview:requ:pool:int} and~\ref{notion:overview:requ:pool:ind} ensure lack of concluding \(\pv{\phi}{v}\) from \(\Phi\) will not prevent the agent from reaching a conclusion regarding whether \(\psi\) has value \(v\) given \(\Psi\).
+  Indeed, we will say that an agent has \emph{\support{}} for \(\phi\) having value \(v\) just in case they would not have reasoned otherwise, and reserve \emph{\claiming{}} \support{} for the weaker notion.
 \end{note}
 
-\begin{note}
-  \color{red}
-  Has the option.
-\end{note}
-
-\begin{note}[\requ{2}: Partial check]
-  Intuitively, concluding \(\pv{\psi}{v'}\) from \(\Psi\) would serve as a partial check on whether the agent may reason to a conclusion other than \(\pv{\phi}{v}\), captured by~\ref{notion:overview:requ:nPsi-nPhi}.
-
-  Concluding \(\pv{\psi}{v'}\) from \(\Psi\) is a check.
-  For, if the agent were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) then, from the perspective of the agent's epistemic state, the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  Hence, contraposing, the agent would conclude \(\pv{\phi}{v}\) from \(\Phi\) only if the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  However, the check is partial, as it need not be the case that the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\) only if the agent \(\pv{\phi}{v}\) from \(\Phi\).
-  Therefore, failing to conclude \(\pv{\psi}{v'}\) from \(\Psi\) may block concluding \(\pv{\phi}{v}\) (from the perspective of the agent's epistemic state) though concluding \(\pv{\psi}{v'}\) from \(\Psi\) need not ensure that the agent would conclude \(\pv{\phi}{v}\).
-
-  Now, \ref{notion:overview:requ:nPsi-nPhi} contains a slight subtlety.
-  For, from~\autoref{assu:conc:d-free}, an agent may conclude various proposition-value pairs from some instance of reasoning without explicit recognition.
-  Therefore,~\ref{notion:overview:requ:nPsi-nPhi} does not state that the agent may fail to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  Rather, \ref{notion:overview:requ:nPsi-nPhi} holds that from the perspective of the agent's epistemic state, the agent may fail to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  Again, we tread a fine line between the role of an agent's epistemic state and the role of the agent's \stance{}.
-  The role of an agent's epistemic state determines whether \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  And, an agent's epistemic state may determine whether an agent concludes \(\pv{\chi}{v''}\) when concluding \(\pv{\phi}{v}\).%
-  \footnote{
-    Recall the above discussion of \(\pv{\phi}{v}\) \indicatePr{} \(\pv{\chi}{v'}\) in relation to~\autoref{assu:conc:d-free}.
-  }
-  Therefore, the agent's epistemic state --- the agent's perspective on how things are --- is key.
-  However, the agent's \stance{} is unimportant.
-  Whether an agent has concluded \(\pv{\phi}{v}\), or whether \(\pv{\psi}{v'}\) is a \requ{} is not a question of whether the agent recognises the have concluded \(\pv{\phi}{v}\) or recognises \(\pv{\psi}{v'}\) is a \requ{}.
-
-  Combining these two ideas, intuitively, \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) just in case there is some pool of premises \(\Psi\) such that determining whether the agent would conclude \(\pv{\psi}{v'}\) is an independent partial check on whether the agent may reason to a conclusion other than \(\pv{\phi}{v}\).
-\end{note}
-
-\subsection{\zetaS{}}
-\label{sec:zs2}
-
-\begin{note}
-  With the notion of a \requ{} in hand, we now state when an agent has \zSN{0} for some proposition-value pair:
-
-  \begin{idea}[\izetaS{}]
-    \label{idea:zetaS}
-    An agent \vAgent{} has \emph{\izetaS{}} for a proposition-value pair \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from some pool of premises \(\Phi\) just in case:
-    \begin{itemize}
-    \item When concluding \(\pv{\phi}{v}\) from \(\Phi\):
-      \begin{enumerate}[label=\arabic*., ref=\named{CS:\arabic*}]
-      \item
-        \label{idea:zetaS::requ}
-        For any proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) which is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\) either:
-        \begin{enumerate}[label=\alph*., ref=\named{CS:1.\alph*}]
-        \item
-          \label{idea:zetaS::requ-sat:Past}
-          \vAgent{} has concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-        \item
-          \label{idea:zetaS::requ-sat:Pres}
-          In concluding \(\pv{\phi}{v}\), \vAgent{} simultaneously concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-        \item
-          \label{idea:zetaS::requ-sat:Forgone}
-          \(\pvp{\psi}{v'}{\Psi}\) is a \fc{0}.
-        \end{enumerate}
-      \end{enumerate}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{idea}
-\end{note}
-
-\begin{note}
-  \begin{proposition}[Equivalence between \zS{} and \zetaS{}]
-    \label{prop:qzs-tick-equals-iCS}
-    For an agent \vAgent{}, the following are equivalent:
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item
-      \label{prop:qzs-tick-equals-iCS:qzS}
-      \vAgent{} has \zS{} for \(\pv{\phi}{v}\) after concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      (\qzS{} had a negative resolution when concluding \(\pv{\phi}{v}\) from \(\Phi\))
-    \item
-      \label{prop:qzs-tick-equals-iCS:ZS}
-      \vAgent{} has \zetaS{} for \(\pv{\phi}{v}\) after concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{proposition}
-  In other words, we hold that an agent ruling out failure to conclude \(\pv{\phi}{v}\) from \(\Phi\) for any \requ{} \(\pvp{\psi}{v'}{\Psi}\) is \emph{equivalent}%
-  \footnote{
-    In the context of a negative resolution to \qzS{}.
-  }
-  to the agent either
-  \begin{enumerate*}[label=(\alph*)]
-  \item
-    having had concluded \(\pv{\psi}{v'}\) from \(\Psi\), or
-  \item
-    the agent simultaneously concluding \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    \(\pvp{\psi}{v'}{\Psi}\) being a \fc{0}.
-  \end{enumerate*}
-\end{note}
-
-\paragraph*{Observations}
-
-\paragraph*{Contraposition}
-
-\begin{note}[Contraposition]
-  An argument for~\autoref{prop:qzs-tick-equals-iCS} is important from the perspective of the overall argument of this document.
-
-  Suppose we have~\autoref{prop:qzs-tick-equals-iCS}.
-  Then, view \izetaS{} as a clarification of \qzS{}.
-
-  Specifically, the left-to-right direction.
-
-  Only negative resolution if \izetaS{}.
-  I.e.\ only if concluded, for any \requ{}.
-
-  \begin{itemize}
-  \item
-    If an agent has concluded \(\pv{\phi}{v}\) from \(\Phi\) \emph{without} having concluded \(\pv{\psi}{v'}\) from some \(\Psi\), where \(\pv{\psi}{v'}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\), then the agent has not \csVed{} for \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{itemize}
-
-  Taking the contraposition, if not \izetaS{}, then no negative resolution.
-  If intuitions are unclear, then \izetaS{} offers a way to clarify those intuitions.
-
-  Conversely, fix a negative resolution to \qzS{}, then from left-to-right direction, draw out what must also be the case.%
-  \footnote{
-    Consider, by analogy, knowledge, and the idea that knowledge is closed under known entailment.
-    \begin{quote}
-      If \vAgent{} knows both
-      \begin{enumerate*}[label=(\roman*)]
-      \item \(\phi\), and
-      \item \(\phi\) entails \(\psi\),
-      \end{enumerate*}
-      then \vAgent{} knows \(\psi\).
-    \end{quote}
-    Observe the same dynamics are present.
-
-    If whether an agent knows both \(\phi\) and \(\phi\) entails \(\psi\) is at issue, then establishing the agent does not know \(\psi\) establishes that either the agent does not know \(\phi\) or the agent does not know \(\psi\).
-
-    Conversely, if an agent knows both \(\phi\) and \(\phi\) entails \(\psi\), then by closure of knowledge under known entailment, the agent must also know \(\psi\).
-
-    Of course, whether knowledge \emph{is} closed under known entailment is unclear, but the same dynamics hold for any similar condition.
-    In general, these observations amount to little more than both the closure of knowledge under known entailment and \izetaS{} both having the general form of a conditional \(A \Rightarrow B\), such that:
-    \begin{itemize}
-    \item
-      From \(A \Rightarrow B\) and \(A\), one may infer \(B\), and
-    \item
-      From \(A \Rightarrow B\) and \emph{not}-\(B\), one may infer \emph{not}-\(A\).
-    \end{itemize}
-  }
-
-  \begin{itemize}
-  \item
-    If an agent has \zetaS{} for \(\pv{\phi}{v}\) from \(\Phi\), by concluding \(\pv{\phi}{v}\) from \(\Phi\) then, has concluded \(\pv{\psi}{v'}\) from \(\Psi\), for any \(\pvp{\psi}{v'}{\Psi}\) which is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{itemize}
-
-  In outline, path to tension.
-  Cases in which \qzS{} has negative resolution.
-  Draw out as a consequence of~\autoref{prop:qzs-tick-equals-iCS} that the agent has concluded.
-  So long as cases in which no witnessing, we will have tension.
-  On the one hand, negative resolution, and on the other hand, has not witnessed reasoning.
-
-  Now, if some weaker, that does not require concluding, then lack a way to generate tension.
-
-  So,~\autoref{prop:qzs-tick-equals-iCS} should be treated with some caution.
-
-  Of course, this does not guarantee anything interesting.
-  Tension will still depend on such cases.
-\end{note}
-
-\begin{note}
-  With the importance of~\autoref{prop:qzs-tick-equals-iCS} motivated, we now turn to arguing for~\autoref{prop:qzs-tick-equals-iCS}.
-
-  The argument we provide for~\autoref{prop:qzs-tick-equals-iCS} is somewhat involved, and will go via an intermediary lemma.
-  We being by outlining the structure of the argument, before turning to the details.
-\end{note}
-
-\paragraph*{Same time}
-
-\begin{note}[Importance of at same time]
-  Propositional logic.
-  These premises allow to conclude two things.
-  Then, conclusion that \(\phi \land \psi\) is simultaneously a conclusion that \(\phi\) and that \(\psi\).
-
-  Or, apples in a bag.
-  Five.
-  Well, could do at least four, three, etc.
-  Conclude at the same time.
-\end{note}
-
-\begin{note}
-  For example, counterexample for some formula of propositional logic.
-  Constructed a truth table.
-  Identified a line.
-  If counterexample, then line makes any tautology of propositional logic true.
-  And, do not need to appeal to the line being a counterexample to the relevant formula to do so.
-  reason from line to any recognised tautology.
-  Conclude, tautology would be true.
-\end{note}
 
 \paragraph*{Inductive, abductive, etc.\ reasoning}
 
@@ -1408,6 +1377,8 @@
   It is true that there is something more you could do, but this would require acquiring new information.
 \end{note}
 
+
+
 \paragraph*{Fragility}
 
 \begin{note}
@@ -1422,14 +1393,6 @@
   Second, isolation of potential instability to \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
-\paragraph*{Whether the agent may conclude \(\phi\) has value \(v\), regardless of \(\Phi\)}
-
-\begin{note}
-  Not about the proposition-value pair.
-  Rather, it is about the concluding.
-  At interest is not whether \(\phi\) has value \(v\), but whether it makes sense to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  Of course, if the agent has no information about whether \(\phi\) has value \(v\), then this is also part of the picture, but that is a consequence of the base concern.
-\end{note}
 
 \paragraph*{Normative?}
 
@@ -1451,1275 +1414,7 @@
   Indeed, this perspective is important for fragility.
 \end{note}
 
-\subparagraph*{Almost-transitive}
 
-\begin{note}
-  Key idea that may be obvious is that \csN{} is almost-transitive.
-  If it needs to be the case that I'd conclude \(\pv{\psi}{v'}\) from \(\Psi\) to get \(\pv{\phi}{v}\) from \(\Phi\), and \(\pv{\chi}{v''}\) from \(X\) to get \(\pv{\psi}{v'}\) from \(\Psi\) then, need to get \(\pv{\chi}{v''}\) from \(X\) to get \(\Phi\), and \(\pv{\chi}{v''}\).
-
-  However, this is not quite right.
-  For, it may be the case that the agent has the option of getting to \(\pv{\psi}{v'}\) from \(\Psi\) from the different branch.
-\end{note}
-
-\begin{note}
-  Only about the option of concluding.
-  There are various other properties.
-  In this respect, \qzS{} is narrow.
-\end{note}
-
-\begin{note}
-  Most reasoning is short, and composes.
-  Further, it needs to be the case that novel proposition-value pair introduces this concern.
-  So, some extraneous proposition.
-  This is irrelevant.
-\end{note}
-
-\begin{note}[Recursion]
-   {
-    \color{red}
-    Here, it is important that we don't go fully recursive.
-    For, we're only interested in \requ{1} arising from concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    This means that it is no immediate.
-    In particular, it may be the case that some of \(\Phi\) remove what would otherwise be a \requ{} of some \requ{}.
-    But, then, this is still a \requ{} with respect to the current epistemic state.
-
-    So, I think I actually get the result that this is recursive.
-    However, with a slight change.
-    For, \ref{idea:zetaS::requ-sat:Past} looks to the past, and instead of \csVImp{} in the past, it only need to be the case that the agent has \csVed{} from present epistemic state.
-
-    The point is, that there may be some pruning without concluding.
-    For, something fails to be a \requ{}.
-    Likewise, it may be the case that the tree grows, as the agent's epistemic state develops.
-
-    So, we don't get a clear recursive clause.
-
-    This leads to an observation.
-    Reasoning about a \requ{} may lead to a revision of the agent's epistemic state.
-
-    This is a somewhat interesting consequence.
-    We began with the idea of failing to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-    This said nothing about revision.
-    However, we see that this raises the possibility of revision.
-
-    From a different perspective, this should come as no surprise.
-    If the agent concluded without \csN{}, then this is going to remain a problem for any further conclusions, unless the agent figures out they were mistaken regarding the proposition-value-premises pairing being a \requ{}.
-  }
-\end{note}
-
-\paragraph*{Introduced by \(\pv{\phi}{v}\) from \(\Phi\)}
-
-\begin{note}[Proposition-value-premise pairing introduced by \(\pv{\phi}{v}\) from \(\Phi\)]
-  This restriction may seem arbitrary, and to some degree I think it is.
-  Ideally, an agent concluding \(\pv{\phi}{v}\) is an instance of \csN{} just in case the agent would not have reasoned to a different conclusion if they were to reason first about any other proposition-value pair.
-  However, the advantage of focusing on some proposition-value pair `required' by \(\phi\) having value \(v\) is a significant constraint on the range of proposition-value pairs an agent needs to consider in order to \csN{}.
-
-  In general, it may not be clear which proposition-value pairs may lead an agent to fail to conclude \(\phi\) has value \(v\), but so long the proposition-value pair of interest is given by \(\phi\) having value \(v\), an exhaustive search over all other proposition-value pairs may be avoided.
-
-  Indeed, we will say that an agent has \emph{\support{}} for \(\phi\) having value \(v\) just in case they would not have reasoned otherwise, and reserve \emph{\claiming{}} \support{} for the weaker notion.
-\end{note}
-
-\paragraph*{When}
-
-\begin{note}
-  \emph{When} concluding \(\pv{\phi}{v}\) from \(\Phi\) in order to keep things simple.
-  A variant of the question may be asked if the agent has (already) concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  Here, rather than asking whether the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\), we may ask whether the agent would revise their conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
-
-\subsection{Equivalence between \qzS{} and \izetaS{}}
-%\subsection{An equivalent statement of \zS{}, \zetaS{}}
-\label{sec:overview:an-equiv-stat-of-zs}
-
-\begin{note}
-  We began this section with the statement of a question ---~\autoref{question:zs}, or \qzS{}  --- concerning whether something is the case when an agent concludes some proposition-value pair \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
-  We then reformulated the question in terms of a property, \zS{}.
-
-  The terminology of \zS{}, or \zSN{0}, is certainly artificial.
-  Still, I take the question, and the content of \zS{} to be fairly intuitive.
-
-  Roughly, at issue is whether there is some proposition-value-premises pairing which would prevent an agent from concluding some proposition-value pair from some pool of premises.
-
-  Some technical concepts have been appealed to in order to clarify the question --- in particular with respect to our assumptions regarding concluding, and our focus on a fixed epistemic state --- but the question itself is fairly natural.
-
-  Consider again the \illu{1} regarding a lost pair of keys.
-  There does seem to be a difference between an exhaustive consideration of all the places the keys may be before concluding the keys are lost on the one hand, and concluding the keys are lost while expecting some place on hasn't looked will come to mind on the other.
-  Or, concluding that something happened based on a friends story by passive acceptance on the one hand, and concluding the thing happened after checking for consistency on the other.
-
-  So, we take \qzS{} to be an intuitive question, and \zS{} to be an intuitive property.
-  Non-standard, perhaps, but still intuitive.
-\end{note}
-
-\begin{note}
-  Our attention now turns to providing an equivalent statement of \zS{}, or in other words necessary and sufficient conditions for negative resolution to \qzS{}.%
-  \footnote{
-    Indirectly, necessary and sufficient conditions for a positive answer, by negating either side.
-  }
-  We term this equivalent statement of \zS{}, `\izetaS{}', or `\zetaS{}' for short.
-
-  \zetaS{} will have a key role in our main argument for a negative resolution to~{\color{red} issue:Main}.
-
-  Given the prominent role \zetaS{} will have in our main argument, we will take some additional care in stating \zetaS{}.
-  In particular, we will provide an separate characterisation of the relevant \(\pvp{\psi}{v'}{\Psi}\) proposition-value-premises pairings of interest.
-  These we will term `\requ{1}' of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  And we will include additional discussion of some subtleties regarding \requ{1} given our assumption regarding concluding from~\autoref{chapter:concluding}.
-
-  The following account of \zetaS{} will then be relatively straightforward.
-  We hold that an agent has \zetaS{} for some proposition-value pair \(\pv{\phi}{v}\) with respect to some pool of premises \(\Phi\) just in case the agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\) for any \requ{} \(\pvp{\psi}{v'}{\Psi}\) of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  As noted in the introduction, this leads to a closure condition.
-  If an agent has \zetaS{} for some proposition-value pair \(\pv{\phi}{v}\) with respect to some pool of premises \(\Phi\), then it will follow that an agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\) for any \requ{} \(\pvp{\psi}{v'}{\Psi}\) of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  Before arguing that \zetaS{} is equivalent to \zS{}, we will walk through this observation in some detail.
-\end{note}
-
-\begin{note}
-  Still, it is important to note the (proposed) link between \qzS{}, \zS{}, and \zetaS{}.
-
-  \zetaS{} has the potential to be a strong condition, \emph{if} we show that \zetaS{} applies to some instance of concluding \(\pv{\phi}{v}\) from \(\Phi\) where the agent has not witnessed reasoning from \(\Psi\) to \(\pv{\psi}{v'}\) for some \requ{} \(\pvp{\psi}{v'}{\Psi}\).%
-  \footnote{
-    I take it this, by itself, is not immediate.
-  }
-  However, even if \zetaS{} turn out to be a strong condition, it remains motivated by, and --- granting the arguments to follow --- equivalent to a fairly intuitive question.
-\end{note}
-
-\begin{note}[Intuition]
-  This may seem a trivial point, but I think it is important to keep in mind.
-  We have introduced \zS{} via \qzS{}, and it may be easy to grant us authority over what \zS{} is, or what \qzS{} asks.
-  However, the interrogative core of \qzS{} is stated in neutral terms.
-  So long as you have some intuitive understanding of `concluding', then, granting sufficient information about an agent's epistemic state, you are in position to determine whether \qzS{} has a negative or positive answer, and hence whether and agent has \zS{} for the relevant proposition-value-premises pairing.
-
-  Our argument for the equivalence between \zS{} and \zetaS{} will not further specify the content of \qzS{}.
-  Instead, \zetaS{} will provide an alternative characterisation of \zS{} from which we will draw further consequences.
-  In short, it will be up to you to evaluate whether the \zetaS{} really is an alternative characterisation of \zS{}.
-\end{note}
-
-\paragraph*{The argument for \autoref{prop:qzs-tick-equals-iCS}}
-
-\begin{note}
-  We now turn to providing an argument for~\autoref{prop:qzs-tick-equals-iCS}.
-  To do so, we argue for an equivalent proposition focusing on \qzS{} and \zetaS{}:
-
-  \begin{proposition}
-    \label{prop:qzs-tick-equals-iCS:var}
-    For any property \(\chi\):
-    \begin{enumerate}[label=\Alph*.]
-    \item
-      \label{squish:A}
-      \squishA{An}{the}
-    \end{enumerate}
-    \emph{if and only if}:
-    \begin{enumerate}[label=\Alph*.,resume]
-    \item
-      \label{squish:B}
-      \squishB{the}.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \Autoref{prop:qzs-tick-equals-iCS:var} states that an agent satisfying \izetaS{} is a necessary condition of the agent satisfying an property \(\chi\) which is sufficient to ensure a negative resolution to~\autoref{question:zs}.
-
-  The purpose of arguing for~\autoref{prop:qzs-tick-equals-iCS} via~\autoref{prop:qzs-tick-equals-iCS:var} is option to contrast some property \(\chi\) with \zetaS{}.
-
-  Specifically, if we contrapose the left-to-right direction we have some property \(\chi\) which does not entail satisfaction of \izetaS{}.
-  And, we will argue that any such property \(\chi\) is insufficient for a negative resolution to \qzS{}.
-
-  Indeed, the left-to-right direction is the only direction of significant interest with respect to~\autoref{prop:qzs-tick-equals-iCS:var}.
-  The right-to-left direction requires little effort.
-
-  This is not to say the argument for the left-to-right direction will be watertight.
-  Rather, we will focus on localised tension.
-  Still, we are not ready to provide the argument for~\autoref{prop:qzs-tick-equals-iCS:var} just yet.
-
-  First we need to note the equivalence between~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var}.
-
-  Then, with the equivalence in hand, we may turn to arguing for~\autoref{prop:qzs-tick-equals-iCS:var}.
-\end{note}
-
-\paragraph*{The equivalence between~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var}}
-
-\begin{note}
-  \begin{proposition}
-    Equivalence between~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var}.
-  \end{proposition}
-\end{note}
-
-\begin{note}
-  To see the equivalence between~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var} observe that ~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var} entail one another.
-
-  For, assume~\autoref{prop:qzs-tick-equals-iCS} holds.
-  Then, an agent satisfying \izetaS{} is both necessary and sufficient for a positive resolution to~\qzS{}.
-
-  Now, take some property \(\chi\) and assume~\ref{squish:A} holds.
-  Given~\ref{squish:A} holds, \(\chi\) is sufficient to positively resolve~\qzS{}.
-  And, by~\autoref{prop:qzs-tick-equals-iCS}, a positive resolution to \qzS{} entail the agent satisfies \izetaS{}.
-  Therefore, whenever the agent satisfies \(\chi\), the agent also satisfies \izetaS{}.
-  So,~\ref{squish:B} holds.
-
-  Conversely, take some property \(\chi\) and assume~\ref{squish:B} holds.
-  Then, if the agent satisfies \(\chi\), the agent also satisfies \izetaS{}.
-  Given~\autoref{prop:qzs-tick-equals-iCS}, satisfying \izetaS{} is sufficient to resolve~\autoref{question:zs}.
-  So,~\ref{squish:A} holds.
-
-  Now assume~\autoref{prop:qzs-tick-equals-iCS:var} holds.
-
-  First, suppose the agent has resolved \qzS{}.
-  Then, the agent satisfies some property \(\chi\), sufficient to resolve \qzS{}.
-  Therefore, by~\autoref{prop:qzs-tick-equals-iCS:var}, we have that the agent also satisfies \izetaS{}.
-  Hence, satisfying \izetaS{} is a necessary condition of resolving \qzS{}.
-
-  Second, suppose the agent satisfies \izetaS{}.
-  It is immediate that satisfaction of \izetaS{} entails satisfaction of \izetaS{}.
-  Therefore, satisfaction of \izetaS{} is sufficient for a positive resolution to~\qzS{}.
-
-  This tells us \izetaS{} is necessary.
-  And, as an immediate consequence, \izetaS{} is sufficient.
-  For, holds for all sufficient conditions.
-  Though, the most straightforward argument for the right-to-left direction involves establishing this directly.
-\end{note}
-
-% \begin{note}
-%   \footnote{
-%     Symbolically, represent this as follows.
-
-%     First, shorthand for \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of \(\pvp{\phi}{v}{\Phi}\):
-%     \begin{itemize}
-%     \item \(\pvp{\psi}{v'}{\Psi} \rleadsto \pvp{\phi}{v}{\Phi}\)
-%     \end{itemize}
-%     Now, quantify:
-%     \begin{itemize}
-%     \item \(\forall \pvp{\psi}{v'}{\Psi}\colon (\pvp{\psi}{v'}{\Psi} \rleadsto \pvp{\phi}{v}{\Phi})\)
-%     \end{itemize}
-%     Concludes
-%     \begin{itemize}
-%     \item \(\mathcal{C}(\pv{\psi}{v'},\psi)\)
-%     \end{itemize}
-%     Statement that the agent concludes or has concluded \(\pv{\psi}{v'}\) from \(\Psi\) for all \(\pvp{\psi}{v'}{\Psi}\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(\pvp{\phi}{v}{\Phi}\).
-%     \begin{itemize}
-%     \item \(\forall \pvp{\psi}{v'}{\Psi}\colon (\pvp{\psi}{v'}{\Psi} \rleadsto \pvp{\phi}{v}{\Phi}) \rightarrow \mathcal{C}(\pv{\psi}{v'},\Psi)\)
-%     \end{itemize}
-%     Let this be \(\mathcal{c}\).
-
-%     Now, \csN{}.
-%     \begin{itemize}
-%     \item \(\mathsf{CS}(\pvp{\phi}{v}{\Phi})\)
-%     \end{itemize}
-%     And, sufficient to resolve question:
-%     \begin{itemize}
-%     \item \(R_{S}(\chi,?\mathsf{CS}(\pvp{\phi}{v}{\Phi}))\)
-%     \end{itemize}
-%     So, getting \(\chi\) is sufficient to resolve the question of whether the agent has \csVed{} for \(\pv{\phi}{v}\) from \(\Phi\).
-
-%     First, we get
-%     \begin{itemize}
-%     \item \(R_{S}(\mathcal{c},?\mathsf{CS}(\pvp{\phi}{v}{\Phi}))\)
-%     \end{itemize}
-%     Concluding is sufficient.
-%     From this, anything that entails \(\mathcal{c}\) is sufficient.
-
-%     \begin{itemize}
-%     \item \(\forall \chi((\chi \rightarrow c) \rightarrow R_{S}(\chi,?\mathsf{CS}(\pvp{\phi}{v}{\Phi})))\)
-%     \end{itemize}
-
-%     Conversely, if some \(\chi\) is sufficient, \(\chi\) entails \(\mathcal{c}\)
-
-%     \begin{itemize}
-%     \item \(\forall \chi(R_{S}(\chi,?\mathsf{CS}(\pvp{\phi}{v}{\Phi})) \rightarrow (\chi \rightarrow c))\)
-%     \end{itemize}
-
-%     From the two above:
-%     \begin{itemize}
-%     \item \(\forall \chi(R(\chi,?\mathsf{CS}(\pvp{\phi}{v}{\Phi})) \leftrightarrow (\chi \rightarrow c))\)
-%     \end{itemize}
-%   }
-%   \end{note}
-
-\paragraph*{The argument for~\autoref{prop:qzs-tick-equals-iCS:var}}
-
-\begin{note}
-  Given the equivalence between~\autoref{prop:qzs-tick-equals-iCS} and~\autoref{prop:qzs-tick-equals-iCS:var}, we now turn to arguing for~\autoref{prop:qzs-tick-equals-iCS:var}.
-
-  As suggested above, we split the argument into two parts.
-  The right-to-left direction and the left-to-right direction.
-
-  We begin with the right-to-left direction as it is mostly straightforward.
-  We then turn to the left-to-right direction, which is significantly more involved.
-\end{note}
-
-\paragraph*{Right-to-left}
-
-\begin{note}
-  For the right-to-left direction our goal is to establish:
-
-  For any property \(\chi\):
-  \begin{quote}
-  \begin{enumerate}
-    \item[B.]
-      \squishB{an}
-    \end{enumerate}
-    \emph{implies}
-    \begin{enumerate}
-    \item[A.]
-      \squishA{The}{the}.
-    \end{enumerate}
-  \end{quote}
-\end{note}
-
-\begin{note}
-  Fix an agent, take some property \(\chi\), and assume \squishB{the}.
-
-  Now, \(\chi\) entails the agent satisfies \izetaS{}, but \(\chi\) may also be \zetaS{}.
-  Indeed, \zetaS{} is the minimal property for which satisfaction of \(\chi\) entails \zetaS{}.
-  So, though \(\chi\) is arbitrary, we must show that satisfaction of \zetaS{} alone is sufficient to resolve whether the agent has \zS{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Still, this is relatively straightforward.
-  \qzS{} asks whether there is some \requ{} \(\pvp{\psi}{v'}{\Psi}\) such that the agent has not settled whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
-
-  Now, for any such \(\pvp{\psi}{v'}{\Psi}\), satisfying \izetaS{} requires one of the following to conditions holds:
-  \begin{itemize}
-  \item
-    The agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-  \item
-    When concluding \(\pv{\phi}{v}\) from \(\Phi\) the agent also concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-  \end{itemize}
-  In both cases, when concluding \(\pv{\psi}{v'}\) from \(\Psi\) for any such \(\pvp{\psi}{v'}{\Psi}\) the agent will have concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-  And, given a conclusion of \(\pv{\psi}{v'}\) from \(\Psi\), it seems clear the agent has settled whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
-  For, the agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\)!
-  Indeed, at question is whether the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\), and so there is no clearer answer to this question than concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  So, satisfying clauses of \izetaS{} is sufficient for a negative resolve~\qzS{}.
-  For, grant that notion of a \requ{0} captures the relevant cases, \izetaS{} requires concluding.
-\end{note}
-
-\subsection{Left-to-right}
-
-\begin{note}
-  For the left-to-right direction our goal is to establish:
-
-  For any property \(\chi\):
-  \begin{quote}
-  \begin{enumerate}
-    \item[A.]
-      \squishA{An}{the}
-    \end{enumerate}
-    \emph{implies}
-    \begin{enumerate}
-    \item[B.]
-      \squishB{the}.
-    \end{enumerate}
-  \end{quote}
-
-  To do so, we take some arbitrary property \(\chi\), and then contrapose the conditional.
-  In other words, assume \(\chi\) does not entail the agent has satisfied \izetaS{} with the sub-goal of showing that an agent satisfying \(\chi\) is sufficient to resolve whether the agent has \(\zS{}\) for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  To aid the clarify of the argument we begin by introducing a plausible candidate for \(\chi\).
-  We will then use the candidate to develop the core of the argument, and to conclude we will observe how the argument generalises.
-\end{note}
-
-
-\subsubsection{\izetaSm{}, a candidate for \(\chi\)}
-\label{overview:sec:iCS-iCSm-limitation-closure}
-
-\begin{note}
-  \begin{idea}[\izetaSm{2} --- \izetaSm{}]
-    \label{idea:Zsm}
-    An agent \vAgent{} has \izetaSm{2} for \(\pv{\phi}{v}\) with respect to some pool of premises \(\Phi\) \emph{only if}:
-    \begin{enumerate}[label=\arabic*., ref=\named{\(\zeta^{-}\)S:\arabic*}]
-    \item
-      \label{idea:Zsm:requ}
-      For any proposition-value pair \(\pv{\psi}{v'}\) which is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\) either:
-      \begin{enumerate}[label=\alph*., ref=\named{\(\zeta^{-}\)S:1.\alph*}]
-      \item
-        \label{idea:Zsm:requ-sat:Past}
-        \vAgent{} holds \emph{\vAgent{} would conclude} \(\pv{\psi}{v'}\) from the relevant pool of premises \(\Psi\).
-      \item
-        \label{idea:Zsm:requ-sat:Pres}
-        In concluding \(\pv{\phi}{v}\) \vAgent{} \emph{also} holds \emph{\vAgent{} would conclude} \(\pv{\psi}{v'}\) from the relevant pool of premises \(\Psi\).
-      \end{enumerate}
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{idea}
-\end{note}
-
-\begin{note}[Difference between \izetaS{} and \izetaSm{}]
-  The difference between \izetaS{} and \izetaSm{} is straightforward.
-
-  \izetaS{} requires an agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) for any \requ{} \(\pvp{\psi}{v'}{\Psi}\).
-  By contrast, \izetaSm{} requires an agent holds \emph{they would conclude \(\pv{\psi}{v'}\) from \(\Psi\)}.%
-  \footnote{
-    Expressed differently, the agent concluding \(pv{\psi}{v'}\) from \(\Psi\) is replaced with the agent concluding that they would (conclude \(\pv{\psi}{v'}\) from \(\Psi\)).
-    Here, the parentheses indicate that in both~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres} the agent is not required to conclude anything from \(\Psi\) directly.
-  }
-
-  The expression of an agent concluding that they would conclude may be somewhat stilted, but expresses a simple idea.
-  Rather than concluding \(\pv{\psi}{v'}\) from \(\Psi\), the agent concludes that if they were to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\), they would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  Note, \izetaSm{} does not detail the relevant pool of premises that the agent draw the conclusion from.
-\end{note}
-
-\begin{note}[\izetaS{} is (intuitively) stronger than \izetaSm{}]
-  In particular, \izetaS{} is intuitively stronger than \izetaSm{}.
-
-  First, observe that~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres} (plausibly) entail ~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres}, respectively.
-  For, if an agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\), then \emph{in so doing} the agent has shown that they would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  Second, observe neither~\ref{idea:Zsm:requ-sat:Past} nor~\ref{idea:Zsm:requ-sat:Pres} (plausibly) entail~\ref{idea:zetaS::requ-sat:Past} nor \ref{idea:zetaS::requ-sat:Pres}, respectively, so long as there are plausible cases in which an agent concludes that they would conclude \(\pv{\phi}{v}\) from \(\Phi\) without concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Indeed, it seems there are plausible cases.
-
-  For, it seems an agent may conclude that they would conclude \(\pv{\phi}{v}\) from \(\Phi\) without concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  For example, one may be informed that one would conclude \(\pv{\phi}{v}\) from \(\Phi\) via testimony.
-  Hence, the only relevant premises one plausibly requires is that they have been informed they would conclude \(\pv{\phi}{v}\) from \(\Phi\) via testimony, and \(\Phi\) may be arbitrary.
-  E.g.\ I tell you that if you looked at the map you would conclude that East Palo Alto is directly north of Palo Alto (shock!) and if you trust the map you may even conclude that East Palo Alto \emph{is} directly north of Palo Alto.
-  Still, you do not (obviously) conclude East Palo Alto is directly north of Palo Alto from any premises associated with details of the map.
-\end{note}
-
-\begin{note}
-  \izetaSm{} as a candidate \(\chi\).
-  {
-    \color{red}
-    Following, arbitrary \(\chi\).
-    However, substitute in \izetaSm{} is desired.
-  }
-\end{note}
-
-\begin{note}
-  Now, we have seen how~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres} are (plausibly) \emph{strictly} weaker than~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres}, respectively.
-  And, we have noted that both~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres} seem to align with the motivation provided from \csN{}.
-  We briefly highlight why the distinction between ~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres} and ~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres}, respectively, will matter for our overall argument.
-
-  Observe, \csN{}%
-  \footnote{
-    As stated, with~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres} over ~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres}, respectively.
-  }
-  will lead to tension with a positive resolution to~{\color{red} issue:Main} just in case we manage to find an instance in which an agent \csN{} for \(\pv{\phi}{v}\) from \(\Phi\) without witnessing reasoning from \(\Psi\) to \(\pv{\psi}{v'}\) for some \requ{} \(\pvp{\psi}{v'}{\Psi}\) of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  However, this tension will not follow if the weakened variants of~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres} are adopted.
-  For, neither~\ref{idea:Zsm:requ-sat:Past} nor~\ref{idea:Zsm:requ-sat:Pres} would require the agent to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  Indeed, we will argue for the existence of cases of exactly the kind described.
-  Hence, the role of~\ref{idea:zetaS::requ-sat:Past} and~\ref{idea:zetaS::requ-sat:Pres} over~\ref{idea:Zsm:requ-sat:Past} and~\ref{idea:Zsm:requ-sat:Pres} is not merely an issue of motivation, but also crucial to establishing tension.
-\end{note}
-
-\paragraph*{Arguing}
-
-\begin{note}
-  Fix an agent.
-  Take arbitrary \(\chi\), such that \(\chi\) does not imply satisfaction of \izetaS{}.
-  (E.g.\ \izetaSm{}, as seen above.)
-\end{note}
-
-\begin{note}
-  Now, assume the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  There are two cases to consider.
-  We state the each case for \(\chi\) generally, and then below state the case with respect to \izetaSm{}.
-  \begin{enumerate}[label=\Roman*., ref=\Roman*]
-  \item
-    \label{iZm:arg:case:I}
-    The agent satisfies \(\chi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \begin{itemize}
-    \item
-      The agent concludes they would conclude \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\), for any \(\pvp{\psi}{v'}{\Psi}\) which is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \end{itemize}
-  \item
-    \label{iZm:arg:case:II}
-    The agent has already satisfied \(\chi\) prior to concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \begin{itemize}
-    \item
-      The agent has (already) concluded they would conclude \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\), for any \(\pvp{\psi}{v'}{\Psi}\) which is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \end{itemize}
-  \end{enumerate}
-
-  We take each case in turn.
-  Further, as \(\chi\) does not imply satisfaction of \izetaS{}, and \izetaS{} is not trivially satisfied, for both cases we will assume the agent does not satisfy \izetaS{}.
-\end{note}
-
-\subparagraph*{Case~\ref{iZm:arg:case:I}}
-
-\begin{note}[With \(\chi\)]
-  \(\chi\) is sufficient for a negative answer to \qzS{}.
-
-  Key observation.
-  In order for \(\chi\) to be sufficient, agent's perspective.
-
-  \begin{proposition}
-    \label{prop:chiProp:no-may-fail}
-    \(\chi\) must ensure that from the agent's perspective, the agent may not fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-    \begin{argument}
-      Direct from \qzS{}.
-      For, negative answer.
-      However, negative answer only if it is not the case that the agent may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-    \end{argument}
-  \end{proposition}
-
-  However, from~\ref{question:zs:option}, the agent has the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  By assumption the agent has not yet satisfied \(\chi\), as the agent has not yet concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  Hence, the agent has a check on whether they would come to satisfy \(\chi\) when concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  For, if the agent reasons about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) and fails to conclude \(\pv{\psi}{v'}\) from \(\Psi\), then it would not be the case that the agent satisfies \(\chi\).
-
-  Rephrase.
-  \(\chi\) is sufficient for a negative answer to \qzS{}.
-  In order for a negative answer, it may not be the case that the agent may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  Therefore, the agent not failing, from their perspective, is required to satisfy \(\chi\).
-  However, this means that before concluding \(\pv{\phi}{v}\) from \(\Phi\), the agent may establish whether they would come to satisfy \(\chi\).
-
-  So, this means that there is a possibility of branching.
-  If the agent reasons about whether \(\pv{\psi}{v'}\) follows from \(\Psi\), then the agent may fail to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Whether the agent would conclude \(\pv{\phi}{v}\) from \(\Phi\) is at issue.
-  And, the agent only gets \(\chi\) when concluding.
-  So, whether or not \(\chi\) cannot be sufficient for a negative answer.
-
-  If failing is sufficient for positive answer, then failing is also sufficient to show that the agent does not satisfy \(\chi\).
-  Therefore, \(\chi\) cannot be sufficient.
-\end{note}
-
-\begin{note}[With \izetaSm{}]
-  From \izetaSm{}.
-  \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of concluding concluding.
-  Hence, so long as the agent has not already\dots it follows that concluding concluding is not sufficient for a negative answer to \qzS{}.
-\end{note}
-
-\begin{note}[Summary]
-  Summary.
-  \qzS{}, what would happen if the agent first reasoned about whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
-  This is the question.
-  In order for negative answer, from agent's point of view, would not fail.
-  However, question still holds if this is not yet the agent's point of view.
-\end{note}
-
-\begin{note}[Observation]
-  Observe, as not yet \(\chi\), re-expressed \qzS{} as a question about whether \(\chi\).
-  Therefore, the above argument only applies given we are in case~\ref{iZm:arg:case:I}.
-  In case~\ref{iZm:arg:case:II}, we assume the agent already satisfies \(\chi\), and hence the argument will be distinct.
-\end{note}
-
-\subparagraph*{Case~\ref{iZm:arg:case:II}}
-
-\begin{note}
-  {
-    \color{red}
-    This should be revised, as with the idea of a \fc{0}, I no longer need to worry about the possibility of revision.
-
-    Instead, the basic argument is that if a \requ{0}, then this still applies to whatever \(\chi\) is.
-    For anything weaker, check.
-  }
-\end{note}
-
-\begin{note}
-  Now turn to case~\ref{iZm:arg:case:II}.
-
-  With case~\ref{iZm:arg:case:I}, argued that \(\chi\) fails to be sufficient, because \qzS{} applies equally to whether the agent satisfies \(\chi\).
-  Possibility of present reasoning branching so the agent does not satisfy \(\chi\).
-
-  Case~\ref{iZm:arg:case:II} requires distinct argument, as by assumption the agent satisfies \(\chi\).
-  Again, we have the assumption that the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-\end{note}
-
-\begin{note}
-  Observe, the strategy applied to case~\ref{iZm:arg:case:I} does not extend to case~\ref{iZm:arg:case:II}.
-  For, \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  Hence, it need not be the case that the agent had the option of concluding \(\pv{\psi}{v'}\) from \(\Psi\) when satisfying \(\chi\).
-  In particular, when establishing from their perspective they would not fail to conclude.
-
-  From the perspective of \izetaSm{}, concluded would conclude when the agent did not have the option of concluding.
-
-  For example, consider a case of (apparent) testimony.
-  If follow strategy, win game.
-  Did not have an understanding of the rules.
-  Hence, did not have the option to reason from premises and reach a different conclusion.
-  Only after coming to understand rules (or more strictly, adopting the perspective of understanding rules) does the option of evaluating the conditional become available.
-\end{note}
-
-\begin{note}
-  Our strategy is to split case~\ref{iZm:arg:case:II} into two sub-cases, depending on whether the agent may revise whether or not the agent may revise their satisfaction of \(\chi\).
-  Specifically:
-
-  \begin{enumerate}[label=\roman*., ref=\roman*]
-  \item
-    \label{iZm:arg:case:II:sub:i}
-    From the agent's perspective:
-    The agent may revise their epistemic state so that the agent does not satisfy \(\chi\), given the agent's current epistemic state.
-  \item
-    \label{iZm:arg:case:II:sub:ii}
-    From the agent's perspective:
-    The agent may not revise their epistemic state so that the agent does not satisfy \(\chi\), given the agent's current epistemic state.
-  \end{enumerate}
-
-  It may seem only sub-case~\ref{iZm:arg:case:II:sub:ii} is compatible with satisfaction of \(\chi\).
-
-  For, as we have observed in~\autoref{prop:chiProp:no-may-fail}, not the case that the agent may fail.
-
-  Rewriting:
-
-  \begin{enumerate}[label=\roman*\('\)., ref=\roman*\('\)]
-  \item
-    \label{iZm:arg:case:II:sub:i:var}
-    From the agent's perspective:
-    The agent may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\), if the agent were to attempt to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  \item
-    \label{iZm:arg:case:II:sub:ii:var}
-    From the agent's perspective:
-    The agent may not fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\), if the agent were to attempt to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  \end{enumerate}
-
-  So, it may appear only sub-case~\ref{iZm:arg:case:II:sub:ii:var} is compatible with the agent satisfying \(\chi\).
-
-  However, it is important to keep in mind the scope of the relevant instance of `may'.
-  Given \(\chi\), failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) may be ruled out from the agent's perspective.
-  However, it may also be the case that the agent entertains the possibility of failing to satisfy \(\chi\).
-  Hence, as the agent may not satisfy \(\chi\), the agent may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).%
-  \footnote{
-    Of course, if you interpreted \qzS{} in line with sub-case~\ref{iZm:arg:case:II:sub:ii}, you may ignore sub-case~\ref{iZm:arg:case:II:sub:i}.
-
-    Still, I take \qzS{} to be compatible with both sub-cases~\ref{iZm:arg:case:II:sub:i} and~\ref{iZm:arg:case:II:sub:ii}.
-  }
-\end{note}
-
-\begin{note}[What we will argue]
-  Respectively, we will argue:
-  \begin{itemize}
-  \item
-    For sub-case~\ref{iZm:arg:case:II:sub:i}, \(\chi\) is insufficient for a negative answer to \qzS{}.
-  \item
-    For sub-case~\ref{iZm:arg:case:II:sub:ii}, re-assignment of concluding, hence \(\chi\) (trivially) entails concluding. Hence, conflict with our assumption that \(\chi\) does not entail concluding.
-  \end{itemize}
-
-  In other words:
-  \begin{itemize}
-  \item
-    \qzS{} scopes over certain revisions to an agent's epistemic state.
-  \item
-    If no revision, then the relation between \(\pv{\psi}{v'}\) and \(\Psi\) is sufficient to reduce the relevant instance of concluding to \(R\) and witnessing.
-  \end{itemize}
-
-  \(R\) the agent would conclude \(\pv{\psi}{v'}\) from \(\Psi\) if the agent were to reason from \(\Psi\) to \(\pv{\psi}{v'}\), and from the agent's current epistemic state, \(R\) may not fail to hold.
-
-  Here, importance of~\ref{idea:reassignment}.
-  Re-assignment.
-  The only thing for the agent to do is witness \(R\).
-\end{note}
-
-\subparagraph*{\(\pvp{\psi}{v'}{\Psi}\) remains a \requ{0} of concluding \(\pv{\phi}{v}\) from \(\Phi\), given \(\chi\)}
-
-\begin{note}
-  We begin with a minor, but important observation.
-
-  \begin{proposition}
-    \(\pvp{\psi}{v'}{\Psi}\) remains a \requ{0} of concluding \(\pv{\phi}{v}\) from \(\Phi\), given \(\chi\)
-  \end{proposition}
-\end{note}
-
-\begin{note}[Still a \requ{}]
-  Observe that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} with respect to concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Even if agent has satisfied \(\chi\), and so from perspective, still holds up.
-  Indeed, whether \(\pvp{\psi}{v'}{\Psi}\) is \requ{} is independent of whether the agent satisfies \(\chi\) or has concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  For a \requ{}, what matters is option and failure.
-  And, for a negative resolution to \qzS{}, no failure.
-
-  Of course, from agent's perspective they would not fail.
-  However, if reason and did fail, problem.
-
-  So, from the present point of view, a \requ{}.
-\end{note}
-
-\paragraph{The sub-cases}
-
-\subparagraph*{Sub-case~\ref{iZm:arg:case:II:sub:i}.}
-
-\begin{note}[Distinction between \(\chi\) and concluding]
-  There is an important difference between the two cases.
-  By assumption, \(\chi\), has not concluded.
-
-  So with \(\chi\), two types of possible epistemic states.
-  Concluded, not concluded.
-  Further, possibility of either of these epistemic states.
-
-  Point is, with \(\chi\), because no entailment, and assumption, these two types of epistemic state are open.
-
-  From present, the agent only expect to go to one.
-  However, this is from the perspective of current epistemic state.
-
-  By contrast, with concluding, the agent already in the relevant epistemic state.
-  The agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-\end{note}
-
-\begin{note}
-  As the agent is not in the relevant type of epistemic state, and has the option to go to the right epistemic state, \qzS{}.
-\end{note}
-
-\begin{note}
-  At issue is whether the agent may do some reasoning any end up not concluding \(\pv{\phi}{v}\) from \(\Phi\) granted they have not already concluded \(\pv{\psi}{v'}\) from \(\Psi\).
-  And, as the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\), then regardless of perspective on how reasoning would go, the option is present, and as \(\chi\) does not entail, the agent does not have the result of taking the option.
-  Taking the option would give something distinct.
-  Option, so figure out whether.
-\end{note}
-
-\begin{note}
-  Counterpoint.
-
-  Do not need to drop the pen in order to know that it will fall to the ground.
-
-  Or, perhaps, do not need to go and check my car is parked outside in order to know that it is parked outside.
-
-  Difference here is these cases involve acquiring novel information, while \qzS{} involves reasoning with respect to the agent's current epistemic state.
-\end{note}
-
-\begin{note}
-  Although we have introduced the possibility of revision, it is very narrow.
-  Our interest is not with revision in general.
-  The idea that an agent would conclude \(\pv{\phi}{v}\) from \(\Phi\) given arbitrary revision is incredibly strong.
-
-  Rather, the revision is quite specific.
-  It is because the agent has concluded \emph{that}, and because this is now a \requ{}.
-  This does not scope over querying arbitrary premises, nor adopting addition premises.
-  Only because this question remains open.
-\end{note}
-
-
-\subparagraph*{Sub-case~\ref{iZm:arg:case:II:sub:ii}.}
-
-\begin{note}
-  No revision.
-
-  So, from the agent's perspective, if reason from \(\Psi\), would conclude \(\pv{\psi}{v'}\).
-\end{note}
-
-\begin{note}
-  Now, by assumption witnessing can't do anything.
-  There can be nothing added by witnessing that would matter to concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-  If there were, then possibility of revision.
-
-  Okay, so, this means that witnessing doesn't add anything.
-
-  Hence, whether on not X is determined by the agent's present epistemic state.
-  This does not mean X, as X may be the result of witnessing.
-  However, must have enough.
-  So, reduce whether to something independent of witnessing.
-
-
-
-
-  Some X, but then, agent's present epistemic state secures X.
-
-
-
-
-
-
-
-  So, have something in the agent's present epistemic state.
-  
-\end{note}
-
-\begin{note}
-  So, sufficient resources given present epistemic state.
-
-  For, if insufficient, then fail to conclude.
-
-  So, witnessing, putting those resources into action.
-
-  So, take any X.
-  If X makes a difference to concluding, then, availability of X + witnessing.
-
-  So, something, X.
-  Get this by witnessing.
-  However, if this makes a difference, then split into pre-X and witnessing X.
-  Given sub-case, no failure.
-  So, only pre-X makes a difference.
-  Yet, have pre-X.
-  Adding in witnessing won't do anything.
-
-  So, then, split.
-
-  Not possible to find some X, such from the agent's point of view, such that whether X is unique to witnessing reasoning from \(\Psi\) to \(\pv{\psi}{v'}\) such that X matters to whether conclude, and X is not composite.
-
-  This is quite strong, but does not generalise easily.
-  For, if possibility of branching, revision, etc.\ then there may be some such X.
-  Indeed, agent has not concluded, might fail, so conclusion may add something unique.
-
-  But, then, re-assignment.
-
-  Hence, concluded.
-
-  To \illu{1}, deterministic causation.
-  Some causal model, a bunch of equations.
-  Wouldn't say X has caused Y given application of equations.
-  However, nothing more than putting those equations in motion.
-
-  Note, though, that given re-assignment, this is what we get.
-  What we're after is this reduction.
-  At issue is not the intuitive sense of `concluding', but whether there is some reduction of this kind.
-
-  Observe, this kind of thing does give a reduction.
-  However, no clear cases of this happening.
-  Too much information required.
-  And, deterministic, at least with respect to description at level of premises and conclusions.
-  Strong assumptions.
-
-  Further, we have no eliminated role of witnessing.
-  As with causation, we have no shown that this relation is specified independently.
-
-  However, we do have a static reduction.
-  Nothing of relevance is introduced by the dynamics.
-  We might not get a specification without reference to the dynamics, but we don't get anything of relevance from the dynamics themselves.
-
-  This is basically a redescription of the assumption made.
-  If there is no possibility of failing, then the dynamics are pre-determined, at least from the agent's perspective.
-
-
-
-
-
-  Sufficient resources plus witnessing.
-  These resources, no possibility of failure.
-  So, for anything that does not involve witnessing, we have this.
-
-  In addition, for anything witnessing would get, the agent has a guarantee that they would obtain.
-
-  Not perfect information.
-  Maybe exact premises, steps of reasoning, etc.
-  Still, all of these are available.
-\end{note}
-
-
-
-\begin{note}[Edge case]
-  \(\chi\), the agent reasons, but does not conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  Nor does the agent fail to conclude \(\pv{\psi}{\overline{v'}}\) from \(\Psi\).
-
-  However, no revision.
-  Well, then the agent won't conclude \(\pv{\phi}{v}\) from \(\Phi\).
-  If the agent does, then revised epistemic state so that \ref{question:zs:subjunctive} does not hold.
-  Hence, \qzS{} would no longer apply.
-\end{note}
-
-\begin{note}[Key idea]
-  \begin{itemize}
-  \item
-    \(\chi\) does not entail concluded.
-  \item
-    Option to conclude.
-  \item
-    If agent were to reason, to types resulting states.
-  \item
-    Concluded, failed to conclude.
-    Really, various possible resulting states, as reasoning may not terminate either way, and in general there may be various values other than \(v'\) that the agent may conclude.
-  \item
-    The agent isn't in either type of epistemic state.
-  \item
-    Now, \(\chi\) states from current perspective, what the result would be.
-  \item
-    However, it remains the case that these two types of epistemic states are open.
-  \item
-    Hence, it remains the case that reasoning could lead to either type.
-  \item
-    So, it remains the case that the agent may fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
-  \end{itemize}
-
-  The core of the idea is that \qzS{} concerns the dynamics.
-  If reason, then what would the result be with respect to concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  So, concluding to dynamics.
-  Hence, \(\chi\) of the appropriate kind does not settle.
-\end{note}
-
-\section{Notes}
-
-\begin{note}[Witnessing?]
-  Intuitively, this suggests a negative resolution to~{\color{red} issue:Main}.
-  Agent needs to witness reasoning, else, the agent does not have sufficient information about the relevant dynamics.
-
-  Indeed, if negative resolution to~{\color{red} issue:Main}, then I suspect this brief sketch is intuitive.
-  Of course, negative answer to \qzS{} is not required for concluding, as \qzS{} requires that this holds for all \requ{1}.
-  Still, given what is intuitively required for negative answer to \qzS{}, witnessing.
-\end{note}
-
-\begin{note}
-  Now, important to keep in mind is that we have no assumed that concluding involves witnessing.
-  By assumption, there is some difference, else we are done.
-  But, what exactly this distinction amounts to is unclear.
-  An account of concluding, beyond scope.
-  Further, still have the issue to resolve.
-  However, have a clue.
-  Concluding, between \(\pv{\phi}{v}\) and \(\Phi\).
-  Concluding that, existence of a relation.
-  Whatever the relation of concluding is, it does not yet hold, but the agent has a guarantee that it will hold.
-\end{note}
-
-\begin{note}
-  The point, in brief, is that \qzS{} is about concluding.
-  And, so long as the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\) when concluding \(\pv{\phi}{v}\), that failure to conclude would lead to failure.
-  So, \(\pvp{\psi}{v'}{\Psi}\) remains unsettled.
-  If the agent does the reasoning, then would not conclude.
-  So, the agent may fail to conclude, because on reasoning about whether, failure to conclude \(\pv{\psi}{v'}\) from \(\Psi\) would lead to a recognised failure of \(\chi\).
-
-  \qzS{} is about whether the agent would conclude.
-  If agent hasn't concluded, then question remains.
-  Still, I do not think this is immediate.
-\end{note}
-
-
-\begin{note}
-  Important to note, that still all relative to the agent's present epistemic state, and what the agent is interested in concluding.
-  For, it may be that the agent revises their epistemic state so that some relation does not hold.
-  For example, the agent has concluded that some reduction holds.
-  Therefore, if they prove this, then they prove something else, and, also prove the something else by other means.
-  However, learn this reduction does not hold.
-  Now, no longer a \requ{}.
-  Indeed, relation fails because the reduction does not hold, or because the agent does not have the means to prove.
-\end{note}
-
-\paragraph*{Closing}
-
-\begin{note}[Closure]
-  So, this is our motivation.
-  What we have is an intuitive idea which leads to this kind of limitation, and hence conclusre condition.
-  So, if there are cases of interest, motivation that an agent concludes.
-  But, conversely, the condition is strong.
-  So, these cases are harder.
-\end{note}
-
-\paragraph{More details on \izetaS{}}
-
-\begin{note}
-  We've only focused on failure to conclude.
-  However, the agent may also conclude something else.
-  Possible that there are premises for the agent \(\Psi\) and \(\overline{\Psi}\) such that from \(\Psi\) get \(\pv{\psi}{v'}\) and from \(\overline{\Psi}\), get \(\pv{\psi}{\overline{v'}}\).
-
-  For sure, but this is a different condition.
-  You may also want to impose this given the intuitive motivation for \csN{}.
-  Indeed, from the perspective of no branching.
-  Distinct condition, and we will not impose this.
-
-  Note, also, that so long as distinction between concluding \emph{that} and concluding, then this is also going to be insufficient in isolation.
-  For, though the agent may have exhausted other possibilities, this won't get a conclusion.
-  And, if not distinct, then a plausible path to negative resolution.
-\end{note}
-
-\begin{note}
-  \izetaS{} does not require the conclusion to be any good.
-  If you want to build this in, sure.
-  However, not for us.
-  It is a strong assumption, and would have no function in the arguments to follow.
-\end{note}
-
-\paragraph*{Minor clarifications}
-
-\begin{note}[Importance of \csN{}]
-  \izetaS{} is key.
-  Argument for negative resolution to~{\color{red} issue:Main} largely rests on \izetaS{}.
-  As we have seen, closure.
-
-  However, briefly note that a few things.
-
-  First, agent's reasoning.
-  At issue is whether the agent may reason to a different conclusion.
-  There's nothing that would lead me elsewhere.
-
-  Second, agent's reasoning.
-  Independent of whether \(\phi\) has value \(v\), \(\psi\) has value \(v'\), or any of the premises.
-  Need not be the case that satisfaction amounts to anything substantial.
-  No clause for justification, etc.
-
-  Third, competence, rather than performance.
-\end{note}
-
-\paragraph*{\emph{Concluding}}
-
-\begin{note}[Key feature]
-  We now turn to the key feature of \izetaS{}:
-  The requirement that an agent \emph{concludes} \(\pv{\psi}{v'}\) from \(\Psi\) when \(\pvp{\phi}{v'}{\Psi}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  We begin by noting why this requirement should be treated with caution from a general perspective.
-  We then further motivate caution by first relating the requirement to the motivation we have provided for \csN{}, and second by highlighting how the requirement will have a role in developing tension.
-  This discussion will involve considering a weaker requirement, and following our motivation of caution we will argue that no weaker requirement will suffice to capture the motivation we have provided for \csN{}.
-\end{note}
-
-\paragraph*{Narrowing \requ{1}}
-
-\begin{note}[Expanding pool constraints]
-  To~\ref{notion:overview:requ:pool} of~\autoref{notion:overview:requ} the following clause may also be added:
-  \begin{enumerate}[label=]
-  \item
-    \begin{enumerate}[label=]
-    \item
-      \begin{enumerate}[label=\roman*., ref=(\roman*), resume*=csIdeaCounter]
-        \setcounter{enumiii}{3}
-      \item
-        \label{notion:overview:requ:pool:method}
-        Concluding \(\pv{\psi}{v'}\) from \(\Psi\) involves the same general method the agent would use to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{enumerate}
-    \end{enumerate}
-  \end{enumerate}
-  We omit~\autoref{notion:overview:requ:pool:method} from the idea of \csN{} for two (related) reasons.
-  First, it is not clear what `the same general method' amounts to in detail.
-  Second, avoiding questions about method affords flexibility when providing \illu{1} of \zS{}.
-  However,~\autoref{notion:overview:requ:pool:method} may be imposed with no loss to the role of \zS{} in the overall argument.
-  However, always a check on whether one has the general ability.
-\end{note}
-
-\begin{note}
-  Reasoning, \support{}, would not reason to a different conclusion.
-
-  Specifically, \requ{} of some conclusion.
-  So long as conclusion, then it is possible to reason about whether \(\psi\) has value \(v'\), and unless conclude \(\psi\) has value \(v'\), would not conclude \(\phi\) has value \(v\).
-
-  Intuitively, \requ{} as an independent check on the reasoning.
-  If don't hold \(\psi\) from premises, then question about whether \(\phi\).
-
-  Claiming support, necessary condition is satisfying all \requ{1}.
-  Claiming support, then, is weaker than having support.
-  Restricted to whether conclusion of reasoning would introduce a \requ{}.
-  And, may be further restricted without impact to the tension we will develop to whether the conclusion would `clearly' introduce a \requ{}.
-\end{note}
-
-\begin{note}
-  Now, consequence from \ideaCS{} and \ESU{},
-  If potential witnessing event, then either concluded previously, or witness reasoning.
-\end{note}
-
-\begin{note}[Kettle logic]
-  Well, it's true that the person must be acquitted, but at the same time, the person is going to have a hard time explaining how, for example, he brewed coffee for a week.
-
-  Still, highlights what the neighbour needs to conclude.
-  Did borrow.
-  Was not lent damaged
-  And, was returned damaged.
-
-  Here, burden of argument.
-  However, we're not interested in whether the neighbour would convince, but whether the neighbour would reach a different conclusion if they were first to reason about one of the three before concluding that the kettle was returned damaged.
-\end{note}
-
-\subsection{Literature}
-\label{sec:zS:literature}
-
-\paragraph{Circularity}
-
-\begin{note}
-  \ideaCS{} is not about circular reasoning in the sense that the term `circularity' suggests that the reasoner has taken the conclusion of the reasoning for granted.
-
-  There's nothing in \ideaCS{} that appeals to getting \(\psi\) having value \(v'\) from \(\phi\) having value \(v\).
-
-  However, does identify a problem in the sense that would prevent the agent from getting \(\psi\) having value \(v'\) from \(\phi\) having value \(v\).
-\end{note}
-
-\begin{note}[Testimony 1]
-  \begin{illustration}[Testimony 1]
-    \label{illu:CS:test:basic}
-    \mbox{}
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \item
-      \label{ex:eiS:t:basic:test}
-      \nagent{11} stated that they are trustworthy when speaking on matters regarding their personal character.
-    \item
-      \label{ex:eiS:t:basic:ok}
-      \nagent{11} is trustworthy when speaking on matters regarding their personal character.
-    \end{enumerate}
-  \end{illustration}
-  This kind of case is intuitively problematic.
-  It seems that already need trustworthy.
-  However, in order for \csN{} to apply, need for it to be the case that one has some check on whether \nagent{11} is trustworthy.
-  And, by reasoning.
-
-  This need not be the case.
-  Of course, this does not mean that an agent need \csN{}.
-  May be other necessary conditions.
-\end{note}
-
-\paragraph{Sgaravatti}
-
-\begin{note}
-  For example, consider what \citeauthor{Sgaravatti:2013wu} terms the `Justification Account' of circularity.\nolinebreak
-  \footnote{
-    As \citeauthor{Sgaravatti:2013wu} notes, the Justification Account of circularity is a rewriting of the third type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
-    Neither \citeauthor{Pryor:2004ws} nor \citeauthor{Sgaravatti:2013wu} endorse the Justification Account, but I take the spirit of the account to sufficient for interest.
-    Still, the considerations which follow also apply to distinguish the {\color{red} problem identified} from \citeauthor{Sgaravatti:2013wu}'s favoured account (\Citeyear[\S3]{Sgaravatti:2013wu}) and the fifth type of `epistemic dependence' considered by \citeauthor{Pryor:2004ws}~(\citeyear[359]{Pryor:2004ws}).
-  }
-
-  \begin{quote}
-    \begin{enumerate}[label=(JA), ref=(JA)]
-    \item\label{sg:JA} An argument is circular if and only if for you to have justification to believe the premisses, it is necessary that you have justification to believe the conclusion.\nolinebreak
-      \mbox{}\hfill\mbox{(\Citeyear[754]{Sgaravatti:2013wu})}
-    \end{enumerate}
-  \end{quote}
-  Where `justification to believe' is to be read as in terms of having formed the belief in an epistemically appropriate way as opposed to (merely) possessing sufficient resources to form formed the belief in an epistemically appropriate way.\nolinebreak
-  \footnote{
-    Or, however you prefer to characterise \citeauthor{Firth:1978vi}'s (\Citeyear{Firth:1978vi}) distinction between doxastic and propositional justification (or warrant).
-    See also \citeauthor{Silva:2020aa} (\Citeyear{Silva:2020aa}) --- esp.\ fn.\ 1.
-  }
-  (\citeauthor[Cf.][754--755]{Sgaravatti:2013wu})
-\end{note}
-
-\begin{note}
-  First, reliance on something like justification.
-
-  With \support{}, we arguably have something distinct.
-  Have not placed constraints on reasoning.
-  Hence, \ideaCS{} applies even when no justification (or any other epistemic attribute) is found.
-
-  Indeed, to the extent that the value \(v\) need not be truth, \ideaS{} and \ideaCS{} are broader.
-
-  Point extends to relation between the premises and the conclusion of a step of reasoning.
-  There's some issue with whether there's a clear reduction to premises.
-
-  Now, both these points may be addressed by linking justification to steps of reasoning.
-  However, it still remains that get this kind of circularity by placing a constraint on permissible steps of reasoning.
-\end{note}
-
-\begin{note}
-  Second, having something.
-  Contrasts to reasoning in an interesting way.
-\end{note}
-
-\begin{note}[\citeauthor{Sgaravatti:2013wu} on necessity]
-
-  \begin{quote}
-    For my present purposes it will sufﬁce to say that a good test of A’s being necessary for B (and thus of B’s being sufﬁcient for A) is the satisfaction of two subjunctive conditionals. First, if A did not hold, B would not hold; secondly, if B were to hold, A would hold.%
-    \mbox{}\hfill\mbox{(\citeyear[761]{Sgaravatti:2013wu})}
-  \end{quote}
-  This is very similar to what is captured by a \requ{}.
-
-  Also, points out only a test due to implications.
-  For us, \requ{} is not a test.
-  And, the implications are embraced.
-  Though, differences limit these somewhat.
-
-  For the moment, point with the implications is that this makes \zS{} fairly strong.
-\end{note}
-
-\paragraph{Pryor}
-
-\begin{note}[\citeauthor{Pryor:2004ws}'s Type 4]
-  An instance of a limitation arising from assuming that the possibility obtains is the fourth type of dependence between premise and conclusion considered by \citeauthor{Pryor:2004ws}.
-
-  \begin{quote}
-    [Type 4] dependence between premise and conclusion is that the conclusion be such that evidence \emph{against it} would (to at least some degree) undermine the kind of justification you purport to have for the premises.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[359]{Pryor:2004ws})}
-  \end{quote}
-
-  Again, plausible.\nolinebreak
-  \footnote{
-    A variant of \citeauthor{Pryor:2004ws}'s Type 4 dependence is~\citeauthor{Jackson:1984vk}'s account of circularity.
-    \begin{quote}
-      [I]t may be that a given argument to a given conclusion is such that anyone --- or anyone sane --- who doubted the conclusion would have background beliefs relative to which the evidence for the premises would be no evidence.\space \dots
-
-      Such an argument could be of no use in convincing doubters, and is most properly said to beg the question.\nolinebreak
-      \mbox{}\hfill\mbox{(\Citeyear[111-12]{Jackson:1984vk})}
-    \end{quote}
-    Still, in contrast to \citeauthor{Pryor:2004ws}'s Type 4, \citeauthor{Jackson:1984vk}'s account of circularity is dialectical.
-    Indeed, on \citeauthor{Jackson:1984vk}'s account (without additional constraints on when an agent has justification or evidence) it need not be the case that the agent's own justification would be undermined by someone doubting the conclusion.
-    In this respect, \ideaCS{} is further distinguished from a proposal such as \citeauthor{Jackson:1984vk}'s as \ideaCS{} makes mention only of the relevant agent's epistemic state and reasoning.
-  }
-  Further, weaken from justification to any reasoning.
-  In this respect, motivated by \ideaS{}, plausibly.
-  However, much stronger.
-  \ideaS{} is just about entertaining.
-  Subjunctive with stronger is less clear.
-
-  Issue:
-  \begin{enumerate}
-  \item Evidence undermines the kind of justification the agent purports to have for the premises.
-  \end{enumerate}
-
-  And, as \citeauthor{Pryor:2004ws} notes, \emph{kind} is important.
-  However, it seems kind is not the only problem.
-\end{note}
-
-\begin{note}
-  \citeauthor{Pryor:2004ws}'s argument that type 4 over-generates is somewhat interesting.
-  Details are in the following footnote.\footnote{
-  Compatible with \citeauthor{Pryor:2004ws}'s objection to type 4 dependence.
-
-  % \begin{illustration}
-    % \mbox{}
-    % \vspace{-\baselineskip}
-    \begin{quote}
-      Suppose you're watching a cat stalk a mouse. Your visual experiences justify you in believing:
-
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-        \setcounter{enumi}{10}
-      \item
-        \label{illu:Pryor:cat:1}
-        The cat sees the mouse.
-      \end{enumerate}
-
-      You reason:
-
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume]
-      \item
-        \label{illu:Pryor:cat:2}
-        If the cat sees the mouse, then there are some cases of seeing.
-      \item
-        \label{illu:Pryor:cat:3}
-        So there are some cases of seeing.\nolinebreak
-        \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
-      \end{enumerate}
-    \end{quote}
-  % \end{illustration}
-
-  Setting aside whether this is fine.
-
-  Following \citeauthor{Pryor:2004ws}:
-
-  Bad, given proposal, as if no cases of seeing, then the cat is not seeing. (\citeyear[361]{Pryor:2004ws})
-
-  \citeauthor{Pryor:2004ws}'s position is as follows:
-
-  \begin{quote}
-    I don't think you need antecedent justification to believe \ref{illu:Pryor:cat:3}, before your experiences can give you justification to believe \ref{illu:Pryor:cat:1}.
-    I also think it's plausible that your perceptual justification to believe \ref{illu:Pryor:cat:1} contributes to the credibility of \ref{illu:Pryor:cat:3}.\nolinebreak
-    \mbox{}\hfill\mbox{(\citeyear[361]{Pryor:2004ws})}
-  \end{quote}
-
-  This may be compatible with \ideaS{} and \ideaCS{}.
-  With \ideaCS{}, somewhat trivial, if \ref{illu:Pryor:cat:3} holds throughout \epVW{1}.
-
-  More generally, weaker proposition.
-  Hence, it seems \indicateV{1}.
-  So there's no issue with the reasoning.
-  However, `contributes to the credibility\dots'.
-  }
-\end{note}
-
-\begin{note}[Issue]
-  Somewhat similar to above.
-  Here, however, role of novel information is of interest.
-  Hence, dynamic.
-  And, \csN{} is, in this respect, static.
-\end{note}
-
-
-\paragraph{Others}
-
-\begin{note}
-  This also extends to \citeauthor{Wright:2011wn}.
-  For, \citeauthor{Wright:2011wn} relies on the idea of doubt.
-
-  The issue here is what is required in order to doubt.
-  One may need to revise one's epistemic state.
-
-  Of course, if idea of claiming support is taken generally, then it should be the case that for any \epPW{}, it is possible for the agent to conclude from reasoning that \(\phi\) having value \(v\) holds for any \epVAd{} \world{}.
-
-  So, if satisfy claiming support, then may satisfy doubt idea.
-  However, ideal.
-  Pointing out the issue here does not require such a general thing as doubt.
-\end{note}
-
-\begin{note}
-  Instead, as \(\psi\) not having value \(v'\) is an \ep{}, it is possible that \(\psi\) does not have value \(v'\).
-  And, if \(\psi\) does not have value \(v'\), then step \(\delta'\) does not apply to how things are.
-  Hence, observing that \(\psi\) having value \(v'\) follows in turn from the conclusion of step \(\delta'\) (together with other premises) is uninformative about how things are.
-\end{note}
-
-\begin{note}
-  \color{red}
-  Some of the \citeauthor{Wright:2011wn} cases are interesting.
-  Especially the twin cases.
-  In fact, especially this idea that situations are identical.
-  For, one way of understanding this is that the agent makes a choice between two disjuncts, and it is possible for the agent to make the other choice, and then come to a different conclusion.
-\end{note}
-
-\subsection{Summarising}
 
 %%% Local Variables:
 %%% mode: latex
