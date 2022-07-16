@@ -195,15 +195,43 @@ linkcolor=fuchsia,
 citecolor=fuchsia,
 ]{hyperref}
 
+% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
+
+\DeclareCiteCommand{\citeyear}
+{\usebibmacro{prenote}}
+{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citeyearpar}[\mkbibparens]
+{\usebibmacro{prenote}}
+{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+% https://tex.stackexchange.com/questions/75902/hyperlinking-author-names-in-biblatex-when-using-citeauthor
+
+\DeclareCiteCommand{\citeauthor}
+{\boolfalse{citetracker}%
+  \boolfalse{pagetracker}%
+  \usebibmacro{prenote}%
+}%
+{\ifciteindex%
+{\indexnames{labelname}}%
+{}%
+\printtext[bibhyperref]{\printnames{labelname}}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}
+
 \usepackage[british]{babel}
 \addto\extrasbritish{
-    \def\chapterautorefname{Chapter}
-    \def\sectionautorefname{Section}
-    \def\subsectionautorefname{Section}
-    \def\subsubsectionautorefname{Section}
+  \def\chapterautorefname{Chapter}
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+  \def\subsubsectionautorefname{Section}
 }
-%Following commands mean autoref writes `section' rather that `subsection', etc.
-%https://tex.stackexchange.com/questions/177007/autoref-showing-subsection-and-subsubsection
+% Following commands mean autoref writes `section' rather that `subsection', etc.
+% https://tex.stackexchange.com/questions/177007/autoref-showing-subsection-and-subsubsection
 \let\subsectionautorefname\sectionautorefname
 \let\subsubsectionautorefname\sectionautorefname
 
@@ -249,10 +277,6 @@ citecolor=fuchsia,
 
 \part{Components}
 
-\include{twoc}
-
-\include{fcs}
-
 \include{zS}
 
 \part{Tension}
@@ -261,11 +285,15 @@ citecolor=fuchsia,
 
 \include{zetaS}
 
+\include{fcs}
+
 \include{Tension}
 
 \appendix
 
 \part{Appendices}
+
+\include{twoc}
 
 \include{Concluding}
 
