@@ -264,3 +264,277 @@
 \newcommand{\requNotionReasoningLC}{%
   \obeybreaks{it is \epVAd{} for the agent to conclude that \(\psi\) has value \(v'\) prior to making \(\delta\), and without the conclusion of \(\delta\) given their present epistemic state}%
 }
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ideaS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[idea:defs-for-CS]{\named{\(\dag\)S}}}  %\autoref{idea:defs-for-CS}}} %\named{2\cancel[thick]{CS}}}%
+  }
+  {%
+  \ifnum0=#1\relax%
+      \obeybreaks{Idea\space regarding\space \space support\space}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{Idea\space S}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\nIBackground}{\hyperref[prem:ni]{\named{\nIacro:1--3}}}
+
+% % % FCS % % %
+\newcommand{\FCSAcro}[0]{FCS}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\FCS}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \text{\hyperref[prop:fcs]{\named{\FCSAcro{}}}}% \text{\textsf{|NI|}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{Failure\space to\space claim\space support}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\csVed}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\color{red} claimed\space \support{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\color{red} claimed\space \support{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\color{red} Claimed\space \support{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\prequ}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{premise-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{premise-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{premise-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Premise-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Premise-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\crequ}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{conclusion-\requ{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{conclusion-\requ{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{conclusion-\requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Conclusion-\requ{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Conclusion-\requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % % % % % Commands for worlds which are possible in general % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\GAd}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{possible}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{possible}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Possible}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epGAd}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemically\space \GAd{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemically\space \GAd{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemically\space \GAd{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{epistemically\space \GAd{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemically\space \GAd{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\epGW}[1]{\epGAd{}\space \world{#1}}
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epVW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\epVAd{}\space \world{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\epVAd{}\space \world{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\epVAd{}\space \world{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\epVAd{2}\space \world{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\epVAd{2}\space \world{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\epVN}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{epistemic\space \viableN{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{epistemic\space \viableN{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{epistemic\space \viableN{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Epistemic\space \viableN{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Epistemic\space \viableN{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\viableN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viability}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Viability}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Viabilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sink}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{cynosure}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{cynosure}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} cynosures}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Cynosure}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} Cynosures}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\bS}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{support}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{support}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Support}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} !no-sense!}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\izetaSm}[0]{\text{\hyperref[idea:Zsm]{\named{\(\zeta^{-}\)-support}}}}
