@@ -116,6 +116,29 @@
 % And S\(\circ\dashes\)C for exception
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\ptivity}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:perspectivity]{Perspectivity}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\eState}{ m O{} }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
@@ -1675,3 +1698,14 @@
         \end{scope}
       \end{tikzpicture}
 }
+
+\makeatletter
+\newenvironment{shiftpar}[1][1.5em]
+  {\list{}{%\listparindent #1%
+    %\itemindent\parindent
+    \leftmargin#1
+%    \rightmargin\leftmargin
+    \parsep\z@\@plus\p@}%
+    \item\relax}
+  {\endlist}
+\makeatother
