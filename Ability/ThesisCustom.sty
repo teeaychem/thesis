@@ -141,6 +141,29 @@
 \newcommand{\ptivityQV}[0]{\ensuremath{\mathbb{P}}}
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\ptivityQ}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:perspectivityQ]{Perspectivity\textsuperscript{\emph{Q}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\deadEnd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
