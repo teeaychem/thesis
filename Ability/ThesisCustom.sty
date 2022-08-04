@@ -116,6 +116,29 @@
 % And S\(\circ\dashes\)C for exception
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\factivity}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[principle:factivity]{factivity}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[principle:factivity]{factivity}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[principle:factivity]{Factivity}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\ptivity}{ m }{%
   \tl_if_empty:nTF {#1}
   {
