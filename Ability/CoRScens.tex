@@ -1,0 +1,447 @@
+\chapter{The type of \scen{0} we will focus on}
+\label{sec:clar:type-of-scen}
+
+\begin{note}
+  In this chapter, type of \scen{0} we will focus on.
+  \begin{itemize}
+  \item
+    Instance of \scen{0}.
+  \item
+    General characterisation of type of \scen{0}.
+  \item
+    Comparison, highlighting key features.
+  \item
+    Additional examples.
+  \end{itemize}
+
+  Argument will depend on question.
+  This, detailed in \autoref{cha:zS}.
+\end{note}
+
+\section{An example of the type of \scen{0}}
+
+\begin{note}
+  \begin{scenario}[Quadratic roots]
+    \label{illu:gist:roots}
+    An agent is given the following statement:
+
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item
+      \label{illu:gist:roots:eq}
+      For some \(x \in \mathbb{R}\), \(2x^{2} - x - 1 = 0\).
+    \end{enumerate}
+
+    The agent reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume, itemsep=.125em]
+    \item
+      \label{illu:gist:roots:qf}
+      The quadratic formula is \(x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}\) \hfill Memory
+    \item
+      \label{illu:gist:roots:subs}
+      Let \(a \coloneq 2\), \(b \coloneq -1\), and \(c \coloneq -1\) \hfill \ref{illu:gist:roots:eq}, How to use \ref{illu:gist:roots:qf}%
+      \footnote{
+        \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the x term, and \(c\) is the constant.
+      }
+    \item
+      \label{illu:gist:roots:qf-subs}
+      \(x = \frac{-(-1) \pm \sqrt{(-1)^{2} - 4(2)(-1)}}{2(2)}\) \hfill \ref{illu:gist:roots:qf}, \ref{illu:gist:roots:subs}, Substitution
+    \item
+      \label{illu:gist:roots:qf:1}
+      \(x = \frac{(1 \pm 3)}{4}\) \hfill \ref{illu:gist:roots:qf-subs}, Simplification
+    % \item
+    %   \label{illu:gist:roots:qf:3}
+    %   \(x = \sfrac{(1 + 3)}{4}\) or \(x = \sfrac{(1 - 3)}{4}\) \hfill \ref{illu:gist:roots:qf:1}, Expansion
+    \item
+      \label{illu:gist:roots:qf:done}
+      \(x = 1\) or \(x = -\sfrac{1}{2}\) \hfill \ref{illu:gist:roots:qf:1}, Expansion, Simplification
+    \end{enumerate}
+    Hence, the agent concludes: if \(2x^{2} - x - 1 = 0\), \(x = 1\) or \(x = -\sfrac{1}{2}\).
+
+    \mbox{ }
+
+    Still, prior to concluding \(x = 1\) or \(x = -\sfrac{1}{2}\), the agent observed that \emph{if} \(x = 1\) or \(x = -\sfrac{1}{2}\), then they would also be able to observe this via factorisation.
+  \end{scenario}
+
+  The particular details of \autoref{illu:gist:roots} are present primarily to present a clear instance of reasoning.
+  For present purposes, our interest is with steps \ref{illu:gist:roots:qf}, \ref{illu:gist:roots:subs}, and \ref{illu:gist:roots:qf-subs}.
+
+  Intuitively, the agent concludes `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' in part from their understanding of arithmetic.
+  And, in particular, from their understanding of the quadratic formula and how to use it.
+
+  Further, as the agent does not derive the quadratic formula from more basic principles, the quadratic formula is, intuitively, a premise of the agent's reasoning.
+\end{note}
+
+\begin{note}
+  Now, in the same way the agent may have calculated \(23 \times 15 = 345\) without the aid of a calculator in \autoref{illu:gist:calc}, the agent may have concluded \(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\) without the aid of the quadratic formula in~\autoref{illu:gist:roots}.
+
+  For example, consider the following variant steps:
+  \begin{quote}
+    \begin{enumerate}[label=\arabic*\('\)., ref=(\arabic*\('\)), itemsep=.125em]
+      \setcounter{enumi}{1}
+    \item
+      \label{illu:gist:roots:factor}
+      \((2x + 1)(x - 1) = 0\) \hfill \ref{illu:gist:roots:eq}, Factoring
+    \item
+      \label{illu:gist:roots:zero}
+      Either \((2x + 1) = 0\) or \((x - 1) = 0\) \hfill \ref{illu:gist:roots:factor}, Arithmetic
+    \item
+      \label{illu:gist:roots:case:a}
+      If \((x - 1) = 0\), then \(x = 1\) \hfill \ref{illu:gist:roots:factor}, \ref{illu:gist:roots:zero}, Arithmetic
+    \item
+      \label{illu:gist:roots:case:b}
+      If \((2x + 1) = 0\), then \(x = -\sfrac{1}{2}\) \hfill \ref{illu:gist:roots:factor}, \ref{illu:gist:roots:zero}, Arithmetic
+    \item
+      \label{illu:gist:roots:factor:done}
+      Either \(x = 1\) or \(x = -\sfrac{1}{2}\). \hfill \ref{illu:gist:roots:zero}, \ref{illu:gist:roots:case:a}, \ref{illu:gist:roots:case:b}, Replacement
+    \end{enumerate}
+  \end{quote}
+
+  Steps~\ref{illu:gist:roots:factor} to~\ref{illu:gist:roots:factor:done} yield the same results as steps~\ref{illu:gist:roots:qf} to~\ref{illu:gist:roots:qf:done}, but do not involve the quadratic formula.
+\end{note}
+
+\begin{note}
+  Intuitively, did not conclude from a pool of premises which does not include the quadratic formula.
+\end{note}
+
+\begin{note}
+  \scen{3}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} are similar.
+  Broadly, both involve an agent concluding \(\phi\) has value \(v\) from some pool of premises \(\Phi\) and an option for the agent to conclude \(\phi\) has value \(v\) from some distinct set of premises \(\Phi'\).
+
+  The key difference between \scen{1}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} is how concluding \(\phi\) has value \(v\) from \(\Phi'\) relates to the agent's conclusion of \(\phi\) having value \(v\) from \(\Phi\).
+  Roughly, in \scen{0}~\ref{illu:gist:calc} the alternative reasoning relates to the premises \(\Phi\), while in \scen{0}~\ref{illu:gist:roots} the alternative reasoning relates to the reasoning from \(\Phi\) to \(\phi\) having value \(v\).
+
+  This, noted.
+
+  Argue this type of \scen{0} motivates negative resolution to \issueConstraint{}, and, by extension, \issueInclusion{}.
+
+  Intuitions are difficult.
+  Motivation will focus on:
+  \begin{itemize}
+  \item
+    Conditional
+  \item
+    \fc{0}
+  \end{itemize}
+
+  Turn to sketching the general argument.
+
+  Still, while we are here, abstract form of \scen{1}, a few additional examples, and a handful of contrasting examples.
+\end{note}
+
+\section[General characterisation]{A general characterisation of the type of \scen{0}}
+
+\begin{note}
+  Strictly, the key properties of the type of \scen{0} we are interested in concern an agent's epistemic state just prior to the agent concluding some proposition-value pair from some pool of premises.
+\end{note}
+
+\begin{note}
+  \begin{scenarioType}[(Partial) check on reasoning-scenarios \hfill \cScen{1}]
+    \label{scenType:CoR}
+    An agent \vAgent{} has concluded some proposition \(\phi\) has some value \(v\) from some pool of premises \(\Phi\).
+
+    And, \emph{prior} to concluding \(\phi\) has value \(v\) from \(\Phi\), it was the case that:
+    \begin{itemize}
+    \item
+      From \vAgent{}' perspective, if \(\phi\) has value \(v\) then:
+      \begin{itemize}
+      \item
+        There is some proposition-value pair \(\psi\) having value \(v'\) and pool of premises \(\Psi\) such that:
+        \begin{itemize}
+        \item
+          If the \vAgent{} were to fail to conclude that \(\psi\) has value \(v'\) from \(\Psi\) prior to concluding, \vAgent{} would not conclude \(\phi\) has value \(v\) from \(\Phi\).
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{scenarioType}
+
+  {
+    \color{red}
+    Slight variation on \citeauthor{Tolliver:1982us}'s Pendulum Case.%
+    \footnote{
+      Understood \citeauthor{Tolliver:1982us}'s case only after.
+    }
+    Similar to \citeauthor{Tolliver:1982us}, though a difference.
+  For, here, not lacking information.
+  With the pendulum, didn't have the option of concluding from period, as didn't have information about period.
+  }
+
+  For ease of reference, we term scenarios of this type `\cScen{1}', where `CoRe' stands for `check on reasoning', or more carefully `partial check on reasoning'.
+
+  The key feature of \cScen{1} is that prior to concluding \(\phi\) has value \(v\) from \(\Phi\), the agent has the option of reasoning about some other proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\), such that, from the agent's perspective, failure to conclude \(\psi\) has value \(v'\) from \(\Psi\), the agent would not conclude \(\phi\) has value \(v\) from \(\Phi\).
+
+  In this respect, the agent reasoning about whether \(\psi\) has value \(v'\) is a partial check on whether it makes sense for the agent, from their present perspective, to conclude \(\phi\) has value \(v\) from \(\Phi\) given the reasoning they have performed.
+
+  In other words, the proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) is a partial check on the agent's reasoning from \(\Phi\) to \(\phi\) having value \(v\).
+
+  We expand on this in three steps.
+  First, why \(\pvp{\psi}{v'}{\Psi}\) is a \emph{check}.
+  Second, why \(\pvp{\psi}{v'}{\Psi}\) is a check \emph{on reasoning}.
+  And, finally, why \(\pvp{\psi}{v'}{\Psi}\) is a \emph{partial} check on reasoning.
+\end{note}
+
+\begin{note}[Check]
+  Agent has the option.
+  Something went wrong with the reasoning from premises to conclusion.
+\end{note}
+
+\section{Contrast to inital \scen{0}}
+
+\begin{note}
+  \color{blue}
+  The important contrast is whether the conditional holds.
+  This is not at all clear in first \scen{}.
+  Though, if, for example, building the calculator, it may.
+
+  Right, as noted below, then it's not clear the agent gets the equation via testimony.
+
+  There's also observation about conflict with premises.
+  However, I don't think this can be right.
+
+  Really, the important thing is that the reasoning is `internal'.
+  Could test the calculator, but this isn't just about the agent's reasoning.
+\end{note}
+
+\begin{note}
+  On the agent's reasoning.
+
+  The key contrast here is between \scen{1}~\ref{illu:gist:roots} and~\ref{illu:gist:calc}.
+
+  Difference is how failure relates to the premise.
+
+  With \autoref{illu:gist:calc}, testimony.
+  It seems, if testimony, then it is not possible to satisfy the conditional.
+  In other words, if the conditional holds, then it seems the agent doesn't have \(23 \times 15 = 345\) by testimony.
+
+  With \autoref{illu:gist:roots}, quadratic formula.
+  Fail to conclude from factorising, but this would not involve revising premise.
+  Rather, reasoning from premises.
+  For example, application of quadratic formula to the quadratic equation.
+  Or, reduction of the quadratic equation.
+
+  Reasoning from premises, rather than premises.
+
+  Way this is captured, concluding \(\phi\) has value \(v\) from \(\Phi\).
+  Agent would not conclude, because revise either testimony or understanding of arithmetic.
+  However, remains the case that \emph{given} testimony, agent would conclude.
+
+  The conditional focuses on the relation between premises and conclusion.
+\end{note}
+
+\begin{note}
+  In addition, relative to \(\phi\) having value \(v\).
+  Checking that the conclusion does indeed follow from the premises.
+
+  This property is shared in both examples.
+  However, narrows things down.
+
+  Case in which agent could reason about premises further.
+\end{note}
+
+\begin{note}
+  Partial.
+  Failure to conclude \(\psi\) has value \(v'\) from \(\Psi\).
+  Nothing about successfully concluding \(\psi\) has value \(v'\) from \(\Psi\).
+  In general, other considerations against concluding \(\phi\) has value \(v\) from \(\Phi\).
+  With respect to \cScen{1}, other proposition-value-premises pairings for which the same holds.
+\end{note}
+
+\begin{note}
+  \color{red}
+  Though we observed a slight contrast between \scen{1}~\ref{illu:gist:roots} and~\ref{illu:gist:calc} given the differing roles of the testimony of the calculator and the quadratic formula in the agent's reasoning, these variant steps highlight a key parallel.
+
+  For, in~\autoref{illu:gist:calc} we noted the agent may have concluded \(23 \times 15 = 345\) without the testimony of the calculator.
+  And, so long as the agent understands factorisation, a parallel statement holds for~\ref{illu:gist:roots}:
+  The agent may have concluded \(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\) without the aid of the quadratic formula in~\autoref{illu:gist:roots}.
+\end{note}
+
+\begin{note}
+  \scen{3} \ref{illu:gist:calc} and \ref{illu:gist:roots} both fit this pattern of a partial check.
+
+  \autoref{illu:gist:calc}, agent's understanding of arithmetic, whether to trust the calculator.
+
+  \autoref{illu:gist:roots}, factorising instead of applying the quadratic formula.
+
+  In both these cases, \(\phi\) and \(\psi\) are the same proposition, and \(v\) and \(v'\) are the same value.
+  Difference is the pools of premises.
+\end{note}
+
+\section{Additional examples}
+
+\subsection{\cScen{3}}
+
+\begin{note}[Propositional logic]
+  \begin{scenario}
+    \label{illu:sketch:prop-logic}
+    Suppose an agent has a good grasp of propositional logic.
+    In particular:
+    \begin{itemize}
+    \item
+      The agent has a good understanding of some formal proof system.
+      For example, some Fitch-style system.
+    \item
+      The agent has a good understanding of some method to construct semantic proofs.
+      For example, by constructing truth tables, or reasoning about valuation functions.
+    \item
+      The agent understands the proof system is sound and complete.
+      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
+    \end{itemize}
+    The agent constructs a proof of \(A\).
+
+    Given the agent's understanding of propositional logic, the agent observes:
+    \begin{quote}
+      The construction is a proof of \(A\) \emph{only if} \(A\) is true given an arbitrary valuation.
+    \end{quote}
+  \end{scenario}
+
+  Intuitively, if the agent were to reason about whether \(A\) is true given an arbitrary valuation and failed to conclude \(A\) is true given an arbitrary valuation, then the agent would not conclude the construction is a proof of \(A\).
+
+  If were to go for semantic, then by soundness, works out.
+\end{note}
+
+\begin{note}[Interest]
+  Delicate, the equivalence result is not in question.
+  What's at issue is one's reasoning.
+  The result tells me that if reasoning is fine for syntax, then also semantics and vice-versa.
+\end{note}
+
+\begin{note}[Programming]
+  \begin{scenario}
+    \label{illu:programming}
+    Writing a program to automate some reasoning/processing of data.
+  \end{scenario}
+  Various test cases.
+  In these, possible to do the reasoning oneself.
+  Therefore, no appeal to program for these simple cases, at least.
+  This is quite similar to the logic illustration in this sense.
+
+  However, interest here as interdependence breaks down in interesting ways.
+  For, may break down due to resource constraints.
+  E.g.\ available time or complexity of inputs.
+
+  And, after enough time with the program, failure to obtain the same result is not clearly going to indicate a problem with the program.
+  Rather, one's reasoning.
+  Though, in turn, this may be reversed after enough checking of the reasoning.
+\end{note}
+
+\begin{note}
+  Three examples which follow basic pattern.
+  All these involve reasoning which is both deductive and formal.
+  Contingent feature.
+  Straightforward to identify related proposition-value-premises pairings and motivate the option of reasoning with the related pairing.%
+  \footnote{
+    Note, in particular, non-deductive reasoning is fine.
+    For, present epistemic state.
+    May be the case that some novel information would overturn conclusion.
+    However, novel information would require a revised epistemic State.
+  }
+
+  Favour these features in \scen{1} and examples as fairly general.
+  Particular constants chosen are easily replaced.
+  And, easy to find similar.%
+  \footnote{
+    For example, consider calculating exponents.
+    One may calculated \(x^{n} \times x^{m}\) directly, or appeal to \(x^{n} \times x^{m} = x^{n + m}\).
+ 
+    Also relatively simple, but there are a wealth of more complex examples.
+
+    For example:
+    See~\textcite{Fine:1997vc} for three distinct proofs of the fundamental theorem of algebra (i.e.\ any complex polynomial must have a complex root).
+    Likewise, \textcite{Ribenboim:2012ts} contains eight proofs that their exist infinitely many prime numbers.
+    And, \textcite{Wagon:1987vm} details fourteen proofs of a result about tiling a rectangle (specifically, whenever a rectangle is tiled by rectangles each of which has at least one integer side, then the tiled rectangle has at least one integer side).
+  }
+\end{note}
+
+\begin{note}
+  Simplify~\ref{illu:gist:roots} as a slight variation on~\ref{illu:gist:calc}.
+
+  \begin{restatable}[\(\times\) and \(\div\)]{scenario}{scenarioClacMulDiv}
+    \label{illu:sketch:math}
+    An agent calculates \(345 \div 15 = 23\) via their understanding of arithmetic.
+
+    \mbox{ }
+
+    Given the agent's understanding of arithmetic, the agent observes:
+    \begin{quote}
+      \(345 \div 15 = 23\) \emph{only if} \(23 \times 15 = 345\).
+    \end{quote}
+    And, \emph{if} \(345 \div 15 = 23\), then they would not fail to conclude \(23 \times 15 = 345\).
+
+    \mbox{ }
+
+    The agent concludes \(345 \div 15 = 23\).
+  \end{restatable}
+\end{note}
+
+\subsection{Non-\cScen{1}}
+
+\begin{note}[Serial number]
+  \begin{scenario}
+    \label{illu:number-check}
+    Handed a credit card.
+    Conclude, will be able to bill after repairs are done.
+  \end{scenario}
+
+  Fairly straightforward partial check on whether the credit card is usable by applying the Luhn algorithm to check whether the credit card number is valid.
+  Applying the Luhn algorithm requires only basic addition and multiplication.%
+  \footnote{
+    To illustrate.
+    Credit card number is:
+    \(4676\) \(2250\) \(1000\) \(0626\).
+    Array:
+    \([4,6,7,6,2,2,5,0,1,0,0,0,0,6,2]\)
+    For every even index of the array (index from \(0\)), multiply the number by two, and add the resulting digits together if the results is greater than ten.
+    \([8,6,5,6,4,2,1,0,1,0,0,0,0,6,4]\)
+    Add elements of the array together with the check digit.
+    Valid only if the result is equal to a multiple of ten.
+  }
+  However, if the agent is not aware of that the Lund algorithm may be applied to check whether the credit card number is valid, the agent will not have the option of checking given their present epistemic state.
+\end{note}
+
+\begin{note}[Calculator B]
+  \begin{scenario}[Calculator B]
+    \mbox{}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      Calculation
+    \item
+      Only if calculator.
+    \end{itemize}
+  \end{scenario}
+
+  Problem, not by reasoning alone.
+
+  Here, reverse of original scenario.
+  Problem is, using the calculator is not the agent's own reasoning.
+
+  Interesting, and is a check in the same way.
+  But, falls outside scope of interest.
+
+  Similar, any instance of looking at solutions.
+  So, for example, textbook with worked solutions.
+
+  Taking a photo with a disposable camera.
+  Only if, conclude negative is present on reel.
+\end{note}
+
+\section{Summary}
+
+\paragraph*{Interest}
+
+\begin{note}
+  As seen from \illu{1}~\ref{illu:gist:calc} and \ref{illu:gist:roots}, there is an intuitive sense in which an agent concluding some proposition \(\phi\) has some value \(v\) involves certain pools of premises and does not involve other pools of premises.
+
+  Calculator, understanding of arithmetic.
+  Quadratic formula, factorisation.
+
+  I am somewhat unsure about the intuitions expressed with respect to \scen{1} like~\autoref{illu:gist:calc}.
+  However, I quite unsure about the intuitions expressed with respect to \scen{1} like~\autoref{illu:gist:roots}.
+\end{note}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
