@@ -1,4 +1,4 @@
-\chapter{The type of \scen{0} we will focus on}
+\chapter{(Partial) check on reasoning-\scen{1}}
 \label{sec:clar:type-of-scen}
 
 \begin{note}
@@ -111,10 +111,6 @@
   The key difference between \scen{1}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} is how concluding \(\phi\) has value \(v\) from \(\Phi'\) relates to the agent's conclusion of \(\phi\) having value \(v\) from \(\Phi\).
   Roughly, in \scen{0}~\ref{illu:gist:calc} the alternative reasoning relates to the premises \(\Phi\), while in \scen{0}~\ref{illu:gist:roots} the alternative reasoning relates to the reasoning from \(\Phi\) to \(\phi\) having value \(v\).
 
-  This, noted.
-
-  Argue this type of \scen{0} motivates negative resolution to \issueConstraint{}, and, by extension, \issueInclusion{}.
-
   Intuitions are difficult.
   Motivation will focus on:
   \begin{itemize}
@@ -123,58 +119,83 @@
   \item
     \fc{0}
   \end{itemize}
-
-  Turn to sketching the general argument.
-
-  Still, while we are here, abstract form of \scen{1}, a few additional examples, and a handful of contrasting examples.
 \end{note}
 
 \section[General characterisation]{A general characterisation of the type of \scen{0}}
 
 \begin{note}
-  Strictly, the key properties of the type of \scen{0} we are interested in concern an agent's epistemic state just prior to the agent concluding some proposition-value pair from some pool of premises.
-\end{note}
-
-\begin{note}
   \begin{scenarioType}[(Partial) check on reasoning-scenarios \hfill \cScen{1}]
     \label{scenType:CoR}
-    An agent \vAgent{} has concluded some proposition \(\phi\) has some value \(v\) from some pool of premises \(\Phi\).
+    An agent \vAgent{} concluding some proposition \(\phi\) has some value \(v\) from some pool of premises \(\Phi\).
 
-    And, \emph{prior} to concluding \(\phi\) has value \(v\) from \(\Phi\), it was the case that:
     \begin{itemize}
     \item
-      From \vAgent{}' perspective, if \(\phi\) has value \(v\) then:
+      From \vAgent{}' perspective, \emph{when} concluding \(\pv{\phi}{v}\) from \(\Phi\):
       \begin{itemize}
       \item
-        There is some proposition-value pair \(\psi\) having value \(v'\) and pool of premises \(\Psi\) such that:
-        \begin{itemize}
-        \item
-          If the \vAgent{} were to fail to conclude that \(\psi\) has value \(v'\) from \(\Psi\) prior to concluding, \vAgent{} would not conclude \(\phi\) has value \(v\) from \(\Phi\).
-        \end{itemize}
+        There is some proposition-value pair \(\pv{\psi}{v'}\) and pool of premises \(\Psi\) such that:
+        \begin{enumerate}
+        \item[\emph{If}:]
+          \begin{enumerate}[label=\alph*., ref=(\alph*)]
+          \item
+            \(\phi\) has value \(v\).
+          \end{enumerate}
+          \item[\emph{Then}:]
+            \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+            \item
+              \vAgent{} would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+            \end{enumerate}
+        \end{enumerate}
       \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{scenarioType}
 
-  {
-    \color{red}
-    Slight variation on \citeauthor{Tolliver:1982us}'s Pendulum Case.%
-    \footnote{
-      Understood \citeauthor{Tolliver:1982us}'s case only after.
-    }
-    Similar to \citeauthor{Tolliver:1982us}, though a difference.
-  For, here, not lacking information.
-  With the pendulum, didn't have the option of concluding from period, as didn't have information about period.
-  }
+  For ease of reference, we term scenarios of this type `\cScen{1}', where `CoR' stands for `check on reasoning', or more carefully `partial check on reasoning'.
 
-  For ease of reference, we term scenarios of this type `\cScen{1}', where `CoRe' stands for `check on reasoning', or more carefully `partial check on reasoning'.
+  The key feature of \cScen{1} is that prior to concluding \(\pv{\phi}{v}\) from \(\Phi\), there is some other proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\), such that, from the agent's perspective, \(\pv{\phi}{v}\) from \(\Phi\) only if \(\pv{\psi}{v'}\) from \(\Psi\).
 
-  The key feature of \cScen{1} is that prior to concluding \(\phi\) has value \(v\) from \(\Phi\), the agent has the option of reasoning about some other proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\), such that, from the agent's perspective, failure to conclude \(\psi\) has value \(v'\) from \(\Psi\), the agent would not conclude \(\phi\) has value \(v\) from \(\Phi\).
+  In this respect, whether \(\pv{\psi}{v'}\) from \(\Psi\) is a partial check on whether it makes sense for the agent, from their perspective, to conclude \(\pv{\phi}{v}\) from \(\Phi\) given the reasoning they have performed.
+\end{note}
 
-  In this respect, the agent reasoning about whether \(\psi\) has value \(v'\) is a partial check on whether it makes sense for the agent, from their present perspective, to conclude \(\phi\) has value \(v\) from \(\Phi\) given the reasoning they have performed.
+\begin{note}
+  \color{red}
+  Key thing to emphasise is \emph{if} \(\phi\) has value \(v\).
 
-  In other words, the proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) is a partial check on the agent's reasoning from \(\Phi\) to \(\phi\) having value \(v\).
+  However, \emph{before} concluding \(\phi\) has value \(v\).
 
+  In this respect, rather than a plain conditional, what we really have is a subjunctive.
+
+  \begin{enumerate}[label=]
+  \item
+    \begin{enumerate}
+    \item[\emph{If}:]
+      \begin{enumerate}[label=\alph*\('\)., ref=(\alph*\('\))]
+      \item
+        \(\phi\) \emph{were to have} value \(v\).
+      \end{enumerate}
+    \item[\emph{Then}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \item
+        \vAgent{} would conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+
+Still, done reasoning and is `ready' to conclude \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}
+  Two keys ways in which partial check.
+  \begin{enumerate}
+  \item
+    Something about the reasoning performed.
+  \item
+    Some other way of getting the conclusion.
+  \end{enumerate}
+\end{note}
+
+\begin{note}
   We expand on this in three steps.
   First, why \(\pvp{\psi}{v'}{\Psi}\) is a \emph{check}.
   Second, why \(\pvp{\psi}{v'}{\Psi}\) is a check \emph{on reasoning}.
@@ -271,8 +292,80 @@
 
 \subsection{\cScen{3}}
 
-\begin{note}[Propositional logic]
-  \begin{scenario}
+\begin{note}
+  \begin{restatable}[Derived rules]{scenario}{scenarioPLSquish}
+    I conclude \((P \rightarrow Q) \rightarrow P, Q \vDash P \land Q\) from the both the following syntactic proof and the soundness of the rules of inference:
+    \begin{quote}
+      \begin{fitch}
+        \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
+        \phantlabel{illu:sP:2}\fj Q \\
+        \phantlabel{illu:sP:3}\fa P & Squish\textbf{Elim:} \hyperref[illu:sP:1]{1} \\
+        \phantlabel{illu:sP:4}\fa P \land Q & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
+      \end{fitch}
+    \end{quote}
+  \end{restatable}
+
+  The proof consists of two premises and two rules of inference.
+  The two rules of inference are of interest.
+
+  The second rule of inference used is standard `\(\land\)' introduction, and applies to lines \hyperref[illu:sP:2]{2} and \hyperref[illu:sP:3]{3}.
+  Where the conditional holds is unclear.
+  On the one hand, troubled if failed to show that `\(\land\)' introduction is sound.
+  However, testimony\dots
+
+  The first rule of inference is non-standard `Squish' elimination applied to line \hyperref[illu:sP:1]{1}.
+
+  \begin{center}
+    % For any formula of the form \((\alpha \rightarrow \beta) \rightarrow \alpha\), infer \(\alpha\).
+    \begin{fitch}
+      \ftag{\scriptsize i}{\fa (\alpha \rightarrow \beta) \rightarrow \alpha} \\
+      \ftag{\scriptsize }{\fa \vdots } \\
+      \ftag{\scriptsize j}{\fa \alpha } & Squish\textbf{Elim:}\emph{i} \\
+    \end{fitch}
+  \end{center}
+
+  \(\alpha\) `squishes' \(\beta\).
+
+  \phantlabel{squish-elimination-proof}
+  For a quick proof, suppose \((P \rightarrow Q) \rightarrow P\) is true.
+  And for contradiction assume \(P\) is false.
+  As \(P\) is false, it immediately follows that \(P \rightarrow Q\) is true.
+  Therefore, by the initial supposition, \(P\) is true.
+  Hence, we have obtained the desired contradiction.
+\end{note}
+
+\begin{note}
+  Two ways in which this works.
+
+  First, soundness of `Squish'-elimination.
+
+  Second, from basic rules.
+
+  \begin{quote}
+    \begin{fitch}
+      \fa (P \rightarrow Q) \rightarrow P \\
+      \fj Q \\
+      \fa \fh P & \\
+      \fa \fa Q & \textbf{Reit:} 2 \\
+      \fa P \rightarrow Q & \(\rightarrow\)\textbf{Intro:} 3--4 \\
+      \fa P & \(\rightarrow\)\textbf{Elim:} 1,5 \\
+      \fa P \land Q & \(\land\)\textbf{Intro:} 2,6
+    \end{fitch}
+  \end{quote}
+\end{note}
+
+\begin{note}[Propositional logic generalised]
+  Second option, general type of \scen{0} in two ways:
+
+  Soundness:
+
+  \begin{quote}
+    Make sure all the rules are sound, whether these are basic or derived rules.
+  \end{quote}
+
+  Semantic entailment:
+
+  \begin{scenario}[Propositional logic generalised]
     \label{illu:sketch:prop-logic}
     Suppose an agent has a good grasp of propositional logic.
     In particular:
@@ -284,8 +377,8 @@
       The agent has a good understanding of some method to construct semantic proofs.
       For example, by constructing truth tables, or reasoning about valuation functions.
     \item
-      The agent understands the proof system is sound and complete.
-      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{if and only if} \(A\) is true given an arbitrary valuation.
+      The agent understands the proof system is sound.
+      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{only if} \(A\) is true given an arbitrary valuation.
     \end{itemize}
     The agent constructs a proof of \(A\).
 
@@ -343,7 +436,7 @@
   \footnote{
     For example, consider calculating exponents.
     One may calculated \(x^{n} \times x^{m}\) directly, or appeal to \(x^{n} \times x^{m} = x^{n + m}\).
- 
+
     Also relatively simple, but there are a wealth of more complex examples.
 
     For example:
@@ -399,8 +492,8 @@
   However, if the agent is not aware of that the Lund algorithm may be applied to check whether the credit card number is valid, the agent will not have the option of checking given their present epistemic state.
 \end{note}
 
-\begin{note}[Calculator B]
-  \begin{scenario}[Calculator B]
+\begin{note}[Calculation II]
+  \begin{scenario}[Calculation II]
     \mbox{}
     \vspace{-\baselineskip}
     \begin{itemize}

@@ -363,22 +363,24 @@
     Robinson or Peano arithmetic together with the two numbers joined by an operator.
   Though, I doubt this.
 
-  For a clear example, consider the rule for conditional introduction a Fitch-style rule for propositional logic.
-    (\cite[cf.][206]{Barwise:1999tu})
+  For a clear example, consider the rule for conditional introduction a Fitch-style rule for propositional logic.%
+  \footnote{
+    See, for example, \textcite[cf.][206]{Barwise:1999tu}.
+    Or~\textcite{Pelletier:2021vp}
+  }
 
   \begin{quote}
-    \fitchctx{
-     \subproof{\pline{P}}{
-         \ellipsesline\\
-         \pline{Q}
-     }
-     \pline{P \lif Q}
-   }
+    \begin{fitch}
+      \ftag{\scriptsize i}{\fa \fh \alpha} & \\
+      \ftag{\scriptsize }{\fa \fa \vdots} & \\
+      \ftag{\scriptsize j}{\fa \fa \beta} & \\
+      \ftag{\scriptsize j+1}{\fa \alpha \rightarrow \beta} & \(\rightarrow\)\textbf{Intro:} \emph{i}--\emph{j} \\
+    \end{fitch}
   \end{quote}
 
   {
     \color{red}
-    The rule states that at any point in a proof, assume \formula{P}, then, after deriving \formula{Q} from \formula{P} discharge assumption of \formula{P} and introduce \formula{P \lif Q}.
+    The rule states that at any point in a proof, assume \(\alpha\), then, after deriving \(\beta\) from \(\alpha\), discharge assumption of \(\alpha\) and introduce \(\alpha \rightarrow \beta\).
   }
 
   Start with an assumption , derive proposition-value pair.
@@ -391,6 +393,7 @@
   No premises.
 
   Parallel, pool of premises may be empty.
+  
 
   Rather than being motivated by some pre-theoretical understanding of concluding, \autoref{assu:concluding:pools} is primarily a matter of convenience.
   Far easier to talk about concluding proposition-value pair from some pool of premises, than to cover distinct cases.
