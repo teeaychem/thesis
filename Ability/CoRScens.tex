@@ -66,10 +66,22 @@
   The particular details of \autoref{illu:gist:roots} are present primarily to present a clear instance of reasoning.
   For present purposes, our interest is with steps \ref{illu:gist:roots:qf}, \ref{illu:gist:roots:subs}, and \ref{illu:gist:roots:qf-subs}.
 
-  Intuitively, the agent concludes `\(x = 1\) or \(x = -\sfrac{1}{2}\) if \(2x^{2} - x - 1 = 0\)' in part from their understanding of arithmetic.
-  And, in particular, from their understanding of the quadratic formula and how to use it.
+  Intuitively, the agent concludes `if \(2x^{2} - x - 1 = 0\) then, \(x = 1\) or \(x = -\sfrac{1}{2}\)' is true.
+  And, the agent concludes the proposition is true in part from their understanding of arithmetic.
+  In particular, from their understanding of the quadratic formula and how to use it.
 
   Further, as the agent does not derive the quadratic formula from more basic principles, the quadratic formula is, intuitively, a premise of the agent's reasoning.
+
+  Abstractly, the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) where:
+  \begin{itemize}[noitemsep]
+  \item
+    \(\phi\) is the proposition: `If \(2x^{2} - x - 1 = 0\) then, \(x = 1\) or \(x = -\sfrac{1}{2}\)'.
+  \item
+    \(v\) is the value: `True'.
+    And,
+  \item
+    \(\Phi\) contains the quadratic formula in some way.
+  \end{itemize}
 \end{note}
 
 \begin{note}
@@ -102,14 +114,25 @@
 
 \begin{note}
   Intuitively, did not conclude from a pool of premises which does not include the quadratic formula.
+
+  Abstractly, the agent concludes \(\pv{\phi}{v}\) from \(\Phi'\) where:
+  \begin{itemize}[noitemsep]
+  \item
+    \(\phi\) is the proposition: `If \(2x^{2} - x - 1 = 0\) then, \(x = 1\) or \(x = -\sfrac{1}{2}\)'.
+  \item
+    \(v\) is the value: `True'.
+    And,
+  \item
+    \(\Phi'\) which \emph{does not} contain the quadratic formula in some way.
+  \end{itemize}
 \end{note}
 
 \begin{note}
   \scen{3}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} are similar.
   Broadly, both involve an agent concluding \(\phi\) has value \(v\) from some pool of premises \(\Phi\) and an option for the agent to conclude \(\phi\) has value \(v\) from some distinct set of premises \(\Phi'\).
 
-  The key difference between \scen{1}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} is how concluding \(\phi\) has value \(v\) from \(\Phi'\) relates to the agent's conclusion of \(\phi\) having value \(v\) from \(\Phi\).
-  Roughly, in \scen{0}~\ref{illu:gist:calc} the alternative reasoning relates to the premises \(\Phi\), while in \scen{0}~\ref{illu:gist:roots} the alternative reasoning relates to the reasoning from \(\Phi\) to \(\phi\) having value \(v\).
+  The key difference between \scen{1}~\ref{illu:gist:calc} and~\ref{illu:gist:roots} is how concluding \(\pv{\phi}{v}\) from \(\Phi'\) relates to the agent's conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
+  Roughly, in \scen{0}~\ref{illu:gist:calc} the alternative reasoning relates to the premises \(\Phi\), while in \scen{0}~\ref{illu:gist:roots} the alternative reasoning relates to the reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
 
   Intuitions are difficult.
   Motivation will focus on:
@@ -183,6 +206,21 @@
   \end{enumerate}
 
 Still, done reasoning and is `ready' to conclude \(\phi\) has value \(v\).
+\end{note}
+
+\section{Check}
+\label{sec:check}
+
+\begin{note}
+  \color{red}
+  Here, I just have an abstract check, this doesn't directly relate to the instance of reasoning.
+  I don't think there's a worthwhile rewrite in which I include the opportunity here.
+  And, this helps, perhaps, as I can bright up the contrast.
+  And, when these types of scenarios fail to be of direct interest.
+\end{note}
+
+\begin{note}
+  Interested in \cScen{1} as we get a partial check.
 \end{note}
 
 \begin{note}
@@ -293,16 +331,17 @@ Still, done reasoning and is `ready' to conclude \(\phi\) has value \(v\).
 \subsection{\cScen{3}}
 
 \begin{note}
-  \begin{restatable}[Derived rules]{scenario}{scenarioPLSquish}
-    I conclude \((P \rightarrow Q) \rightarrow P, Q \vDash P \land Q\) from the both the following syntactic proof and the soundness of the rules of inference:
-    \begin{quote}
+  \begin{restatable}[Squish elimination]{scenario}{scenarioPLSquish}
+    \label{scen:squish}
+    I conclude \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) from the both the following syntactic proof and the soundness of the rules of inference:
+    \begin{center}
       \begin{fitch}
         \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
         \phantlabel{illu:sP:2}\fj Q \\
         \phantlabel{illu:sP:3}\fa P & Squish\textbf{Elim:} \hyperref[illu:sP:1]{1} \\
         \phantlabel{illu:sP:4}\fa P \land Q & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
       \end{fitch}
-    \end{quote}
+    \end{center}
   \end{restatable}
 
   The proof consists of two premises and two rules of inference.
@@ -341,7 +380,7 @@ Still, done reasoning and is `ready' to conclude \(\phi\) has value \(v\).
 
   Second, from basic rules.
 
-  \begin{quote}
+  \begin{center}
     \begin{fitch}
       \fa (P \rightarrow Q) \rightarrow P \\
       \fj Q \\
@@ -351,7 +390,7 @@ Still, done reasoning and is `ready' to conclude \(\phi\) has value \(v\).
       \fa P & \(\rightarrow\)\textbf{Elim:} 1,5 \\
       \fa P \land Q & \(\land\)\textbf{Intro:} 2,6
     \end{fitch}
-  \end{quote}
+  \end{center}
 \end{note}
 
 \begin{note}[Propositional logic generalised]
