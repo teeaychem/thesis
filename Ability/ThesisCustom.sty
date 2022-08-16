@@ -417,6 +417,29 @@
 
 % % % Abbreviations % % %
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\collateral}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{collateral}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{collateral}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Collateral}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 % % % % % % Support % % %
 
 \ExplSyntaxOn
@@ -883,20 +906,20 @@
 \DeclareDocumentCommand{\cScen}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenario}}}%
+    \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenario}}}%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
     \fi
     \ifnum1=#1\relax%f
-      \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenarios}}}%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenarios}}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenario}}}%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[scenType:CoR]{\textsf{CoR-scenarios}}}%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenarios}}}%
     \fi
   }
 }
