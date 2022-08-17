@@ -926,6 +926,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\check}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\textsf{check}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\textsf{check}}%
+    \fi
+    \ifnum1=#1\relax%f
+      \obeybreaks{\textsf{checks}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\textsf{Check}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\textsf{Checks}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\indicateV}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -1506,6 +1529,10 @@
 
 \newcommand{\zS}[0]{\text{\hyperref[idea:zS]{\(Z\)-support}}}
 
+\newcommand{\zSX}[0]{\text{\hyperref[idea:zSX]{\(Z^{\sharp}\)-support}}}
+
+\newcommand{\zSXp}[0]{\text{{\(\hyperref[idea:zS]{Z}^{\hyperref[idea:zSX]{(\sharp)}}\)\hyperref[idea:zS]{-support}}}}
+
 \newcommand{\izS}[0]{\text{\hyperref[idea:zS]{\named{\(Z\)-support}}}}
 
 % % % zeta support % % %
@@ -1805,3 +1832,26 @@
     \item\relax}
   {\endlist}
 \makeatother
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\psat}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{projected\space satisfaction}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{projected\space satisfaction}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Projected\space satisfaction}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
