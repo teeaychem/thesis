@@ -5,20 +5,91 @@
 \label{cha:fcs:sec:introduction}
 
 \begin{note}
-  So, introduced \cScen{1}.
-  Checks on reasoning.
+  \autoref{sec:clar:type-of-scen} introduced the general type of \scen{} we are interested in.
+  In \autoref{cha:zS}, \check{1} on concluding.
+
   Here, \fc{1}.
-  Intuitively, if a check on reasoning holds, then \fc{0}.
 
-  However, depending on how you view things, may be slightly more narrow.
+  General term `foregone conclusion' is ambiguous.
+  \begin{itemize}
+    \item
+    Inevitable results of reasoning.
+  \item
+    Conclusion which has been settled in advance of reasoning.
+  \end{itemize}
 
-  Introduce idea of a \fc{}.
-  Potential event.
+  Interest is with the second meaning.
+  Two examples of general use.
 
-  Two main ideas.
-  First, motivation for \fc{1}.
-  Second, link to \support{}.
-  And, some observations.
+  % \begin{quote}
+  %   ［どうぜ］\dots Expresses an attitude of resignation or carelessness on the part of the speaker, in the sense that regardless of what s/he does, the conclusion or outcome is foregone and cannot be changed by the will or effort of an individual.%
+  %   \mbox{ }\hfill\mbox{(\citeyear[332--333]{kurufushamashii:2015un})}
+  % \end{quote}
+  A clear example of the first meaning is found in~\citeauthor{Machover:1996vu}'s~\citetitle{Machover:1996vu}:
+
+  \begin{quote}
+    I have omitted its proof, but added a detailed analysis of the meaning of the lemma and the reason why its proof works. When this is understood, the proof itself becomes a mere technicality, almost a foregone conclusion.%
+    \mbox{ }\hfill\mbox{(\citeyear[viii]{Machover:1996vu})}
+  \end{quote}
+
+  \citeauthor{Machover:1996vu} is discussing a proof, and whether or not it is inevitable that one would complete the proof (conclude that the relevant theorem is true) after understanding the lemma and why it works.
+  There is no relevant sense in which the truth of the theorem has been settled in advance of reasoning.
+  Though, as the proof is somewhat difficult,~\citeauthor{Machover:1996vu} only states the proof is `almost' a foregone conclusion.%
+  \footnote{
+    The proof is question is of the G\"{o}del-Rosser First Incompleteness Theorem.
+    (\citeyear[Cf.][226]{Machover:1996vu})
+  }%
+  \(^{,}\)
+  \footnote{
+    For a similar example without qualification, consider the following from~\textcite{Jacquette:2002up}:
+    \begin{quote}
+    It is nevertheless important to recognize that Russell’s evaluation of such sentences as false is predetermined by his existence presuppositional semantics for the ‘existential’ quantiﬁer, and by the fact that his logic permits no alternative means of considering the semantic status of sentences ostensibly containing proper names for nonexistent objects.
+    This makes it an altogether philosophically foregone conclusion that sentences like ‘Pegasus is winged,’ which many logicians would otherwise consider to be true propositions of mythology, are false.%
+    \mbox{ }\hfill\mbox{(\citeyear[6]{Jacquette:2002up})}
+  \end{quote}
+  }
+
+  For an additional example, consider the following from~\citeauthor{Grice:1957vg}'s~\citetitle{Grice:1957vg}:%
+  \footnote{
+    Same is found in \textcite[219]{Grice:1989uf}.
+  }
+  \begin{quote}
+    He intends the audience's recognition of his intention to produce that response to be effective in producing that response.
+    He does not regard it as a foregone conclusion that his action will produce the intended response, whether or not his intention is recognized.\newline
+    \mbox{ }\hfill\mbox{(\citeyear[385]{Grice:1957vg})}
+  \end{quote}
+
+  In this case, the term `forgone conclusion' is embedded under negation, to highlight that the agent in question entertains the possibility that the agent's action will not produce the intended response.
+
+  By contrast, the following passage from \textcite{Kadane:1996vu} is an example of the second meaning:
+
+  \begin{quote}
+    When can a Bayesian select an hypothesis \emph{H} and design an experiment (or a sequence of experiments) to make certain that, given the experimental outcome(s), the posterior probability of \emph{H} will be greater than its prior probably?
+    We discuss an elementary result that establishes sufficient conditions under which this reasoning to a foregone conclusion cannot occur.%
+    \mbox{ }\hfill\mbox{(\citeyear[1228]{Kadane:1996vu})}
+  \end{quote}
+
+  At issue is whether a Bayesian may chose some hypothesis \emph{H} and then guarantee some increase in probability for \emph{H} by running some experiments.
+  So, are there cases in which the Bayesian first chooses a hypothesis \emph{H} and then ensures they reason to an increase in the probability of \emph{H}?
+\end{note}
+
+\begin{note}
+  Our interest is with the first meaning, though narrow.
+  To avoid ambiguity with first meaning, write `\fc{0}' rather than `foregone conclusion'.
+  That is, the hyphen signifies when we are speaking about the technical term.
+\end{note}
+
+\begin{note}
+  Breakdown
+  \begin{itemize}
+  \item
+    \autoref{cha:fcs:def} definition of \fc{0}.
+  \item
+    \autoref{cha:fcs:sec:broad-motivation}, motivation for \fc{1}.
+    Relation to \cScen{1}.
+  \item
+    \autoref{cha:fcs:sec:fcs-support}, support.
+  \end{itemize}
 \end{note}
 
 \begin{note}
@@ -34,7 +105,15 @@
 \end{note}
 
 \section{\fc{3}}
-\label{sec:fc3-2}
+\label{cha:fcs:def}
+
+\begin{note}
+  Helper definition.
+
+  \begin{restatable}[Potential event]{definition}{definitionPEvent}
+    \(p\) is an potential event \emph{if and only if} possible from \(p\) to begin now and culminate.
+  \end{restatable}
+\end{note}
 
 \begin{note}
   The consequent here, potential event.
@@ -49,13 +128,17 @@
       \(\pv{\phi}{v}\) is a \emph{\fc{0}} from \(\Phi\), with respect to \vAgent{}
     \end{itemize}
     \emph{If and only if}
-    \begin{itemize}
+    \begin{enumerate}[label=\alph*., ref=(\alph*)]
     \item
-      There is a potential event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \end{itemize}
+      \label{def:fc:is-pe-good}
+      There is some potential event \(p\), \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item
+      \label{def:fc:no-pe-bad}
+      No potential event \(p\) in which \vAgent{} conclude something such that would not go on to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+    \end{enumerate}
   \end{restatable}
 
-  \phantlabel{fcs-neutral-perspective}
+ \phantlabel{fcs-neutral-perspective}
   \fc{3} are stated from a neutral perspective --- at issue is whether there is a potential event in which the agent concludes --- however, our interest with \fc{1} will be from an agent's perspective.
   Specifically, whether \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) with respect to \vAgent{}, from \vAgent{}' perspective.
   To simplify, we will shorten a positive instance to:
@@ -75,8 +158,15 @@
   For, the event in which the agent conclude \(\pv{\phi}{v}\) from \(\Phi\) is qualified by the term `potential'.
 \end{note}
 
-\section{Potential}
+\subsection{Opportunity}
 \label{sec:potential}
+
+
+\begin{note}
+  \begin{restatable}[Potential event]{definition}{definitionPEvent}
+    Opportunity to \(\alpha\) \emph{if and only if} potential event and \(\alpha\) of event does not require success.
+  \end{restatable}
+\end{note}
 
 \begin{note}
   Potential.
@@ -104,6 +194,8 @@
     `He could have read \emph{Emma}, if he had had a copy', does seem to assert `categorically' that he had a certain ability, although he lacked the opportunity to exercise it.%
     \mbox{ }\hfill\mbox{(\citeyear[177]{Austin:1961vz})}
   \end{quote}
+
+  Assuming success holds for ability, then:
 
   Potential, inttuively, just in case both the ability and the opportunity.
 
@@ -147,9 +239,41 @@
   Not the case potential, then would not have done the reasoning.
 \end{note}
 
+\subsection{Fragility}
+\label{sec:fragility}
+
+{
+  \color{red}
+  Strong conditions on \fc{1}.
+  If were to reason, would conclude.
+  If not reason, then wouldn't go for something incompatible.
+
+  Whether or not \(\pvp{\phi}{v}{\Phi}\) is a \fc{}, then, strong.
+
+  This is stronger than ability.
+  Ability, intuitively, just looks as success cases.
+  Well, with closeness.
+  Things get a little more complex.
+
+  Problem for me is lose specification of concluding.
+  Instead of solving these issues directly, our interest will be from agent's perspective.
+  Plausible that from agent's perspective, not an instance of concluding.
+  Whether or not issues arise, is it plausible that turn interest to cases in which agent's perspective is such that issues don't arise.
+}
+
+\begin{note}[`Flat']
+  Alternative definition making use of recursion.
+  Always a potential event in which concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+  However, time.
+  Concluding takes time.
+  After time is taken, this condition may fail.
+  So, won't do.
+\end{note}
+
 
 \section{Broad motivation}
-\label{sec:broad-motivation}
+\label{cha:fcs:sec:broad-motivation}
 
 \begin{note}
   \begin{illustration}[Sudoku]
@@ -201,7 +325,6 @@
   Even if fail on attempting, this doesn't raise a problem.
   Indeed, if get stuck, get hint, and I expect you will consider it the case that you could have done the thing.
 \end{note}
-
 
 \paragraph{Not clearly \fc{1}}
 
@@ -326,7 +449,6 @@
   Or, some doubts about premises.
 \end{note}
 
-
 \begin{note}
   \citeauthor{Barker:1975un} suggests:%
   \footnote{
@@ -354,11 +476,8 @@
   But, the observer knows that \emph{B} \emph{does not} have a winning strategy, and \emph{A}'s belief is mistaken.
 \end{note}
 
-\section{Support}
-\label{sec:fcs-support}
-
 \section{\support{2}}
-\label{sec:proposition}
+\label{cha:fcs:sec:fcs-support}
 
 \begin{note}
   \begin{proposition}
@@ -368,13 +487,15 @@
     \item[\emph{If}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*.)]
       \item
-        \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{0}, from \vAgent{}' perspective.
+        \(\pvp{\phi}{v}{\Phi}\) is a \fc{0}, from \vAgent{}' perspective.
       \end{enumerate}
     \item[\emph{then}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*.), resume]
-      \item \support{2} holds between \(\pv{\phi}{v}\) and \(\Phi\), from \vAgent{}' perspective.
+      \item
+        \support{2} holds between \(\pv{\phi}{v}\) and \(\Phi\), from \vAgent{}' perspective.
       \end{enumerate}
     \end{enumerate}
+    \vspace{-\baselineskip}
   \end{proposition}
 
   {
@@ -422,7 +543,20 @@
   Start with the following proposition.
   \begin{proposition}
     \label{prop:fcs-only-if-pot-support}
-    If \(\pvp{\phi}{v}{\Phi}\) is a \fc{0}, then (a) potential (relation of) \support{} holds between \(\pv{\phi}{v}\) and \(\Phi\).
+    For an agent \vAgent{} and proposition-value-premises pairing \(\pvp{\phi}{v}{\Phi}\):
+    \begin{enumerate}
+    \item[\emph{If}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*.)]
+      \item
+        \(\pvp{\phi}{v}{\Phi}\) is a \fc{0}, from \vAgent{}' perspective.
+      \end{enumerate}
+    \item[\emph{then}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*.), resume]
+      \item
+        (A) potential (relation of) \support{} holds between \(\pv{\phi}{v}\) and \(\Phi\), from \vAgent{}' perspective.
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{proposition}
 
   Argument is fairly straightforward:
@@ -446,29 +580,64 @@
 \begin{note}
   \begin{proposition}
     \label{prop:pot-support-onlyIf-support}
-    (A) potential (relation of) \support{} holds between \(\pv{\phi}{v}\) and \(\Phi\) only if (a relation of) \support{} holds between \(\pv{\phi}{v}\) and \(\Phi\).
+    For an agent \vAgent{} and proposition-value-premises pairing \(\pvp{\phi}{v}{\Phi}\):
+    \begin{enumerate}
+    \item[\emph{If}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*.)]
+      \item
+        (A) potential (relation of) \support{} holds between \(\pv{\phi}{v}\) and \(\Phi\), from \vAgent{}' perspective.
+      \end{enumerate}
+    \item[\emph{then}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*.), resume]
+      \item
+        \support{2} holds between \(\pv{\phi}{v}\) and \(\Phi\), from \vAgent{}' perspective.
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{proposition}
 
   \begin{argument}
     \autoref{idea:support:possible}.
     It is possible for there to be.
     So, we have everything needed.
+    Both necessary and sufficient.
     Hence, form agent's perspective, relation of support.
+
+    So, every necessary property that does not involve witnessing.
+    But, then, every necessary property.
+    Therefore, sufficient.
+    For, if not sufficient, then missing a necessary property.
+    Contradiction.
+
+    Slight issue, disjunction of properties.
+    But, this doesn't change the argument.
+    Disjunction.
   \end{argument}
 \end{note}
 
 \begin{note}
-  So, the point here is that we follow the modality.
-  Then, look at similarity.
-  Event starts right now.
-  So, no different epistemic state.
-
-  Maybe work with accounts of ability?
+  \color{red}
+  Worry.
+  \support{2} doesn't rely on witnessing.
+  Now, if this goes through, then seems \support{} for any conclusion before making the conclusion.
+  However, possible for the agent to reason to different conclusions.
+  For, some faulty reasoning.
+  Toggle the fault.
+  Therefore, \support{} for contradictory conclusions.
 \end{note}
 
-\paragraph{Actuality entailments}
+\paragraph[Actuality entailments]{Actuality entailments \hfill (Optional)}
+\nocite{Bhatt:1999ud}
+\nocite{Hacquard:2006to}
+\nocite{Werner:2011tp}
 
-\begin{note}[Entailment]
+\begin{note}
+  In this optional section, entertain distinct approach to \autoref{prop:pot-support-onlyIf-support}, and highlight issues.
+
+  If \autoref{prop:pot-support-onlyIf-support}, then strip the modal.
+
+  Actuality entailments.
+
   \textcite{Alxatib:2019wf} provides the following account of actuality entailments.
   \begin{quote}
     Actuality Entailments (AEs) are inferences from premises that appear to be modal, like (1a), but their content is that the modality is effectuated in the evaluation world --- (1b).
@@ -486,7 +655,6 @@
   \end{quote}
 
   Note, the reading of `had' in (1a) is `unambiguously deontic' (\citeyear[703]{Alxatib:2019wf}).
-  English paraphrase does not carry the same entailment, but does seem to carry a corresponding implicature.
 
   Follows \textcite{Bhatt:1999wq} (implication, to avoid commitment to entailment).
 
@@ -512,44 +680,37 @@
     \end{enumerate}
   \end{quote}
 
-  \citeauthor{Alxatib:2019wf} highlights the difficulty with actuality entailments:
+  If actuality entailment, then possibility of reducing to modal.
 
-  \begin{quote}
-    AEs are surprising; if we assume that modals attribute their propositional argument to potentially non-actual worlds, something must be special to AE-licensers that leads to the inference of actuality.
+  However, clear failure here.
+  For, \support{}, but same modal applies to concluding.
 
-    Whatever that special feature is, its effect is complex, and it interacts in nontrivial ways with other phenomena of theoretical interest.%
-    \mbox{}\hfill\mbox{(\citeyear[701]{Alxatib:2019wf})}
-  \end{quote}
-
-  {
-    \color{red}
-     \citeauthor{Bhatt:1999ud} goes further, arguing that actuality entailments are cannot be due to ability attribution \citeyear[\S4.2]{Bhatt:1999ud}.
-  \cite{Hacquard:2006to} argues against this.
-  \citeauthor{Hacquard:2006to} also (seems to) link to events.
-
-  \textcite{Werner:2011tp} suggests that there's a hierarchy.
-  Potentive entailment applies to opportunities.
-  So, potential entails ability, but need not be the case that ability requires opportunity.
+  Here, intuitively a significant issue if actuality entailment held.%
+  \footnote{
+    Inclined to allow concluding without witnessing, but for use, conclude only if witnessed.
   }
 \end{note}
 
 \begin{note}
-  I think I might be able to apply analysis of what ability entailments involve here.
-  No, this gets odd.
-  Because, with actuality, get that the thing really happened.
-  Here, I'm getting that some property holds.
+  \begin{argument}
+    Actuality entailment.
+    Here, the argument focuses on `potentive'.
+    Actuality entailment holds when applied to \support{}.
 
-  Well, there are two senses.
-  First, it doesn't hold that the entailment works for concluding.
-  However, it does hold that the entailment works for support.
+    Difficulty.
+    Interest in actuality entailments focuses on past.
+  \end{argument}
+\end{note}
 
-  But, then, this is easy to get.
-  Because, we just need to well, the verb is the copula.
-  Well, perfective, event as whole.
-  Can't be it, as then would work for concluded.
+\begin{note}
+  So, the point here is that we follow the modality.
+  Then, look at similarity.
+  Event starts right now.
+  So, no different epistemic state.
 
-  So, only holds with property.
-  In this sense, avoid the most puzzling things about actuality entailments.
+  Well, the difficulty here is the modal.
+  It's possible to go with an account such as Hacquard.
+  But, keep the modal, pragmatic link to actual world.
 \end{note}
 
 \newpage
