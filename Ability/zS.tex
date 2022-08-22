@@ -348,7 +348,7 @@
 
   \begin{definition}[A \requ{0}]
     \label{idea:requ}
-    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\phi}{v}{\Phi}\) and \(\pvp{\psi}{v'}{\Psi}\):
+    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\phi}{v}{\Phi}\), \(\pvp{\psi}{v'}{\Psi}\):
 
     \begin{itemize}
     \item
@@ -369,44 +369,34 @@
         \label{idea:requ:nPsi-nPhi}
         The following conditional is true:
         \begin{enumerate}
-        \item[\emph{If}:]
+        \item[\emph{If either}:]
           \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}]
           \item
             \label{idea:requ:nPsi-nPhi:opp}
-            \vAgent{} were to take the opportunity to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
+            No potential event in which conclude \(\pv{\psi}{v'}\) from \(\Phi\).
           \end{enumerate}
-        \item[\emph{And}:]
+        \item[\emph{Or}:]
           \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}, resume]
           \item
             \label{idea:requ:nPsi-nPhi:link}
-            \vAgent{} were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to concluding \(\phi\) has value \(v\).
+            There is some potential event in which \vAgent{} concludes some proposition-value pairing which is incompatible with concluding \(\pv{\psi}{v'}\) from \(\Psi\).
           \end{enumerate}
         \item[\emph{Then}:]
           \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}, resume]
             \label{idea:requ:nPsi-nPhi:fail}
           \item
-            \vAgent{} would not conclude \(\pv{\phi}{v}\) from \(\Phi\) (\emph{due to}~\ref{idea:requ:nPsi-nPhi:opp} and~\ref{idea:requ:nPsi-nPhi:link}).
+            \vAgent{} would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
           \end{enumerate}
         \end{enumerate}
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
-  
+
+  So, in other words, if \(\pv{\psi}{v'}\) from \(\Psi\) is \emph{not} a \fc{}, then the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
   {
     \color{blue}
-    \begin{enumerate}
-    \item[\emph{Either}:]
-      \begin{enumerate}
-      \item
-        No potential event in which conclude \(\pv{\psi}{v'}\) from \(\Phi\).
-      \end{enumerate}
-    \item[\emph{Or}:]
-      \begin{enumerate}
-      \item
-        Some potential event in which conclude something which is incompatible with concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-      \end{enumerate}
-    \end{enumerate}
     This is the `collective' version of \requ{}.
     So, positive.
     Need one instance of concluding \(\pv{\phi}{v}\) from \(\Psi\).
@@ -416,7 +406,6 @@
     The benefit of this is that to rule this out, don't need a strong `always conclude \(\pv{\psi}{v'}\) from \(\Psi\)' with respect to \qzS{}.
     Much weaker condition.
     Only that suitable.
-    
 
     Then, the dynamic between the two clauses is familiar from definition of a \fc{}.
     Indeed, intuitively, if not a \fc{}.
@@ -440,6 +429,11 @@
     If really not sure about this, then no conclusion.
     In particular, get this relation from an intermediate step.
     So, already have the information, and it's unexpected that it comes to apply.
+  }
+
+  {
+    \color{red}
+    So, in this respect, the potential to conclude \(\pv{\psi}{v'}\) from \(\Psi\) is a potential check on concluding \(\pv{\phi}{v}\) from \(\Phi\).
   }
 
   With respect to the breakdown of \TNSketch{3}~\ref{sketch:zS:fail} and~\ref{sketch:zS:succeed}, a \requ{} captures both the opportunity for the agent to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) and the idea of whether \(\pv{\psi}{v'}\) follows from \(\Psi\) being a \check{0} on concluding \(\pv{\psi}{v'}\) from \(\Phi\).
@@ -753,35 +747,35 @@
   In other words, \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\) does \emph{not} require the following conditional to be true:
   \begin{enumerate}[label=]
   \item
-  \begin{enumerate}[label=]
-    \setcounter{enumi}{1}
-      \item
-        \label{idea:requ:nPsi-nPhi:conv}
-        \begin{enumerate}
-        \item[\emph{If}:]
-          \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}]
-          \item
-            \vAgent{} were to take the opportunity to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
-          \end{enumerate}
-        \item[\emph{And}:]
-          \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}, resume]
-          \item
-            \vAgent{} \emph{were to} conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to concluding \(\phi\) has value \(v\).
-          \end{enumerate}
-        \item[\emph{Then}:]
-          \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}, resume]
-          \item
-            \vAgent{} \emph{would} conclude \(\pv{\phi}{v}\) from \(\Phi\).
-          \end{enumerate}
+    \begin{enumerate}[label=]
+      \setcounter{enumi}{1}
+    \item
+      \label{idea:requ:nPsi-nPhi:conv}
+      \begin{enumerate}
+      \item[\emph{If}:]
+        \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}]
+        \item
+          \vAgent{} were to take the opportunity to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
+        \end{enumerate}
+      \item[\emph{And}:]
+        \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}, resume]
+        \item
+          \vAgent{} \emph{were to} conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to concluding \(\phi\) has value \(v\).
+        \end{enumerate}
+      \item[\emph{Then}:]
+        \begin{enumerate}[label=\alph*., ref=\named{R:b.\alph*}, resume]
+        \item
+          \vAgent{} \emph{would} conclude \(\pv{\phi}{v}\) from \(\Phi\).
         \end{enumerate}
       \end{enumerate}
     \end{enumerate}
+  \end{enumerate}
 
-    There may be other \requ{}.
-    {
-      \color{red}
-      Seen in \scen{0}???
-    }
+  There may be other \requ{}.
+  {
+    \color{red}
+    Seen in \scen{0}???
+  }
   And, there may be checks other than \(\pvp{\psi}{v'}{\Psi}\) being a \requ{}.
 
   A different, but related check, would consider whether the agent has concluded.
@@ -1027,6 +1021,66 @@
     \label{idea:requ:pool:ind}
     For any proposition-value pair \(\pv{\psi_{i}}{v_{i}}\) in \(\Psi\), \vAgent{} may conclude \(\pv{\psi_{i}}{v_{i}}\) from some pool of premises \(\Psi_{i}\) without concluding \(\pv{\phi}{v}\) from \(\Phi\).
   \end{enumerate}
+\end{note}
+
+\subsection{\requP{3}}
+\label{sec:requ3-plus}
+
+\begin{note}
+  \begin{definition}[A \requP{0}]
+    \label{idea:requP}
+    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\phi}{v}{\Phi}\) and \(\pvp{\psi}{v'}{\Psi}\):
+
+    \begin{itemize}
+    \item
+      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\requP{}} of concluding \(\pv{\phi}{v}\) from \(\Phi\) when:
+      \begin{enumerate}[label=\arabic*., ref=\named{R:\arabic*}]
+      \item
+        \label{idea:requP:pool}
+        \vAgent{} has the opportunity to (attempt to) conclude \(\pv{\psi}{v'}\) from \(\Psi\) such that:
+        \begin{enumerate}[label=\roman*., ref=\named{R:1\roman*}]
+        \item
+          \label{idea:requP:pool:int}
+          It is possible for \vAgent{} to conclude \(\pv{\psi}{v'}\) from \(\Psi\) without concluding \(\pv{\phi}{v}\) from \(\Phi\) as an intermediary step.
+        \end{enumerate}
+      \end{enumerate}
+
+      \begin{enumerate}[label=\arabic*., ref=\named{R:\arabic*}, resume]
+      \item
+        \label{idea:requP:nPsi-nPhi}
+        The following conditional is true:
+        \begin{enumerate}
+        \item[\emph{If}:]
+          \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}]
+          \item
+            \label{idea:requP:nPsi-nPhi:opp}
+            \vAgent{} were to take the opportunity to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\).
+          \end{enumerate}
+        \item[\emph{And}:]
+          \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}, resume]
+          \item
+            \label{idea:requP:nPsi-nPhi:link}
+            \vAgent{} were to fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\) prior to concluding \(\phi\) has value \(v\).
+          \end{enumerate}
+        \item[\emph{Then}:]
+          \begin{enumerate}[label=\alph*., ref=\named{R:2\alph*}, resume]
+            \label{idea:requP:nPsi-nPhi:fail}
+          \item
+            \vAgent{} would not conclude \(\pv{\phi}{v}\) from \(\Phi\) (\emph{due to}~\ref{idea:requP:nPsi-nPhi:opp} and~\ref{idea:requP:nPsi-nPhi:link}).
+          \end{enumerate}
+        \end{enumerate}
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\begin{note}
+  This may be a stronger condition.
+  Straightforward proposition.
+  The problem here is \emph{would}.
+  However, weakened by `due to'.
+  So, plausible that these are equivalent.
 \end{note}
 
 \subsection{Summary}

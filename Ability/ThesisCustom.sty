@@ -609,6 +609,29 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\requP}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[idea:requP]{requisite\(^{\sharp}\)}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[idea:requP]{requisite\(^{\sharp}\)}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[idea:requP]{requisites\(^{\sharp}\)}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[idea:requP]{Requisite\(^{\sharp}\)}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[idea:requP]{Requisites\(^{\sharp}\)}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 
 
 \newcommand{\requGlobalClause}{%
