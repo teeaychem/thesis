@@ -1878,3 +1878,51 @@
   }
 }
 \ExplSyntaxOff
+
+% Ability.
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\abgen}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{broad}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{broad}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} \#\$\%\&}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{broad}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} \#\$\%\&}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\abspec}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{narrow}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{narrow}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} \#\$\%\&}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{narrow}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} \#\$\%\&}%
+    \fi
+  }
+}
+\ExplSyntaxOff
