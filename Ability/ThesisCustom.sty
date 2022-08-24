@@ -65,7 +65,11 @@
 \newcommand{\pe}[0]{\obeybreaks{potentive entailment}}
 
 
-\newcommand{\sem}[1]{\ensuremath{[\![\text{#1}]\!]}}
+\makeatletter
+\def\sem{\@ifnextchar[{\@with}{\@without}}
+\def\@with[#1]#2{\ensuremath{[\![#2]\!]^{#1}}}
+\def\@without#1{\ensuremath{[\![#1]\!]}}
+\makeatother
 
 % % % Property and event
 
