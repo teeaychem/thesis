@@ -47,8 +47,8 @@
   \footnote{
     For a similar example without qualification, consider the following from~\textcite{Jacquette:2002up}:
     \begin{quote}
-    It is nevertheless important to recognize that Russell’s evaluation of such sentences as false is predetermined by his existence presuppositional semantics for the ‘existential’ quantifier, and by the fact that his logic permits no alternative means of considering the semantic status of sentences ostensibly containing proper names for nonexistent objects.
-    This makes it an altogether philosophically foregone conclusion that sentences like ‘Pegasus is winged,’ which many logicians would otherwise consider to be true propositions of mythology, are false.%
+    It is nevertheless important to recognize that Russell's evaluation of such sentences as false is predetermined by his existence presuppositional semantics for the ‘existential' quantifier, and by the fact that his logic permits no alternative means of considering the semantic status of sentences ostensibly containing proper names for nonexistent objects.
+    This makes it an altogether philosophically foregone conclusion that sentences like ‘Pegasus is winged,' which many logicians would otherwise consider to be true propositions of mythology, are false.%
     \mbox{ }\hfill\mbox{(\citeyear[6]{Jacquette:2002up})}
   \end{quote}
   }
@@ -126,17 +126,24 @@
       \(\pv{\phi}{v}\) is a \emph{\fc{0}} from \(\Phi\), with respect to \vAgent{}
     \end{itemize}
     \emph{If and only if}
-    \begin{enumerate}[label=\alph*., ref=(\alph*)]
+    \begin{enumerate}[label=]
     \item
-      \label{def:fc:is-pe-good}
-      There is some potential event \(p\), \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item
-      \label{def:fc:no-pe-bad}
-      No potential event \(p\) in which \vAgent{} conclude something such that would not go on to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+      Both~\ref{def:fc:is-pe-good} and~\ref{def:fc:no-pe-bad} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{def:fc:is-pe-good}
+        There is some potential event \(p\) such that \(p\) involves \vAgent{} concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:fc:no-pe-bad}
+        There is no potential event \(p\) such that \(p\) involves \vAgent{} concluding
+        \(\pv{\chi}{v''}\) from \(X\) where:
+        If conclude \(\pv{\chi}{v''}\) from \(X\), then does not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
     \end{enumerate}
+    \vspace{-\baselineskip}
   \end{restatable}
 
- \phantlabel{fcs-neutral-perspective}
+  \phantlabel{fcs-neutral-perspective}
   \fc{3} are stated from a neutral perspective --- at issue is whether there is a potential event in which the agent concludes --- however, our interest with \fc{1} will be from an agent's perspective.
   Specifically, whether \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) with respect to \vAgent{}, from \vAgent{}' perspective.
   To simplify, we will shorten a positive instance to:
@@ -153,34 +160,69 @@
 \end{note}
 
 \subsection{Potential events}
-\label{sec:potential-events}
+\label{cha:sec:fcs-def:potential-events}
 
 \begin{note}
-  Helper definition.
-
   \begin{restatable}[Potential event]{definition}{definitionPEvent}
-    There is a potential event in which \vAgent{} \(\alpha\)s
+    For an agent \vAgent{} and action description \(\alpha\):
+    \begin{itemize}
+    \item
+      There is a potential event in which \vAgent{} \(\alpha\)s
+    \end{itemize}
     \emph{if and only if}
-    some action \(a\) avaiable to the agent, and were the agent to perform \(a\), the agent would be \(\alpha\)-ing.
+    \begin{enumerate}[label=]
+    \item
+      Both~\ref{def:PE:action} and~\ref{def:PE:prog} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{def:PE:action}
+        There is some action \(a\) avaiable to the agent.
+      \item
+        \label{def:PE:prog}
+        \(\text{Prog}(e, \alpha)\) would be true of the event \(e\) in which \vAgent{} does \(a\).
+      \end{enumerate}
+    \end{enumerate}
+    Where \(\text{Prog}(e, \alpha)\) stands for the progressive from of \(\alpha\) when evaluated with respect to \(e\).%
+    \footnote{
+      I.e.\ \(\text{Prog}(e, \alpha)\) is true just in case event \(e\) is an event of \vAgent{} \(\alpha\)ing.
+    }
   \end{restatable}
-\end{note}
 
-\begin{note}
+  So, there is some action \(a\), and if agent were to \(a\), then agent would be \(\alpha\)ing.
+
+  In the case of concluding, there is some action \(a\), such that if \(a\), then concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Truth conditions for the progressive capture the sense in which there is a `potential' event.
+
   Definition relies on assumption regarding progressive.
-  \begin{quote}
-    \(\alpha\)-ing only if, in some sense, future where \(\alpha\)'d.
-  \end{quote}
+  \begin{assumption}
+    \label{assu:prog-modal-shift}
+    \(\text{Prog}(e, \alpha)\) is true only if there is some possible event \(e'\) such that \(e'\) is a continuation of \(e\) and \(\text{Past}(e',\alpha)\) is true.
+  \end{assumption}
 
-  Assumption is natural.%
+  \autoref{assu:prog-modal-shift}, shift evaluation to some possible event in which something is true.
+  Past, as easier to parse.
+  Agent is concluding, concludes, concluded.
+  Easier, concluded.
+
+  \autoref{assu:prog-modal-shift}, common understanding of modals holds for the progressive.
+  Or, if you prefer, a true instance of the progressive entails `bare' possibility modal which entails completion of the action.
+
+  Possible only if possible world in which true.
+  will, future in which happens.
+
+  Necessary (and sufficient).
+
+  Assumption is common for modals, and likewise for the progressive.%
   \footnote{
-    And common!
-    See, for example, the assumption in the following influential papers:
+    See, for example:
     (\cite{Bennett:1972uw}),
     (\cite{Dowty:1979vq}),
     (\cite{Parsons:1990aa}),
     (\cite{Landman:1992wh}), and
     (\cite{Portner:1998um}).
-    However, this assumption is denied by~\textcite{Szabo:2004ul}.
+
+    However,~\autoref{assu:prog-modal-shift} is denied by~\textcite{Szabo:2004ul}.
     \citeauthor{Szabo:2004ul} writes:
     \begin{quote}
       Sometimes we are \emph{doing} things even though there is no real chance that we could get them \emph{done}, and this is true even if we abstract away from the possibility of miraculous intervention.%
@@ -192,7 +234,7 @@
         \setcounter{enumi}{12}
       \item
         \label{Szabo:Arch}
-        As the architect was building the cathedral he knew that, although he would be building it for another year or so, he couldn’t possibly complete it.%
+        As the architect was building the cathedral he knew that, although he would be building it for another year or so, he couldn't possibly complete it.%
         \mbox{ }\hfill\mbox{(\citeyear[38]{Szabo:2004ul})}
       \end{enumerate}
     \end{quote}
@@ -201,28 +243,31 @@
 
     Still, assumption.
     The goal is not to tie potential to progressive, but to evaluation associated with the progressive granting assumption.
+  }\(^{,}\)
+  \footnote{
+    Different on this point, imperfective paradox.
+    \citeauthor{Bach:1986tb} summarises:
+    \begin{quote}
+      [H]ow can we characterize the meaning of a progressive sentences like \ref{Bach:impP:17} on the basis of the meaning of a simple sentence like \ref{Bach:impP:18} when \ref{Bach:impP:17} can be true of a history without \ref{Bach:impP:18} ever being true?
+      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
+        \setcounter{enumi}{16}
+      \item
+        \label{Bach:impP:17}
+        John was crossing the street.
+      \item
+        \label{Bach:impP:18}
+        John crossed the street.%
+        \mbox{ }\hfill\mbox{(\citeyear[12]{Bach:1986tb})}
+      \end{enumerate}
+    \end{quote}
+
+    Don't get the entailment.
+
+    \emph{But}, could've.
   }
 
-  Bring this out via the `imperfective paradox'.
-
-  \citeauthor{Bach:1986tb} summarises:
-  \begin{quote}
-    [H]ow can we characterize the meaning of a progressive sentences like \ref{Bach:impP:17} on the basis of the meaning of a simple sentence like \ref{Bach:impP:18} when \ref{Bach:impP:17} can be true of a history without \ref{Bach:impP:18} ever being true?
-    \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-      \setcounter{enumi}{16}
-    \item
-      \label{Bach:impP:17}
-      John was crossing the street.
-    \item
-      \label{Bach:impP:18}
-      John crossed the street.%
-\mbox{ }\hfill\mbox{(\citeyear[12]{Bach:1986tb})}
-    \end{enumerate}
-  \end{quote}
-
-  Don't get the entailment.
-
-  \emph{But}, could've.
+  However, only a necessary condition.
+  `Bare' possibility is a lot.
 
   Clear example of this from Igal Kvart, via~\textcite{Landman:1992wh}:
 
@@ -240,14 +285,25 @@
     \ref{Landman:FRomans} is clearly false in this situation.\newline
     \mbox{ }\hfill\mbox{(\citeyear[18]{Landman:1992wh})}
   \end{quote}
-  Contrapose.
+  Is it possible that Mary wiped out the Roman army?
+  Maybe!
+  At least, no less possible that Kangaroos without tails.
 \end{note}
 
 \begin{note}
-  Idea is the progressive ensures somehow, but in a subtle way.
+  So, we get the modal, but the progressive restricts modal.
+  Ensures potential event.
+  Sufficient.
+  Entailment, so also get weaker event, but the progressive needs to be true, and this is what restricts the relevant possibility.
+\end{note}
+
+
+\begin{note}
+  \autoref{cha:sec:fcs-def:progressive-landman}, \citeauthor{Landman:1992wh}'s (\citeyear{Landman:1992wh}) account of the progressive, reconstructed with (selected) observations from \textcite{Szabo:2004ul}.
 \end{note}
 
 \subsection{Ability(?)}
+\label{cha:sec:fcs-def:ability}
 
 \begin{note}
   Now, potential event.
@@ -342,51 +398,205 @@
 \begin{note}
   However, possible that an account of specific ability does the work.
 
-  \begin{enumerate}
-  \item
-    Past Success. \(\text{Past}(S\text{ }\phi) \leadsto \text{Past}(S\text{ can }\phi)\)%
-    \mbox{ }\hfill\mbox{(\citeyear[2?]{Boylan:2020aa})}
-  \end{enumerate}
-  Past Success.
-  This captures specific.
+  Still, difficult.
+
+  \citeauthor{Boylan:2020aa}.
+  \BoyPS{}.
+
+  \begin{quote}
+    \begin{enumerate}
+    \item
+      \label{Boylan:Past-Success}
+      \BoyPS{}. \(\text{Past}(S\text{ }\phi) \leadsto \text{Past}(S\text{ [is able to] }\phi)\)%
+      \mbox{ }\hfill\mbox{(\citeyear[\S1.1]{Boylan:2020aa})}
+    \end{enumerate}
+  \end{quote}
+  \BoyPS{}.%
+  \footnote{
+    More generally, I understand \BoyPS{} to be an `actuality entailment'.
+
+    Following \textcite{Alxatib:2019wf}:
+    \begin{quote}
+      Actuality Entailments (AEs) are inferences from premises that appear to be modal, like (1a), but their content is that the modality is effectuated in the evaluation world --- (1b).
+
+      \begin{enumerate}[label=(\arabic*)]
+      \item
+        \begin{enumerate}[label=\alph*.]
+        \item Pierre a dû \hspace{26pt} prendre le \hspace{3.5pt} train \newline
+          Pierre had.to.\textsc{pfv} take \hspace{14pt} the train\newline
+          \hspace{-4pt} ‘Pierre had to take the train'
+        \item \emph{Inference}: Pierre took the train.%
+          \mbox{}\hfill\mbox{(\citeyear[701]{Alxatib:2019wf})}
+        \end{enumerate}
+      \end{enumerate}
+    \end{quote}
+
+    Note, the reading of `had' in (1a) is `unambiguously deontic' (\citeyear[703]{Alxatib:2019wf}).
+    Same holds for certain readings of ability.
+    See~\textcite{Bhatt:1999ud,Bhatt:2008wt},~\textcite{Hacquard:2006to,Hacquard:2009ta},~\textcite{Pinon:2003te}, and~\textcite{Werner:2011tp} for examples and additional discussion of actuality entailments.
+  }
 
   This doesn't hold for \fc{1}.
   So, problem with reducing to ability.
 
-  Though, this is not so straightforward.
-  Endorses past success, but denies \(\lor\)- Success.
+  Though, not so straightforward.
 
-  \begin{enumerate}
+  \begin{quote}
+    \begin{enumerate}[label=(\arabic*)]
+      \setcounter{enumi}{314}
+    \item
+      (from~\cite{Thalberg:1969ta})
+      \begin{enumerate}[label=\alph*., ref=(315\alph*)]
+      \item
+        \label{Bhatt:Thal-a}
+        Yesterday, Brown hit three bulls-eyes in a row. Before he hit three bulls-eyes, he fired 600 rounds, without coming close to the bullseye; and his subsequent tries were equally wild.
+      \item
+        \label{Bhatt:Thal-b}
+        Brown was able to hit three bulls-eyes in a row.
+      \item
+        \label{Bhatt:Thal-c}
+        Brown had the ability to hit three bulls-eyes in a row.
+      \end{enumerate}
+    \end{enumerate}
+    From~\ref{Bhatt:Thal-a}, we can conclude~\ref{Bhatt:Thal-b} but not~\ref{Bhatt:Thal-c}.
+    Brown could have hit the target three times in a row by pure chance and he does not need to have had any ability for~\ref{Bhatt:Thal-b} to be true.%
+    \mbox{ }\hfill\mbox{(\citeyear[167]{Bhatt:2008wt})}
+  \end{quote}
+  Distinction between `was able' and `had the ability'.
+  So, it's not immediate that \BoyPS{} holds for ability in the relevant sense.
+
+  Still, we are interested in `specific' abilities, rather than `general' abilities, and it may be that the distinction between~\ref{Bhatt:Thal-b} but not~\ref{Bhatt:Thal-c} is due to the `specific'/`general' divide.
+  Indeed, \citeauthor{Bhatt:2008wt}'s proposal, in short, identifies `was able' with the specific reading of ability and `had the ability' with the general reading of ability.
+  So, it is not clear that there is a stable account of ability that both:
+  \begin{enumerate*}
   \item
-    Invalidity of \(\lor\)- Success. \(S\text{ [will] }\phi \lor S\text{ [will] }\psi \not\!\!\leadsto S\text{ can }\phi \lor S\text{ can }\psi\)
-  \end{enumerate}
-  If \(\lor\)- Success fails, then things aren't straightforward.
-  Whether or not \fc{}, evaluate prior to concluding.
-  No clean mapping, but this isn't a good objection.
+    Captures specific ability, and
+  \item
+    Does not give rise to \BoyPS{}.
+  \end{enumerate*}
+\end{note}
 
-  `while the past is settled, the future is open'
-
-  So, may function as an account of \fc{} so long as consider from the perspective of an open future.
-  Surely cases where shift perspective.
-
-  `Control intuition'.
+\begin{note}[Segue]
+  Hence, doubt there is a direct reduction to ability.
+  However, indirect reduction.
+  \BoyPS{} relies on past.
+  Indirect by shifting evaluation to the present.
+  `At the time'.
 \end{note}
 
 \begin{note}
-  ~\cite{Boylan:2020aa}'s analysis.
+  \BoyPS{}, but denies \BoyVS{} (\citeyear[\S1.2]{Boylan:2020aa}):
+  \begin{quote}
+    \begin{enumerate}
+    \item
+      \label{Boylan:Or-Success}
+      \BoyVS{}. \(S\text{ [will] }\phi \lor S\text{ [will] }\psi \leadsto S\text{ can }\phi \lor S\text{ can }\psi\)
+    \end{enumerate}
+  \end{quote}
+
+  Future tense.
+
+  However, invalidates \BoyPS{} from present perspective.
+  So, some promise.
+\end{note}
+
+\begin{note}[Control intuition]
+  \begin{quote}
+    When said before the fact, the claim that I can surf that wave is strong — it says that surfing that wave is within my control.%
+    \mbox{ }\hfill\mbox{(\citeyear[1]{Boylan:2020aa})}
+  \end{quote}
+
+  {
+    \newbox\qqBoxA
+    \newdimen\qqCornerHgt
+    \setbox\qqBoxA=\hbox{$\ulcorner$}
+    \global\qqCornerHgt=\ht\qqBoxA
+    \newdimen\qqArgHgt
+    \def\Quinequote #1{%
+      \setbox\qqBoxA=\hbox{$#1$}%
+      \qqArgHgt=\ht\qqBoxA%
+      \ifnum     \qqArgHgt<\qqCornerHgt \qqArgHgt=0pt%
+      \else \advance \qqArgHgt by -\qqCornerHgt%
+      \fi \raise\qqArgHgt\hbox{$\ulcorner$} \box\qqBoxA %
+      \raise\qqArgHgt\hbox{$\urcorner$}}
+
+    \begin{quote}
+      When someone says \(\Quinequote{\text{I can }\varphi}\), she is assuring her interlocutors that \(\sem[c]{\varphi}\) is within her control in a certain way.
+      This is why we do not judge that Susie can hit the bull's-eye\dots%
+      \mbox{ }\hfill\mbox{(\citeyear[326]{Mandelkern:2017aa})}
+    \end{quote}
+  }
+
+  \begin{quote}
+    think of the ability to sing a song, to build a shag, to play tennis – all have an action as their manifestation: the agent controls what is going on and she also controls whether to exercise the ability at all.%
+    \mbox{ }\hfill\mbox{(\citeyear[34]{Jaster:2020wv})}
+  \end{quote}
+
+  \begin{quote}
+    Suppose Cyril does not know the first 10 digits of \(\pi\).
+    Intuitively,~\ref{Schwarz:pi} is then false.
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
+      \setcounter{enumi}{2}
+    \item
+      \label{Schwarz:pi}
+      Cyril can recite the first 10 digits of \(\pi\).
+    \end{enumerate}
+
+    \dots when we say that someone can recite the first 10 digits of \(\pi\), we don't just mean that no relevant facts preclude them from uttering `three, one, four,' etc.
+    Rather, the agent must have a certain kind of intentional control over performing the act under the description of `reciting digits of \(\pi\)'.%
+    \mbox{ }\hfill\mbox{(\citeyear[2]{Schwarz:2020aa})}
+  \end{quote}
+
+  This is the difficult intuition.
+  In some respects control, and in other respects, no control.
+  Interrupted, or get stuck in a loop.
+  However, still a \fc{}.
+
+  Might put this down to senses of control.
+  However, unclear whether this is relevant for sense of control captured by the intuition.
+
+  Focus on~\cite{Boylan:2020aa}'s analysis, same will apply to \textcite{Mandelkern:2017aa} and \textcite{Schwarz:2020aa} (I have not studied \textcite{Jaster:2020wv} in sufficient detail to extend the critique).
+\end{note}
+
+\begin{note}
+  Details.
+
+  First, unsettled world.
+  `while the past is settled, the future is open' (\citeyear[1]{Boylan:2020aa})
 
   \begin{quote}
     \emph{Unsettled World}. \(\mathcal{I}_{c} = \{w \mid w\text{ is identical to }w_{c}\text{ up until }t_{c}\}\)%
     \mbox{ }\hfill\mbox{(\citeyear[11]{Boylan:2020aa})}
   \end{quote}
+  Relative to some context \(c\), which includes world \(w_{c}\) and a time \(t_{c}\), set of worlds which are identical to to \(w_{c}\) up until \(t_{c}\).
+
+  Note, unique with respect to context.
+
+  So, with when considering the actual world at some point in time, corresponding unsettled world is just set containing all worlds identical to the past.
+
   Caution, an unsettled world is a set of worlds.
-  \(c\) marks context.%
+
+  Selection function:
 
   \begin{quote}
     \(s(\mathcal{I}, \mathbf{A})\) picks out the closest (possibly unsettled) world to \(\mathcal{I}\) which settles that \(\mathbf{A}\) is true.%
     \mbox{ }\hfill\mbox{(\citeyear[11]{Boylan:2020aa})}
   \end{quote}
-  So, selection function returns set containing a world or collection of worlds.
+  So, selection function takes unsettled world and action as input and returns set containing a world or collection of worlds such that action is settled to be true.
+
+  Key thing here is \(f(w,t)\).
+  Intuitively, restrict which worlds are part of the unsettled world.
+  Strictly, closest (unsettled) world.
+  However, closeness is not of interest.
+
+  \citeauthor{Boylan:2020aa} does not define settled.
+  However, \(\mathbf{A}\) is true at every world in set.%
+  \footnote{
+    `If \(\phi\) is true at \(s(\mathcal{I}, f(w,t))\) (i.e. true throughout \(\mathcal{I}\)),\dots'. \mbox{(\citeyear[12]{Boylan:2020aa})}
+  }
+
+  \(\mathcal{W}\) `will'.
 
   \begin{quote}
     \begin{enumerate}
@@ -405,9 +615,20 @@
         If determinate \(\sem[w,t,f,\mathcal{I}]{\mathcal{W}\phi} = 1\) iff \(s(\mathcal{I}, f(w,t)) \subseteq \sem[t,f,\mathcal{I}]{\phi}\)
       \end{enumerate}
     \end{enumerate}
-    Here, \(w\) world, \(t\) time, \(f\) a function from a world and a time to a set of worlds, and \(\mathcal{I}\) an unsettled world.
-    \(f(w,t) = \top\), option to restrict what the section function picks out.
   \end{quote}
+
+  Here, \(w\) world, \(t\) time, \(f\) a function from a world and a time to a set of worlds, and \(\mathcal{I}\) an unsettled world.
+
+  \(f(w,t) = \top\), then, abstracting from closest, all future possibilities.
+  \(f(w,t) = \mathbf{A}\), then, all future possibilities in which \(\mathbf{A}\) happens.
+
+  Mechanism is unclear.
+  Intuitively, think of \(f\) as returning a collection of propositions where to evaluate, context is the same, but shifted time, and world is excluded if does not match with some proposition.
+  So, truth of proposition at some (restricted) time in world.
+
+  Key idea, restrict future worlds of interest so that the agent has performed some action.
+
+  Now turn to `can'.
 
   \begin{quote}
     \begin{enumerate}
@@ -423,30 +644,51 @@
 
   In short, we chose some action, and figure out whether it's a phing action.
 
-  Now, Past Success, as context supplies \(\mathcal{I}\).
-  This means, everything up until now is settled.
-  So, when evaluate from the past, get a world in which \(\phi\), for sure.
+  This is the interest.
+  There is some action available to the agent, and this guarantees outcome.
+  Restricts the future some that it happens.
 
-  However, \(\lor\)-Success fails, because open.
-
-  So, here's the thing.
-  Failure of \(\lor\)-Success motivated our interest.
-  But, to ensure failure, guaranteed by some action available to the agent.
-
-  However, need to be careful about actions.
-  Narrow, then works out, but then plausibly run into cases of \(\lor\)-Success.
-  Broad, and then don't get instance of ability.
+  This captures the control intuition.
 
   So, this turns on what actions are `available' to the agent.
   \begin{quote}
-    I think of an agent’s available actions as their options.
+    I think of an agent's available actions as their options.
     And, for simplicity at least, we can typically think of options as a set of tryings.\newline
     \mbox{ }\hfill\mbox{(\citeyear[14]{Boylan:2020aa})}
   \end{quote}
 
   So, key assumption is that the agent has \emph{choice} over actions.
+  View ability in terms of having the option to determine some outcome.
+\end{note}
+
+
+\begin{note}
+  Now, \BoyPS{}, as context supplies \(\mathcal{I}\).
+  This means, everything up until now is settled.
+  So, when evaluate from the past, get a world in which \(\phi\), for sure.
+
+  However, \BoyVS{} fails, because open.
+
+  So, here's the thing.
+  Failure of \BoyVS{} motivated our interest.
+  But, to ensure failure, guaranteed by some action available to the agent.
+
+  However, need to be careful about actions.
+  Narrow, then works out, but then plausibly run into cases of \BoyVS{}.
+  Broad, and then don't get instance of ability.
+
+  
   But, for our purposes, no guarantee.
   Any action, may fail.
+
+  In this respect, extends to \textcite{Mandelkern:2017aa} and \textcite{Schwarz:2020aa}.%
+  \footnote{
+    First, the issue straightforwardly extends to \citeauthor{Mandelkern:2017aa} as \citeauthor{Boylan:2020aa}'s analysis just is an instance of the act conditional analysis proposed by \citeauthor{Mandelkern:2017aa} (\citeyear[cf.][\S5]{Mandelkern:2017aa}).
+
+    Second, though \citeauthor{Schwarz:2020aa} is non-committal with respect to a formal account of ability (\citeyear[cf.][13]{Schwarz:2020aa}), the spirit of \citeauthor{Schwarz:2020aa}'s analysis is sufficiently close to \citeauthor{Boylan:2020aa}'s for the issue to arise:
+    `[A]n agent has the ability to \(\phi\) iff there are accessible worlds at which she \(\phi\)s simply by deciding to \(\phi\).' (\citeyear[19]{Schwarz:2020aa})
+    Decision to action, but then the decision itself must sufficiently determine the action.
+  }
 \end{note}
 
 \begin{note}
@@ -475,6 +717,9 @@
   \footnote{
     See also \textcite[\S1.3]{Boylan:2020aa} and \textcite[\S2]{Mandelkern:2017aa}
   }
+  Violates control.
+
+
   For, now, just need some case.
   But, agent reasons to both.
 \end{note}
@@ -531,17 +776,14 @@
   Further, in highlighting the problem, miracles.
 \end{note}
 
-\subsection{The Progressive}
+\subsection{\citeauthor{Landman:1992wh}'s account of the progressive}
+\label{cha:sec:fcs-def:progressive-landman}
+\nocite{Portner:1998um}
+\nocite{Engelberg:1999vi}
+
 
 \begin{note}
   End up here, is progressive.
-
-  On a specific, but common analysis.
-  Progressive just in case possible for there to be an event in which finished.
-
-  Start, and progressive is true.
-
-  Well, a specific account of the progressive.
 
   So, for all, available action, and that action is \(\alpha\)ing.
 
@@ -550,9 +792,6 @@
   Though, why not just deny doing any of the other things?
 \end{note}
 
-\paragraph{\citeauthor{Landman:1992wh}'s account of the progressive}
-\nocite{Portner:1998um}
-\nocite{Engelberg:1999vi}
 
 \begin{note}
   Borrow summary from \citeauthor{Szabo:2004ul}
@@ -905,7 +1144,7 @@
   Note, here, for every there exists.
   Existential is important, because there are so many events.
 
-  As an aside, this plausibly also gets failure of \(\lor\)-Success.
+  As an aside, this plausibly also gets failure of \BoyVS{}.
   Surprising, this seems to capture all the entailments that \citeauthor{Boylan:2020aa} is interested in.
   Though, I think we've just reduced ability to choice of action.
 \end{note}
@@ -933,9 +1172,9 @@
   May think there's a problem.
 
   For, going back to ability.
-  Failure of \(\lor\)-Success.
+  Failure of \BoyVS{}.
   Plausible fails for the progressive.
-  More directly, \(\lor\)-Success holds for the progressive.
+  More directly, \BoyVS{} holds for the progressive.
 
   Problem for \fc{1}?
   Not immediately.
@@ -1382,37 +1621,9 @@
 \end{note}
 
 \paragraph[Actuality entailments]{Actuality entailments \hfill (Optional)}
-\nocite{Bhatt:1999ud}
-\nocite{Hacquard:2006to}
-\nocite{Werner:2011tp}
+
 
 \begin{note}
-  In this optional section, entertain distinct approach to \autoref{prop:pot-support-onlyIf-support}, and highlight issues.
-
-  If \autoref{prop:pot-support-onlyIf-support}, then strip the modal.
-
-  Actuality entailments.
-
-  \textcite{Alxatib:2019wf} provides the following account of actuality entailments.
-  \begin{quote}
-    Actuality Entailments (AEs) are inferences from premises that appear to be modal, like (1a), but their content is that the modality is effectuated in the evaluation world --- (1b).
-
-    \begin{enumerate}[label=(\arabic*)]
-    \item
-      \begin{enumerate}[label=\alph*.]
-      \item Pierre a dû \hspace{26pt} prendre le \hspace{3.5pt} train \newline
-        Pierre had.to.\textsc{pfv} take \hspace{14pt} the train\newline
-        \hspace{-4pt} ‘Pierre had to take the train'
-      \item \emph{Inference}: Pierre took the train.%
-    \mbox{}\hfill\mbox{(\citeyear[701]{Alxatib:2019wf})}
-      \end{enumerate}
-    \end{enumerate}
-  \end{quote}
-
-  Note, the reading of `had' in (1a) is `unambiguously deontic' (\citeyear[703]{Alxatib:2019wf}).
-
-  Follows \textcite{Bhatt:1999wq} (implication, to avoid commitment to entailment).
-
   \begin{quote}
     We show that the English ability modal was able to is ambiguous between two readings which can be paraphrased as `managed to' and `had the ability to'.
 
@@ -1446,27 +1657,6 @@
   }
 \end{note}
 
-\begin{note}
-  \begin{argument}
-    Actuality entailment.
-    Here, the argument focuses on `potentive'.
-    Actuality entailment holds when applied to \support{}.
-
-    Difficulty.
-    Interest in actuality entailments focuses on past.
-  \end{argument}
-\end{note}
-
-\begin{note}
-  So, the point here is that we follow the modality.
-  Then, look at similarity.
-  Event starts right now.
-  So, no different epistemic state.
-
-  Well, the difficulty here is the modal.
-  It's possible to go with an account such as Hacquard.
-  But, keep the modal, pragmatic link to actual world.
-\end{note}
 
 \newpage
 
