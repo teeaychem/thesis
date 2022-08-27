@@ -392,6 +392,71 @@
   But, the observer knows that \emph{B} \emph{does not} have a winning strategy, and \emph{A}'s belief is mistaken.
 \end{note}
 
+\section{Landman possible continuations}
+\label{sec:landm-poss-cont}
+
+\subparagraph{Possible Continuations}
+
+\begin{note}
+  Additional function.
+
+  \begin{algorithm}[H]
+    \SetAlgoLined
+    \DontPrintSemicolon
+    \Input{\(\langle \langle e,w \rangle_{i-1}, \langle g,u \rangle_{i} \rangle\)}
+    \KwResult{Possible continuations of \(\langle g,u \rangle_{i} \rangle\)}
+    \Begin{
+      \(\Diamond\text{Continuations} \longleftarrow \emptyset\)\;
+      \(\text{CloseWorlds} \longleftarrow \{u' \mid u' \text{ is among the closest world to } u\}\)\;
+      \For{\(u' \in \text{CloseWorlds}\)}
+      {
+        \For{\(g'\) in \(u'\)}
+        {
+          \If{\(g' \text{ is a stage of } h \text{ in } u'\)}
+          {
+           \(\SetPC{} \longleftarrow \AlgAC{})(\langle \langle g,u \rangle_{i}, \langle g',u' \rangle_{i} \rangle)\)
+          }
+        }
+      }
+      \Return{\(\{\langle \langle g,u \rangle_{i+1}, \langle h,u \rangle_{i+1} \rangle \rangle \mid \langle h,u \rangle_{i+1} \rangle \in \Diamond\text{Continuations}\}\)}
+    }
+    \caption{\AlgPC{}\label{PrAl:g-p-c}}
+  \end{algorithm}
+
+  Important.
+  \citeauthor{Landman:1992wh}'s original formulation, where it actually stops.
+  However, here, we include possible stops.
+  This covers darts case.
+
+  Now, what matters is when evaluated.
+  If moment of starting the throw, then progressive is false.
+  However, if moment of release, then progressive is true.
+
+  No distinction if just focus on how things develop.
+\end{note}
+
+\subparagraph{Continuations}
+
+\begin{note}
+  \begin{algorithm}[H]
+    \SetAlgoLined
+    \DontPrintSemicolon
+    \Input{\(\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i}  \rangle\)}
+    \KwResult{Continuations of \(\langle g,u \rangle_{i}\)}
+    \Begin{
+      \(\text{@-Continuations }\longleftarrow \AlgAC{}(\langle \langle f,v \rangle_{i - 1}, \langle g,u \rangle_{i}\rangle)\)\;
+      \For{everything in actual}
+      {
+        \(\text{\(\Diamond\)-Continuations }\longleftarrow \AlgPC{}(\langle \langle f,v \rangle_{i - 1}, \langle g,u \rangle_{i}\rangle)\)\;
+        \(\text{Continuations} \longleftarrow \SetAC{} \cup \SetPC{}\)\;
+      }
+      \Return{Continuations}
+    }
+    \caption{\AlgGetCs{}\label{PrAl:g-c}}
+  \end{algorithm}
+\end{note}
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"
