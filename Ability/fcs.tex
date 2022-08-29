@@ -1279,14 +1279,17 @@
     However, important for keeping track of the stage of construction.
   }
 
-  Pseudocode in the style of ~\textcite{Cormen:2009uw}
+  {\color{red} Pseudocode}
+  \nocite{Cormen:2009uw}
 
   We start by identifying three basic functions, and following a (re)construction of these functions with explanation added, we (re)construct a recursive function to build a continuation branch of some event-world pairing.
 
-  The three basic functions will be termed:
-  `\AlgAC{}', `\AlgGetStops{}', and `\AlgFindBranches{}'.
-  And the recursive function will be termed:
+  The four basic algorithms will be termed:
+  `\AlgAC{}', `\AlgGetStops{}', `\AlgGetPStops{}', and `\AlgFindBranches{}'.
+  The recursive algorithm will be termed:
   `\AlgDevelopTree{}'.
+
+  Interest will be in difference between \AlgGetStops{} and \AlgGetPStops{}.
 \end{note}
 
 \subparagraph{Continuations}
@@ -1300,8 +1303,8 @@
     \caption{\AlgAC{}}
     \SetAlgoLined
     \DontPrintSemicolon
-    \Input{\( \langle g,u \rangle_{i}\), an indexed event-world pairing}
-    \KwResult{Continuations of event \(g\) in world \(u\)}
+    \Input{\(\langle g,u \rangle_{i}\) \hfill An (indexed) event-world pairing}
+    \KwResult{Continuations \hfill The continuations of event \(g\) in world \(u\)}
     \Begin{
       \(\text{Continuations} \longleftarrow \emptyset\)\;
       \If{\(g\) continues in \(u\)}{
@@ -1312,7 +1315,7 @@
         \For{\(0 < j \leq m\)}
         {
           \(g_{i} \longleftarrow \text{development of }g_{x}\text{ at time }t_{j}\)\;
-          \If{\(g_{i}\) is a stage of \(g\)}
+          \If{\(g_{j}\) is a stage of \(g\)}
           {
             \(\text{Continuations} \longleftarrow \text{Continuations } \cup \langle \langle g_{x},u \rangle_{i}, \langle g_{j},u \rangle_{i} \rangle\)\;
             \(g_{x} \longleftarrow g_{j}\)\;
@@ -1323,93 +1326,191 @@
     }
   \end{algorithm}
 
-  Key is to ensure we get a sequence of events.
-  This is important, want to consider many events, as progressive will look for some event in a branch where perfective is true.
-  So, can't just look at maximal event.
-  However, can't branch, for else we'd run into trouble.
-  For \citeauthor{Landman:1992wh}, single branching at stopping points, and for us quantification over all branches.
+  \AlgAC{} takes an event-world pairing \(\langle g,u \rangle_{i}\) and returns a set containing a (non-branching tree) which captures the continuation of \(g\) in \(u\).
 
-  \AlgAC{} takes a small liberty.
-  Assume there is always a maximal stage of some event.
-  Given this, we then work through continuations of the event.
+  Intuitively, \AlgAC{} starts with \(\langle g,u \rangle_{i}\).
+  Then, \AlgAC{} finds the smallest \(g^{+}\) such that \(g^{+}\) is a continuation of \(g\) in \(u\), and adds \(\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) to the set of continuations.
+  The set of continuations is now \(\{\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\}\).
+  Hence, the set of continuations is a tree, though \(g^{+}\) may develop further in \(u\) (and by extension \(g\) may also delevelop).
+  Hence, \AlgAC{} finds the smallest \(g^{++}\) such that \(g^{++}\) is a continuation of \(g^{+}\) in \(u\), and adds \(\langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\) to the set of continuations.
+  Hence, the set of continuations is now \(\{\langle \langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle, \langle \langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\}\).
+  This process repeats until there are no further continuations of \(g\) in \(u\).
+\end{note}
 
-  Take an event-world pairing and return all the continuations.
-  Collect all event for which event of interest is a stage in specified world.
+\begin{note}
+  There are two pieces of motivation for the construction of \(\text{Continuations}\).
 
-  So, events in the actual world are ordered by time.
-  Therefore, get the maximal event, and then build up.
+  The first piece of motivation is \citeauthor{Landman:1992wh}'s account of the progressive.
+  For, \(\sem{\text{PROG}(e, P)}_{w,g}\) checks to see if there exists \emph{some} event-world pairing \(\langle f,v \rangle\) in the continuation branch of \(e\) (in \(w\)) such that \(\sem{P}\) is true of \(f\) in \(v\).
+
+  Hence, it is not possible, to consider the `maximal' continuation of \(g\) in \(u\).
+  Rather, we must have the option of identifying event events as they develop.
+  Need events as they develop.
+
+  The second piece of motivation is the critiques of \textcite{Bonomi:1997uq} and \textcite{Szabo:2004ul} which press for a continuation tree as opposed to a continuation branch.
+  And, given a continuation tree, an account of the progressive will involve universal quantification over branches.
+  Therefore, it is important to ensure that the continuations of \(g\) in \(u\) do not involve branching.%
+  \footnote{
+    I.e., this constraint rules out including both \(\langle \langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) and \(\langle \langle g,u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\), as this would indicate a branch.
+  }
+\end{note}
+
+\begin{note}
+  Finally, then, we have the way in which \(\text{Continuations}\) is constructed.
+  Here, \AlgAC{} takes liberty in assuming both
+  \begin{enumerate}
+  \item There is always a maximal stage for an event,%
+    \footnote{
+      Note the maximal stage of an event is not necessarily a stopping point of the event.
+      The purpose of this liberty is to ensure \AlgAC{} terminates.
+    }
+    and
+  \item Events are indexed by time
+  \end{enumerate}
+  Still, granting these assumption, the construction of \(\text{Continuations}\) is simple.
+  We start at the time of \(g\), and progress through time up until the time of the maximal stage of \(g\).
+  At each point in time, we check to see if the development of \(g\) is significant enough to be a stage of \(g\), and if so we include a pairing from the previous stage of \(g\) (tracked by \(g_{x}\)) to the current stage of \(g\).
+
+  Both liberties may be objected to.
+  However, \AlgAC{} is of minor importance we take them without much hesitation.
 \end{note}
 
 \subparagraph{Stops}
 
 \begin{note}
-  Next function is termed `\AlgGetStops{}'.
-  Antecedent of clause~\ref{Landman:CB:stops} (and~\ref{Landman:CB:stops:again}) of \citeauthor{Landman:1992wh}'s definition of a continuation branch.
+  \AlgAC{} captures Clause~\ref{Landman:CB:continues} (and~\ref{Landman:CB:continues:again}) of \citeauthor{Landman:1992wh}'s definition of a continuation branch.
 
   If an event stops, then want to see if it's possible to shift to a new world to continue event.
 
-  This shifts forward, but does not shift the world of evaluation.
-  Algorithm will terminate if no stops.
-  Hence, index for next call.
+  To capture the antecedent of Clause~\ref{Landman:CB:stops} (and~\ref{Landman:CB:stops:again}) of \citeauthor{Landman:1992wh}'s definition we introduce an algorithm termed `\AlgGetStops{}'.
 
-  Argument is a set of pairings.
-  Specifically, when called will be set of continuations.
-  Hence, title this as such.
+  Following the account of \AlgGetStops{} we will introduce an algorithm termed `\AlgGetPStops{}'
+  Consider how the event may have stopped, no just how the event stopped.
+\end{note}
+
+\begin{note}[\AlgGetStops{}]
+  \AlgGetStops{} is as follows:
 
   \begin{algorithm}[H]
+    \label{PrAl:g-s}
+    \caption{\AlgGetStops{}}
     \SetAlgoLined
     \DontPrintSemicolon
-    \Input{Continuations, set of pairings}
-    \KwResult{Stopping points for each continuation}
+    \Input{\(\text{Continuations}\) \hfill I.e.\ the result of \AlgAC{} --- in general, a tree}
+    \KwResult{Stops \hfill Stopping points for each event in \(\text{Continuations}\)}
     \Begin{
       \(\text{Stops} \longleftarrow \emptyset\)\;
-      \For{\(\langle \langle e,w \rangle_{i}, \langle g,u \rangle_{i+1} \rangle \in \text{Continuations}\)}
+      \label{PrAl:g-s:mk-st-Stops}
+      \For{\(\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i} \rangle \in \text{Continuations}\)}
       {
-        \If{\(\langle g,u \rangle_{i+1}\text{ stops in }u\)}
+        \label{PrAl:g-s:for:start}
+        \If{\(g\text{ stops in }u\)}
         {
-          \(g' \longleftarrow\text{ the maximal continuation of }g\text{ in }u\)\;
-          Stops \(\cup \{\langle \langle e,w \rangle_{i}, \langle g',u \rangle_{i+1} \rangle\}\)\;
+          \label{PrAl:g-s:if:start}
+          % \(g' \longleftarrow\text{ the stopping point of }g\text{ in }u\)\;
+          % \label{PrAl:g-s:max}
+          \(\text{Stops} \longleftarrow \text{Stops} \cup \{\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i} \rangle\}\)\;
+          \label{PrAl:g-s:make}
         }
       }
       \Return{\(\text{Stops}\)}
+      \label{PrAl:g-s:return}
     }
-    \caption{\AlgGetStops{}\label{PrAl:g-s}}
   \end{algorithm}
+
+  \AlgGetStops{} initialises \(\text{Stops}\) as an empty set (\autoref{PrAl:g-s:mk-st-Stops}), and for every element of \(\text{Continuations}\), \AlgGetStops{} takes the right-event-world pairing and queries whether the event stops in the world (Lines~\ref{PrAl:g-s:for:start}--\ref{PrAl:g-s:if:start}).
+  If the event stops, \AlgGetStops{} takes the point at which the event stops and adds the element of \(\text{Continuations}\) with the maximal continuation substituted for the event to \(\text{Stops}\) (\autoref{PrAl:g-s:make}).
+  Finally, \AlgGetStops{} returns \(\text{Stops}\) (\autoref{PrAl:g-s:return}).
+\end{note}
+
+\begin{note}
+  \AlgGetStops{} differs in presentation from \citeauthor{Landman:1992wh}.
+  Recall:
+  \begin{quote}
+    \begin{enumerate}
+      \setcounter{enumi}{2}
+    \item
+      if the continuation stretch of \(e\) in \(v\) stops, we look at the closest world \(z\) where its maximal element \(g\) does not stop: \dots
+    \end{enumerate}
+  \end{quote}
+  Clause~\ref{Landman:CB:continues:again} reads as an imperative to find the relevant maximal event.
+  \AlgGetStops{} does not explicitly highlight a maximal event\dots
+
+  Still, the construction of \(\text{Continuations}\) parallels the continuation stretch of \(e\) in \(w\).
+  Therefore, we obtain the relevant maximal event \(g\) by checking each member of \(\text{Continuations}\) to see whether the element is a stopping point.
+
+  So, applied to the result of \AlgAC{}, \AlgGetStops{} will either return an empty set or a singleton set containing a pairing in which the event of the right element corresponds to the desired maximal event.
+  And, applied to a set containing multiple results of \AlgAC{}, \AlgGetStops{} will either return an empty set or a set of size bounded by the instances of \AlgAC{} which implicitly contain the relevant maximal events.
 \end{note}
 
 \subparagraph{Possible stops}
 
 \begin{note}
   Core insight.
-  \citeauthor{Landman:1992wh} only considers stops that actually happen.
+  \citeauthor{Landman:1992wh} only considers stops that happen in some world.
+  Hence, \AlgGetStops{} only finds the stopping point of an event in its continuation stretch.
+
+  
+
+
+
+
+
   Here, we consider possible stops.
   Nearby world, and this stops the event from happening.
   Then, the key idea is that we get the progressive robust to possible stops.
+
+  \AlgGetPStops{}:
+
   \begin{algorithm}[H]
+    \label{PrAl:g-s}
+    \caption{\AlgGetPStops{}}
     \SetAlgoLined
     \DontPrintSemicolon
-    \Input{Continuations, set of pairings}
-    \KwResult{Possible Stopping points for each continuation}
+    \Input{%
+      \(\text{Continuations}\) \hfill I.e.\ the result of \AlgAC{} --- in general, a tree \\
+      \(e\) \hfill An event \\
+      \(w\) \hfill A world
+    }
+    \KwResult{ReasonableStops \hfill \emph{Reasonable} stopping points \\
+      \mbox{ } \hfill for each event in \(\text{Continuations}\)}
     \Begin{
-      \(\text{Stops} \longleftarrow \emptyset\)\;
-      \(\text{CloseWorlds} \longleftarrow \{u' \mid \text{Close}\}\)\;
-      \For{\(\langle \langle e,w \rangle_{i}, \langle g,u \rangle_{i+1} \rangle \in \text{Continuations}\)}
+      \(\text{R-Stops} \longleftarrow \emptyset\)\;
+      \For{\(\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i} \rangle \in \text{Continuations}\)}
       {
-        \For{\(u'\) in CloseWorlds}
+        \(\text{CloseWorlds} \longleftarrow \{u' \mid u' \text{ is among the closest world to } u\}\)\;
+        \(\text{ReasonableWorlds} \longleftarrow \text{CloseWorlds} \cap R(e,w)\)\;
+        \For{\(u' \in \text{ReasonableWorlds}\)}
         {
           {
-            \If{\(\langle g,u \rangle_{i+1}\text{ stops in }u\)}
+            \If{\(g\text{ stops in }u'\)}
             {
-              \(g' \longleftarrow\text{ the maximal continuation of }g\text{ in }u\)\;
-              Stops \(\cup \{\langle \langle e,w \rangle_{i}, \langle g',u \rangle_{i+1} \rangle\}\)\;
+              % \(g' \longleftarrow\text{ the stopping point of }g\text{ in }u'\)\;
+              \(\text{R-Stops} \longleftarrow \text{R-Stops} \cup \{\langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i} \rangle\}\)\;
             }
           }
         }
       }
-      \Return{\(\text{Stops}\)}
+      \Return{\(\text{R-Stops}\)}
     }
-    \caption{\AlgGetPStops{}\label{PrAl:g-s}}
   \end{algorithm}
+
+  \AlgGetPStops{} is a variation on \AlgGetStops{}.
+  The sole difference is that instead of checking every element of \(\text{Continuations}\) to identify the event-world pairings in which an event stops, \AlgGetPStops{} checks whether there is a `reasonable world' in which the event of some event-world pairing stops.
+\end{note}
+
+\begin{note}
+  The for-loop from \AlgGetStops{}, repeated, and check from \AlgGetStops{} is repeated.
+  However, check is within a for-loop over reasonable worlds.
+  Reasonable worlds given by combination of closest possible worlds and what is reasonable.
+\end{note}
+
+\begin{note}
+  Assume that \(u\) is always an element of closests worlds.
+  Therefore, subset relation.
+\end{note}
+
+\begin{note}
   Think about the bus, could have been travelling a little faster.
   If so, interrupted sooner.
   Well, really, different outcome?
@@ -1418,6 +1519,13 @@
   This is sufficient for my purposes.
   I mean, the point is, no longer a stage of the maximal event in the actual world.
   This doesn't tell us anything about the description of the event, only that the resulting event differs from what actually happens.
+\end{note}
+
+\begin{note}
+  Note, branch.
+  However, only if result of \AlgGetPStops{} is part of tree.
+  And, antecedent of conditional.
+  Branches will be included, but only when calling \AlgFindBranches{}.
 \end{note}
 
 \subparagraph{Branches}
@@ -1435,12 +1543,21 @@
     \begin{algorithm}[H]
     \SetAlgoLined
     \DontPrintSemicolon
-    \Input{\(\langle \langle f,v \rangle_{n}, \langle g,u \rangle_{n+1}\rangle, e, w\)}
-    \KwResult{Branches for event}
+    \Input{\(\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i}\rangle\) \hfill An element of a tree\\
+      \(e\) \hfill An event \\
+      \(w\) \hfill A world
+    }
+    \KwResult{Branches \hfill A set containing event-world pairs such that \(g\) continues in \(u'\)}
     \Begin{
       \(\text{CloseWorlds} \longleftarrow \{u' \mid u' \text{ is among the closest world to } u\}\)\;
       \(\text{ReasonableWorlds} \longleftarrow \text{CloseWorlds} \cap R(e,w)\)\;
-      \Return{\(\{\langle \langle f,v \rangle_{n}, \langle g,u' \rangle_{n+1}\rangle \mid u' \in \text{ReasonableWorlds}\}\)}
+      \(\text{Branches} \longleftarrow \emptyset\)\;
+      \For{\(u' \in \text{ReasonableWorlds}\)}{
+        \If{\(g\) is an event in \(u'\)}{
+          \(\text{Branches} \longleftarrow \text{Branches} \cup \{ \langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i}\rangle \}\)\;
+        }
+      }
+      \Return{\(\text{Branches}\)}
     }
     \caption{\AlgFindBranches{}\label{PrAl:find-branches}}
   \end{algorithm}
@@ -1461,69 +1578,167 @@
   However, the function here is not inherently epistemic.
 \end{note}
 
+\begin{note}
+  Here, shift the index.
+  When run recursive algorithm, each call of the algorithm will explore branches.
+  Increase index for next call.
+
+  Also, note, \AlgGetPStops{}.
+  Pass the result of \AlgGetPStops{}, and this will get 
+\end{note}
+
 \subparagraph{Build tree}
 
 \begin{note}
-  With these functions in hand, recursive algorithm to build the tree.
-  Pass some partially completed tree, along with \(e\), \(w\), and stage.
-  We then look at the ordered pairs such that second element in event-world pairing.
-  Get the stops for all of these.
-  Add the stops to the current tree.
-  Then, \AlgFindBranches{} for all of these.
-  If no branches, then we're done, there is no possible continuation of \(e,w\).
-  However, if branches, then repeat the function with the grown tree and index shifted forward.
+  With \AlgAC{}, \AlgGetStops{}/\AlgGetPStops{}, and \AlgFindBranches{} in hand, we now turn to \AlgDevelopTree{}, a recursive algorithm which completes any tree.
+
+  Focus here is on linking \AlgAC{}, \AlgGetStops{}/\AlgGetPStops{}, and \AlgFindBranches{} in the same way as \citeauthor{Landman:1992wh}, and clarifying the `\dots and we continue as above, etc.' from \ref{Landman:CB:stops:again}.
 
   \begin{algorithm}[H]
+    \label{PrAl:dev-tree}
+    \caption{\AlgDevelopTree{}}
     \SetAlgoLined
     \DontPrintSemicolon
     \Input{%
-      \(\text{Tree}\), a set of pairings, indexed\;
-      \phantom{\Input{}}\(e\), initial event\;
-      \phantom{\Input{}}\(w\), initial world\;
-      \phantom{\Input{}}\(n\), index\;
+      \(\text{Tree}\) \hfill A partially completed tree\\
+      \(e\) \hfill The initial event of the tree\\
+      \(w\) \hfill The initial world of the tree\\
+      \(n\) \hfill An index to keep track recently added branches\\
     }
     \KwResult{Tree expanded so that there are no further stopping events}
     \Begin{
-      \(\text{NewContinuations} \longleftarrow \emptyset\)\;
-      \For{\(\langle \langle f,v \rangle_{n - 1}, \langle g,u \rangle_{n}\rangle\) in Tree}
+      \label{PrAl:dev-tree:start}
+      \(\text{Stems} \longleftarrow \{ \langle g,u \rangle_{n} \mid \exists f,v \colon \langle \langle f,v \rangle_{n - 1}, \langle g,u \rangle_{n}\rangle \in \text{Tree}\}\)\;
+      \label{PrAl:dev-tree:Extend:start}
+      \label{PrAl:dev-tree:Extend:Stems}
+      \(\text{GrownStems} \longleftarrow \emptyset\)\;
+      \label{PrAl:dev-tree:Extend:FreshContsVar}
+      \For{\(\langle g,u \rangle_{n} \in \text{Stems}\)}
       {
-        \(\text{Continuations} \longleftarrow \AlgAC{}(\langle g,u \rangle_{n})\)\;
-        \(\text{NewContinuations} \longleftarrow \text{NewContinuations} \cup \text{Continuations}\)\;
+        \label{PrAl:dev-tree:Extend:Loop:start}
+        \(\text{Growth} \longleftarrow \AlgAC{}(\langle g,u \rangle_{n})\)\;
+        \(\text{GrownStems} \longleftarrow \text{GrownStems} \cup \text{Growth}\)\;
       }
-
-      \(\text{Tree} \longleftarrow \text{Tree} \cup \text{NewContinuations}\)\;
-      \lnl{PrAl:dev-tree:Stops:Land}%
-      \textcolor{comment}{\texttt{//} \(\text{Stops} \longleftarrow \AlgGetStops{}(\text{NewContinuations})\)}\;
-      \lnl{PrAl:dev-tree:Stops:Me}
-      \(\text{Stops} \longleftarrow \AlgGetPStops{}(\text{NewContinuations})\)\;
-
-      \eIf{Stops is empty}
+      \label{PrAl:dev-tree:Extend:end}
+      \(\text{Tree} \longleftarrow \text{Tree} \cup \text{GrownStems}\)\;
+      \label{PrAl:dev-tree:Extend:merge}
+      \textcolor{comment}{\texttt{//} \(\text{Stops} \longleftarrow \AlgGetStops{}(\text{GrownStems})\)}\;
+      \label{PrAl:dev-tree:Stops:Land}%
+      \(\text{Stops} \longleftarrow \AlgGetPStops{}(\text{GrownStems})\)\;
+      \label{PrAl:dev-tree:Stops:Me}
+      \eIf{\(\text{Stops} == \emptyset\)}
       {
-        \textbf{return} Tree\;
+        \label{PrAl:dev-tree:Stops:cond:start}
+        \textbf{return} \(\text{Tree}\)\;
+        \label{PrAl:dev-tree:Stops:cond:no-stops-finish}
       }
       {
-        \(\text{NewBranches} \longleftarrow \emptyset\)\;
-        \For{\(\langle \langle g,u \rangle_{n}, \langle h,u \rangle_{n+1}\rangle\) in Stops}
+        \label{PrAl:dev-tree:Stops:cond:else:start}
+        \(\text{FutureBranches} \longleftarrow \emptyset\)\;
+        \label{PrAl:dev-tree:Stops:cond:else:futureB:start}
+        \For{\(\langle \langle g,u \rangle_{n}, \langle h,u \rangle_{n+1}\rangle \in \text{Stops}\)}
         {
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:start}
           \(\text{Branches} \longleftarrow \AlgFindBranches{}(\langle \langle g,u \rangle_{n}, \langle h,u \rangle_{n+1}\rangle, e, w)\)\;
-          \(\text{NewBranches} \longleftarrow \text{NewBranches} \cup \text{Branches}\)\;
-          }
-          \eIf{NewBranches is empty}{
-            \textbf{return} Tree\;
-          }
-          {
-            Tree = Tree \(\cup\) NewBranches\;
-            \AlgDevelopTree{}(Tree, \(e,w, n+1\))\;
-          }
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:getBranches}
+          \(\text{FutureBranches} \longleftarrow \text{FutureBranches} \cup \text{Branches}\)\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:gather}
         }
+        \label{PrAl:dev-tree:Stops:cond:else:futureB:end}
+        \eIf{\(\text{FutureBranches} == \emptyset\)}{
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:start}
+          \textbf{return} Tree\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:cancel}
+        }
+        {
+          \(\text{Tree} \longleftarrow \text{Tree} \cup \text{FutureBranches}\)\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:expand}
+          \AlgDevelopTree{}(\(\text{Tree}, e,w, n+1\))\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:end}
+        }
+        \label{PrAl:dev-tree:Stops:cond:else:end}
       }
-    \caption{\AlgDevelopTree{}\label{PrAl:dev-tree}}
+      \label{PrAl:dev-tree:Stops:cond:end}
+    }
   \end{algorithm}
 
-  \autoref{PrAl:dev-tree:Stops:Land} and \autoref{PrAl:dev-tree:Stops:Me} are key.
-  \autoref{PrAl:dev-tree:Stops:Land} gets \citeauthor{Landman:1992wh}.
-  \autoref{PrAl:dev-tree:Stops:Me} gets revised.
+  \AlgDevelopTree{} processes single instance of branching on each run.
+  So, given a tree, where terminal nodes are event world pairing \(\langle f,v \rangle_{i}\) such that \(f\) \emph{may} continue in \(v\).
+  Term these terminal nodes `stems'.
 
+  Three tasks.
+  \begin{enumerate}
+  \item
+    Extend stems.%
+    \hfill%
+    Lines~\ref{PrAl:dev-tree:Extend:start}--\ref{PrAl:dev-tree:Extend:merge}.
+  \item
+    Identify any (immediate) branches of the stems.%
+    \hfill%
+    \autoref{PrAl:dev-tree:Stops:Land} or \autoref{PrAl:dev-tree:Stops:Me}.
+  \item
+    Process the (immediate) branches of the stems.%
+    \hfill%
+    Lines~\ref{PrAl:dev-tree:Stops:cond:start}--\ref{PrAl:dev-tree:Stops:cond:end}.
+  \end{enumerate}
+
+  \begin{itemize}
+  \item
+    Extend
+    \begin{itemize}
+    \item
+      Lines~\ref{PrAl:dev-tree:Extend:start}--\ref{PrAl:dev-tree:Extend:end} extend tree given as input with continuations of all terminal branches.
+      
+      \autoref{PrAl:dev-tree:Extend:Stems}, collect all the fresh branches.
+      \autoref{PrAl:dev-tree:Extend:FreshContsVar} create a set.
+      Lines \ref{PrAl:dev-tree:Extend:Loop:start}--\ref{PrAl:dev-tree:Extend:end} loop over fresh branches, adding extensions to set.
+    \item
+      \autoref{PrAl:dev-tree:Extend:merge}, merge continuations.
+      Now have extension of tree.
+      However, only for fresh branches.
+      Interest is whether there is further branching.
+      Remainder of algorithm checks for branching, and for whether to continue.
+    \end{itemize}
+  \item Choices
+    \begin{itemize}
+    \item
+      \autoref{PrAl:dev-tree:Stops:Land} gets \citeauthor{Landman:1992wh}.
+    \item
+      \autoref{PrAl:dev-tree:Stops:Me} gets revised.
+    \end{itemize}
+  \item Branches
+    \begin{itemize}
+    \item
+      \autoref{PrAl:dev-tree:Stops:cond:start} to \autoref{PrAl:dev-tree:Stops:cond:end}, determining whether to pursue completion.
+      Else 
+      \begin{itemize}
+      \item
+        Have branches from \autoref{PrAl:dev-tree:Stops:Me}.
+        \autoref{PrAl:dev-tree:Stops:cond:start} is simple check.
+        If no stops, then \autoref{PrAl:dev-tree:Stops:cond:no-stops-finish} return Tree.
+        Done.
+      \item
+        Else, some stops.
+        Lines~\ref{PrAl:dev-tree:Stops:cond:else:start}--\ref{PrAl:dev-tree:Stops:cond:else:end}.
+      \item
+        Given stops, does the event continue in some other world?
+        \autoref{PrAl:dev-tree:Stops:cond:else:futureB:start}, variable to collect branches.
+        \autoref{PrAl:dev-tree:Stops:cond:else:futureB:loop:start} starts loop over stops.
+        \autoref{PrAl:dev-tree:Stops:cond:else:futureB:loop:getBranches}, get branches via function.
+        \autoref{PrAl:dev-tree:Stops:cond:else:futureB:loop:gather}, add these to future branches.
+      \item
+        \autoref{PrAl:dev-tree:Stops:cond:else:futureB:process:start} to \autoref{PrAl:dev-tree:Stops:cond:else:futureB:process:end} process future branches.
+        \begin{itemize}
+        \item
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:start} check to see if there are.
+        \item 
+          \autoref{PrAl:dev-tree:Stops:cond:else:futureB:process:cancel} if none, then nothing more to do.
+        \item
+          Else, branched, so \autoref{PrAl:dev-tree:Stops:cond:else:futureB:process:expand}, expand tree and \autoref{PrAl:dev-tree:Stops:cond:else:futureB:process:end} recursive call, with index shifted.
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
   Now, start with \(\langle e,w \rangle\).
   Slight thing, ordered pairs.
   So, pass a vacant event.
