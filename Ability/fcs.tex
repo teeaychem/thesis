@@ -769,7 +769,7 @@
 
 \begin{note}[Control intuition]
   \begin{quote}
-    When said before the fact, the claim that I can surf that wave is strong — it says that surfing that wave is within my control.%
+    When said before the fact, the claim that I can surf that wave is strong  it says that surfing that wave is within my control.%
     \mbox{ }\hfill\mbox{(\citeyear[1]{Boylan:2020aa})}
   \end{quote}
 
@@ -1161,61 +1161,37 @@
   And, after a sequence of incorrect choices, Max failed the exam.
 \end{note}
 
-\paragraph{The approach}
+\paragraph{\citeauthor{Landman:1992wh}'s (\citeyear{Landman:1992wh}) account of the progressive}
 
 \begin{note}
-  State \citeauthor{Landman:1992wh}'s account.
-  Then, explain by giving an algorithmic reconstruction.
-\end{note}
+  \citeauthor{Landman:1992wh}'s account of the progressive:
 
-\begin{note}
-  event \(e\).
-  possible world \(w\).
-\end{note}
-
-\begin{note}
   \begin{quote}
-    An event is a stage of another event if the second can be regarded as a more developed version of the first, that is, if we can point at it and say, ``It's the same event in a further stage of development.''\newline
-    \mbox{ }\hfill\mbox{(\citeyear[23]{Landman:1992wh})}
+    \(\sem{\text{PROG}(e, P)}_{w,g} = 1\) iff \(\exists f \exists v\colon \langle f,v \rangle \in \text{CON}(g(e), w)\)\newline
+    \phantom{an} and \(\sem{P}_{v,g}(f) = 1\)\par
+
+    where \(\text{CON}(g(e), w)\) is the continuation branch of \(g(e)\) in \(w\).\newline
+    \mbox{ }\hfill\mbox{(\citeyear[27]{Landman:1992wh})}
   \end{quote}
-  `Epistemic' definition.
-  Rather:
-  Sufficiently sigficiant to be event in development.
 
-  So, planning to X is not a stage of X.
-  Only when executing plan.
+  Immediate goal is to present \citeauthor{Landman:1992wh}'s account of a continuation branch.
+  In turn, this will require expansion on three further points.
+  Stages of an event.
+  Continuations and stops with respect to events.
+  Reasonable options.
 
-  Waiting for the post to arrive.
-  Stage, nothing is happening, event has developed.
-%   `Activity Postulate'
-%   \begin{quote}
-%     The stages of accomplishment or activity \(e\) are either process, planning, or pause stages.
-%     Planning stages precede all process stages.
-%     Pause stages are flanked left and right by process stages.%
-%         \mbox{ }\hfill\mbox{(\citeyear[24]{Landman:1992wh})}
-%   \end{quote}
+  With understanding in hand algorithmic reconstruction of continuation branch.
+  Expand in two ways.
+  First, tree, to allow for forks.
+  Second, a different account of how to identify branches.
 \end{note}
 
-\begin{note}
-  Reasonable options
-  \begin{quote}
-    \(v \in R(e, w)\) iff there is a reasonable chance on the basis of what is internal to \(e\) in \(e\) that \(e\) continues in \(w\) as far as it does in \(v\).%
-    \mbox{ }\hfill\mbox{(\citeyear[26]{Landman:1992wh})}
-  \end{quote}
-  Again, epistemic.
-  \citeauthor{Landman:1992wh} doesn't say much.
-  Nor on internal.
-  Return to this later.
-
-  Pair of examples.
-\end{note}
+\subparagraph{Continuation branch}
 
 \begin{note}
-  Continuation branch:
-
-  \citeauthor{Landman:1992wh}'s account is as follows:
+  \citeauthor{Landman:1992wh}'s account of a continuation branch is as follows:
   \begin{quote}
-    The \emph{continuation branch} for \(e\) in \(w\) [, \(C(e,w)\),] is the smallest set of pairs of events and worlds such that
+    The \emph{continuation branch} for \(e\) in \(w\) is the smallest set of pairs of events and worlds such that
     \begin{enumerate}
     \item
       \label{Landman:CB:continues}
@@ -1248,22 +1224,282 @@
     \end{enumerate}
   \end{quote}
 
-  `Reactive'.
-  Take an event, for any event of which it is a stage.
-  Then, if \(e\) stops, shift to closest world in which \(e\) does not stop.
-  Then, so long as reasonable, continue the construction.
-  So long as there's a reasonable way to continue \(e\), keep going.
+  Describes the process of following an event \(e\) and a world \(w\) and jumping to nearby reasonable worlds when \(e\) stops in \(w\) (or \(w'\), etc.).
+
+  Observe, the construction of a continuation branch is iterative.
+  Clauses~\ref{Landman:CB:continues:again} and~\ref{Landman:CB:stops:again} and duplicates of clauses~\ref{Landman:CB:continues} and~\ref{Landman:CB:stops} shifted to \(g\) --- some development of \(e\) --- in some possible world \(v\).
+
+  Reconstruction via a recursive algorithm.
+  For the moment we leave \citeauthor{Landman:1992wh}'s account of a continuation branch without commentary.
+\end{note}
+
+\subparagraph{Stages}
+
+\begin{note}
+  An event being a stage of some other event.
+  Clause~\ref{Landman:CB:continues} (and~\ref{Landman:CB:continues:again}).
+
+  \citeauthor{Landman:1992wh}'s definition is light:
+  \begin{quote}
+    An event is a stage of another event if the second can be regarded as a more developed version of the first, that is, if we can point at it and say, ``It's the same event in a further stage of development.''\newline
+    \mbox{ }\hfill\mbox{(\citeyear[23]{Landman:1992wh})}
+  \end{quote}
+  \citeauthor{Landman:1992wh}'s definition is from an agent's perspective.
+  Even if the elaboration is ignored, the initial expansion is qualified by the term `can be regarded as'.
+  However, we may provide a definition of a stage independent of an agent's perspective:
+  \begin{definition}[Stage]
+    For events \(e\) and \(f\):
+
+    \begin{itemize*}
+    \item
+      \(e\) is a stage of \(f\)
+    \item
+      \emph{If and only if}
+    \item
+      \(f\) is a development of \(e\).
+    \end{itemize*}
+  \end{definition}
+  At issue is what it is for \(f\) to be a \emph{development} of \(e\).
+
+  Stage is distinguished from part-of.
+  \nocite{Davidson:1967aa}
+
+  Buttering the toast.
+  Bread was toasted.
+  But, toasting the bread was not a stage of buttering the toast.
+  Sufficiently distinct events.
+  Marked by `toast'.
+  Toasting and buttering the bread, then plausible stage.
+  Likewise, scooping butter onto the knife, stage of buttering the toast.
+
+  Stage does not entail anything of significance happens.
+  Waiting for the post to arrive.
+  Stage, nothing is happening, event has developed.
+
+  So, definition by intuitive distinction.
+
+  Importance is for shifting-to and tracing-events-through possible worlds.
+\end{note}
+
+\subparagraph{Continuations and Stops}
+
+\begin{note}[Continuations and Stops]
+  The definition of a stage is important for defining both the continuation and when an event stops.
+  We present \citeauthor{Landman:1992wh}'s definition of both terms, and then provide restated definitions.
 \end{note}
 
 \begin{note}
-  Finally, \citeauthor{Landman:1992wh}'s account of the progressive:
+  \citeauthor{Landman:1992wh} combines the definition of a continuation and when an event stops:
   \begin{quote}
-    \(\sem{\text{PROG}(e, P)}_{w,g} = 1\) iff \(\exists f \exists v\colon \langle f,v \rangle \in \text{CON}(g(e), w)\)\newline
-    \phantom{an} and \(\sem{P}_{v,g}(f) = 1\)\par
-
-    where \(\text{CON}(g(e), w)\) is the continuation branch of \(g(e)\) in \(w\).\newline
-        \mbox{ }\hfill\mbox{(\citeyear[27]{Landman:1992wh})}
+    This is where stages come in: we cannot say that when an event stops in a world, there is no bigger event of which it is part in that world, but we can say that when it stops, there is no bigger event in the world of which it is a \emph{stage}:
+    \begin{enumerate}[label=, noitemsep]
+    \item
+      Let \(e\) be an event that goes on at \(i\) in \(w\).
+      Let \(f\) be an event that goes on at \(j\) in where \(i\) is a subinterval of \(j\).
+    \item
+      \(j\) is a continuation of \(e\) iff \(e\) is a stage of \(f\).
+    \item
+      Let \(j\) be a non-final interval.
+    \item
+      \(f\) stops at \(j\) in \(w\) iff no event of which \(f\) is a stage goes on beyond \(i\) in \(w\) (i.e., at a later ending interval).\newline
+      \mbox{ }\hfill\mbox{(\citeyear[23--24]{Landman:1992wh})}
+    \end{enumerate}
   \end{quote}
+
+  To clarify the definitions, we borrow the relevant definitions regarding intervals from \textcite{Dowty:1979vq}:
+
+  \begin{quote}
+    \(I\) is a subinterval of \(J\) iff \(I \subseteq J\), where \(I\) and \(J\) are intervals.
+    \(I\) is a proper subinterval of \(J\) iff \(I \subset J\).
+    \(I\) is an \emph{initial subinterval} of \(J\) iff \(I\) is a subinterval of \(J\) and there is no \(t \in (J - I)\) for which there is \(t' \in I\) such that \(t \leq t'\).
+    \emph{Final subinterval} is defined similarly\dots\newline
+    \mbox{ }\hfill\mbox{(\citeyear[140]{Dowty:1979vq})}
+  \end{quote}
+  So, following \citeauthor{Dowty:1979vq}:
+  \begin{quote}
+    \(I\) is a \emph{final subinterval} of \(J\) iff \(I\) is a subinterval of \(J\) and there is no \(t \in (J - I)\) for which there is \(t' \in I\) such that \(t' \leq t\).
+  \end{quote}
+  And, from the definition of a non-final subinterval follows similarly:
+  \begin{quote}
+    \(I\) is a \emph{non-final subinterval} of \(J\) iff \(I\) is a subinterval of \(J\) and there is \emph{some} \(t \in (J - I)\) for which there is \(t' \in I\) such that \(t' \leq t\).
+  \end{quote}
+  Intuitively, then, \(I\) is a \emph{non}-final interval of \(J\), just in case \(I \subseteq J\) and \(J\) progresses further in time than \(I\).
+
+  Let us now turn to restating the definitions of a continuation and a stop.
+  We take each in turn.
+\end{note}
+
+\begin{note}
+  The definition of \(f\) being a continuation of \(e\) requires two things:
+  First, it must be the case the event at which \(e\) takes place is a subinterval of the event at which \(f\) takes place, and it must be the case that \(e\) is a stage of \(f\).%
+  \footnote{
+    Though, it seems to me the latter/\ref{def:Landman:conts:stage} implies the former/\ref{def:Landman:conts:interval}.
+    I.e.\ if \(e\) is a stage of \(f\) then the interval at which \(e\) takes place must be a subinterval of the interval at which \(f\) takes place.
+  }
+  In full:
+
+  \begin{definition}[Continuations]
+    \label{def:Landman:conts}
+    For events \(e\) and \(f\):
+    \begin{itemize}
+    \item \(f\) is a \emph{continuation} of \(e\)
+    \end{itemize}
+    \emph{if and only if}
+    \begin{itemize}
+    \item
+      The following jointly hold:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{def:Landman:conts:interval}
+        \begin{enumerate}
+        \item[\emph{If}:]
+          \begin{enumerate}[label=\roman*.]
+          \item
+            \(i\) is the interval at which \(e\) takes place in \(w\).
+          \end{enumerate}
+        \item[\emph{And}:]
+          \begin{enumerate}[label=\roman*., resume]
+          \item
+            \(j\) is the interval at which \(f\) takes place.
+          \end{enumerate}
+        \item[\emph{Then}:]
+          \begin{enumerate}[label=\roman*., resume]
+          \item
+            \(i\) is a subinterval of \(j\).
+          \end{enumerate}
+        \end{enumerate}
+      \item
+        \label{def:Landman:conts:stage}
+        \(e\) is a stage of \(f\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\begin{note}
+  The definition of \(f\) stopping at \(j\) in \(w\) takes a little more work.
+
+  There are two immediate issues with \citeauthor{Landman:1992wh}'s definition.
+
+  First, the definition requires that \(j\) is a non-final interval.
+  But, of what?
+  By assumption \(i\) is a subinterval of \(j\), so \(j\) cannot be a non-final interval of \(i\).%
+  \footnote{
+    The term `non-final interval' only appears in the above quote from \citeauthor{Landman:1992wh}.
+  }
+
+  Second, there must be no event of which \(f\) is a stage that goes beyond \(i\) in \(w\).
+  However, by assumption \(f\) is an event that goes on at \(j\), and \(i\) is a subinterval of \(j\).
+  But why is \(f\) bound by some arbitrary interval \(i\)?
+
+  I propose to resolve both issues with the following definition:
+  \begin{definition}[Stops]
+    \label{def:Landman:Stops}
+    For an event \(e\), interval \(i\), and world \(w\):
+    \begin{itemize}
+    \item
+      \(e\) \emph{stops} at \(i\) in \(w\)
+    \end{itemize}
+    \emph{If and only if:}
+    \begin{itemize}
+    \item
+      There no is interval \(j\) nor event \(f\) such that the following jointly hold:
+      \begin{enumerate}[label=\alph*., noitemsep]
+      \item
+        \(i\) is non-final subinterval of \(j\).
+      \item
+        \(f\) goes on at \(j\).
+      \item
+        \(f\) is a stage of \(e\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+  In short, there is no expansion from \(i\) \emph{forward} in time to obtain an interval \(j\) such that an event which is a stage of \(e\) got on at \(j\).
+
+  Hence, \autoref{def:Landman:Stops} captures \citeauthor{Landman:1992wh}'s initial gloss: `[W]hen [\(e\)] stops, there is no bigger event in the world of which [\(e\)] is a \emph{stage}' (\citeyear[23]{Landman:1992wh})
+\end{note}
+
+\subparagraph{Reasonable options}
+
+\begin{note}
+  Reasonable options
+  \begin{quote}
+    \(v \in R(e, w)\) iff there is a reasonable chance on the basis of what is internal to \(e\) in \(e\) that \(e\) continues in \(w\) as far as it does in \(v\).%
+    \mbox{ }\hfill\mbox{(\citeyear[26]{Landman:1992wh})}
+  \end{quote}
+
+  Look at possible worlds.
+  Consider event \(e\) in possible world \(v\).
+  Consider \(e\) in actual world.
+  If there is a reasonable chance that \(e\) continues in \(w\) as in \(v\), then \(v\) is reasonable, on the basis of what is `internal' to \(e\).
+
+  The function of \(R(e, w)\) is to constrain worlds.
+  Possible world where May wipes out the Roman army, but not reasonable.
+  However, constraint worlds relative to event, rather than anything else.
+
+  Primary role of reasonable is:
+
+  (11) Mary was crossing the street.
+
+  (20) Mary was wiping out the Roman army.
+
+  \citeauthor{Landman:1992wh}, existential, so risk of finding some continuation in `unreasonable' worlds.%
+  \footnote{
+    \color{red}
+    If universal, then failure in an `unreasonable' world does not entail failure of the progressive.
+  }
+
+  No nearby world, but this isn't so clear.
+  For, keep shifting.
+  And, \citeauthor{Landman:1992wh} assumes closest.
+  So, if branch multiple times, then can't easily capture with nearby worlds.
+
+  Conversely, if just focus on the event, then there's no way to figure out how things external to the event influence.
+\end{note}
+
+\begin{note}
+  Different perspective on~\citeauthor{Fine:1975tj}'s counterexample to~\citeauthor{Lewis:1973th}'s (\citeyear{Lewis:1973th}) theory of counterfactuals.
+
+  In short, \citeauthor{Fine:1975tj} argues that the counterfactual `if Nixon had pressed the button there would have been a nuclear holocaust' is likely false on~\citeauthor{Lewis:1973th}'s theory.
+  For, on~\citeauthor{Lewis:1973th}'s theory a counterfactual of the form `\(A \leadsto B\)' is true at a world just in case \(B\) is true at all the closest worlds in which \(A\) is true.
+
+  And, as \citeauthor{Fine:1975tj} observes, it is plausible that in the closest worlds in which Nixon pressed the button, some malfunction occurs and a nuclear holocaust does not occur.
+  For, generally speaking, the dissimilarity from our world due to a malfunction is small in contrast to the dissimilarity of a nuclear holocaust'.
+  (\citeyear[452]{Fine:1975tj})
+
+  Reasonable is constrained by the event, rather than similarity between worlds.
+  So, general characteristics of world do not have a role in what is reasonable.
+
+  Now, consider button pressing with no electrical fault.
+  Reasonable that \(e\) continues the same way as it does in nuclear holocaust worlds.
+
+  However, now suppose second check down the line.
+  If just focus on event, then this has nothing to say about this.
+\end{note}
+
+\begin{note}
+  Still, need to intersect with close worlds because progression of event may be blocked by things external to event.
+\end{note}
+
+\begin{note}
+  Capture gist, the role of these things is clear.
+  This doesn't amount to an account of how these things satisfy their role.
+  However, reasonable is no less clear than nearby.%
+  \footnote{
+    \color{red}
+    Plausibly captured by attention to fact.
+
+  \citeauthor{Veltman:2005tj}'s (\citeyear{Veltman:2005tj}) revision to~\citeauthor{Tichy:1976tp}'s (\citeyear{Tichy:1976tp}) counterexample to \citeauthor{Lewis:1973th}'s theory (\citeyear{Lewis:1973th}) of counterfactuals.
+
+  Some `facts' are fixed, and it is not possible to alter these facts under a counterfactual assumption.
+  \(e\) has been set in motion.
+  Now, keeping \(e\) fixed, if not X then e would continue.
+
+  Fix what has been set in motion by \(e\), keep all laws the same.
+  Then, buses at different times, but Mary doesn't get superpowers.
+  }
 \end{note}
 
 \paragraph{Algorithmic (re)construction}
@@ -1271,7 +1507,9 @@
 \begin{note}
   Breaking this down into a recursive algorithm.
   Goal is to create a tree, which will be a set of ordered event-world-pairing pairs indexed according to depth.
-  So, \(\{\langle \langle e,w \rangle_{0}, \langle f,w \rangle_{1} \rangle, \langle \langle f,w \rangle_{1}, \langle h,u \rangle_{2} \rangle, \langle \langle f,w \rangle_{1}, \langle h,v \rangle_{2} \rangle, \dots \}\)
+  For example:
+  \[\text{Tree} = \{\langle \langle e,w \rangle_{1}, \langle f,w \rangle_{1} \rangle, \langle \langle f,w \rangle_{1}, \langle h,u \rangle_{2} \rangle, \langle \langle f,w \rangle_{1}, \langle h,u' \rangle_{2} \rangle, \dots \}\]
+
   Root, inital event world pair, and then branch from event world pair to some distinct event world pair just in case ordered pair.
   %
   \footnote{
@@ -1307,34 +1545,49 @@
     \KwResult{Continuations \hfill The continuations of event \(g\) in world \(u\)}
     \Begin{
       \(\text{Continuations} \longleftarrow \emptyset\)\;
-      \If{\(g\) continues in \(u\)}{
-        \(g_{m} \longleftarrow \text{max stage of }g\text{ in }u\)\;
-        \(t_{0} \longleftarrow \text{time of }g\text{ in }u\)\;
-        \(t_{m} \longleftarrow \text{time of }g_{m}\text{ in }u\)\;
-        \(g_{x} \longleftarrow g\)\;
-        \For{\(0 < j \leq m\)}
-        {
-          \(g_{i} \longleftarrow \text{development of }g_{x}\text{ at time }t_{j}\)\;
-          \If{\(g_{j}\) is a stage of \(g\)}
+      \label{PrAl:g-a-c:CSetInt}
+      \(t_{s} \longleftarrow \text{start time of }g\text{ in }u\)\;
+      \label{PrAl:g-a-c:ts}
+      \(t_{e} \longleftarrow \text{end time of }g\text{ in }u\)\;
+      \label{PrAl:g-a-c:te}
+      \(g_{x} \longleftarrow g\)\;
+      \label{PrAl:g-a-c:gx}
+      \While{\(g_{x}\) is an event in \(u\)}
+      {
+        \label{PrAl:g-a-c:while:s}
+        \(g_{x} \longleftarrow \emptyset\)\;
+        \label{PrAl:g-a-c:gx:discard}
+        \(t_{e} \longleftarrow t_{e} + 1\)\;
+        \label{PrAl:g-a-c:te:plus}
+        \(I \longleftarrow [t_{s},t_{e}]\)\;
+        \label{PrAl:g-a-c:te:I}
+        \For{\(g_{y} \in \{g_{y} \mid g_{y} \text{ is an event in } u\}\)}{
+          \label{PrAl:g-a-c:for:s}
+          \If{\(g_{y}\) occurs in \(I\) \emph{and} \(g_{y}\) is a stage of \(g\)}
           {
-            \(\text{Continuations} \longleftarrow \text{Continuations } \cup \langle \langle g_{x},u \rangle_{i}, \langle g_{j},u \rangle_{i} \rangle\)\;
-            \(g_{x} \longleftarrow g_{j}\)\;
+            \label{PrAl:g-a-c:for:test}
+            \(\text{Continuations} \longleftarrow \text{Continuations } \cup \langle \langle g_{x},u \rangle_{i}, \langle g_{y},u \rangle_{i} \rangle\)\;
+            \label{PrAl:g-a-c:C:new}
+            \(g_{x} \longleftarrow g_{y}\)\;
+            \label{PrAl:g-a-c:gx:new}
           }
         }
       }
+      \label{PrAl:g-a-c:while:e}
       \Return{\(\text{Continuations}\)}
+      \label{PrAl:g-a-c:return}
     }
   \end{algorithm}
 
   \AlgAC{} takes an event-world pairing \(\langle g,u \rangle_{i}\) and returns a set containing a (non-branching tree) which captures the continuation of \(g\) in \(u\).
 
   Intuitively, \AlgAC{} starts with \(\langle g,u \rangle_{i}\).
-  Then, \AlgAC{} finds the smallest \(g^{+}\) such that \(g^{+}\) is a continuation of \(g\) in \(u\), and adds \(\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) to the set of continuations.
-  The set of continuations is now \(\{\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\}\).
-  Hence, the set of continuations is a tree, though \(g^{+}\) may develop further in \(u\) (and by extension \(g\) may also delevelop).
-  Hence, \AlgAC{} finds the smallest \(g^{++}\) such that \(g^{++}\) is a continuation of \(g^{+}\) in \(u\), and adds \(\langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\) to the set of continuations.
-  Hence, the set of continuations is now \(\{\langle \langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle, \langle \langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\}\).
-  This process repeats until there are no further continuations of \(g\) in \(u\).
+  Then, \AlgAC{} finds the smallest event \(g^{+}\) such that \(g^{+}\) is a stage of \(g\) in \(u\), and adds \(\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) to the set of continuations.
+  Now, \(g\) may develop further in \(u\).
+  So, \AlgAC{} continues to the smallest \(g^{++}\) such that \(g^{++}\) is a stage of \(g\) in \(u\) at a later time than \(g^{+}\), and adds \(\langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\) to the set of continuations.
+  The hypothetical set of continuations is now \(\{\langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle, \langle g^{+},u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\}\).
+
+  This process repeats until there are no further stages of \(g\) in \(u\).
 \end{note}
 
 \begin{note}
@@ -1357,22 +1610,35 @@
 
 \begin{note}
   Finally, then, we have the way in which \(\text{Continuations}\) is constructed.
-  Here, \AlgAC{} takes liberty in assuming both
-  \begin{enumerate}
-  \item There is always a maximal stage for an event,%
-    \footnote{
-      Note the maximal stage of an event is not necessarily a stopping point of the event.
-      The purpose of this liberty is to ensure \AlgAC{} terminates.
-    }
-    and
-  \item Events are indexed by time
-  \end{enumerate}
-  Still, granting these assumption, the construction of \(\text{Continuations}\) is simple.
-  We start at the time of \(g\), and progress through time up until the time of the maximal stage of \(g\).
-  At each point in time, we check to see if the development of \(g\) is significant enough to be a stage of \(g\), and if so we include a pairing from the previous stage of \(g\) (tracked by \(g_{x}\)) to the current stage of \(g\).
 
-  Both liberties may be objected to.
-  However, \AlgAC{} is of minor importance we take them without much hesitation.
+  We start by initialising \(\text{Continuations}\) as an empty set (\autoref{PrAl:g-a-c:CSetInt}).
+  Then, we identify the start and end times of the interval in which \(g\) takes place (Lines~\ref{PrAl:g-a-c:ts} and~\ref{PrAl:g-a-c:te}).
+
+  The task is then to continue to expand \(\text{Continuations}\) so long as there are further stages of \(g\) in \(u\).
+  We achieve this a while loop %
+  (Lines~\ref{PrAl:g-a-c:while:s}--\ref{PrAl:g-a-c:while:e}) %
+  that will fail when we are no longer considering an event in \(u\).
+  The variable event \(g_{x}\) is initially set to \(g\), to guaranteed at least one pass through the loop (\autoref{PrAl:g-a-c:gx}).
+
+  In a instance of the while loop we first discard \(g_{x}\) to ensure the loop will fail if there are no further stages of \(g\) (\autoref{PrAl:g-a-c:gx:discard}).
+  Then, we construct an interval \(I\) by shifting forward one step in time (Lines~\ref{PrAl:g-a-c:te:plus}~and~\ref{PrAl:g-a-c:te:I}).
+
+  At this point, we have a new interval \(I\) to consider, but no immediate event.
+  So, we consider every event \(g_{y}\) which occurs in \(u\) and test to see if \(g_{y}\) happens in \(I\) \emph{and} is a stage of \(g\) (Lines~\ref{PrAl:g-a-c:for:s}~and~\ref{PrAl:g-a-c:for:test}).
+  If successful, we update \(\text{Continuations}\) and \(g_{x}\) (Lines~\ref{PrAl:g-a-c:C:new}~and~\ref{PrAl:g-a-c:gx:new}).
+
+  Here we make two assumptions.
+
+  First, if there is some stage of \(g\), then there is stage of \(g\) at an interval obtained by stepping forward in time one tick.%
+  \footnote{
+    This may be avoided by separating the test on~\autoref{PrAl:g-a-c:for:test} into two separate tests, and shifting the reassignment on~\autoref{PrAl:g-a-c:gx:new} outside the scope of the if-clause.
+    Though the while-loop will then only terminate when there are no further events in \(u\).
+  }
+
+  Second, for any interval, if there is an event which is a stage of \(g\), then the event is unique.
+  This assumption is key to ensure \(\text{Continuations}\) does not involve branching.
+
+  Finally, after we have exhausted the stages of \(g\) in \(u\) we return \(\text{Continuations}\) (\autoref{PrAl:g-a-c:return}).
 \end{note}
 
 \subparagraph{Stops}
@@ -1783,72 +2049,59 @@
   At least get this in the case of concluding.
 \end{note}
 
+\paragraph{The progressive and ability}
+
 \begin{note}
-  May think there's a problem.
+  Now, \BoyVS{}.
+  Holds on \citeauthor{Landman:1992wh}'s account of the progressive.
+  Holds on revised account, \emph{only} if disjoin all possible results.
 
-  For, going back to ability.
-  Failure of \BoyVS{}.
-  Plausible fails for the progressive.
-  More directly, \BoyVS{} holds for the progressive.
+  Two aspects.
+  First, \AlgGetPStops{}, different from how things actually happen.
+  Second, universal quantification over branches.
 
-  Problem for \fc{1}?
-  Not immediately.
-  Need this to conflict.
-  However, if it does, then a issue with the second clause.
+  So, if some point not considered, then disjunction without point fails to hold.
 
-  Weaker issue, `luck'.
-  Or, jumping to conclusions.
+  This seems good.
+
+  Then can't works, because \AlgGetPStops{}.
+
+  Finally, \BoyPS{}.
+  Complex.
+
+  Holds, given the same method of evaluation.
+  Which worlds are nearby worlds.
+
+  Doesn't hold for the progressive in general.
+  Though, I don't think it holds for ability.
+
+  However, will hold when fully determined.
+  Had the ability to win the race, after got into first.
+  Had the ability to hit the bullseye, just before releasing the dart.
+
+  Deals with wind.
+
+  And, then this also gets joint abilities.
+\end{note}
+
+\subsection{`Foregone-concluding'}
+\label{sec:fc-progressive}
+
+\begin{note}
+  So, action such that would be concluding.
+  On understanding of the progressive, no matter what happens, still conclude.
+  Might need to get `lucky' with action.
+  However, start then path to the conclusion.
+
+  This `luck' is limited.
+  Nothing conflicting.
+\end{note}
+
+\begin{note}
+  Worry, jumping to conclusions.
   But, in this case, potential event in which agent concludes that step of reasoning is bad.
   Hence, incompatible.
 \end{note}
-
-\begin{note}
-  In contrast to \citeauthor{Boylan:2020aa}, lax with actions available to the agent!
-
-  Very similar to Orthodox account of ability.
-  Common feature is looking forward to a completion.
-  But, details.
-  \citeauthor{Landman:1992wh}, initial event, build on this.
-  Do not simply look for some completion.
-  This is the core feature of the progressive.
-  In part, forward looking.
-  See \textcite{Portner:1998um} for a way to fit the progressive into an the type of analysis from the Orthodox account of ability/can.
-\end{note}
-
-\subsection{Opportunity}
-\label{sec:potential}
-
-
-\begin{note}
-  {
-    \color{red}
-    \begin{restatable}[Opportunity]{definition}{definitionOpportunity}
-      Opportunity to \(\alpha\) \emph{if and only if} potential event and \(\alpha\) of event does not require success.
-    \end{restatable}
-  }
-\end{note}
-
-\subsection{Fragility}
-\label{sec:fragility}
-
-{
-  \color{red}
-  Strong conditions on \fc{1}.
-  If were to reason, would conclude.
-  If not reason, then wouldn't go for something incompatible.
-
-  Whether or not \(\pvp{\phi}{v}{\Phi}\) is a \fc{}, then, strong.
-
-  This is stronger than ability.
-  Ability, intuitively, just looks as success cases.
-  Well, with closeness.
-  Things get a little more complex.
-
-  Problem for me is lose specification of concluding.
-  Instead of solving these issues directly, our interest will be from agent's perspective.
-  Plausible that from agent's perspective, not an instance of concluding.
-  Whether or not issues arise, is it plausible that turn interest to cases in which agent's perspective is such that issues don't arise.
-}
 
 \section{\fc{3} and \support{0}}
 \label{cha:fcs:sec:fcs-support}
@@ -2133,35 +2386,6 @@
   \emph{Without} \fc{0}, the agent would reason.
   This is just the key point reiterated.
   Know whether, \fc{0} just adds information about which.
-\end{note}
-
-
-\section{\fc{3} and ability}
-\label{sec:fc3-ability}
-
-\begin{note}
-  If \abgen{} ability, then \fc{1}.
-
-  The basic idea is that, \abgen{} ability to reason, specific instances of \abgen{} ability, so these end up as \fc{1}.
-
-  However, the link between these two is somewhat delicate.
-  \fc{3} concern potential witnessing events.
-
-  So, it's not the case that ability in general.
-  For, may have ability with no opportunity.
-
-  For, if not \fc{}, then no ability.
-
-  Might think this fails to hold.
-  For ability, possibility to fail, though preserve the ability.
-  However, agent's own reasoning.
-  While it's true the agent \emph{may} fail, the link is more general.
-  It's not forward looking.
-  Rather, there is some potential event.
-
-  Now, the agent may be wrong.
-  Fail to have the ability, or something about how things are doesn't line up, and so do not really have the option.
-  Still, from agent's perspective.
 \end{note}
 
 \section{Scrap}
