@@ -55,21 +55,21 @@
     \begin{enumerate}
     \item[\emph{If}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      \item \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{enumerate}
-    \item[\emph{And}:]
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
-        \vAgent{} concluded \(\pv{\phi}{v}\) from \(\Phi\).
+        \vAgent{} has concluded \(\pv{\phi}{v}\) from \(\Phi\).
       \end{enumerate}
     \item[\emph{And}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
         \qzS{} has positive answer when concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \end{enumerate}
+    \item[\emph{And}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \item \(\pvp{\psi}{v'}{\Psi}\) was a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
     \item[\emph{Then}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
-      \item \support{2} between \(\pv{\psi}{v'}\) and \(\Psi\), in part, answers \qWhyV{}.
+      \item \support{2} between \(\pv{\psi}{v'}\) and \(\Psi\) (from \vAgent{}' perspective), in part, answers \qWhyV{}.
       \end{enumerate}
     \end{enumerate}
   \end{proposition}
@@ -77,9 +77,31 @@
 \end{note}
 
 \begin{note}
+  \autoref{prop:fc-answers-why} is \emph{almost} immediate.
+  \(\pvp{\psi}{v'}{\Psi}\) is a \requ{0}.
+  But positive answer to \qzS{}.
+  So, \(\pvp{\psi}{v'}{\Psi}\) is a \fc{0}.
+  Therefore, by \autoref{prop:fcs-only-if-support}:
+  \support{2} between \(\pv{\psi}{v'}\) and \(\Psi\).
+
+  However, `answers \qWhy{}'.
+  Here is where the difficulty is.
+
+  Well, would not conclude if not \fc{}.
+
+  So, here, then, need to ensure no deviance.
+
+  However, further problem.
+  Deny by `embedding' in relation of \support{}.
+\end{note}
+
+\begin{note}
+  Key is \autoref{prop:fc-answers-why:REDUX}:
   \begin{proposition}
-    If \fc{} is embedded in \support{}, then instance of \qzS{}.
+    \label{prop:fc-answers-why:REDUX}
+    If \fc{} is embedded in \support{}, then (plausibly) a further instance of \qzS{}.
   \end{proposition}
+  Qualification, however, this is fine as we're just looking for the existence of \scen{1}.
 \end{note}
 
 \begin{note}
@@ -94,21 +116,8 @@
   \end{enumerate}
 \end{note}
 
-\section{\autoref{prop:fc-answers-why}}
+\section{\autoref{prop:fc-answers-why:REDUX}}
 \label{sec:simple-argument}
-
-
-\begin{note}
-  \begin{itemize}
-  \item Take \(\pvp{\psi}{v'}{\Psi}\), \requ{}.
-  \item Concluded.
-  \item \qzS{}, positive answer.
-  \item Previous chapter, \ptivityQ{}.
-  \item If not \fc{}, then would not have concluded.
-  \item \autoref{prop:fcs-only-if-support}.
-  \item So, conclusion.
-  \end{itemize}
-\end{note}
 
 \begin{note}
   Intuitively, \autoref{prop:fc-answers-why} follows from how \qzS{} relates to concluding \(\pv{\phi}{v}\) from \(\Phi\).
@@ -418,12 +427,85 @@
 \label{sec:summarising}
 
 \paragraph{Recursive?}
+\nocite{Besson:2018wz} % TODO: CHECK THIS FOR MORE!!!
+\nocite{Wieland:2013vf} % But the passages for this aren't really helpful.
 
 \begin{note}
   Well, to the extent \citeauthor{Carroll:1895uj} seems to be.
 
   For, break out of the loop at any time.
   There's nothing to prevent the Tortoise from accepting.
+
+  However, something on the Tortoise's mind.
+  Generates further hypotheticals.
+
+  \begin{generator}
+    Instance of rule of inference is sound only if hypothetical is true and hypothetical without rule of inference.
+  \end{generator}
+
+  So, every time Achilles appeals to instance of rule of inference, generator a new hypothetical, and get this without the rule of inference.
+  Look, the Tortoise is really clear that you can get the hypothetical without the rule of inference.
+
+  So, hypothetical is necessary, independent, and (possibly) antecedent.%
+  \footnote{
+    Here might be the trouble.
+    Understanding conditional just is getting rule of inference.
+    But, this is not obvious.
+    For, other connectives.
+    It's not obvious that I get conjunction i/e from understanding conjunction.
+    For, could be the case that always translate conjunction to some other connective when applying rules of inference.
+
+    Now, still \emph{modus ponens}.
+    But, in principle no need for this.
+
+    Consider a Gentzen system for propositional logic termed \textbf{G3c}(\textbf{p}) (\cite[\S3.5]{Troelstra:2000ue},\cite[\S3.1]{Negri:2008wy}).
+
+    In \textbf{G3c}(\textbf{p}) the two rules concerning material implication are:
+
+    \begin{quote}
+      \mbox{ }\hfill%
+      \(
+      \AxiomC{\(\Gamma \Rightarrow \Delta, A\)}
+      \AxiomC{\(B,\Gamma \Rightarrow \Delta\)}
+      \LeftLabel{L\(\rightarrow\)}
+      \BinaryInfC{\(A \rightarrow B, \Gamma \Rightarrow \Delta\)}
+      \DisplayProof
+      \)%
+      \hfill
+      \(
+      \AxiomC{\(A,\Gamma \Rightarrow \Delta,B\)}
+      \LeftLabel{R\(\rightarrow\)}
+      \UnaryInfC{\(\Gamma \Rightarrow \Delta, A \rightarrow B\)}
+      \DisplayProof
+      \)%
+      \hfill\mbox{ }\newline
+      \mbox{ }\hfill\mbox{(\citeyear[77]{Troelstra:2000ue})}
+    \end{quote}
+    By inspection, neither rule corresponds to \emph{modus ponens} in any direct way.
+  }\(^{,}\)%
+  \footnote{
+    Puzzle about the general lesson from \citeauthor{Carroll:1895uj}.
+
+    \citeauthor{Wieland:2013vf} (\citeyear{Wieland:2013vf}) characterises the general understanding of \textcite{Carroll:1895uj} in terms of two lessons:
+  \begin{quote}
+    [T]he negative lesson is that if you add ever more premises to an argument \dots, then you will never demonstrate that its conclusion follows logically.\newline
+    \mbox{ }\hfill\mbox{(\citeyear[984]{Wieland:2013vf})}
+  \end{quote}
+
+  Parallel, static answers, still option for concluding otherwise.
+
+  \begin{quote}
+    [T]he positive lesson is that rules of inference, rather than premises of the form `if premises such and such are true, then the conclusion is true', will do the job.\newline
+    \mbox{ }\hfill\mbox{(\citeyear[984]{Wieland:2013vf})}
+  \end{quote}
+  Positive lesson \emph{is} the puzzle.
+  }
+
+  \begin{generator}
+    Positive answer to only if \requ{} restated with respect to current instance of concluding.
+  \end{generator}
+
+  Every time embed in support, un-embed.
 \end{note}
 
 
