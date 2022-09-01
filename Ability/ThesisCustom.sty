@@ -1933,9 +1933,10 @@
 
 % % % Boylan
 
-\newcommand{\BoyPS}[0]{\hyperref[Boylan:Past-Success]{\obeybreaks{Past Success}}} % Wright's revised template
-\newcommand{\BoyVS}[0]{\hyperref[Boylan:Or-Success]{\obeybreaks{\(\lor\)- Success}}} % Wright's revised template
-\newcommand{\BoyCEW}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} % Wright's revised template
+\newcommand{\BoyPS}[0]{\hyperref[Boylan:Past-Success]{\obeybreaks{Past Success}}} %
+\newcommand{\BoyVS}[0]{\hyperref[Boylan:Or-Success]{\obeybreaks{\(\lor\)- Success}}} %
+\newcommand{\BoyCEW}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} %
+\newcommand{\BoyPSC}[0]{\hyperref[Boylan:Past-Success:C]{\obeybreaks{Success Past}}} %
 
 \newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Grow}}}}}
 \newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
@@ -1947,3 +1948,26 @@
 
 \newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
 \newcommand{\SetPC}[0]{\obeybreaks{\text{\(R\)-Continuations}}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\pevent}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:potenital-event]{potential\space event}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{potential\space event}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{Potential\space event}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{potential\space events}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{Potential\space events}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
