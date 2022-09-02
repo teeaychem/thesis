@@ -524,29 +524,9 @@
 
 \paragraph[Actuality entailments]{Actuality entailments \hfill (Optional)}
 
+
 \begin{note}
-  \begin{quote}
-    We show that the English ability modal was able to is ambiguous between two readings which can be paraphrased as `managed to' and `had the ability to'.
-
-    \dots
-
-    The two readings associated with be able to allow different interpretive possibilities for indefinite/bare plural subjects.
-
-    \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-      \setcounter{enumi}{317}
-    \item
-      A fireman was/Firemen were able to eat five apples.
-      \begin{enumerate}[label=\alph*., ref=\alph*.]
-      \item
-        Yesterday at the apple eating contest, a fireman was/firemen were able to eat five apples.
-        (Past episodic, actuality implication, existentially interpreted subject)
-      \item
-        In those days, a fireman were/firemen were able to eat five apples in an hour (Generic, no actuality implication, generically interpreted subject)%
-        \mbox{}\hfill\mbox{(\citeauthor[172--173]{Bhatt:1999wq})}
-      \end{enumerate}
-    \end{enumerate}
-  \end{quote}
-
+  
   If actuality entailment, then possibility of reducing to modal.
 
   However, clear failure here.
@@ -580,6 +560,106 @@
   Mary may have survived, and more Roman soldiers may have perished by Mary's hand.
   However, relation of Mary to the Roman army means no sense in which event is Mary wiping out the Roman army.
 \end{note}
+
+\section{\citeauthor{Boylan:2020aa}}
+
+\begin{note}
+  To get clear on how \citeauthor{Boylan:2020aa} understands control intuition, develop the formal core of \citeauthor{Boylan:2020aa}'s theory.
+  Difficulty will not depend on particular details, but general understanding of control given by details.
+
+  Need a handful of things.
+  \begin{itemize}
+  \item
+    Unsettled world
+  \item
+    Selection function
+  \item
+    Semantics for will.
+  \end{itemize}
+
+  First, unsettled world.
+  `while the past is settled, the future is open' (\citeyear[1]{Boylan:2020aa})
+
+  \begin{quote}
+    \emph{Unsettled World}. \(\mathcal{I}_{c} = \{w \mid w\text{ is identical to }w_{c}\text{ up until }t_{c}\}\)%
+    \mbox{ }\hfill\mbox{(\citeyear[11]{Boylan:2020aa})}
+  \end{quote}
+  Relative to some context \(c\), which includes world \(w_{c}\) and a time \(t_{c}\), set of worlds which are identical to to \(w_{c}\) up until \(t_{c}\).
+
+  Note, unique with respect to context.
+
+  So, with when considering the actual world at some point in time, corresponding unsettled world is just set containing all worlds identical to the past.
+
+  Caution, an unsettled world is a set of worlds.
+
+  Selection function:
+
+  \begin{quote}
+    \(s(\mathcal{I}, \mathbf{A})\) picks out the closest (possibly unsettled) world to \(\mathcal{I}\) which settles that \(\mathbf{A}\) is true.%
+    \mbox{ }\hfill\mbox{(\citeyear[11]{Boylan:2020aa})}
+  \end{quote}
+  So, selection function takes unsettled world and action as input and returns set containing a world or collection of worlds such that action is settled to be true.
+
+  Key thing here is \(f(w,t)\).
+  Intuitively, restrict which worlds are part of the unsettled world.
+  Strictly, closest (unsettled) world.
+  However, closeness is not of interest.
+
+  \citeauthor{Boylan:2020aa} does not define settled.
+  However, \(\mathbf{A}\) is true at every world in set.%
+  \footnote{
+    `If \(\phi\) is true at \(s(\mathcal{I}, f(w,t))\) (i.e. true throughout \(\mathcal{I}\)),\dots'. \mbox{(\citeyear[12]{Boylan:2020aa})}
+  }
+
+  \(\mathcal{W}\) `will'.
+
+  \begin{quote}
+    \begin{enumerate}
+      \setcounter{enumi}{33}
+    \item
+      \begin{enumerate}
+      \item
+        \(\sem[w,t,f,\mathcal{I}]{\mathcal{W}\phi}\) is determinate only if either
+        \begin{enumerate}
+        \item
+          \(s(\mathcal{I}, f(w,t)) \subseteq \sem[t,f,\mathcal{I}]{\phi}\) or
+        \item
+          \(s(\mathcal{I}, f(w,t)) \subseteq \sem[t,f,\mathcal{I}]{\lnot\phi}\)
+        \end{enumerate}
+      \item
+        If determinate \(\sem[w,t,f,\mathcal{I}]{\mathcal{W}\phi} = 1\) iff \(s(\mathcal{I}, f(w,t)) \subseteq \sem[t,f,\mathcal{I}]{\phi}\)
+      \end{enumerate}
+    \end{enumerate}
+  \end{quote}
+
+  Here, \(w\) world, \(t\) time, \(f\) a function from a world and a time to a set of worlds, and \(\mathcal{I}\) an unsettled world.
+
+  \(f(w,t) = \top\), then, abstracting from closest, all future possibilities.
+  \(f(w,t) = \mathbf{A}\), then, all future possibilities in which \(\mathbf{A}\) happens.
+
+  Mechanism is unclear.
+  Intuitively, think of \(f\) as returning a collection of propositions where to evaluate, context is the same, but shifted time, and world is excluded if does not match with some proposition.
+  So, truth of proposition at some (restricted) time in world.
+
+  Key idea, restrict future worlds of interest so that the agent has performed some action.
+
+  Now turn to `can'.
+
+  \begin{quote}
+    \begin{enumerate}
+      \setcounter{enumi}{41}
+    \item
+      \(\sem[w,t,f,\mathcal{I}]{\text{S can }\phi} = 1\) iff for some \(\alpha \in \mathcal{A}\colon \sem[w,t,f^{\alpha},\mathcal{I}]{\mathcal{W}(\text{S }\phi\text{'s})} = 1\)\newline
+      i.e.\ iff for some \(\alpha \in \mathcal{A}(w,t)\colon s(\mathcal{I}, f^{\alpha}(w,t)) \subseteq \sem[t,f^{\alpha},\mathcal{I}]{\text{S }\phi\text{'s}} = 1\)\newline
+      \mbox{ }\hfill\mbox{(\citeyear[16]{Boylan:2020aa})}
+    \end{enumerate}
+  \end{quote}
+  Here, key thing is \(f^{\alpha}\).
+  We're making sure that the agent performs the action in the unsettled world.
+
+  In short, we chose some action, and figure out whether it's a phing action.
+\end{note}
+
 
 %%% Local Variables:
 %%% mode: latex
