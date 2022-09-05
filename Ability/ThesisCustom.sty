@@ -1093,53 +1093,7 @@
 
 
 
-% % % % % % Potntial, etc % % %
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\potentialV}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{potential}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{potential}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Potential}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\potentialN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{potential}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{potential}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Potential}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 % % % % % % Commands commitment % % %
 
@@ -1600,20 +1554,20 @@
 \DeclareDocumentCommand{\fc}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{foregone-conclusion}%
+    \hyperref[def:fc]{\obeybreaks{foregone-conclusion}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{foregone-conclusion}%
+      \hyperref[def:fc]{\obeybreaks{foregone-conclusion}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{foregone-conclusions}%
+      \hyperref[def:fc]{\obeybreaks{foregone-conclusions}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Foregone-conclusion}%
+      \hyperref[def:fc]{\obeybreaks{Foregone-conclusion}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Foregone-conclusions}%
+      \hyperref[def:fc]{\obeybreaks{Foregone-conclusions}}%
     \fi
   }
 }
@@ -1954,24 +1908,49 @@
 \newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
 \newcommand{\SetPC}[0]{\obeybreaks{\text{\(R\)-Continuations}}}
 
+% % % % % % Potntial, etc % % %
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\potential}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{potential}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{potential}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Potential}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\pevent}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[def:potenital-event]{potential\space event}}%
+    \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space event}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:potenital-event]{potential\space event}}%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space event}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:potenital-event]{otential\space events}}%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space events}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:potenital-event]{Potential\space event}}%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{2}\space event}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:potenital-event]{Potential\space events}}%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{2}\space events}}%
     \fi
   }
 }
