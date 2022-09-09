@@ -1308,7 +1308,7 @@ w
 \begin{note}[Control via \citeauthor{Schwarz:2020aa}]
   Similar to \citeauthor{Mandelkern:2017aa}, \textcite{Schwarz:2020aa} motivates \AbControl{} as follows:
 
-    \begin{quote}
+  \begin{quote}
     Suppose Cyril does not know the first 10 digits of \(\pi\).
     Intuitively,~\ref{Schwarz:pi} is then false.
 
@@ -2045,6 +2045,7 @@ w
 
 \paragraph{An algorithmic (re)construction}
 \label{cha:sec:fcs-def:progressive-landman:alg}
+\nocite{Cormen:2009uw}
 
 \begin{note}
   Breaking this down into a recursive algorithm.
@@ -2052,24 +2053,91 @@ w
   For example:
   \[\text{Tree} = \{\langle \langle e,w \rangle_{1}, \langle f,w \rangle_{1} \rangle, \langle \langle f,w \rangle_{1}, \langle g,v \rangle_{2} \rangle, \langle \langle f,w \rangle_{1}, \langle g,v' \rangle_{2} \rangle, \dots \}\]
 
-  Root, inital event world pair, and then branch from event world pair to some distinct event world pair just in case ordered pair.
+  Root, inital event world pair, and then branch from event world pair to some distinct event world pair when index changes.
   %
   \footnote{
-    The indexing is not required to construct the tree.
-    However, important for keeping track of the stage of construction.
+    Indexing is required construct the tree as allow events to develop in different ways.
+    However, also important for keeping track of the stage of construction.
   }
 
-  {\color{red} Pseudocode}
-  \nocite{Cormen:2009uw}
+  We start by (re)constructing three basic algorithms.
+  Following, we introduce a variation to one of these algorithms.
+  And, finally, we (re)construct a recursive algorithm to build a continuation branch of some event-world pairing.
 
-  We start by identifying three basic functions, and following a (re)construction of these functions with explanation added, we (re)construct a recursive function to build a continuation branch of some event-world pairing.
+  \begin{itemize}[noitemsep]
+  \item
+    \AlgAC{(\(\langle g,u \rangle_{i}\))}%
+    \hfill%
+    \autoref{cha:sec:fcs-def:progressive-landman:alg:conts}
+    \begin{itemize}
+    \item
+      An algorithm to obtain the continuation stretch of some event \(g\) in world \(u\).
 
-  The four basic algorithms will be termed:
-  `\AlgAC{}', `\AlgGetStops{}', `\AlgGetPStops{}', and `\AlgFindBranches{}'.
-  The recursive algorithm will be termed:
-  `\AlgDevelopTree{}'.
+      Builds on Clause~\ref{Landman:CB:continues} (and~\ref{Landman:CB:continues:again}).
 
-  Interest will be in difference between \AlgGetStops{} and \AlgGetPStops{}.
+      Expanded to help following algorithms.
+    \end{itemize}
+  \item
+    \AlgGetStops{(\(\text{Continuations}\))}%
+    \hfill%
+    \autoref{cha:sec:fcs-def:progressive-landman:alg:stops}
+    \begin{itemize}
+    \item
+      An algorithm to find the stopping points in some set of continuation stretches.
+
+      Builds on the antecedent of Clause~\ref{Landman:CB:stops} (and~\ref{Landman:CB:stops:again})
+
+      Follows \citeauthor{Landman:1992wh}, though will be revised.
+    \end{itemize}
+  \item
+    \AlgFindBranches{(\(\langle \langle f,v \rangle_{i-1}, \langle g,u \rangle_{i}\rangle, e, w\))}%
+    \hfill%
+    \autoref{cha:sec:fcs-def:progressive-landman:alg:branches}
+    \begin{itemize}
+    \item
+      An algorithm to identify alternative worlds in which \(g\) happens.
+
+      Builds on the \emph{consequent} of Clause~\ref{Landman:CB:stops} (and~\ref{Landman:CB:stops:again})
+
+      Adjusted from \citeauthor{Landman:1992wh}'s suggestions in two significant ways:
+      \begin{itemize}[noitemsep]
+      \item
+        First, to avoid some issues with \citeauthor{Landman:1992wh}'s account of what is reasonable.
+      \item
+        Second, to allow multiple branches.
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+  Combined:
+  \begin{itemize}
+  \item
+    \AlgDevelopTree{(\(\text{Tree},e,w,n\))}%
+    \hfill%
+    \autoref{cha:sec:fcs-def:progressive-landman:alg:tree}
+    \begin{itemize}
+    \item
+      Recursive algorithm to build tree.
+
+      Unifies \AlgAC{}, \AlgGetStops{}, and \AlgFindBranches{}.
+
+      Explicitly recasts the iteration implicit in \citeauthor{Landman:1992wh}'s definition of a continuation branch in terms of recursion.
+    \end{itemize}
+  \end{itemize}
+  Alternative:
+  \begin{itemize}
+  \item
+    \AlgGetPStops{(\(\text{Continuations}, e, w\))}%
+    \hfill%
+    \autoref{cha:sec:fcs-def:progressive-landman:alg:R-stops}
+    \begin{itemize}
+    \item
+      Variation of \AlgGetStops{}.
+
+      Considers `reasonable' ways in which \(g\) may have stopped.
+
+      Ensures the continuation branch of a progressive does entail the progressive is true because the agent will \(\alpha\) in the actual world.
+    \end{itemize}
+  \end{itemize}
 \end{note}
 
 \subparagraph{Continuations}
@@ -2106,7 +2174,7 @@ w
         \label{PrAl:g-a-c:te:I}
         \For{\(g_{y} \in \{g_{y} \mid g_{y} \text{ is an event in } u\}\)}{
           \label{PrAl:g-a-c:for:s}
-          \If{\(g_{y}\) occurs in \(I\) \emph{and} \(g_{y}\) is a stage of \(g\)}
+          \If{\(g_{y}\) occurs over \(J \subseteq I\) s.t. \(t_{e} \in J\) \emph{and} \(g_{y}\) is a stage of \(g\)}
           {
             \label{PrAl:g-a-c:for:test}
             \(\text{Continuation} \longleftarrow \text{Continuation} \cup \langle \langle g_{x},u \rangle_{i}, \langle g_{y},u \rangle_{i} \rangle\)\;
@@ -2119,6 +2187,10 @@ w
       \label{PrAl:g-a-c:while:e}
       \Return{\(\text{Continuation}\)}
       \label{PrAl:g-a-c:return}
+    }
+    {
+      \color{red}
+      Need to fix this a little, for I want it to be the case that I get multiple events, maybe, and also that events get a choice of where to stop.
     }
   \end{algorithm}
 
@@ -2134,18 +2206,18 @@ w
 \end{note}
 
 \begin{note}[Motivation for \AlgAC{}]
-  There are two pieces of motivation for the construction of \(\text{Continuation}\).
+  % There are two pieces of motivation for the construction of \AlgAC{}.
 
-  The first piece of motivation is \citeauthor{Landman:1992wh}'s account of the progressive.
+  The construction of \AlgAC{} is motivated \citeauthor{Landman:1992wh}'s account of the progressive.
   For, \(\sem{\text{PROG}(e, P)}_{w,g}\) checks to see if there exists \emph{some} event-world pairing \(\langle f,v \rangle\) in the continuation branch of \(e\) (in \(w\)) such that \(\sem{P}\) is true of \(f\) in \(v\).
   Hence, it is not possible, in general, to only consider the `maximal' continuation of \(g\) in \(u\).
   Rather, we must have the option of identifying the particular stage \(f'\) of \(f\) such that \(P\) is true of \(f'\).
 
-  The second piece of motivation is the critiques of \textcite{Bonomi:1997uq} and \textcite{Szabo:2004ul} which suggest modifying \citeauthor{Landman:1992wh}'s account of the progressive to include universal quantification over branches of a continuation tree.
-  Therefore, it is important to ensure that the continuation of \(g\) in \(u\) does not itself involve branching.%
-  \footnote{
-    I.e., this constraint rules out including both \(\langle \langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) and \(\langle \langle g,u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\), as this would indicate a branch.
-  }
+  % The second piece of motivation is the critiques of \textcite{Bonomi:1997uq} and \textcite{Szabo:2004ul} which suggest modifying \citeauthor{Landman:1992wh}'s account of the progressive to include universal quantification over branches of a continuation tree.
+  % Therefore, it is important to ensure that the continuation of \(g\) in \(u\) does not itself involve branching.%
+  % \footnote{
+  %   I.e., this constraint rules out including both \(\langle \langle g,u \rangle_{i}, \langle g^{+},u \rangle_{i} \rangle\) and \(\langle \langle g,u \rangle_{i}, \langle g^{++},u \rangle_{i} \rangle\), as this would indicate a branch.
+  % }
 \end{note}
 
 \begin{note}[Construction of \AlgAC{}]
@@ -2167,20 +2239,14 @@ w
   So, we consider every event \(g_{y}\) which occurs in \(u\) and test to see if \(g_{y}\) happens in \(I\) \emph{and} is a stage of \(g\) (Lines~\ref{PrAl:g-a-c:for:s}~and~\ref{PrAl:g-a-c:for:test}).
   If successful, we update \(\text{Continuation}\) and \(g_{x}\) (Lines~\ref{PrAl:g-a-c:C:new}~and~\ref{PrAl:g-a-c:gx:new}).
 
-  Here we make two assumptions:
+  Here single assumption:
   \begin{itemize}[noitemsep]
   \item
-    First, if there is some stage of \(g\), then there is stage of \(g\) at an interval obtained by stepping one tick forward in time.%
+    If there is some further stage \(g_{z}\) of \(g_{x}\), then there is stage \(g_{y}\) of \(g_{x}\) at an interval obtained by stepping one tick forward in time.%
   \footnote{
     This may be avoided by separating the test on~\autoref{PrAl:g-a-c:for:test} into two separate tests, and shifting the reassignment on~\autoref{PrAl:g-a-c:gx:new} outside the scope of the if-clause.
     Though the while-loop will then only terminate when there are no further events in \(u\).
   }
-  \item
-    Second, for any interval, if there is an event which is a stage of \(g\), then the event is unique.%
-    \footnote{
-      This assumption is key to ensure \(\text{Continuation}\) does not introduce branching.
-      Though, the assumption may be avoided by choosing a different representation for the tree.
-    }
   \end{itemize}
 
   After the stages of \(g\) in \(u\) have been exhausted, \AlgAC{} returns \(\text{Continuation}\) (\autoref{PrAl:g-a-c:return}) and terminates.
@@ -2292,17 +2358,22 @@ w
       \(w\) \hfill A world
     }
     \KwResult{Branches \hfill A set containing event-world pairs \\
-      \hfill such that \(g\) continues in \(u'\)}
+      \hfill such that \(g\) is a stage of \(e\) in \(u'\)}
     \Begin{
       \(\text{CloseWorlds} \longleftarrow \{u' \mid u' \text{ is among the closest world to } u\}\)\;
       \label{PrAl:find-branches:close}
-      \(\text{ReasonableWorlds} \longleftarrow \text{CloseWorlds} \cap R(e,w)\)\;
-      \label{PrAl:find-branches:loop:R}
+      \textcolor{comment}{\texttt{//} \(\text{CloseWorlds} \longleftarrow \text{CloseWorlds} \cap R(e,w)\)}\;
+      \label{PrAl:find-branches:R}
       \(\text{Branches} \longleftarrow \emptyset\)\;
-      \For{\(u' \in \text{ReasonableWorlds}\)}{
+      \For{\(u' \in \text{CloseWorlds}\)}{
         \label{PrAl:find-branches:loop:start}
         \If{\(g\) is an event in \(u'\)}{
-          \(\text{Branches} \longleftarrow \text{Branches} \cup \{ \langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i}\rangle \}\)\;
+          \If{\(g \in R'(e,w)\)}
+          {
+            \label{PrAl:find-branches:Rprime:check}
+            \(\text{Branches} \longleftarrow \text{Branches} \cup \{ \langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i}\rangle \}\)\;
+          }
+          \label{PrAl:find-branches:Rprime:check:end}
         }
       }
       \label{PrAl:find-branches:loop:end}
@@ -2314,101 +2385,223 @@ w
 \begin{note}
   From a broad perspective, \AlgFindBranches{} considers some event-world pairing \(\langle g,u \rangle\) and returns a collection of event-world pairings \(\langle g,u' \rangle\) where \(u'\) is some possible world.
 
-  From this broad perspective, the core of \AlgFindBranches{} is a for-loop (Lines~\ref{PrAl:find-branches:loop:start}--\ref{PrAl:find-branches:loop:end}) which scans through some collection of possible worlds and identifies those worlds in which \(g\) is present in the possible world.
+  Still, \AlgFindBranches{} differs from \citeauthor{Landman:1992wh}'s method of identifying branches.
+  For, \citeauthor{Landman:1992wh} identifies branches by considering possible worlds which are both close to \(u\) and elements of \(R(e,w)\).
+  \AlgFindBranches{}, by contrast, identifies branches by considering possible worlds that are close to \(u\) and events which are elements of \(R'(e,w)\).%
+  \footnote{
+    Two changes to \AlgFindBranches{} may be made obtain \citeauthor{Landman:1992wh}'s account.
+    First, uncomment Line~\ref{PrAl:find-branches:R}, to restrict the possible worlds considered to those that are element of \(R(e,w)\).
+    Second, comment Lines~\ref{PrAl:find-branches:Rprime:check} and~\ref{PrAl:find-branches:Rprime:check:end} to remove the restriction of events to elements of \(R'(e,w)\).
+  }
+  However, though \AlgFindBranches{} differs in method, \AlgFindBranches{} does not differ is spirit.
 
-  From a more nuanced perspective, the core of \AlgFindBranches{} is with how the possible worlds are specified (i.e.\ Lines~\ref{PrAl:find-branches:close} and~      \ref{PrAl:find-branches:loop:R}).
+  Begin by identifying role.
+  Highlight difficulty in achieving role.
+  Consider \citeauthor{Landman:1992wh}'s \(R(e,w)\).
+  Provide variation \(R'(e,w)\).
+\end{note}
+
+
+\begin{note}
+  There are two parts to role of \AlgFindBranches{}:
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
+  \item
+    Identify ways \(g\) may have come about, so \(g\) may continue.
+  \item
+    Ensure that the way in which \(g\) comes about is reasonable with respect to the initial event \(e\) in the world of origin.
+  \end{enumerate}
+
+  First part, then second part.
 \end{note}
 
 \begin{note}
-  Let us begin by considering \AlgFindBranches{} applied to a particular event-world pair \(\langle g,u \rangle\).
-
-  First, observe that \(g\) is an event in \(u\).
-  Hence, \AlgFindBranches{} return some \(\langle g,u' \rangle\)-pairing such that \(g\) happened in \(u'\) in parallel to \(g\) happening in \(u'\).
-  Stressed, \AlgFindBranches{} \emph{does not} return \(\langle g,u' \rangle\)-pairing such that \(g\) happened in \(u'\) even though \(g\) didn't happen in \(u'\).
-  This follows \citeauthor{Landman:1992wh}'s definition.
-  For, while \(g\) stopping in \(u\) means only that \(g\) does not continue in \(u\) (cf.~\autoref{def:Landman:Stops} on \autopageref{def:Landman:Stops}).
-
-  In turn, this means \(\langle g,u' \rangle\) may be passed as an argument to \AlgFindBranches{}.
-  So, second, observe Line~\autoref{PrAl:find-branches:close} considers possible worlds close to the argument event-world pairing.
-  Hence, repeated application of \AlgFindBranches{} may lead to `drift'.
-  \(u'\) may be close to \(u\), and \(u''\) may be close to \(u'\), but \(u''\) need not be close to \(u\).
-  This is an important feature of \citeauthor{Landman:1992wh}'s account of the progressive.
-  Recall the instance of the progressive from \autopageref{prog:max:bad}:
-  \begin{enumerate}
-  \item
-    Max is crossing the street.
-  \end{enumerate}
-  Also recall \ref{prog:max:bad} is true even though Max is hit by a bus.
-  Now, in close worlds to the actual world, Max may be hit by a bus in various different ways, and hence there is no close world \emph{to the actual world} in which Max crosses the street.
-  However, by the process of drifting through possible worlds, we expect to find a possible world in which Max is not hit by a bus (and crosses the street).
-  {
-    \color{red} not to counterfactual reduction?
+  First part, shift to possible world.
+  Hence, result of \AlgFindBranches{} is a collection of pairings such that \(g\) has happened in some possible world \(u'\).
+  Note, \AlgFindBranches{} does not consider any further continuation of \(g\).%
+  \footnote{
+    Continuations of \(g\) in \(u'\) may (and will) be obtained via calling \(\AlgAC{(\langle g,u' \rangle_{i})}\).
   }
 
-  However, in principle it seems possible to drift though possible worlds so that (almost) any arbitrary eventuality results from some event.
-  The point is especially clear if we combine \AlgFindBranches{} with \AlgAC{} to allow events to develop.
+  Motivation for the first part follows from \autoref{assu:prog-modal-shift} and the observation that an agent may be \(\alpha\)ing though the agent does not proceed to \(\alpha\).
 
-  Now, consider:
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-    \setcounter{enumi}{1}
+  Consider the following scenario:%
+  \footnote{
+    Variation on both:
+    \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+    \item
+      \citeauthor{Landman:1992wh}'s scenario given on~\autopageref{cha:sec:fcs-def:progressive-landman} which involves Max walking across the road.
+    \item
+      \citeauthor{Schwarz:2020aa}'s (\citeyear{Schwarz:2020aa}) on to motivate \AbControl{} given above on~\autopageref{Schwarz:pi}.
+    \end{enumerate*}
+  }
+
+  \begin{scenario}
+    \label{scen:prog:Cyril:know}
+    Cyril has been asked to recite the first ten digits (of the decimal expansion) of \(\pi\).
+    Cyril knows the first ten digits of \(\pi\).
+    Cyril utters `\(3\)' followed by `\(1\)'.
+    However, interrupted a bird flying into the classroom through the open window.
+  \end{scenario}
+  Intuitively, as Cyril utters `\(1\)' it is true that:
+  \begin{enumerate}
   \item
-    Cyril is stating the first ten digits of (the decimal representation of) \(\pi\).
+    Cyril is reciting the first ten digits of \(\pi\).
   \end{enumerate}
-  Cyril does not know the first ten digits of \(\pi\) but has started with `\(3\)' and then `\(1\)'.
-  In the actual world, Cyril it interrupted, but in a close world Cyril utters `\(4\)', and we may continue drifting through possible worlds until Cyril utters the first ten digits of \(\pi\).%
+
+  Stopping point is so that Cyril is not interrupted.
+  Then, shift to a close world.
+  For progressive to be true, differs enough so that as the event continues Cyril is not interrupted.
+
+  However, incrementally.
+  Possible world where Max is not hit by the bus because birds do not exist.
+  Partial solution by looking at close worlds.
+  Though an incomplete solution.
+  For example, closest world where Cyril is not interrupted by the bird, Cyril utters `\(4\)' and \emph{then} the bird flies through the window.
+  Complete solution by looking at closest worlds relative world \(u\) in which \(g\) takes place, rather than the initial world \(w\).
+  Term this process `\emph{drift}'.
+  After drifted from initial world \(w\), so avoided first bus, may drift further from \(w\) to avoid second bus.
+
+  Closeness is difficult to specify, but sufficiently common tool that this does not impact sufficient understanding of the progressive.
+  Intuitively, not possible to drift to non-existence of birds, as no close world in which birds exist a little less than they do in the actual world to get the process of drifting stated.
+\end{note}
+
+\begin{note}
+  Still, though drift may fail to start with respect to certain possibilities, one drift starts, the result of drifting may lead to bad results.
+  Worry is cases in which examining the continuation tree suggests instance of the progressive that is (intuitively) false is marked as true.
+
+  To illustrate, consider the following variation on \autoref{scen:prog:Cyril:know}:
+  \begin{scenario}
+    \label{scen:prog:Cyril:know:not}
+    Cyril has been asked to recite the first ten digits (of the decimal expansion) of \(\pi\).
+    Cyril does \emph{not} know the first ten digits of \(\pi\).
+    Cyril utters `\(3\)' followed by `\(1\)'.
+    However, interrupted a bird flying into the classroom through the open window.
+  \end{scenario}
+
+  \autoref{scen:prog:Cyril:know:not} mirrors \autoref{scen:prog:Cyril:know} with the exception that Cyril does \emph{not} know the first ten digits of \(\pi\).
+
+  Cyril guess at random.
+  As before gets \(3\) and \(1\) correct and is then interrupted.
+  However, as Cyril utters `\(1\)' it is intuitively \emph{not} true that:
+  \begin{enumerate}
+  \item
+    Cyril is reciting the first ten digits of \(\pi\).
+  \end{enumerate}
+  No close world in which Cyril utters the first ten digits, and likewise there is no close world in which Cyril knows the first ten digits.
+  However, possible to drift to such a world.
+  For given random choice, worlds in which Cyril utters any of the digits is equally close.
+  So, in a close world Cyril utters `\(4\)', and we may continue drifting through possible worlds until Cyril utters the first ten digits of \(\pi\).%
   \footnote{
     And, indeed any finite sequence of digits from (the decimal representation of) \(\pi\).
     See \citeauthor{Landman:1992wh} (\citeyear[\S2.3]{Landman:1992wh}) for additional examples and discussion.
   }
+  So, each instance is fine, close world.
+  However, combination leads to event being sustained in an implausible way.
 
-  Considerations such as the above motivate Line~\ref{PrAl:find-branches:loop:R}.
+  Failure not because there is no possibility, but because things required to secure possibility stray too far from initial event.
+\end{note}
+
+\begin{note}
+  Second part, not a `reasonable' progression.
+
+  Just as things separate from event may stop event in progress, things may sustain an event.
+
+  Role of \(R'(e,w)\) is to capture what is plausible.
+  However, way in which \(R(e,w)\) functions is unclear.
+  Purpose of \(R'(e,w)\) is to provide incremental improvement.
+  In short, `\emph{regulated drift}'.
+
+  Paraphrased, drift is local.
+  To event as it has developed.
+  Regulated drift is global.
+  Development relative to initial event.
+\end{note}
+
+\begin{note}
+  Of course, if we're looking at \AlgFindBranches{} applied to \(\langle e,w \rangle\), then these two things (plausibly) coincide.
+  Close world is such that continues only if same event.
+  However, constructing the tree is an recursive process.
+  \AlgFindBranches{} may be called multiple times.
+\end{note}
+
+\begin{note}
+  I assume way in which drift through possible worlds is clear.
+  Focus on regulation.
+
+  Start with \citeauthor{Landman:1992wh}'s \(R(e,w)\).
+  Then, our \(R'(e,w)\).
+\end{note}
+
+\begin{note}
+  \textbf{\(R(w,e)\)}
+
   Recall:
   \begin{quote}
     \(v \in R(e, w)\) iff there is a reasonable chance on the basis of what is internal to \(e\) in \(e\) that \(e\) continues in \(w\) as far as it does in \(v\).%
     \mbox{ }\hfill\mbox{(\citeyear[26]{Landman:1992wh})}
   \end{quote}
-  Consider a possible world where \(e\) continues, and query whether \(e\) may have continued in \(v\).
+  Consider a possible world where \(e\) continues, and query whether \(e\) may have continued in \(v\) given what is `internal' to \(e\).
 
   Phrased otherwise, \(\text{CloseWorlds}\) captures closeness between worlds, while \(R(e,w)\) captures closeness between events.
 
-  Perhaps uttering `\(4\)' in place of `\(5\)' is reasonable, but as we progress through `\(1\)', `\(5\)', `\(9\)', `\(2\)', \dots it is, intuitively, quite unreasonable.
+  Perhaps uttering `\(4\)' is reasonable, but as we progress through `\(1\)', `\(5\)', `\(9\)', `\(2\)', \dots it is, intuitively, quite unreasonable.
   For that Cyril does not know the first ten digits of \(\pi\).
   Hence, Cyril uttering the correct sequence of digits would require considerable luck.%
   \footnote{
     If ten digits seems borderline, extend the sequence.
-    Given a decimal representation and random choice by Cyril, the probability of the Cyril uttering the correct sequence is \(.1^{l}\) where \(l\) is the length of the sequence.
-  }
-  In addition, note the set of reasonable worlds is determined by two arguments given to \AlgFindBranches{} that are independent of the event-world pairing given as an argument.
-  Intuitively, and in practice, these arguments correspond to the initial event and world from which the continuation tree is constructed.
-  Therefore, the extent to which \AlgFindBranches{} may lead to drift through possible worlds is limited by the initial event in the actual world.
-\end{note}
-
-\begin{note}
-  Still, \citeauthor{Landman:1992wh}'s account is difficult.
-
-  Unclear how to think about \(e\) continuing in \(w\).
-  Can't be closest worlds in which \(e\) does not stop.
-  For, by assumption, drifted from \(w\).
-
-  Problem to solve is clear.
-  Allow event to drift, but not indefinitely.
-  And, restriction given by initial event in actual world.
-  Events in progress.
-  Failure not because there is no possibility, but because things required to secure possibility stray too far from the event as it has developed in the actual world.
-
-  So, \(g\) is a reasonable stage of \(e\).
-
-  Following \citeauthor{Landman:1992wh}, no way to reduce to similarity between worlds.
-  For, \citeauthor{Landman:1992wh} holds that unreasonable even though what happened.
-  Suppose Cyril hadn't been interrupted.
-  Still unreasonable.
-
-  Best I can do, if \(g\) then \(e\) from \(w\), where restrict interest in \(w\) up until \(e\) happening and interest in worlds up until \(g\) happens.%
+    %Given a decimal representation and random choice by Cyril, the probability of the Cyril uttering the correct sequence is \(.1^{l}\) where \(l\) is the length of the sequence.
+  }\(^{,}\)%
   \footnote{
+    Following \citeauthor{Landman:1992wh}, also highlights no way to reduce to similarity between worlds.
+  For, \citeauthor{Landman:1992wh} holds that unreasonable even though what happened.
+  Suppose Cyril hadn't been interrupted and chooses correctly.
+  Still not reasonable change when starting.
+  }
+  In this respect, `reasonable chance'.
+
+  However, not just reasonable change.
+  For, consider the bus.
+  Change of avoiding buses is likewise low.
+
+  Hence, `internal'.
+  \citeauthor{Landman:1992wh} doesn't elaborate.
+  (And is criticised for this\dots)%
+  \footnote{
+    More general point.
+
+    Whether it is possible to capture by event alone is unclear.
+    As \textcite[1256]{Portner:2011vi} observes:
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item
+      Max is crossing the street.
+    \end{enumerate}
+    May be re-described
+    \begin{enumerate}[label=\arabic*\('\)., ref=(\arabic*\('\))]
+    \item
+      Max is walking into the path of an oncoming bus.
+    \end{enumerate}
+
+    However, re-description, at least on \citeauthor{Landman:1992wh}'s account.
+    For, event stops.
+    If walking into, then intuitively the event doesn't stop when Max is hit by the bus.
+    Yet, only branch when stops, which must be before Max is hit.
+    So, relevance of re-description is not isolated to branching.
+
+    Perspective.
+    Something which selects subset of information.%
+    \footnotemark
+    Hence, if perspective, then already have perspective.
+
+    Deny same event.
+    Rather, re-description of the interval via different event.
+
+    Hence, isolate the how the event progresses independently of a world in which it progresses.
+  }
+  \footnotetext{
     \color{red}
     May captured by attention to fact.
 
-  \citeauthor{Veltman:2005tj}'s (\citeyear{Veltman:2005tj}) revision to~\citeauthor{Tichy:1976tp}'s (\citeyear{Tichy:1976tp}) counterexample to \citeauthor{Lewis:1979vm}'s (\citeyear{Lewis:1973th,Lewis:1979vm}) theory of counterfactuals.
+  \citeauthor{Veltman:2005tj}'s (\citeyear{Veltman:2005tj}) revision to~\citeauthor{Tichy:1976tp}'s (\citeyear{Tichy:1976tp}) counterexample to \citeauthor{Lewis:1979vm}' (\citeyear{Lewis:1973th,Lewis:1979vm}) theory of counterfactuals.
 
   Some `facts' are fixed, and it is not possible to alter these facts under a counterfactual assumption.
   \(e\) has been set in motion.
@@ -2417,22 +2610,79 @@ w
   Fix what has been set in motion by \(e\), keep all laws the same.
   Then, buses at different times, but Mary doesn't get superpowers.
   }
+\end{note}
+
+\begin{note}
+  Suggestion is to appeal to closeness in the converse direction.
+  From \(w\), in some close worlds where \(g\) happens, \(g\) is a stage of \(e\).
+
+  Broad picture.
+  Drifting allows trace event through worlds.
+  Developing event.
+  Path of drift.
+  Fix that we get to the event, query whether there is a strictly more plausible path.
+  I.e.\ something else sufficiently unrelated to \(e\) happens in \(w\) to get \(g\).
+  If not, then seems okay.
+
+  So, suggestion.
+  \begin{definition}[Reasonable continuation of event]
+    For an events \(e,g\) and a world \(w\):
+    \begin{itemize}
+    \item
+      \(g \in Re(w,e)\). \hfill (\(g\) is a \emph{reasonable continuation} of an event \(e\) in world \(w\).)
+    \end{itemize}
+
+    \emph{If and only if}
+
+    \begin{itemize}
+    \item
+      The following conditional is true when evaluated from \(w\):
+      \begin{itemize}
+      \item
+        If \(g\) happens, then it is not the case that \(g\) is not a stage of \(e\).
+      \end{itemize}
+    \item
+      In other words:
+      In some world close to \(w\) in which \(g\) happens, \(g\) is a stage of \(e\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
   So, getting \(g\) `because' continuation of \(e\).
 
-  These are different.
-  For, we look to see whether \(g\) is the case in \(u'\) but also that \(g\) is the result.
-  Though, this clause is indirect.
+  Important here is that we build the continuation tree and the events may be separate from \(e\).
+  If include \(e\), then subjunctive is trivial.
+  However, if separable, then possible to break.
+
+  Go back to Cyril.
+  Separate at choice of number(s).
+
+  Up to \(w\) is also important.
+  For, \(w\) may be sustaining \(e\) in a strange way already.
+  For example, Cyril has been hypnotised or something.%
+  \footnote{
+    And, swimming, reaching the shore.
+    But, it might also be the case that the seas are very kind of the particular day.
+  }
+
+  Also, universal.
+  \(R'(e,w)\) isn't suitable for \citeauthor{Landman:1992wh}'s account of the progressive.
+
   Really part of \AlgAC{}.
-  Inefficient, but better placed here.
-  As, we won't include in tree if not returned by this algorithm.
+  But better placed here due to function of respective algorithms.
+  In particular, as, we won't include in tree if not returned by this algorithm.
 \end{note}
 
 \begin{note}
   Motivated restriction on world.
   What about converse?
   Is it possible to consider only the `reasonable' worlds?
-  No, because requires that search for \(g\).
-  Even after drifting, don't get a continuation of \(g\) in close worlds.
+
+  With respect to \(R'(e,w)\) no.
+  For, requires \(g\), which is only obtained by drifting through worlds.
+
+  With respect to \citeauthor{Landman:1992wh}'s \(R(e,w)\), less clear.
+  Though, no further speculation.
 \end{note}
 
 \begin{note}

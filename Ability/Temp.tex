@@ -725,6 +725,36 @@
   If just focus on event, then this has nothing to say about this.
 \end{note}
 
+\begin{note}[First problem]
+  Let us begin by observing how close worlds addresses the first problem.
+
+  First, observe that \(g\) is an event in \(u\).
+  Hence, \AlgFindBranches{} return some \(\langle g,u' \rangle\)-pairing such that \(g\) happened in \(u'\) in parallel to \(g\) happening in \(u'\).
+  Stressed, \AlgFindBranches{} \emph{does not} return \(\langle g,u' \rangle\)-pairing such that \(g\) happened in \(u'\) even though \(g\) didn't happen in \(u'\).
+  This follows \citeauthor{Landman:1992wh}'s definition.
+  For, while \(g\) stopping in \(u\) means only that \(g\) does not continue in \(u\) (cf.~\autoref{def:Landman:Stops} on \autopageref{def:Landman:Stops}).
+
+  In turn, this means \(\langle g,u' \rangle\) may be passed as an argument to \AlgFindBranches{}.
+  So, second, observe Line~\autoref{PrAl:find-branches:close} considers possible worlds close to the argument event-world pairing.
+  Hence, repeated application of \AlgFindBranches{} may lead to `drift'.
+  \(u'\) may be close to \(u\), and \(u''\) may be close to \(u'\), but \(u''\) need not be close to \(u\).
+  This is an important feature of \citeauthor{Landman:1992wh}'s account of the progressive.
+  Recall the instance of the progressive from \autopageref{prog:max:bad}:
+  \begin{enumerate}
+  \item
+    Max is crossing the street.
+  \end{enumerate}
+  Also recall \ref{prog:max:bad} is true even though Max is hit by a bus.
+  Now, in close worlds to the actual world, Max may be hit by a bus in various different ways, and hence there is no close world \emph{to the actual world} in which Max crosses the street.
+  However, by the process of drifting through possible worlds, we expect to find a possible world in which Max is not hit by a bus (and crosses the street).
+  {
+    \color{red} not to counterfactual reduction?
+  }
+\end{note}
+
+
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"
