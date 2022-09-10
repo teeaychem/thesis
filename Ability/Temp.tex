@@ -753,6 +753,75 @@
 \end{note}
 
 
+\begin{algorithm}[H]
+    \label{PrAl:dev-tree}
+    \caption{\AlgDevelopTree{}}
+    \SetAlgoLined
+    \DontPrintSemicolon
+    \Input{%
+      \(\text{Tree}\) \hfill A partially completed tree\\
+      \(e\) \hfill The initial event of the tree\\
+      \(w\) \hfill The initial world of the tree\\
+      \(n\) \hfill An index to keep track recently added branches\\
+    }
+    \KwResult{Tree expanded so that there are no further stopping events}
+    \Begin{
+      \label{PrAl:dev-tree:start}
+      \(\text{Stems} \longleftarrow \{ \langle g,u \rangle_{n} \mid \exists f,v \colon \langle \langle f,v \rangle_{n - 1}, \langle g,u \rangle_{n}\rangle \in \text{Tree}\}\)\;
+      \label{PrAl:dev-tree:Extend:start}
+      \label{PrAl:dev-tree:Extend:Stems}
+      \(\text{GrownStems} \longleftarrow \emptyset\)\;
+      \label{PrAl:dev-tree:Extend:FreshContsVar}
+      \For{\(\langle g,u \rangle_{n} \in \text{Stems}\)}
+      {
+        \label{PrAl:dev-tree:Extend:Loop:start}
+        \(\text{Growth} \longleftarrow \AlgAC{}(\langle g,u \rangle_{n})\)\;
+        \(\text{GrownStems} \longleftarrow \text{GrownStems} \cup \text{Growth}\)\;
+      }
+      \label{PrAl:dev-tree:Extend:end}
+      \(\text{Tree} \longleftarrow \text{Tree} \cup \text{GrownStems}\)\;
+      \label{PrAl:dev-tree:Extend:merge}
+      \textcolor{comment}{\texttt{//} \(\text{Stops} \longleftarrow \AlgGetStops{}(\text{GrownStems})\)}\;
+      \label{PrAl:dev-tree:Stops:Land}%
+      \(\text{Stops} \longleftarrow \AlgGetPStops{}(\text{GrownStems})\)\;
+      \label{PrAl:dev-tree:Stops:Me}
+      \eIf{\(\text{Stops} == \emptyset\)}
+      {
+        \label{PrAl:dev-tree:Stops:cond:start}
+        \textbf{return} \(\text{Tree}\)\;
+        \label{PrAl:dev-tree:Stops:cond:no-stops-finish}
+      }
+      {
+        \label{PrAl:dev-tree:Stops:cond:else:start}
+        \(\text{Tree} \longleftarrow \text{Tree} \cup \text{Stops}\)\;
+        \label{PrAl:dev-tree:Stops:cond:tree-fix}
+        \(\text{Branches} \longleftarrow \emptyset\)\;
+        \label{PrAl:dev-tree:Stops:cond:else:futureB:start}
+        \For{\(\langle \langle g,u \rangle_{n}, \langle h,u \rangle_{n+1}\rangle \in \text{Stops}\)}
+        {
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:start}
+          \(\text{Temp} \longleftarrow \AlgFindBranches{}(\langle \langle g,u \rangle_{n}, \langle h,u \rangle_{n+1}\rangle, e, w)\)\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:getBranches}
+          \(\text{Branches} \longleftarrow \text{Branches} \cup \text{Temp}\)\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:loop:gather}
+        }
+        \label{PrAl:dev-tree:Stops:cond:else:futureB:end}
+        \eIf{\(\text{Branches} == \emptyset\)}{
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:start}
+          \textbf{return} Tree\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:cancel}
+        }
+        {
+          \(\text{Tree} \longleftarrow \text{Tree} \cup \text{Branches}\)\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:expand}
+          \AlgDevelopTree{}(\(\text{Tree}, e,w, n+1\))\;
+          \label{PrAl:dev-tree:Stops:cond:else:futureB:process:end}
+        }
+        \label{PrAl:dev-tree:Stops:cond:else:end}
+      }
+      \label{PrAl:dev-tree:Stops:cond:end}
+    }
+  \end{algorithm}
 
 
 %%% Local Variables:
