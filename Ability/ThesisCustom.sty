@@ -1897,19 +1897,135 @@
 \newcommand{\AbControl}[0]{\hyperref[ability:control]{\obeybreaks{\text{\textbf{Control}}}}}
 
 % Landman
+\newcommand{\lRweSym}[0]{\hyperref[def:LandRwe]{\ensuremath{R}}}
 \newcommand{\lRwe}[2]{\hyperref[def:LandRwe]{\ensuremath{R(#2,#1)}}}
 \newcommand{\mRwe}[2]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}(#2,#1)}}}
 \newcommand{\mRweSym}[0]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}}}}
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\drift}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{drift}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{drift}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{drifts}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Drift}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Drifts}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\drifting}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{drifting}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{drifting}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Drifting}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\driftW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\drift{0}-world}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\drift{0}-world}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\drift{0}-worlds}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\drift{2}-world}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\drift{2}-worlds}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\closeW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{close-world}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{close-world}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{close-worlds}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Close-world}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Close-worlds}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\assuPP}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{progressive\space perfection}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{progressive\space perfection}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[assu:PP]{\color{red} NO-SENSE}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{Progressive\space perfection}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[assu:PP]{\color{red} NO-SENSE}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\drAdj}[0]{\obeybreaks{\text{appropriate}}}
+\newcommand{\ndrAdj}[0]{\obeybreaks{\text{inappropriate}}}
 
 \newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Stretch}}}}}
 \newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
 \newcommand{\AlgGetCs}[0]{\hyperref[PrAl:g-c]{\obeybreaks{\text{\textsc{Get-Continuations}}}}}
 \newcommand{\AlgGetStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-Stops}}}}}
 \newcommand{\AlgGetPStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-\(R\)-Stops}}}}}
-\newcommand{\AlgFindBranches}[0]{\hyperref[PrAl:find-branches]{\obeybreaks{\text{\textsc{Find-Branches}}}}}
+\newcommand{\AlgFindBranches}[0]{\hyperref[PrAl:find-branches]{\obeybreaks{\text{\textsc{Wiggle}}}}}
 \newcommand{\AlgDevelopTree}[0]{\hyperref[PrAl:dev-tree]{\obeybreaks{\text{\textsc{Complete-Tree}}}}}
 
 \newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
