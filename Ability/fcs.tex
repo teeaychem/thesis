@@ -2594,10 +2594,10 @@ w
           % Get the continuation of \(g\)\;
           % Loop through, ensuring that branch looks good\;
           % this is implicit in revised R\;
-          \If{\(\mRwe{\langle e,w \rangle}{\langle g,u \rangle}\)}
+          \If{\(\mRwe{\langle e,w \rangle}{\langle g,u' \rangle}\)}
           {
             \label{PrAl:find-branches:Rprime:check}
-            \(\text{Branches} \longleftarrow \text{Branches} \cup \{ \langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i}\rangle \}\)\;
+            \(\text{Branches} \longleftarrow \text{Branches} \cup \{ \langle \langle f,v \rangle_{i-1}, \langle g,u' \rangle_{i+1}\rangle \}\)\;
           }
           \label{PrAl:find-branches:Rprime:check:end}
         }
@@ -2648,6 +2648,11 @@ w
   Hence, \(g\) and \(u\).
 \end{note}
 
+\begin{note}
+  Here, shift the index.
+  When run recursive algorithm, each call of the algorithm will explore branches.
+  Increase index for next call.
+\end{note}
 
 \paragraph{\drift{2} I}
 \label{cha:fcs:sec:Prog:L:Alg:branches:role}
@@ -2911,6 +2916,7 @@ w
 \end{note}
 
 \subparagraph{The problem of \ndrAdj{} \drift{0}}
+\label{drift:problem}
 
 \begin{note}
   Partial, because between worlds alone does not quite \drift{0}.
@@ -3064,27 +3070,27 @@ w
 \end{note}
 
 \begin{note}[Our approach]
-  Our proposal roughly, is restrict continuations in the following way:
+  Our proposal roughly, is restrict development in the following way:
   \begin{quote}
     \begin{itemize}
     \item[\emph{If}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
         \label{myR:sketch:a}
-        \(g\) in \(u\) is a \drAdj{} continuation of an event \(e\) in world \(w\).
+        \(g\) in \(u'\) is a \drAdj{} development of an event \(e\) in world \(w\).
       \end{enumerate}
     \item[\emph{Then}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
         \label{myR:sketch:b}
-        In some \closeW{0} to \(w\) where \(g\) develops, the way in which \(g\) continues to develop in \(u\) is as a continuation of \(e\).
+        In some \closeW{0} \(v\) to \(w\) where \(g\) develops, the way in which \(g\) continues to develop in \(v\) is as a development of \(e\).
       \end{enumerate}
     \end{itemize}
   \end{quote}
 
   Stated otherwise:
-  If more plausible initial conditions for the result of tracing the development of \(e\) through possible worlds, then \(g\) in \(u\) is not part of the continuation tree.
-  Or, conversely, \(g\) in \(u\) is part of the continuation tree of \(e\) only if \(g\) in \(u\) is among the most plausible ways for \(e\) to develop from \(w\).
+  If more plausible initial conditions for the result of tracing the development of \(e\) through possible worlds, then \(g\) in \(u'\) is not part of the continuation tree.
+  Or, conversely, \(g\) in \(u'\) is part of the continuation tree of \(e\) only if the way in which \(g\) in \(u'\) develops is among the most plausible ways for \(e\) to develop from \(w\).
 \end{note}
 
 \begin{note}
@@ -3128,36 +3134,42 @@ w
   }
 \end{note}
 
-\begin{note}
-  Let us briefly clarify two parts of the proposal.
+\begin{note}[Two parts of the proposal]
+  We clarify two key parts of the proposal:
   \begin{itemize}
   \item
-    our focus on the development of \(g\) rather than \(g\) itself.
+    Focus on the \emph{development of} \(g\) rather than \(g\) itself.
   \item
-    `way' in which an event develops.
+    Focus on the `way' in which \(g\) develops.
   \end{itemize}
 \end{note}
 
-\begin{note}
-  Our interest in the development of \(g\) rather than \(g\) itself follows from our understanding of why an instance of the progressive is true.
+\begin{note}[Development]
+  Our interest in the \emph{development of} \(g\) rather than \(g\) itself follows from our understanding of why an instance of the progressive is true.
   For, in line with \assuPP{}, we capture the truth of the an instance of the progressive by the perfective correlate of the perfective.
   \AlgFindBranches{} is key part of finding event in which perfective correlate is true.
+  However, the perfective correlate need not be true of \(g\) in \(u\).
+  Instead, the perfective correlate may be true of some continuation \(g^{+}\) of \(g\) in \(u\).
+  Intuitively, the role of \AlgFindBranches{} is to find some other world \(u'\) such that, although \(g\) stops in \(u\), \(g\) continues in \(u'\).
+  Hence, our concern is not with whether \(g\) in \(u'\) is \drAdj{}, but rather with whether continuation \(g^{+}\) is \drAdj{}.
 
-  Now, perfective correlate need not be true of \(g\) in \(u\).
-  Though, the perfective correlate may be true of some continuation \(g^{+}\) of \(g\) in \(u\).
-  Further, it may be the case that though \(g\) in \(u\) is \drAdj{}, the continuation \(g^{+}\) is \ndrAdj{}.
-  To illustrate consider again Cyril.
-  Cyril started by guessing randomly, but tenth digit was not a random guess.
-  So, when moved to world, random, and only as event develops in world does Cyril know.
+  To illustrate consider again Cyril as used to illustrate the problem of \ndrAdj{} \drift{0} in \autoref{drift:problem}.
+  Cyril started by guessing randomly, but when Cyril said the tenth digit of \(\pi\) Cyril did not make a random guess.
+  Instead, it turned out that as \(g\) developed in \(u'\), Cyril came to know the first ten digits of \(\pi\).
+  However, Cyril saying the ninth digit of \(\pi\) in \(u\) may still have been a random guess.
 
-  Hence, at issue is not whether the event \(g\) is \drAdj{}, but whether \(g\) as \(g\) develops in \(u\) is \drAdj{}.%
+  By focusing on the development of \(g\) rather than \(g\) itself we ensure any event in which the perfective correlate of the progressive is true is a \drAdj{} event.%
   \footnote{
     Observe that this idea is implicit in \citeauthor{Landman:1992wh}'s account of \(\lRweSym{}\) as \citeauthor{Landman:1992wh} considers worlds rather than events, and hence considers how \(g\) develops in the relevant world.
   }
 \end{note}
 
-\begin{note}
-  The motivation for considering the way in which an event is that \(e\) may be that the continuation of \(g\) include \(e\) and hence it may be trivially true that the continuation of \(g\) is a continuation of \(e\).
+\begin{note}[Way]
+  We now turn to the second part of the proposal; focus on the `way' in which \(g\) develops.
+
+  The motivation for considering the way in which an event is that by \autoref{def:Landman:conts} \(e\) is included in the continuation of \(g\).
+  Therefore, it be trivially true that the continuation of \(g\) is a continuation of \(e\).
+  Though, this issue is not merely definitional.
 
   To illustrate, consider \ref{Cyril:pi:progressive:random}:
   \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
@@ -3176,16 +3188,11 @@ w
   \end{enumerate}
 
   Observe, it does not follow from \ref{R:event-problem:part} that Cyril says the first ten digits of \(\pi\) --- Cyril may have said `\(3\)' in response to how many digits of \(\pi\) they have guessed.
-  Yet, as the initial event \(e\) included Cyril saying `\(3\)' and `\(1\)', \(e\) must be part of any event captured by \ref{R:event-problem:full}.
-  So, it trivially true that in some \closeW{0} in which \ref{R:event-problem:full} happens, \ref{R:event-problem:full} is a continuation of \(e\).%
-  \footnote{
-    Likewise for Max crossing the road.
-  On my understanding, to cross the road, start on one side of the road and end up on the other side of the road.
+  Hence, \ref{R:event-problem:part} does not make the perfective correlate of Cyril saying the first ten digits of \(\pi\) true.
+  On the contrary, only \ref{R:event-problem:full} make the perfective correlate of Cyril saying the first ten digits of \(\pi\) true.
 
-  However, not always the case.
-  Consider X is climbing to the top of the mountain.
-  Here, we don't need the whole event.
-  }
+  However, as the initial event \(e\) included Cyril saying `\(3\)' and `\(1\)', \(e\) must be part of any event captured by \ref{R:event-problem:full}, regardless of how continuations are defined.
+  Therefore, it trivially true that in some \closeW{0} in which \ref{R:event-problem:full} happens, \ref{R:event-problem:full} is a continuation of \(e\).
 
   Still, as Cyril must say the tenth digit of \(\pi\) in order to say the first ten digits of \(\pi\) it follows that if~\ref{R:event-problem:full} happens then ~\ref{R:event-problem:part} is a sub-event of~\ref{R:event-problem:full}.
   In this respect, it seems that if~\ref{R:event-problem:full} happens then how ~\ref{R:event-problem:part} happens captures, in part, the way in which ~\ref{R:event-problem:full} happens.
@@ -3198,37 +3205,39 @@ w
 
   Whether~\autoref{assu:event:way} holds in general is unclear to me.
   I have not succeeded in developing a compelling counterexample, but likewise I have not succeeded in developing a argument for~\autoref{assu:event:way}.
-  Still, as I am unsure of whether~\autoref{assu:event:way} holds in general, our full proposal will works with sub-events rather than the way in which an event develops.
+  Still, as I am unsure of whether~\autoref{assu:event:way} holds in general, our full proposal works with sub-events rather than the way in which an event develops.
 \end{note}
 
 \begin{note}
+  Our full proposal for a \drAdj{0} continuation of an event is as follows:
   \begin{definition}[\drAdj{2} instance of event]
     \label{def:myRwe}
     For an event-world-pairings \(\langle e,w \rangle\) and \(\langle g,u \rangle\), and an event description \(\alpha\):
     \begin{itemize}
     \item
-      \(\mRwe{\langle e,w \rangle}{\langle g,u \rangle}\) is true.\newline
-      \mbox{ }\hfill (\(g\) in \(u\) is a \emph{\drAdj{0} continuation} of event \(e\) in world \(w\).)
+      \(\mRwe{\langle e,w \rangle}{\langle g,u' \rangle}\) is true.\newline
+      \mbox{ }\hfill (\(g\) in \(u'\) is a \emph{\drAdj{0} continuation} of event \(e\) in world \(w\).)
     \end{itemize}
 
     \emph{If and only if}
 
-    \begin{enumerate}
+    \begin{itemize}
     \item
-      For all \(\langle g^{\sharp},u \rangle \in \AlgAC{\langle g,u \rangle}\):
-      \begin{enumerate}
+      \(\forall \langle g^{\sharp},u \rangle \in \AlgAC{\langle g,u \rangle}\):
+      \begin{itemize}
       \item
-        \(g^{+} \in \{ g^{+} \mid g^{+} \text{ is the restriction of }g\text{ to some subinterval of }g^{\sharp} \}\):
-      \begin{enumerate}
+        \(\forall g^{\flat} \in \{ g^{\flat} \mid g^{\flat} \text{ is the restriction of }g\text{ to some subinterval of }g^{\sharp} \}\):
+      \begin{itemize}
       \item
-        In the collection \closeW{0} to \(w\) such that \(g^{+}\) happens, \(g^{+}\) is a stage of \(g\).
-      \end{enumerate}
-    \end{enumerate}
-  \end{enumerate}
+        In the collection \closeW{0} to \(w\) such that \(g^{\flat}\) happens, \(g^{\flat}\) is a stage of \(e\).
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
   \vspace{-\baselineskip}
   \end{definition}
 
-  In line with our first observation regarding the need to consider continuations of \(g\), we consider the continuation of \(g\) in \(u\) as given via \AlgAC{}.%
+  In line with our first observation regarding the need to consider continuations of \(g\), we consider the continuation of \(g\) in \(u'\) as given via \AlgAC{}.
+  As noted, \AlgAC{} capture the continuations of \(g\), which by \autoref{def:Landman:conts} include \(e\).%
   \footnote{
     For (relative) simplicity, allow failure due to development post-\(\alpha\) being true.
     I have no clear intuition on whether or not this matters.
@@ -3251,73 +3260,25 @@ w
     \end{quote}
     If \(\alpha\) does not happen, then all of the continuation, as antecedent is trivially true, but if \(\alpha\) does happen, then only events up to an including event which makes \(\alpha\) true.
   }
-  \AlgAC{} is designed to capture the continuations of \(g\), which by definition include \(e\), hence, in addition, we consider the set of sub-events that capture the way in which \(g\) develops, granting~\autoref{assu:event:way}.
+  And, following~\autoref{assu:event:way} we consider the set of sub-events that capture the way in which \(g\) develops.
 
-  Universal quantification over the sub-events of the continuation of \(g\) is motivated by observing that the continuation of \(g\) in \(u\) will be \drAdj{0} just in case there is no sub-event of the continuation of \(g\) which is \ndrAdj{0}.
-  Hence, we test each sub-event to determine whether the sub-event is \ndrAdj{0}.
-
-  The test then follows the intuitive account of our proposal.
-  We consider the \closeW{1} to \(w\) such that \(g^{+}\) happens, and ensure that \(g^{+}\) happens as a result of \(e\).
+  In full, \(g\) in \(u'\) is a \emph{\drAdj{0} continuation} of event \(e\) in world \(w\) just in case for every sub-event \(g^{\flat}\) of the development of \(g^{\sharp}\) of \(g\) in \(u'\), there is a \closeW{0} to \(w\) such that \(g^{\flat}\) happens and in that \closeW{0} \(g^{\flat}\) is a stage of \(e\).
 \end{note}
 
-\begin{note}
-  Figuring out whether or not whether  \(\mRwe{\langle e,w \rangle}{\langle g,u \rangle}\) is true for any instance of \(e,w,g\) and \(v\) is by no means straightforward.
+\begin{note}[Summary]
+  Figuring out whether or not whether  \(\mRwe{\langle e,w \rangle}{\langle g,u' \rangle}\) is true for any instance of \(e,w,g\) and \(v\) is by no means straightforward.
+
   Still, the intuition seems sufficiently sound.
 
-  Should be the case that the way in which \(g\) happens is most plausibly as a continuation of \(e\).
-
-  One difficulty is the idea that the way some event \(e\) develops in the actual world may be considered \ndrAdj{0}, though will always be evaluated as \drAdj{0} given \autoref{def:myRwe}.%
+  Our interest is in how \(e\) may have developed other than the way \(e\) develops in the initial world \(w\).
+  And, so long as the way in which \(e\) develops in some possible world is not closer to the development of some other event \(e\), the development of \(e\) in the possible world will be of interest.%
   \footnote{
-    \citeauthor{Landman:1992wh} explicitly holds that the actual world may not be a `reasonable' world.
+    One difficulty is the idea that the way some event \(e\) develops in the actual world may be considered \ndrAdj{0}, though will always be evaluated as \drAdj{0} given \autoref{def:myRwe}.
+
+    Indeed, \citeauthor{Landman:1992wh} explicitly holds that the actual world may not be a `reasonable' world.
     However, in \citeauthor{Landman:1992wh}'s analysis the idea actual world may not be a `reasonable' world is considered a difficulty which \citeauthor{Landman:1992wh} avoids by only considering `reasonable' worlds if the event fails to continue in the actual world.
     (\citeyear[Cf.][26]{Landman:1992wh})
   }
-  Difficult.
-
-  If find out that someone way ready to inform Cyril of the remaining digits of \(\pi\) if Cyril made initial guesses, then seems the progressive is false.
-  Indeed, the relevant evaluation of closeness may differ considerably on the information available to the agent when considering some event in progress.
-
-  To illustrate, consider the following \scen{0} from \citeauthor{Engelberg:1999vi} (\citeyear{Engelberg:1999vi})%
-  \footnote{
-    Modified by~\citeauthor{Engelberg:1999vi} from~\textcite[475]{Asher:1992ug}
-  }%
-  :
-  \begin{quote}
-    Rebecca stood in front of a huge minefield, started walking, and walked about 50 yards into the minefield.%
-    \mbox{ }\hfill\mbox{(\citeyear[49]{Engelberg:1999vi})}
-  \end{quote}
-  Reports most speakers find it acceptable to say `Rebecca is walking to the other side of the minefield'.
-  (\citeyear[49]{Engelberg:1999vi}).
-
-  Consider the two parts of \drift{}.
-
-  \closeW{1}.
-  45.72 meters into a minefield is quite far.
-  At 1 centimeter, inclined to say false, because it seems if Rebecca makes it across then something inferferes.
-  However, something is going on at 150 feet.%
-  \footnote{
-    Indeed, Cyril says the sixth or seventh digit of \(\pi\), things get more difficult.
-  }\(^{,}\)%
-  \footnote{
-    If someone nearby, then stop.
-
-    `Rebecca's walking across a minefield and I'm preventing Rebecca from walking across a minefield' seems impossible.
-    Either Rebecca is walking, so failing to prevent or preventing and so Rebecca isn't walking.
-    Likewise if will take some time.
-    `Rebecca's is walking partway across a minefield because the helicopter will rescue Rebecca before they get to far'.
-  }
-  Inclined to think that Rebecca is not destined to walk into a mine.
-
-  Second.
-  As progresses, continuations are result of walking.
-  Likewise true, for absence of additional information, it seems Rebecca has no choice but to walk across the minefield.
-
-  Now, for the progressive to be true it must be the case that Rebecca walks to the other side of the minefield in all continuation paths.
-  And, it is by no means clear that Rebecca is destined to avoid walking into a mine.
-
-  However, recall that branch at a stopping event, where a stopping event is such that the event has happened but does not continue further, to a world in which the event continues.
-  Hence, branch \emph{prior} to Rebecca walking into a mine and so that Rebecca makes some further move.
-  Therefore, so long as there is a \closeW{0} in which Rebecca does not walk into a mine, then it seems the relevant possibilities included in the continuation tree will be such that Rebecca walks to the other side (phew!).
 \end{note}
 
 \paragraph{Summarising}
@@ -3326,31 +3287,11 @@ w
   I hope to have provided a sufficiently detailed account of how \AlgFindBranches{} functions.
   The considerations are complex, though are at the core of understanding the progressive via continuation trees, and I suspect of capturing the progressive via possible worlds in general.
 
-  In short, allow an event \(e\) to develop by \drifting{0} through possible worlds in which \(e\) happens, but restrict \drift{0} to `\drAdj{0}' events, events such that the way in which the event happens is plausibly as a continuation of \(e\) rather than \dots
+  In short, allow an event \(e\) to develop by \drifting{0} through possible worlds in which \(e\) happens, but restrict \drift{0} to `\drAdj{0}' events, events such that the way in which the event happens is plausibly as a continuation of \(e\) rather than some other event.
 
-  
-  I am hesitant.
+  Whether or not this proposal works (and I am hesitant to say it does), the relevant considers have hopefully helped clarify to some degree the considers relevant to evaluating whether an instance of the perfective is true.
 
-  Important here is that we build the continuation tree and the events may be separate from \(e\).
-\end{note}
-
-\begin{note}
-  Motivated restriction on world.
-  What about converse?
-  Is it possible to consider only the `reasonable' worlds?
-
-  With respect to \(\mRweSym{}\) no.
-  For, requires \(g\), which is only obtained by \drifting{0} through worlds.
-
-  With respect to \citeauthor{Landman:1992wh}'s \(\lRwe{w}{e}\), less clear.
-  Though, no further speculation.
-\end{note}
-
-
-\begin{note}
-  Here, shift the index.
-  When run recursive algorithm, each call of the algorithm will explore branches.
-  Increase index for next call.
+  In the \autoref{cha:fcs:sec:Prog:L:Alg:R-stops} we will present one final modification to \citeauthor{Wieland:2013vf}'s account of continuation branches.
 \end{note}
 
 \subsubsection{The (re)construction so far}
@@ -3364,6 +3305,65 @@ w
   Incorporated alternative.
   As event develops in possible worlds, remains the case that subsequent events plausibly develop from initial event.
 \end{note}
+
+\begin{note}
+  Let us consider as a \illu{0} the following \scen{0} from \citeauthor{Engelberg:1999vi} (\citeyear{Engelberg:1999vi})%
+  \footnote{
+    Modified by~\citeauthor{Engelberg:1999vi} from~\textcite[475]{Asher:1992ug}
+  }%
+  :
+  \begin{quote}
+    Rebecca stood in front of a huge minefield, started walking, and walked about 50 yards into the minefield.%
+    \mbox{ }\hfill\mbox{(\citeyear[49]{Engelberg:1999vi})}
+  \end{quote}
+  Reports most speakers find it acceptable to say `Rebecca is walking to the other side of the minefield'.
+  (\citeyear[49]{Engelberg:1999vi}).
+
+  `Rebecca is walking to the other side of the minefield' will be true just in case there are repeated application of \AlgAC{}, \AlgGetStops{}, and \AlgFindBranches{} such that in every way the event \(e\) of which the sentence is said to be true develops into an event in which Rebecca walks to the other side of the minefield.%
+  \footnote{
+    If someone nearby, then stop.
+
+    `Rebecca's walking across a minefield and I'm preventing Rebecca from walking across a minefield' seems impossible.
+    Either Rebecca is walking, so failing to prevent or preventing and so Rebecca isn't walking.
+    Likewise if will take some time.
+    `Rebecca's is walking partway across a minefield because the helicopter will rescue Rebecca before they get to far'.
+  }
+
+  We break this task down into two steps.
+  First, we show why there is \emph{a} development of event in which Rebecca walks to the other side of the minefield.
+  Second, we show how the observations from the first step generalise to all branches of the continuation tree.
+
+  The setting is an event \(e\) in \(w\) in which Rebecca has walked 50 yards into a minefield.
+  Via \AlgAC{} we will extend \(e\) in \(w\) until \(e\) stops.
+  We capture the stopping event via \AlgGetStops{}, term this event \(f\)
+  Following, we then consider \(f\) in some \closeW{1} \(v\) to \(w\) and repeat the processes, by extending \(f\) to some stopping event \(g\) in \(v\) and consider \(g\) in \(u\), etc.
+
+  Suppose Rebecca doesn't make it much further and steps on a mine.
+  This is the event \(f\).
+  Now, prior to Rebecca stepping on the mine, it is possible that Rebecca may have avoided the mine?
+  It seems to me the answer is yes.
+  Rebecca has walked 45.72 meters into a minefield, which is quite far.
+  Hence, it seems there is a \closeW{} in which \(f\) happens and Rebecca continues a little further.%
+  \footnote{
+    Note, the same need not be true if Rebecca has only walked onto a mine after treading a centimeter into the minefield.
+    That Rebecca has walked 150 feet suggests Rebecca has some luck on their side, and though the luck ran out when Rebecca stepped on a mine, it seems there is a \closeW{0} in which Rebecca's luck holds out a little longer.
+  }
+
+  Further, it seems clear that if Rebecca continues a little further, then the continuation is a continuation of \(e\).
+  For absence of additional information, it seems Rebecca has no choice but to walk across the minefield.
+
+  Repeating these ideas, through repeated applications of \AlgAC{}, \AlgGetStops{}, and \AlgFindBranches{}, I see no reason to deny the possibility of an event in which Rebecca walks across the minefield.
+\end{note}
+
+\begin{note}
+  Now, for the progressive to be true it must be the case that Rebecca walks to the other side of the minefield in all continuation paths.
+  And, it is by no means clear that Rebecca is destined to avoid walking into a mine.
+
+  However, recall that branch at a stopping event, where a stopping event is such that the event has happened but does not continue further, to a world in which the event continues.
+  Hence, branch \emph{prior} to Rebecca walking into a mine and so that Rebecca makes some further move.
+  Therefore, so long as there is a \closeW{0} in which Rebecca does not walk into a mine, then it seems the relevant possibilities included in the continuation tree will be such that Rebecca walks to the other side (phew!).
+\end{note}
+
 
 \subsubsection{Alternative stops}
 \label{cha:fcs:sec:Prog:L:Alg:R-stops}
