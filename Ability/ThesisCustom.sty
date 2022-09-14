@@ -2017,8 +2017,51 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\drAdj}[0]{\obeybreaks{\text{appropriate}}}
-\newcommand{\ndrAdj}[0]{\obeybreaks{\text{inappropriate}}}
+\ExplSyntaxOn
+\DeclareDocumentCommand{\drAdj}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{appropriate}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{appropriate}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Appropriate}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ndrAdj}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{inappropriate}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{inappropriate}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Inappropriate}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 \newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Stretch}}}}}
 \newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
