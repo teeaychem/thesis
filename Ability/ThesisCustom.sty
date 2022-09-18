@@ -82,8 +82,6 @@
 \newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{?Constraint}}}
 \newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\named{?Inclusion}}}
 
-\newcommand{\ideaWitness}[0]{\hyperref[idea:how-witnessing]{\named{Witnessing}}}
-
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
 
@@ -99,7 +97,7 @@
 \newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
 
-\newcommand{\named}[1]{\mbox{\textsf{|#1|}}}
+\newcommand{\named}[1]{\mbox{\textsf{#1}}}
 
 \NewEnviron{argument}{%
     \par\smallskip
@@ -469,8 +467,58 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ros}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{relation\space of\space \support{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{relation\space of\space \support{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{relations\space of\space \support{0}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Relation\space of\space \support{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Relations\space of\space \support{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
 \newcommand{\supportI}[0]{\hyperref[idea:support]{\obeybreaks{\text{\support{2}\space I}}}}
 \newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\support{2}\space II}}}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\witness}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:witnessing]{witness}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:witnessing]{witness}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:witnessing]{witnesses}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:witnessing]{Witness}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:witnessing]{Witnesses}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+
+
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\claiming}{ m }{%
@@ -1118,8 +1166,6 @@
   }
 }
 \ExplSyntaxOff
-
-% % % % % % Witnessing and Interpolation % % %
 
 \newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Attestment}}}
 
