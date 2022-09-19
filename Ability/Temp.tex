@@ -859,6 +859,74 @@
   However, the second is a conditional.
 
 
+\subsection[Conversely]{Conversely \hfill (Optional)}
+
+\begin{noteP}[Converse to~\autoref{link:why:support:pvpp}]
+  \autoref{link:why:pvpp:support} is the converse of~\autoref{link:why:support:pvpp}:
+
+  \begin{restatable}[]{link}{linkWhySupport}
+    \label{link:why:pvpp:support}
+    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\psi}{v'}{\Psi}\) and \(\pvp{\phi}{v}{\Phi}\):
+    \begin{itemize}
+    \item[\emph{If}]
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \(\pvp{\psi}{v'}{\Psi}\) is, in part, an answer to why \vAgent{} concluded \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \item[\emph{then}]
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \item
+        \support{2} between \(\pv{\psi}{v'}\) and \(\Psi\) is, in part, an answer to why \vAgent{} concluded \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+  Combined, \autoref{link:why:pvpp:support} and \autoref{link:why:support:pvpp} may be taken to provide a characterisation the way in which a proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\) answers, in part, why an agent concludes \(\pv{\phi}{v}\) from \(\Phi\):
+  \support{2} holds between \(\pvp{\psi}{v'}{\Psi}\) and \(\Psi\).
+
+  In other words, support captures the relevant relation between a conclusion proposition-value pair and pool of premises, from perspective of agent, when concluding.
+  However, we will not press this idea further.
+\end{noteP}
+
+
+\begin{note}
+  Illustrate in the idealised setting of proofs in propositional logic.
+
+  Capture, \ros{} by \(\Phi \vdash \phi\)
+  
+\end{note}
+
+\begin{note}
+  \begin{center}
+    \begin{fitch}
+      \ftag{\scriptsize i}{\fh P \rightarrow Q} & \\
+      \ftag{\scriptsize i}{\fa \fh \lnot Q} & \\
+      \ftag{\scriptsize i}{\fa \fa \fh P} & \\
+      \ftag{\scriptsize }{\fa \fa \fa Q} & \\
+      \ftag{\scriptsize j}{\fa \fa \fa \bot} & \\
+      \ftag{\scriptsize j}{\fa \fa  \lnot P} & \\
+      \ftag{\scriptsize j}{\fa \lnot Q \rightarrow \lnot P} & \\
+    \end{fitch}
+  \end{center}
+
+  In this idealised setting, the agent concludes \(\lnot P\) from two premises; \(\lnot Q\) and \(P \rightarrow Q\).
+
+  Does not include the premise: \((\lnot Q \land (P \rightarrow Q)) \rightarrow \lnot P\).
+
+    \begin{center}
+    \begin{fitch}
+      \ftag{\scriptsize i}{\fa \lnot Q} & \\
+      \ftag{\scriptsize i}{\fa P \rightarrow Q} & \\
+      \ftag{\scriptsize i}{\fj (P \rightarrow Q) \rightarrow (\lnot Q \rightarrow \lnot P)} & \\
+      \ftag{\scriptsize j}{\fa \lnot Q \rightarrow \lnot P} & \\
+      \ftag{\scriptsize j+1}{\fa \lnot P} & \(\rightarrow\)\textbf{Intro:} \emph{i}--\emph{j} \\
+    \end{fitch}
+  \end{center}
+
+  Agent concludes \(\lnot P\) from three premises; \(\lnot Q\), \(P \rightarrow Q\), and \((P \rightarrow Q) \rightarrow (\lnot Q \rightarrow \lnot P)\).
+\end{note}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"
