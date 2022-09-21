@@ -67,18 +67,20 @@
 \def\@without#1{\ensuremath{[\![#1]\!]}}
 \makeatother
 
+\newcommand{\preName}[1]{\mbox{\textsf{\textsc{#1}}}}
+\newcommand{\named}[1]{\mbox{\textsc{#1}}}
+
 % % % Property and event
 
-\newcommand{\qWhy}[0]{\hyperref[q:why]{\named{\textsc{Why}?}}}
-\newcommand{\qHow}[0]{\hyperref[q:how]{\named{\textsc{How}?}}}
+\newcommand{\qWhy}[0]{\hyperref[q:why]{\preName{Why?}}}
+\newcommand{\qHow}[0]{\hyperref[q:how]{\preName{How?}}}
+\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\preName{Inclusion}}}
 
 \newcommand{\qWhyVnP}[0]{\hyperref[q:why:v:nP]{\named{Why?}}}
-\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why\(^{\text{P}}\)?}}}
-%\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why?\('\)}}}
+\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why\textsuperscript{P}?}}}
 \newcommand{\qHowV}[0]{\hyperref[q:how:v]{\named{How?}}}
+\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{Constraint}}}
 
-\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{?Constraint}}}
-\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\named{?\textsc{Inclusion}}}}
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
 \newcommand{\asso}[0]{\textsf{Association}}
@@ -95,7 +97,7 @@
 \newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
 \newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
 
-\newcommand{\named}[1]{\mbox{\textsf{#1}}}
+
 
 \NewEnviron{argument}{%
     \par\smallskip
@@ -114,6 +116,18 @@
 % S\(\rightarrow\)C for main premise
 % S\(\leftarrow\)C for denied premise
 % And S\(\circ\dashes\)C for exception
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\agpe}{ m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{agent's\space perspective}
+  }
+  {%
+    \obeybreaks{#1\space perspective}
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\factivity}{ m }{%
@@ -209,213 +223,6 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eState}{ m O{} }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \tl_if_empty:nTF {#2}
-    {
-      \ensuremath{\mathcal{E}}
-    }
-    {
-    \ensuremath{\mathcal{E}^{#2}}
-    }
-
-  }
-  {%
-      \tl_if_empty:nTF {#2}
-      {
-        \ensuremath{\mathcal{E}_{#1}}
-      }
-      {
-      \ensuremath{\mathcal{E}^{#2}_{#1}}
-      }
-
-  }
-}
-\ExplSyntaxOff
-
-
-
-% % %
-
-\newcommand{\ideaCSacro}[0]{{\(\ddag\)CS}}
-
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ideaCS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[assumption:CS]{\named{\ideaCSacro{}}}}
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Assumption\space regarding\space claiming\space support\space}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{Assumption\space CS}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\gsi}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}%
-  {%
-    \text{\textsf{g-sI}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{general-to-specific\space ability\space information}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{General-to-specific\space ability\space information}%
-    \fi
-
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\dsi}{ m }{% Basic premise / understanding of reasoning
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\textsf{\textsf{dI}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{direct\space ability\space information}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Direct\space ability\space information}%
-    \fi
-
-  }
-}
-\ExplSyntaxOff
- % %
-
-\newcommand{\nIacro}[0]{{\color{red} NI}}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\nI}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\named{\nIacro{}}}% \text{\textsf{|NI|}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\color{red} Limitation\space on\space claiming\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\newcommand{\LCSAcro}[0]{\ideaCSacro{}} %{LCS}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\LCS}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[idea:CS:B]{\named{\LCSAcro{}}}}% \text{\textsf{|NI|}}% %prop:lcs
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Observation\space about\space claiming\space support}%
-    \fi
-    \ifnum8=#1\relax%
-      \obeybreaks{An\space observation\space about\space claiming\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\newcommand{\LCSBackground}{\hyperref[prop:lcs]{\named{\LCSAcro:1\&2}}}
-
-% % % USE % % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\USE}{ m }{% Basic premise / understanding of reasoning
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prop:USE]{\named{UCS}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Use\space is\space sufficient\space to\space claim\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\newcommand{\ESUacro}[0]{USE}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ESU}{ m }{% Main premise / access to support
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{{\color{red} \named{\ESUacro{}}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Claiming\space support\space requires\space use}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\newcommand{\EASacro}[0]{\cancel{USE}}
-% \newcommand{\gESU}[0]{\named{g-\ESUacro{}}}
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\EAS}{ m }{% Restricted claim
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\color{red} \named{\EASacro{}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Ability\space allows\space for\space claiming\space support}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\eA}{ m }{% Cases exists
-  \tl_if_empty:nTF {#1}
-  {%
-    \text{\hyperref[prop:SE]{\named{SE}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{Scenarios\space exist}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % %
-\ExplSyntaxOn
-\DeclareDocumentCommand{\aben}{ m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {
-    \hyperref[def:aben]{\obeybreaks{ability\space entailment}}%
-  }
-  {%
-%    \ifnum0=#1\relax%
-      \hyperref[def:aben]{\obeybreaks{#1\space ability\space entailment}}%
- %   \fi
-  }
-}
-\ExplSyntaxOff
-
-% % % Abbreviations % % %
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\collateral}{ m }{%
@@ -514,127 +321,6 @@
 }
 \ExplSyntaxOff
 
-
-
-
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\claiming}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{claiming}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\color{red} claiming}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\color{red} Claiming}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\csV}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\color{red} claims\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\color{red} claims\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\color{red} Claims\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\csVImp}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\color{red} claiming\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\color{red} claiming\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\color{red} Claiming\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\claiming}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{claiming}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{claiming}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Claiming}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\csN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\color{red} \claiming{0}\space \support{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\color{red} \claiming{0}\space \support{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\color{red} \claiming{2}\space \support{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
 % % % % % % Requisites etc % % %
 
 \newcommand{\iRequ}[0]{\hyperref[idea:requ]{\named{Requisite}}}%
@@ -715,220 +401,6 @@
   }
 }
 \ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\ep}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic\space \possibility{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic\space \possibility{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic\space \possibility{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \possibility{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic\space \possibility{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % % % % % Commands for worlds which should be considered, but are not candidates for the actual world % % %
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\plausibility}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{plausibility}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{plausibility}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{plausibilities}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Plausibility}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Plausibilities}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\PAd}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{plausible}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{plausible}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Plausible}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epPAd}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemically\space \PAd{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemically\space \PAd{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemically\space \PAd{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Epistemically\space \PAd{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemically\space \PAd{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epPW}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\epPAd{}\space \world{}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\epPAd{}\space \world{}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\epPAd{}\space \world{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\epPAd{2}\space \world{}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\epPAd{2}\space \world{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epPN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemic\space \plausibility{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{epistemic\space \plausibility{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemic\space \plausibility{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
-% % % % % % Commands for worlds which are candidates for the actual world % % %
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\viablity}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{viability}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{viability}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{viabilities}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Viability}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Viabilities}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\viableAd}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{viable}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{viable}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{viable}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\epVAd}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{epistemically\space \viableAd{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{epistemically\space \viableAd{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{epistemically\space \viableAd{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Epistemically\space \viableAd{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Epistemically\space \viableAd{1}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
 
 
 % % %
@@ -1093,7 +565,6 @@
 }
 \ExplSyntaxOff
 
-
 \ExplSyntaxOn
 \DeclareDocumentCommand{\indicateN}{ m }{%
   \tl_if_empty:nTF {#1}
@@ -1117,53 +588,6 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\DeclareDocumentCommand{\world}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{situation}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{situation}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{situations}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Situation}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Situations}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % % % % % Commands commitment % % %
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\committed}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{committed}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{committed}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Committed}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 \newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Attestment}}}
 
@@ -1176,18 +600,10 @@
     \obeybreaks{interpolant}%
   }
   {%
-    \ifnum0=#1\relax%
-      \obeybreaks{interpolant}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{interpolants}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Interpolant}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Interpolants}%
-    \fi
+    \ifnum0=#1\relax\obeybreaks{interpolant}\fi
+    \ifnum1=#1\relax\obeybreaks{interpolants}\fi
+    \ifnum2=#1\relax\obeybreaks{Interpolant}\fi
+    \ifnum3=#1\relax\obeybreaks{Interpolants}\fi
   }
 }
 \ExplSyntaxOff
