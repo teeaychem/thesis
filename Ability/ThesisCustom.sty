@@ -1,6 +1,5 @@
 \ProvidesPackage{ThesisCustom}
 
-
 % % % TO DO % % %
 % \hyperref[label-name]{link-text}
 % % % % % % % % %
@@ -43,6 +42,8 @@
 \newcommand{\wnf}[0]{\hyperref[wnf]{\obeybreaks{No\space Feedback}}} % Weibserg's no feedback condition
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
+%\newcommand{\TOCLine}[1]{\nameref{#1}\mbox{ }\hfill\autoref{#1}}
+\newcommand{\TOCLine}[1]{\nameref{#1}\dotfill\autoref{#1}}
 % % % Verbs
 
 % https://tex.stackexchange.com/questions/394985/very-short-arrow-symbol
@@ -50,16 +51,6 @@
    \vcenter{\hbox{\rule[-.5\fontdimen8\textfont3]{#1}{\fontdimen8\textfont3}}}%
    \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
 %
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\mistaken}{ m }{\tl_if_empty:nTF {#1}{\text{mistaken}}{\text{Mistaken}}}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\misled}{ m }{\tl_if_empty:nTF {#1}{\text{misled}}{\text{Misled}}}
-\ExplSyntaxOff
-
-
 
 \makeatletter
 \def\sem{\@ifnextchar[{\@with}{\@without}}
@@ -74,12 +65,17 @@
 
 \newcommand{\qWhy}[0]{\hyperref[q:why]{\preName{Why?}}}
 \newcommand{\qHow}[0]{\hyperref[q:how]{\preName{How?}}}
-\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\preName{Inclusion}}}
 
 \newcommand{\qWhyVnP}[0]{\hyperref[q:why:v:nP]{\named{Why?}}}
 \newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{Why\textsuperscript{P}?}}}
 \newcommand{\qHowV}[0]{\hyperref[q:how:v]{\named{How?}}}
-\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{Constraint}}}
+
+\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\preName{Concordance}}}
+
+\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\named{Concordance}}}
+
+\newcommand{\linkW}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:why:support:pvpp}}}}
+\newcommand{\linkH}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:how-witnessing}}}}
 
 
 \newcommand{\incl}[0]{\textsf{Inclusion}}
