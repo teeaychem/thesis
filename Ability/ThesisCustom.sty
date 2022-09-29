@@ -126,6 +126,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\DeclareDocumentCommand{\poP}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{pool\space of\space premises}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{pool\space of\space premises}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{pools\space of\space premises}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Pool\space of\space premises}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{Pool\space of\space premises}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \DeclareDocumentCommand{\factivity}{ m }{%
   \tl_if_empty:nTF {#1}
   {

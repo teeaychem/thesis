@@ -11,7 +11,7 @@
 
 \begin{note}
   This chapter is divided into sections as follows:
-  \begin{enumerate}[label=]
+  \begin{enumerate}[label=, leftmargin=*]
   \item
     \TOCLine{cha:var:sec:wiggling}
 
@@ -21,10 +21,11 @@
     \TOCLine{cha:var:ros}
 
     Detailed discussion of \ros{1}, foundation of how we develop variations.
+    Includes initial discussion of \fc{1}.
   \item
     \TOCLine{cha:var:sec:vars}
 
-    Statement of variations.
+    Variations to \qWhy{}, \qHow{}, and \issueInclusion{} with discussion.
   \item
     \TOCLine{cha:clar:sec:literature}
 
@@ -32,7 +33,7 @@
   \item
     \TOCLine{cha:var:wrang}
 
-    Method for counterexamples.
+    Method for counterexamples, and anticipated difficulties.
   \end{enumerate}
 \end{note}
 
@@ -40,76 +41,55 @@
 \label{cha:var:sec:wiggling}
 
 \begin{note}
-  For, both \qWhy{} and \qHow{} are broad questions which turn on the way in which the respective instances of `why' and `how' are understood.
-  Hence, without establishing a clear understanding of the way in which the instances are to be understood, it is unclear how to motivate a rejection of \issueInclusion{}.
-
-  For example, there may be plausible answers to \qWhy{} which are not also answers to \qHow{} but fail to be counterexamples to \issueInclusion{} as the relevant sense of `why' and `how' are not the senses of `why' and `how' that \issueInclusion{} (intuitively) holds with respect to.
-
-  Indeed, as a simultaneous constraint on answers to \qWhy{} and \qHow{}, \issueInclusion{} has a role in narrowing the possible senses of `why' and `how' at issue.
-  However, if \issueInclusion{} is rejected, then, naturally, \issueInclusion{} cannot perform this role.
-\end{note}
-
-\begin{note}
-  Two constraints which are in tension.
-  \begin{itemize}
-  \item
-    Variations are such that plausible, and that constrain remains plausible.
-  \item
-    Variations should be such that constraint may fail to hold.
-  \end{itemize}
-
-  If variations fail or constraint fail, then failure of the constraint is of no interest.
-  On the other hand, avoid building in the constraint.
-  Else, there is nothing to argue for.
-
-  Two aspects to plausibility:
-  \begin{itemize}
-  \item
-    Intuition.
-
-    Variations to \qWhy{} and \qHow{} should be such that answers to variation of \qWhy{} are constrained by variation to \qHow{}.
-  \item
-    Theory.
-
-    If a theoretical account of concluding, or a sufficient related phenomena --- such as inferring or reasoning --- plausibly contains answers to \qWhy{} in terms of \qHow{} then should be possible to motivate constraint from the theory.
-  \end{itemize}
-
-  Broad framework so that way provides some intuitive guidance, but really is general enough so that variations do not require specific interpretation of `why' or `how'.
-\end{note}
-
-\begin{note}
-  Theory we can do by inspection.
-\end{note}
-
-\begin{note}
-  For intuition, goal is to provide variations on \qWhy{} and \qHow{} which are \emph{roughly} `extensionally adequate'.
-  Where, we understand the term `extensionally adequate' roughly in line with \citeauthor{Sumner:1987aa} (\citeyear{Sumner:1987aa}):
+  \autoref{cha:introduction} introduced \qWhy{}, \qHow{}, and \issueInclusion{}.
 
   \begin{quote}
-    [A] conception of a concept is extensionally adequate when it includes every item which seems pre-analytically to be an instance of the concept and excludes every item which does not.%
-    \mbox{ }\hfill\mbox{(\citeyear[49]{Sumner:1987aa})}
+    \vspace{-1.5\baselineskip}
+    \questionWhyBasic*
   \end{quote}
 
-  Adapted to our case, our interest with \qWhy{} and \qHow{} is with respect to intuitive answers to \qWhy{} and \qHow{} (and in particular the intuition that \issueInclusion{} holds).
-  And, the variations of both \qWhy{} and \qHow{} may be seen as `conceptions of a question' such that any answer to \qWhy{} is an answer to the variation of \qWhy{}, vice-versa, and the same with respect to \qHow{}.
-  Still, the way in which something answers \qWhy{} need not be equivalent to the way in which that thing answers the variation to \qWhy{}.%
-  \footnote{
-    In this respect, the variation to \qWhy{} need not be \emph{intensionally} adequate.
-    Where the variation of \qWhy{} (or \qHow{}) would be intensionally adequate just in case the variation captured the way something \emph{intuitively} answers \qWhy{}.
-  }
+  \begin{quote}
+    \vspace{-1.5\baselineskip}
+    \questionHowBasic*
+  \end{quote}
 
-  Still, we are only interested in `rough' extensional adequacy.
-  In particular, we are only interested in answers to \qWhy{} and \qHow{} to the extent that \issueInclusion{} plausibly holds.
-  Hence, we will ignore intuitive answers to \qWhy{} and \qHow{} which extend beyond \issueInclusion{}.
-  And, to the extent that \issueInclusion{} is intuitive, the variations \emph{may} conflict with this intuition.
+  \begin{quote}
+    \vspace{-1.5\baselineskip}
+    \issueInclusionFirst*
+  \end{quote}
+  The overall goal of this document is to argue \issueInclusion{} does not hold.
+  And, to do so we will develop a general type of counterexample to \issueInclusion{}.
+
+  Still, both \qWhy{} and \qHow{} are broad questions which turn on the way in which the respective instances of `why' and `how' are understood.
+  Hence, without establishing a clear understanding of the way in which the instances are to be understood, it is unclear how to develop counterexamples to \issueInclusion{}.
+
+  However, these variations must obey to competing constraints:
+
+  \begin{enumerate}[label=\alph*., ref=(\alph*)]
+  \item
+    \label{vars:constraint:ce}
+    The variations to \qWhy{} and \qHow{} allow for the possibility for the variation of \issueInclusion{} to fail to hold.
+  \item
+    \label{vars:constraint:int}
+    As \issueInclusion{} intuitively constrains answers to \qWhy{} in terms of answers to \qHow{}, a variation on \issueInclusion{} should intuitively constrain answers to the variation to \qWhy{} in terms of the variation to \qHow{}.
+  \end{enumerate}
+
+  Indeed, Constraint~\ref{vars:constraint:int} is a source of significant concern.
+
+  For, there may be plausible answers to \qWhy{} which are not also answers to \qHow{} but fail to be counterexamples to \issueInclusion{} as the relevant sense of `why' and `how' are not the senses of `why' and `how' that \issueInclusion{} (intuitively) holds with respect to.
+
+  And, as a constraint on answers to \qWhy{} in terms of \qHow{}, \issueInclusion{} may plausibly have a role in narrowing the relevant senses of `why' and `how' at issue.
+  And, if \issueInclusion{} is rejected, then, naturally, \issueInclusion{} cannot perform this role.
+
+  Hence, if the variations to \qWhy{}, \qHow{} or \issueInclusion{} fail to preserve intuitions regarding \qWhy{}, \qHow{} and \issueInclusion{}, then any counterexample to the variations will be of little to no interest.
+
+  Further, to the extent that various theories of conclusion, or sufficiently related phenomena, either implicitly or explicitly endorse \issueInclusion{}, it should be the case that the same theories either implicitly or explicitly motivate the variation of \issueConstraint{} constraining answers to the variation of \qWhy{} in terms of answers to \qHow{}.
 \end{note}
 
 \begin{note}
-  In broad outline, we will use the idea of a `\ros{0}' to provide variations on \qWhy{}, \qHow{}, and \issueInclusion{}.
-  Where, a \ros{0} holds between some proposition-value pair \(\pv{\phi}{v}\) and some pool of premises \(\Phi\), from an \agpe{0}.
-
-  The way in which we understand \ros{1} is be minimal and tightly connected to an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  Indeed, our interest with \ros{1} is captured by three basic ideas:
+  In broad outline, we use the idea of a `\ros{0}' to provide variations on \qWhy{}, \qHow{}, and \issueInclusion{}.
+  The way in which we understand \ros{1} is minimal and tightly connected to an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  Specifically, we put forward three ideas in relation to \ros{1}:
   \begin{enumerate}
   \item
     If an agent concludes \(\pv{\phi}{v}\) from \(\Phi\), then a \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\), from the \agpe{}, when the agent pairs \(\phi\) with \(v\).
@@ -119,18 +99,91 @@
     It is possible for a \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) to hold, from an \agpe{}, without their being an \wit{0} for the \ros{0}.
   \end{enumerate}
 
-  With the aid of \ros{1} we develop variations of \qWhy{} and \qHow{} as follows:
+  \autoref{cha:var:ros} will develop and discuss each idea in detail.
+
+  For the moment, the motivation for abstracting to \ros{1} is to capture, in a abstract way, the way in which \(\pv{\phi}{v}\) and \(\Phi\) are related from an \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Rather than directly capturing some relevant sense of `why' or `how' our goal is to use \ros{1} to construct variations on \qWhy{} and \qHow{} which are \emph{roughly} `extensionally adequate'.
+  Where, we understand the term `extensionally adequate' more-or-less in line with \citeauthor{Sumner:1987aa} (\citeyear{Sumner:1987aa}):
+
+  \begin{quote}
+    [A] conception of a concept is extensionally adequate when it includes every item which seems pre-analytically to be an instance of the concept and excludes every item which does not.%
+    \mbox{ }\hfill\mbox{(\citeyear[49]{Sumner:1987aa})}
+  \end{quote}
+
+  Adapted to our case, our interest with \qWhy{} and \qHow{} is with respect to intuitive answers to \qWhy{} and \qHow{} (and in particular the intuition that \issueInclusion{} holds).
+  And, the variations of both \qWhy{} and \qHow{} may be seen as `conceptions of a question' such that any answer to \qWhy{} is an answer to the variation of \qWhy{}, vice-versa, and the same with respect to \qHow{}.
+
+  Still, the way in which something answers \qWhy{} need not be equivalent to the way in which that thing answers the variation to \qWhy{}.%
+  \footnote{
+    In this respect, the variation to \qWhy{} need not be \emph{intensionally} adequate.
+    Where the variation of \qWhy{} (or \qHow{}) would be intensionally adequate just in case the variation captured the way something \emph{intuitively} answers \qWhy{}.
+  }
+
+  And, we are only interested in `rough' extensional adequacy.
+  In particular, we are only interested in answers to \qWhy{} and \qHow{} to the extent that \issueInclusion{} plausibly holds.
+  Hence, we will ignore intuitive answers to \qWhy{} and \qHow{} which extend beyond \issueInclusion{}.
+
+  Further, to the extent that \issueInclusion{} is intuitive, the variations \emph{may} conflict with this intuition.
+\end{note}
+
+\begin{note}
+  With the aid of \ros{1} we develop variations of \qWhy{} and \qHow{}:
 
   \begin{itemize}
   \item
-    Eliminate the relevant instance of `why' in favour of whether pairing \(\phi\) and \(v\) depended on a \ros{0} holding between \(\pv{\psi}{v'}\) and \(\Psi\).
+    `Why' is eliminated from \qWhy{} in favour of whether the agent conclusion of \(\pv{\phi}{v}\) from \(\Phi\) depended on a \ros{0} holding between \(\pv{\psi}{v'}\) and \(\Psi\).
   \item
-    Eliminate the relevant instance of `how' in favour of whether or not there is an event in which agent concludes \(\pv{\psi}{v'}\) from \(\Psi\), and hence `\wit{1}' the \ros{}.
+    `How' is eliminated from \qHow{} in favour of events which serve to \wit{0} any \ros{} that the agent's conclusion of \(\pv{\phi}{v}\) from \(\Phi\) depended on.
   \end{itemize}
 
-  A variant to \issueConstraint{} follows from these variations and holds, roughly, that a \ros{} explains, in part, why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\) \emph{only} if the agent has a \wit{} for the \ros{0}.
+  So, the variation to \qWhy{} is expected to be extensionally adequate for:
 
-  So, to develop (indirect) counterexamples to \issueConstraint{} it is sufficient to show there are cases in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that:
+  If conclusion does not depend on \ros{}, then plausible that it is possible to answer \qWhy{} without citing the proposition-value-premises pairing.
+  For, event would have occurred regardless of whether paired.
+
+  If conclusion does depend on \ros{}, then proposition-value-premises pairing answers, in part, \qWhy{}.
+  For, event would not have occurred regardless of whether paired.
+
+  Variation to \qHow{}.
+  Developed with respect to variation on \qWhy{}.
+
+  If \ros{}, then if event \wit{} \ros{}, then of interest.
+  If event which does not lead to \ros{}, then event is of no interest.
+\end{note}
+
+\begin{note}
+  An significant consequence of both variations will be as follows:
+
+  \begin{itemize}
+  \item
+    When an agent concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    \begin{itemize}
+    \item The agent's conclusion of \(\pv{\phi}{v}\) from \(\Phi\) depends on a \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holding, from the \agpe{}.
+    \item The event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) serves as a \wit{0} for the \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\).
+    \end{itemize}
+  \end{itemize}
+  Hence, a \ros{} between \(\pvp{\phi}{v}{\Phi}\) will always be, in part, an answer to the variation of \qWhy{} and the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) will always be, in part, an answer to the variation of \qHow{}.
+\end{note}
+
+\begin{note}
+  A variant to \issueInclusion{} follows from the variations to \qWhy{} and \qHow{}.
+  Roughly:
+
+  \begin{itemize}
+  \item
+    A conclusion of \(\pv{\phi}{v}\) from \(\Phi\) depends on some \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holding from the \agpe{}
+
+    \emph{Only if}:
+
+    The agent has a \wit{} for the \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  \end{itemize}
+\end{note}
+
+\begin{note}
+  With an initial understanding of the variations to \qWhy{}, \qHow{}, and \issueInclusion{} in hand, we now return to the overall argument of this document.
+  Our goal is to develop counterexamples to \issueInclusion{}.
+  And, given the variation to \issueInclusion{} which follows from the variations to \qWhy{} and \qHow{}, we will do so by showing there are cases in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that:
   \begin{itemize}
   \item
     The agent pairing \(\phi\) and \(v\) depended on a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holding, from the \agpe{}.
@@ -142,103 +195,83 @@
 \section{\ros{3}}
 \label{cha:var:ros}
 
-{
-  \color{red} Include some examples.
-}
-
 \begin{note}
-  The present section introduces \ros{}.
+  In \autoref{cha:var:sec:wiggling} we briefly sketched the role \ros{1} will have in this document.
+  The present section develops and discusses \ros{1} in detail.
 
-  The role of \ros{1} within this document is to capture, in an abstract way, the --- or a --- relation which holds between a proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Phi\) which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  The role of \ros{1} within this document is to capture, in a abstract way, the way in which a proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Phi\) are related from an \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
 \begin{note}
-  We will always qualify that a \ros{} holds \emph{from an \agpe{}}.
-  Our interest is with conclusions, parings of propositions with values by an agent.
-  We have no interest in what holds apart from an \agpe{}.
-\end{note}
+  Our understanding of a `\ros{1}' is given in terms of three ideas, and sub-sections will develop and discuss each idea in detail:
 
-\begin{note}
-  Our understanding of a `\ros{1}' is given in terms of three ideas:
-
-  \begin{itemize}
+  \begin{enumerate}[label=, leftmargin=*]
   \item
-    \supportI{}:
+    \TOCLine{cha:var:ros:I}
 
     An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for a \ros{} to hold, from the \agpe{}.
   \item
-    A \wit{} for a \ros{}:
+    \TOCLine{cha:var:ros:W}
 
     An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) provides an agent with a \wit{0} for a \ros{}.
   \item
-    \supportII{}:
+    \TOCLine{cha:var:ros:II}
 
     It is possible for a \ros{} to hold, from an \agpe{} without the agent having a \wit{} for the \ros{}.
-  \end{itemize}
+  \end{enumerate}
 
-  \supportI{}, tied to an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \supportII{}, does not require an event.
+  \autoref{cha:var:ros:II} will also briefly introduce and discuss the way in which a \ros{} may hold, from an \agpe{} without the agent having a \wit{} from the \ros{}.
+  The core idea is that of \(\pv{\phi}{v}\) being a `\fc{0}' from \(\Psi\).
+  And, that if \(\pv{\phi}{v}\) is a \fc{0} from \(\Psi\), then a \ros{1} holds between \(\pv{\psi}{v'}\) and \(\Psi\), from the \agpe{}.
 
-  Way holds, \fc{0}.
-  \fc{} is such that action such that after performing action, event in which concludes is in progress.
-
-  \fc{} then \ros{} is not a basic idea.
-  Rather, \supportI{} and \supportII{} are basic.
-  Understanding of \ros{} is primarily given in terms of events in which agent concludes.
-  Possibility is so that may have \ros{} answering how without answering why.
-  And, granting \supportII{}, \fc{1} seem strongest candidate for possibility.
+  A final subsection, \autoref{cha:var:ros:Emb}, will introduce and discuss a useful feature of abstracting to \ros{1} which we term `embedding'.
 \end{note}
 
 \begin{note}
   We speak in terms of \ros{1} holding from an \agpe{}.
-  However, given some agent \vAgent{}, proposition \(\phi\), value \(v\), and pool of premises \(\Phi\), we do not draw any particular distinction between:
+  However, given some agent \vAgent{}, proposition \(\phi\), value \(v\), and \poP{} \(\Phi\), we do not draw any particular distinction between:
 
   \begin{enumerate}[label=\alph*., ref=(\alph*)]
   \item
     \label{ros:ap:maybe:a}
-    A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holding, from an \agpe{\vAgent{}'}.
+    A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from an \agpe{}.
   \item
     \label{ros:ap:maybe:b}
-    The pairing of the proposition `A \ros{} holds between \(\pv{\phi}{v}\) and \(\Phi\)' with the value `True' by \vAgent{}.
+    The pairing of the proposition `A \ros{} holds between \(\pv{\phi}{v}\) and \(\Phi\)' with the value `True' by the agent.
 
     I.e.\ the proposition-value pair:\newline
     \mbox{ }\hfill%
     \(\pv{\text{A \ros{} holds between } \pv{\phi}{v}\text{ and }\Phi}{\text{True}}\)
   \end{enumerate}
 
-  Any significant distinction between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} would turn on details too specific for the level of generality we target.
-  In general, what holds from an \agpe{} may just amount to which propositions are paired with the value `True' by the agent.
+  Any significant distinction between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} would turn on details too specific for the degree of abstraction we target.
+  For, what holds from an \agpe{} may just amount to which propositions are paired with the value `True' by the agent.
+  % As~\ref{ros:ap:maybe:a} is shorter, we will only use~\ref{ros:ap:maybe:b} when we wish to explicitly consider 
 
-  Still, we will use the difference in presentation between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b}:
-  \begin{itemize}
-  \item
-    \ref{ros:ap:maybe:b} explicitly captures a proposition-value pair.
-    So, \ref{ros:ap:maybe:b} identifies something which may be a premises from which a conclusion is drawn.
-    Hence, we will use the presentation of \ref{ros:ap:maybe:b} when we wish to highlight the possibility that the relevant \ros{} may function as a premise for some conclusion.
-    \item
-      By contrast,~\ref{ros:ap:maybe:a} does not explicitly capture a proposition-value pair.
-      So, it is not immediate that the relevant \ros{} may be a premise for which a conclusion is drawn.
-      Hence, we will use the presentation of~\ref{ros:ap:maybe:a} when we wish to highlight the possibility that the relevant \ros{} may not function as a premise.
-  \end{itemize}
-  In general, presentation of~\ref{ros:ap:maybe:a}.
-  For, it may not be possible to reduce certain things captured by \ros{} to premise.
-  For example, consider a strong distinction between the role of premises and rules of inference following \citeauthor{Carroll:1895uj}'s \citetitle{Carroll:1895uj}.
+  % Still, the difference in presentation between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} is suggestive:
+  % \begin{itemize}
+  % \item
+  %   \ref{ros:ap:maybe:b} explicitly captures a proposition-value pair.
 
-  Make this distinction clearer by a discussion of embedding.
-\end{note}
+  %   Hence, \ref{ros:ap:maybe:b} explicitly identifies something which may be a premises from which a conclusion is drawn.
+  % \item
+  %   By contrast,~\ref{ros:ap:maybe:a} does not explicitly capture a proposition-value pair.
 
-\begin{note}
-  In outline.
-  \begin{enumerate}[label=]
-  \item
-    \TOCLine{cha:var:ros:I}
-  \item
-    \TOCLine{cha:var:ros:W}
-  \item
-    \TOCLine{cha:var:ros:II}
-  \item
-    \TOCLine{cha:var:ros:Emb}
-  \end{enumerate}
+  %   Hence,~\ref{ros:ap:maybe:a} only implicitly identifies something which may be a premises from which a conclusion is draw.
+
+  %   And, if~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} are not equivalent,~\ref{ros:ap:maybe:a} may fail to identify something which may be a premises from which a conclusion is draw
+  % \end{itemize}
+
+  % Hence, we will use the presentation of \ref{ros:ap:maybe:b} when we wish to highlight the possibility that the relevant \ros{} may function as a premise for some conclusion.
+  % And, likewise, we will use the presentation of~\ref{ros:ap:maybe:a} when we wish to highlight the possibility that the relevant \ros{} may not function as a premise.
+
+  % Indeed, we will favour the presentation of~\ref{ros:ap:maybe:a} to remain neutral on whether \ros{}
+
+  % In general, presentation of~\ref{ros:ap:maybe:a}.
+  % For, it may not be possible to reduce certain things captured by \ros{} to premise.
+  % For example, consider a strong distinction between the role of premises and rules of inference following \citeauthor{Carroll:1895uj}'s \citetitle{Carroll:1895uj}.
+
+  % Make this distinction clearer by a discussion of embedding.
 \end{note}
 
 \subsection{\supportI{}}
@@ -249,7 +282,7 @@
 
   \begin{idea}[\supportI{}]
     \label{idea:support}
-    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), pool of premises \(\Phi\), and event \(e\):
+    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), \poP{} \(\Phi\), and event \(e\):
 
     \begin{itemize}
     \item[\emph{If}:]
@@ -283,7 +316,16 @@
 \end{note}
 
 \begin{note}
- ~\supportI{} is distinct from~\citeauthor{Boghossian:2014aa}'s Taking Condition:%
+  Given \supportI{}, we will always qualify that a \ros{} holds \emph{from an \agpe{}}.
+  Our interest is with conclusions, parings of propositions with values by an agent.
+  Hence, we have no interest in whatever the idea of a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) simpliciter.
+  As outlined in \autoref{cha:clar:sec:CCC:pvp}, we place no restrictions on conclusions.
+  Hence, if an agent concludes that the ratio of the long side to the short side of a piece of paper is not \(\sqrt{2}\) from some \poP{} \(\Phi\), then, by \supportI{}, a \ros{} holds between:
+  \(\pv{\text{The ratio of the long side to the short side of a piece of paper is not }\sqrt{2}}{\text{True}}\) and \(\Phi\).
+\end{note}
+
+\begin{note}
+ \supportI{} is similar to, but designed to be distinct from,~\citeauthor{Boghossian:2014aa}'s Taking Condition:%
   \footnote{
     There are various objections to~\citeauthor{Boghossian:2014aa}'s Taking Condition, though we take no stance on whether~\citeauthor{Boghossian:2014aa}'s Taking Condition holds.
 
@@ -295,7 +337,7 @@
     In particular,~\supportI{} is closer to what \citeauthor{McHugh:2016vp} term the `Consequence Condition' (\citeyear[cf.][316]{McHugh:2016vp}), which \citeauthor{McHugh:2016vp} also (indirectly) argue against.
     However, \citeauthor{McHugh:2016vp} does not consider an alternative account of what distinguishes concluding from any other action, and as~\supportI{} is designed to capture this distinction, it is unclear to me whether \citeauthor{McHugh:2016vp}'s arguments apply to~\supportI{} (if, indeed, they are sound).
 
-    \citeauthor{Wright:2014tt} denies that reasoning must involve a state which connects premises to conclusions. (\citeyear[Cf.][33-34]{Wright:2014tt})
+    \citeauthor{Wright:2014tt} denies that reasoning must involve a state which connects premises to conclusions, as discussed in the main body of this section. (\citeyear[Cf.][33-34]{Wright:2014tt})
   }
 
   \begin{quote}
@@ -304,57 +346,96 @@
     \mbox{}\hfill\mbox{(\citeyear[5]{Boghossian:2014aa})}
   \end{quote}
 
+  There is an immediate superficial difference in that~\citeauthor{Boghossian:2014aa} states the Taking Condition in terms of inferring.
+  However, `a conclusion' may be substituted for `inferring' and an important distinction remains.
+  For, `taking' is understood by \citeauthor{Boghossian:2014aa} to be substantive.
+
+  \citeauthor{Boghossian:2014aa} illustrates with the following \scen{}:
   \begin{quote}
-    The intuition behind the Taking Condition is that no causal process counts as inference, unless it consists in an attempt to arrive at a belief by figuring out what, in some suitably broad sense, is supported by other things one believes.%
-    \mbox{}\hfill\mbox{(\citeyear[5]{Boghossian:2014aa})}
+    On waking up one morning I recall that:
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), series=BogEx]
+    \item
+      \label{BogEx:1}
+      It rained last night.
+    \end{enumerate}
+
+    I combine this with my knowledge that
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume*=BogEx]
+    \item
+      \label{BogEx:2}
+      If it rained last night, then the streets are wet.
+    \end{enumerate}
+
+    to conclude:
+
+    So,
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume*=BogEx]
+    \item
+      \label{BogEx:3}
+      The streets are wet.
+    \end{enumerate}
+    This belief then affects my choice of footwear.%
+    \mbox{ }\hfill\mbox{(\citeyear[2]{Boghossian:2014aa})}
   \end{quote}
 
-  In short, \citeauthor{Boghossian:2014aa} assumes that inferring is a causal process, and the role of the Taking Condition is to distinguish the specific process of inferring from some other causal process.
-  Of course, \citeauthor{Boghossian:2014aa} states the Taking Condition in terms of inferring, but extends to concluding.
+  And \citeauthor{Boghossian:2014aa} expands as follows:
 
-  In contrast, we do not require that \support{} has any particular role an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  As mentioned, static (and partial) perspective on dynamic process.
+  \begin{quote}
+    [M]y inferring from~\ref{BogEx:1} and~\ref{BogEx:2} to~\ref{BogEx:3} must involve my arriving at the judgment that~\ref{BogEx:3} in part \emph{because} I \emph{take} the presumed truth of~\ref{BogEx:1} and~\ref{BogEx:2} to provide support for~\ref{BogEx:3}.
+    Let us call this insistence that an account of inference must in this way incorporate a notion of ``taking'' the Taking Condition on inference.%
+    \mbox{ }\hfill\mbox{(\citeyear[4]{Boghossian:2014aa})}
+  \end{quote}
+
+  Hence, for \citeauthor{Boghossian:2014aa}, the Taking Condition captures something \emph{in addition} to~\ref{BogEx:3} being a conclusion from a \poP{} which includes~\ref{BogEx:1} and~\ref{BogEx:2}.
+  The presence of `taking' has a distinctive role in classifying the move from~\ref{BogEx:1} and~\ref{BogEx:2} to~\ref{BogEx:3} as an inference (or as a conclusion).
+
+  In contrast, we do not require that a \ros{} has any particular role \emph{for the agent} in event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  If an agent concludes~\ref{BogEx:3} from~\ref{BogEx:1} and~\ref{BogEx:2}, then a \ros{} holds between~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\), from the \agpe{} ---~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\) are related, in some way by the agent.
+  However, the \ros{} between~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\) need not itself have a role in the agent conclusion of~\ref{BogEx:3} from \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\).
 \end{note}
 
 \begin{note}
   \phantlabel{Wright-simple-supportI}
-  Indeed, our understanding of \support{} is close to \citeauthor{Wright:2014tt}'s (\citeyear{Wright:2014tt}) `Simple Proposal':
+  Indeed, our intuitive understanding of \ros{} is close to \citeauthor{Wright:2014tt}'s (\citeyear{Wright:2014tt}) `Simple Proposal':
   \begin{quote}
-    \dots consider instead the proposal, not that the status of the transition as inferential depends on the thinker's judgments about his reasons, but that it depends on \emph{what his reasons are}.
+    [C]onsider instead the proposal, not that the status of the transition as inferential depends on the thinker's judgments about his reasons, but that it depends on \emph{what his reasons are}.
     We want his acceptance of the premises to supply his \emph{actual} reasons for accepting the conclusion.
-
-    \mbox{}\hfill\(\vdots\)\hfill\mbox{}
+    \dots
 
     Call this the Simple Proposal.
     It says that a thinker infers q from p\(_{1}\) \(\cdots\) p\(_{\text{n}}\) when he accepts each of p\(_{1}\) \(\cdots\) p\(_{\text{n}}\), moves to accept q, and does so for the reason that he accepts p\(_{1}\) \(\cdots\) p\(_{\text{n}}\).%
     \mbox{}\hfill\mbox{(\citeyear[33]{Wright:2014tt})}
   \end{quote}
 
-  \citeauthor{Wright:2014tt}'s simple proposal is that, from the \agpe{}, the relation between pool of premises and conclusion need not be part of why agent moves to accept conclusion.
-  Considering how the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient.
+  \citeauthor{Wright:2014tt}'s simple proposal is that, from the \agpe{}, the relation between a conclusion and some \poP{} need not be part of what moves the agent to conclude the conclusion from the \poP{}.
 
   \begin{quote}
-      What is needed, then, is an account of, or at least some insight into, what it is for certain intentional states of a thinker to be his actual reasons for his transition to another intentional state.
+    What is needed, then, is an account of, or at least some insight into, what it is for certain intentional states of a thinker to be his actual reasons for his transition to another intentional state.
+    \dots
+    We need to avoid committing to the notion that doing something for certain reasons must involve a state that somehow registers those reasons as reasons for what one does.%
+    \mbox{}\hfill\mbox{(\citeyear[34]{Wright:2014tt})}
+  \end{quote}
 
-      [Which avoids] committing to the notion that doing something for certain reasons must involve a state that somehow registers those reasons as reasons for what one does.%
-      \mbox{}\hfill\mbox{(\citeyear[34]{Wright:2014tt})}
-    \end{quote}
+  Still, anticipating the role of \ros{} in construction a variation to \qWhy{}, it intuitively remains the case that a \ros{} explains, in part, why an agent concluded the conclusion from the \poP{} for, the \ros{} captures \emph{that} the agent accepted each of the premises and moved to accept the conclusion (in \citeauthor{Wright:2014tt}'s terminology).
 
   Still, following the discussion above, there is an important between~\supportI{} and \citeauthor{Wright:2014tt}'s Simple Proposal.
   For,~\supportI{} is an entailment, while \citeauthor{Wright:2014tt}'s Simple Proposal is an identity statement.
-  Inferring, on the Simple Proposal, is an agent accepting some conclusion for the reason that they accept some (pool of) premises.
- ~\supportI{} does not entail that concluding is nothing more than pairing \(\phi\) with value \(v\) as a result of \(\Phi\).
+  Inferring, on the Simple Proposal, is an agent accepting some conclusion for the reason that they accept premises from some \poP{}.
+  \supportI{} does not entail that concluding is nothing more than moving to accept \(\pv{\phi}{v}\) as a result of accepting each element of \(\Phi\).
 \end{note}
 
 \subsection{A \wit{0} for a \ros{0}}
 \label{cha:var:ros:W}
 
 \begin{note}
-  We define \wit{} as follows:
+  We define a \wit{3} for \ros{1} as follows:
 
   \begin{definition}[A \wit{2}]
     \label{def:witnessing}
-    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), and pool of premises \(\Phi\):
+    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), and \poP{} \(\Phi\):
 
     \begin{enumerate}[label=]
     \item
@@ -373,7 +454,8 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  If \(e\) is event of concluding \(\pv{\phi}{v}\) from \(\Phi\), then when agent pairs \(\phi\) with \(v\), the agent has a \wit{} for \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+  \ros{3} hold from an \agpe{}.
+  Hence, we say that \emph{an agent has} a \wit{0} for some \ros{} to implicitly capture that \ros{} are agent relative.
 \end{note}
 
 \begin{note}
@@ -384,7 +466,7 @@
 
   \begin{proposition}[Concludes, then witnessed \support{}]
     \label{prop:cws}
-    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Phi\):
+    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Phi\):
     \begin{itemize}
     \item
       If \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) then:
@@ -454,7 +536,7 @@
 
   To illustrate, consider an agent working through a proof of some theorem.
 
-  Abstractly, let \(\theta\) be the state of affairs characterised by the theorem, and let \(\Theta\) be the relevant pool of premises.
+  Abstractly, let \(\theta\) be the state of affairs characterised by the theorem, and let \(\Theta\) be the relevant \poP{}.
   Our interest is with the conclusion \(\pv{\theta}{\text{True}}\) from \(\Theta\).
 
   Suppose the agent reasons to \(\pv{\theta}{\text{True}}\) from \(\Theta\).
@@ -480,7 +562,7 @@
 
   There are various ways to square the \scen{0} with our understanding of a \wit{0}.
   For example, one may consider the extended event in which the agent reasons, returns, and concludes.
-  Or, one may hold that when the agent concluded \(\pv{\theta}{\text{True}}\), the agent concluded \(\pv{\theta}{\text{True}}\) not from \(\Theta\), but from some pool of premises \(\Theta'\) which include the adequacy of the agent's prior reasoning as a premise.
+  Or, one may hold that when the agent concluded \(\pv{\theta}{\text{True}}\), the agent concluded \(\pv{\theta}{\text{True}}\) not from \(\Theta\), but from some \poP{} \(\Theta'\) which include the adequacy of the agent's prior reasoning as a premise.
 
   Still, it is not clear to me that either of the options suggested --- or any other option --- is preferable to weakening \autoref{def:witnessing} in such a way that an event \(e\) which serves as a \wit{} to some \ros{} falls short of being an event in which an agent concludes.
 
@@ -500,11 +582,12 @@
 
 \begin{note}
   \supportI{} states that a \ros{} holds between \(\pv{\phi}{v}\) and \(\Phi\), from the \agpe{}, when an agent concludes \(\pv{\phi}{v}\).
-  \supportII{}, in short, denies the converse of \supportI{} is the case:
+  \supportII{}, in short, denies the converse of \supportI{} is the case.
+  In full:
 
   \begin{idea}[\supportII{}]
     \label{idea:support:possible}
-    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), and pool of premises \(\Phi\):
+    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), and \poP{} \(\Phi\):
 
     \begin{itemize}
     \item
@@ -532,34 +615,29 @@
   \supportII{}, then, allows for the \emph{possibility} that the kind of thing which answers, in part, why an agent concluded is not constrained by how the agent concluded.
 
   However, our motivation for \supportII{} is independent of the success of the overall argument of this document.
+
+  In short, any constraint on answers to why an agent concludes by answers to how an agent concludes is substantial.
+  And, given the sketch of the way in which we develop variations of \qWhy{} and \qHow{} from \autoref{cha:var:sec:wiggling}, denying that there is any instance in which a \ros{} may answer, in part, why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\) without the agent having a \wit{} for the \ros{} amounts to a substantive constraint.
+
+  Indeed, \supportII{} should not be of any immediate concern.
+  For, there is a significant gap between:
+
+  \begin{itemize}[noitemsep]
+  \item
+    There being a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) from an \agpe{} without the agent having a \wit{} for the \ros{}.
+  \item
+    The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\), from the \agpe{}, answering, in part, and in some sense, why the agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{itemize}
 \end{note}
 
-\begin{note}
-  First, any constraint on answers to why an agent concludes by answers to how an agent concludes is substantial.
-  Suppose there is the possibility.
-  Kind of thing that could, perhaps, answer why, by absence of \wit{0} account for why does not answer.
-  So, substance of the constraint.
-  Rules out such possibilities.
-\end{note}
+
+\subsubsection{\fc{3}}
+\label{cha:var:ros:II:fcs}
 
 \begin{note}
-  Second, it is plausible that there are cases in which both~\ref{idea:support:possible:a} and~\ref{idea:support:possible:b} are true.
+  In this section we briefly sketch plausible \scen{1} in which Clauses~\ref{idea:support:possible:a}~and~\ref{idea:support:possible:b} of \supportII{} are both true.
 
-  For example, consider \autoref{illu:gist:calc}.
-  \(23 \times 15 = 345\).
-  Calculator.
-  However, more-or-less basic arithmetic.
-  Consider after getting result.
-  \ros{} between \(23 \times 15 = 345\) and any pool of premises.
-  For, plausible the agent may perform the calculation themselves.
-
-  Given the opportunity, the agent would conclude \(23 \times 15 = 345\) from their understanding of arithmetic.
-
-  Everything is in place for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
-
-  This type of situation, in which some event \(e\) may occur such that that \(e\) is an event in which the agent concludes some proposition-value pair \(\pv{\phi}{v}\) from some pool of premises \(\Phi\).
-
-  \fc{}%
+  In these \scen{1} some proposition-value pair \(\pv{\psi}{v'}\) is a `\fc{}'%
   \footnote{
     A hyphen between `foregone' and `conclusion' to indicate the specific interpretation of the term
   }%
@@ -575,20 +653,25 @@
 
     However, no interest in justification.
   }
+  from some \poP{} \(\Psi\).
+\end{note}
+
+\begin{note}
+  For example, recall \autoref{illu:gist:calc}.
+  The agent concluded \(23 \times 15 = 345\) from the testimony of a calculator.
+  Still, \(23 \times 15\) is more-or-less basic arithmetic.
+  And, the agent may have no difficulty doing such arithmetic.
+  % Hence, after receiving the testimony of the calculator it may be clear to the agent that not only does \(23 \times 15 = 345\) follow from the testimony of the calculator, but \(23 \times 15 = 345\) also follows from the agent's understanding of arithmetic.
+  So, given the opportunity, the agent would conclude \(23 \times 15 = 345\) from their understanding of arithmetic.
+  And, by \supportI{}, if the agent were to take the opportunity, a \ros{} would hold between \(23 \times 15 = 345\) and some \poP{} that would be employed if the agent were to multiply \(23\) by \(15\).
+  Hence, obtaining the \ros{} between \(23 \times 15 = 345\) and the relevant \poP{} from \supportI{} is pending only on the agent taking up the opportunity.
+  
 
   In this respect, \ros{} is equally foregone.
   For, \ros{} follows obtains when the agent concludes \(\pv{\phi}{v}\).
   Hence, \ros{} without \wit{0}.
 \end{note}
 
-\begin{note}
-  Still, looking ahead a little, \supportII{} should not be of any immediate concern.
-  For, suppose consider an instance \ros{} without event in which agent concludes.
-  There mere existence of such an relation does not show that the relation is relevant to why.
-\end{note}
-
-\subsubsection{\fc{3}}
-\label{cha:var:ros:II:fcs}
 
 \begin{note}
   Above, described a general type of \scen{0}.
@@ -603,7 +686,7 @@
   We capture this basic idea via the progressive:
 
   \begin{sketch}[\fc{3}]
-    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Phi\):
+    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Phi\):
 
     \begin{enumerate}[label=]
     \item
@@ -741,7 +824,7 @@
 \begin{note}
   The previous sections detailed the three key ideas by which we understand \ros{1} in this document.
 
-  The present section concerns, for some arbitrary proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Psi\), the distinction between:
+  The present section concerns, for some arbitrary proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Psi\), the distinction between:
 
   \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
   \item
@@ -789,7 +872,7 @@
 
   \begin{definition}[Degree of embedding withing a \ros{}]
     \label{def:embedding:degree}
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), pool of premises \(\Phi\), and \(i \in \mathbb{N}\):
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), \poP{} \(\Phi\), and \(i \in \mathbb{N}\):
 
     \begin{itemize}
     \item
@@ -814,7 +897,7 @@
 
   \begin{definition}[Embedding within a \ros{}]
     \label{def:embedding}
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and a pool of premises \(\Phi\):
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and a \poP{} \(\Phi\):
 
 
     \begin{itemize}
@@ -836,7 +919,7 @@
   A final definition captures when this is the case:
 
   \begin{definition}[Embedded \ros{1}]
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and pools of premises \(\Phi\), \(\Psi\):
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and \poP{1} \(\Phi\), \(\Psi\):
 
     \begin{itemize}
     \item
@@ -930,6 +1013,14 @@
 \end{note}
 
 \begin{note}
+  \citeauthor{Boghossian:2008vf}:
+  \begin{quote}
+    [W]e would have to take as primitive a \emph{general (often conditional) content serving as the reason for which one believes something}, without this being mediated by inference of any kind.%
+    \mbox{ }\hfill\mbox{(\citeyear[500]{Boghossian:2008vf})}
+  \end{quote}
+\end{note}
+
+\begin{note}
   Significance for arguments is that dependence captured by \qWhyVnP{} does not amount to the \ros{} being a premise.
 \end{note}
 
@@ -957,56 +1048,22 @@
 \begin{note}
   In \autoref{cha:var:sec:wiggling} we outlined how we will developed variations of \qWhy{}, \qHow{}, and \issueInclusion{} in terms of \ros{}.
   \autoref{cha:var:ros} outlined how we understand \ros{1}.
-  So, in the present section we state the variations.
+  In the present section we state the variations.
+  We write the variants as `\qWhyVnP{}', `\qHowV{}', and `\issueConstraint{}', and the section is split into sub-sections which develop and discuss each variation.
 
-  The section is split into three sub-sections covering \qWhy{}, \qHow{}, and \issueInclusion{}, respectively.
-  We write the variants as `\qWhyVnP{}' and `\qHowV{}' (in contrast to `\qWhy{}' and `\qHow{}').
+  % \begin{enumerate}[label=]
+  % \item
+  %   \TOCLine{cha:var:sec:vars:qwhyvnp}
+  % \item
+  %   \TOCLine{cha:var:sec:vars:qhowv}
+  % \item
+  %   \TOCLine{cha:var:sec:vars:issue}
+  % \end{enumerate}
 
   We term \qWhyVnP{} and \qHowV{} as \emph{variant} questions because \qWhyVnP{} and \qHowV{} are, respectively, too narrow and too broad to function as substitutes for \qWhy{} and \qHow{}.
   Hence, to clarify the way in which \qWhyVnP{} is a variant of \qWhy{} and the way in which \qHowV{} is a variant of \qHow{} we will explicitly link the variant to the initial question.
   We will then build the variant to \issueInclusion{} from \issueInclusion{} and the links between the variant questions and the initial questions.
 \end{note}
-
-\begin{note}
-  Overall argument.
-  Links then answer to \qWhyVnP{} which is not constrained by \qHowV{}, then \issueInclusion{} fails.
-
-  Three broad ways in which the overall argument may fail:
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
-  \item
-    The link between \qWhyVnP{} and \qHowV{} fails to hold.
-  \item
-    The link between \qHowV{} and \qHow{} fails to hold.
-  \item
-    We fail to develop counterexamples to \issueConstraint{}.
-  \end{enumerate}
-
-  Still, I hope to have developed \qWhyVnP{} and \qHowV{} in such a way that both questions are of some interest independent of links, and that \issueConstraint{} follows the same intuition that motivates \issueInclusion{}.
-
-  Indeed, in \autoref{cha:clar:sec:literature} we suggest how a handful of accounts of conclusion, or related, may be understood in terms of \qWhyVnP{} and \qHowV{}, and how the accounts motivate \issueConstraint{} as a constraint on answers to \qWhyVnP{} in terms of answers to \qHowV{}.
-
-  Further, weaker constraint, and hence may be of interest even if you think \issueInclusion{} is too stringent of a constraint.
-\end{note}
-
-% \begin{note}
-  % \begin{itemize}
-  % \item
-  %   \qWhyVnP{}%
-  %   \mbox{ }\hfill\autoref{cha:var:sec:vars:qwhyvnp}
-
-  %   Variation on \qWhy{}.
-  % \item
-  %   \qHowV{}%
-  %   \mbox{ }\hfill\autoref{cha:var:sec:vars:qhowv}
-
-  %   Variation on \qHow{}.
-  % \item
-  %   \issueConstraint{}%
-  %   \mbox{ }\hfill\autoref{cha:var:sec:vars:issue}
-
-  %   Variation on \issueInclusion{}.
-  % \end{itemize}
-% \end{note}
 
 \subsection{\qWhyVnP{}}
 \label{cha:var:sec:vars:qwhyvnp}
@@ -1021,20 +1078,24 @@
   \end{quote}
 
   Rather than asking for proposition-value-premises pairings associated with explanations of `why' an agent concluded \(\pv{\phi}{v}\) from \(\Phi\), the variation of \qWhy{} queries which \ros{1} are such that the conclusion of \(\pv{\phi}{v}\) from \(\Phi\) \emph{depended} on the \ros{1} holding, from the \agpe{}.
-  Where the relevant sense of `depends' is captured, roughly, by following the subjunctive conditional:
+  Where the relevant sense of `depends' is captured, roughly, by following the sketch:
   \phantlabel{dependence:rough}
+  \nocite{Lewis:1973aa}
 
-  \begin{quote}
+  \begin{sketch}[Dependence]
+    \label{sketch:dependence}
+    For things \(\mathbb{A}\) and \(\mathbb{B}\):
     \begin{itemize}
     \item
-      \(\mathcal{Y}\) depends on \(\mathcal{X}\)
+      \(\mathbb{B}\) depends on \(\mathbb{A}\)
     \end{itemize}
     \emph{If and only if}
     \begin{itemize}
     \item
-      If \(\mathcal{X}\) were not the case, \(\mathcal{Y}\) would not be the case.
+      If \(\mathbb{A}\) were not the case, \(\mathbb{B}\) would not be the case.
     \end{itemize}
-  \end{quote}
+    \vspace{-\baselineskip}
+  \end{sketch}
 
   In general, link between dependence and answers to why is difficult.
   For example,
@@ -1044,8 +1105,13 @@
   \end{quote}
   Wilson being employed depends on Smith being employed.
 
+  However, as~\cite{Sanford:1989aa} observes, it may be the case that:
+
   \begin{quote}
-    The firings of Smith and Wilson are completely independent in that neither resulted from the other, and there is nothing from which each resulted. But Wilson definitely was or will be the first to be fired. If anyone was fired, Wilson was fired.
+    The firings of Smith and Wilson are completely independent in that neither resulted from the other, and there is nothing from which each resulted.
+    But Wilson definitely was or will be the first to be fired.
+    If anyone was fired, Wilson was fired.%
+    \mbox{ }\hfill\mbox{(\citeyear[192--193]{Sanford:1989aa})}
   \end{quote}
 
   So, dependence in this sense is difficult.
@@ -1095,7 +1161,7 @@
 
   \begin{restatable}[\qWhyVnP{}]{question}{questionWhyVnP}
     \label{q:why:v:nP}
-    Given an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), pool of premises \(\Phi\), and event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    Given an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), \poP{} \(\Phi\), and event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
     \begin{quote}
       Which proposition-value-premises pairings \(\pvp{\psi}{v'}{\Psi}\) are such that, when \vAgent{} pairs \(\phi\) with \(v\):
@@ -1143,7 +1209,7 @@
 
   \begin{proposition}
     \label{prop:ros-always-answer}
-    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Phi\):
+    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Phi\):
 
     \begin{itemize}
     \item
@@ -1162,9 +1228,9 @@
   That is, in order for a \ros{} to answer \qWhyVnP{}, it must be the case that the agent would not have concluded \(\pv{\phi}{v}\) from \(\Phi\), not merely fail to pair \(\phi\) with \(v\).
 
   To illustrate, consider again \autoref{illu:gist:calc}, in which an agent concluded \(23 \times 15 = 345\) from the testimony of a calculator.
-  If we only considered the event in which the agent pairs \(23 \times 15 = 345\) with the value True, the \ros{} between \(\pv{23 \times 15 = 345}{\text{True}}\) and a pool of premises which includes the testimony of the calculator may \emph{fail} to answer, in part, \qWhyVnP{}.
+  If we only considered the event in which the agent pairs \(23 \times 15 = 345\) with the value True, the \ros{} between \(\pv{23 \times 15 = 345}{\text{True}}\) and a \poP{} which includes the testimony of the calculator may \emph{fail} to answer, in part, \qWhyVnP{}.
   For, it may still have the case that the agent paired \(23 \times 15 = 345\) with the value True due to the agent performing the calculation by their understanding of arithmetic.
-  However, such an event would not be a sub-event of an event in which the agent concludes \(\pv{23 \times 15 = 345}{\text{True}}\) from a pool of premises which includes the testimony of the calculator.
+  However, such an event would not be a sub-event of an event in which the agent concludes \(\pv{23 \times 15 = 345}{\text{True}}\) from a \poP{} which includes the testimony of the calculator.
 \end{note}
 
 \begin{note}
@@ -1216,7 +1282,7 @@
 
   For, consider a \scen{0} in which an agent concludes \(23 \times 15 = 345\) from their understanding of arithmetic, such that some time shortly before the agent did the calculation, the agent concluded it would be good to get some coffee.
 
-  For example, intuitively it should not be the case that the \ros{} and the conclusion that it would be good to get some coffee answers, in part, why the agent concluded some theorem is true from some pool of premises.
+  For example, intuitively it should not be the case that the \ros{} and the conclusion that it would be good to get some coffee answers, in part, why the agent concluded some theorem is true from some \poP{}.
   Though, it may well be the case that the agent would have been too tired to conclude the theorem without the aid of the coffee.%
   \footnote{
     \citeauthor{Armstrong:1968vh} (\citeyear[195--196]{Armstrong:1968vh}) discusses a similar example, and suggests a discussion of this issue may also be found in \textcite{Moore:1962up}.
@@ -1230,7 +1296,7 @@
   For, it's plausible the agent may have decided otherwise.
   And, given tired, decided to use a calculator instead.%
   \footnote{
-    Further, now distinction \ros{1} between pools of premises and the conclusion to do arithmetic or use a calculator.
+    Further, now distinction \ros{1} between \poP{1} and the conclusion to do arithmetic or use a calculator.
   }
   So, not just circumstances surrounding event, but features of the event which are important for capturing those \ros{1} which do, intuitively, explain, in part, why the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
@@ -1335,7 +1401,7 @@
 
   \begin{restatable}[\qHowV{}]{question}{questionHowV}
     \label{q:how:v}
-    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), and pool of premises \(\Phi\), and an event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), and \poP{} \(\Phi\), and an event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
     \begin{enumerate}[label=]
     \item
@@ -1359,7 +1425,7 @@
 
   \begin{proposition}
     \label{prop:phi-always-how}
-    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and pool of premises \(\Phi\):
+    For an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Phi\):
 
     \begin{itemize}
     \item
@@ -1462,7 +1528,7 @@
     \label{prop:support-and-witnessing}
     Assuming \linkW{}, \linkH{}, and \issueInclusion{} hold:
 
-    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and pools of premises \(\Phi\), \(\Psi\):
+    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and \poP{1} \(\Phi\), \(\Psi\):
 
     \begin{itemize}
     \item
@@ -1526,7 +1592,7 @@
 
   \begin{restatable}[\issueConstraint{}]{constraint}{issueConstraintStatement}
     \label{issue:has-witnessed}
-    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and pools of premises \(\Phi\), \(\Psi\):
+    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and \poP{1} \(\Phi\), \(\Psi\):
 
     \begin{itemize}
     \item
@@ -1558,7 +1624,7 @@
 
   \begin{proposition}[\issueConstraint{}, rewritten]
     \label{prop:constraint-rewrite}
-    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and pools of premises \(\Phi\), \(\Psi\):
+    For an agent \vAgent{}, proposition-value pairs \(\pv{\phi}{v}\), \(\pv{\psi}{v'}\), and \poP{1} \(\Phi\), \(\Psi\):
 
     \issueConstraint{} is equivalent to the following conditional:
 
@@ -1566,21 +1632,27 @@
     \item[\emph{If}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
+        \label{constraint-rewrite:a}
         \vAgent{} concluded \(\pv{\phi}{v}\) from \(\Phi\).
       \end{enumerate}
     \item[\emph{And}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
+        \label{constraint-rewrite:b}
         \vAgent{} would not have concluded \(\pv{\phi}{v}\) from \(\Phi\), if a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) failed to hold, from \agpe{\vAgent{}'}.
       \end{enumerate}
     \item[\emph{Then}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
+        \label{constraint-rewrite:c}
         \vAgent{} has a \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
       \end{enumerate}
     \end{enumerate}
     \begin{argument}
       Immediate by \autoref{prop:support-and-witnessing} and the construction to \qWhyVnP{} and \qHowV{}.
+
+      The antecedent of the conditional~---~\ref{constraint-rewrite:a}~\&~\ref{constraint-rewrite:b}~---~correspond to a \ros{} being, in part, an answer to \qWhyVnP{} while the consequent~---~\ref{constraint-rewrite:c}~---~corresponds to the \wit{0} which answers, in part, \qHowV{}.
+      The conditional then follows from \autoref{prop:support-and-witnessing}.
     \end{argument}
   \end{proposition}
 
@@ -1593,7 +1665,7 @@
 \begin{note}
   Above, we observed how~\supportI{} and~\supportII{} may combine in such a way that \support{} holds between \(\pv{\psi}{v'}\) and \(\Psi\) (from an \agpe{}), though the agent has does not have a \wit{0} for the \ros{0} between \(\pv{\psi}{v'}\) from \(\Psi\) --- or more naturally stated, though the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).
 
-  We have not yet seen any examples to suggest that there are cases in which concluding \(\pv{\phi}{v}\) from \(\Phi\) depends on \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\)%
+  We have not yet seen any examples to suggest that there are cases in which a conclusion of \(\pv{\phi}{v}\) from \(\Phi\) depends on \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\)%
   \footnote{
     Where either \(\phi \ne \psi\), \(v \ne v'\), or \(\Phi \ne \Psi\).
   }
@@ -1603,21 +1675,58 @@
 \end{note}
 
 \begin{note}
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \item
+    \label{Embed:again:no}
+    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  \item
+    \label{Embed:again:yes}
+    A \ros{0} between \(\Phi\) and \(\pv{\phi}{v}\), where:
+    \begin{itemize}
+    \item
+      \(\Phi\) contains the proposition-value-premises pairing:
+      \begin{itemize}
+      \item
+        \(\pv{\text{A \ros{} between }\pv{\psi}{v'}\text{ and }\Psi}{\text{True}}\)
+      \end{itemize}
+    \end{itemize}
+  \end{enumerate}
+
   Now, suppose an agent does not have a \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  The upshot of the distinction between~\ref{Embed:no} and~\ref{Embed:yes} is as follows:
+  The upshot of the distinction between~\ref{Embed:again:no} and~\ref{Embed:again:yes} is as follows:
 
   \begin{itemize}
   \item
-    If the \ros{0} of \ref{Embed:no} is, in part, an answer to \qWhyVnP{} then the \ros{0} is a counterexample to \issueConstraint{}.
+    If the \ros{0} of \ref{Embed:again:no} is, in part, an answer to \qWhyVnP{} then the \ros{0} is a counterexample to \issueConstraint{}.
   \item
-    If the \ros{0} of \ref{Embed:yes} is, in part, an answer to \qWhyVnP{} then the \ros{0} is \emph{not} a counterexample to \issueConstraint{}.
+    If the \ros{0} of \ref{Embed:again:yes} is, in part, an answer to \qWhyVnP{} then the \ros{0} is \emph{not} a counterexample to \issueConstraint{}.
   \end{itemize}
 
 
-  Rather, the difference is \emph{how} the \ros{} functions with respect to the agent pairing \(\phi\) with \(v\).
+  Again, the difference is \emph{the way in which} the \ros{} functions with respect to the agent pairing \(\phi\) with \(v\).
   Whether the \ros{} functions as a premise when the agent concludes \(\pv{\phi}{v}\), or whether the \ros{} functions in a way that is different to a premise.
+\end{note}
 
-  What we capture by \ros{} as answer to \qWhyVnP{} and proposition-value pair which captures \ros{} is not necessarily a difference in reference, but a difference in function.
+\subsection{Summary}
+\label{cha:var:sec:vars:summary}
+
+\begin{note}
+  Overall argument.
+  Links then answer to \qWhyVnP{} which is not constrained by \qHowV{}, then \issueInclusion{} fails.
+
+  Three broad ways in which the overall argument may fail:
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
+  \item
+    The link between \qWhyVnP{} and \qWhy{} fails to hold.
+  \item
+    The link between \qHowV{} and \qHow{} fails to hold.
+  \item
+    We fail to develop counterexamples to \issueConstraint{}.
+  \end{enumerate}
+
+  Still, I hope to have developed \qWhyVnP{}, \qHowV{}, and \issueConstraint{} in such a way that both questions are of some interest independent of link
+
+  In \autoref{cha:clar:sec:literature} we suggest how a handful of accounts of conclusion, or related, may be understood in terms of \qWhyVnP{} and \qHowV{}, and how the accounts motivate \issueConstraint{} as a constraint on answers to \qWhyVnP{} in terms of answers to \qHowV{}.
 \end{note}
 
 
@@ -1626,7 +1735,7 @@
 \label{cha:clar:sec:literature}
 
 \begin{note}
-  \autoref{cha:var:sec:vars} introduced variants to \qWhy{}, \qHow{}, and \issueInclusion{}.
+  \autoref{cha:var:sec:vars} introduced \qWhyVnP{}, \qHowV{}, and \issueConstraint{}, variants to \qWhy{}, \qHow{}, and \issueInclusion{}, respectively.
 
   Linked together.
 
@@ -1644,6 +1753,7 @@
   Observe how plausibly understood in terms of \wit{} and constraint.
 
   In many cases, constraint is given by identification with \wit{}.
+
   In turn, understand this to implicitly constrain an answer to why.
 
   With causal accounts, more or less immediate.
@@ -1813,7 +1923,7 @@
   \end{quote}
 
   Hence, suppose an agent concludes.
-  Then, if the agent does not witness reasoning from pool of premises, it seems the agent does not manifest know-how, which is required for the appeal to meet \citeauthor{Lord:2018aa}'s account of rational action.
+  Then, if the agent does not witness reasoning from \poP{}, it seems the agent does not manifest know-how, which is required for the appeal to meet \citeauthor{Lord:2018aa}'s account of rational action.
 
   Of course, that the noted disposition is the most salient does not rule out alternative, less noteworthy, dispositions.
   However, issues is \emph{manifesting} know-how without a \wit{}.
@@ -2091,7 +2201,7 @@
 
   \begin{restatable}[\qWhyV{}]{question}{questionWhyV}
     \label{q:why:v}
-    Given an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), pool of premises \(\Phi\), and event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    Given an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), \poP{} \(\Phi\), and event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
 
     \begin{quote}
       Which proposition-value-premises pairings \(\pvp{\psi}{v'}{\Psi}\) are such that, when \vAgent{} pairs \(\phi\) with \(v\):
