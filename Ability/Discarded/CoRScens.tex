@@ -153,7 +153,7 @@
 
     \begin{itemize}
     \item
-      From \vAgent{}' perspective, \emph{when} concluding \(\pv{\phi}{v}\) from \(\Phi\):
+      From \agpe{\vAgent{}'}, \emph{when} concluding \(\pv{\phi}{v}\) from \(\Phi\):
       \begin{itemize}
       \item
         There is some proposition-value pair \(\pv{\psi}{v'}\) and pool of premises \(\Psi\) such that:
@@ -176,49 +176,12 @@
 
   For ease of reference, we term scenarios of this type `\cScen{1}', where `C' stands for `\collateral{0}'.
 
-  The key feature of \cScen{1} is that prior to concluding \(\pv{\phi}{v}\) from \(\Phi\), there is some other proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\), such that, from the agent's perspective, \(\pv{\phi}{v}\) from \(\Phi\) only if \(\pv{\psi}{v'}\) from \(\Psi\).
+  The key feature of \cScen{1} is that prior to concluding \(\pv{\phi}{v}\) from \(\Phi\), there is some other proposition-value-premises pairing \(\pvp{\psi}{v'}{\Psi}\), such that, from the \agpe{}, \(\pv{\phi}{v}\) from \(\Phi\) only if \(\pv{\psi}{v'}\) from \(\Psi\).
 
-  In this respect, whether \(\pv{\psi}{v'}\) from \(\Psi\) is a partial check on whether it makes sense for the agent, from their perspective, to conclude \(\pv{\phi}{v}\) from \(\Phi\) given the reasoning they have performed.
+  In this respect, whether \(\pv{\psi}{v'}\) from \(\Psi\) is a partial check on whether it makes sense for the agent, from \agpe{their}, to conclude \(\pv{\phi}{v}\) from \(\Phi\) given the reasoning they have performed.
 \end{note}
 
-\section{Check}
-\label{sec:check}
-
-\begin{note}
-  \color{red}
-  Here, I just have an abstract check, this doesn't directly relate to the instance of reasoning.
-  I don't think there's a worthwhile rewrite in which I include the opportunity here.
-  And, this helps, perhaps, as I can bright up the contrast.
-  And, when these types of scenarios fail to be of direct interest.
-\end{note}
-
-\begin{note}
-  Interested in \cScen{1} as we get a partial check.
-\end{note}
-
-\begin{note}
-  Two keys ways in which partial check.
-  \begin{enumerate}
-  \item
-    Something about the reasoning performed.
-  \item
-    Some other way of getting the conclusion.
-  \end{enumerate}
-\end{note}
-
-\begin{note}
-  We expand on this in three steps.
-  First, why \(\pvp{\psi}{v'}{\Psi}\) is a \emph{check}.
-  Second, why \(\pvp{\psi}{v'}{\Psi}\) is a check \emph{on reasoning}.
-  And, finally, why \(\pvp{\psi}{v'}{\Psi}\) is a \emph{partial} check on reasoning.
-\end{note}
-
-\begin{note}[Check]
-  Agent has the option.
-  Something went wrong with the reasoning from premises to conclusion.
-\end{note}
-
-\section{Contrast to inital \scen{0}}
+\section{Contrast to \autoref{illu:gist:calc}}
 
 \begin{note}
   \color{blue}
@@ -238,7 +201,7 @@
 \begin{note}
   On the agent's reasoning.
 
-  The key contrast here is between \scen{1}~\ref{illu:gist:roots} and~\ref{illu:gist:calc}.
+  The key contrast here is between \autoref{illu:gist:roots} and~\autoref{illu:gist:calc}.
 
   Difference is how failure relates to the premise.
 
@@ -303,131 +266,10 @@
 
 \subsection{\cScen{3}}
 
-\begin{note}
-  \begin{restatable}[Squish elimination]{scenario}{scenarioPLSquish}
-    \label{scen:squish}
-    I conclude \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) from the both the following syntactic proof and the soundness of the rules of inference:
-    \begin{center}
-      \begin{fitch}
-        \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
-        \phantlabel{illu:sP:2}\fj Q \\
-        \phantlabel{illu:sP:3}\fa P & Squish\textbf{Elim:} \hyperref[illu:sP:1]{1} \\
-        \phantlabel{illu:sP:4}\fa P \land Q & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
-      \end{fitch}
-    \end{center}
-  \end{restatable}
-
-  The proof consists of two premises and two rules of inference.
-  The two rules of inference are of interest.
-
-  The second rule of inference used is standard `\(\land\)' introduction, and applies to lines \hyperref[illu:sP:2]{2} and \hyperref[illu:sP:3]{3}.
-  Where the conditional holds is unclear.
-  On the one hand, troubled if failed to show that `\(\land\)' introduction is sound.
-  However, testimony\dots
-
-  The first rule of inference is non-standard `Squish' elimination applied to line \hyperref[illu:sP:1]{1}.
-
-  \begin{center}
-    % For any formula of the form \((\alpha \rightarrow \beta) \rightarrow \alpha\), infer \(\alpha\).
-    \begin{fitch}
-      \ftag{\scriptsize i}{\fa (\alpha \rightarrow \beta) \rightarrow \alpha} \\
-      \ftag{\scriptsize }{\fa \vdots } \\
-      \ftag{\scriptsize j}{\fa \alpha } & Squish\textbf{Elim:}\emph{i} \\
-    \end{fitch}
-  \end{center}
-
-  \(\alpha\) `squishes' \(\beta\).
-
-  \phantlabel{squish-elimination-proof}
-  For a quick proof, suppose \((P \rightarrow Q) \rightarrow P\) is true.
-  And for contradiction assume \(P\) is false.
-  As \(P\) is false, it immediately follows that \(P \rightarrow Q\) is true.
-  Therefore, by the initial supposition, \(P\) is true.
-  Hence, we have obtained the desired contradiction.
-\end{note}
-
-\begin{note}
-  Two ways in which this works.
-
-  First, soundness of `Squish'-elimination.
-
-  Second, from basic rules.
-
-  \begin{center}
-    \begin{fitch}
-      \fa (P \rightarrow Q) \rightarrow P \\
-      \fj Q \\
-      \fa \fh P & \\
-      \fa \fa Q & \textbf{Reit:} 2 \\
-      \fa P \rightarrow Q & \(\rightarrow\)\textbf{Intro:} 3--4 \\
-      \fa P & \(\rightarrow\)\textbf{Elim:} 1,5 \\
-      \fa P \land Q & \(\land\)\textbf{Intro:} 2,6
-    \end{fitch}
-  \end{center}
-\end{note}
-
-\begin{note}[Propositional logic generalised]
-  Second option, general type of \scen{0} in two ways:
-
-  Soundness:
-
-  \begin{quote}
-    Make sure all the rules are sound, whether these are basic or derived rules.
-  \end{quote}
-
-  Semantic entailment:
-
-  \begin{scenario}[Propositional logic generalised]
-    \label{illu:sketch:prop-logic}
-    Suppose an agent has a good grasp of propositional logic.
-    In particular:
-    \begin{itemize}
-    \item
-      The agent has a good understanding of some formal proof system.
-      For example, some Fitch-style system.
-    \item
-      The agent has a good understanding of some method to construct semantic proofs.
-      For example, by constructing truth tables, or reasoning about valuation functions.
-    \item
-      The agent understands the proof system is sound.
-      That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{only if} \(A\) is true given an arbitrary valuation.
-    \end{itemize}
-    The agent constructs a proof of \(A\).
-
-    Given the agent's understanding of propositional logic, the agent observes:
-    \begin{quote}
-      The construction is a proof of \(A\) \emph{only if} \(A\) is true given an arbitrary valuation.
-    \end{quote}
-  \end{scenario}
-
-  Intuitively, if the agent were to reason about whether \(A\) is true given an arbitrary valuation and failed to conclude \(A\) is true given an arbitrary valuation, then the agent would not conclude the construction is a proof of \(A\).
-
-  If were to go for semantic, then by soundness, works out.
-\end{note}
-
 \begin{note}[Interest]
   Delicate, the equivalence result is not in question.
   What's at issue is one's reasoning.
   The result tells me that if reasoning is fine for syntax, then also semantics and vice-versa.
-\end{note}
-
-\begin{note}[Programming]
-  \begin{scenario}
-    \label{illu:programming}
-    Writing a program to automate some reasoning/processing of data.
-  \end{scenario}
-  Various test cases.
-  In these, possible to do the reasoning oneself.
-  Therefore, no appeal to program for these simple cases, at least.
-  This is quite similar to the logic illustration in this sense.
-
-  However, interest here as interdependence breaks down in interesting ways.
-  For, may break down due to resource constraints.
-  E.g.\ available time or complexity of inputs.
-
-  And, after enough time with the program, failure to obtain the same result is not clearly going to indicate a problem with the program.
-  Rather, one's reasoning.
-  Though, in turn, this may be reversed after enough checking of the reasoning.
 \end{note}
 
 \begin{note}
