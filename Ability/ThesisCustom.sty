@@ -125,24 +125,26 @@
 }
 \ExplSyntaxOff
 
+\newcommand{\ofPremises}[0]{\space of\space premises}
+
 \ExplSyntaxOn
 \DeclareDocumentCommand{\poP}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{pool\space of\space premises}}%
+    \obeybreaks{\obeybreaks{pool\ofPremises{}}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{pool\space of\space premises}}%
+      \obeybreaks{\obeybreaks{pool\ofPremises{}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{pools\space of\space premises}}%
+      \obeybreaks{\obeybreaks{pools\ofPremises{}}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Pool\space of\space premises}}%
+      \obeybreaks{\obeybreaks{Pool\ofPremises{}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{Pool\space of\space premises}}%
+      \obeybreaks{\obeybreaks{Pool\ofPremises{}}}%
     \fi
   }
 }
@@ -348,20 +350,20 @@
 \DeclareDocumentCommand{\requ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[idea:requ]{requisite}}%
+    \obeybreaks{\hyperref[def:requ]{requisite}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[idea:requ]{requisite}}%
+      \obeybreaks{\hyperref[def:requ]{requisite}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[idea:requ]{requisites}}%
+      \obeybreaks{\hyperref[def:requ]{requisites}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[idea:requ]{Requisite}}%
+      \obeybreaks{\hyperref[def:requ]{Requisite}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[idea:requ]{Requisites}}%
+      \obeybreaks{\hyperref[def:requ]{Requisites}}%
     \fi
   }
 }
@@ -371,20 +373,20 @@
 \DeclareDocumentCommand{\requP}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[idea:requP]{requisite\(^{\sharp}\)}}%
+    \obeybreaks{\hyperref[def:requP]{requisite\(^{\sharp}\)}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[idea:requP]{requisite\(^{\sharp}\)}}%
+      \obeybreaks{\hyperref[def:requP]{requisite\(^{\sharp}\)}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[idea:requP]{requisites\(^{\sharp}\)}}%
+      \obeybreaks{\hyperref[def:requP]{requisites\(^{\sharp}\)}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[idea:requP]{Requisite\(^{\sharp}\)}}%
+      \obeybreaks{\hyperref[def:requP]{Requisite\(^{\sharp}\)}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[idea:requP]{Requisites\(^{\sharp}\)}}%
+      \obeybreaks{\hyperref[def:requP]{Requisites\(^{\sharp}\)}}%
     \fi
   }
 }
@@ -1619,6 +1621,98 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} !no-sense!}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCing}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{super-concluding}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{super-concluding}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\color{red} !no-sense!}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{Super-concluding}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\color{red} !no-sense!}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCon}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{super-conclusion}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{super-conclusion}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusion}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusion}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusions}}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCe}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{Super-concludes}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{Super-concludes}}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\curb}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curbs}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{Curb}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{Curbs}}}}%
     \fi
   }
 }
