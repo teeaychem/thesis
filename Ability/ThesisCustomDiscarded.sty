@@ -1130,3 +1130,468 @@
 \ExplSyntaxOn
 \DeclareDocumentCommand{\misled}{ m }{\tl_if_empty:nTF {#1}{\text{misled}}{\text{Misled}}}
 \ExplSyntaxOff
+
+\newcommand{\incl}[0]{\textsf{Inclusion}}
+\newcommand{\asso}[0]{\textsf{Association}}
+
+\newcommand{\WR}[0]{\hyperref[WR:def]{\textsf{Event}}}
+
+\newcommand{\AR}[0]{\hyperref[AR:def]{\textsf{Property}}}
+\newcommand{\ARB}[0]{\hyperref[AR:def]{\textsf{Property:Basic}}}
+\newcommand{\ARD}[0]{\hyperref[AR:def]{\textsf{Property:Derived}}}
+
+\newcommand{\future}[0]{\textsf{Forward}}
+\newcommand{\agent}[0]{\emph{S}}
+\newcommand{\ientails}[0]{\ensuremath{\Rightarrow}}
+\newcommand{\geop}[1]{\ensuremath{\mathcal{O}_{#1}}}
+\newcommand{\propsupp}[1]{\ensuremath{\bm{P}(#1)}}
+
+
+\newcommand*\cancel[2][thin]{\tikz \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+\newcommand*\Cancel[2][thick]{\tikz \node [strike out,draw,anchor=text,inner sep=0pt,#1]{#2};}
+
+% https://tex.stackexchange.com/questions/394985/very-short-arrow-symbol
+\newcommand{\veryshortarrow}[1][3pt]{\mathrel{%
+   \vcenter{\hbox{\rule[-.5\fontdimen8\textfont3]{#1}{\fontdimen8\textfont3}}}%
+   \mkern-4mu\hbox{\usefont{U}{lasy}{m}{n}\symbol{41}}}}
+%
+
+\newcommand{\iRequ}[0]{\hyperref[idea:requ]{\named{Requisite}}}%
+
+\newcommand{\requGlobalClause}{%
+  \obeybreaks{For any other step of reasoning for which \(\psi\) having value \(v'\) is a \result{}, \(\psi\) having value \(v'\) is also a \requ{} (by satisfying the other clauses of this definition).}%
+}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\possibility}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{viability}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{viability}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{viabilities}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Viability}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Viabilities}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateV}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicate}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicate}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{indicates}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indicate}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Indicates}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateVed}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicated}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicated}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indicated}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicatePr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indicating}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indicating}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{indicating}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\indicateN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{indication}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{indication}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} indications}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Indication}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} Indications}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\adA}[0]{\hyperref[def:adA]{\textsf{Attestment}}}
+
+\newcommand{\adB}[0]{\hyperref[def:adB]{\textsf{Interpolation}}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\itp}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{interpolant}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{interpolant}\fi
+    \ifnum1=#1\relax\obeybreaks{interpolants}\fi
+    \ifnum2=#1\relax\obeybreaks{Interpolant}\fi
+    \ifnum3=#1\relax\obeybreaks{Interpolants}\fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\cluster}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{cluster}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{cluster}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{clusters}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Cluster}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Clusters}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\requCluster}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\cluster{0}\space of\space \requ{1}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\cluster{0}\space of\space \requ{1}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\cluster{1}\space of\space \requ{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\cluster{3}\space of\space \requ{1}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\cluster{3}\space of\space \requ{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ragged}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{ragged}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{ragged}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Ragged}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ragCluster}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\ragged{0}\space \cluster{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\ragged{0}\space \cluster{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\ragged{0}\space \cluster{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\ragged{2}\space \cluster{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\ragged{2}\space \cluster{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\jag}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{jag}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{jag}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{jags}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Jag}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Jags}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Commands for distinction matrix
+
+\newcommand{\saMtxEmpty}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
+      \hline
+      \SetCell[c=2]{c} \WR{} & & ? & ? \\
+      \hline
+      \SetCell[r=2]{c} \AR{} & Basic & ? & ? \\
+      \cline[dashed]{2-4}
+      & Derived & ?  & ? \\
+    \end{tblr}%
+}
+% Label = fig:saMtxEmpty
+
+\newcommand{\saMtxInterpreted}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
+      \hline
+      \SetCell[c=2]{c} \WR{} & & That there is an event in which \emph{S} \emph{V}s that \(\phi\) entails \(\phi\) & Parts of an event in which \emph{S} \emph{V}s that \(\phi\) entail \(\phi\) \\
+      \hline
+      \SetCell[r=2]{c} \AR{} & Basic  & That \emph{S} has the ability (to \emph{V} that \(\phi\)) entails \(\phi\) & --- \\
+      \cline[dashed]{2-4}
+      & Derived & That there is some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) & Parts of some property \emph{P} (from \emph{S} having the ability to \emph{V} that \(\phi\)) entails \(\phi\) \\
+    \end{tblr}%
+}
+% Label = fig:saMtxInterpreted
+
+\newcommand{\saMtxRuledOut}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
+      \hline
+      \SetCell[c=2]{c} \WR{} & & Ruled out by \LCS{}  & Ruled out by \ESU{} \\
+      \hline
+      \SetCell[r=2]{c} \AR{} & Basic  & Ruled out by \LCS{}  & ---  \\
+      \cline[dashed]{2-4}
+      & Derived & Ruled out by \LCS{}  & Ruled out by \ESU{} \\
+    \end{tblr}%
+}
+
+% Label = fig:saMtxRuledOut
+
+\newcommand{\saMtxRuledOutESU}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
+      \hline
+      \SetCell[c=2]{c} \WR{} & &  & Ruled out by \ESU{} \\
+      \hline
+      \SetCell[r=2]{c} \AR{} & Basic  &  & --- \\
+      \cline[dashed]{2-4}
+      & Derived &  & Ruled out by \ESU{} \\
+    \end{tblr}%
+}
+
+\newcommand{\saMtxRuledOutLCS}{%
+  \begin{tblr}{abovesep=8pt, belowsep=8pt, width=0.95\textwidth, colspec={Q[c,m]|Q[c,m]|Q[1.8,c,m]|Q[1.8,c,m]}}
+      \SetCell[c=2]{c} & & \adA{} & \adB{} \\
+      \hline
+      \SetCell[c=2]{c} \WR{} & & Ruled out by \LCS{}  &  \\
+      \hline
+      \SetCell[r=2]{c} \AR{} & Basic  & Ruled out by \LCS{}  & ---  \\
+      \cline[dashed]{2-4}
+      & Derived & Ruled out by \LCS{}  &  \\
+    \end{tblr}%
+}
+
+\newcommand{\illEproofMem}[0]{\obeybreaks{I remember having created a syntactic proof of \formula{\forall x Px \rightarrow \lnot \exists x \lnot P x} (using a sound first-order system).}}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\stance}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{stance}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{stance}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Stance}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCing}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{super-concluding}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{super-concluding}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\color{red} !no-sense!}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\obeybreaks{Super-concluding}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCing]{\color{red} !no-sense!}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCon}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{super-conclusion}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{super-conclusion}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusion}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusion}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCon]{\obeybreaks{Super-conclusions}}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sCe}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{super-concludes}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{Super-concludes}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:sCe]{\obeybreaks{Super-concludes}}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\psat}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{projected\space satisfaction}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{projected\space satisfaction}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Projected\space satisfaction}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{red} NO-SENSE}%
+    \fi
+  }
+}
+\ExplSyntaxOff

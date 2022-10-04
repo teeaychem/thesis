@@ -1,0 +1,561 @@
+\chapter{Embedding \ros{1}}
+\label{cha:embed}
+
+
+\begin{note}
+  In this chapter we return to \ros{1} in order to introduce and discuss a useful feature of abstracting to \ros{1} which we term `embedding'.
+
+  Embedding have two functions in this document.
+  \begin{itemize}
+  \item
+    Clarify a concern regarding the counterexamples that we will develop to \issueConstraint{}.
+  \item
+    Capture additional accounts of events in which an agent concludes form the literature.
+  \end{itemize}
+
+  Personally, I find the concern quite concerning, and embedding allows a clear account of what this concern is.
+  Still, an understanding of the concern is not required background in order to understand the way in which counterexamples are develop.
+  Hence, you may safely skip this chapter.
+\end{note}
+
+\begin{note}
+  If you decide to read this chapter, it is split into three sections:
+
+  \begin{enumerate}[label=]
+  \item
+    \TOCLine{cha:var:ros:Emb}
+
+    Introduce distinction, define, and intuition.
+  \item
+    \TOCLine{sec:wrangling}
+
+    The concern.
+  \item
+    \TOCLine{cha:var:sec:embedding}
+
+    A handful of accounts from the literature.
+  \end{enumerate}
+\end{note}
+
+\section{Embedding \ros{1}}
+\label{cha:var:ros:Emb}
+
+\begin{note}
+  \autoref{cha:var:ros} detailed the three key ideas by which we understand \ros{1} in this document.
+
+  The present section concerns, for some arbitrary proposition-value pair \(\pv{\phi}{v}\) and \poP{} \(\Psi\), the distinction between:
+
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \item
+    \label{Embed:no}
+    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  \item
+    \label{Embed:yes}
+    A \ros{0} between \(\Phi\) and \(\pv{\phi}{v}\), where:
+    \begin{itemize}
+    \item
+      \(\Phi\) contains the proposition-value-premises pairing:
+      \begin{itemize}
+      \item
+        \(\pv{\text{A \ros{} between }\pv{\psi}{v'}\text{ and }\Psi}{\text{True}}\)
+      \end{itemize}
+    \end{itemize}
+  \end{enumerate}
+
+  \ref{Embed:no} is a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  Likewise, \ref{Embed:yes} involves a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  However, the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is itself a premise in a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+  In this respect, we will say the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is \emph{embedded} within a \ros{} --- specifically the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+\end{note}
+
+\begin{note}
+  Embedding of this kind will be:
+  \begin{itemize}[noitemsep]
+  \item
+    Useful for relating the variations of \qWhy{} and \qHow{} to theories of concluding, or related phenomena. And,
+  \item
+    Important for clarifying a difficult for developing counterexamples to \issueInclusion{}.
+  \end{itemize}
+\end{note}
+
+\subsection{Definitions}
+\label{cha:var:ros:Emb:defs}
+
+\begin{note}
+  In full, we define embedding in the following way:%
+  \footnote{
+    We assume, in general, that if a proposition \(\phi\) includes some other proposition \(\phi'\), then if \(\pv{\phi}{\text{True}} \in \Phi\) then \(\pv{\phi'}{\text{True}} \in \Phi\).
+    In other words, if \(\pv{\phi'\text{ and }\phi''}{\text{True}} \in \Phi\) then both \(\pv{\phi'}{\text{True}} \in \Phi\) and \(\pv{\phi''}{\text{True}} \in \Phi\).
+    We do not extend this assumption to values other than `True'.
+  }
+
+  \begin{definition}[Degree of embedding withing a \ros{}]
+    \label{def:embedding:degree}
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), \poP{} \(\Phi\), and \(i \in \mathbb{N}\):
+
+    \begin{itemize}
+    \item
+      \(\pv{\psi}{v'}\) has a \emph{degree of embedding \(1\)} with respect to a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) if and only if \(\pv{\psi}{v'} \in \Phi\).
+    \item
+      \(\pv{\psi}{v'}\) is has a \emph{degree of embedding \(i\)} with respect to a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) if and only if:
+      \begin{itemize}
+      \item
+        There exists some \(\pv{\theta}{v''}\) and \(\Theta\) such that:
+        \begin{itemize}
+        \item
+          \(\pv{\psi}{v'} \in \Theta\)
+        \item
+          \(\pv{\text{A \ros{} between }\pv{\theta}{v''}\text{ and }\Theta}{\text{True}}\) is an \(i - 1\) embedding with respect to the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  The cases of interest to us are where \(\pv{\psi}{v'}\) is embedded within in a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), no matter the degree of embedding:
+
+  \begin{definition}[Embedding within a \ros{}]
+    \label{def:embedding}
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and a \poP{} \(\Phi\):
+
+
+    \begin{itemize}
+    \item
+      \(\pv{\psi}{v'}\) is \emph{embedded} within in a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\)
+    \end{itemize}
+
+    \emph{If and only if:}
+
+    \begin{itemize}
+    \item
+      \(\pv{\psi}{v'}\) is has a degree of embedding \(i\) with respect to the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), for some \(i \in \mathbb{N}\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  The definition of an embedding covers arbitrary proposition-value pairs.
+  However, the cases of embedding of interest to us are where \ros{1} are embedded within a \ros{}.
+  A final definition captures when this is the case:
+
+  \begin{definition}[Embedded \ros{1}]
+    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and \poP{1} \(\Phi\), \(\Psi\):
+
+    \begin{itemize}
+    \item
+      The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is embedded within the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+    \end{itemize}
+
+    \emph{If and only if}
+
+    \begin{itemize}[noitemsep]
+    \item
+      \(\chi\) is the proposition `\(\text{A \ros{} between }\pv{\psi}{v'}\text{ and }\Psi\)'.
+    \item
+      \(v''\) is the value `True'.
+    \item
+      \(\pv{\chi}{v''}\) is embedded within a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+\subsection{Interpretation}
+\label{cha:var:ros:Emb:interpretation}
+
+\begin{note}
+  Understanding in hand, turn to the function of distinguishing embedded from unembedded \ros{}.
+
+  Simple.
+
+  Whether the \ros{} was a premise from which the agent concluded \(\phi\) has value \(v\).
+\end{note}
+
+\begin{note}
+  Idea is somewhat familiar from propositional logic.
+  Certain kind of equivalence between proof and conditional.
+  It is possible to find a corresponding conditional to any proof with a finite number of premises, proof captures derivation of conclusion from premises.
+
+  Corresponding conditional is not a premise, nor any part, of the proof.
+
+  For example, consider a proof from \(P\) and \(P \rightarrow Q\) to \(Q\) by conditional detachment.
+  Corresponding conditional is \((P \land (P \rightarrow Q)) \rightarrow Q\).
+  However, not part of the proof.
+
+  Intuitive distinction between what a proof and a conditional refer to.
+  However, informally there is no difficulty in treating a proof as a premise.
+  \(P\), and I have a proof of \(P \rightarrow Q\), therefore \(Q\).
+\end{note}
+
+\begin{note}
+  Discussion by \citeauthor{Carroll:1895uj} in \citetitle{Carroll:1895uj}.
+
+  \begin{quote}
+    My paradox \dots turns on the fact that, in a Hypothetical, the \emph{truth} of the Protasis, the \emph{truth} of the Apodosis, and the \emph{validity of the sequence}, are 3 distinct Propositions.
+
+    \mbox{}\hfill\(\vdots\)\hfill\mbox{}
+
+    Suppose I say ``I grant~\ref{AatT:a} and~\ref{AatT:b} and~\ref{AatT:c}, but I do \emph{not} grant that I am thereby \emph{obliged} to grant~\ref{AatT:z}.''
+    Surely, my granting~\ref{AatT:z} must \emph{wait} until I have been made to see the validity of this sequence: i.e.\ in order to grant~\ref{AatT:z}, I must grant~\ref{AatT:a},~\ref{AatT:b},~\ref{AatT:c}, and~\ref{AatT:d}! And so on.%
+    \mbox{ }\hfill\mbox{(\citeyear[472]{Carroll:1977wl})}
+  \end{quote}
+
+  \citeauthor{Carroll:1895uj} is slightly different.
+  For, rather than \ros{}, \citeauthor{Carroll:1895uj} focuses on valid inferences.
+
+  My understanding of \citeauthor{Carroll:1895uj} is in terms of the relation between general and specific.
+
+  Inference from \(A\) and \(A \rightarrow B\) to \(B\).
+  Valid inference.
+  However, valid inference if and only if holds for all \emph{A} and \emph{B}.
+  Point, then, is that given \(A\) and \(A \rightarrow B\) still need validity.
+  Even if grant \(B\) is true, this only gives specific instance.
+  However, at issue is general.
+  Does \(D\) follow from \(C, C \rightarrow D\)?
+
+  How do we get a general rule without already being sure of the specific instances of the general rule.
+
+  Immediate observation is that general rule does not correspond to any specific instance to which the general rule applies.
+
+  Hence, motivates the same idea.
+  In some cases, these two things are different.
+\end{note}
+
+\begin{note}
+  Start to see a difference by considering \(\pv{\phi}{v}\) and \(\Phi\).
+  For, \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+  However, immediate difficulties if the proposition that there is a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) paired with the value `True' is a member of \(\Phi\).
+
+  Likewise, \ros{} between the single premise and \(\pv{\phi}{v}\) is, intuitively, distinct from \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) results from an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  By contrast, \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) results from an event in which an agent concludes \(\pv{\phi}{v}\) from the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+\end{note}
+
+\begin{note}
+  \citeauthor{Boghossian:2008vf}:
+  \begin{quote}
+    [W]e would have to take as primitive a \emph{general (often conditional) content serving as the reason for which one believes something}, without this being mediated by inference of any kind.%
+    \mbox{ }\hfill\mbox{(\citeyear[500]{Boghossian:2008vf})}
+  \end{quote}
+\end{note}
+
+\begin{note}
+  Significance for arguments is that dependence captured by \qWhyVnP{} does not amount to the \ros{} being a premise.
+\end{note}
+
+\subsection{Carroll notes}
+
+\begin{note}
+  Well, to the extent \citeauthor{Carroll:1895uj} seems to be.
+
+  For, break out of the loop at any time.
+  There's nothing to prevent the Tortoise from accepting.
+
+  However, something on the Tortoise's mind.
+  Generates further hypotheticals.
+
+  \begin{generator}[\citeauthor{Carroll:1895uj}]
+    Instance of rule of inference is sound only if hypothetical is true and hypothetical without rule of inference.
+  \end{generator}
+
+  So, every time Achilles appeals to instance of rule of inference, generator a new hypothetical, and get this without the rule of inference.
+  Look, the Tortoise is really clear that you can get the hypothetical without the rule of inference.
+
+  So, hypothetical is necessary, independent, and (possibly) antecedent.%
+  \footnote{
+    Here might be the trouble.
+    Understanding conditional just is getting rule of inference.
+    But, this is not obvious.
+    For, other connectives.
+    It's not obvious that I get conjunction i/e from understanding conjunction.
+    For, could be the case that always translate conjunction to some other connective when applying rules of inference.
+
+    Now, still \emph{modus ponens}.
+    But, in principle no need for this.
+
+    Consider a Gentzen system for propositional logic termed \textbf{G3cp} (\cite[\S3.5]{Troelstra:2000ue},\cite[\S3.1]{Negri:2008wy}).
+
+    In \textbf{G3c}(\textbf{p}) the two rules concerning material implication are:
+
+    \begin{quote}
+      \mbox{ }\hfill%
+      \(
+      \AxiomC{\(\Gamma \Rightarrow \Delta, A\)}
+      \AxiomC{\(B,\Gamma \Rightarrow \Delta\)}
+      \LeftLabel{L\(\rightarrow\)}
+      \BinaryInfC{\(A \rightarrow B, \Gamma \Rightarrow \Delta\)}
+      \DisplayProof
+      \)%
+      \hfill
+      \(
+      \AxiomC{\(A,\Gamma \Rightarrow \Delta,B\)}
+      \LeftLabel{R\(\rightarrow\)}
+      \UnaryInfC{\(\Gamma \Rightarrow \Delta, A \rightarrow B\)}
+      \DisplayProof
+      \)%
+      \hfill\mbox{ }\newline
+      \mbox{ }\hfill\mbox{(\citeyear[77]{Troelstra:2000ue})}
+    \end{quote}
+    By inspection, neither rule corresponds to \emph{modus ponens} in any direct way.
+  }\(^{,}\)%
+  \footnote{
+    Puzzle about the general lesson from \citeauthor{Carroll:1895uj}.
+
+    \citeauthor{Wieland:2013vf} (\citeyear{Wieland:2013vf}) characterises the general understanding of \textcite{Carroll:1895uj} in terms of two lessons:
+    \begin{quote}
+      [T]he negative lesson is that if you add ever more premises to an argument \dots, then you will never demonstrate that its conclusion follows logically.\newline
+      \mbox{ }\hfill\mbox{(\citeyear[984]{Wieland:2013vf})}
+    \end{quote}
+
+    Parallel, static answers, still option for concluding otherwise.
+
+    \begin{quote}
+      [T]he positive lesson is that rules of inference, rather than premises of the form `if premises such and such are true, then the conclusion is true', will do the job.\newline
+      \mbox{ }\hfill\mbox{(\citeyear[984]{Wieland:2013vf})}
+    \end{quote}
+    Positive lesson \emph{is} the puzzle.
+  }
+
+  \begin{quote}
+    My paradox \dots turns on the fact that, in a Hypothetical, the \emph{truth} of the Protasis, the \emph{truth} of the Apodosis, \& the \emph{validity of the sequence}, are 3 distinct Propositions.
+    \begin{quote}
+      For instance, if I grant
+
+      \begin{enumerate}[label=(\arabic*)]
+      \item
+        All men are mortal, \& Socrates is a man, but not
+      \item
+        The sequence “If all men are mortal and if Socrates is a man, then Socrates is mortal” is valid,
+      \end{enumerate}
+
+      then I do not grant
+
+      \begin{enumerate}[label=(\arabic*), resume]
+      \item Socrates is mortal.
+      \end{enumerate}
+      Again, if I grant (2), but not (1), I still fail to grant (3).
+
+      Hence, before granting (3), I must grant (1) \& (2)\newline
+      \mbox{ }\hfill\mbox{(\citeyear[10--11]{Carroll:2016wl})}
+    \end{quote}
+  \end{quote}
+\end{note}
+
+\section{Wrangling}
+\label{sec:wrangling}
+
+\begin{note}
+  Here is where embedding is interesting.
+  If under constraint of \agpe{}, and \fc{}, then why not embed \fc{} as a premise.
+
+  
+\end{note}
+
+\begin{note}
+  Following, distinction between \ros{} answering, in part, \qWhyVnP{} and a \ros{} being embedded in some \ros{}.
+  In particular, \ros{} between some \(\pv{\psi}{v'}\) and \(\Psi\) such that distinct from \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) being embedded within the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) as a premise.
+\end{note}
+
+\begin{note}
+  Rule out possibility of embedding proposed answers in this way.
+
+  However, this will turn on the way in which dependence holds.
+\end{note}
+
+\subsection{Quarantine}
+
+\begin{note}
+  Granting \agpe{}, still fail to answer \qWhyVnP{}.
+  Here, we return to the prospect of embedding \ros{1} within \ros{1} as seen in~\autoref{cha:var:ros:Emb}.
+
+  If the \agpe{} is correct, then \fc{} matters.
+  Hence, \ros{} matters.
+  However, need not follow that conclusion of \(\pv{\phi}{v}\) from \(\Phi\) `directly' depends on \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  For, \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) may be embedded within the \ros{} between \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+\begin{note}
+  So, embedding.
+
+  Basically, concern about not being a \fc{}.
+  Then, adding premise that is a \fc{} doesn't do any work.
+\end{note}
+
+\begin{note}
+  Still, this isn't quite enough.
+  What about some other explanation.
+
+  If there is some general method to quarantine, then avoid worries about the link breaking.
+  Deny the proposition holds.
+  Separate \agpe{} from what happens.
+
+  However, if no general method to quarantine.
+  Then, more difficult.
+  Something problematic about agent.
+
+  Whether break the \agpe{} from what matters.
+
+  Task: \fc{} matters from \agpe{}, but does not matter apart.
+  Argue that this is not possible.
+  To do this, relevant \fc{} does not embed.
+
+  Does not function as an attitude.
+\end{note}
+
+\begin{note}
+  Therefore, require a \wit{} in order to ensure that the \ros{} exists.
+\end{note}
+
+\begin{note}
+  Factive and perspective is correct.
+  If this is the case, then need a method of reducing to something factive.
+  The only plausible way to reduce to something factive is to embed within a \ros{}.
+  No embedding in relations of support.
+  So, either reject factive or reject perspective.
+
+  This is interesting, because typically the case that motivate factive by observing that it preserves the role of the \agpe{}.
+\end{note}
+
+\subsection{\citeauthor{Owens:2006tw}}
+
+\begin{note}
+  For example, \citeauthor{Owens:2006tw} argues for a belief expression model of assertion in which the rationality of a belief formed by an agent via testimony is connected to justification of the testifier:
+
+  \begin{quote}
+    Trusting an expression of belief by accepting what a speaker says involves entering a state of mind which gets its rationality from the rationality of the belief expressed.
+    This state's rationality depends on the speaker's justification for the belief he expresses, not on his justification for the action of expressing it.
+    And to hear a speaker as making a sincere assertion, as expressing a belief, is \emph{ceteris paribus} to feel able to tap into \emph{that} justification (whether or not his assertion was directed at you) by accepting what he says.%
+    \mbox{}\hfill\mbox{(\citeyear[123]{Owens:2006tw})}
+  \end{quote}
+
+  On the view advanced by \citeauthor{Owens:2006tw}, justification.
+  View in terms of \support{}.
+
+  \support{} directly.
+  Rationality of agent is rationality of speaker.
+
+  However, `depends'.
+
+  Distinction between rationality of state, and relation between rationality of state and rationality of state.
+
+  Inclined to think \citeauthor{Owens:2006tw} is arguing for the former.%
+  \footnote{
+    \begin{quote}
+      If we are to believe what the speaker indicates he believes, either the speaker must justify this belief to us, or we must supply some justification of our own
+      \dots
+      Neither act can be part of a rationality preserving mechanism for belief.%
+      \mbox{ }\hfill\mbox{(\citeyear[123--124]{Owens:2006tw})}
+    \end{quote}
+  }
+  Though, it is not clear to me that embedded isn't a viable option.
+
+  Regardless, distinction that is important.
+\end{note}
+
+\begin{note}
+  Same distinction holds for answers to \qWhyV{}.
+
+  It may be the case that \support{} between \(\pv{\psi}{v'}\) and \(\Phi\) is, from the \agpe{}, involved in concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  However, no immediate move from this to \support{} being, in part, an answer to \qWhyV{}.
+\end{note}
+
+
+\section{Embedding in the literature}
+\label{cha:var:sec:embedding}
+
+\begin{note}
+  So, in initial cases, plausible that constraint in terms of having a \wit{}.
+
+  In other cases, embedding.
+\end{note}
+
+\begin{note}
+  An initial borderline case is \citeauthor{Boghossian:2014aa}'s taking condition.
+  Depending on how `taking' is understood, embedded within \ros{}.
+  In particular, distinguished proposition-value pairs from attitudes, and hence this does not amount to reducing the taking condition to a doxastic condition.
+\end{note}
+
+\subsubsection{\textcite{Thomson:1965vv}}
+
+\begin{note}
+  \citeauthor{Thomson:1965vv} suggests a an account of reasoning such that an agent reasons from \(\phi\) to \(\psi\) just in case the agent believes that \(\phi\) is a reason for \(\psi\).
+  \begin{quote}
+    The claim which the 'formula' of p.\ 285\nolinebreak
+    \footnote{
+      The `formula' in question:
+      \begin{quote}
+        Now reasoning should surely involve drawing a conclusion from a set of premisses.
+        But you can't be said to draw the conclusion that \emph{q} from \emph{p} if for all you know in knowing that \emph{p} it would at best be a matter of luck if \emph{q} as well.
+        So to ``reason'' from \emph{p} by itself to \emph{q} isn't really to be reasoning; it's like saying one thing, and then taking a chance on it that something else is also true---like taking a leap in the dark, or more prosaically, like guessing.'
+        (From here on I shall refer to this as the `\emph{formula}'.)\nolinebreak
+        \mbox{}\hfill\mbox{(\citeyear[285]{Thomson:1965vv})}
+      \end{quote}
+    }
+    above was to support was this:
+    suppose \emph{p} does not imply \emph{q}, and suppose a man says `\emph{p}, so \emph{q}';
+    then he is not reasoning in saying this unless he believes that \emph{r}, where the conjunction of \emph{p} and \emph{r} implies \emph{q}, and \emph{r} is a suppressed premiss of his reasoning.\par
+    But suppose such a man believes that \emph{p} is reason for \emph{q}; would this not be enough?
+    `It would if ``\emph{p} is reason for \emph{q}'' were construed as a suppressed premiss of his argument'.
+    Then let us so construe it.\newline
+    \mbox{}\hfill\mbox{(\citeyear[294]{Thomson:1965vv})}
+  \end{quote}
+  Causation is absent from \citeauthor{Thomson:1965vv}.
+  Does not imply that \citeauthor{Thomson:1965vv}'s proposal is independent of causation, but motivated does not appeal to causation.
+\end{note}
+
+\subsubsection{\textcite{Longino:1978wv}}
+
+\begin{note}
+  \citeauthor{Longino:1978wv}'s (\citeyear{Longino:1978wv}) account of inferring seems explicit.
+  \begin{quote}
+    S infers at t that p from x if and only if
+    \begin{enumerate}[label=\arabic*]
+    \item
+      S at t comes to believe that p, and
+    \item
+      S's epistemic reason for believing that p at t is x, i.e.,
+      \begin{enumerate}[label=\alph*]
+      \item
+        S takes x to be evidence that p, and
+      \item
+        S's taking x to be evidence that p causes S to believe that p.\newline
+        \mbox{}\hfill\mbox{(\citeyear[22]{Longino:1978wv})}
+      \end{enumerate}
+    \end{enumerate}
+  \end{quote}
+  Causation between mental states, but explanatory relation between things.
+\end{note}
+
+  % As~\ref{ros:ap:maybe:a} is shorter, we will only use~\ref{ros:ap:maybe:b} when we wish to explicitly consider 
+
+  % Still, the difference in presentation between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} is suggestive:
+  % \begin{itemize}
+  % \item
+  %   \ref{ros:ap:maybe:b} explicitly captures a proposition-value pair.
+
+  %   Hence, \ref{ros:ap:maybe:b} explicitly identifies something which may be a premises from which a conclusion is drawn.
+  % \item
+  %   By contrast,~\ref{ros:ap:maybe:a} does not explicitly capture a proposition-value pair.
+
+  %   Hence,~\ref{ros:ap:maybe:a} only implicitly identifies something which may be a premises from which a conclusion is draw.
+
+  %   And, if~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} are not equivalent,~\ref{ros:ap:maybe:a} may fail to identify something which may be a premises from which a conclusion is draw
+  % \end{itemize}
+
+  % Hence, we will use the presentation of \ref{ros:ap:maybe:b} when we wish to highlight the possibility that the relevant \ros{} may function as a premise for some conclusion.
+  % And, likewise, we will use the presentation of~\ref{ros:ap:maybe:a} when we wish to highlight the possibility that the relevant \ros{} may not function as a premise.
+
+  % Indeed, we will favour the presentation of~\ref{ros:ap:maybe:a} to remain neutral on whether \ros{}
+
+  % In general, presentation of~\ref{ros:ap:maybe:a}.
+  % For, it may not be possible to reduce certain things captured by \ros{} to premise.
+  % For example, consider a strong distinction between the role of premises and rules of inference following \citeauthor{Carroll:1895uj}'s \citetitle{Carroll:1895uj}.
+
+  % Make this distinction clearer by a discussion of embedding.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
