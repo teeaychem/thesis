@@ -81,6 +81,26 @@ h-scale = 1.8,
 
 \newcommand{\agents}[0]{\obeybreaks{agent's}}
 
+\DeclareRobustCommand\conRel[2]{%
+    \begin{tikzpicture}[baseline=(x.base)]%
+      \node[outer sep=0, inner sep=0pt] (x) {\phantom{I}};%
+      %
+      \node[outer sep=0, inner sep=0pt, left = 0cm of x, yshift=-.05em] (a) {\scalebox{0.8}{#1}};%
+      %
+      \node[outer sep=0, inner sep=0pt, right = 0cm of x, yshift=.05em] (b) {\scalebox{0.8}{#2}};%
+      %
+      \draw[line width= .5pt] let%
+      \p1 = (x.north),%
+      \p2 = (x.base),%
+      \p3 = (a.north west),%
+      \p4 = (a.north east),%
+      \p5 = (b.south west),%
+      \p6 = (b.south east),%
+      in%
+      (\x3,\y1) -- (\x4,\y1) -- (\x5,\y2) -- (\x6,\y2);%
+    \end{tikzpicture}%
+    }
+
 \newcommand{\whyName}[0]{Why}
 \newcommand{\howName}[0]{How}
 
@@ -97,9 +117,9 @@ h-scale = 1.8,
 
 %\preName{Concordance}
 
-\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\bsfrac{\qWhy{}}{\qHow{}}}}
+\newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\conRel{\qWhy{}}{\qHow{}}}}
 
-\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\bsfrac{\qWhyVnP{}}{\qHowV{}}}}
+\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\conRel{\qWhyVnP{}}{\qHowV{}}}}
 
 \newcommand{\linkW}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:why:support:pvpp}}}}
 \newcommand{\linkH}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:how-witnessing}}}}
@@ -1280,3 +1300,4 @@ h-scale = 1.8,
   }
 }
 \ExplSyntaxOff
+
