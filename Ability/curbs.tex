@@ -2,6 +2,10 @@
 \label{cha:zS:sec:curbs}
 
 \begin{note}
+  Idea with a \curb{} is that this is a necessary condition for event to be develop such that agent concludes.
+\end{note}
+
+\begin{note}
   Turn our attention to concluding.
 
   When concluding, certain things may happen.
@@ -32,11 +36,11 @@
 \begin{note}
   \begin{definition}[A \bCurb{0}]
     \label{def:bCurb}
-    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\phi}{v}{\Phi}\), \(\pvp{\psi}{v'}{\Psi}\):
+    For an agent \vAgent{}, and proposition-value-premises pairings \(\pvp{\phi}{v}{\Phi}\), \(\pvp{\psi}{v'}{\Psi}\), and events \(e\), \(e^{sub}\):
 
     \begin{itemize}
     \item
-      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\bCurb{}} for \(e\) to be an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\bCurb{}} for \(e^{sub}\) to be an sub-event of an event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itemize}
 
     \emph{If and only if}
@@ -48,13 +52,13 @@
           \begin{enumerate}[label=\alph*., ref=(\alph*)]
           \item
             \label{def:bCurb:opp}
-            There is no \pevent{} from \(e\) in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+            There is no \pevent{} from \(e^{sub}\) in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
           \end{enumerate}
         \item[\emph{Then}:]
           \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
           \item
             \label{def:bCurb:fail}
-            \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).\newline
+            \(e^{sub}\) does not develop in an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).\newline
             \mbox{ }\hfill(\emph{Due to}~\ref{def:bCurb:opp})
           \end{enumerate}
       \end{enumerate}
@@ -67,6 +71,14 @@
 
   At issue is what may occur, which is captured in terms of \pevent{1}.
 \end{note}
+
+\begin{note}
+  Now, in case of a \bCurb{}, it is not immediately clear that there are instances in which the relevant \pevent{} is not a sub-event of the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+  However, the definition makes sense.
+  Indeed, it is very clear when applied to concluding.
+\end{note}
+
 
 \begin{note}
   Example, chess from above.
@@ -161,7 +173,12 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  With respect to the breakdown of \TNSketch{3}~\ref{sketch:zS:fail} and~\ref{sketch:zS:succeed}, a \curb{} captures both the opportunity for the agent to reason about whether \(\pv{\psi}{v'}\) follows from \(\Psi\) and the idea of whether \(\pv{\psi}{v'}\) follows from \(\Psi\) being a \check{0} on concluding \(\pv{\psi}{v'}\) from \(\Phi\).
+  \curb{} expands \bCurb{} with additional option.
+
+  So, if I've switched these conditionals around, then this is the additional requirement that there is no \pevent{} in which the agent concludes something incompatible.
+
+  So, \(\pvp{\phi}{v}{\Phi}\) may fail to be a \curb{}.
+  For, there may be some \pevent{} in which the agent concludes something incompatible.
 \end{note}
 
 \begin{note}
@@ -674,6 +691,34 @@
 \subsection{Odd sands}
 
 \begin{note}
+  The definitions may seem strained.
+  It is far easier to say that \(e^{sub}\) is an event in which the agent is concluding.
+  However, it is not clear that the following holds:
+
+  \begin{suggestion}
+    If \(e^{sub}\) isn't event of concluding, then isn't event which may develop.
+
+    {
+      \color{red}
+      This is where the problem is.
+      I don't think this is obvious.
+
+      We have assumed that if \(e^{sub}\) \emph{is} an event of concluding, then may develop.
+
+      However, this suggestion is the converse.
+    }
+  \end{suggestion}
+\end{note}
+
+\begin{note}
+  \color{red}
+
+  This is strong in an interesting way.
+  It's not just the case that if \(\pv{\psi}{v'}\) from \(\Psi\) fails in the actual world then the agent doesn't conclude.
+  It's the stronger condition that if \(\pv{\psi}{v'}\) from \(\Psi\) fails then there's no reasonable sense in which the event develops, even if things had gone a little differently.
+\end{note}
+
+\begin{note}
   \autoref{prop:sCing} may seem odd.
   For, suppose an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
   Then, it seems that throughout the event, then agent was concluding.
@@ -686,6 +731,12 @@
   There are two ways to approach this:
   \begin{itemize}
   \item
+    Deny the premise.
+
+    If event in which an agent concludes, it need not be the case that the agent was concluding throughout all the relevant sub-events.
+
+    Then, no issue is resolved.
+  \item
     Deny that the event was an event in which the agent concluded.
 
     Specifically, narrow the relevant event.
@@ -693,12 +744,6 @@
     So long as final sub-event, then the agent concludes.
     The issue only arises from the apparent link to earlier (sub-)events.
     But, if otherwise, then motivation to reject these as (sub-)events of an event in which the agent concludes.
-  \item
-    Deny the premise.
-
-    If event in which an agent concludes, it need not be the case that the agent was concluding throughout all the relevant sub-events.
-
-    Then, no issue is resolved.
   \item
     Shift perspective.
 
