@@ -9,15 +9,6 @@
 \RequirePackage{graphicx} % for reverse
 \RequirePackage{calc}
 
-\RequirePackage{xfrac}
-\DeclareCollectionInstance{plainmath}{xfrac}{mathdefault}{math}
-{
-scaling = true,
-scale-factor = 1.8,
-h-scale = 1.8,
-}
-\UseCollection{xfrac}{plainmath}
-
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{calc}
@@ -110,16 +101,18 @@ h-scale = 1.8,
 \newcommand{\whyVName}[0]{Support}
 \newcommand{\howVName}[0]{Witness}
 
-\newcommand{\qWhyVnP}[0]{\hyperref[q:why:v:nP]{\named{\whyVName{}?}}}
-\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{\whyVName{}\textsuperscript{P}?}}}
-\newcommand{\qWhyVoP}[0]{\named{\hyperref[q:why:v:nP]{\whyVName{}}\textsuperscript{\hyperref[q:why:v]{(P)}}\hyperref[q:why:v:nP]{?}}}
-\newcommand{\qHowV}[0]{\hyperref[q:how:v]{\named{\howVName{}?}}}
+\newcommand{\whyVNamed}[0]{\named{\whyVName{}?}}
+\newcommand{\howVNamed}[0]{\named{\howVName{}?}}
+
+
+\newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\whyVNamed{}}}
+\newcommand{\qHowV}[0]{\hyperref[q:how:v]{\howVNamed{}}}
 
 %\preName{Concordance}
 
 \newcommand{\issueInclusion}[0]{\hyperref[issue:why-inc-in-how]{\conRel{\qWhy{}}{\qHow{}}}}
 
-\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\conRel{\qWhyVnP{}}{\qHowV{}}}}
+\newcommand{\issueConstraint}[0]{\hyperref[issue:has-witnessed]{\conRel{\whyVNamed{}}{\howVNamed{}}}}
 
 \newcommand{\linkW}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:why:support:pvpp}}}}
 \newcommand{\linkH}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:how-witnessing}}}}
@@ -1296,6 +1289,29 @@ h-scale = 1.8,
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{Curbs}}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\bCurb}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curbs}}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curb}}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curbs}}}}%
     \fi
   }
 }
