@@ -139,7 +139,7 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\ofPremises}[0]{\space of\space premises}
+\newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
 \DeclareDocumentCommand{\poP}{ m }{%
@@ -158,7 +158,7 @@
       \obeybreaks{\obeybreaks{Pool\ofPremises{}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{Pool\ofPremises{}}}%
+      \obeybreaks{\obeybreaks{Pools\ofPremises{}}}%
     \fi
   }
 }
@@ -1317,3 +1317,25 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\DeclareDocumentCommand{\feedback}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{feedback}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{feedback}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\#\$\%\&}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Feedback}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\#\$\%\&}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
