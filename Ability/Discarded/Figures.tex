@@ -1,0 +1,66 @@
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \node (origin) at (0,0) {};
+    \node (psiSplit) at (1,0) {};
+    \node (phiSplit) at (4,0) {};
+    %
+    \node[anchor=west] (Phi) at  (0,0)  {\(\Phi\)};
+    %
+    \node[anchor=west] (psiV) at  (6,-1)  {\(\pvp{\psi}{v'}{\Psi}\)};
+    \node[anchor=west] (psiNv) at (6,-2) {\(\pvp{\psi}{\{\overline{v'}, ?\}}{\Psi}\)};
+    % \node[anchor=west] (psiQ) at (6,-3) {\(\pvp{\psi}{?}{\Psi}\)};
+    %
+    % \node[anchor=west] (psiVPhiV) at (9,-1) {\(\pv{\phi}{v}\)};
+    \node[anchor=west] (psiNvPhiU) at (10,-2) {\(\pv{\phi}{\{\overline{v},?\}}\)};
+    % \node[anchor=west] (psiQPhiU) at (9,-3) {\(\pv{\phi}{\{\overline{v},?\}}\)};
+    %
+    \node[anchor=west] (phiQ) at (10,1) {\(\pv{\phi}{\{\overline{v}, ?\}}\)};
+    % \node[anchor=west] (phiNv) at (10,2) {\(\pv{\phi}{\overline{v}}\)};;
+    \node[anchor=west] (phiV) at (10,0) {\(\pv{\phi}{v}\)};
+    %
+    \draw[-]  (Phi) -- (phiV);
+    %
+    % \path[-,dotted] (phiSplit) edge [out=0, in=180] (phiNv);
+    \path[-,dotted] (phiSplit) edge [out=0, in=180] (phiQ);
+    %
+    \path[-, dashed] (psiSplit) edge [out=0, in=180] (psiV);
+    \path[-, dotted] (psiSplit) edge [out=0, in=180] (psiNv);
+    % \path[-, dotted] (psiSplit) edge [out=0, in=180] (psiQ);
+    %
+    \draw[-,dashed] (psiV) edge [out=0, in=180] (phiV);
+    \draw[-, dotted] (psiNv) edge (psiNvPhiU);
+    % \draw[-, dotted] (psiQ) edge (psiQPhiU);
+  \end{tikzpicture}
+  \caption{Visualisation.}
+  \label{fig:csN:illu:overview}
+\end{figure}
+
+\begin{note}[Figure]
+  The flat line captures the agent's reasoning, which concludes with \(\pv{\phi}{v}\).
+  In concluding \(\pv{\phi}{v}\) the agent rules out two possibilities with respect to \(\phi\).
+  First, that \(\phi\) does not have value \(v\), indicated by \(\pv{\phi}{\overline{v}}\).
+  Second, that the agent does not assign any value to \(v\), indicated by \(\pv{\phi}{?}\).
+  Prior to concluding \(\pv{\phi}{v}\), the agent's reasoning may have branched to either alternative path, but as the agent has concluded \(\pv{\phi}{v}\), neither path is viable, and hence both paths are represented with a dashed line.
+
+  So far, we have seen only that the agent has concluded \(\pv{\phi}{v}\).
+
+  We now consider some proposition-value-premises pairing \(\pv{\psi}{v'}{\Psi}\) such that if the agent were to fail to conclude \(\pv{\psi}{v'}\) from \(\Phi\), the agent would not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Intuitively, the dotted arrows from the various combinations of \(\psi\) and \(\{v',\overline{v'},?\}\) read, from top to bottom:
+  \begin{itemize}
+  \item
+    If \(\phi\) has value \(v\) then the agent may conclude \(\pv{\psi}{v'}\) from \(\Psi\), and:
+  \item
+    If the agent concludes \(\psi\) has some value \(\overline{v'}\) from \(\Psi\), then the agent either concludes \(\phi\) has some value other than \(v\), or the agent fails to reach a conclusion regarding \(\phi\) from \(\Phi\).
+    Both options are combined via the shorthand \(\pv{\phi}{\{\overline{v},?\}}\).
+  \item
+    And, likewise if the agent fails to conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+  \end{itemize}
+
+  With respect to concluding, observe that prior to ruling out alternative branches with respect to \(\pv{\phi}{\{\overline{v},?\}}\), the agent may have reasoned about whether \(\psi\) has value \(v\).
+  And, from the \agpe{}, \(\phi\) has value \(v\) only if \(\psi\) has value \(v'\).
+  If \(\psi\) does not have value \(v'\), then either \(\phi\) does not have value \(v\), or the agent's reasoning would not conclude with a value for \(\phi\), indicated by \(\pv{\phi}{\{\overline{v},?\}}\).
+
+  Hence, prior to concluding \(\pv{\phi}{v}\), the agent has concluded \(\pv{\psi}{v'}\).
+\end{note}

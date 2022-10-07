@@ -9,16 +9,31 @@
 \RequirePackage{graphicx} % for reverse
 \RequirePackage{calc}
 
+\RequirePackage{mdframed}
+
+\mdfdefinestyle{leftLine}{%
+    linecolor=black,
+    outerlinewidth=1,
+    % innertopmargin=\baselineskip,
+    % innerbottommargin=\baselineskip,
+    topline=false,
+    rightline=false,
+    bottomline=false
+    }
+
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{calc}
 
-\NewEnviron{argument}{%
+\NewEnviron{argument}[1]{%
     \par\smallskip
-    \noindent\emph{Argument.}%
+    \begin{mdframed}[style=leftLine]
+    \noindent\emph{Argument for \autoref{#1}}%
     \mbox{ }\newline
     \reversemarginpar
       \BODY
+  \end{mdframed}
+
 }
 
 \RequirePackage{pifont}
@@ -1335,6 +1350,75 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\obeybreaks{\#\$\%\&}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\influence}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{influence}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{influence}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{influences}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Influence}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{Influences}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\ninf}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{negative\space influence}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{negative\space influence}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\color{red} negative\space influences}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Negative\space Influence}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\color{red} Negative\space Influences}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\pinf}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{positive\space influence}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{positive\space influence}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\color{red} positive\space influences}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Positive\space Influence}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\color{red} Positive\space Influences}}%
     \fi
   }
 }
