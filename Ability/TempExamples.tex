@@ -1,28 +1,6 @@
 \chapter{TempExamples}
 \label{cha:tempexamples}
 
-% \begin{note}[Illustration of \USE{}]
-%   \begin{illustration}
-%     \label{ill:rectangle:basic}
-%     \mbox{}
-%     \vspace{-\baselineskip}
-%     \begin{enumerate}
-%     \item The length of this rectangle measures \(19\text{cm}\) and the breadth of this rectangle measures \(7\text{cm}\).
-%     \item So, the length of this rectangle is \(19\text{cm}\) and the breadth of this rectangle is \(7\text{cm}\).
-%     \item
-%       It is possible that my measuring device in inaccurate, but I purchased it from a reliable hardware store.
-%     \item
-%       To calculate the area of a rectangle, one multiples the length of the rectangle by breadth.
-%     \item
-%       \label{ill:rectangle:basic:reasoning}
-%       \(19\text{cm}\) multiplied by \(7\text{cm}\) is \(133\text{cm}^{2}\).
-%     \item
-%       So, the area of the rectangle is \(133\text{cm}^{2}\).
-%     \end{enumerate}
-%     \vspace{-\baselineskip}
-%   \end{illustration}
-% \end{note}
-
 \begin{note}[Gifts]
   \begin{illustration}
     \label{illu:S:gifts}
@@ -63,16 +41,20 @@
     \mbox{}\hfill
     \begin{subfigure}{0.45\linewidth}
       \begin{enumerate}
-      \item That persons' eyes have been closed for a long time and their breathing is slow.
-      \item That person is asleep.
+      \item
+        That persons' eyes have been closed for a long time and their breathing is slow.
+      \item
+        That person is asleep.
       \end{enumerate}
       \caption{}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\linewidth}
       \begin{enumerate}
-      \item The die has rolled even in \(5251\) of \(6000\) samples.
-      \item The die is biased.
+      \item
+        The die has rolled even in \(5251\) of \(6000\) samples.
+      \item
+        The die is biased.
       \end{enumerate}
       \caption{}
     \end{subfigure}
@@ -83,75 +65,7 @@
 \end{illustration}
 \end{note}
 
-\begin{note}
-  Similar to verifying an algorithm may be implemented.
-  Break down all of the steps in the algorithm, and then ensure that it is possible to express each of the steps in the programming language of choice.
-
-  \begin{quote}
-    \textsc{factorial}(\(n\)):\newline
-    \textbf{if} \(n = 1\)\newline
-    \mbox{}\indent \textbf{return} \(1\)\newline
-    \textbf{else}\newline
-    \mbox{}\indent \textbf{return} \(n \times\) \textsc{factorial}(\(n-1\))
-  \end{quote}
-
-  Fortran 77 does not support recursion, a function may not call an instance of itself.\nolinebreak
-  \footnote{
-    This is not to say that one may not compute factorials using Fortran 77.
-    It's a Turing complete language.
-    However, would require a different (non-recursive) algorithm.
-  }
-  By contrast, the recursive factorial algorithm may implemented in languages that support recursion, such as Lisp or Python.
-\end{note}
-
 % % % Spot the difference % % %
-
-
-% \begin{note}[Failure of \ptivity{}]
-%   {
-%     \color{red}
-%     I like this example, but I don't think it's worth the effort to motivate this properly.
-%   }
-%   Distinct between representation and what is represented.
-
-%   So, clock.
-
-%   Look at the clock.
-%   Time.
-%   Late.
-%   Start rushing.
-
-%   Is it 9:15a, or perspective?
-
-%   Clocks can be wrong.
-%   Feels the clock may be wrong.
-%   Looks around apartment for their watch (they lost it).
-%   Hmpf.
-
-%   Doesn't matter.
-%   Only have the clock to go by.
-
-%   Strengthen, doubts about the clock.
-%   But, do choice.
-
-%   From perspective, time in 9:15a.
-%   But, this can't be quite right.
-%   Nothing beyond perspective.
-%   Operative, links to action of rushing around.
-%   But, perspective is not that the time is 9:15a because I don't do anything other than treat the time as being 9:15a.
-
-%   Here, I think it's plausible that from the agent's perspective, 9:15a, but at the same time, the agent's reasoning is sufficiently detached from whether it is 9:15a.
-%   Perspective matters, but content of perspective does not matter.
-% \end{note}
-
-\paragraph{Has concluded example}
-
-\begin{note}
-  For example, suppose I concluded that Riga is the capital of Latvia by studying a map.
-  Now, at present, I am asked by a friend what the capital of Latvia is.
-  I takes me a moment, but I recall from memory studying the map and concluding that Riga is the capital of Latvia.
-  Hence, I (re-)conclude that Riga is the capital of Latvia, and I do so from the relevant premises involved when studying the map.
-\end{note}
 
 \paragraph{A trip to the zoo}
 
@@ -266,6 +180,109 @@
 %   In particular, don't conclude any intermediary miscalculations.
 %   And, keep going until solution is clear.
 % \end{note}
+
+\begin{note}[Wally]
+  \begin{illustration}[Where's Wally]
+    \label{illu:CS:wheres-wally}
+    \nagent{15} has a book containing numerous drawings of bustling scenes in which various characters are doing a variety of things.
+    And, somewhere in each scene is a character called `Wally', identifiable by a collection of individually necessary and jointly sufficient distinguishing features.
+    These features include a red and white striped jumper, blue trousers, short brown wavy hair, and so on.
+
+    \nagent{15} has searched through one particular scene, and has identified a character with a variety of the features.
+    Before concluding that the character is Wally, \nagent{15} remembers that there is a picture of Wally On the cover of the book, with all the identifying features present.
+
+    Wally is always wearing a pair of round glasses, but this was not a feature \nagent{15} kept in mind when searching for Wally.
+    So, perhaps the character \nagent{15} identified is not wearing round glasses  --- \nagent{15} only recalls the features they identified.
+  \end{illustration}
+
+  Interest is with whether \nagent{15} may conclude from the variety of features identified that the character is Wally.
+
+  The difficulty for \nagent{15} is that if \nagent{15} were to check whether the character is wearing a pair of round glasses, and the character is not wearing a pair of round glasses, then \nagent{15} would conclude that the character is not Wally.
+  Hence, a \requ{}.
+  And, not a \fc{}.
+
+  I'm going to ask whether Wally is usually carrying a cane.
+
+  Here, keep in mind premises.
+  Most plausible thing is that go back and check.
+  However, this plausibly results in an additional premise.
+  There is some information that is missing, and once you add it, you will conclude.
+  However, not from present information.
+\end{note}
+
+\begin{note}
+  Two ways in which this works.
+
+  First, soundness of `Squish'-elimination.
+
+  Second, from basic rules.
+
+  \begin{center}
+    \begin{fitch}
+      \fa (P \rightarrow Q) \rightarrow P \\
+      \fj Q \\
+      \fa \fh P & \\
+      \fa \fa Q & \textbf{Reit:} 2 \\
+      \fa P \rightarrow Q & \(\rightarrow\)\textbf{Intro:} 3--4 \\
+      \fa P & \(\rightarrow\)\textbf{Elim:} 1,5 \\
+      \fa P \land Q & \(\land\)\textbf{Intro:} 2,6
+    \end{fitch}
+  \end{center}
+\end{note}
+
+
+\begin{note}[Spot the difference]
+  \begin{illustration}[Spot the difference]
+    \label{illu:CS:spot-the-diff}
+    The agent has been working through a spot-the-difference to pass some time.
+
+    Though the time is not completely passed, the agent examined the two images with what seems sufficient care to claim support that they have found all the differences.
+    However, the agent did not keep track of the number of differences.
+
+    The agent announces `I have found all the differences' and their companion responds `All fifteen?'
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*)]
+      \setcounter{enumi}{-1}
+    \item
+      \label{illu:CS:spot-the-diff:info}
+      If I have found all the differences, I have found fifteen differences.
+    \end{enumerate}
+
+    The agent then reasons as follows:
+
+    \begin{enumerate}[label=\arabic*., ref=(I\ref{illu:CS:spot-the-diff}.\arabic*), resume]
+    \item Exhaustive search.
+    \item
+      \label{illu:CS:spot-the-diff:all}
+      I found all the differences.
+    \item
+      \label{illu:CS:spot-the-diff:fif}
+      So, I have found fifteen differences. \hfill (From \ref{illu:CS:spot-the-diff:info} and \ref{illu:CS:spot-the-diff:all})
+    \end{enumerate}
+  \end{illustration}
+
+  So, as doing the exhaustive search, get this information.
+
+  Here, plausibly a \wit{}.
+  For, proposition is just a state of affairs.
+  These are the same state of affairs.
+
+  Ugh, too messy.
+\end{note}
+
+\begin{note}
+  \begin{illustration}
+    A search for `Measurement Theory' via the LCC `H61 .R593' returned no results.
+
+    Consider the possibility that library does not use DDC indexing.
+
+    Checked the indexing system, do not conclude the library does not have a copy of `Measurement Theory'.
+  \end{illustration}
+
+  So, this is type B because there is no clear entailment.
+  However, incompatible, as then may have searched.
+  Indeed, this is just a variant on lost keys.
+\end{note}
 
 %%% Local Variables:
 %%% mode: latex

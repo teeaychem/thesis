@@ -9,6 +9,8 @@
 \RequirePackage{graphicx} % for reverse
 \RequirePackage{calc}
 
+\RequirePackage{adforn}
+
 \RequirePackage{mdframed}
 
 \mdfdefinestyle{leftLine}{%
@@ -27,13 +29,12 @@
 
 \NewEnviron{argument}[1]{%
     \par\smallskip
-    \begin{mdframed}[style=leftLine]
+    %\begin{mdframed}[style=leftLine]
     \noindent\emph{Argument for \autoref{#1}}%
     \mbox{ }\newline
     \reversemarginpar
-      \BODY
-  \end{mdframed}
-
+      \BODY\newline%
+      \mbox{ }\hfill\adforn{39}\par
 }
 
 \RequirePackage{pifont}
@@ -1392,10 +1393,10 @@
       \obeybreaks{\obeybreaks{\color{red} negative\space influences}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Negative\space Influence}}%
+      \obeybreaks{\obeybreaks{Negative\space influence}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{red} Negative\space Influences}}%
+      \obeybreaks{\obeybreaks{\color{red} Negative\space influences}}%
     \fi
   }
 }
@@ -1412,13 +1413,13 @@
       \obeybreaks{\obeybreaks{positive\space influence}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\color{red} positive\space influences}}%
+      \obeybreaks{\obeybreaks{\color{blue} positive\space influences}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Positive\space Influence}}%
+      \obeybreaks{\obeybreaks{Positive\space influence}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{red} Positive\space Influences}}%
+      \obeybreaks{\obeybreaks{\color{blue} Positive\space influences}}%
     \fi
   }
 }
