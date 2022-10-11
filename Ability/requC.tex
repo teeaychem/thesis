@@ -22,6 +22,7 @@
 \end{note}
 
 \begin{note}
+  This chapter is divided into three sections:
   \begin{itemize}
   \item
     \TOCLine{cha:requs:sec:infl}
@@ -38,33 +39,79 @@
   \end{itemize}
 \end{note}
 
-\section{\pinf{2} and \ninf{0}}
+\section{\ninf{2}}
 \label{cha:requs:sec:infl}
 
 \begin{note}
-  There are instances in which an agent has \emph{\ninf{0}} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  For, concluding is an activity performed by an agent, and in certain cases the agent may choose to stop the activity.
+  \begin{definition}[\ninf{2}]
+    \label{def:ninf}
+    For an agent \vAgent{} and action description \(\alpha\)
 
-  For example, may decide that a result, even if obtained, is not worth the effort.%
-  \footnote{
-    Ex.\ bonus problem on a homework.
-  }
-  Indeed, this observation is not different to the observation that an agent has \ninf{0} over whether or not they are going to buy some eggs.
+    \begin{itemize}
+    \item
+      \vAgent{} has \ninf{} over whether or not \(\text{Prog}(e, \alpha)\) is true.
+    \end{itemize}
+
+    \emph{If and only if}
+
+    \begin{itemize}
+    \item
+      Both~\ref{def:ninf:action} and~\ref{def:ninf:prog} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{def:ninf:action}
+        There is some action \(a\) that \vAgent{} may immediately perform.
+      \item
+        \label{def:ninf:prog}
+        \(\text{Prog}(e', \alpha)\) would be not be true in the event \(e'\) of \vAgent{} doing \(a\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  In short, the as a result of performing some action, it is not the case that the event develops.
+\end{note}
+
+\begin{note}
+  For example, an agent has \ninf{0} over whether or not they are going to buy some eggs.
   For, the agent may choose to turn back home.
 
-  To say an agent has \ninf{0} is not to say the agent has \emph{\pinf{}}.
-  For, an agent may not have choice over whether an event develops into an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-  For example, take \(\chi\) to be the proposition `the area of a unit square is equal to the area of a unit circle'.
-  An agent has \ninf{0} over whether or not they concluding \(\pv{\chi}{\text{True}}\), as the agent may choose not to make any attempt.
-  However, assuming the agent would only conclude \(\pv{\chi}{\text{True}}\) from principles consistent with Euclidean geometry, then agent does not have \pinf{} over whether or not they are concluding \(\pv{\chi}{\text{True}}\).
-  For, the area of a unit square is not equal to the area of a unit circle.
-  Hence, it is not possible for the agent to ensure that some event may develop into an event in which they conclude \(\pv{\chi}{\text{True}}\).
-
-  In parallel, an agent need not have \pinf{0} over whether or not they are going to buy some eggs.
-  For, it may be there are no eggs for sale.
-  Hence, it may not be possible for the agent to ensure that the event develops into an event in which the agent buys some eggs.
+  Likewise, \ninf{} over delivering a lecture.
+  For, walk out of the room.
 \end{note}
+
+\begin{note}
+  \begin{observation}
+    \label{ob:ninf}
+    There are instances in which an agent exerts \ninf{0} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{observation}
+
+  For, the agent may stop what they are doing.
+
+  For example, may decide that a result, even if obtained, is not worth the effort.
+  Ex.\ bonus problem on a homework.
+\end{note}
+
+\begin{note}
+  Note:
+  It does not follow from \autoref{ob:ninf} that the agent had a choice over how event develops.
+  It may be that if the agent continued the event, they would have concluded \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+% \begin{note}
+%   To say an agent has \ninf{0} is not to say the agent has \emph{\pinf{}}.
+%   For, an agent may not have choice over whether an event develops into an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+%   For example, take \(\chi\) to be the proposition `the area of a unit square is equal to the area of a unit circle'.
+%   An agent has \ninf{0} over whether or not they concluding \(\pv{\chi}{\text{True}}\), as the agent may choose not to make any attempt.
+%   However, assuming the agent would only conclude \(\pv{\chi}{\text{True}}\) from principles consistent with Euclidean geometry, then agent does not have \pinf{} over whether or not they are concluding \(\pv{\chi}{\text{True}}\).
+%   For, the area of a unit square is not equal to the area of a unit circle.
+%   Hence, it is not possible for the agent to ensure that some event may develop into an event in which they conclude \(\pv{\chi}{\text{True}}\).
+
+%   In parallel, an agent need not have \pinf{0} over whether or not they are going to buy some eggs.
+%   For, it may be there are no eggs for sale.
+%   Hence, it may not be possible for the agent to ensure that the event develops into an event in which the agent buys some eggs.
+% \end{note}
 
 
 \section{\requ{3}}
@@ -103,7 +150,7 @@
         \begin{enumerate}[label=\alph*., ref=(\alph*), series=requDefSeries]
         \item
           \label{def:requ:nK}
-          \vAgent{} does not (recognise that they) know \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} throughout \(e\).
+          \vAgent{} does not know \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} throughout \(e\).
         \end{enumerate}
       \item[\emph{Then}:]
         \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=requDefSeries]
@@ -119,7 +166,18 @@
 \end{note}
 
 \begin{note}
-  If an agent doubts that \(\pv{\psi}{v'}\) is a \fc{}, then the agent is not concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  If an agent doubts that \(\pv{\psi}{v'}\) is a \fc{}, then the agent is not concluding \(\pv{\phi}{v}\) from \(\Phi\).%
+  \footnote{
+    \autoref{def:requ} parallels the definition of a \pevent{} (\autoref{def:potenital-event}, \autopageref{def:potenital-event}), and hence the definition of a \fc{} (\autoref{def:fc}, \autopageref{def:fc}).
+    The key difference is with respect to whether the progressive is true as a result of the agent doing the relevant action.
+    With respect to \ninf{}, the progressive is false, while with respect to a \pevent{0} the progressive is true.
+
+    However, circumstances are different.
+    \pevent{} when progressive is not true of event.
+    \ninf{} when progressive is true.
+
+    Note, exertion of \ninf{} is compatible with progressive being true.
+  }
 \end{note}
 
 \begin{note}
@@ -179,7 +237,7 @@
         \begin{enumerate}[label=\alph*., ref=(\alph*), series=requDefSeries]
         \item
           \label{prop:requ-fc:nk}
-          Throughout \(e\), \vAgent{} does not (recognise that they) know either:
+          Throughout \(e\), \vAgent{} does not know either:
           \begin{enumerate}[label=\roman*., ref=(\roman*)]
           \item
             \label{prop:requ-fc:nk:psi}
@@ -229,7 +287,15 @@
   In each \illu{1}, we identify a \requ{} and indicate whether or not the agent exerts \ninf{}.
 \end{note}
 
+\begin{note}
+  We start with an \illu{0} of a \requ{0} in which an agent is not concluding.
+
+  Then, \illu{0} of a \requ{0} in which an agent is concluding.
+\end{note}
+
+
 \subsubsection{Lost keys}
+
 
 \begin{note}
   \begin{illustration}[Lost keys]
@@ -248,14 +314,6 @@
     And, my keys aren't lost if they are in that place.
     So, I might conclude that my keys aren't lost, which would conflict with concluding that my keys are lost.
   \end{illustration}
-
-  You may disagree with the tension I see in~\autoref{illu:lost-key}.
-  Perhaps it's fine to conclude my keys are lost while allowing for the possibility that they're some place I haven't yet thought of.
-  However, there's tension for me.
-  `I've lost my keys, but they might be under that book' feels bad to me, and to me the badness extends to `I've lost my keys, but they might in that place I haven't yet considered'.
-
-  Though, my goal is only to convince you that my refusal to conclude I've lost my keys makes sense.
-  The way in which you think about the truth conditions for the sentence `I've lost my keys' may be different, but I expect my thoughts are intelligible.
 \end{note}
 
 \begin{note}
@@ -279,13 +337,23 @@
   \begin{quote}
     \begin{itemize}
     \item[\emph{If}:]
-      If I do not (recognise that I) know \(\pv{\text{My keys are not in location }l}{\text{True}}\) from \(\Psi\) is a \fc{}.
+      If I do not know \(\pv{\text{My keys are not in location }l}{\text{True}}\) from \(\Psi\) is a \fc{}.
     \item[\emph{Then}:]
       I am not concluding \(\pv{\text{I have lost my keys}}{\text{True}}\) from \(\Phi\).
     \end{itemize}
   \end{quote}
 
   The antecedent is true, and hence the consequent is true due to \ninf{} I exert over the event.
+\end{note}
+
+\begin{note}
+  You may disagree with the tension I see in~\autoref{illu:lost-key}.
+  Perhaps it's fine to conclude my keys are lost while allowing for the possibility that the keys are some place I haven't yet thought of.
+  My goal is only to convince you that my refusal to conclude I've lost my keys is intelligible.
+
+  At issue is only whether \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} for me in a particular event in which I am reasoning about whether I have lost my keys.
+
+  Hence, if one does not worry about the possibility that the keys are some place I haven't yet thought of, \(\pvp{\psi}{v'}{\Psi}\) would not be a \requ{1} of concluding I have lost my keys.
 \end{note}
 
 \subsubsection{Sound rules}
@@ -319,7 +387,14 @@
   On the one hand, troubled if failed to show that `\(\land\)' introduction is sound.
   However, testimony\dots
 
-  The first rule of inference is non-standard `Squish' elimination applied to line \hyperref[illu:sP:1]{1}.
+  The first rule of inference is a derived rule termed `Squish elimination' applied to line \hyperref[illu:sP:1]{1}.%
+  \footnote{
+    For a quick proof, suppose \((P \rightarrow Q) \rightarrow P\) is true.
+  And for contradiction assume \(P\) is false.
+  As \(P\) is false, it immediately follows that \(P \rightarrow Q\) is true.
+  Therefore, by the initial supposition, \(P\) is true.
+  Hence, we have obtained the desired contradiction.
+  }
 
   \begin{center}
     \begin{fitch}
@@ -328,29 +403,10 @@
       \ftag{\scriptsize j}{\fa \alpha } & Squish\textbf{Elim:}\emph{i} \\
     \end{fitch}
   \end{center}
-
-  \(\alpha\) `squishes' \(\beta\).
-
-  Uncommon, but enough to memorise the rule.
-
-  Apply a rule of inference if and only if it follows from basic rules.
-
-  Further, only if \fc{}.
-  For, I consider my general understanding of propositional logic more important than memory.
-  And, if failed, then would not consider sound.
-
-  Further, is \fc{}, as I have proved, and would prove again.%
-  \footnote{
-    For a quick proof, suppose \((P \rightarrow Q) \rightarrow P\) is true.
-  And for contradiction assume \(P\) is false.
-  As \(P\) is false, it immediately follows that \(P \rightarrow Q\) is true.
-  Therefore, by the initial supposition, \(P\) is true.
-  Hence, we have obtained the desired contradiction.
-  }
 \end{note}
 
 \begin{note}
-  Filling in the details of the second abstract sketch:
+  The relevant propositions, values, and \poP{1} are as follows:
   \begin{itemize}[noitemsep]
   \item
     I am the agent.
@@ -374,22 +430,54 @@
   \begin{quote}
     \begin{itemize}
     \item[\emph{If}:]
-      If I do not (recognise that I) know \(\pv{\text{Squish elimination is sound}}{\text{True}}\) from \(\Psi\) is a \fc{}.
+      If I do not know \(\pv{\text{Squish elimination is sound}}{\text{True}}\) from \(\Psi\) is not a \fc{}.
     \item[\emph{Then}:]
       I am not concluding \(\pv{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}{\text{True}}\) from \(\Phi\).
     \end{itemize}
   \end{quote}
-
-  The antecedent is true, and hence the consequent is true due to \ninf{} I exert over the event.
 \end{note}
 
 \begin{note}
-  As with \autoref{illu:lost-key}, you may differ with respect to whether or not the soundness of squish is a \requ{}.
-  It may be sufficient for you that you know squish is a sound rule of inference, regardless of whether or not it is a \fc{}.
-  However, if not a \fc{}, then I have a more general concern about the result of any reasoning performed.
-  For, the proof is quick, and if fail, then suggests to me that \emph{at present} I am not of right mind to be constructing syntactic proofs.
+  The motivation for the conditional rests on a distinction between competence and performance.
+
+  I know Squish elimination is sound.
+  For, I have proved Squish elimination is sound on many different occasions.
+  More generally I am competent with respect to deriving basic syntactic theorems.
+
+  However, given a specific event, performance may not be an instance of competence.
+  For, I may not be thinking straight.
+  Typically, because I am exhausted.
+
+  If performance is not instance of competence, then it is not clear to me what reasoning amounts to.
+  I have a what might be a syntactic proof.
+  However, the apparent proof may just be an association of thoughts.
+
+  Hence, any doubt of performance aligns with competence would lead to abandoning reasoning.
+
+  Indeed, I would refrain from concluding any syntactic entailment holds.
+  For, while I know Squish elimination is sound, I would not know that my application of Squish elimination amounts to a syntactic proof.
 \end{note}
 
+% \begin{note}[Problems of induction]
+%   Hence, the sketch does not apply to black ravens.
+%   I wouldn't conclude all ravens are black if I saw a white raven.
+
+%   I may worry about shortly seeing a white raven when concluding all ravens are black, and I may refuse to entertain the possibility that the sun will rise tomorrow when planning to mow the grass.
+
+%   However, it's not possible to reason to seeing a white raven, nor is it possible to reason to the sun not rising tomorrow.
+
+%   Abstractly, at issue in~\autoref{illu:lost-key} is the possibility of failing to a reason to some proposition-value pair given \emph{present} information, rather than the possibility of failing to a reason to some proposition-value pair given \emph{new} information.
+
+%   To the extent that problems of induction arise from receiving new information, what is at issue is distinct.%
+%   \footnote{
+%     See~\textcite{Henderson:2020wb} for more on the problem of induction.
+%   }
+
+%   Similar points for external world scepticism.
+%   Would not conclude that I have hand if disembodied brain in a vat.
+
+%   However, conclusion is out of reach.
+% \end{note}
 
 \subsection{Intuition}
 \label{sec:intuition-1}
@@ -418,7 +506,6 @@
   Issue: P is a reason.
   By parallel, the reasoning that the agent has done is sufficient for the agent to conclude.
   However, at issue is precisely whether this is the case.
-
   }
 
   We borrow the following sketch from \textcite{Worsnip:2018aa}:
@@ -428,12 +515,11 @@
   \end{quote}
 
   In particular, concluding.
-  At issue is not whether the \(\phi\) has value \(v\), but whether the agent's reasoning from \(\Phi\) to \(\pv{\phi}{v}\) is any good.
+  At issue is not whether the \(\phi\) has value \(v\), but whether the agent's reasoning from \(\Phi\) to \(\pv{\phi}{v}\) is sufficient for the agent to conclude \(\phi\) has value \(v\) (from \(\Phi\)).
 
   Justification, and this is one way to go.
   However, not tied to justification.
 \end{note}
-
 
 \subsection{What a \requ{} is not}
 
@@ -442,17 +528,124 @@
   \requ{} is stronger, if no guarantee at present, then no conclusion.
 \end{note}
 
+\subsection{Propositions}
+\label{sec:propsoitions}
+
 \begin{note}
-  Similarly, at issue is not a guarantee.
-  \pevent{1} are understood in terms of the progressive.
-  If \(\pv{\psi}{v'}\) from \(\Psi\) fails then there's no reasonable sense in which the event develops, even if things had gone a little differently.
+  We briefly state two propositions which have no significant role in the arguments to follow, but which may be helpful.
 \end{note}
 
-\section{Additional \illu{1}}
+\begin{note}
+  The existence of \requ{1} are compatible with \issueConstraint{}.
+  \begin{proposition}
+    \label{prop:requ-not-n-ce}
+    The existence of \requ{1} does not presuppose counterexamples to \issueConstraint{}.
+  \end{proposition}
+  \begin{argument}{prop:requ-not-n-ce}
+    In order for counterexample, case in which \ros{} answers \qWhyV{}, but the agent does not have a \wit{}.
+
+    Consider \autoref{scen:squish}.
+    At issue is whether the agent would repeat the repeat conclusion of squish as sound.
+
+    Needs to be the case that \ros{} without \wit{}.
+
+    However, the agent has previously concluded squish is sound.
+    Therefore, the agent has a \wit{} for \ros{}.
+  \end{argument}
+
+  \autoref{prop:requ-not-n-ce} highlights that I have no snuck in an idea which entails \issueConstraint{} without being clear I have done so.
+\end{note}
+
+\begin{note}
+  The second proposition may help clarify what the existence of \requ{1} amounts to:
+
+  \begin{proposition}
+    \label{prop:requ-not-refl}
+    \(\pvp{\phi}{v}{\Phi}\) need not be a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{proposition}
+  \begin{argument}{prop:requ-not-refl}
+    It need not be the case that the agent knows that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
+
+    The simplest cases are at the outset.
+    It need not be the case that \citeauthor{Maksimova:1977un} knew there are exactly five intermediate logics that have the interpolation property was a \fc{} before proving such.
+
+    However, the same hold for when the agent pairs \(\phi\) with \(v\).
+    For, the agent need not know they would repeat the reasoning.
+    To \illu{0}, consider being guided through a complex argument.
+    Follow along, and conclude.
+    At each step, do the reasoning, the guide highlights which sub-conclusions to draw.
+    However, guide goes away.
+    And, given complexity, no repetition without guide.
+  \end{argument}
+
+  In general, \autoref{prop:requ-not-refl} highlights that there are no trivial \requ{1}.
+  For, sensitivity.
+\end{note}
+
+
+\section{\requ{3}, competence, performance}
 \label{cha:requs:sec:add-illu}
 
-\subsubsection{Sudoku}
-\label{sec:sudoku}
+\begin{note}
+  \requ{3} have a key role in identifying counterexamples to \issueConstraint{}.
+
+  Important that there are cases in which \requ{1} exist.
+  At issue is whether \illu{1} \ref{illu:lost-key} and \ref{scen:squish} illustrate instances of \requ{1}.
+  At issue is \emph{not} whether \requ{1} are the correct interpretation of \scen{1} that parallel \illu{1} \ref{illu:lost-key} and \ref{scen:squish}.
+
+  These two issues are related.
+  If there is some alternative interpretation of \illu{1} \ref{illu:lost-key} and \ref{scen:squish}, then deny that \requ{1} exist.
+
+  Hence, general motivation for the existence of \requ{}.
+  Specifically, the goal of this section is to extend discussion of the way competence and performance motivated \autoref{scen:squish}.
+
+  We will set \autoref{illu:lost-key} aside.
+  For, the importance of \requ{1} is limited to cases in which \(\pvp{\psi}{v'}{\Psi}\) is a \requ{0} of concluding \(\pv{\phi}{v}\) from \(\Phi\) and the agent goes on to conclude \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Hence, while cases such as \autoref{illu:lost-key} in which an agent does not conclude due to a \requ{} motivate the general idea of a \requ{}, nothing in particular hangs on such cases.
+\end{note}
+
+\begin{note}
+  \illu{3} of \requ{1}.
+  Interest is in cases where
+
+  \begin{itemize}
+  \item
+    \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \item
+    The agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{itemize}
+  For, in such cases:
+  \begin{itemize}
+  \item
+    Agent knows \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  \item
+    Agent is `sensitive' to whether they know \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  \end{itemize}
+
+  If both of these things hold, then plausible \requ{1} exist.
+  For, only additional thing needed is \ninf{}.
+\end{note}
+
+\begin{note}
+  In these cases, two worries:
+
+  \begin{itemize}
+  \item
+    Whether an agent may know \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  \item
+    Whether an agent is sensitive to whether or not the agent knows \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  \end{itemize}
+
+  There are two aspects to these worries.
+
+  First, whether positive resolutions make sense.
+  Second, whether positive resolutions withstand additional scrutiny.
+
+  We will scrutinise to both worries in \autoref{cha:know}, after establishing how \requ{1} lead to counterexamples to \issueConstraint{}.
+
+  Here, make sense.
+\end{note}
 
 \begin{note}
   \begin{illustration}[Sudoku]
@@ -486,124 +679,127 @@
       \end{tikzpicture}
     \end{adjustbox}%
     \hfill\mbox{ }
-
   \end{illustration}
 
-  {
-    \color{red}
-    Interactive.
-    Fill in the grid.
-    Difference between filling in the grid and concluding that solution to the puzzle.
-    So, before conclude.
-    Is it the case that you would fill in the grid the same way?
-  }
-
-  In contrast to~\autoref{illu:fc:chess:I}, \autoref{illu:gist:sudoku} involves a number of salient \fc{}.
-
-  The relevant \fc{1} follow from a basic understanding the rules of Sudoku, in same way that the possibility for White to checkmate follows from understanding of the rules of chess in \autoref{illu:fc:chess:I}.
-
-  Still, in contrast to \autoref{illu:fc:chess:I}, there is a interesting chance of error.
-  For example, accidentally placing 9 above the 8 in the bottom centre sub-grid before observing the 9 in the same column.
-  Or, 4 in the top-right of the top-left sub-grid before realising already placed 4 in top-left of the top-left sub-grid.
-
-  However, errors do not (necessarily) amount to conclusions.
-  One may make an error while completing the Sudoku puzzle, but refrain from concluding that the mistaken number is the correct number to place in the cell.
-  Indeed, given the possibility of error one may only conclude \(i\) is the correct number to place in cell \(c\) only when all cells have been filled and they have ensured there are no errors.
+  Interactive.
+  Fill in the grid.
+  Difference between filling in the grid and concluding that solution to the puzzle.
+  So, before conclude.
+  Is it the case that you would fill in the grid the same way?
 \end{note}
-
-\subsubsection{Kettle logic}
-\label{sec:failures-1}
 
 \begin{note}
-  Typically, \(\pv{\phi}{v}\) from \(\Phi\) is not a \requ{}.
-  You don't need to know that you are concluding in order to be concluding.
+  \autoref{illu:gist:sudoku} parallels \autoref{scen:squish}.
+
+  In both \illu{1}, \(\pv{\phi}{v}\) follows from \(\Phi\) via a rules.
+
+  However, rules are not of direct interest.
+  \autoref{scen:squish} is a syntactic proof, but variant \scen{0} in which semantic proof.
+  Relevant reasoning may be rule governed, but semantic proofs are not constrained.
+
+  Rather, familiarity.
+
+  The type of reasoning is general.
+  Syntactic and semantic proofs, Sudoku puzzles, simple instances of chess problems, all seem to involve general reasoning.
+  Likewise, counting, adding, subtracting, and so on.
+  Competence established through various proofs, puzzles, problems, and practice.
+
+  In this respect, there is no reasonable doubt the agent is competent.
+  At issue is performance.
+  Whether reasoning is a specific instance of the general type.
 \end{note}
-
-\begin{note}[A copper kettle]
-  A further \illu{0} builds on a story as told by~\citeauthor{Freud:1960wx}.
-  \begin{illustration}[A copper kettle]
-    \label{illu:kettle}
-    \mbox{ }
-    \vspace{-\baselineskip}
-    \begin{quote}
-      `A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable.
-      His defence was:
-      ``First, I never borrowed a kettle from B.\ at all;
-      secondly, the kettle had a hole in it already when I got it from him;
-      and thirdly, I gave him back the kettle undamaged.%
-      '''\newline
-      \mbox{ }\hfill\mbox{(\citeyear[62]{Freud:1960wx})}
-    \end{quote}
-    An agent listens to A.'s defence, but does not conclude A.\ has provided testimony.
-  \end{illustration}
-
-  The agent's failure to conclude A.\ has provided testimony may be understood in terms of a \requ{}.
-  For, A.\ has provided testimony only if what A.\ has said is true.
-  And, what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
-  Putting these observations together, we have the following conditional:
-
-  \begin{itemize}
-  \item
-    A.\ has provided testimony \emph{only if} if the three points of A.'s defence are jointly consistent.
-  \end{itemize}
-
-  Failure for the agent to conclude the consequent would prevent the agent from concluding the antecedent.
-
-  Likewise, there are only three points, and checking for consistency does not require the agent to establish whether the points are (actually) true.
-
-  \requ{} but not \fc{}.
-
-  Before the agent concludes A.\ has provided testimony, the agent reasons about whether the three points of A.'s defence are jointly consistent.
-  After, the agent does not conclude A.\ has provided testimony.%
-  \footnote{
-    Any pair of points are jointly inconsistent.
-    For example, consider the first and third:
-    If A.\ never borrowed the kettle from B, then it is not possible for A.\ to have returned the kettle to B.
-  }
-
-  The story as told by \citeauthor{Freud:1960wx} is comical, but the \requ{0} identified is fairly general.
-  In many cases one may only accept a story if the details are in harmony, and dissonance leads to rejection.
-\end{note}
-
-\subsection{Not a \requ{}}
-\label{sec:not-requ}
 
 \begin{note}
-  Testimony, but too much to check.
+  So far, link between competence and performance.
+  Performance is an instance of competence.
+  This is the key idea.
 
-  \begin{illustration}[Testimony as a layperson]
-    \label{illu:testimony-layperson}
-    An agent is informed that there are exactly five intermediate logics that have the interpolation property.\nolinebreak
-    \footnote{Cf.\ \textcite{Maksimova:1977un}}
-
-    The agent does not have the means to query the proof.
-
-    The agent concludes there are exactly five intermediate logics that have the interpolation property.
-  \end{illustration}
-
-  Here, also, logic with syntax and semantics.
+  No argue that from this, \requ{1} follow.
 \end{note}
 
-\begin{note}[Problems of induction]
-  Hence, the sketch does not apply to black ravens.
-  I wouldn't conclude all ravens are black if I saw a white raven.
+\begin{note}
+  By contradiction.
+  Suppose it is never the case that sensitive.
 
-  I may worry about shortly seeing a white raven when concluding all ravens are black, and I may refuse to entertain the possibility that the sun will rise tomorrow when planning to mow the grass.
+  That is, never the case in which stop if performance is not instance of competence.
 
-  However, it's not possible to reason to seeing a white raven, nor is it possible to reason to the sun not rising tomorrow.
+  Then, there is nothing which states whether performance is an instance of competence.
+  This applies to reasoning the agent is doing.
 
-  Abstractly, at issue in~\autoref{illu:lost-key} is the possibility of failing to a reason to some proposition-value pair given \emph{present} information, rather than the possibility of failing to a reason to some proposition-value pair given \emph{new} information.
-
-  To the extent that problems of induction arise from receiving new information, what is at issue is distinct.%
-  \footnote{
-    See~\textcite{Henderson:2020wb} for more on the problem of induction.
-  }
-
-  Similar points for external world scepticism.
-  Would not conclude that I have hand if disembodied brain in a vat.
-
-  However, conclusion is out of reach.
+  Then, this extends to \fc{1}.
+  For, if nothing about next action, then not competence.
 \end{note}
+
+\begin{note}
+  So, know whether or not present reasoning is instance of competence.
+
+  At issue is whether \fc{}.
+  Consider midpoint.
+  If don't know \fc{}, then don't know performance is instance of competence.
+  For, progressive.
+  With the exception of sceptical scenarios, know that actions to perform.
+  If competence, then following action is constrained.
+\end{note}
+
+\begin{note}
+  Puzzle is whether there is any sense to competence if deny knowledge of \fc{}.
+\end{note}
+
+
+% \subsubsection{Kettle logic}
+% \label{sec:failures-1}
+
+% \begin{note}
+%   Typically, \(\pv{\phi}{v}\) from \(\Phi\) is not a \requ{}.
+%   You don't need to know that you are concluding in order to be concluding.
+% \end{note}
+
+% \begin{note}[A copper kettle]
+%   A further \illu{0} builds on a story as told by~\citeauthor{Freud:1960wx}.
+%   \begin{illustration}[A copper kettle]
+%     \label{illu:kettle}
+%     \mbox{ }
+%     \vspace{-\baselineskip}
+%     \begin{quote}
+%       `A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable.
+%       His defence was:
+%       ``First, I never borrowed a kettle from B.\ at all;
+%       secondly, the kettle had a hole in it already when I got it from him;
+%       and thirdly, I gave him back the kettle undamaged.%
+%       '''\newline
+%       \mbox{ }\hfill\mbox{(\citeyear[62]{Freud:1960wx})}
+%     \end{quote}
+%     An agent listens to A.'s defence, but does not conclude A.\ has provided testimony.
+%   \end{illustration}
+
+%   The agent's failure to conclude A.\ has provided testimony may be understood in terms of a \requ{}.
+%   For, A.\ has provided testimony only if what A.\ has said is true.
+%   And, what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
+%   Putting these observations together, we have the following conditional:
+
+%   \begin{itemize}
+%   \item
+%     A.\ has provided testimony \emph{only if} if the three points of A.'s defence are jointly consistent.
+%   \end{itemize}
+
+%   Failure for the agent to conclude the consequent would prevent the agent from concluding the antecedent.
+
+%   Likewise, there are only three points, and checking for consistency does not require the agent to establish whether the points are (actually) true.
+
+%   \requ{} but not \fc{}.
+
+%   Before the agent concludes A.\ has provided testimony, the agent reasons about whether the three points of A.'s defence are jointly consistent.
+%   After, the agent does not conclude A.\ has provided testimony.%
+%   \footnote{
+%     Any pair of points are jointly inconsistent.
+%     For example, consider the first and third:
+%     If A.\ never borrowed the kettle from B, then it is not possible for A.\ to have returned the kettle to B.
+%   }
+
+%   The story as told by \citeauthor{Freud:1960wx} is comical, but the \requ{0} identified is fairly general.
+%   In many cases one may only accept a story if the details are in harmony, and dissonance leads to rejection.
+% \end{note}
+
 
 \section{Summary}
 \label{sec:summary-1}
