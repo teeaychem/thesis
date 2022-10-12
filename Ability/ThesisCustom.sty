@@ -1424,3 +1424,51 @@
   }
 }
 \ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\gR}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{competence}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{competence}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\color{blue} competences}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Competence}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\color{blue} Competences}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\sR}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\obeybreaks{competent}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\obeybreaks{competent}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\obeybreaks{\color{blue} competent}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\obeybreaks{Competent}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\obeybreaks{\color{blue} competent}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\sqE}{\obeybreaks{Squish\textbf{Elim}}}
