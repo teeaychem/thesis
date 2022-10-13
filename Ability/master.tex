@@ -25,10 +25,10 @@
 \setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans 3}
 \setmonofont[Scale=0.8]{Source Code Pro}
 
-% \usepackage[match]{luatexja-fontspec}
-% \setmainjfont{SourceHanSerif-Regular}
-% \setsansjfont{SourceHanSans-Regular}
-% \setmonojfont{SourceHanMono}
+\usepackage[match]{luatexja-fontspec}
+\setmainjfont{SourceHanSerif-Regular}
+\setsansjfont{SourceHanSans-Regular}
+\setmonojfont{SourceHanMono}
 
 % \usepackage{selnolig}% For suppressing certain typographic ligatures automaically
 % % % % % % %
@@ -139,7 +139,7 @@
 
 \def\nleadsto{\mathrel{%
     \mathchoice{\NLEADSTO}{\NLEADSTO}{\scriptsize\NLEADSTO}{\tiny\NLEADSTO}%
-}}
+  }}
 \def\NLEADSTO{{%
     \setbox0\hbox{\leadsto}%
     \rlap{\hbox to \wd0{\hss\hspace{-10pt}\not\hss}}\box0
@@ -154,15 +154,14 @@
 % \usepackage{lplfitch} % For fitch proofs
 \usepackage{fitch} % For better fitch proofs?
 \usepackage{bussproofs} % For Gentzen-style?
-\usepackage[ruled, linesnumbered]{algorithm2e} % for algorithms
-\SetKwInOut{Input}{Input}
-\SetKwInOut{Output}{Output}
+% \usepackage[ruled, linesnumbered]{algorithm2e} % for algorithms
+% \SetKwInOut{Input}{Input}
+% \SetKwInOut{Output}{Output}
 
 % % % % % % % % % % % %
 
 % % % My packages % % %
 \usepackage{CustomTheoremsThesis}
-% \usepackage{FuturePromisedEvents}
 \usepackage{ThesisCustom}
 \usepackage{Notes}
 % % % % % % % % % % % %
@@ -181,21 +180,21 @@
   {\normalfont\normalsize\bfseries}}
 \makeatother
 
-% https://tex.stackexchange.com/questions/94402/creating-a-subsubparagraph
-\makeatletter
-\newcounter{subsubparagraph}[subparagraph]
-\renewcommand\thesubsubparagraph{%
-  \thesubparagraph.\@arabic\c@subsubparagraph}
-\newcommand\subsubparagraph{%
-  \@startsection{subsubparagraph}    % counter
-    {6}                              % level
-    {\z@}                     % indent
-    {3.25ex \@plus 1ex \@minus .2ex} % beforeskip
-    {1.5ex \@plus .2ex}%             % afterskip
-    {\normalfont\normalsize\bfseries}}
-\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
-\newcommand{\subsubparagraphmark}[1]{}
-\makeatother
+% % https://tex.stackexchange.com/questions/94402/creating-a-subsubparagraph
+% \makeatletter
+% \newcounter{subsubparagraph}[subparagraph]
+% \renewcommand\thesubsubparagraph{%
+%   \thesubparagraph.\@arabic\c@subsubparagraph}
+% \newcommand\subsubparagraph{%
+%   \@startsection{subsubparagraph}    % counter
+%     {6}                              % level
+%     {\z@}                     % indent
+%     {3.25ex \@plus 1ex \@minus .2ex} % beforeskip
+%     {1.5ex \@plus .2ex}%             % afterskip
+%     {\normalfont\normalsize\bfseries}}
+% \newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+% \newcommand{\subsubparagraphmark}[1]{}
+% \makeatother
 
 \usepackage[
 breaklinks,
@@ -205,7 +204,7 @@ colorlinks=true,
 linkcolor=highlight,
 citecolor=highlight,
 ]{hyperref}
-
+\usepackage{csquotes}
 
 % \hyperlink{cite.MyKey}{link}
 % https://tex.stackexchange.com/questions/285710/hyperref-link-to-bibliography-entry
@@ -255,7 +254,6 @@ citecolor=highlight,
 \let\subsectionautorefname\sectionautorefname
 \let\subsubsectionautorefname\sectionautorefname
 
-\usepackage{csquotes}
 
 \title{
   Foregone-conclusions
@@ -289,6 +287,8 @@ citecolor=highlight,
 
 % \part*{Introduction}
 % \label{part:introduction}
+
+\include{changes}
 
 \include{preface}
 

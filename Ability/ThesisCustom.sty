@@ -144,7 +144,7 @@
 % And S\(\circ\dashes\)C for exception
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\agpe}{ m }{% No inertia
+\NewDocumentCommand{\agpe}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
     \obeybreaks{agent's\space perspective}
@@ -158,30 +158,30 @@
 \newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\poP}{ m }{%
+\NewDocumentCommand{\poP}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{pool\ofPremises{}}}%
+    \obeybreaks{pool\ofPremises{}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{pool\ofPremises{}}}%
+      \obeybreaks{pool\ofPremises{}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{pools\ofPremises{}}}%
+      \obeybreaks{pools\ofPremises{}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Pool\ofPremises{}}}%
+      \obeybreaks{Pool\ofPremises{}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{Pools\ofPremises{}}}%
+      \obeybreaks{Pools\ofPremises{}}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\factivity}{ m }{%
+\NewDocumentCommand{\factivity}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[principle:factivity]{factivity}}%
@@ -204,7 +204,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ptivity}{ m }{%
+\NewDocumentCommand{\ptivity}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
@@ -229,7 +229,7 @@
 \newcommand{\ptivityQV}[0]{\ensuremath{\mathbb{P}}}
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ptivityQ}{ m }{%
+\NewDocumentCommand{\ptivityQ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
@@ -252,7 +252,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\deadEnd}{ m }{%
+\NewDocumentCommand{\deadEnd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:dead-end]{dead-end}}%
@@ -276,7 +276,7 @@
 
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\collateral}{ m }{%
+\NewDocumentCommand{\collateral}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{collateral}%
@@ -301,7 +301,7 @@
 % % % % % % Support % % %
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\support}{ m }{%
+\NewDocumentCommand{\support}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[cha:var:ros]{support}}%
@@ -324,7 +324,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ros}{ m }{%
+\NewDocumentCommand{\ros}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[cha:var:ros]{relation\space of\space \support{0}}}%
@@ -350,7 +350,7 @@
 \newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\support{2}\space II}}}}
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\wit}{ m }{%
+\NewDocumentCommand{\wit}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:witnessing]{witness}}%
@@ -375,7 +375,7 @@
 % % % % % % Requisites etc % % %
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\requ}{ m }{%
+\NewDocumentCommand{\requ}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:requ]{requisite}}%
@@ -398,7 +398,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\requP}{ m }{%
+\NewDocumentCommand{\requP}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:requP]{requisite\(^{\sharp}\)}}%
@@ -427,7 +427,7 @@
 
 % % %
 \ExplSyntaxOn
-\DeclareDocumentCommand{\illu}{ m }{
+\NewDocumentCommand{\illu}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{illustration}%
@@ -450,7 +450,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\scen}{ m }{
+\NewDocumentCommand{\scen}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{scenario}%
@@ -473,7 +473,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\cScen}{ m }{
+\NewDocumentCommand{\cScen}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
@@ -490,29 +490,6 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenarios}}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\check}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\textsf{check}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\textsf{check}}%
-    \fi
-    \ifnum1=#1\relax%f
-      \obeybreaks{\textsf{checks}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\textsf{Check}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\textsf{Checks}}%
     \fi
   }
 }
@@ -535,7 +512,7 @@
 % % % Agents % % %
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\vAgent}{ m }{% No inertia
+\NewDocumentCommand{\vAgent}{ m }{% No inertia
   \tl_if_empty:nTF {#1}
   {%
     \text{\emph{S}}
@@ -690,7 +667,7 @@
 \newcommand*{\rleadsto}{\reflectbox{\(\leadsto\)}}%
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\zgb}{ m }{
+\NewDocumentCommand{\zgb}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{zingiberaceae}%
@@ -713,7 +690,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\fc}{ m }{%
+\NewDocumentCommand{\fc}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \hyperref[def:fc]{\obeybreaks{foregone-conclusion}}%
@@ -736,7 +713,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\zSN}{ m }{
+\NewDocumentCommand{\zSN}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\zgb{0}-support}%
@@ -979,7 +956,7 @@
 % Ability.
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\abgen}{ m }{%
+\NewDocumentCommand{\abgen}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{broad}%
@@ -1002,7 +979,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\abspec}{ m }{%
+\NewDocumentCommand{\abspec}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{narrow}%
@@ -1042,7 +1019,7 @@
 \newcommand{\mRweSym}[0]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}}}}
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\drift}{ m }{
+\NewDocumentCommand{\drift}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{drift}%
@@ -1065,7 +1042,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\drifting}{ m }{
+\NewDocumentCommand{\drifting}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{drifting}%
@@ -1088,7 +1065,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\driftW}{ m }{
+\NewDocumentCommand{\driftW}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\drift{0}-world}%
@@ -1111,7 +1088,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\closeW}{ m }{
+\NewDocumentCommand{\closeW}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{close-world}%
@@ -1134,7 +1111,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\assuPP}{ m }{
+\NewDocumentCommand{\assuPP}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{progressive\space perfection}}}}%
@@ -1157,20 +1134,20 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\drAdj}{ m }{
+\NewDocumentCommand{\drAdj}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{appropriate}}%
+    \obeybreaks{appropriate}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{appropriate}}%
+      \obeybreaks{appropriate}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Appropriate}}%
+      \obeybreaks{Appropriate}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -1180,20 +1157,20 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ndrAdj}{ m }{
+\NewDocumentCommand{\ndrAdj}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{inappropriate}}%
+    \obeybreaks{inappropriate}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{inappropriate}}%
+      \obeybreaks{inappropriate}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Inappropriate}}%
+      \obeybreaks{Inappropriate}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\color{red} NO-SENSE}%
@@ -1216,7 +1193,7 @@
 % % % % % % Potntial, etc % % %
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\potential}{ m }{
+\NewDocumentCommand{\potential}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{potential}%
@@ -1239,7 +1216,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\pevent}{ m }{%
+\NewDocumentCommand{\pevent}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space event}}%
@@ -1263,7 +1240,7 @@
 
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\qWVitc}{ m }{
+\NewDocumentCommand{\qWVitc}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\emph{if-then}\space conditional}%
@@ -1288,185 +1265,168 @@
 
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\curb}{ m }{
+\NewDocumentCommand{\curb}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}}%
+    \obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}}%
+      \obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{curbs}}}}%
+      \obeybreaks{\hyperref[def:curb]{\obeybreaks{curbs}}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{Curb}}}}%
+      \obeybreaks{\hyperref[def:curb]{\obeybreaks{Curb}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:curb]{\obeybreaks{Curbs}}}}%
+      \obeybreaks{\hyperref[def:curb]{\obeybreaks{Curbs}}}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\bCurb}{ m }{
+\NewDocumentCommand{\bCurb}{ m }{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}}%
+    \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}}%
+      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curbs}}}}%
+      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curbs}}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curb}}}}%
+      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curb}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curbs}}}}%
+      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curbs}}}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\feedback}{ m }{%
+\NewDocumentCommand{\feedback}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{feedback}}%
+    \obeybreaks{feedback}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{feedback}}%
+      \obeybreaks{feedback}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\#\$\%\&}}%
+      \obeybreaks{\#\$\%\&}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Feedback}}%
+      \obeybreaks{Feedback}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\#\$\%\&}}%
+      \obeybreaks{\#\$\%\&}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\influence}{ m }{%
+\NewDocumentCommand{\influence}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{influence}}%
+    \obeybreaks{influence}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{influence}}%
+      \obeybreaks{influence}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{influences}}%
+      \obeybreaks{influences}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Influence}}%
+      \obeybreaks{Influence}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{Influences}}%
+      \obeybreaks{Influences}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\ninf}{ m }{%
+\NewDocumentCommand{\ninf}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{negative\space influence}}%
+    \obeybreaks{\hyperref[def:ninf]{negative\space influence}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{negative\space influence}}%
+      \obeybreaks{\hyperref[def:ninf]{negative\space influence}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\color{red} negative\space influences}}%
+      \obeybreaks{\hyperref[def:ninf]{\color{red} negative\space influences}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Negative\space influence}}%
+      \obeybreaks{\hyperref[def:ninf]{Negative\space influence}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{red} Negative\space influences}}%
+      \obeybreaks{\hyperref[def:ninf]{\color{red} Negative\space influences}}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\pinf}{ m }{%
+\NewDocumentCommand{\pinf}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{positive\space influence}}%
+    \obeybreaks{positive\space influence}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{positive\space influence}}%
+      \obeybreaks{positive\space influence}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} positive\space influences}}%
+      \obeybreaks{\color{blue} positive\space influences}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Positive\space influence}}%
+      \obeybreaks{Positive\space influence}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} Positive\space influences}}%
+      \obeybreaks{\color{blue} Positive\space influences}%
     \fi
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\DeclareDocumentCommand{\gR}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\obeybreaks{competence}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{competence}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} competences}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Competence}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} Competences}}%
-    \fi
-  }
+\NewDocumentCommand{\sR}{mm}{%
+\tl_if_empty:nTF {#2}
+{
+  {\color{green} What}
 }
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\DeclareDocumentCommand{\sR}{ m }{%
+{
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\obeybreaks{competent}}%
+    \obeybreaks{typical\space #2}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\obeybreaks{competent}}%
+      \obeybreaks{typical\space #2}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} competent}}%
+      \obeybreaks{\color{blue} typical\space #2}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\obeybreaks{Competent}}%
+      \obeybreaks{Typical\space #2}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\obeybreaks{\color{blue} competent}}%
+      \obeybreaks{\color{blue} Typical\space #2}%
     \fi
+  }
   }
 }
 \ExplSyntaxOff
