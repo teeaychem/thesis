@@ -33,7 +33,7 @@
     \noindent\emph{Argument for \autoref{#1}}%
     \mbox{ }\newline
     \reversemarginpar
-      \BODY\newline%
+      \BODY\mbox{ }\newline%
       \mbox{ }\hfill\adforn{39}\par
 }
 
@@ -1403,31 +1403,43 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\sR}{mm}{%
-\tl_if_empty:nTF {#2}
-{
-  {\color{green} What}
-}
-{
+\NewDocumentCommand{\sRadj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{typical\space #2}%
+    \obeybreaks{typical}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{typical\space #2}%
+      \obeybreaks{typical}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} typical\space #2}%
+      \obeybreaks{\color{blue} typical}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Typical\space #2}%
+      \obeybreaks{Typical}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} Typical\space #2}%
+      \obeybreaks{\color{blue} typical}%
     \fi
   }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\sR}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    {\sRadj{#2}\space reasoning}
   }
+  {
+    {\sRadj{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\cenLine}{ m }{%
+  \mbox{ }\hfill#1\hfill\mbox{ }
 }
 \ExplSyntaxOff
 

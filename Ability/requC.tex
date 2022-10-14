@@ -2,20 +2,9 @@
 \label{cha:requs}
 
 \begin{note}
-  \autoref{cha:var} introduced \qWhyV{}, \qHowV{}, and \issueConstraint{}.
+  \autoref{cha:typical} introduced \sR{0}.
 
-  Interest is with whether there are cases in which:
-
-  \begin{itemize}
-  \item
-    Agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    If an \ros{} failed to hold between \(\pv{\psi}{v'}\) and \(\Psi\) (for the agent) then the agent would not have concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    The agent does not have a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).%
-    \mbox{ }\hfill%
-    (I.e.\ the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).)
-  \end{itemize}
+  Some generality.
 \end{note}
 
 \begin{note}
@@ -28,8 +17,12 @@
   \item
     The agent does not have a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
   \end{itemize}
+\end{note}
 
-  However, we have not established any relation between \(\pv{\psi}{v'}\) from \(\Psi\) being a \fc{} and an agent's conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
+\begin{note}
+  Present chapter, \requ{1}.
+
+  The role of a \requ{} is to bind \fc{} to concluding, and in cases of interest, \sR{0} will motivate bind.
 \end{note}
 
 \begin{note}
@@ -70,7 +63,7 @@
   \item
     \TOCLine{cha:requs:sec:add-illu}
 
-    \sR{}{reasoning}, in additional detail.
+    \sR{}, in additional detail.
   \end{itemize}
 \end{note}
 
@@ -78,9 +71,58 @@
 \label{cha:requs:sec:infl}
 
 \begin{note}
+  Consider the following \scen{0}:
+
+  \begin{scenario}[Apples]
+    \label{scen:apples}
+    Grey is walking to town to buy some apples.
+    Grey notices a bicycle for sale.
+    Grey purchases the bicycle, gets on the bicycle, and starts cycling to town.
+  \end{scenario}
+
+  Grey is performing some action.
+  Walking.
+  Progressive, incomplete action walks to the shops.
+  Grey then performs an action, purchasing a bicycle.
+  Following the purchase of the bicycle Grey is no longer walking to town.
+  Instead, Grey is cycling to town.
+
+  Grey does something so that it is not true that Grey is walking to town.
+
+  Depending on \agpe{your}, you may think that Grey was not walking to town.%
+  \footnote{
+    For, perfection, bound to see the bicycle for sale, has been wanting a bicycle, etc.
+  }
+  However, our interest is not with whether or not Grey was walking and then cycling.
+  Our interest is with the basic two-part observation:
+  \begin{itemize}[noitemsep]
+  \item
+    Shortly after purchasing the bicycle, Grey is not walking to town.
+  \item
+    Grey is not walking to town as a result of an action Grey performed.
+  \end{itemize}
+
+  In this respect, when Grey started to ride their bicycle, Grey exerted `\ninf{}' over whether or not they were walking to town.
+
+  For, regardless of whether or not Grey was walking to town, there is no longer a development of the event such that developed event is an event in which Grey walks into town --- some significant sub-event, Grey was on their bicycle.
+\end{note}
+
+\begin{note}
+  We define \ninf{} as follows:
   \begin{definition}[\ninf{2}]
     \label{def:ninf}
-    For an agent \vAgent{} and action description \(\alpha\)
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Event: \(e\)
+      \item
+        Action descriptions: \(\alpha, \beta\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
     \begin{itemize}
     \item
@@ -95,77 +137,114 @@
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
         \label{def:ninf:action}
-        There is some action \(a\) that \vAgent{} may immediately perform.
+        There is some action \(\beta\) that \vAgent{} may immediately perform.
       \item
         \label{def:ninf:prog}
-        \(\text{Prog}(e', \alpha)\) would be not be true in the event \(e'\) of \vAgent{} doing \(a\).
+        \(\text{Prog}(e', \alpha)\) would be not be true in the event \(e'\) of \vAgent{} doing \(\beta\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
 
-  Basic idea, for progressive to be the case, needs to be that event develops.
+  With respect to \autoref{scen:apples}:
 
-  As a result of performing some action, it is not the case that the event develops.
-\end{note}
-
-\begin{note}
-  For example, an agent has \ninf{0} over whether or not they are going to buy some apples.
-  For, the agent may choose to turn back home.
-
-  Likewise, \ninf{} over delivering a lecture.
-  For, walk out of the room.
-
-  \ninf{} over buying apples, as may remain seated.
-
-  \ninf{} over finding oranges on the moon.
-\end{note}
-
-\begin{note}
-  \begin{observation}
-    \label{ob:ninf}
-    There are instances in which an agent exerts \ninf{0} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{observation}
-
-  For, the agent may stop what they are doing.
-
-  \begin{itemize}
+  \begin{itemize}[noitemsep]
   \item
-    May decide that a result, even if obtained, is not worth the effort. Ex.\ bonus problem on a homework.
+    The agent is Grey.
   \item
-    Bottle of wine.
+    The event \(e\) spans some period of time which starts when or after Grey set out for town, and includes the Purchase of the bicycle.
   \item
-    Boredom
+    \(\alpha\) is the action `Grey walks to town'.
+  \item
+    \(\beta\) is the action `Grey rides some distance on their bicycle'.
   \end{itemize}
 \end{note}
 
 \begin{note}
-  Note:
-  It does not follow from \autoref{ob:ninf} that the agent had a choice over how event develops, if the agent does not exert \ninf{}.
-  It may be that if the agent continued the event, they would have concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  And, may remain the case that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
+  The purchase of a bicycle by Grey was not necessary for Grey to have \ninf{} over whether or not Grey was walking to town.
+  For, Grey may have chosen to turn back home or raid the local orchard.
+
+  Other examples of \ninf{0}:
+
+  \begin{itemize}[noitemsep]
+  \item
+    Finishing a book late at night \hfill Turn off the lights.
+  \item
+    Listening to a speech \hfill Leave before the speech is over.
+  \item
+    Playing a game of chess \hfill Leaving in frustration.
+  \end{itemize}
+
+  No \ninf{}:
+
+  \begin{itemize}
+  \item
+    Taking a shower \hfill After having been in the shower for a few minutes.
+
+    For, still true of event that taking a shower.
+    Simply ended.
+  \item
+    Hearing a part song on the radio \hfill After recognising the song.
+
+    For, enough to recognise.
+  \item
+    Playing chequers \hfill After having made a few moves.
+
+    For, played.
+    Difference to above is that have no played a game.
+  \end{itemize}
+
+  Noted that it does not matter whether or not \(e\) is such that \(\text{Prog}(e, \alpha)\) is true.
+  Hence, \ninf{} over finding oranges on the moon.
+  For, begin Cartesian meditation.
 \end{note}
 
 \begin{note}
-  \autoref{ob:ninf} is general.
-  Our interest is with a particular type of \ninf{}.
+  \nocite{Peacocke:2021aa}
+  \autoref{scen:apples} and the examples used to illustrate an agent having or not having \ninf{} were all non-mental actions.
+  With the exception of one:
+  Grey choosing to turn back home.
+  In this case, the relevant \(\beta\) action.
+
+  However, our interest is \(\alpha\).
+  Specifically, an agent has \ninf{} over whether or not they are \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
+
+  \begin{proposition}
+    \label{prop:ninfConcl}
+    There are instances in which an agent exerts \ninf{0} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{proposition}
+
+  \begin{argument}{prop:ninfConcl}
+    Two points.
+    \begin{itemize}[noitemsep]
+    \item
+      In order to be concluding, need to develop such that conclude.
+    \item
+      The agent may stop what they are doing.
+    \end{itemize}
+  \end{argument}
+
+  \begin{note}
+    \begin{itemize}
+    \item
+      Game of chess is lost. | Flip the table.
+    \item
+      Apparent testimony is true. | Read confession.
+    \item
+      \(math\) | Get bored.
+    \end{itemize}
+  \end{note}
 \end{note}
 
-% \begin{note}
-%   To say an agent has \ninf{0} is not to say the agent has \emph{\pinf{}}.
-%   For, an agent may not have choice over whether an event develops into an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+\begin{note}
+  Note, \autoref{prop:ninfConcl} does not entail agent has \ninf{} over whether they are \emph{reasoning} about whether \(\pv{\phi}{v}\) follows from \(\Phi\).
+  In parallel to examples used to illustrate when an agent does not have \ninf{}, sufficiently developed so that the agent has reasoned.
 
-%   For example, take \(\chi\) to be the proposition `the area of a unit square is equal to the area of a unit circle'.
-%   An agent has \ninf{0} over whether or not they concluding \(\pv{\chi}{\text{True}}\), as the agent may choose not to make any attempt.
-%   However, assuming the agent would only conclude \(\pv{\chi}{\text{True}}\) from principles consistent with Euclidean geometry, then agent does not have \pinf{} over whether or not they are concluding \(\pv{\chi}{\text{True}}\).
-%   For, the area of a unit square is not equal to the area of a unit circle.
-%   Hence, it is not possible for the agent to ensure that some event may develop into an event in which they conclude \(\pv{\chi}{\text{True}}\).
-
-%   In parallel, an agent need not have \pinf{0} over whether or not they are going to buy some eggs.
-%   For, it may be there are no eggs for sale.
-%   Hence, it may not be possible for the agent to ensure that the event develops into an event in which the agent buys some eggs.
-% \end{note}
-
+  Note:
+  It does not follow from \autoref{prop:ninfConcl} that the agent had a choice over how event develops, if the agent does not exert \ninf{}.
+  It may be that if the agent continued the event, they would have concluded \(\pv{\phi}{v}\) from \(\Phi\).
+  And, may remain the case that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
+\end{note}
 
 \section{\requ{3}}
 \label{cha:requs:sec:definition}
@@ -182,28 +261,30 @@
     \ninf{} if \(\pvp{\psi}{v'}{\Psi}\) is not a \fc{}.
   \end{itemize}
 
-  In these cases, \(\pvp{\psi}{v'}{\Psi}\) is a \requ{}.
+  In these cases, \(\pvp{\psi}{v'}{\Psi}\) is a \requ{}:
 
   \begin{definition}[A \requ{0}]
     \label{def:requ}
-    \begin{itemize*}[noitemsep, label=\(\circ\)]
-    \item
-      An agent: \vAgent{}
-    \item
-      Propositions: \(\phi\), \(\psi\)
-    \item
-      Values: \(v\), \(v'\)
-    \item
-      \poP{3}: \(\Phi\), \(\Psi\)
-    \item
-      An event: \(e\)
-    \item
-      \mbox{ }
-    \end{itemize*}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \poP{3}: \(\Phi\), \(\Psi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
     \begin{itemize}
     \item
-      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\), with respect to \(\pvp{\phi}{v}{\Phi}\).
+      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) for \vAgent{}, with respect to \(\pvp{\phi}{v}{\Phi}\).
     \end{itemize}
 
     \emph{If and only if}
@@ -223,7 +304,7 @@
         \item
           \label{def:requ:nC}
           \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).\newline
-          \mbox{ }\hfill(\emph{Due, in part, to \ref{def:requ:nK}})
+          \mbox{ }\hfill(\emph{Due, at least in part, to \ninf{} as a result of \ref{def:requ:nK}}.)
         \end{enumerate}
       \end{itemize}
     \end{itemize}
@@ -284,24 +365,26 @@
 
   \begin{proposition}[A \requ{0}, expanded]
     \label{prop:requ-fc}
-    \begin{itemize*}[noitemsep, label=\(\circ\)]
-    \item
-      An agent: \vAgent{}
-    \item
-      Propositions: \(\phi\), \(\psi\)
-    \item
-      Values: \(v\), \(v'\)
-    \item
-      \poP{3}: \(\Phi\), \(\Psi\)
-    \item
-      An event: \(e\)
-    \item
-      \mbox{ }
-    \end{itemize*}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \poP{3}: \(\Phi\), \(\Psi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
     \begin{itemize}
     \item
-      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) just in case:
+      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) for \vAgent{}, \emph{if and only if}:
       \begin{itemize}
       \item[\emph{If}:]
         \begin{enumerate}[label=\alph*., ref=(\alph*), series=requDefSeries]
@@ -331,7 +414,6 @@
   \begin{argument}{prop:requ-fc}
     From the definition of a \requ{} (\autoref{def:requ}, \autopageref{def:requ}) and the definition of a \fc{} (\autoref{def:fc}, \autopageref{def:fc}).
   \end{argument}
-  So, interactions with either of these two things.
 \end{note}
 
 \subsection{\illu{3}}
@@ -357,10 +439,10 @@
   \begin{illustration}[Lost keys]
     \label{illu:lost-key}
     I think I might have lost my keys.
-    I usually leave place my keys on the right side of my desk, next to a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} which I've been saving for a rainy day.
+    I usually leave place my keys on the right side of my desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} which I've been saving for a rainy day.
     And, my keys aren't there.
 
-    I've searched on the desk, under the desk, and beside the desk.
+    I've searched over the desk, under the desk, and beside the desk.
     And, I haven't found my keys.
 
     Still, I haven't (yet, at least) \emph{concluded} that I've lost my keys.
@@ -369,6 +451,8 @@
     If I think a little harder a figure out where that place is, I would conclude my keys might be in that place.
     And, my keys aren't lost if they are in that place.
     So, I might conclude that my keys aren't lost, which conflicts with concluding my keys are lost.
+
+    I do not go on to conclude I have lost my keys.
   \end{illustration}
 \end{note}
 
@@ -438,7 +522,11 @@
 
   \begin{restatable}[Squish elimination]{illustration}{scenarioPLSquish}
     \label{scen:squish}
-    I conclude \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) from the both the following syntactic proof and the soundness of the rules of inference:
+    It is late morning on a sunny day.
+    I ate a good breakfast, and drank some nice coffee.
+    I have completed a handful of syntactic proofs for entailments of propositional logic using the basic rules of inference in a Fitch-style system.
+
+    I create the following syntactic proof:
     \begin{center}
       \begin{fitch}
         \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
@@ -447,35 +535,14 @@
         \phantlabel{illu:sP:4}\fa P \land Q & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
       \end{fitch}
     \end{center}
+
+    Still, I haven't yet concluded \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\).
+
+    For, if \sqE{} is not a sound rule of inference, then \((P \rightarrow Q) \rightarrow P, Q\) may not entail \(P \land Q\).
+
+    I go on to conclude \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\).
   \end{restatable}
 
-  The proof consists of two premises and two rules of inference.
-  The two rules of inference are of interest.
-
-  The second rule of inference used is standard `\(\land\)' introduction, and applies to lines \hyperref[illu:sP:2]{2} and \hyperref[illu:sP:3]{3}.
-  Where the conditional holds is unclear.
-  On the one hand, troubled if failed to show that `\(\land\)' introduction is sound.
-  However, testimony\dots
-
-  The first rule of inference is a derived rule termed `\sqE{}', shorthand for `Squish elimination' applied to line \hyperref[illu:sP:1]{1}.%
-  \footnote{
-    For a quick proof, suppose \((\phi \rightarrow \psi) \rightarrow \phi\) is true.
-  And for contradiction assume \(\phi\) is false.
-  As \(\phi\) is false, it immediately follows that \(\phi \rightarrow \psi\) is true.
-  Therefore, by the initial supposition, \(\psi\) is true.
-  Hence, we have obtained the desired contradiction.
-  }
-
-  \begin{center}
-    \begin{fitch}
-      \ftag{\text{\scriptsize \emph{i}}}{\fa (\phi \rightarrow \psi) \rightarrow \phi} \\
-      \ftag{\text{\scriptsize }}{\fa \vdots } \\
-      \ftag{\text{\scriptsize \emph{j}}}{\fa \phi } & \sqE{}:\emph{i} \\
-    \end{fitch}
-  \end{center}
-\end{note}
-
-\begin{note}
   The relevant propositions, values, and \poP{1} are as follows:
   \begin{itemize}[noitemsep]
   \item
@@ -506,55 +573,115 @@
       I am not concluding \(\pv{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}{\text{True}}\) from \(\Phi\).
     \end{itemize}
   \end{enumerate}
+
+  In contrast to \autoref{illu:lost-key}, \autoref{scen:squish} leads to a conclusion.
+  Is this really a \requ{}?
 \end{note}
 
 \paragraph{Motivation}
 
 \begin{note}
   Start with understanding from \agpe{my}, expand.
+
+  However, briefly expand on \sqE{}.
 \end{note}
 
 \begin{note}
-  The motivation for the conditional rests on whether reasoning is \sR{}{reasoning}.
+  \begin{definition}[\sqE{}]
+    \label{def:sque}
+    \sqE{} is the following rule:
+    \begin{center}
+      \begin{fitch}
+        \ftag{\text{\scriptsize \emph{i}}}{\fa (\phi \rightarrow \psi) \rightarrow \phi} \\
+        \ftag{\text{\scriptsize }}{\fa \vdots } \\
+        \ftag{\text{\scriptsize \emph{j}}}{\fa \phi } & \sqE{}:\emph{i} \\
+      \end{fitch}
+    \end{center}
+  \end{definition}
 
-  I know \sqE{} is sound.
-  For, I have proved \sqE{} is sound on many different occasions.
-  More generally I am competent with respect to deriving basic syntactic theorems.
+  \begin{proposition}[Soundness of \sqE{}]
+    \label{prop:sqE-sound}
+    \sqE{} is sound.
+  \end{proposition}
 
-  However, is it the case that \sR{}{reasoning}?
-  For, I may not be thinking straight.
-  If I have just woken up after a few hours sleep \dots
+  \begin{argument}{prop:sqE-sound}
+    Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we prove that the corresponding semantic entailment holds:
 
-  If not \sR{}{reasoning}, then it is not clear to me what reasoning amounts to.
+    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \text{True}\).
+    Further, assume for contradiction \(v(\phi) = \text{False}\).
+
+    As \(v(\phi) = \text{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \text{True}\).
+    Therefore, by the first assumption, it must be the case that \(v(\phi) = \text{True}\).
+    This contradictions the second assumption.
+    Hence, \((\phi \rightarrow \psi) \rightarrow \phi \vDash \phi\).
+  \end{argument}
+\end{note}
+
+
+\subparagraph{From \agpe{my}}
+
+\begin{note}
+  \sR{2}.
+  Only conclude if reasoning amounts to proving.
+
+  Throughout \autoref{scen:squish} I \emph{know} \sqE{} is sound.
+  Prior to \autoref{scen:squish} I have proved \sqE{} is sound on various occasions using the same basic observations made in the argument for \autoref{prop:sqE-sound}.
+
+  However, there is a distinction between \emph{knowing} \sqE{} is sound and \emph{proving} \sqE{} is sound.
+
+  For example, I (trivially) know that any sound rule is sound.
+  Yet, it is not the case that I may prove any sound rule is sound.
+  For, sound rules may have an arbitrary (finite) number of premises, and I may cease to be before even reading all of the premises.
+
+  Of course, \sqE{} is a simple rule, and typically does not take more than a few moments to prove.
+  Yet, it remains the case that I may fail to prove \sqE{} is sound.
+  For example, if I have just drunk a considerable amount of wine, or woken from a night of tormented sleep.
+  Generally said, I may not be thinking straight.
+
+  To give a concrete example.
+  Suppose conclude:
+  \(P \rightarrow (Q \rightarrow P), Q \vdash P \land Q\).%
+  \footnote{
+    None of the following entailments hold:
+    \begin{enumerate*}[noitemsep, label=]
+    \item
+      \(\phi \rightarrow (\psi \rightarrow \phi) \vDash \phi\),
+    \item
+      \(\psi \rightarrow (\phi \rightarrow \psi) \vDash \phi\),
+    \item
+      \((\psi \rightarrow \phi) \rightarrow \psi \vDash \phi\).
+    \end{enumerate*}
+    Constructing a counterexample to each is straightforward.
+  }
+  Doubt that I have proved \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\).
   I have a what might be a syntactic proof.
-  However, the apparent proof may just be an association of thoughts.
+  However, the apparent proof may just be an association.
+  And, plausibly is if willing to `prove' syntactic entailments which do not hold.
+\end{note}
 
-  Hence, any doubt that reasoning is \sR{0}{reasoning} would lead to abandoning concluding.
+\begin{note}
+  Now, bottle of wine or bad sleep, may conclude \(P \rightarrow (Q \rightarrow P), Q \vdash P \land Q\).
+  However, \requ{} concerns current event.
 
-  Parallel.
-  I have no hope of concluding \sqE{} is not sound when of steady mind.
-  I have no hope of concluding \sqE{} is sound when of unsteady mind.
+  I am thinking straight, which amounts to sensitivity regarding whether or not reasoning is \sR{0}.
 
+  Hence, any doubt during \autoref{scen:squish} that reasoning is \sR{0} would lead to preventing the event from developing further.
   Further, I would refrain from concluding any syntactic entailment holds.
-  For, while I know \sqE{} is sound, I would not know that my application of \sqE{} amounts to a syntactic proof.
-  And, given how basic \sqE{} is, no other syntactic proofs.
-
-  For example, consistent that, different premises, same conclusion.
-
-  E.g. \(\alpha \rightarrow (\beta \rightarrow \alpha)\), \(\beta \rightarrow (\alpha \rightarrow \beta)\), and \((\beta \rightarrow \alpha) \rightarrow \beta\).
-  It is not the case that \(\alpha\) follows from any of these.
-  If would not stop, then not \sR{}{reasoning}.
-
-  Do not conclude if reasoning is not \sR{}{reasoning}.
-
-  Where, \sR{}{reasoning} then some general type of reasoning of which token.
-  Here, type of reasoning is the general type of reasoning involved in constructing syntactic proofs.
 \end{note}
 
 \begin{note}
   Now, \agpe{my}, and \agpe{my} may be wrong.
+  I concluded \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\), but it need not be the case that proof.
+  Indeed, bottle of wine.
+  Given enough wine, conclude arbitrary syntactic entailments.
 
-  However, regardless of \agpe{my}, then if \requ{} fails to hold, it is unclear whether reasoning is \sR{}{reasoning}.
+  What is to say I'm not, at present, wasted.
+\end{note}
+
+\subparagraph{Apart from \agpe{my}}
+
+\begin{note}
+  Regardless of \agpe{my}, then if \requ{} fails to hold, it is unclear whether reasoning is \sR{}.
 
   Only to highlight a causal connexion.
   And, causal connexion is insufficient.
@@ -562,25 +689,44 @@
   Concern about justification, implicit in \scen{0} as described from \agpe{my}.
   However, specific worry is that there is no generality to reasoning.
 
-  If \agpe{my} is wrong, then it is the case that reasoning is not \sR{}{reasoning}.
-  Conclude only if \sR{}{reasoning}.
+  If \agpe{my} is wrong, then it is the case that reasoning is not \sR{}.
+  Conclude only if \sR{}.
 \end{note}
 
 \begin{note}
-  A \requ{} is seems to be to be a necessary condition for conclusions which result from \sR{}{reasoning}.
+  The motivation for the conditional rests on whether reasoning is \sR{}.
+
+  A \requ{} is seems to be to be a necessary condition for conclusions which result from \sR{}.
 
   This is not necessary, though.
-  As with lost keys, \requ{} need not be tied to \sR{}{reasoning}.
-  With lost keys, \sR{}{reasoning}, but whether that is sufficient for concluding.
+  As with lost keys, \requ{} need not be tied to \sR{}.
+  With lost keys, \sR{}, but whether that is sufficient for concluding.
 
-  Motivation for \requ{1} and concluding rests on \sR{}{reasoning}, but is plausibly broader.
+  Motivation for \requ{1} and concluding rests on \sR{}, but is plausibly broader.
 \end{note}
 
 \begin{note}
   Keep in mind distinction.
-  Concluding, versus concluding via \sR{0}{reasoning}.
-  It need not be the case that if not \sR{0}{reasoning} then not concluding.
+  Concluding, versus concluding via \sR{0}.
+  It need not be the case that if not \sR{0} then not concluding.
   \requ{} is doing substantial work.
+\end{note}
+
+\subsection{\requ{} and concludes}
+\label{sec:requ-concludes}
+
+\begin{note}
+  So, interactions with either of these two things.
+
+  \begin{restatable}{proposition}{propRequConcludesFC}
+    If \(e\) event in which \vAgent{} concludes, \(e^{\flat}\) sub-event in which the agent is concluding, and \requ{} of \(e\), then throughout \(e^{\flat}\):
+    \begin{itemize}
+    \item
+      \pevent{} in which \vAgent{}
+    \item
+      No \pevent{} in which incompatible.
+    \end{itemize}
+  \end{restatable}
 \end{note}
 
 \subsection{Intuition}
@@ -672,7 +818,31 @@
 
   \begin{proposition}
     \label{prop:requ-not-refl}
-    \(\pvp{\phi}{v}{\Phi}\) need not be a \requ{} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Proposition: \(\phi\)
+      \item
+        Value: \(v\)
+      \item
+        \poP{2}: \(\Phi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+
+    \begin{itemize}
+    \item
+      \(\pvp{\phi}{v}{\Phi}\) is not necessarily a \emph{\requ{}} of \(e\) for \vAgent{}, with respect to \(\pvp{\phi}{v}{\Phi}\).
+    \end{itemize}
+
+    (%
+    I.e.\ need not be the case that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{} in order for \vAgent{} to be concluding \(\pv{\phi}{v}\) from \(\Phi\).%
+    )
   \end{proposition}
   \begin{argument}{prop:requ-not-refl}
     It need not be the case that the agent knows that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
@@ -691,11 +861,11 @@
 
   In general, \autoref{prop:requ-not-refl} highlights that there are no trivial \requ{1}.
 
-  Well, in terms of \sR{}{reasoning}.
-  Don't need \sR{}{reasoning}.
+  Well, in terms of \sR{}.
+  Don't need \sR{}.
   Novel results, and so on.
 
-  And, with guidance, removed the need for \sR{}{reasoning} with respect to overall.
+  And, with guidance, removed the need for \sR{} with respect to overall.
 \end{note}
 
 \section{\requ{3}, competence}
@@ -816,7 +986,7 @@
   Whether reasoning is a specific instance of the general type.
 \end{note}
 
-\paragraph{\sR{2}{reasoning}}
+\paragraph{\sR{2}}
 
 \begin{note}
   So far, link between competence and performance.
@@ -840,7 +1010,7 @@
 \end{note}
 
 \begin{note}
-  So, know whether or not present reasoning is \sR{}{reasoning}.
+  So, know whether or not present reasoning is \sR{}.
 
   At issue is whether \fc{}.
   Consider midpoint.
@@ -887,4 +1057,3 @@
 
 %   However, conclusion is out of reach.
 % \end{note}
-
