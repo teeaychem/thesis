@@ -1,7 +1,7 @@
 \chapter{\sR{2}}
 \label{cha:typical}
 
-\section{\sR{2}}
+\section{Type of reasoning}
 \label{sec:gr-sr}
 
 {
@@ -10,36 +10,62 @@
 }
 
 \begin{note}
+  \begin{definition}[Type of reasoning]
+    \label{def:type-r}
+    Type of reasoning for \vAgent{}.
 
-  \begin{definition}[\sR{2}]
-    \label{def:cmptnc}
-    The reasoning of \(e\) is \emph{\sR{0}}, just in case, instance of a type of reasoning.
+    Collection of proposition-value-premises pairings.
   \end{definition}
 
-  In more plain terms, reasoning is specific instance of general way of reasoning.%
-  \footnote{
-    Not designed to use `type' in the sense of type-token distinction.
-    Common characteristic.
-    Though, type distinct from instances.
-  }
+  \begin{tabular}[h]{l|r}
+    \multicolumn{2}{c}{\emph{Applied addition}} \\
+    2 apples in left hand, 2 apples in right hand & 4 apples in hands \\
+    5 pears in left hand, 7 pears in right hand & 12 pears in hands \\
+    3 grapes in left hand, 4 grapes in right hand & 7 grapes in hands \\
+  \end{tabular}
 
-  \begin{itemize}
-  \item
-    2 + 2 = 4 Addition
-  \item
-    P, if P Q, Q Modus ponens
-  \item
-    Board, checkmate Chess
-  \item
-    これはペンです This is a pen Language
-  \item
-    P(A | B), PB(B) Bayesian conditioning
-  \end{itemize}
+  \begin{tabular}[h]{l|r}
+    \multicolumn{2}{c}{\emph{Modus ponens}} \\
+    P, if P Q & Q \\
+    R, if R S & S \\
+  \end{tabular}
 
-  \autoref{def:cmptnc} does not specify what the type reasoning is.
+  \begin{tabular}[h]{l|r}
+    \multicolumn{2}{c}{\emph{Chess}} \\
+    Board & Win! \\
+    Same board with the colour of the pieces swapped & Loss! \\
+  \end{tabular}
+
+  \begin{tabular}[h]{l|r}
+    \multicolumn{2}{c}{\emph{Translation}} \\
+    これはペンです & This is a pen \\
+    この問題は難しいですね & This is a difficult problem \\
+    この問題は難しいですね & This problem is kind of tough \\
+  \end{tabular}
+
+  Translation is an interesting case.
+  Highlights two things.
+
+  First, type of reasoning does not amount to a function.
+  For, multiple translations.
+  Second, for the agent.
+  Agent may have a particular style of translation.
+  Need not be the case that agent would perform all permissible translations.
+
+  \begin{tabular}[h]{l|r}
+    \multicolumn{2}{c}{\emph{Bayesian Conditioning}} \\
+    \(\pr[B]{A} = .75\) \(B\)  & \(\pr[][B]{A} = .75\) \\
+    \(\pr[C]{D} = .65\) \(C\) & \(\pr[][C]{D} = .65\) \\
+    \(\pr[B]{\text{not-}A} = .55\) \(B\) & \(\pr[][B]{A} = .45\)
+  \end{tabular}
+\end{note}
+
+\begin{note}
+  \autoref{def:type-r} does not specify what the type is.
   Focus is not on the classification, but that reasoning may be classified.
 
   For each of the examples, alternatives.
+  Two examples:
   \begin{itemize}
   \item
     Jeffrey conditionalization
@@ -49,11 +75,46 @@
       \textquote{for any \(p\), \(q\), and \(r\): \((p \land q) \rightarrow r\)} (\cite[317]{Turri:2010aa})
     }
   \end{itemize}
+
+  Of interest is not with specific types, but generality.
+  Specifying premises and conclusions, rather than whatever reasoning amounts to.
+  This does not assume priority.
+  Point is only that will at the very least have premises and conclusions.
 \end{note}
 
 
+\section{\sR{2}}
+\label{sec:sr2-1}
 
-\paragraph{Rule following}
+\begin{note}
+  \begin{definition}[\sR{2}]
+    \label{def:cmptnc}
+    \(e\) is an event in which \vAgent{} is reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
+
+    \emph{\sR{0}},
+
+    just in case,
+
+    If \(\Psi\) instead of \(\Phi\), gets \(\pvp{\psi}{v'}{\Psi}\), then \(\pvp{\psi}{v'}{\Psi}\) is in \(T\).
+
+
+    other proposition-value-premises pairings, reasoning if and only if applied proposition-value-premises pairings.
+  \end{definition}
+
+  In more plain terms, reasoning is specific instance of general way of reasoning.%
+  \footnote{
+    Not designed to use `type' in the sense of type-token distinction.
+    Common characteristic.
+    Though, type distinct from instances.
+  }
+\end{note}
+
+\section{Background}
+\label{sec:background}
+
+\subsection{Rule following}
+
+\paragraph{Boghossian}
 
 \begin{note}
   So, this relationship may be understood in terms of rule following.
@@ -68,10 +129,46 @@
     The only plausible explanation for this is that we have, somehow, internalized a rule that tells us, in some general way, what it would be rational to believe under varying epistemic circumstances.%
     \mbox{ }\hfill\mbox{(\citeyear[483]{Boghossian:2008vf})}
   \end{quote}
+\end{note}
 
+\begin{note}
+  On my understanding, this is, in part, the role of \citeauthor{Boghossian:2014aa}'s Taking Condition.
+
+  Way in which \dots
+
+  Indeed, \citeauthor{Boghossian:2014aa} highlights how condition allow to draw distinction between deductive and inductive.
+  With taking, get generality.
+
+  Indeed, \textcite{Boghossian:2014aa} is structured so that Taking is a generalisation of rule.
+\end{note}
+
+\begin{note}
+  \citeauthor{Hlobil:2014tq}'s ``Inferential Moorean Phenomenon'':
+  \begin{quote}
+    \begin{enumerate}
+    \item[(IMP)]
+      It is either impossible or seriously irrational to infer \emph{P} from \emph{Q} and to judge, at the same time, that the inference from \emph{Q} to \emph{P} is not a good inference.
+    \end{enumerate}
+    \dots
+    By the ``goodness'' of an inference I mean the feature that makes the relevant inference permissible. Thus, if the inference under consideration is an inductive inference, the relevant kind of goodness is not deductive validity.%
+    \mbox{ }\hfill\mbox{(\citeyear[\S1]{Hlobil:2014tq})}
+  \end{quote}
+
+  Though, this really isn't more basic given the interest in \sR{}.
+  For, the puzzle is what it is to `infer'.
+
+  Rationality isn't part of the picture.
+  And, this is a significant drawback of \citeauthor{Hlobil:2014tq}'s approach.
+\end{note}
+
+
+\begin{note}
   However, \sR{} does not require rule following.
   Rather, \sR{} only requires the rough phenomenon that \citeauthor{Boghossian:2008vf} argues rule following is the only plausible explanation of.
 \end{note}
+
+
+\paragraph{Chomsky}
 
 \begin{note}
   Similar, though different from \citeauthor{Chomsky:2015aa}'s distinction between competence and performance.
@@ -330,6 +427,36 @@
 
   If so, then we should expect the Tortoise to be making some movement.
   Adding rules of inference is of no help, because the problem is not movement, it's about how to move so much in a single step.
+\end{note}
+
+\begin{note}
+  \color{red}
+  Something about logic forcing.
+  The Tortoise hasn't arrived.
+
+  Nothing hangs on validity.
+  Same issue with testimony.
+  `A'.
+  Why?
+  Testified A, so A.
+  Okay, but another instance of testimony.
+  Testified(Testified A, so A), so Testified A, so A.
+\end{note}
+
+\begin{note}
+  \begin{quote}
+    But if we who wish to represent his belief in Q as based on P are to write in our notebook everything his having that belief on that basis consists in then when we have written only P and Q we will not have written enough.
+    Someone can believe P and believe Q and still not believe Q on the basis of P whatever the relations between the propositions P and Q happen to be.
+    He might believe Q for some reason completely unconnected with P, or perhaps for no reason at all (if that is possible).%
+    \mbox{ }\hfill\mbox{(\citeyear[185]{Stroud:1979aa})}
+  \end{quote}
+  However, the moral drawn is narrow
+  \begin{quote}
+    The moral is that for every proposition or set of propositions the belief or acceptance of which is involved in someone's believing one proposition on the basis of another there must be something else, not simply a further proposition accepted, that is responsible for the one belief's being based on the other.%
+    \mbox{ }\hfill\mbox{(\citeyear[187]{Stroud:1979aa})}
+  \end{quote}
+
+  Even if we grant each individual is \ros{}, rather than an instance of the material conditional, \emph{logic} hasn't done anything.
 \end{note}
 
 

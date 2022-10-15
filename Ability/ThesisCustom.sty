@@ -1444,3 +1444,26 @@
 \ExplSyntaxOff
 
 \newcommand{\sqE}{\obeybreaks{Squish\textbf{Elim}}}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\PrName}{ o m }{%
+  \IfNoValueTF{#1}
+  {
+    \ensuremath{\text{Pr}(#2)}
+  }
+  {
+    \ensuremath{\text{Pr}_{#1}(#2)}
+  }
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\pr}{ O{} O{} m }{%
+\tl_if_blank:nTF{#1}
+  {
+    \ensuremath{\PrName[#2]{#3}}
+  }
+  {
+    \ensuremath{\PrName[#2]{#3 \mid #1}}
+  }
+}
+\ExplSyntaxOff
