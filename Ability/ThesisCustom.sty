@@ -1429,10 +1429,10 @@
 \NewDocumentCommand{\sR}{ o m }{%
 \IfNoValueTF{#1}
   {
-    {\sRadj{#2}\space reasoning}
+    \hyperref[def:cmptnc]{\sRadj{#2}\space reasoning}
   }
   {
-    {\sRadj{#2}\space #1}
+    \hyperref[def:cmptnc]{\sRadj{#2}\space #1}
   }
 }
 \ExplSyntaxOff
@@ -1464,6 +1464,29 @@
   }
   {
     \ensuremath{\PrName[#2]{#3 \mid #1}}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\progAdj}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{potential}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{potential}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{blue} potential}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Potential}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{blue} potential}%
+    \fi
   }
 }
 \ExplSyntaxOff

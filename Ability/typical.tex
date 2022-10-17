@@ -12,70 +12,82 @@
 \begin{note}
   \begin{definition}[Type of reasoning]
     \label{def:type-r}
-    Type of reasoning for \vAgent{}.
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Type of reasoning: \(T\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-    Collection of proposition-value-premises pairings.
+    \begin{itemize}
+    \item
+      \(T\) is a \emph{type of reasoning} for \vAgent{}.
+    \end{itemize}
+
+    \emph{If and only if}
+
+    \begin{itemize}
+    \item
+      \(T\) is a collection of proposition-value-premises pairings.
+    \end{itemize}
   \end{definition}
 
-  \begin{tabular}[h]{l|r}
-    \multicolumn{2}{c}{\emph{Applied addition}} \\
-    2 apples in left hand, 2 apples in right hand & 4 apples in hands \\
-    5 pears in left hand, 7 pears in right hand & 12 pears in hands \\
-    3 grapes in left hand, 4 grapes in right hand & 7 grapes in hands \\
-  \end{tabular}
+  Extensional characterisation of some general form of reasoning.
+\end{note}
 
-  \begin{tabular}[h]{l|r}
-    \multicolumn{2}{c}{\emph{Modus ponens}} \\
-    P, if P Q & Q \\
-    R, if R S & S \\
-  \end{tabular}
+\begin{note}
+  Handful of illustrations of types of reasoning.
+  In each case, premises on the left, and conclusion on the right.
+  In all cases, the value True is left implicit.
 
-  \begin{tabular}[h]{l|r}
-    \multicolumn{2}{c}{\emph{Chess}} \\
-    Board & Win! \\
-    Same board with the colour of the pieces swapped & Loss! \\
-  \end{tabular}
 
-  \begin{tabular}[h]{l|r}
-    \multicolumn{2}{c}{\emph{Translation}} \\
-    これはペンです & This is a pen \\
-    この問題は難しいですね & This is a difficult problem \\
-    この問題は難しいですね & This problem is kind of tough \\
-  \end{tabular}
+  \begin{illustration}[\emph{Modus ponens}]
+    \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
+      P, if P Q & Q \\
+      R, if R S & S \\
+    \end{tabular}
+  \end{illustration}
 
-  Translation is an interesting case.
-  Highlights two things.
+  \emph{Modus ponens} is natural.
+  However, could be \emph{modus profusus}%
+  \footnote{
+    \textquote{for any \(p\), \(q\), and \(r\): \((p \land q) \rightarrow r\)} (\cite[317]{Turri:2010aa})
+    }
 
-  First, type of reasoning does not amount to a function.
-  For, multiple translations.
-  Second, for the agent.
-  Agent may have a particular style of translation.
-  Need not be the case that agent would perform all permissible translations.
 
-  \begin{tabular}[h]{l|r}
-    \multicolumn{2}{c}{\emph{Bayesian Conditioning}} \\
-    \(\pr[B]{A} = .75\) \(B\)  & \(\pr[][B]{A} = .75\) \\
-    \(\pr[C]{D} = .65\) \(C\) & \(\pr[][C]{D} = .65\) \\
-    \(\pr[B]{\text{not-}A} = .55\) \(B\) & \(\pr[][B]{A} = .45\)
-  \end{tabular}
+  \begin{illustration}[Applied addition]
+    \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
+      2 apples in left hand, 2 apples in right hand & 4 apples in hands \\
+      5 pears in left hand, 7 cherries in right hand & 12 fruits in hands \\
+      3 grapes in left hand, 4 grapes in right hand & 7 grapes in hands \\
+      \(\hdots\) & \(\hdots\)
+    \end{tabular}
+    Applied addition.
+  \end{illustration}
+
+
+  \begin{illustration}[Bayesian Conditioning]
+    \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
+      \(\pr[B]{A} = .75\), just learnt \(B\)  & \(\pr[][B]{A} = .75\) \\
+      \(\pr[C]{D} = .65\), just learnt  \(C\) & \(\pr[][C]{D} = .65\) \\
+      \(\pr[B]{A} = .55\), just learnt \(B\) & \(\pr[][B]{\text{not-}A} = .45\)
+    \end{tabular}
+  \end{illustration}
+
+  As with \emph{modus ponens}, Bayesian conditioning isn't too important.
+  For example, instances are compatible with Jeffrey conditionalization.
 \end{note}
 
 \begin{note}
   \autoref{def:type-r} does not specify what the type is.
   Focus is not on the classification, but that reasoning may be classified.
+\end{note}
 
-  For each of the examples, alternatives.
-  Two examples:
-  \begin{itemize}
-  \item
-    Jeffrey conditionalization
-  \item
-    \emph{Modus profusus}%
-    \footnote{
-      \textquote{for any \(p\), \(q\), and \(r\): \((p \land q) \rightarrow r\)} (\cite[317]{Turri:2010aa})
-    }
-  \end{itemize}
-
+\begin{note}
   Of interest is not with specific types, but generality.
   Specifying premises and conclusions, rather than whatever reasoning amounts to.
   This does not assume priority.
@@ -89,16 +101,60 @@
 \begin{note}
   \begin{definition}[\sR{2}]
     \label{def:cmptnc}
-    \(e\) is an event in which \vAgent{} is reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Event: \(e\)
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \poP{3}: \(\Phi\), \(\Psi\)
+      \item
+        Type of reasoning: \(T\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-    \emph{\sR{0}},
+    Grating \(e\) is an event in which \vAgent{} is reasoning to \(\pv{\phi}{v}\) from \(\Phi\):
 
-    just in case,
+    \begin{itemize}
+    \item
+      \vAgent{}' reasoning to \(\pv{\phi}{v}\) from \(\Phi\) in \(e\) is \emph{\sR{0}} of type \(T\) (to \(\pv{\phi}{v}\) from \(\Phi\) in \(e\)).
+    \end{itemize}
 
-    If \(\Psi\) instead of \(\Phi\), gets \(\pvp{\psi}{v'}{\Psi}\), then \(\pvp{\psi}{v'}{\Psi}\) is in \(T\).
+    \emph{If and only if}
 
+    \begin{itemize}
+    \item
+      \begin{itemize}
+      \item[\emph{If}:]
+        \begin{enumerate}[label=\alph*., ref=(\alph*)]
+        \item
+          \vAgent{} would be reasoning to \(\pv{\psi}{v'}\), were \vAgent{} reasoning from \(\Psi\).%
+          \footnote{
+            More explicitly:
+            \begin{itemize}
+            \item
+              \vAgent{} would be reasoning to \(\pv{\psi}{v'}\) in \(e\), were \vAgent{} were reasoning from \(\Psi\) in \(e\) --- instead of reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
+            \end{itemize}
+          }
+        \end{enumerate}
+      \item[\emph{Then}:]
+        \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+        \item
+          \(\pvp{\psi}{v'}{\Psi}\) is in \(T\).
+        \end{enumerate}
+      \end{itemize}
+    \end{itemize}
 
-    other proposition-value-premises pairings, reasoning if and only if applied proposition-value-premises pairings.
+    Intuition is that whether or not reasoning is \sR{} depends on whether the agent would have obtained an appropriate conclusion from different set of premises.
+
+    Other proposition-value-premises pairings, reasoning if and only if applied proposition-value-premises pairings.
   \end{definition}
 
   In more plain terms, reasoning is specific instance of general way of reasoning.%
@@ -108,6 +164,61 @@
     Though, type distinct from instances.
   }
 \end{note}
+
+\begin{note}
+  \begin{center}
+    \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
+      \multicolumn{2}{c}{\emph{Translation}} \\
+      これはペンです & This is a pen \\
+      この問題は難しいですね & This is a difficult problem \\
+      この問題は難しいですね & This problem is kind of tough \\
+    \end{tabular}
+  \end{center}
+
+  Translation is an interesting case.
+  Highlights two things.
+
+  First, type of reasoning does not amount to a function.
+  For, multiple translations.
+  Second, for the agent.
+  Agent may have a particular style of translation.
+  Need not be the case that agent would perform all permissible translations.
+\end{note}
+
+\begin{note}
+  \begin{center}
+    \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
+      \multicolumn{2}{c}{\emph{Chess}} \\
+      Board & Win! \\
+      Same board with the colours swapped & Loss! \\
+    \end{tabular}
+  \end{center}
+\end{note}
+
+{
+  \color{red}
+
+  The remainder of this section are general notes to support/clarify \sR{}.
+
+  In short, think of reasoning in terms of rule following.
+
+  However, \sR{} does not necessarily amount to rule following.
+
+  In particular, \sR{} is independent of the worries about rule following raised by ~\textcite{Kripke:1982aa}, to the extent that the worries concern \emph{which} rule an agent is following.
+  However, if the worries extend to \emph{whether} an agent is following a rule, then the worries raise issues for \sR{}.
+  However, if this is the case, then there is no clear sense in which an agent's reasoning falls under any general description.
+
+  A section on \textcite{Carroll:1895uj} is planned where I highlight an interpretation of the tale in terms of validity as general reasoning.
+  In short, the Tortoise wants to see whether the argument Achilles proposes is valid, not merely whether it has true premises and a true conclusion.
+  Each instance of the material conditional captures an instance of validity, but this does not get the Tortoise close to an understanding of validity in general.
+  For, given each instance of validity, there is a further instance which the Tortoise has not yet accepted.
+
+  An interesting thing about this interpretation is that the usual suggestion of a distinction between premises and rules of inference is of no help, because rather than framing the tale in terms of validity, one may focus on the validity of modus ponens, and the same issue arises.
+  No number of specific instance gets the validity of modus ponens.
+  Hence, what guarantee does the Tortoise have that the inference, as proposed by Achilles, would amount to a valid inference?
+
+  Yet, it is intuitively possible to infer via a valid argument, and in particular, via modus ponens.
+}
 
 \section{Background}
 \label{sec:background}
@@ -224,14 +335,14 @@
 \begin{note}
   \sR{} is compatible with dispositionalism.
 
-  \begin{quote}
-    But a capacity to grasp inﬁnitely long propositions—the inputs in the rulefollowing case—does not follow from our nature as thinking beings, and certainly not from our nature as physical beings.
-    In fact, it seems pretty clear that we do not have that capacity and could not have it, no matter how liberally we apply the notion of idealization.
-  \end{quote}
+  % \begin{quote}
+  %   But a capacity to grasp inﬁnitely long propositions—the inputs in the rule following case—does not follow from our nature as thinking beings, and certainly not from our nature as physical beings.
+  %   In fact, it seems pretty clear that we do not have that capacity and could not have it, no matter how liberally we apply the notion of idealization.
+  % \end{quote}
 \end{note}
 
 \begin{note}
-  Some additional motivation from the literature.
+  Some additional motivation from the literature\dots
 \end{note}
 
 \paragraph{Particularism}
@@ -241,7 +352,16 @@
   There's nothing general.
 
   Some motivation from the Wason selection task.
-  However, Fodor, etc.
+  For, it looks as though there's no clear type.
+  Participants do well in some cases, and badly in others.
+  So, seems relevant type can't be modus ponens.
+
+  However, nothing hangs on the type being modus ponens.
+  What's of interest is generality.
+  Surprising that good with certain instances, and not good with others.
+  So, possible to reify the relevant type.
+
+  (\cite{Fodor:2000aa}) is a nice paper highlighting the way this may be done.
 \end{note}
 
 \section{\citeauthor{Carroll:1895uj}}
