@@ -1490,3 +1490,26 @@
   }
 }
 \ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\requSens}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{vigilant}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{vigilant}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{blue} vigilant}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Vigilant}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{blue} vigilant}%
+    \fi
+  }
+}
+\ExplSyntaxOff

@@ -113,7 +113,7 @@
 
 \begin{note}
   We define \ninf{} as follows:
-  \begin{definition}[\ninf{2}]
+  \begin{restatable}[\ninf{2}]{definition}{defNinf}
     \label{def:ninf}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
@@ -148,7 +148,7 @@
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
-  \end{definition}
+  \end{restatable}
 
   With respect to \autoref{scen:apples}:
 
@@ -274,8 +274,8 @@
     \end{itemize}
   \end{argument}
 
-  Abstractly, there are cases in which there is nothing which prevents an agent from destroying evidence that is necessary for an agent to reach some conclusion prior to forming the conclusion.
-  And, there are cases in which an agent may chose to appeal to additional resources beyond \(\Phi\) in order to conclude \(\pv{\phi}{v}\).
+  Abstractly, there are cases in which there is nothing which prevents an agent from making unavailable some proposition-value pair necessary for the agent to reach some conclusion.
+  And, there are cases in which an agent may chose to appeal to additional proposition-value pairs in order to reach a conclusion.
 \end{note}
 
 \begin{note}
@@ -318,8 +318,7 @@
     Note, exertion of \ninf{} is compatible with progressive being true.
   }
 
-
-  \begin{definition}[A \requ{0}]
+  \begin{restatable}[A \requ{0}]{definition}{defRequ}
     \label{def:requ}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
@@ -340,32 +339,32 @@
 
     \begin{itemize}
     \item
-      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) for \vAgent{}, with respect to \(\pvp{\phi}{v}{\Phi}\).
+      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itemize}
 
     \emph{If and only if}
 
     \begin{itemize}
     \item
-      The following conditional is true:
+      The following conditional is true, throughout \(e\):
       \begin{itemize}
       \item[\emph{If}:]
         \begin{enumerate}[label=\alph*., ref=(\alph*), series=requDefSeries]
         \item
           \label{def:requ:nK}
-          \(\pv{\psi}{v'}\) from \(\Psi\) is not a \fc{} for \vAgent{} throughout \(e\).
+          \(\pv{\psi}{v'}\) from \(\Psi\) is not a \fc{} for \vAgent{}.
         \end{enumerate}
       \item[\emph{Then}:]
         \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=requDefSeries]
         \item
           \label{def:requ:nC}
           \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).\newline
-          \mbox{ }\hfill(\emph{Due, at least in part, to \ninf{} as a result of \ref{def:requ:nK}}.)
+          \mbox{ }\hfill(\emph{Due, at least in part, to \ninf{0} as a result of \ref{def:requ:nK}}.)
         \end{enumerate}
       \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
-  \end{definition}
+  \end{restatable}
 
   \requ{3} capture a single idea which we state in both direct and contrapositive forms:
   \begin{itemize}
@@ -393,61 +392,7 @@
   }
 \end{note}
 
-\begin{note}
-  \autoref{prop:requ-fc} expands \autoref{def:requ} via the definition of a \fc{}.
 
-  \begin{proposition}[A \requ{0}, expanded]
-    \label{prop:requ-fc}
-    \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Propositions: \(\phi\), \(\psi\)
-      \item
-        Values: \(v\), \(v'\)
-      \item
-        \poP{3}: \(\Phi\), \(\Psi\)
-      \item
-        Event: \(e\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
-    \begin{itemize}
-    \item
-      \(\pvp{\phi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) for \vAgent{}, \emph{if and only if}:
-      \begin{itemize}
-      \item[\emph{If}:]
-        \begin{enumerate}[label=\alph*., ref=(\alph*), series=requDefSeries]
-        \item
-          \label{prop:requ-fc:nk}
-          Throughout \(e\), either~\ref{prop:requ-fc:nk:psi} or~\ref{prop:requ-fc:nk:no-conf} are true:
-          \begin{enumerate}[label=\roman*., ref=(\roman*)]
-          \item
-            \label{prop:requ-fc:nk:psi}
-            There is no \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-          \item
-            \label{prop:requ-fc:nk:no-conf}
-            There is a \pevent{} in which \vAgent{} concludes something incompatible with a conclusion of \(\pv{\psi}{v'}\) from \(\Psi\).
-          \end{enumerate}
-        \end{enumerate}
-      \item[\emph{Then}:]
-        \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=requDefSeries]
-        \item
-          \label{prop:requ-fc:ne}
-          \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-        \end{enumerate}
-      \end{itemize}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:requ-fc}
-    From the definition of a \requ{} (\autoref{def:requ}, \autopageref{def:requ}) and the definition of a \fc{} (\autoref{def:fc}, \autopageref{def:fc}).
-  \end{argument}
-\end{note}
 
 \begin{note}
   The qualifier `due to' is appended to \ref{def:requ:nC} to ensure that the conditional captures the agent's \ninf{}, rather than being trivially true because the agent is not concluding \(\pv{\phi}{v}\) from \(\Phi\).%
@@ -552,27 +497,71 @@
   This is what secures that there is no event.
 \end{note}
 
-\paragraph{New evidence}
-
-Idea here.
-With lost keys, something which conflicts.
-
-So the idea is to have some rule.
-And, no conclusion due to what else this would entail.
+\paragraph{A conjecture}
 
 \begin{note}
-  \begin{illustration}[Goldbach conjecture]
-    Goldbach conjecture:
+  Lost keys, failing to reach some conclusion.
+  For, idea that is applied at any attempt to conclude.
 
-    every number that is a sum of two primes can be written as a sum of “as many primes as one wants”.
+  In this respect, conflict.
+  From this, no \pevent{} in which agent concludes.
+  However, conflict.
 
-    Know the conjecture has been verified \emph{up to} \(4 \times 10^{14}\) (\cite[cf.][]{Richstein:2001aa}).
+  Second \illu{0}, focus on no \pevent{0} in which agent concludes.
+  From this, no \pevent{} in which the agent gets conflict.
+\end{note}
+
+\begin{note}
+  \begin{illustration}[Goldbach Conjecture]
+    The (Binary) Goldbach Conjecture states:
+
+    \begin{quote}
+      Every even number is a sum of two primes.
+    \end{quote}
+
+    I am travelling on a train with a some paper, a pencil.
+
+    The Conjecture is only a conjecture, and so there may (for all I know), be an even number which is not the sum of two primes.
+
+    I write down \(573402\) on the piece of paper, and attempt to find a pair of primes that it is equal to.
+    Though, I am careful to ensure I do not make any arithmetical mistakes.
+
+    I am not concluding the Goldbach Conjecture is false.
   \end{illustration}
 
-  Whether conjecture is true or not, numbers too big to think about while riding the train.
+  The conjecture has been verified up to \(4 \times 10^{14}\) (\cite[cf.][]{Richstein:2001aa}).
+  Therefore, need to do a number greater.
+  Careful about arithmetic, and limited time.
+  Therefore, not a \fc{0}.
+
+  Of course, certainly not proving false.
+  For, number chosen lower than verified.
+  Of interest is whether I am concluding.
+  Answer is no.
+  Not because finding two primes.
+  There is nothing to suggest develops.
+  For, will stop when arrive at destination.
+  Rather, because not a \fc{0}.
+\end{note}
+
+\begin{note}
+  More abstract that the first.
+  For, with lost keys, clear idea that conflicts with any conclusion.
+  All that's needed is to repeat the idea.
+
+  In this \scen{0}, adherence to arithmetic.
+  This ensures that I never get to the conclusion.
 \end{note}
 
 \subsubsection{\requ{3} such that the agent is concluding}
+
+\begin{note}
+  In contrast to \scen{1} of previous section, need to ensure both aspects of a \fc{0} hold.
+  Is a  \pevent{} in which conclude \(\pv{\psi}{v'}\) from \(\Psi\).
+  No \pevent{} in which conclude anything which conflicts with concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+
+  However, vary which of these things focus.
+\end{note}
 
 \begin{note}
   Two \illu{1}.
@@ -581,56 +570,59 @@ And, no conclusion due to what else this would entail.
   Second is closer to the kind of \scen{0} we will be interested in when we link \requ{1} to \issueConstraint{}.
 \end{note}
 
-\paragraph{Key card}
+\paragraph{Locked doors}
 
 \begin{note}
-  \begin{restatable}[Key card]{illustration}{scenarioKeycard}
+  \begin{restatable}[Locked doors]{illustration}{scenarioKeycard}
+    Cycling along.
     Going to work.
-    Need keycard.
-    Driving along.
-    A few minutes.
-    Some traffic.
-    Start estimating arrival time.
+    Look at the time.
 
-    Conclusion, arrive in roughly half an hour or so.
+    Slightly early.
+    Doors locked.
+
+    Conclusion, use key card to unlock doors.
+
+    However, to get to this, need key card.
+    Feel wallet in pocket.
+
+    I conclude that I will use the key card to unlock the doors.
   \end{restatable}
 
-  If conclude did not pack, stop whatever is happening.
+  If conclude key card is not in wallet, stop.
+  Time it takes to find, no longer early.
+  Continue, then coffee while waiting.
 
-  However, no chance of reaching this conclusion.
-  Careful with packing, recall each thing.
+  However, no chance of failing to conclude.
+  Feel wallet in pocket.
+  Need some motivation for thinking key card is not in wallet.
+  But, no such motivation.
 \end{note}
 
 \begin{note}
   Main point.
-  Don't need to think about keycard.
+  Don't need to think about key card.
 
   Just, if not, then problem.
 
   And, this happens.
-  Do turn back.
-  Do recall failing to pack item for a trip.
+  Do recall failing to pack item for a trip, etc.
+
+  Point is, without something to suggest reasoning would fail, the reasoning will go through.
+  And, I'm not going to find anything.
+
+  Much like commonsense argument.
 \end{note}
 
 \begin{note}
-  Uh, this is not clear.
-  Could just be random prompting.
+  So, here, I have done the positive part.
+  I've gone from some premises to key card.
+  At issue is finding something which conflicts.
 
-  But, whether or not \fc{}, that's the issue.
-\end{note}
-
-\begin{note}
-  Here, it need not be the case that arrive in half an hour, nor that have keycard.
-  Both may be false.
-  At issue is whether stop.
+  And, in contrast to lost keys, will use commonsense against anything that comes up.
 \end{note}
 
 \paragraph{Sound rules}
-
-\begin{note}
-  Here, I want to state that the agent has done the proof a number of times.
-  So, the agent knows that there is a \pevent{}.
-\end{note}
 
 \begin{note}
   \phantlabel{squish-elimination-proof}
@@ -672,8 +664,8 @@ And, no conclusion due to what else this would entail.
   \item
     The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.%
     \footnote{
-      Note, premises of reasoning.
-      Distinct from premises of deduction.
+      Note, \(P \rightarrow Q\) and \(Q\) are premises of the deduction, but are not elements of \(\Phi\).
+      For, I am concluding \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\), rather than concluding \(P \land Q\) from \(P \rightarrow Q,Q\).
     }
   \end{itemize}
 
@@ -786,14 +778,14 @@ And, no conclusion due to what else this would entail.
   However, \requ{1} concern particular event.
 
   And, during \autoref{scen:squish} I am thinking straight.
-  So, I am sensitive to whether or not reasoning is \sR{0}.
+  So, I am \requSens{0} to whether or not reasoning is \sR{0}.
   Hence, any doubt during \autoref{scen:squish} that reasoning is \sR{0} would lead to preventing the event from developing further.
 \end{note}
 
 \begin{note}
   Now, \agpe{my}, and \agpe{my} may be wrong.
 
-  I concluded \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\), but it need not be the case that sensitive to whether or not \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  I concluded \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\), but it need not be the case that \requSens{0} to whether or not \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
 
   Perhaps, I would fail to conclude \(\pv{\psi}{v'}\) from \(\Psi\), or would conclude something which conflicts with concluding \(\pv{\psi}{v'}\) from \(\Psi\).
 \end{note}
@@ -991,14 +983,14 @@ And, no conclusion due to what else this would entail.
 %   In short, the idea is to put pressure on the idea that there is any generality to an agent's reasoning if there are no cases of \requ{1}.
 
 %   In short, pick any case and deny a \requ{} exists.
-%   Then, it is not the case that the agent is sensitive to whether or not \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+%   Then, it is not the case that the agent is \requSens{0} to whether or not \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
 %   Therefore, I claim, there is no way to guarantee that the agent's reasoning is \sR{} reasoning.
-%   For, if not sensitive, then there is nothing which regulates whether or not the agent is performing any particular type of reasoning.
+%   For, if not \requSens{0}, then there is nothing which regulates whether or not the agent is performing any particular type of reasoning.
 %   Hence, there is no way, it seems, to guarantee that the agent would have repeated the type of reasoning with a different collection of premises.
 % }
 
 \begin{note}
-  Though \requ{1} are not incompatible with \issueConstraint{} (see \autoref{prop:requ-not-n-ce} on \autopageref{prop:requ-not-n-ce}), \requ{1} have a key role in identifying counterexamples to \issueConstraint{}.
+  Though \requ{1} are compatible with \issueConstraint{} (see \autoref{prop:requ-not-n-ce} on \autopageref{prop:requ-not-n-ce}), \requ{1} have a key role in constructing counterexamples to \issueConstraint{}.
 
   Therefore, it is important that there are cases in which \(\pvp{\psi}{v'}{\Psi}\) is a \requ{1} of concluding \(\pv{\phi}{v}\) from \(\Phi\).
   So, at issue is whether the \illu{1} of \autoref{cha:requs:sec:illu3} illustrate instances of \requ{1}.
@@ -1025,24 +1017,87 @@ And, no conclusion due to what else this would entail.
   Without \requ{}, not \sR{}.
 \end{note}
 
-\paragraph{Points}
+\subsection{Points}
 
 \begin{note}
-  \illu{3} of \requ{1}.
+  Definition of a \requ{}:
+
+  \defRequ*
+
+  Need the conditional to be true.
+  However, interest is in cases in which the agent is concluding.
+
+  Therefore:
+  \begin{itemize}
+  \item
+    \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{0}.
+  \item
+    Agent is/would be \requSens{0} to whether or not \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
+  \item
+    Agent would exert \ninf{2} over event due to \requSens{0}.
+  \end{itemize}
+
+\end{note}
+
+\begin{note}
+  General worry.
+
+  No constraints on when an agent concludes.
+
+  Recall, conclusion, paring of proposition and value.
+  So, it is possible for the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) without satisfying these constraints.
+\end{note}
+
+\begin{note}
+  In this respect, Hume.
+  Possible for b to happen without a.
+  Therefore, in what sense is a the cause of b.
+  Only conjunction.%
+  \footnote{
+    Specifically, \citeauthor{Schaffer:2010vq}.
+
+    \citeauthor{Schaffer:2010vq} really is the way to think about things.
+    For, \citeauthor{Schaffer:2010vq}'s entire point is that one may get arbitrary conclusions.
+    There's nothing too important regarding basing here.
+    And, the other paper is really puzzling in terms of what it offers.
+    Parallel, knowledge, truth, therefore any account of knowledge is incompatible with scepticism.
+
+    However, as \citeauthor{Bondy:2018tk} highlight, it is not clear that this raises problems for accounts of the basing relation.
+    For, \citeauthor{Schaffer:2010vq}'s demon is getting a belief arbitrarily.
+    While, basing involves something non-arbitrary.
+    Of interest is not whether or not the belief \emph{seems} to be properly based.
+
+    Though, this is not to say basing relation avoids worries.
+    With \citeauthor{Schaffer:2010vq}, concern about any instance of the basing relation.
+    Which, is what we end up with.
+
+    And, other demons for specific theories.
+    With doxastic, regular demon changes how things are.
+    And, with causal, Humean demon.
+  }
+
+  Similar.
+  Causation, link between two things, here three different components.
+
+  Argument concerns understanding of event.
+  In particular, whether an agent's reasoning is \sR{0}.
+
+  Hume gets no generality.
+  I think this is bad enough.
+
+  Goal is to argue for this.
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    If \sR{}, then \requ{}.
+  \end{proposition}
 
   In these cases, these three points may be objected to.
 
-  \begin{itemize}
-  \item
-    Whether \fc{}.
-  \item
-    Whether an agent is sensitive to whether or not the agent knows \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-  \item
-    Whether \ninf{2} due to sensitivity.
-  \end{itemize}
 \end{note}
 
-\paragraph{Sudoku}
+\subsection{A Sudoku puzzle}
 
 \begin{note}
   Additional \illu{0} to highlight \sR{}.
@@ -1123,12 +1178,35 @@ And, no conclusion due to what else this would entail.
   Hence, \wit{}.
 \end{note}
 
-\paragraph{\fc{2}}
+\begin{note}
+  Intuition for each of the points.
+
+  \begin{itemize}
+  \item
+    \fc{1}, understand how to solve Sudoku puzzles, repeat any instances.
+  \item
+    \requSens{}.
+    Catch mistakes.
+  \item
+    \ninf{2} stop after catching mistakes.
+  \end{itemize}
+\end{note}
+
+\subsection{Points}
+\label{sec:points}
 
 \begin{note}
-  \begin{idea}
+  Now work through each issue.
+\end{note}
+
+\subsubsection{\fc{2}}
+
+\begin{note}
+  \begin{proposition}
+    Cases where:
+
     If event, and \sR{}, \fc{}.
-  \end{idea}
+  \end{proposition}
 
   So, if \sR{}, this means type of reasoning.
 
@@ -1144,29 +1222,79 @@ And, no conclusion due to what else this would entail.
   If continues, then event as desired.
 \end{note}
 
-\paragraph{Sensitivity}
+\begin{note}
+  proposition is narrow, as only applies to illustration.
+
+  However, the motivating idea is general.
+\end{note}
+
+\subsubsection{Being \requSens{0}}
 
 \begin{note}
+  Previous section, \fc{1}.
+  Specific with respect to \illu{1}.
+  However, generalises.
+\end{note}
+
+\begin{note}
+  Turn to being \requSens{0}:
+
   If not \fc{} then not concluding.
 \end{note}
 
 \begin{note}
-  This is where the difficulty is.
+  Hume and \citeauthor{Schaffer:2010vq}, scepticism.
 
-  The general point is familiar from motivation.
+  What is at issue is akin to scepticism.
 
+  Existence of \requ{1}, specifically \requSens{0}.
+  So, in order for this to fail, need there to be a systematic way in which being \requSens{0} fails.
+\end{note}
+
+\begin{note}
+  Instead, tension.
+  Whether or not the agent's reasoning is \sR{}.
+\end{note}
+
+\begin{note}
   \begin{proposition}
     \label{prop:hinge}
-    If not sensitive, then no \sR{}.
+    If not \requSens{0}, then no \sR{}.
   \end{proposition}
 
   \begin{argument}{prop:hinge}
-    Suppose not sensitive.
-    Then, it is possible that there are a bunch of things which aren't \fc{1}.
-    However, if this is the case, then no account of \sR{}.
-    For, if \sR{} then same reasoning gets inputs and outputs.
-    But, nothing to be said for this.
+    Okay, want to show, not \sR{} then stop.
+
+    So, suppose not \sR{}.
+    Then, this means that something goes wrong at some point in the reasoning.
+    So, this means there is a step that does not generalise.
+
+    Right, so there's something that ends up not holding for other instances of the type.
+
+    Isolate this.
+    As agent is not \requSens{0}, then, this step, use this.
+    But, this means, that for any proposed instance of the type, the agent is okay with using.
+    But, then something wrong with \fc{1}.
+
+    Oooooh, wow.
+    This is wild.
+    This is really neat.
+
+    And, if not \fc{}, then not of type.
+    Hence, not of \sR{}.
   \end{argument}
+
+  The gist of this argument, if not \requSens{0}, then it is not the case that certain things are \fc{1}.
+  For, there's something about the reasoning which the agent will perform whenever.
+  And, as such, there's plausibly going to have something at issue for a \fc{}.
+\end{note}
+
+\begin{note}
+  Now, there is one issue here.
+  finding the problematic step.
+  However, in cases and out cases.
+  This is all being \requSens{0} amounts to.
+  Therefore, must be something.
 \end{note}
 
 
@@ -1190,30 +1318,15 @@ And, no conclusion due to what else this would entail.
   Rather, existence of cases.
 \end{note}
 
-\subparagraph{Scepticism}
+\paragraph{\ninf{2}}
 
 \begin{note}
-  General argument against sensitivity.
-\end{note}
+  Grant that \fc{} and \requSens{0}.
+  Still, needs to be the case that \ninf{}.
 
-\begin{note}
-  For, \fc{} only if \pevent{}.
-  \pevent{} is distinct.
-  So, current event, and no \pevent{}.
-\end{note}
-
-\begin{note}
-  But, argument given covers such cases.
-  If no \fc{}, then nothing to be said.
-
-  The point is that this objection is not sufficiently precise to target sensitivity.
-
-  It extends to \sR{}.
-
-  Of interest is \sR{} but without sensitivity.
-  But, if scepticism, then no motivation for \sR{}.
-
-  Draw an analogy.
+  Well, this tails from the previous proposition.
+  For, if no \ninf{}, then continue.
+  Hence, problems with \fc{1}.
 \end{note}
 
 \footnote{
@@ -1227,7 +1340,6 @@ And, no conclusion due to what else this would entail.
 
 Indeed, a closer parallel is \citeauthor{Schaffer:2010vq}'s (\citeyear{Schaffer:2010vq}) debasing demon.
   The demon \textquote{throws her victims into the belief state on an improper basis, while leaving them with the impression as if they had proceeded properly} (\citeyear[231]{Schaffer:2010vq})
-
 
 \section{Summary}
 \label{sec:summary-1}
