@@ -72,7 +72,7 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 %\newcommand{\TOCLine}[1]{\nameref{#1}\mbox{ }\hfill\autoref{#1}}
-\newcommand{\TOCLine}[1]{\nameref{#1}\dotfill\autoref{#1}}
+\newcommand{\TOCLine}[1]{\nameref{#1}\dotfill\autoref{#1}\newline\mbox{ }\hfill\autopageref{#1}}
 % % % Verbs
 
 \makeatletter
@@ -1495,20 +1495,43 @@
 \NewDocumentCommand{\requSens}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{vigilant}%
+    \obeybreaks{responsive}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{vigilant}%
+      \obeybreaks{responsive}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} vigilant}%
+      \obeybreaks{\color{blue} responsive}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Vigilant}%
+      \obeybreaks{responsive}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} vigilant}%
+      \obeybreaks{\color{blue} responsive}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\requSensAdj}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{vigilance}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{vigilance}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{blue} vigilance}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Vigilance}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{blue} vigilance}%
     \fi
   }
 }
