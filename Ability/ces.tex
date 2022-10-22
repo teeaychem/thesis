@@ -23,6 +23,99 @@
   Our goal is motivate a general method for generating examples in which some \ros{} for which an agent does not have a \wit{} such that the \ros{} answers \qWhyV{}.
 \end{note}
 
+\subsection{A Sudoku puzzle}
+
+\begin{note}
+  Additional \illu{0} to highlight \tR{}.
+\end{note}
+
+\begin{note}
+  \begin{illustration}[Sudoku]
+    \label{illu:gist:sudoku}
+    % https://tex.stackexchange.com/questions/91422/tikz-sudoku-circle-and-connect-with-lines-some-cells
+    Consider the following Sudoku puzzle:%
+    \footnote{
+      From~\textcite[84]{Coussement:2007up}.
+    }
+    \vspace{\baselineskip}
+
+    \mbox{ }\hfill%
+    \begin{adjustbox}{minipage=0.45\linewidth,scale=1}
+      \centering
+      \begin{tikzpicture}[scale=.5]
+        \begin{scope}
+          \draw (0, 0) grid (9, 9);
+          \draw[very thick, scale=3] (0, 0) grid (3, 3);
+          \setcounter{row}{1}
+          % Single entries
+          \setrow { }{ }{ }  { }{ }{ }  {1}{ }{ }
+          \setrow { }{ }{ }  { }{ }{ }  { }{5}{ }
+          \setrow {9}{ }{ }  { }{ }{ }  { }{ }{2}
+          \setrow { }{ }{3}  { }{2}{ }  { }{ }{ }
+          \setrow { }{ }{ }  {8}{ }{ }  {4}{6}{5}
+          \setrow { }{4}{ }  { }{5}{9}  { }{ }{8}
+          \setrow { }{8}{7}  {2}{3}{1}  { }{4}{6}
+          \setrow {2}{1}{ }  {5}{ }{ }  { }{ }{3}
+          \setrow {3}{ }{6}  {4}{ }{8}  { }{ }{ }
+        \end{scope}
+      \end{tikzpicture}
+    \end{adjustbox}%
+    \hfill\mbox{ }
+
+  \end{illustration}
+
+  Interactive.
+  Fill in the grid.
+  Difference between filling in the grid and concluding that solution to the puzzle.
+  So, before conclude for any particular square, or for the grid as a whole.
+  Is it the case that you would fill in the grid the same way?
+
+  Key intuition, stop before committing to any mistake.
+
+  Two aspects.
+
+  First, may give up completely.
+  Second, catch any mistakes and fix before moving on.
+\end{note}
+
+\begin{note}
+  \autoref{illu:gist:sudoku} parallels \autoref{scen:squish}.
+
+  In both \illu{1}, \(\pv{\phi}{v}\) follows from \(\Phi\) via a rules.
+
+  However, rules are not of direct interest.
+  \autoref{scen:squish} is a syntactic proof, but variant \scen{0} in which semantic proof.
+  Relevant reasoning may be rule governed, but semantic proofs are not constrained.
+
+  Rather, familiarity.
+
+  The type of reasoning is general.
+  Syntactic and semantic proofs, Sudoku puzzles, simple instances of chess problems, all seem to involve general reasoning.
+  Likewise, counting, adding, subtracting, and so on.
+  Competence established through various proofs, puzzles, problems, and practice.
+
+  In this respect, there is no reasonable doubt of \tR{}.
+  At issue is whether specific performance.
+\end{note}
+
+\begin{note}
+  Same as \autoref{prop:requ-not-n-ce} on \autopageref{prop:requ-not-n-ce}.
+  Attention only wrt.\ to reasoning.
+  Hence, \wit{}.
+\end{note}
+
+\begin{note}
+  Intuition for each of the points.
+
+  \begin{itemize}
+  \item
+    \fc{1}, understand how to solve Sudoku puzzles, repeat any instances.
+  \item
+    \requSens{}.
+    Catch mistakes.
+  \end{itemize}
+\end{note}
+
 \section{\cScen{1}}
 \label{sec:cscen1}
 
@@ -80,7 +173,7 @@
   Distinct \requ{1} associated with each event.
 \end{note}
 
-\section{\sR{2} and \wit{1}}
+\section{\tR{2} and \wit{1}}
 \label{sec:sr2}
 
 \begin{note}

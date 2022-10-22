@@ -1403,7 +1403,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\sRAdj}{ m }{%
+\NewDocumentCommand{\tRAdj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{typical}%
@@ -1426,16 +1426,54 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\sR}{ o m }{%
+\NewDocumentCommand{\tR}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\sRAdj{#2}\space reasoning}
+    \hyperref[def:cmptnc]{\tRAdj{#2}\space reasoning}
   }
   {
-    \hyperref[def:cmptnc]{\sRAdj{#2}\space #1}
+    \hyperref[def:cmptnc]{\tRAdj{#2}\space #1}
   }
 }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\sTRAdj}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{super\space typical}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{super\space typical}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\color{blue} super\space typical}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Super\space typical}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\color{blue} Super\space typical}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\sTR}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:cmptnc]{\sTRAdj{#2}\space reasoning}
+  }
+  {
+    \hyperref[def:cmptnc]{\sTRAdj{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+
 
 \ExplSyntaxOn
 \NewDocumentCommand{\cenLine}{ m }{%
@@ -1536,3 +1574,42 @@
   }
 }
 \ExplSyntaxOff
+
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\typeAdv}{ o m }{%
+\tl_if_empty:nTF {#2}
+  {
+   \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+  }
+  {%
+    \ifnum0=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum1=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum2=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum3=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+  }
+}
+
+
+
+% \ExplSyntaxOn
+% \NewDocumentCommand{\pr}{ O{} O{} m }{%
+% \tl_if_blank:nTF{#1}
+%   {
+%     \ensuremath{\PrName[#2]{#3}}
+%   }
+%   {
+%     \ensuremath{\PrName[#2]{#3 \mid #1}}
+%   }
+% }
+% \ExplSyntaxOff
