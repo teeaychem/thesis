@@ -10,40 +10,33 @@
 }
 
 \begin{note}
-  \begin{definition}[Type of reasoning]
+  \begin{restatable}[\tor{2}]{definition}{defToR}
     \label{def:type-r}
-    \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Type of reasoning: \(T\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
+    \mbox{ }
+    \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      \(T\) is a \emph{type of reasoning} for \vAgent{}.
+      \(T\) is a \emph{\tor{0}}.
     \end{itemize}
 
     \emph{If and only if}
 
     \begin{itemize}
     \item
-      \(T\) is a collection of proposition-value-premises pairings.
+      \(T\) is a collection of proposition-value-\poP{} pairings.
     \end{itemize}
-  \end{definition}
+    \vspace{-\baselineskip}
+  \end{restatable}
 
-  Extensional characterisation of some general form of reasoning.
+  Extensional characterisation.
+
+  Generality.
 \end{note}
 
 \begin{note}
-  Handful of illustrations of types of reasoning.
+  Handful of illustrations of \tor{1}.
   In each case, premises on the left, and conclusion on the right.
   In all cases, the value True is left implicit.
-
 
   \begin{illustration}[\emph{Modus ponens}]
     \begin{tabular}[h]{p{.55\linewidth}|p{.4\linewidth}}
@@ -94,16 +87,18 @@
   Point is only that will at the very least have premises and conclusions.
 \end{note}
 
-\subsection{Representative}
+\subsection{Representatives of a type of reasoning}
 \label{sec:represntative}
 
 \begin{note}
-  \begin{definition}[Representative of a type of reasoning]
+  \begin{restatable}[Representative of a type of reasoning]{definition}{defToRRep}
     \label{def:type-r}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
       \item
         Agent: \vAgent{}
+      \item
+        Event: \(e\)
       \item
         Type of reasoning: \(T\)
       \item
@@ -113,19 +108,23 @@
 
     \begin{itemize}
     \item
-      \(T\) is representative of type of reasoning for \vAgent{}.
+      \(T'\) is representative of type of reasoning \(T\) for \vAgent{} with respect to event \(e\).
     \end{itemize}
 
     \emph{If and only if}
 
     \begin{itemize}
     \item
-      \(T' \subseteq T\).
-    \item
-      If of type \(T'\) then of type \(T\).
+      The following conditional is true:
+      \begin{itemize}
+      \item
+        \emph{If} \(e\) is an event such that \vAgent{}' reasoning is of type \(T'\) \emph{then} \(e\) is an event such that \vAgent{}' reasoning is of type \(T\).
+      \end{itemize}
     \end{itemize}
-  \end{definition}
-  Role of this definition is to allow distinction between type and reasoning the agent performs.
+    \vspace{-\baselineskip}
+  \end{restatable}
+
+  Role of this definition is to allow distinction between type and reasoning the reasoning the agent performs.
 \end{note}
 
 \begin{note}
@@ -151,16 +150,34 @@
 
   Addition is one case.
 
-  Then, there's the tiger case (thanks Ray!).
+  Then, there's the tigger case (thanks Ray!).
+
+  Though, to event.
+  Only thing that matters is the presence of a tigger.
+
+  Wow, gotta hide the medicine.
 
   Given a representative, avoid difficult cases.
-  Exclude as many apparent counterexamples to type as one wishes.
+  Allow as many imperfections%
+  \footnote{
+    I.e.\ counterexamples.
+  }
+  as one wishes.
   The difficulty is maintaining the conditional.
 
   I do not have any interest in saying what this amounts to.
 
   Indeed, I have no particular interest in whether or not reasoning is of any \emph{particular} type.
   Rather, whether the reasoning is of \emph{some} type.
+\end{note}
+
+\begin{note}
+  Omit a natural constraint.
+  Intuitively, everything of type \(T'\) is also of type \(T\).
+
+  I doubt there are any compelling counterexamples.
+  However, there is also no need to add this.
+  All that matters is that the conditional is true.
 \end{note}
 
 
@@ -200,7 +217,7 @@
 
     \begin{itemize}
     \item
-      For some representative \(T' \subseteq T\).
+      For some representative \(T'\) of the type of reasoning \(T\).
       Any \(\pvp{\psi}{v'}{\Psi}\).
 
       \begin{enumerate}[label=]
@@ -218,11 +235,14 @@
         \end{enumerate}
       \end{enumerate}
     \end{itemize}
-    \end{definition}
+  \end{definition}
+
+  Intuitively, hold fixed the way in which the agent is reasoning.
+  Then \dots
 
   Intuition is that necessary condition on \tR{} is reasoning in the same way from different premises.
 
-    Other proposition-value-premises pairings, reasoning if and only if applied proposition-value-premises pairings.
+    Other proposition-value-\poP{} pairings, reasoning if and only if applied proposition-value-\poP{} pairings.
 
   In more plain terms, reasoning is specific instance of general way of reasoning.%
   \footnote{
@@ -437,13 +457,35 @@
 
 \begin{note}
   \begin{restatable}[\sTR{2}]{definition}{defSTR}
-    \sTR{} just in case, for all representatives, \pevent{} in which reasons.
+    \sTR{} just in case, for all representatives, \pevent{} in which reasons, no \pevent{} in which block.
   \end{restatable}
 
   Motivation for this is simple.
   \tR{} just looks at instance of reasoning.
   This is okay, but less interesting.
   For, if fail to do something of same type, then what is really going on?
+
+  So, do things of type, and do not deviate from type.
+\end{note}
+
+\begin{note}
+  \begin{proposition}
+    \label{prop:sTRStronger}
+    An instance of reasoning being a instance of \sTR{} is strictly stronger than the instance being \tR{}.
+  \end{proposition}
+
+  \begin{argument}{prop:sTRStronger}
+    Taking an exam.
+
+    If the agent started reasoning about any other instance, then the agent would immediately switch back to question on the exam.
+    So, not reasoning to, as no perfection.
+  \end{argument}
+
+  This is interesting.
+  For, extend this, and not a \fc{}.
+
+  This may seem surprising.
+  However, it is the result of focusing on specific event.
 \end{note}
 
 \begin{note}
