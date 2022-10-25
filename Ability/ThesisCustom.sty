@@ -1442,20 +1442,20 @@
 \NewDocumentCommand{\sTRAdj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{super\space \tRAdj{0}}%
+    \obeybreaks{super}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{super\space \tRAdj{0}}%
+      \obeybreaks{super}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} super\space \tRAdj{0}}%
+      \obeybreaks{\color{blue} super}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Super\space \tRAdj{0}}%
+      \obeybreaks{Super}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} Super\space \tRAdj{0}}%
+      \obeybreaks{\color{blue} Super}%
     \fi
   }
 }
@@ -1465,10 +1465,22 @@
 \NewDocumentCommand{\sTR}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\sTRAdj{#2}\space reasoning}
+    \hyperref[def:cmptnc]{\sTRAdj{#2}\space \tRAdj{0}\space reasoning}
   }
   {
-    \hyperref[def:cmptnc]{\sTRAdj{#2}\space #1}
+    \hyperref[def:cmptnc]{\sTRAdj{#2}\space \tRAdj{0}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\spTR}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:cmptnc]{(\sTRAdj{#2})\space \tRAdj{0}\space reasoning}
+  }
+  {
+    \hyperref[def:cmptnc]{(\sTRAdj{#2})\space \tRAdj{0}\space #1}
   }
 }
 \ExplSyntaxOff
@@ -1477,7 +1489,7 @@
 
 \ExplSyntaxOn
 \NewDocumentCommand{\cenLine}{ m }{%
-  \mbox{ }\hfill#1\hfill\mbox{ }
+  \mbox{ }\hfill#1\hfill\mbox{ }%
 }
 \ExplSyntaxOff
 
@@ -1530,52 +1542,6 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\requSens}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{responsive}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{responsive}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} responsive}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{responsive}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} responsive}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\requSensAdj}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{vigilance}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{vigilance}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} vigilance}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Vigilance}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} vigilance}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \NewDocumentCommand{\typeAdv}{ o m }{%
 \tl_if_empty:nTF {#2}
   {
@@ -1589,13 +1555,25 @@
       \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
     \fi
     \ifnum2=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+      \IfNoValueTF{#1}{\obeybreaks{Typically}}{\obeybreaks{Typically\textsubscript{\ensuremath{#1}}}}
     \fi
     \ifnum3=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{typically}}{\obeybreaks{typically\textsubscript{\ensuremath{#1}}}}
+      \IfNoValueTF{#1}{\obeybreaks{Typically}}{\obeybreaks{Typically\textsubscript{\ensuremath{#1}}}}
     \fi
   }
 }
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tRAdv}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:cmptnc]{\typeAdv{#2}\space reasoning}
+  }
+  {
+    \hyperref[def:cmptnc]{\typeAdv{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\ToRName}{ m }{%
