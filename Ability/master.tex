@@ -64,6 +64,24 @@
 \addbibresource{Ability.bib}
 % % % % % % % % % % % % % % %
 
+\RequirePackage[usenames, dvipsnames]{xcolor}
+
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+\definecolor{details}{HTML}{FE4164}
+\definecolor{later}{HTML}{A65978}
+\definecolor{return}{HTML}{660066}
+\definecolor{link}{HTML}{66FFFF}
+\definecolor{comment}{HTML}{616161}
+\definecolor{offblack}{HTML}{434241}
+\definecolor{highlight}{HTML}{FE4164}
+
+% % % My packages % % %
+\usepackage{CustomTheoremsThesis}
+\usepackage{ThesisCustom}
+\usepackage{CustomEnvs}
+
+% % % % % % % % % % % %
+
 \usepackage[inline]{enumitem}
 % \setlist[enumerate]{noitemsep}
 % \setlist[itemize]{noitemsep}
@@ -78,21 +96,11 @@
 % % % % % % % % % % % % %
 
 % % % Red Math % % %
-\usepackage[usenames, dvipsnames]{xcolor}
+
 % \usepackage{everysel}
 % \EverySelectfont{\color{black}}
 % \everymath{\color{red}}
 % \everydisplay{\color{black}}
-\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
-\definecolor{details}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
-\definecolor{expand}{HTML}{C61AFF}
-\definecolor{later}{HTML}{A65978}
-\definecolor{return}{HTML}{660066}
-\definecolor{reword}{HTML}{F57F17}
-\definecolor{link}{HTML}{66FFFF}
-\definecolor{comment}{HTML}{616161}
-\definecolor{offblack}{HTML}{434241}
-\definecolor{highlight}{HTML}{FE4164}
 % % % % % % % % % %
 
 \usepackage[export]{adjustbox}
@@ -160,12 +168,6 @@
 
 % % % % % % % % % % % %
 
-% % % My packages % % %
-\usepackage{CustomTheoremsThesis}
-\usepackage{ThesisCustom}
-\usepackage{Notes}
-% % % % % % % % % % % %
-
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
   {-3.25ex\@plus -1ex \@minus -.2ex}%
@@ -180,22 +182,6 @@
   {\normalfont\normalsize\bfseries}}
 \makeatother
 
-% % https://tex.stackexchange.com/questions/94402/creating-a-subsubparagraph
-% \makeatletter
-% \newcounter{subsubparagraph}[subparagraph]
-% \renewcommand\thesubsubparagraph{%
-%   \thesubparagraph.\@arabic\c@subsubparagraph}
-% \newcommand\subsubparagraph{%
-%   \@startsection{subsubparagraph}    % counter
-%     {6}                              % level
-%     {\z@}                     % indent
-%     {3.25ex \@plus 1ex \@minus .2ex} % beforeskip
-%     {1.5ex \@plus .2ex}%             % afterskip
-%     {\normalfont\normalsize\bfseries}}
-% \newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
-% \newcommand{\subsubparagraphmark}[1]{}
-% \makeatother
-
 \usepackage[
 breaklinks,
 bookmarks=false,
@@ -204,6 +190,7 @@ colorlinks=true,
 linkcolor=highlight,
 citecolor=highlight,
 ]{hyperref}
+
 \usepackage{csquotes}
 
 % \hyperlink{cite.MyKey}{link}
@@ -279,6 +266,19 @@ citecolor=highlight,
   \mbox{ }\hfill\mbox{(\citetitle{Shakespeare:2003vc}, 3.3.428--432)}
 \end{quote}
 
+\vfill
+
+\begin{quote}
+  ``In any case, how can we ever know? Essentially a man is what he hides\dots''
+
+  Walter shrugged his shoulders and brought his hands together like a child making a mud pie.
+
+  ``A miserable little pile of secrets\dots''
+
+  ``A man is what he does!'' my father answered sharply.\newline
+  \mbox{ }\hfill\mbox{(\cite[20]{Malraux:1968aa})}
+\end{quote}
+
 \tableofcontents
 
 \newpage
@@ -343,7 +343,7 @@ citecolor=highlight,
 
 \include{fc-ability}
 
-\include{qzSIlls}
+%\include{qzSIlls}
 
 %\include{Motivation}
 

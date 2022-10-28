@@ -9,41 +9,13 @@
 \RequirePackage{graphicx} % for reverse
 \RequirePackage{calc}
 
-\RequirePackage{adforn}
-
-\RequirePackage{mdframed}
-
-\mdfdefinestyle{leftLine}{%
-    linecolor=black,
-    outerlinewidth=1,
-    % innertopmargin=\baselineskip,
-    % innerbottommargin=\baselineskip,
-    topline=false,
-    rightline=false,
-    bottomline=false
-    }
-
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{calc}
 
-\NewEnviron{argument}[1]{%
-    \par\smallskip
-    %\begin{mdframed}[style=leftLine]
-    \noindent\emph{Argument for \autoref{#1}}%
-    \mbox{ }\newline
-    \reversemarginpar
-      \BODY\mbox{ }\newline%
-      \mbox{ }\hfill\adforn{39}\par
-}
-
-\RequirePackage{pifont}
-\newcommand{\hand}{\ding{43}}
-
 \newcommand{\bsfrac}[2]{\ensuremath{\reflectbox{\sfrac{\reflectbox{#2}}{\reflectbox{#1}}}}}
 
-
-
+\newcommand{\tJunk}[0]{\obeybreaks{\#\$\%\&}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % General purpose
@@ -191,13 +163,13 @@
       \obeybreaks{\hyperref[principle:factivity]{factivity}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[principle:factivity]{Factivity}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -214,13 +186,13 @@
       \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[def:perspectivity]{Perspectivity}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -239,13 +211,13 @@
       \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[def:perspectivityQ]{Perspectivity\textsuperscript{\emph{Q}}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -286,13 +258,13 @@
       \obeybreaks{collateral}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Collateral}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -311,13 +283,13 @@
       \obeybreaks{\hyperref[cha:var:ros]{support}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[cha:var:ros]{Support}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -527,11 +499,11 @@
 \newcommand{\nagent}[1]{%
 \tl_if_empty:nTF {#1}
   {
-    {\color{red} <AGENT>}
+    {\tJunk{}}
   }
   {%
     \ifnum0=#1\relax
-      {\color{red} ?AGENT?}%
+      {\tJunk{}}%
     \fi
     \ifnum1=#1\relax
       Sam%
@@ -677,13 +649,13 @@
       \obeybreaks{zingiberaceae}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Zingiberaceae}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -723,13 +695,13 @@
       \obeybreaks{\zgb{0}-support}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\zgb{2}-support}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -966,13 +938,13 @@
       \obeybreaks{broad}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} \#\$\%\&}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{broad}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} \#\$\%\&}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -989,13 +961,13 @@
       \obeybreaks{narrow}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} \#\$\%\&}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{narrow}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} \#\$\%\&}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1052,13 +1024,13 @@
       \obeybreaks{drifting}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Drifting}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1121,13 +1093,13 @@
       \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{progressive\space perfection}}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[assu:PP]{\color{red} NO-SENSE}}%
+      \obeybreaks{\hyperref[assu:PP]{\tJunk{}}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[assu:PP]{\obeybreaks{\text{Progressive\space perfection}}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[assu:PP]{\color{red} NO-SENSE}}%
+      \obeybreaks{\hyperref[assu:PP]{\tJunk{}}}%
     \fi
   }
 }
@@ -1144,13 +1116,13 @@
       \obeybreaks{appropriate}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Appropriate}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1167,13 +1139,13 @@
       \obeybreaks{inappropriate}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Inappropriate}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1203,13 +1175,13 @@
       \obeybreaks{potential}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Potential}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} NO-SENSE}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1250,13 +1222,13 @@
       \obeybreaks{\emph{if-then}\space conditional}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\emph{If-then}\space conditional}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{red} !no-sense!}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1367,13 +1339,13 @@
       \obeybreaks{\hyperref[def:ninf]{negative\space influence}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:ninf]{\color{red} negative\space influences}}%
+      \obeybreaks{\hyperref[def:ninf]{\tJunk{}}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[def:ninf]{Negative\space influence}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:ninf]{\color{red} Negative\space influences}}%
+      \obeybreaks{\hyperref[def:ninf]{\tJunk{}}}%
     \fi
   }
 }
@@ -1390,13 +1362,13 @@
       \obeybreaks{positive\space influence}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} positive\space influences}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Positive\space influence}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} Positive\space influences}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1413,13 +1385,13 @@
       \obeybreaks{typical}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} typical}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Typical}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} Typical}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1437,6 +1409,17 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\NewDocumentCommand{\tC}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:cmptnc]{\tRAdj{#2}\space concluding}
+  }
+  {
+    \hyperref[def:cmptnc]{\tRAdj{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\sTRAdj}{ m }{%
@@ -1449,13 +1432,13 @@
       \obeybreaks{super}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} super}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{Super}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} Super}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1522,20 +1505,20 @@
 \NewDocumentCommand{\progAdj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{potential}%
+    \obeybreaks{possible}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{potential}%
+      \obeybreaks{possible}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\color{blue} potential}%
+      \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Potential}%
+      \obeybreaks{Possible}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\color{blue} potential}%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
@@ -1600,7 +1583,36 @@
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tor}{ m }{%
-  \obeybreaks{\hyperref[def:type-r]{\ToRName{#1}}}
+  \obeybreaks{\hyperref[def:tor]{\ToRName{#1}}}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\RoToRName}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{representative\space of\space a\space \ToRName{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{representative\space of\space a\space \ToRName{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{representatives\space of\space a\space \ToRName{0}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Representative\space of\space a\space \ToRName{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Representatives\space of\space a\space \ToRName{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rotor}{ m }{%
+  \obeybreaks{\hyperref[def:rotor]{\RoToRName{#1}}}
 }
 \ExplSyntaxOff
 
