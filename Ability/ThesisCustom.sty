@@ -1212,7 +1212,7 @@
 
 
 \ExplSyntaxOn
-\NewDocumentCommand{\qWVitc}{ m }{
+\NewDocumentCommand{\itc}{ m }{
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{\emph{if-then}\space conditional}%
@@ -1451,6 +1451,18 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\NewDocumentCommand{\tRVN}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    {\typeAdv{#2}\space reasoning}
+  }
+  {
+    {\typeAdv{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\tC}{ o m }{%
 \IfNoValueTF{#1}
   {
@@ -1543,7 +1555,7 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\ToRName}{ m }{%
+\NewDocumentCommand{\torN}{ m }{%
   \tl_if_empty:nTF {#1}
   {
     \obeybreaks{type\space of\space reasoning}%
@@ -1567,28 +1579,76 @@
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tor}{ m }{%
-  \obeybreaks{\hyperref[def:tor]{\ToRName{#1}}}
+  \obeybreaks{\hyperref[def:tor]{\torN{#1}}}
+}
+\ExplSyntaxOff
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tI}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{member}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{member}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{members}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{members}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{members}%
+    \fi
+  }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\RoToRName}{ m }{%
+\NewDocumentCommand{\tRep}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{representative\space of\space a\space \ToRName{0}}%
+    \obeybreaks{\hyperref[def:rotor]{representative}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{representative\space of\space a\space \ToRName{0}}%
+      \obeybreaks{\hyperref[def:rotor]{representative}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{representatives\space of\space a\space \ToRName{0}}%
+      \obeybreaks{\hyperref[def:rotor]{representatives}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Representative\space of\space a\space \ToRName{0}}%
+      \obeybreaks{\hyperref[def:rotor]{Representatives}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Representatives\space of\space a\space \ToRName{0}}%
+      \obeybreaks{\hyperref[def:rotor]{Representatives}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rotorN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
     \fi
   }
 }
@@ -1596,11 +1656,9 @@
 
 \ExplSyntaxOn
 \NewDocumentCommand{\rotor}{ m }{%
-  \obeybreaks{\hyperref[def:rotor]{\RoToRName{#1}}}
+  \obeybreaks{\hyperref[def:rotor]{\rotorN{#1}}}
 }
 \ExplSyntaxOff
-
-
 
 % \ExplSyntaxOn
 % \NewDocumentCommand{\pr}{ O{} O{} m }{%
