@@ -1487,6 +1487,53 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\NewDocumentCommand{\superTypeAdj}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{very}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{very}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Very}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\vtC}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdj{0}\space concluding}
+  }
+  {
+    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdj{0}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\vtCV}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdv{0}\space concluding}
+  }
+  {
+    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdv{0}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\cenLine}{ m }{%
   \mbox{ }\hfill#1\hfill\mbox{ }%
 }

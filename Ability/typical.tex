@@ -50,6 +50,8 @@
     \TOCLine{cha:typical:sec:g-s}
   \item
     \TOCLine{cha:typical:sec:tR}
+  \item
+    \TOCLine{cha:typical:sec:tC}
   \end{enumerate}
 \end{note}
 
@@ -1002,7 +1004,7 @@
 \end{note}
 
 \section{\tC{2}}
-\label{cha:typical:sec:sTR}
+\label{cha:typical:sec:tC}
 
 \begin{note}
   With reasoning in hand, expand our understanding of typicality to concluding:
@@ -1060,11 +1062,6 @@
           \item
             There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Psi\) after performing \(a'\).
           \end{enumerate}
-        \item[\emph{And}:]
-          \begin{enumerate}
-          \item
-            After \(a'\), either concluding or some action \(a''\) such that concluding.
-          \end{enumerate}
         \end{itemize}
       \end{itemize}
     \end{itemize}
@@ -1077,12 +1074,7 @@
   For, if fail to do something of same type, then what is really going on?
 \end{note}
 
-\begin{note}
-  So, strengthened.
-  Here, there's got to be the possibility of reasoning, and for this to either amount to, or be extended to concluding.
-\end{note}
-
-\subsection{\fc{3}}
+\subsection{\tR{2} and \fc{1}}
 \label{sec:fc3}
 
 \begin{note}
@@ -1097,41 +1089,84 @@
   Naturally, the idea generalises further.
 \end{note}
 
-% \begin{note}
-%   \begin{proposition}[\tC{} and \fc{1}]
-%     \label{prop:tC-fc}
-%     For any event \(e\):
+\begin{note}
+  \begin{definition}[\vtC{2}]
+    \label{def:vtC}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \poP{3}: \(\Phi\), \(\Psi\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-%     \begin{itemize}
-%     \item[\emph{If}:]
-%       \(e\) is an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
-%     \item[\emph{And}:]
-%       \(\pvp{\psi}{v'}{\Psi}\) is an instance of \tRep{0}.
-%     \item[\emph{And}:]
-%       Available action such that \vAgent{} is reasoning from \(\Psi\) after performing \(a\).
-%     \item[\emph{Then}:]
-%       \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
-%     \end{itemize}
-%   \end{proposition}
+    \noindent%
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Event: \(e\)
+      \item
+        Type of reasoning: \(T\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-%   \begin{argument}{prop:tC-fc}
-%     Suppose:
-%     \begin{itemize}
-%     \item
-%       \(e\) is an event in which \vAgent{} is \tC{} \(\pv{\phi}{v}\) from \(\Phi\).
-%     \item
-%       \(\pvp{\psi}{v'}{\Psi}\) is an instance of \tRep{0}.
-%     \item
-%       Available action such that \vAgent{} is reasoning from \(\Psi\) after performing \(a\).
-%     \end{itemize}
-%     % Then, available action, so antecedent of \itc{} from \autoref{def:tC} holds.
-%     % Therefore, the consequent holds.
+    \begin{itemize}
+    \item
+      \(e\) is an event in which \vAgent{} is \emph{\vtCV{0}} (by type \(T\)) \(\pv{\phi}{v}\) from \(\Phi\).
+    \end{itemize}
 
-%     % So, we get that the agent is concluding.
-%     % Also needs to be the case that not concluding something incompatible.
-%     Need to fix def of conclusions and \fc{1}.
-%   \end{argument}
-% \end{note}
+    \emph{Only if}:
+
+    \begin{itemize}[noitemsep]
+    \item
+      For the \tRep{0} \(T'\) of \(T\) with respect to \(e\):
+      \begin{itemize}[noitemsep]
+      \item
+        For every pairing \(\pvp{\psi}{v'}{\Psi}\) in \(T'\).
+        \begin{itemize}[noitemsep]
+        \item[\emph{If}:]
+          \begin{enumerate}[label=\alph*., ref=(\alph*), series=tRSketch]
+          \item
+            There is some available action \(a\) such that \vAgent{} is reasoning from \(\Psi\) after performing \(a\).
+          \end{enumerate}
+        \item[\emph{Then}:]
+          \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=tRSketch]
+          \item
+            For any proposition \(\phi'\), value \(v'\), and action \(a'\) such that \vAgent{} is concluding \(\pv{\phi'}{v'}\) from \(\Phi\) after \(a'\) is done:
+            \begin{itemize}
+            \item
+              Either:
+              \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+              \item
+                \(\phi'\) is \(\phi\) and \(v'\) is \(v\).%
+                \footnote{
+                  In other words, \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\) after doing \(a'\).
+                }
+              \item
+                Throughout event in which \vAgent{} concludes \(\pv{\phi'}{v'}\) from \(\Phi\), there is some action \(b\) such that \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\) after \(b\) is done.
+              \end{enumerate}
+            \end{itemize}
+          \end{enumerate}
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+\end{note}
+
+
+
+
+
 
 \section{Summary}
 \label{cha:typical:sec:summ}
