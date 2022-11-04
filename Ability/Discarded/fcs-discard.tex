@@ -1,112 +1,89 @@
-\chapter{Wrangling}
-\label{cha:var:wrang}
+\chapter{\fc{3} discard}
+\label{cha:fc3-discard}
 
-\subsection{Dependence}
+\begin{note}[\fc{2} definition]
+  We define \(\pv{\phi}{v}\) being a \emph{\fc{0}} as follows:
 
-\begin{note}
-  Difficulty.
-  How is it the case that the agent concludes only due to \fc{}?
+  \begin{restatable}[\fc{3}]{definition}{definitionForegoneC}
+    \label{def:fc}
+    \begin{itemize*}[noitemsep, label=\(\circ\)]
+    \item
+      An agent: \vAgent{}
+    \item
+      A proposition: \(\phi\)
+    \item
+      A value: \(v\)
+    \item
+      A \poP{0}: \(\Phi\)
+    \item
+      \mbox{ }
+    \end{itemize*}
 
-  Method is to consider dependence of \qWhyVnP{}, from the \agpe{}:
-
-  \begin{restatable}[\qWhyV{}]{question}{questionWhyV}
-    \label{q:why:v}
-    Given an agent \vAgent{}, proposition-value pair \(\pv{\phi}{v}\), \poP{} \(\Phi\), and event \(e\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
-
-    \begin{quote}
-      Which proposition-value-premises pairings \(\pvp{\psi}{v'}{\Psi}\) are such that, when \vAgent{} pairs \(\phi\) with \(v\):
-
-      \begin{enumerate}[label=]
+    \begin{itemize}
+    \item
+      \(\pv{\phi}{v}\) from \(\Phi\) is a \emph{\fc{0}} for \vAgent{}.
+      % \newline
+      % \mbox{ }\hfill(equiv.\ \(\pvp{\phi}{v}{\Phi}\) is a \fc{0} for \vAgent{})
+    \end{itemize}
+    \emph{If and only if}
+    \begin{enumerate}[label=]
+    \item
+      Both~\ref{def:fc:is-pe-good} and~\ref{def:fc:no-pe-bad} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
-        \begin{enumerate}[label=\alph*., ref=(\alph*), series=qWhyVDef]
-        \item
-          A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds, from \agpe{\vAgent{}'}.
-        \end{enumerate}
+        \label{def:fc:is-pe-good}
+        There is \emph{some} \pevent{} \(p\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:fc:no-pe-bad}
+        There is \emph{no} \pevent{} \(p\) in which \vAgent{} concludes some proposition-value-premises pairing which is incompatible with concluding \(\pv{\phi}{v}\) from \(\Phi\).%
+        \footnote{
+          Incompatible:
+          \(\pv{\chi}{v''}\) from \(X\) where:
+        If conclude \(\pv{\chi}{v''}\) from \(X\), then does not conclude \(\pv{\phi}{v}\) from \(\Phi\).
+        }
       \end{enumerate}
-
-      And, from \agpe{\vAgent{}'}:
-
-      \begin{enumerate}
-      \item[\emph{If}:]
-        \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=qWhyVDef]
-        \item
-          The \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) when pairing \(\phi\) with \(v\) failed to hold, from \agpe{\vAgent{}'}.%
-          \footnote{
-            It seems more natural to omit `from \agpe{\vAgent{}'}':
-            \begin{itemize}
-            \item
-              The \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) when pairing \(\phi\) with \(v\) failed to hold.
-            \end{itemize}
-            Indeed, evaluating conditional from \agpe{}.
-            However, distinction between whether \ros{} and whether \ros{} from \agpe{}.
-            Latter, and keeping the qualifier helps clarify.
-          }
-        \end{enumerate}
-      \item[\emph{Then}:]
-        \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=qWhyVDef]
-        \item
-          \(e\) would not have been an event in which \vAgent{} concluded \(\pv{\phi}{v}\) from \(\Phi\).
-        \end{enumerate}
-      \end{enumerate}
-    \end{quote}
+    \end{enumerate}
     \vspace{-\baselineskip}
   \end{restatable}
 \end{note}
 
-\begin{note}
-  The idea is:
+\begin{note}[Intuition]
+  Significant attention will be given to what is means for there to be a potential event in which an agent performs some action in \autoref{cha:sec:fcs-def:potential-events}, below.
+  However, the basic features of \autoref{def:fc} follow from substituting `possible' for `\pevent{}'.
+  Given this substitution:
 
-  Counterexamples.
-
-  One option is to specify (apparent) counterexamples so that the truth of the \emph{if-then} conditional follows.
-  Then, at issue is whether analysis is correct.
-  It may be that the truth of the conditional does not follow.
-
-  Other option, specify (apparent) counterexamples so that the \emph{if-then} conditional holds from the \agpe{}.
-  Then, at issue is whether the \agpe{} is correct.
-
-  Trade a issue about analysis of counterexamples for a issue about what the counterexample achieves.
-
-  Preference for the second option is ease of specifying examples.
-  Build up an understanding of how and why such examples arise, and then try to figure out whether they result in anything substantial rather than attempting defend position that analysis of an example counters.
-
-  In short:
-
-  On first, whether analysis is correct.
-
-  On second, whether agent is correct.
-
-  Preference for whether agent is correct.
-  Though, equivalent.
-\end{note}
-
-\begin{note}
-  In order for \qWhyV{} to be of interest, must be cases where the \agpe{} is correct.
-
-  \begin{proposition}
-    \label{prop:why-n-p-link}
-    Instances where \(\pvp{\psi}{v'}{\Psi}\) answers \qWhyVnP{} in virtue of answering \qWhyV{}
-  \end{proposition}
-
-  Find instances which witness the truth of \autoref{prop:why-n-p-link}.
-
-  Stress, \autoref{prop:why-n-p-link} does not amount to an entailment.
-  They may be cases where \agpe{} returns an answer to \qWhyV{} which is not an answer to \qWhyVnP{}.
-\end{note}
-
-\subsubsection{Concerns}
-\label{sec:pitfalls}
-
-\begin{note}
-  Subdivide into two concerns.
-
-  \begin{enumerate}
+  \begin{itemize}[noitemsep]
   \item
-    Is \agpe{} informative?
+    Clause~\ref{def:fc:is-pe-good} ensures that there is some possibility in which the agent to conclude \(\pv{\phi}{v}\) from \(\Phi\).
   \item
-    Granting true from \agpe{}, is informative, may it still be the case that \ros{} fails to answer \qWhyVnP{}.
-  \end{enumerate}
+    Clause~\ref{def:fc:no-pe-bad} ensures that there is no possibility in which the agent concludes something incompatible with concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    Hence, Clause~\ref{def:fc:no-pe-bad} rules out the agent failing to conclude \(\pv{\phi}{v}\) from \(\Phi\) because some incompatible proposition-value-premises pairing is (also) a \fc{0}.
+  \end{itemize}
+
+  Intuitively, and inevitable result of possible reasoning.
+  For, there is some possibility in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) via Clause~\ref{def:fc:is-pe-good}.
+  And, at no point prior to concluding could the agent have concluded some other proposition-value-premises pairing which would prevent the agent from concluding \(\pv{\phi}{v}\) from \(\Phi\) via~\ref{def:fc:no-pe-bad}.
+
+  Further, not merely that agent would not prevent on success, but that there is no way to block success.
 \end{note}
+
+\subsection{\pevent{3}}
+\label{cha:sec:fcs-def:potential-events}
+
+\begin{note}
+  \autoref{def:fc} appeals to~\ref{def:fc:is-pe-good} the existence of some \pevent{} and~\ref{def:fc:no-pe-bad} the non-existence of some \pevent{}.
+
+  However, \autoref{def:fc} does not rely on anything more than existential quantification.
+  The choice is deliberate.
+  We given necessary and sufficient conditions for the \emph{existence} of some \pevent{} in terms of
+  \begin{enumerate*}[label=(\roman*)]
+  \item
+    actions available to the agent, and
+  \item
+    truth conditions for the progressive.
+  \end{enumerate*}
+\end{note}
+
 
 %%% Local Variables:
 %%% mode: latex

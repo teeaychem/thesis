@@ -257,10 +257,48 @@
     \qWhyV{} is target, and eventual trade off will be between instances in which agent concludes via \tR{} and \ros{} without \wit{}.
   }
 
-  \begin{idea}[\tRN{2}]
+  \begin{idea}[\tRN{2} is lawful]
     \label{idea:tR-law}
-    If reasoning is of type then in other circumstances, reasoning is of same type.
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \poP{3}: \(\Phi\), \(\Psi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+
+    \begin{itemize}
+    \item
+      Event \(e\) is such that \vAgent{} is reasoning to \(\pv{\phi}{v}\) from \(\Phi\) by some type.
+    \end{itemize}
+
+    \emph{Only if}:
+
+    \begin{itemize}
+    \item
+      For every event \(e'\) in some collection of events \(E\):
+      \begin{itemize}
+      \item[\emph{If}:]
+        \(e'\) were to occur.
+      \item[\emph{Then}:]
+        \(e'\) would be an event in which \vAgent{} is reasoning to \(\pv{\psi}{v'}\) from \(\Psi\), for some proposition-value-\poP{} pair \(\pvp{\psi}{v'}{\Psi}\).
+      \end{itemize}
+    \end{itemize}
   \end{idea}
+
+  \autoref{idea:tR-law} may seem strong.
+  Need the agent to do the reasoning.
+  Perhaps it is sufficient that the agent does not conflict with reasoning of the type.
+  However, free to limit the relevant collection of events.
 
   In other words, if circumstances, and not reasoning of type, then reasoning is not of type in initial circumstance.
 
@@ -336,6 +374,109 @@
   Type of reasoning isn't basic EU, etc.
 \end{note}
 
+\begin{note}
+  The situations, as presented by \citeauthor{Allais:1979aa}:%
+  \footnote{
+    All the examples which follow were given in French francs at 1952 prices. 100 French francs in 1952 were worth about the same as 10 dollars in 1975.
+
+    \citeauthor[138, fn.94]{Allais:1979aa}
+
+    That's \$50ish today.
+  }
+  \begin{quote}
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
+    \item
+      \emph{Do you prefer Situation A to Situation B}?
+
+      Situation A:
+        \begin{enumerate}[label=--]
+        \item
+          \emph{certainty} of receiving 100 million
+        \end{enumerate}
+        Situation B:
+        \begin{enumerate}[label=--]
+        \item
+          \emph{a} 10\% \emph{chance} of winning 500 million,
+        \item
+          \emph{an} 89\% \emph{chance} of winning 100 million,
+        \item
+          \emph{a} 1\% \emph{chance} of winning nothing.
+        \end{enumerate}
+      \item
+      \emph{Do you prefer Situation C to Situation D}?
+
+      Situation C:
+        \begin{enumerate}[label=--]
+        \item
+          \emph{a} 11\% \emph{chance} of winning 100 million,
+        \item
+          \emph{an} 89\% \emph{chance} of winning nothing.
+        \end{enumerate}
+        Situation D:
+        \begin{enumerate}[label=--]
+        \item
+          \emph{a} 10\% \emph{chance} of winning 500 million,
+        \item
+          \emph{a} 90\% \emph{chance} of winning nothing.%
+          \mbox{ }\hfill\mbox{(\citeyear[89]{Allais:1979aa})}
+        \end{enumerate}
+    \end{enumerate}
+  \end{quote}
+
+  \begin{quote}
+    The preference \(\text{A} > \text{B}\) should entail \(\text{C} > \text{D}\).%
+    \footnote{
+      \EU{Sit.\ A} = \(\Util{100\text{m}}\).
+
+      \EU{Sit.\ B} = \(.10 \cdot \Util{500\text{m}} + .89 \cdot \Util{100\text{m}} + .1 \cdot \Util{0\text{m}}\).
+
+      \EU{Sit.\ C} = \(.11 \cdot \Util{100\text{m}} + .89 \cdot \Util{0\text{m}}\).
+
+      \EU{Sit.\ D} = \(.10 \cdot \Util{500\text{m}} + .90 \cdot \Util{0\text{m}}\).
+
+      Suppose Situation A is preferred to Situation B.
+      Hence, \(\EU{Sit.\ A} > \EU{Sit.\ B}\).
+      Expanding, we obtain:
+      %
+      \[
+        \Util{100\text{m}} > .10 \cdot \Util{500\text{m}} + .89 \cdot \Util{100\text{m}} + .1 \cdot \Util{0\text{m}}
+      \]
+
+      Now, consider subtracting \(.89 \cdot \Util{100\text{m}}\) from each side of the inequality and adding \(.89 \cdot \Util{0\text{m}}\):
+      %
+      \begin{align*}
+        \Util{100\text{m}} - .89 \cdot \Util{100\text{m}} &> .10 \cdot \Util{500\text{m}} + .01 \cdot \Util{0\text{m}} \\
+         .11 \cdot \Util{100\text{m}} + .89 \cdot \Util{0\text{m}} &> .10 \cdot \Util{500\text{m}} + .90 \cdot \Util{0\text{m}}
+      \end{align*}
+
+      The left and right side of the inequality are \EU{Sit.\ C} and \EU{Sit.\ D}, respectively.
+      Therefore, it should be the case that Situation C is preferred to Situation D.
+    }
+  \end{quote}
+  However, this is not the case.
+  \citeauthor{Allais:1979aa} highlights pattern to the contrary:
+  \textquote{\emph{[T]he pattern for most highly prudent persons [\dots] who are considered generally as rational, is the pairing \(\text{A} > \text{B}\) and \(\text{C} < \text{D}\).}}
+  (\citeyear[89]{Allais:1979aa})
+
+  So, we have a something lawlike.%
+
+  Two things here.
+  \begin{itemize}
+  \item
+    Entailment between preferences.
+  \item
+    Circumstance in which conflicting preferences.
+  \end{itemize}
+
+  Both work, but the latter is of interest.%
+  \footnote{
+    \color{red}
+    The former \dots
+  }
+
+  For, if axioms, then preferences.
+\end{note}
+
 \paragraph{Belief revision}
 
 \begin{note}
@@ -359,6 +500,24 @@
   \end{quote}
   \citeauthor{Harman:1984aa}'s point is that universality, so if hold, then hold in all circumstances.
   And, it is clear this is not the case.
+\end{note}
+
+\paragraph{Other}
+
+\begin{note}
+  The Ellsberg paradox (\cite{Ellsberg:1961aa}).
+
+  Consider also \citeauthor{Kyburg:1997aa}'s Lottery Paradox (\citeyear{Kyburg:1997aa}) or \citeauthor{Makinson:1965aa}'s Paradox of the Preface (\citeyear{Makinson:1965aa}).
+
+  Here, belief and conjunction.
+
+  Gettier.
+  Here, type of reasoning present in knowledge gets restricted.
+
+  Wright, with transmission failure.
+  Characterising a type of reasoning.
+  Then, troubles.
+  For, there's that problem of triviality.
 \end{note}
 
 \subsection{Summary}
