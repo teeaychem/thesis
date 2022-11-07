@@ -56,6 +56,7 @@
   isbn=false,
   doi=false,
   useprefix=true,
+  maxbibnames=99,
   ]{biblatex}
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
@@ -86,7 +87,14 @@
 \usepackage[inline]{enumitem}
 % \setlist[enumerate]{noitemsep}
 % \setlist[itemize]{noitemsep}
-\setlist[description]{style=unboxed,leftmargin=\parindent,labelindent=\parindent,font=\normalfont\space}
+\newlist{screenplay}{description}{1}
+\setlist[screenplay]{
+  style=standard,
+%  itemindent=2em,
+%  labelindent=-2em,
+  leftmargin=1.5em,
+  font=\normalfont
+}
 
 % % % Misc packages % % %
 % \usepackage{setspace}
