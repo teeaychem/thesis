@@ -129,23 +129,23 @@
 \newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
-\NewDocumentCommand{\poP}{ m }{%
+\NewDocumentCommand{\pool}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{pool\ofPremises{}}%
+    \obeybreaks{\hyperref[def:pools]{pool\ofPremises{}}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{pool\ofPremises{}}%
+      \obeybreaks{\hyperref[def:pools]{pool\ofPremises{}}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{pools\ofPremises{}}%
+      \obeybreaks{\hyperref[def:pools]{pools\ofPremises{}}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Pool\ofPremises{}}%
+      \obeybreaks{\hyperref[def:pools]{Pool\ofPremises{}}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Pools\ofPremises{}}%
+      \obeybreaks{\hyperref[def:pools]{Pools\ofPremises{}}}%
     \fi
   }
 }
@@ -1670,3 +1670,14 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\NewDocumentCommand{\val}{ m }{%
+  \ensuremath{\text{\textsf{#1}}}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\prop}{ m }{%
+  \obeybreaks{\text{\textsf{#1}}}
+}
+\ExplSyntaxOff
