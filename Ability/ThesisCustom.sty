@@ -1665,6 +1665,98 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\NewDocumentCommand{\evalN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{evaluation}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{evaluation}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{evaluations}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Evaluation}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Evaluations}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\eval}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{evaluate}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{evaluate}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{evaluates}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Evaluate}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Evaluates}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\evaling}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{evaluating}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{evaluating}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Evaluating}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\evaled}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{evaluated}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{evaluated}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Evaluated}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\rotor}{ m }{%
   \obeybreaks{\hyperref[def:rotor]{\rotorN{#1}}}
 }
