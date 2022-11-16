@@ -53,7 +53,7 @@
   This section clarifies our understanding of conclusions in terms of \evalN{}.
   We define propositions and values, then turn to \evalN{1} and conclusions.
 \end{note}
-
+%
 \begin{note}
   \begin{definition}[Propositions and values]
     \mbox{ }%
@@ -171,8 +171,7 @@
 
   In this respect, \evalN{} are similar to propositional attitudes.
   I both \emph{believe} \prop{The coffee is bitter} and \emph{desire} \prop{The coffee is bitter}.
-
-  However, \evalN{} are coarser than propositional attitudes.
+  However, \evalN{1} are coarser than propositional attitudes.
   For example, \(\pv{\prop{The coffee is bitter}}{\val{True}}\) does not distinguish between whether the agent \emph{believes} or \emph{knows} \prop{The coffee is bitter}.%
   \footnote{
     \label{fn:belief-is-difficult}
@@ -187,6 +186,7 @@
     As \citeauthor{Hawthorne:2016wv} observe: \textquote{[I]t is awful to say, in this case, `I think horse A will win but I don't believe it will'.}
     (\citeyear[1440, fn.17]{Hawthorne:2016wv})
   }
+
   Still, \evalN{1} capture the common characteristic of all propositional attitudes:
   Some proposition being some way from the \agpe{}.
   And, with respect to conclusions are interest is limited to this characteristic.
@@ -236,7 +236,7 @@
     And, the agent may, when \evaling{}, hold themselves to have a conventional understanding of real numbers.
     (There are various interpretations under which \(0.999\dots \ne 1\), but it is convention that the Archimedean property holds for real numbers.)
 
-    For, the agent may have failed to grasp the Archimedean property does not hold for real numbers, and may think that, though \(0.999\dots\) approaches \(1\), there must be \emph{some} difference between \(0.999\dots\) and \(1\) --- no matter how small --- and some difference between to things is sufficient to establish that they are not equal.
+    For, the agent may have failed to grasp the Archimedean property does not hold for real numbers, and may think that, though \(0.999\dots\) approaches \(1\), there must be \emph{some} difference between \(0.999\dots\) and \(1\) --- no matter how small --- and so they are not equal.
   }
 \end{note}
 
@@ -254,7 +254,7 @@
   \end{definition}
 
   Specifically, conclusions are \evalN{} which arise from some process.
-  Emphasis may be placed on `\evalN{}' --- as, e.g., Prospero's epilogue was the conclusion of the play --- or `the result of some process' --- as, e.g., some evaluations may be innate.
+  Emphasis may be placed on `\evalN{}'(Prospero's epilogue was the conclusion of the play) or `the result of some process' (some evaluations may be innate).
 \end{note}
 
 \subsection{Conclusions from \pool{1}}
@@ -265,27 +265,11 @@
 
   \begin{definition}[\pool{3}]
     \label{def:pools}
-    % \cenLine{
-    %   \begin{itemize*}[noitemsep, label=\(\circ\)]
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     Proposition: \(\phi\)
-    %   \item
-    %     Value: \(v\)
-    %   \item
-    %     \mbox{ }
-    %   \end{itemize*}
-    % }
     \mbox{ }
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
       A \emph{\pool{}} is a (maybe empty) collection of \evalN{1}.
-    %   \begin{itemize}
-    %   \item
-    %     For every \(\pv{\phi}{v}\) in \pool{}, \vAgent{} has \evaled{0} \(\phi\) as having value \(v\).
-    %   \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
@@ -296,6 +280,8 @@
 
     For example, \(\Phi\) may contain \(\pv{\phi}{v}, \pv{\psi}{v'}, \dots\) or be empty.
   \end{itemize}
+
+  The role of a \pool{} in this document is to keep track of which \evalN{1} an agent makes a conclusion from.
 
   \begin{assumption}[Conclusions from \pool{3}]
     \label{assu:concluding:pools}
@@ -311,14 +297,13 @@
         \mbox{ }
       \end{itemize*}
     }
-
     \begin{itemize}[noitemsep]
     \item
       \begin{enumerate}
       \item[\emph{If}:]
-        \vAgent{} concludes \(\phi\) has value \(v\).
+        \(\phi\) having value \(v\) is a conclusion by \vAgent{}.
       \item[\emph{Then}:]
-        \vAgent{} concludes \(\phi\) has value \(v\) from some \pool{} \(\Phi\).
+        \(\phi\) having value \(v\) is a conclusion by \vAgent{} from some \pool{} \(\Phi\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -329,14 +314,25 @@
     \(\pvp{\phi}{v}{\Phi}\) associates some \evalN{} \(\pv{\phi}{v}\) with a \pool{} \(\Phi\).
   \end{itemize}
 
+  In many cases, a \pool{}, or an collection of \evalN{} which form the basis of a \pool{} are clearly associated with an conclusion.
+  For a handful of brief examples, consider the following:
 
-  \autoref{assu:concluding:pools} functions to secure a simple way to describe where conclusions come from.
-  An \agpe{}, the way in which things are for the agent.
-  \evalN{3}.
-  \pool{} is a collection of \evalN{1}, and so captures the relevant stuff.
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
+  \item
+    \emph{A} testified that \(\phi\) is true, so \(\phi\) is true.
+  \item
+    \(\phi\) would be nice, so \(\phi\) ought to be the case.
+  \item
+    The song is produced by \emph{B}, so I want to listening to it.
+  \item
+    The device reads `\(\phi\)' and is reliable, so \emph{not}-\(\phi\) is unlikely.
+  \end{enumerate}
 
-  However, this does not assume that conclusions always follow from something.
-  \pool{} is a collection, and may be empty.%
+  Each sentence may be used to identify a conclusion, marked by `so' with some \pool{}.
+  I doubt each sentence captures the full extent of the premises involved.
+  We have no interest in specifying exactly which \evalN{} belong to any given \pool{}.
+
+  Further, by allowing \pool{1} to be empty, \autoref{assu:concluding:pools} does not rule out cases where an agent makes a conclusion independent of any prior \evalN{1}.%
   \footnote{
     To motivate, consider the parallel between the~\citeauthor{Ramsey:1929tf} test for conditionals and a Fitch-style rule for conditional introduction in propositional logic.
     \textcite{Read:1995wf} describe the test as follows:
@@ -346,7 +342,7 @@
       \mbox{ }\hfill\mbox{(\citeyear[47]{Read:1995wf})}
     \end{quote}
 
-    A Fitch-style rule for conditional introduction in propositional logic is as follows on the left, which an instance on the right --- cf. (\cite[206]{Barwise:1999tu}), (\cite{Pelletier:2021vp}):
+    A Fitch-style rule for conditional introduction in propositional logic is as follows on the left, which an instance on the right (cf. \cite[206]{Barwise:1999tu}, \cite{Pelletier:2021vp}):
 
     \begin{center}
       \begin{fitch}
@@ -370,22 +366,7 @@
     Observe, the instance derivation does not involve any premises.
   }
 
-
-  For a handful of brief examples, consider the following:
-
-  \begin{itemize}[noitemsep]
-  \item
-    \emph{A} testified that \(\phi\) is true, so \(\phi\) is true.
-  \item
-    \(\phi\) would be nice, so \(\phi\) ought to be the case.
-  \item
-    The song is produced by \emph{B}, so listening to it is desirable.
-  \item
-    The device reads `\(\phi\)' and is reliable, so \emph{not}-\(\phi\) is improbable.
-  \end{itemize}
-
-  Each sentence may be used to identify a conclusion, marked by `so' with some \pool{}.
-  I doubt each sentence captures the full extent of the premises involved, but details regarding the premises will not be of interest.
+  
 \end{note}
 
 \section{Concludes}
