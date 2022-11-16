@@ -32,16 +32,10 @@
   I have attempted say what is needed without saying anything too obvious.
 
   Assumptions are made when something is added to defined terms that does not already follow or we add something to an undefined term which does not follow or assume something about a term left intuitive that may be objected to.
-  % In the former case, assumptions may be considered definitions which
-  % However, assumptions often involve multiple terms, and hence it has been more straightforward to define the terms separately and patch the terms together via assumptions.
   In the latter case, we include some references to literature or a short summary of possible objections.
 
-  In certain cases something useful (for the purposes of this document) follows from something already stated.
-  As these things are useful we mark them as propositions and include an argument.
-
-  In other cases something which may be helpful follows from something already stated.
-  We term these observations and include motivation.
-  Observations are not too important and may be ignored if you like.
+  If something is particularly useful (for the purposes of this document) we isolate it as a `Proposition' and include an argument.
+  If something may be helpful but can be ignored we isolate it as an `Observation' and include motivation.
 \end{note}
 
 \section{Conclusions}
@@ -49,16 +43,15 @@
 
 \begin{note}
   We split our discussion of conclusions into two sections.
-  The first section covers conclusions as \evalN{1} and the second covers \pool{1}.
+  The first section covers conclusions as \evalN{1} and the second covers conclusions from \pool{1}.
 \end{note}
 
 \subsection{Conclusions as \evalN{1}}
 \label{cha:clar:sec:Cons:pvp}
 
 \begin{note}
-  Start with propositions and values.
-  The \evalN{1}.
-  with \evalN{1} in hand, conclusions.
+  This section clarifies our understanding of conclusions in terms of \evalN{}.
+  We define propositions and values, then turn to \evalN{1} and conclusions.
 \end{note}
 
 \begin{note}
@@ -67,7 +60,7 @@
     \vspace{-\baselineskip}
     \begin{enumerate}[noitemsep, label=]
     \item
-      \begin{itemize}[noitemsep]
+      \begin{itemize}
       \item
         A \emph{proposition} is some state of affairs.
       \item
@@ -80,13 +73,13 @@
   Propositions are states of affairs, whether actual, possible, true ideal, or regrettable, etc.
   Values captures an \agpe{} on the state of affairs, whether \emph{being} actual, possible, true, ideal, or regrettable, etc.
 
-  \begin{notation}[Propositions and values]%
-    \vspace{-\baselineskip}
+  % \begin{notation}[Propositions and values]%
+  %   \vspace{-\baselineskip}
     \begin{itemize}[leftmargin=*]
     \item
       Specific propositions and values are written in a \textsf{sans-serif} font.
 
-      For example \prop{The hedge is shaped like a squirrel} is the proposition which captures the state of affairs in which there's some hedge which is shaped like a squirrel.
+      For example \prop{The hedge is shaped like a squirrel} is the proposition/state of affairs in which a hedge is shaped like a squirrel.
       Likewise, \val{True} is the value `True'.
     \item
       Arbitrary propositions and values are written using:
@@ -94,15 +87,15 @@
       \item
         Lower case Greek letters, \(\phi, \psi, \dots\) for propositions.
       \item
-        The Latin letter \(v\) with some number of \('\)'s for values.
-
-        (\(v, v'\), and \(v''\), etc., may all correspond to the same value.)
+        The Latin letter \(v\) with some number of \('\)'s, \(v, v', v'' \dots\), for values.
       \end{itemize}
     \end{itemize}
-    \vspace{-\baselineskip}
-  \end{notation}
+  %   \vspace{-\baselineskip}
+  % \end{notation}
+\end{note}
 
-
+\begin{note}
+  An \evalN{} pairs a proposition and value to partially capture the way things are for an agent.
   \begin{definition}[\evalN{3}]
     \mbox{ }
     \vspace{-\baselineskip}
@@ -118,19 +111,17 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  \agpe{Agent's}, the way in which things are for an agent.
+  % \begin{notation}[\evalN{3}]%
+  %   \vspace{-\baselineskip}
+  \begin{itemize}[leftmargin=*]
+  \item
+    \(\pv{\phi}{v}\) abbreviates an \evalN{0} (the agent is given by context).
 
-  \begin{notation}[\evalN{3}]%
-    \vspace{-\baselineskip}
-    \begin{itemize}[leftmargin=*]
-    \item
-      \(\pv{\phi}{v}\) abbreviates an \evalN{0}.
-
-      For example:
-      \(\pv{\prop{The hedge is shaped like a squirrel}}{\val{True}}\)
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{notation}
+    For example:
+    \(\pv{\prop{The hedge is shaped like a squirrel}}{\val{True}}\)
+  \end{itemize}
+  % \vspace{-\baselineskip}
+  % \end{notation}
 \end{note}
 
 \begin{note}
@@ -166,9 +157,9 @@
 
   Nothing of importance rests on the value chosen.
   Indeed, the relevant values may be restricted to \val{True} and \val{False}, which we understand as synonyms for \val{Actual} and \val{Not actual}.
-  For example, \ref{pvEx:bC} may be captured by \(\pv{\prop{I like bitter coffee}}{\val{True}}\).
+  For example, \ref{pvEx:bC} may be recast as \(\pv{\prop{I like bitter coffee}}{\val{True}}\).
 
-  However, a range of values allows us to easily capture different perspectives on the same state of affairs.
+  Still, a range of values allows us to easily capture different perspectives on the same state of affairs.
   For example:
   \begin{enumerate}[label=\arabic*., ref=(\arabic*),noitemsep, resume*=propValExC]
   \item I like how bitter the coffee is.%
@@ -177,59 +168,12 @@
     \hfill%
     \(\pv{\prop{The coffee is bitter}}{\val{Desirable}}\)
   \end{enumerate}
-\end{note}
 
-\begin{note}
-  We distinguish \evalN{} from a proposition-value pairings \emph{given various assumptions}.
-  When we speak of an agent's \evalN{} of \prop{Rover will fall asleep soon} as \val{True}, then Rover \emph{will} fall asleep soon, for the agent.
-  By contrast, if the agent has been entertaining the idea that Rover is tired then the agent is entertaining the idea that the proposition \prop{Rover is tired} has the value \val{True}, but we do not consider the proposition and valid \evaled{0}.
+  In this respect, \evalN{} are similar to propositional attitudes.
+  I both \emph{believe} \prop{The coffee is bitter} and \emph{desire} \prop{The coffee is bitter}.
 
-  \phantlabel{mention:concluding-non-factive}
-  Further, we allow for the possibility that some proposition is \evaled{0} with some value for the agent, though in reality things are otherwise.
-  Hence, we do not require, for example, that an agent concludes \(\phi\) is \val{True} only if \(\phi\) is the case.
-
-  Following an example of \citeauthor{Williams:1979wi}, an agent may conclude it is true that the stuff is gin, while in fact the stuff is petrol (\citeyear[18]{Williams:1979wi}).
-  A slightly more involved case is given in the footnote to this sentence.%
-  \footnote{
-    An agent may conclude \(0.999\dots \ne 1\).
-    And, the agent may, when concluding, hold themselves to have a conventional understanding of real numbers.
-
-    The qualification is important, there are various interpretations under which \(0.999\dots \ne 1\), but (it is convention that) the Archimedean property holds for real numbers.
-
-    Still, the agent may have failed to grasp the Archimedean property does not hold for real numbers, and so may reason that, though \(0.999\dots\) approaches \(1\), there must be \emph{some} difference between \(0.999\dots\) and \(1\) --- no matter how small --- and some difference between to things is sufficient to establish that they are not equal.
-  }
-\end{note}
-
-\begin{note}
-  % We have seen a few examples of what conclusions \emph{are} given \autoref{assu:concluding:pvp}.
-  % The motivating idea behind \autoref{assu:concluding:pvp} is that an agent's evaluation of a proposition is fundamental.
-
-  % In other words, the respective evaluations of a proposition as true and of a proposition as desirable may function analogously to beliefs and desires in folk-psychology.
-  % Indeed,
-  In general, this does not provide information about the attitude that the agent holds toward the proposition.
-  For example, conclude that \(\phi\) has value \val{True}.
-  Conclusion may amount to knowledge, belief.
-
-  An agent evaluating a proposition as true may be treated as capturing relevant aspects of the the agent believing or desiring the proposition.%
-  \footnote{
-    % \mbox{ }\hfill\mbox{(\hyperlink{cite.Hume:2011aa}{T.2.3.3})}
-    \nocite{Hume:2011aa}
-    Clearer given principle \citeauthor{Smith:1987vk} derives from the Humean Theory of Motivation, as captured by~\ref{Smithh:HtM:2}:
-    \begin{quote}
-      \begin{enumerate}[label=\textsc{P1}., ref=(\textsc{P1})]
-      \item
-        \label{Smithh:HtM:2}
-        Agent A at t has a motivating reason to \(\phi\) only if there is some \(\psi\) such that, at t, A desires to \(\psi\) and believes that were he to \(\phi\) he would \(\psi\).%
-        \mbox{ }\hfill\mbox{(\citeyear[36]{Smith:1987vk})}
-      \end{enumerate}
-    \end{quote}
-
-    Understand desire of A to \(\psi\) in terms of the evaluation of \(\psi\) as desirable, and the belief as evaluating if do \(\phi\) then \(\psi\).
-
-    \citeauthor{Smith:1987vk} suggests comparison to \textcite{Davidson:1963aa}.
-    Note, in particular \citeauthor{Smith:1987vk}'s use of `motivating reason' is equivalent to \citeauthor{Davidson:1963aa}'s use of `primary reason' rather than `reason'.
-  }%
-  \(^{,}\)%
+  However, \evalN{} are coarser than propositional attitudes.
+  For example, \(\pv{\prop{The coffee is bitter}}{\val{True}}\) does not distinguish between whether the agent \emph{believes} or \emph{knows} \prop{The coffee is bitter}.%
   \footnote{
     \label{fn:belief-is-difficult}
     Though I don't think belief is straightforward.
@@ -243,61 +187,115 @@
     As \citeauthor{Hawthorne:2016wv} observe: \textquote{[I]t is awful to say, in this case, `I think horse A will win but I don't believe it will'.}
     (\citeyear[1440, fn.17]{Hawthorne:2016wv})
   }
-
-  If you are inclined to the folk-psychological picture, then the benefit of speaking in terms of \evalN{1} is an easy way to talk about how things are for the agent, rather than recasting in terms of propositional attitudes the agent has.
-
-  And, if you are not inclined to the folk-psychological picture then the sketched equivalence should suggest how to understand the way in which \evalN{1} are `fundamental'.
-  If an agent evaluates some proposition \(\phi\) as true then \(\phi\) is the case, for the agent, etc.
+  Still, \evalN{1} capture the common characteristic of all propositional attitudes:
+  Some proposition being some way from the \agpe{}.
+  And, with respect to conclusions are interest is limited to this characteristic.
+  We have no interest with any particular propositional attitude.
 \end{note}
 
 \begin{note}
+  \nocite{Scriven:1962vq}
+  \nocite{Woodward:2021ue}
+  \nocite{Perry:1979vc}
+  \nocite{Perry:1986aa}
+  \nocite{Collins:1997wn}
+
+  \evalN{3} capture an \agpe{} on the way things are.
+  To clarify, consider \autoref{fig:zollner-illusion}, an instance of the \citeauthor{Zollner:1860vx} illusion.
+
+  \begin{figure}[!h]
+    \centering
+    \def\svgwidth{\columnwidth}
+    \input{ZIOh.pdf_tex}
+    \caption{An instance of the \citeauthor{Zollner:1860vx} illusion --- crop of ~\textcite{Fibonacci:2007vj}}
+    \label{fig:zollner-illusion}
+  \end{figure}
+
+  \autoref{fig:zollner-illusion} contains eight long black lines which are crossed with short black lines.
+  If the illusion has been successfully recreated, then on first pass the long lines do not appear parallel to one another.
+  So, from \agpe{your}, \prop{The long lines are parallel} is \evaled{} \val{False}.
+
+  However, on closer inspect (perhaps with the aid of the ruler) you may determine the long lines are parallel.
+  If you are convinced that the lines are parallel, then from \agpe{your}, \prop{The long lines are parallel} is re-\evaled{} \val{True}.
+  That is, your \evalN{} captures the way things are from \agpe{your}, rather than the way things visually appear, etc.%
+  \footnote{
+    Consider also Cypher's thoughts while eating steak. (\cite[330--331]{Wachowski:2000uh})
+  }
+\end{note}
+
+\begin{note}
+  As \evalN{1} capture an \agpe{} on the way the things are we distinguish \evalN{1} from a proposition-value pairings \emph{given various assumptions}.
+  When we speak of an agent's \evalN{} of \prop{Rover will fall asleep soon} as \val{True}, then Rover \emph{will} fall asleep soon, for the agent.
+  By contrast, if the agent has been entertaining the idea that Rover is tired then the agent is entertaining the idea that the proposition \prop{Rover is tired} has the value \val{True}, but we do not consider the proposition-value pair \evaled{0}.
+
+  \phantlabel{mention:concluding-non-factive}
+  Further, we allow for the possibility that some proposition is \evaled{0} with some value, though things are otherwise.
+  Following an example of \citeauthor{Williams:1979wi}, \prop{The stuff is gin} may be \eval{} \val{True} though the stuff really is petrol (\citeyear[18]{Williams:1979wi}).%
+  \footnote{
+    For a slightly more involved case, an agent may \eval{} \prop{\(0.999\dots \ne 1\)} as \val{True}.
+    And, the agent may, when \evaling{}, hold themselves to have a conventional understanding of real numbers.
+    (There are various interpretations under which \(0.999\dots \ne 1\), but it is convention that the Archimedean property holds for real numbers.)
+
+    For, the agent may have failed to grasp the Archimedean property does not hold for real numbers, and may think that, though \(0.999\dots\) approaches \(1\), there must be \emph{some} difference between \(0.999\dots\) and \(1\) --- no matter how small --- and some difference between to things is sufficient to establish that they are not equal.
+  }
+\end{note}
+
+\begin{note}
+  Conclusions are \evalN{}:
   \begin{definition}[Conclusions as \evalN{1}]
     \label{assu:concluding:pvp}
     \mbox{ }
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      A \emph{conclusion} is an \evalN{} that has been made by an agent.
+      A \emph{conclusion} is an \evalN{} made as the result of some process.
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
 
-  For the purpose of this document conclusions are \evalN{} which have been made.
-  Hence, a conclusion is the outcome of some event.
-
-  However, before turning to events, we detail the role of \pool{1}.
+  Specifically, conclusions are \evalN{} which arise from some process.
+  Emphasis may be placed on `\evalN{}' --- as, e.g., Prospero's epilogue was the conclusion of the play --- or `the result of some process' --- as, e.g., some evaluations may be innate.
 \end{note}
 
 \subsection{Conclusions from \pool{1}}
 \label{sec:pools-premises}
 
 \begin{note}
+  With a definition of \evalN{1} in hand, we define \pool{1} as follows:
 
   \begin{definition}[\pool{3}]
     \label{def:pools}
-    \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Proposition: \(\phi\)
-      \item
-        Value: \(v\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
+    % \cenLine{
+    %   \begin{itemize*}[noitemsep, label=\(\circ\)]
+    %   \item
+    %     Agent: \vAgent{}
+    %   \item
+    %     Proposition: \(\phi\)
+    %   \item
+    %     Value: \(v\)
+    %   \item
+    %     \mbox{ }
+    %   \end{itemize*}
+    % }
+    \mbox{ }
+    \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      A \emph{\pool{}} is a collection of proposition-value pairs such that:
-      \begin{itemize}
-      \item
-        For every \(\pv{\phi}{v}\) in \pool{}, \vAgent{} \eval{1} \(\phi\) as having value \(v\).
-      \end{itemize}
+      A \emph{\pool{}} is a (maybe empty) collection of \evalN{1}.
+    %   \begin{itemize}
+    %   \item
+    %     For every \(\pv{\phi}{v}\) in \pool{}, \vAgent{} has \evaled{0} \(\phi\) as having value \(v\).
+    %   \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
+
+  \begin{itemize}[leftmargin=*]
+  \item
+    Arbitrary \pool{1} are written using upper case Greek letters; \(\Phi, \Psi, \dots\).
+
+    For example, \(\Phi\) may contain \(\pv{\phi}{v}, \pv{\psi}{v'}, \dots\) or be empty.
+  \end{itemize}
 
   \begin{assumption}[Conclusions from \pool{3}]
     \label{assu:concluding:pools}
@@ -325,6 +323,12 @@
     \end{itemize}
     \vspace{-\baselineskip}
   \end{assumption}
+
+  \begin{itemize}[leftmargin=*]
+  \item
+    \(\pvp{\phi}{v}{\Phi}\) associates some \evalN{} \(\pv{\phi}{v}\) with a \pool{} \(\Phi\).
+  \end{itemize}
+
 
   \autoref{assu:concluding:pools} functions to secure a simple way to describe where conclusions come from.
   An \agpe{}, the way in which things are for the agent.
@@ -383,25 +387,6 @@
   Each sentence may be used to identify a conclusion, marked by `so' with some \pool{}.
   I doubt each sentence captures the full extent of the premises involved, but details regarding the premises will not be of interest.
 \end{note}
-
-\begin{note}
-  \begin{notation}[\pool{3}]
-    \mbox{ }
-    \vspace{-\baselineskip}
-    \begin{itemize}[leftmargin=*]
-    \item
-      Arbitrary \pool{1} are written using upper case Greek letters; \(\Phi, \Psi, \dots\).
-
-      For example, \(\Phi\) may contain \(\pv{\phi}{v}, \pv{\psi}{v'}\) and so on, or \(\Phi\) may be empty.
-
-    \item
-      \(\pvp{\phi}{v}{\Phi}\) associates some \evalN{} \(\pv{\phi}{v}\) with a \pool{} \(\Phi\).
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{notation}
-\end{note}
-
-
 
 \section{Concludes}
 \label{cha:clar:sec:Concls}
@@ -1381,3 +1366,23 @@
 %     With the latter, the event develops such that the \pool{} is present.
 %   }
 % \end{note}
+
+  % \footnote{
+  %   % \mbox{ }\hfill\mbox{(\hyperlink{cite.Hume:2011aa}{T.2.3.3})}
+  %   \nocite{Hume:2011aa}
+  %   Clearer given principle \citeauthor{Smith:1987vk} derives from the Humean Theory of Motivation, as captured by~\ref{Smithh:HtM:2}:
+  %   \begin{quote}
+  %     \begin{enumerate}[label=\textsc{P1}., ref=(\textsc{P1})]
+  %     \item
+  %       \label{Smithh:HtM:2}
+  %       Agent A at t has a motivating reason to \(\phi\) only if there is some \(\psi\) such that, at t, A desires to \(\psi\) and believes that were he to \(\phi\) he would \(\psi\).%
+  %       \mbox{ }\hfill\mbox{(\citeyear[36]{Smith:1987vk})}
+  %     \end{enumerate}
+  %   \end{quote}
+  %
+  %   Understand desire of A to \(\psi\) in terms of the evaluation of \(\psi\) as desirable, and the belief as evaluating if do \(\phi\) then \(\psi\).
+  %
+  %   \citeauthor{Smith:1987vk} suggests comparison to \textcite{Davidson:1963aa}.
+  %   Note, in particular \citeauthor{Smith:1987vk}'s use of `motivating reason' is equivalent to \citeauthor{Davidson:1963aa}'s use of `primary reason' rather than `reason'.
+  % }%
+  % \(^{,}\)%
