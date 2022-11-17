@@ -75,12 +75,12 @@
 
   % \begin{notation}[Propositions and values]%
   %   \vspace{-\baselineskip}
-    \begin{itemize}[leftmargin=*]
+    \begin{notation}
     \item
       Specific propositions and values are written in a \textsf{sans-serif} font.
 
       For example \prop{The hedge is shaped like a squirrel} is the proposition/state of affairs in which a hedge is shaped like a squirrel.
-      Likewise, \val{True} is the value `True'.
+      \val{True} is the value `True'.
     \item
       Arbitrary propositions and values are written using:
       \begin{itemize}[noitemsep]
@@ -89,7 +89,7 @@
       \item
         The Latin letter \(v\) with some number of \('\)'s, \(v, v', v'' \dots\), for values.
       \end{itemize}
-    \end{itemize}
+    \end{notation}
   %   \vspace{-\baselineskip}
   % \end{notation}
 \end{note}
@@ -274,12 +274,12 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  \begin{itemize}[leftmargin=*]
+  \begin{notation}
   \item
     Arbitrary \pool{1} are written using upper case Greek letters; \(\Phi, \Psi, \dots\).
 
     For example, \(\Phi\) may contain \(\pv{\phi}{v}, \pv{\psi}{v'}, \dots\) or be empty.
-  \end{itemize}
+  \end{notation}
 
   The role of a \pool{} in this document is to keep track of which \evalN{1} an agent makes a conclusion from.
 
@@ -365,169 +365,18 @@
     Now, both the \citeauthor{Ramsey:1929tf} test and the Fitch-style rule for conditional introduction describe a clear \emph{processes} for which a conditional is a conclusion, but there may not be any \emph{premises} associated with the conclusion.
     Observe, the instance derivation does not involve any premises.
   }
-
-  
 \end{note}
 
 \section{Concludes}
 \label{cha:clar:sec:Concls}
 
 \begin{note}
-  The way an event in which some agent concludes some proposition has some value happened
+  With conclusions and \pool{1} in hand, we now turn to events in which an agent concludes some proposition has some value.
+  Recall, our primary interest is with understanding the way an event in which some agent concludes some proposition has some value happened.
 
-  Event in which an agent concludes involves \evaling{} proposition by value.
-  Of interest is scope of event.
-\end{note}
-
-\begin{note}
-  We start with an assumption regarding an event in which an agent concludes.
-  The event is not limited to the agent \evaling{} \(\phi\) by value \(v\), but includes how the agent comes to \eval{0} \(\phi\) by \(v\).
-
-  \begin{definition}[Concludes is inclusive]
-    \label{assu:concluding:span}
-        \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Proposition: \(\phi\)
-      \item
-        Value: \(v\)
-      \item
-        \pool{2}: \(\Phi\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
-    \begin{itemize}
-    \item
-      The event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) spans the agent moving from the premises of \(\Phi\) to the conclusion that \(\phi\) has value \(v\).
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  Paraphrased, \autoref{assu:concluding:span} states that the event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) spans the agents \emph{reasoning} to \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
-
-\begin{note}
-  \autoref{assu:concluding:span} specifies a particular sense of the term `concludes'.
-  The sense of concludes which \emph{includes} the relevant reasoning leading up to some conclusion and does not focus only on the more-or-less instantaneous event in which the agent forms the relevant conclusion.
-\end{note}
-
-\begin{note}
-  To illustrate, we contrast to instances of `concludes'.
-
-  The first instance is from \citeauthor{Gardner:1986wp}'s discussion of Newcomb's problem:
-
-  \begin{quote}
-    A large number of those who recommended taking only the second box performed the expected-value calculation and concluded that, provided the probability that the Being was correct was at least .5005, they would take only the second box.%
-    \mbox{ }\hfill\mbox{(\citeyear[166]{Gardner:1986wp})}
-  \end{quote}
-
-  The second instance is from \citeauthor{Bratman:1979aa}'s discussion of temptation:
-
-  \begin{quote}
-    Sam thinks both that in certain respects his drinking would be, \emph{prima facie}, best, and that in certain other respects his abstaining would be, \emph{prima facie}, best.
-    Weighing these conflicting considerations he concludes that it would be best to abstain, rather than drink.%
-    \mbox{ }\hfill\mbox{(\citeyear[156]{Bratman:1979aa})}
-  \end{quote}
-
-  Both passages capture a similar process.
-  From some \agpe{} various states of affairs are evaluated in different ways, and after some consideration the agent chooses to do something.
-
-  The contrast between the two passages in the event captured by `concludes'.
-  \citeauthor{Gardner:1986wp} presents the scenario as a sequence;
-  Two verbs (`performs', `concludes') are linked by `and'.
-  \citeauthor{Bratman:1979aa}, modifies a verb (`concludes') by a different verb (`weighs').
-  On a natural reading, the event in which the agent concludes as described by \citeauthor{Gardner:1986wp} is distinct from the event in which the agent performs the expected-value calculation.
-  And, by contrast, \citeauthor{Bratman:1979aa} describes a single event in which the agent concludes by weighing conflicting considerations.
-
-  \autoref{assu:concluding:span} is compatible with \citeauthor{Bratman:1979aa}'s description.
-  However, if the agent concluded they would take only the second box from whatever premises are associated with the expected-value calculation given \citeauthor{Gardner:1986wp}'s description, then the event \citeauthor{Gardner:1986wp} identifies with `concludes' is too narrow.
-  Following \citeauthor{Bratman:1979aa}, we may recast \citeauthor{Gardner:1986wp}'s description as \textquote{Performing these expected-value calculations, they concluded  they would take only the second box}.%
-  \footnote{
-    In addition, it seems to me that whether or not one defaults to thinking of a more-or-less instantaneous event or an inclusive event comes apart in multi-agent cases.
-
-  For example, consider Sam and Max working on some problem \(p\) together.
-  Sam and Max trade ideas back and forth, and settle on an answer \(a\).
-
-  Consider the events described by the following sentence:
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
-  \item
-    \label{Cing:SandM:j}
-    Sam and Max (jointly) conclude \(a\) is an answer to problem \(p\).
-  \item
-    \label{Cing:SandM:s}
-    Sam concludes \(a\) is an answer to problem \(p\).
-  \item
-    \label{Cing:SandM:m}
-    Max concludes \(a\) is an answer to problem \(p\).
-  \end{enumerate}
-
-  My default is to consider the events captured by \ref{Cing:SandM:s} and \ref{Cing:SandM:m} in line with \citeauthor{Gardner:1986wp}.
-  When considering Sam or Max in isolation, the event in which Sam (or Max) concludes more-or-less instantaneous event.
-  Though, the relevant events may be expanded to include the trading of ideas by appending `by trading ideas with Max/Sam'.
-
-  By contrast, I read \ref{Cing:SandM:j} in line with \citeauthor{Bratman:1979aa}.
-  When considering Sam and Max as a pair, in which a non-distributive reading of `conclude' is forced by the parenthetical `jointly', the event includes the trading of ideas back and forth.
-  Though, the relevant event includes sub-event in which Sam and Max separately evaluate that \(a\) is an answer to problem \(p\).
-  }
-\end{note}
-
-\begin{note}
-  \begin{observation}%
-    \label{obs:newPVp-newE}%
-    Event, agent beings with \pool{} \(\Phi\).
-    Adds \(\pv{\psi}{v'}\).
-    Then, there is no event where the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{observation}
-
-  \begin{motivation}{obs:newPVp-newE}%
-    \autoref{def:pools}.
-    Assumed agent concludes from \pool{}, and that everything in \pool{} is evaluated.
-    Therefore, agent does not conclude from \(\Phi\).
-    For, needed \(\pv{\psi}{v'}\).
-    Further, conclusion includes \pool{}.
-    So, the only event is after \(\pv{\psi}{v'}\).
-  \end{motivation}
-
-  This is a little unintuitive.
-  However, result of being somewhat specific.
-  I think it is fine to say concludes.
-  However, specific sense we're working with, this does not hold.
-\end{note}
-
-\begin{note}
-  \begin{assumption}[Conclusions may be `instantaneous']
-    \label{assu:concluding:instant}
-        \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Proposition: \(\phi\)
-      \item
-        Value: \(v\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
-    \begin{itemize}
-    \item
-      An event in which an agent concludes \(\pv{\phi}{v}\) may be `instantaneous'.
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{assumption}
-
-  There is no significant event in which the agent concludes.
-
-  The primary role of \autoref{assu:concluding:instant} is to explicitly highlight an edge case.
-  Useful for understanding definitions, propositions, and so on.
-
-  You may have no interest, and we have no particular interest.
-  Useful, however.
+  We do not place any constraints on what happens when an agent concluded.
+  However, the \emph{scope} of the event is important.
+  We link events in which an agent concludes to reasoning and use this link to clarify scope.
 \end{note}
 
 \subsection{Reasoning}
@@ -567,15 +416,17 @@
     \vspace{-\baselineskip}
   \end{assumption}
 
-  In short, an event in which an agent concludes is particular case of an event in which an agent reasons.
+  An event in which an agent concludes is particular case of an event in which an agent reasons.
 
-  For the most part we have little interest in reasoning.
-  As highlighted in \autoref{cha:intro}, \emph{relation} between proposition, value and \pool{}.
-\end{note}
+  For example, an agent may conclude \(\pv{\psi}{\val{True}}\) from a \pool{} containing \(\pv{\phi}{\val{True}}\) and \(\pv{\prop{If }\phi\prop{ then }\psi}{\val{True}}\) by reasoning via \emph{modus ponens}.
+  Given~\autoref{assu:ConRea}, the event in which the agent concludes includes the the agent's application of \emph{modus ponens}.
 
-\begin{note}
-  Further, we do not place any constraints on reasoning.
-  And, by this I mean any instance of reasoning we talk about should be recognised as reasoning and most accounts.%
+  However, we have little interest in what reasoning amounts to.%
+  \footnote{
+    As highlighted in \autoref{cha:intro}, our interest is with relations between conclusions and \pool{}.
+  }
+  Hence, we do not place any constraints on reasoning.
+  By this I mean, any instance of reasoning we talk about should be recognised as reasoning by any sensible account of what reasoning is and so you are free to import any constraint you wish.%
   \footnote{
     In this respect, our understanding of an event in which an agent reasons is compatible with, e.g., \citeauthor{Broome:2013aa}'s (\citeyear{Broome:2013aa}) rule following account of reasoning.
 
@@ -606,33 +457,107 @@
     I find this particularly confusing.
   }
 
-  However, \autoref{assu:ConRea} has a few upshots:
+  There are two basic upshots of \autoref{assu:ConRea}:
 
-  \begin{itemize}
+  \begin{itemize}[noitemsep]
   \item
-    When discussing an event in which an agent concludes we may talk in terms of the agent's reasoning, where natural.
+    When discussing an event in which an agent concludes, we may talk in terms of the agent's reasoning, where natural.
   \item
-    As conclusion entail reasons, then same features but without additional constraints.
-
-    In particular, as we do not place any constraints on reasoning, we allow instances of reasoning to include events in which agent reasons from various assumptions.%
-    \footnote{
-      Whatever the agent reasons to will not amount to a conclusion, given the presence of assumption.
-    }
-  \item
-    Link to accounts which focus on reasoning.
+    Accounts of reasoning constrain account of conclusions.
   \end{itemize}
 \end{note}
 
-\begin{note}
-  There is one unintuitive consequence of \autoref{assu:ConRea}.
-  For, \autoref{assu:concluding:instant} allows for conclusions to be `instantaneous'.
-  Hence, when \autoref{assu:concluding:instant} and \autoref{assu:ConRea} are paired together, it follows that reasoning may likewise be `instantaneous'.
-  Yet, reasoning intuitively amounts to some extended process.
-  For example, an agent observers premises \(\pv{\phi}{\val{True}}\) and \(\pv{\prop{If }\phi\prop{ then }\psi}{\val{True}}\) and applies \emph{modus ponens} to conclude \(\pv{\psi}{\val{True}}\).
-  This process may be \emph{fast} without being `instantaneous'.
+\subsection{Scope}
+\label{sec:scope}
 
-  We set this issue aside.
-  The consequence has no role in the arguments to follow, and you may revise \autoref{assu:concluding:instant} to exclude `instantaneous' if you like.
+\begin{note}
+  A further upshot of \autoref{assu:ConRea} is the \emph{scope} of an event in which an agent concludes:
+  The event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) \emph{spans} the event in which the agent reasons to the conclusion \(\phi\) has value \(v\) from the \pool{} \(\Phi\).
+
+  Hence, \autoref{assu:ConRea} specifies a particular sense of the term `concludes'.
+  The sense of concludes which \emph{includes} the relevant reasoning leading up to some conclusion and does not focus only on the more-or-less instantaneous event in which the agent forms the relevant conclusion.
+\end{note}
+
+\begin{note}
+  To illustrate, we contrast to instances of the term `concludes'.
+
+  The first instance is from \citeauthor{Gardner:1986wp}'s discussion of Newcomb's problem:
+
+  \begin{quote}
+    A large number of those who recommended taking only the second box performed the expected-value calculation and concluded that, provided the probability that the Being was correct was at least .5005, they would take only the second box.%
+    \mbox{ }\hfill\mbox{(\citeyear[166]{Gardner:1986wp})}
+  \end{quote}
+
+  The second instance is from \citeauthor{Bratman:1979aa}'s discussion of temptation:
+
+  \begin{quote}
+    Sam thinks both that in certain respects his drinking would be, \emph{prima facie}, best, and that in certain other respects his abstaining would be, \emph{prima facie}, best.
+    Weighing these conflicting considerations he concludes that it would be best to abstain, rather than drink.%
+    \mbox{ }\hfill\mbox{(\citeyear[156]{Bratman:1979aa})}
+  \end{quote}
+
+  Both passages capture a similar process.
+  From some \agpe{} various states of affairs are evaluated in different ways, and after some consideration the agent chooses to do something.
+
+  The contrast between the two passages in the event captured by `concludes'.
+  \citeauthor{Gardner:1986wp} presents the scenario as a sequence;
+  Two verbs (`performs', `concludes') are linked by `and'.
+  \citeauthor{Bratman:1979aa}, modifies a verb (`concludes') by a different verb (`weighs').
+  On a natural reading, the event in which the agent concludes as described by \citeauthor{Gardner:1986wp} is distinct from the event in which the agent performs the expected-value calculation.
+  And, by contrast, \citeauthor{Bratman:1979aa} describes a single event in which the agent concludes by weighing conflicting considerations.
+
+  \autoref{assu:ConRea} is compatible with \citeauthor{Bratman:1979aa}'s description.
+  However, if the agent concluded they would take only the second box from whatever premises are associated with the expected-value calculation given \citeauthor{Gardner:1986wp}'s description, then the event \citeauthor{Gardner:1986wp} identifies with `concludes' is too narrow.
+  Following \citeauthor{Bratman:1979aa}, we may recast \citeauthor{Gardner:1986wp}'s description as \textquote{Performing these expected-value calculations, they concluded  they would take only the second box}.%
+  \footnote{
+    In addition, it seems to me that whether or not one defaults to thinking of a more-or-less instantaneous event or an inclusive event comes apart in multi-agent cases.
+
+  For example, consider Sam and Max working on some problem \(p\) together.
+  Sam and Max trade ideas back and forth, and settle on an answer \(a\).
+
+  Consider the events described by the following sentence:
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
+  \item
+    \label{Cing:SandM:j}
+    Sam and Max (jointly) conclude \(a\) is an answer to problem \(p\).
+  \item
+    \label{Cing:SandM:s}
+    Sam concludes \(a\) is an answer to problem \(p\).
+  \item
+    \label{Cing:SandM:m}
+    Max concludes \(a\) is an answer to problem \(p\).
+  \end{enumerate}
+
+  My default is to consider the events captured by \ref{Cing:SandM:s} and \ref{Cing:SandM:m} in line with \citeauthor{Gardner:1986wp}.
+  When considering Sam or Max in isolation, the event in which Sam (or Max) concludes more-or-less instantaneous event.
+  Though, the relevant events may be expanded to include the trading of ideas by appending `by trading ideas with Max/Sam'.
+
+  By contrast, I read \ref{Cing:SandM:j} in line with \citeauthor{Bratman:1979aa}.
+  When considering Sam and Max as a pair, in which a non-distributive reading of `conclude' is forced by the parenthetical `jointly', the event includes the trading of ideas back and forth.
+  Though, the relevant event includes sub-event in which Sam and Max separately evaluate that \(a\) is an answer to problem \(p\).
+  }
+\end{note}
+
+\newpage
+
+\begin{note}
+  \begin{observation}[Bounds]
+    \label{obs:newPVp-newE}%
+    Suppose an agent concludes \(\pv{\phi}{v}\).
+    The agent beings reasoning from a \pool{} of premises \(\Phi\).
+    However, part way through the agent comes to \eval{} \(\psi\) to have value \(v'\) independently from \(\Phi\) and appeals to \(\pv{\psi}{v'}\) to conclude \(\pv{\phi}{v}\).
+
+    The event in which the agent concludes \emph{includes} but is \emph{not limited to} starting with the agent \evaling{} \(\psi\) with \(v'\).
+  \end{observation}
+
+  \begin{motivation}{obs:newPVp-newE}%
+    By stipulation, the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) together with \(\pv{\psi}{v'}\).
+    So, from \autoref{assu:ConRea} it follows the event in which the agent concludes includes the \evalion{} \(\psi\) has value \(v'\).
+    However, \autoref{assu:ConRea} does not limit the event in which the agent concludes to the event in which the agent reasons.
+  \end{motivation}
+
+  We tacitly assume the event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is the minimal event in which the agent reasons to \(\pv{\phi}{v}\) from \(\Phi\).
+  However, nothing in particular hangs on this.
 \end{note}
 
 \section{Concluding}
@@ -895,6 +820,41 @@
   In this respect, an event of concluding need not involve the agent \evaling{} \(\phi\) with \(v\), it need only be the case that if the relevant event went on uninterrupted, then event would develop into an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and hence \eval{1} \(\phi\) by \(v\).
 \end{note}
 
+% \begin{note}
+%   Though we do not make any assumptions about reasoning, we do allow for there to be no significant event in which the agent reasons/concludes.
+
+%   \begin{assumption}[Conclusions may be `instantaneous']
+%     \label{assu:concluding:instant}
+%         \cenLine{
+%       \begin{itemize*}[noitemsep, label=\(\circ\)]
+%       \item
+%         Agent: \vAgent{}
+%       \item
+%         Proposition: \(\phi\)
+%       \item
+%         Value: \(v\)
+%       \item
+%         \mbox{ }
+%       \end{itemize*}
+%     }
+%     \begin{itemize}
+%     \item
+%       An event in which an agent concludes \(\pv{\phi}{v}\) but is there is no sub-event in which the agent is concluding.
+%     \end{itemize}
+%     \vspace{-\baselineskip}
+%   \end{assumption}
+
+%   The primary role of \autoref{assu:concluding:instant} is to explicitly allow the converse to .
+%   Useful for understanding definitions, propositions, and so on.
+
+%   You may have no interest, and we have no particular interest.
+%   Useful, however.
+% \end{note}
+
+\begin{note}
+  
+\end{note}
+
 \begin{note}
   \begin{observation}[Conclusions without concluding]
     \label{obs:cds-arb}
@@ -933,13 +893,24 @@
   \end{observation}
 
   \begin{argument}{obs:cds-arb}
-    There are (at least) three ways the conditional may fail:
+    There are (at least) two ways the conditional may fail:
     %
     \begin{itemize}[leftmargin=*]
-    \item
-      It may be the case that an agent instantly concludes \(\phi\) has value \(v\).
+    % \item
+    %   It may be the case that an agent instantly concludes \(\phi\) has value \(v\).
 
-      For example, an agent looks outside, sees a bird in a tree and instantly concludes \prop{There is a bird in that tree} has value \val{True}.
+    %   For example, an agent looks outside, sees a bird in a tree and concludes \prop{There is a bird in that tree} has value \val{True}.%
+    %   \footnote{
+    %     This example highlights an unintuitive consequence of \autoref{assu:ConRea}.
+    %     For, conclusions may be `instantaneous' or without any clear reasoning.
+    %     I think it is plausible to understand this conclusion in this example to follow from reasoning
+
+    %     %     
+    %     % This process may be \emph{fast} without being `instantaneous'.
+
+    %     We set this issue aside.
+    %     You may revise \autoref{assu:ConRea} to exclude `instantaneous' instances, if you like.
+    %   }
     \item
       There may have been no `inertia' with respect to the events prior to the event in which the agent concludes.
 
