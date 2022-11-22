@@ -40,6 +40,11 @@
 % \usepackage{silence}
 % \WarningsOff[marginnote]% Suppress warnings related to package
 
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
 \counterwithout{footnote}{chapter} % For continuous footnote numbering
 \counterwithout{figure}{chapter}
 
@@ -98,6 +103,15 @@
   font=\normalfont,
   label=ノ
 }
+
+\newlist{TOCEnum}{itemize}{1}
+\setlist[TOCEnum]{
+  style=standard,
+  leftmargin=*,
+  font=\normalfont,
+  label=
+}
+
 
 % % % Misc packages % % %
 % \usepackage{setspace}
@@ -324,6 +338,8 @@ citecolor=highlight,
 \include{preparation}
 
 \include{clarification}
+
+\include{support}
 
 \include{variation}
 

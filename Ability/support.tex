@@ -1,0 +1,512 @@
+\chapter{\ros{3}}
+\label{cha:ros}
+
+\begin{note}
+  The present section develops and discusses \ros{1} in detail.
+
+  The role of \ros{1} within this document is to capture, in a abstract way, the way in which a relation between \(\pv{\phi}{v}\) and \(\Phi\) holds from an \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+\begin{note}
+  Our understanding of a `\ros{1}' is given in terms of three ideas, and subsections will develop and discuss each idea in detail:
+
+  \begin{TOCEnum}
+  \item
+    \TOCLine{cha:ros:I}
+
+    An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for a \ros{} to hold, for the agent.
+  \item
+    \TOCLine{cha:ros:W}
+
+    An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) provides an agent with a \wit{0} for a \ros{}.
+  \item
+    \TOCLine{cha:ros:II}
+
+    It is possible for a \ros{} to hold, from an \agpe{} without the agent having a \wit{} for the \ros{}.
+  \end{TOCEnum}
+\end{note}
+
+\section{\supportI{}}
+\label{cha:ros:I}
+
+\begin{note}
+  \supportI{} states, roughly, that the event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for a \ros{} to hold between \(\pv{\phi}{v}\) and \(\Phi\).%
+  \footnote{
+    We speak in terms of \ros{1} holding from an \agpe{}.
+    However, given some agent \vAgent{}, proposition \(\phi\), value \(v\), and \pool{} \(\Phi\), we do not distinguish between:
+
+    \begin{enumerate}[label=\alph*., ref=(\alph*), noitemsep]
+    \item
+      \label{ros:ap:maybe:a}
+      A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from an \agpe{}.
+    \item
+      \label{ros:ap:maybe:b}
+      \prop{A \ros{} holds between \(\pv{\phi}{v}\) and \(\Phi\)}, \evaled{} \val{True}.
+
+      I.e.\ the \evalN{}:
+      \(\pv{\prop{A \ros{} holds between } \pv{\phi}{v}\prop{ and }\Phi}{\val{True}}\)
+    \end{enumerate}
+
+    Any significant distinction between~\ref{ros:ap:maybe:a} and~\ref{ros:ap:maybe:b} would turn on details too specific for the degree of abstraction we target.
+  }
+
+  \begin{idea}[\supportI{}]
+    \label{idea:support}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Proposition: \(\phi\)
+      \item
+        Value: \(v\)
+      \item
+        \pool{2}: \(\Phi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+    For an agent \vAgent{}, a proposition-value pair \(\pv{\phi}{v}\), \pool{} \(\Phi\), and event \(e\):
+
+    \begin{itemize}
+    \item[\emph{If}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \item[\emph{Then}:]
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
+      \item
+        When \vAgent{} pairs \(\phi\) with \(v\) as a sub-event of \(e\):
+        \begin{itemize}
+        \item
+          A \emph{\ros{}} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
+        \end{itemize}
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{idea}
+
+  The focus on the sub-event in which the agent pairs \(\phi\) with \(v\) is to allow for the \ros{} to, in part, explain why the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) without requiring that the \ros{} holds, for the agent prior to the agent forming the conclusion that \(\phi\) has value \(v\).
+
+  In this respect, a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) may be regarded as a static account of how the agent has come to pair \(\phi\) with \(v\).
+  In other words, the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) just captures whatever it is, for the agent, that led to the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  Still, \supportI{} is only a sufficient condition, and the suggestion --- however the details work out --- is intended as intuition for when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  As we will see when discussing \supportII{}, we will deny the converse of \supportI{}.
+  Therefore, the intuition is not suitable to capture in general what a \ros{} holding, from an \agpe{}, amounts to.
+
+  Generalised, what it is, that has, is, or will, relate \(\pv{\phi}{v}\) and \(\Phi\), for the agent.
+\end{note}
+
+\begin{note}
+  Given \supportI{}, we will always qualify that a \ros{} holds \emph{from an \agpe{}}.
+  Our interest is with conclusions, parings of propositions with values by an agent.
+  Hence, we have no interest in whatever the idea of a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) simpliciter.
+  As outlined in \autoref{cha:clar:sec:Concls:reasoning}, we place no restrictions on conclusions.
+  Hence, if an agent concludes that the ratio of the long side to the short side of a piece of paper is not \(\sqrt{2}\) from some \pool{} \(\Phi\), then, by \supportI{}, a \ros{} holds between:
+  \(\pv{\prop{The ratio of the long side to the short side of a piece of paper is not }\sqrt{2}}{\val{True}}\) and \(\Phi\).
+\end{note}
+
+\begin{note}
+ \supportI{} is similar to, but designed to be distinct from,~\citeauthor{Boghossian:2014aa}'s Taking Condition:%
+  \footnote{
+    There are various objections to~\citeauthor{Boghossian:2014aa}'s Taking Condition, though we take no stance on whether~\citeauthor{Boghossian:2014aa}'s Taking Condition holds.
+
+    See, for example,~\textcite{Hlobil:2014tq}, \textcite{McHugh:2016vp}, and~\textcite{Wright:2014tt}.
+
+    \citeauthor{Hlobil:2014tq} argues against the Taking Condition as it distracts from what accounts of reasoning out to explain, rather than arguing against the Taking Condition directly.
+
+    \citeauthor{McHugh:2016vp} summarise various objects to the taking condition, and present district arguments against against (distinct) ideas in favour of the taking condition.
+    In particular,~\supportI{} is closer to what \citeauthor{McHugh:2016vp} term the `Consequence Condition' (\citeyear[cf.][316]{McHugh:2016vp}), which \citeauthor{McHugh:2016vp} also (indirectly) argue against.
+    However, \citeauthor{McHugh:2016vp} does not consider an alternative account of what distinguishes concluding from any other action, and as~\supportI{} is designed to capture this distinction, it is unclear to me whether \citeauthor{McHugh:2016vp}'s arguments apply to~\supportI{} (if, indeed, they are sound).
+
+    \citeauthor{Wright:2014tt} denies that reasoning must involve a state which connects premises to conclusions, as discussed in the main body of this section. (\citeyear[Cf.][33-34]{Wright:2014tt})
+  }
+
+  \begin{quote}
+    (Taking Condition):
+    Inferring necessarily involves the thinker \emph{taking} his premises to support his conclusion and drawing his conclusion because of that fact.%
+    \mbox{}\hfill\mbox{(\citeyear[5]{Boghossian:2014aa})}
+  \end{quote}
+
+  There is an immediate superficial difference in that~\citeauthor{Boghossian:2014aa} states the Taking Condition in terms of inferring.
+  However, `a conclusion' may be substituted for `inferring' and an important distinction remains.
+  For, `taking' is understood by \citeauthor{Boghossian:2014aa} to be {
+    \color{red}
+    explanatory.
+
+    However, for our purposes, \ros{1} will not have a direct explanatory role.
+  Instead, \ros{1} are an abstraction.
+}
+\end{note}
+
+
+\begin{note}
+  \citeauthor{Boghossian:2014aa} illustrates with the following \scen{}:
+  \begin{quote}
+    On waking up one morning I recall that:
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), series=BogEx]
+    \item
+      \label{BogEx:1}
+      It rained last night.
+    \end{enumerate}
+
+    I combine this with my knowledge that
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume*=BogEx]
+    \item
+      \label{BogEx:2}
+      If it rained last night, then the streets are wet.
+    \end{enumerate}
+
+    to conclude:
+
+    So,
+
+    \begin{enumerate}[label=(\arabic*), ref=(\arabic*), resume*=BogEx]
+    \item
+      \label{BogEx:3}
+      The streets are wet.
+    \end{enumerate}
+    This belief then affects my choice of footwear.%
+    \mbox{ }\hfill\mbox{(\citeyear[2]{Boghossian:2014aa})}
+  \end{quote}
+
+  And \citeauthor{Boghossian:2014aa} expands as follows:
+
+  \begin{quote}
+    [M]y inferring from~\ref{BogEx:1} and~\ref{BogEx:2} to~\ref{BogEx:3} must involve my arriving at the judgment that~\ref{BogEx:3} in part \emph{because} I \emph{take} the presumed truth of~\ref{BogEx:1} and~\ref{BogEx:2} to provide support for~\ref{BogEx:3}.
+    Let us call this insistence that an account of inference must in this way incorporate a notion of ``taking'' the Taking Condition on inference.%
+    \mbox{ }\hfill\mbox{(\citeyear[4]{Boghossian:2014aa})}
+  \end{quote}
+
+  Hence, for \citeauthor{Boghossian:2014aa}, the Taking Condition captures something \emph{in addition} to~\ref{BogEx:3} being a conclusion from a \pool{} which includes~\ref{BogEx:1} and~\ref{BogEx:2}.
+  The presence of `taking' has a distinctive role in classifying the move from~\ref{BogEx:1} and~\ref{BogEx:2} to~\ref{BogEx:3} as an inference (or as a conclusion).
+
+  In contrast, we do not require that a \ros{} has any particular role \emph{for the agent} in event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  If an agent concludes~\ref{BogEx:3} from~\ref{BogEx:1} and~\ref{BogEx:2}, then a \ros{} holds between~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\), for the agent ---~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\) are related, in some way by the agent.
+  However, the \ros{} between~\ref{BogEx:3} and \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\) need not itself have a role in the \agents{} conclusion of~\ref{BogEx:3} from \(\{\ref{BogEx:1}, \ref{BogEx:2}\}\).%
+  \footnote{
+    Also, about the type of reasoning by which the agent concludes.
+    This comes from \textcite{Boghossian:2008vf,Boghossian:2012vb}.
+    Rule following, taking gets account of rule.
+  }
+\end{note}
+
+\begin{note}
+  \phantlabel{Wright-simple-supportI}
+  Indeed, our intuitive understanding of \ros{} is close to \citeauthor{Wright:2014tt}'s (\citeyear{Wright:2014tt}) `Simple Proposal':
+  \begin{quote}
+    [C]onsider instead the proposal, not that the status of the transition as inferential depends on the thinker's judgments about his reasons, but that it depends on \emph{what his reasons are}.
+    We want his acceptance of the premises to supply his \emph{actual} reasons for accepting the conclusion.
+    \dots
+
+    Call this the Simple Proposal.
+    It says that a thinker infers q from p\(_{1}\) \(\cdots\) p\(_{\text{n}}\) when he accepts each of p\(_{1}\) \(\cdots\) p\(_{\text{n}}\), moves to accept q, and does so for the reason that he accepts p\(_{1}\) \(\cdots\) p\(_{\text{n}}\).%
+    \mbox{}\hfill\mbox{(\citeyear[33]{Wright:2014tt})}
+  \end{quote}
+
+  \citeauthor{Wright:2014tt}'s simple proposal is that, for the agent, the relation between a conclusion and some \pool{} need not be part of what moves the agent to conclude the conclusion from the \pool{}.
+
+  \begin{quote}
+    What is needed, then, is an account of, or at least some insight into, what it is for certain intentional states of a thinker to be his actual reasons for his transition to another intentional state.
+    \dots
+    We need to avoid committing to the notion that doing something for certain reasons must involve a state that somehow registers those reasons as reasons for what one does.%
+    \mbox{}\hfill\mbox{(\citeyear[34]{Wright:2014tt})}
+  \end{quote}
+
+  Still, anticipating the role of \ros{} in construction a variation to \qWhy{}, it intuitively remains the case that a \ros{} explains, in part, why an agent concluded the conclusion from the \pool{} for, the \ros{} captures \emph{that} the agent accepted each of the premises and moved to accept the conclusion (in \citeauthor{Wright:2014tt}'s terminology).
+
+  Still, following the discussion above, there is an important between~\supportI{} and \citeauthor{Wright:2014tt}'s Simple Proposal.
+  For,~\supportI{} is an entailment, while \citeauthor{Wright:2014tt}'s Simple Proposal is an identity statement.
+  Inferring, on the Simple Proposal, is an agent accepting some conclusion for the reason that they accept premises from some \pool{}.
+  \supportI{} does not entail that concluding is nothing more than moving to accept \(\pv{\phi}{v}\) as a result of accepting each element of \(\Phi\).
+\end{note}
+
+\section{\wit{3} for \ros{1}}
+\label{cha:ros:W}
+
+\begin{note}
+  \autoref{cha:ros:I} introduced a sufficient condition for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) to hold, from an \agpe{}:
+  The agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
+
+  In general, if an agent has concluded \(\pv{\phi}{v}\) from \(\Phi\), then we will say the agent has a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+  In full:
+
+  \begin{definition}[A \wit{2} for a \ros{0}]
+    \label{def:witnessing}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Proposition: \(\phi\)
+      \item
+        Value: \(v\)
+      \item
+        \pool{2}: \(\Phi\)
+      \item
+        Event: \(e\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+    \begin{enumerate}[label=]
+    \item
+      \begin{enumerate}[label=\alph*., ref=(\alph*), series=WitnessDef]
+      \item
+        \(e\) is \emph{\wit{0}} for \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), for \vAgent{}.
+      \end{enumerate}
+    \item
+      \emph{If and only if:}
+    \item
+      \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=WitnessDef]
+      \item
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  Shorthand, we say that \emph{an agent has} a \wit{0} for the relevant \ros{}.
+\end{note}
+
+\begin{note}
+  An important, but trivial, case of \autoref{def:witnessing} is when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  For, if an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) then it is immediate that there is some event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) --- the very same event --- and hence the agent has a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  Hence, joining \supportI{} with \autoref{def:witnessing}, we have the following:
+
+  \begin{proposition}[A conclusion entails witnessed \support{}]
+    \label{prop:cws}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Proposition: \(\phi\)
+      \item
+        Value: \(v\)
+      \item
+        \pool{2}: \(\Phi\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+    \begin{itemize}
+    \item
+      If \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) then:
+      \begin{itemize}
+      \item
+        When \vAgent{} pairs \(\phi\) with \(v\) as a sub-event of \(e\), a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
+      \item
+        There is an event \(e'\) such that \(e'\) is a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:cws}
+    Immediate for assuming the antecedent and appealing to \supportI{} and \autoref{def:witnessing}, respectively.
+  \end{argument}
+
+  \autoref{prop:cws} is of interest with respect to \qWhy{}, \qHow{}, \issueInclusion{}, and the variations to follow in \autoref{cha:var}.
+
+  For, our variant to \qWhy{} will involve \ros{1}.
+  Our variant to \qHow{} will involve \wit{1}.
+  And, our variant to \issueInclusion{} will hold that a \ros{} is, in part, an answer to why an agent concluded only if the agent has a \wit{} for the \ros{}.
+
+  Hence, \autoref{prop:cws} ensures that so long as there is an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\), then an answer to `why' will always have a corresponding answer to `how'.
+
+  At issue is whether it is always the case that an agent has a \wit{} for a \ros{} which is, in part, an answer to why the agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
+
+  And, given \autoref{prop:cws} it is immediate that any such \ros{} must be distinct from the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+\end{note}
+
+\begin{note}
+  Note, when we talk of \wit{1} we talk in terms of `having a \wit{0}'.
+  In the case of \autoref{prop:cws}, the event in which the agent concludes and the event which secures the relevant \wit{} are identical.
+
+  However, event \(e\) may be an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that throughout the event \(e\), the agent has a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\), such that the event \(e'\) which \wit{1} the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is distinct from \(e\).
+
+  Hence, our understanding of `having a \wit{0}' allows for the possibility that some \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\), in part, `answers why' an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) though the relevant \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is distinct.
+
+  If you think there may be such cases, then the variant to \issueInclusion{} that we develop will be compatible with such cases.
+  And, if you think there are no such cases, then it is safe to ignore this possibility.
+  We will not directly, at least, consider such cases or take a stand either way in the main argument.%
+  \footnote{
+    \phantlabel{fn:past-witness}
+    To illustrate, consider an agent working on some mathematical problem.
+
+    As part of their work on the problem the agent concludes the hypotenuse of some right-angled triangle is \(\sqrt{74}\text{cm}\) by use of the Pythagorean theorem.
+
+    Further, the agent has, at some point in the past proved the Pythagorean theorem from more basic principles.
+
+    Now, generally speaking, it may be the case that the agent concludes the hypotenuse of the triangle is \(\sqrt{74}\text{cm}\), in part, from those more basic principles.
+    For example, the agent may have just completed their proof of the Pythagorean theorem and the reasoning from the more basic principles to the hypotenuse of the triangle may be considered a single unified instances of reasoning, with an intermediary conclusion.
+
+    Further, suppose the agent proved the Pythagorean theorem some years ago.
+
+    Perhaps the \agents{} reasoning from more basic principles continues to provide, in part, an answer to how the agent concluded the hypotenuse of the triangle is \(\sqrt{74}\text{cm}\).
+    Perhaps, regardless of the gap, the agent used the Pythagorean theorem \emph{because} they concluded the theorem from more basic principles.
+
+    On the other hand, one may be inclined to hold that the more basic principles have no role explanatory role in the present.
+    At best, the \agents{} \emph{memory} of --- rather than the event of --- concluding answers, in part, why the agent concluded hypotenuse of the triangle is \(\sqrt{74}\text{cm}\).
+  }%
+  \(^{,}\)%
+  \footnote{
+  Though we will not take a stand on whether a relevant \wit{0} for some conclusion is distinct from the event in which the agent concludes, the possibility of separation highlights an plausible issue with \autoref{def:witnessing}.
+
+  For, if separation may occur, it seems there may be instances where an agent reasoned to \(\pv{\phi}{v}\) but did not conclude \(\phi\) has value \(v\) such that the event in which the agent reasoned to \(\pv{\phi}{v}\) serves as a \wit{0} to a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+
+  As \autoref{def:witnessing} requires the event to be such that the agent concludes \(\pv{\phi}{v}\) from \(\Phi\), such events are excluded from being \wit{1}.
+
+  To illustrate, consider an agent working through a proof of some theorem.
+
+  Abstractly, let \(\theta\) be the state of affairs characterised by the theorem, and let \(\Theta\) be the relevant \pool{}.
+  Our interest is with the conclusion \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+
+  Suppose the agent reasons to \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+  Further, suppose the \agents{} reasoning is sound.
+  However, the agent is worried about some parts of their reasoning.
+  Hence, given their worries, \emph{reasons} to --- but does not conclude --- \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+
+  Some time later the agent resolves their worries and concludes the theorem is true.
+
+  I see no issue with the \emph{idea} that:
+  \begin{itemize}[noitemsep]
+  \item
+    When the agent revisited the proof, they concluded \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+  \item
+    In part, a \ros{} between \(\pv{\theta}{\val{True}}\) and \(\Theta\), for the agent, answers why the agent concluded \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+  \item
+    The event in which the agent reasoned to \(\pv{\theta}{\val{True}}\) from \(\Theta\) answers, in part, how the agent \(\pv{\theta}{\val{True}}\) from \(\Theta\) by being a \wit{} for the \ros{} between \(\pv{\theta}{\val{True}}\) and \(\Theta\).
+  \end{itemize}
+
+  However, the idea is incompatible with the way we understand a \wit{0}.
+  For, by definition, the relevant event which serves as a \wit{0} must be an event in which the agent \emph{concludes} \(\pv{\theta}{\val{True}}\) from \(\Theta\).
+  And, by construction of the \scen{0}, the \agents{} worries prevent the agent from forming the relevant conclusion.
+
+  There are various ways to square the \scen{0} with our understanding of a \wit{0}.
+  For example, one may consider the extended event in which the agent reasons, returns, and concludes.
+  Or, one may hold that when the agent concluded \(\pv{\theta}{\val{True}}\), the agent concluded \(\pv{\theta}{\val{True}}\) not from \(\Theta\), but from some \pool{} \(\Theta'\) which include the adequacy of the \agents{} prior reasoning as a premise.
+
+  Still, it is not clear to me that either of the options suggested --- or any other option --- is preferable to weakening \autoref{def:witnessing} in such a way that an event \(e\) which serves as a \wit{} to some \ros{} falls short of being an event in which an agent concludes.
+
+  The difficulty is providing an adequate characterisation of the relevant event.
+  That the agent \emph{reasoned} to \(\pv{\theta}{\val{True}}\) from \(\Theta\) is insufficient in general.
+
+  For example, consider a variation of the \scen{} in which the agent identifies a problem with the proof.
+  Given the presence of a problem, there is --- intuitively --- no \ros{} for the agent to have a \wit{0} for.
+
+  Maintaining (some) intuition with regards to what it is for an event to be a \wit{0} for a \ros{0} is our priority.
+  Strictly, the way in which we put \autoref{def:witnessing} to work is fully compatible with substituting `reasons to' in place of `concludes', but an overly narrow definition is preferably to an unintuitive definition.
+  }
+\end{note}
+
+\section{\supportII{}}
+\label{cha:ros:II}
+
+\begin{note}
+  \supportI{} states that a \ros{} holds between \(\pv{\phi}{v}\) and \(\Phi\), for the agent, when an agent concludes \(\pv{\phi}{v}\).
+  \supportII{}, in short, denies the converse of \supportI{} is necessarily the case:
+
+  \begin{idea}[\supportII{}]
+    \label{idea:support:possible}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Proposition: \(\phi\)
+      \item
+        Value: \(v\)
+      \item
+        \pool{2}: \(\Phi\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+    \begin{itemize}
+    \item
+      It is possible for both~\ref{idea:support:possible:a} and~\ref{idea:support:possible:b} be true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{idea:support:possible:a}
+        A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
+      \item
+        \label{idea:support:possible:b}
+        \vAgent{} does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{idea}
+
+  If an agent does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), then there is no event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  So, \supportI{} states that an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) to hold, for the agent.
+  In contrast, \supportII{} denies that an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is necessary for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) to hold, for the agent.
+\end{note}
+
+\begin{note}
+  \supportII{} has a key role in the overall argument for this document.
+  For, as indicated, answers to the variant of \qWhy{} will concern \ros{}, and the variant of \qHow{} will concern whether the agent has a \wit{} for the relevant \ros{}.
+  \supportII{}, then, allows for the \emph{possibility} that the kind of thing which answers, in part, why an agent concluded is not constrained by how the agent concluded.
+
+  However, our motivation for \supportII{} is independent of the success of the overall argument of this document.
+
+  In short, any constraint on answers to why an agent concludes by answers to how an agent concludes is substantial.
+  Denying that there is any instance in which a \ros{} may answer, in part, why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\) without the agent having a \wit{} for the \ros{} amounts to a substantive constraint.
+
+  Indeed, \supportII{} should not be of any immediate concern.
+  For, there is a significant gap between:
+
+  \begin{itemize}[noitemsep]
+  \item
+    There being a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) from an \agpe{} without the agent having a \wit{} for the \ros{}.
+  \item
+    The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\), for the agent, answering, in part, and in some sense, why the agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{itemize}
+\end{note}
+
+\paragraph*{\ros{3} and the basing relation \hfill (Optional)}
+
+\begin{note}
+  Think of \ros{} in terms of doxastic justification.
+
+  \begin{quote}
+    S's belief that p is doxastically justified (i.e. S's belief is held in an epistemically permissible fashion) if and only if S believes p in the right kind of way, on an epistemically appropriate basis.%
+    \mbox{ }\hfill\mbox{(\citeyear{Bondy:2018tk})}
+  \end{quote}
+
+  However, there are difficulties:
+
+  From \supportII{}, \ros{} without conclusion.
+
+  This means don't need to believe, at least with understanding on which beliefs are sort of explicit.
+
+  This may suggest propositional justification.%
+  \footnote{
+    See (\cite{Firth:1978vi}) and (\cite[esp.\ fn.1]{Silva:2020aa}).
+  }
+  And, there are accounts of propositional justification which work in this way.
+  For example, GOLDMAN and \citeauthor{Turri:2010aa}.
+
+  However, \supportI{} is then at issue.
+  For, a conclusion does not, in general, entail propositional justification.
+\end{note}
+
+\begin{note}
+  Further, we have no interest in justification.
+  Again, this is not because anything will turn on cases where an agent lacks justification.
+  Rather, do not wish to make the distinction.
+  Ideas apply to cases in which an agent has justification, and lacks justification.
+\end{note}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
