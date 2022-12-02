@@ -40,24 +40,22 @@
   The chapter is divided into three sections:
   \begin{TOCEnum}
   \item
-    \TOCLine{cha:requs:sec:infl}
+    \TOCLine{cha:requs:infl}
 
-    \ninf{}.
-
-    Preliminary, general, idea to understand \requ{1}
+    Idea to help understand \requ{1}.
   \item
-    \TOCLine{cha:requs:sec:definition}
+    \TOCLine{cha:requs:requs}
 
     Introduction, definition, intuition, and \illu{1}
   \item
-    \TOCLine{cha:requs:sec:add-illu}
+    \TOCLine{cha:requs:tR}
 
     \tR{}, in additional detail.
   \end{TOCEnum}
 \end{note}
 
 \section{\ninf{2}}
-\label{cha:requs:sec:infl}
+\label{cha:requs:infl}
 
 \begin{note}
   Consider the following \scen{0}:
@@ -108,7 +106,7 @@
       \item
         Event: \(e\)
       \item
-        Action descriptions: \(\alpha, \beta\)
+        Action description: \(\alpha\)
       \item
         \mbox{ }
       \end{VAREnum}
@@ -127,10 +125,10 @@
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
         \label{def:ninf:action}
-        There is some action \(\beta\) that \vAgent{} may (immediately) do.
+        There is some action \(b\) that \vAgent{} may (immediately) do.
       \item
         \label{def:ninf:prog}
-        \(\text{Prog}(e', \alpha)\) would be not be true in the event \(e'\) in which \vAgent{} does \(\beta\).
+        \(\text{Prog}(e', \alpha)\) would be not be true if \vAgent{} does \(b\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -278,12 +276,12 @@
 \end{note}
 
 \section{\requ{3}}
-\label{cha:requs:sec:definition}
+\label{cha:requs:requs}
 
 \begin{note}
-  \autoref{cha:requs:sec:infl} introduced the idea of an agent having \ninf{} over whether or not some action in the progressive is true of an event.
+  \autoref{cha:requs:infl} introduced the idea of an agent having \ninf{} over whether or not some action in the progressive is true of an event.
 
-  The key observation of \autoref{cha:requs:sec:infl} was \autoref{prop:ninfConcl}.
+  The key observation of \autoref{cha:requs:infl} was \autoref{prop:ninfConcl}.
   An agent may exert \ninf{} over whether or the agent is concluding some proposition-value pair from some \pool{} is true of an event.
 
   Our attention now turn to a phenomenon in which an agent does or would exert \ninf{} over whether or not the agent is concluding `due to' some proposition-value-\pool{} pairing not being a \fc{}.
@@ -294,25 +292,25 @@
 
   \begin{TOCEnum}
   \item
-    \TOCLine{cha:requs:sec:definition}
+    \TOCLine{cha:requs:requs}
 
     The definition.
   \item
-    \TOCLine{cha:requs:sec:illu3}
+    \TOCLine{cha:requs:requs:illu}
 
     A handful of \scen{1} to illustrate \requ{1}.
   \item
-    \TOCLine{sec:propsoitions}
+    \TOCLine{cha:requs:requs:props}
 
     A few propositions.
   \end{TOCEnum}
 
-  The final section of this chapter, \autoref{cha:requs:sec:add-illu}, motivates the existence of \requ{1} via \tR{}.
+  The final section of this chapter, \autoref{cha:requs:tR}, motivates the existence of \requ{1} via \tR{}.
 \end{note}
 
 
-\subsection{The definition of a \requ{}}
-\label{cha:requs:sec:definition}
+\subsection{Definition}
+\label{cha:requs:def}
 
 \begin{note}
   \requ{3} capture a phenomenon in which an agent does or would exert \ninf{} over whether or not the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) `due to' \(\pvp{\psi}{v'}{\Psi}\) pairing not being a \fc{}.
@@ -393,8 +391,8 @@
 \end{note}
 
 
-\subsection{\illu{3} of \requ{1}}
-\label{cha:requs:sec:illu3}
+\subsection{\illu{3}}
+\label{cha:requs:requs:illu}
 
 \begin{note}
   In this section we illustrate \requ{1} through four \scen{1}.
@@ -475,9 +473,9 @@
   \item
     \begin{itemize}
     \item[\emph{If}:]
-      If \(\pv{\text{My keys are not in location }l}{\text{True}}\) from \(\Psi\) is a not a \fc{}.
+      If \(\pv{\prop{My keys are not in location }l}{\val{True}}\) from \(\Psi\) is a not a \fc{}.
     \item[\emph{Then}:]
-      I am not concluding \(\pv{\text{I have lost my keys}}{\text{True}}\) from \(\Phi\).
+      I am not concluding \(\pv{\prop{I have lost my keys}}{\val{True}}\) from \(\Phi\).
     \end{itemize}
   \end{enumerate}
 
@@ -733,9 +731,9 @@
   \item
     \begin{itemize}
     \item[\emph{If}:]
-      If \(\pv{\text{\sqE{} is sound}}{\text{True}}\) from \(\Psi\) is not a \fc{}.
+      If \(\pv{\prop{\sqE{} is sound}}{\val{True}}\) from \(\Psi\) is not a \fc{}.
     \item[\emph{Then}:]
-      I am not concluding \(\pv{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}{\text{True}}\) from \(\Phi\).
+      I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}}{\val{True}}\) from \(\Phi\).
     \end{itemize}
   \end{enumerate}
 
@@ -772,11 +770,11 @@
   \begin{argument}{prop:sqE-sound}
     Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we prove that the corresponding semantic entailment holds:
 
-    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \text{True}\).
+    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \val{True}\).
     Further, assume for contradiction \(v(\phi) = \text{False}\).
 
-    As \(v(\phi) = \text{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \text{True}\).
-    Therefore, by the first assumption, it must be the case that \(v(\phi) = \text{True}\).
+    As \(v(\phi) = \text{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \val{True}\).
+    Therefore, by the first assumption, it must be the case that \(v(\phi) = \val{True}\).
     This contradictions the second assumption.
     Hence, \((\phi \rightarrow \psi) \rightarrow \phi \vDash \phi\).
   \end{argument}
@@ -807,7 +805,7 @@
   Suppose I were to pause and reason to:
   \(P \rightarrow (Q \rightarrow P) \vdash P\).%
   \footnote{
-    None of the following entailments hold:
+    The following entailments do \emph{not} hold:
     \begin{enumerate*}[noitemsep, label=]
     \item
       \(\phi \rightarrow (\psi \rightarrow \phi) \vDash \phi\),
@@ -816,7 +814,7 @@
     \item
       \((\psi \rightarrow \phi) \rightarrow \psi \vDash \phi\).
     \end{enumerate*}
-    Constructing a counterexample to each is straightforward.
+    Counterexample are straightforward.
   }
   Then, apparent proof of \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) is in significant doubt.
   For, I know \(P \rightarrow (Q \rightarrow P) \vdash P\) does not hold.
@@ -853,7 +851,7 @@
 \begin{note}
   Regardless of \agpe{my}, then if \requ{} fails to hold, it is unclear whether reasoning is \tR{}.
 
-  If no \requ{}, then what distinguishes whatever happened with arbitrarily pairing \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) with the value \(\text{True}\)?
+  If no \requ{}, then what distinguishes whatever happened with arbitrarily pairing \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\) with the value \(\val{True}\)?
 
   Indeed, conclusion just amounts to pairing.
   Hence, conclude.
@@ -873,8 +871,8 @@
   For, if there are no \requ{1}, then there is nothing to indicate the agent would reasoning in accordance with other instances of the type of reasoning.
 \end{note}
 
-\subsection{A few propositions about \requ{1}}
-\label{sec:propsoitions}
+\subsection{Propositions}
+\label{cha:requs:requs:props}
 
 \begin{note}
   We briefly state two propositions which have no significant role in the arguments to follow, but which may be helpful.
@@ -967,7 +965,7 @@
 \end{note}
 
 \section{\requ{3} and \tR{0}}
-\label{cha:requs:sec:add-illu}
+\label{cha:requs:tR}
 
 \begin{note}
   Though \requ{1} are compatible with \issueConstraint{},%
