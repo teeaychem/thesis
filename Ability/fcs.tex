@@ -201,7 +201,7 @@
   Then, we consider some \scen{1} in which \(\pv{\psi}{v'}\) from \(\Psi\) is \emph{not} (clearly) a \fc{}.
 \end{note}
 
-\subsubsection{\illu{3} where \(\pv{\psi}{v'}\) is a \fc{1} from \(\Psi\)}
+\subsubsection*{\illu{3} where \(\pv{\psi}{v'}\) is a \fc{1} from \(\Psi\)}
 \label{cha:fcs:illu:yes}
 
 \begin{note}[Chess I]
@@ -399,7 +399,7 @@
   \noindent Or, at least, Superbus \emph{expected}~\ref{illu:fc:poppies:c} be a \fc{} for his son.
 \end{note}
 
-\subsubsection{\(\pv{\psi}{v'}\) is not a \fc{1} from \(\Psi\)}
+\subsubsection*{\(\pv{\psi}{v'}\) is not a \fc{1} from \(\Psi\)}
 \label{cha:fcs:illu:no}
 
 \begin{note}
@@ -561,6 +561,101 @@
   We break down the argument into two propositions, and then highlight the relation to \issueConstraint{}.
 \end{note}
 
+\begin{note}
+  First, a helper proposition.
+  Relates necessary and sufficient conditions.
+  We begin by defining our understanding of necessary and sufficient conditions.
+
+  \begin{definition}[Sufficient and necessary conditions]
+    \label{def:NScon}
+    \cenLine{
+      \begin{VAREnum}
+      \item
+        Agent: \vAgent{}
+      \item
+        Condition: \(C\)
+      \item
+        Attribute: \(A\)
+      \item
+        \mbox{ }
+      \end{VAREnum}
+    }
+
+    \begin{itemize}
+    \item
+      \(C\) is a \emph{sufficient} condition for attribute \(A\), if and only if:
+      \begin{itemize}
+      \item
+        \emph{If} condition \(C\) obtains, \emph{then} \vAgent{} has attribute \(A\)
+      \end{itemize}
+    \item
+      \(C\) is a \emph{necessary} condition for attribute \(A\), if and only if:
+      \begin{itemize}
+      \item
+        \emph{If} \vAgent{} has attribute \(A\), \emph{then} condition \(C\) obtains.
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  \noindent%
+  As usual, the conditionals by which sufficient and necessary conditions are defined are material conditions.
+  Hence, \autoref{def:NScon} captures the \textquote{standard theory} of sufficient and necessary conditions
+  (\cite[cf.][\S2]{Brennan:2022aa}).
+  I doubt the follow proposition depends on \autoref{def:NScon}.
+  However, the argument given does.
+
+  \begin{proposition}[Attribution]
+    \label{prop:attribution}
+    \cenLine{
+      \begin{VAREnum}
+      \item
+        Agent: \vAgent{}
+      \item
+        \mbox{ }
+      \end{VAREnum}
+    }
+
+    \begin{itemize}
+    \item
+      For any attribute \(X\):
+      \begin{itemize}
+      \item[\emph{If}:]
+        \vAgent{} satisfies all necessary conditions for having attribute \(X\).
+      \item[\emph{Then}:]
+        \vAgent{} satisfies some sufficient condition for having attribute \(X\).
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:attribution}
+    We argue by contraposition.
+
+    Consider sufficient conditions \(S_{1}, S_{2}, \dots, S_{j}\)
+
+    If \vAgent{} has \(X\), then \vAgent{} satisfies some \(S_{i}\).
+    For, \vAgent{} has \(x\).
+    Hence, some condition obtains, and this is sufficient.
+
+    Therefore, disjunction of \(S_{1}, S_{2}, \dots, S_{j}\).
+
+    Suppose \vAgent{} does not satisfy disjunction.
+    Then, \vAgent{} does not have attribute \(X\).
+    For, if did, then some sufficient condition.
+
+    Therefore, disjunction is necessary.
+
+    If does not satisfy any sufficient, does not satisfy disjunction, does not satisfy all necessary.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  Importance of \autoref{prop:attribution} is limitation on \ros{}.
+  Only sufficient condition (\supportI{}).
+  However, \supportII{} limits necessary conditions.
+\end{note}
+
 
 \begin{note}
   \begin{proposition}[\fc{3} and \ros{1}]
@@ -591,58 +686,54 @@
 
   \begin{argument}{prop:fcs-only-if-pot-support}
     Suppose \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\), for \vAgent{}.
-    Then, by \autoref{prop:fc:pevent} (\autopageref{prop:fc:pevent}) there is a \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
 
-    Now, consider the \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+    \smallskip
+    Observe there is a \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+    This is immediate by \autoref{prop:fc:pevent} (\autopageref{prop:fc:pevent}).
+
+    \smallskip
+    Consider the \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
     As \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\), then by~\supportI{} (\supportIpage{}), a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds when \vAgent{} \eval{1} \(\psi\) as having value \(v'\).
 
-    Hence, in whatever sense the event is \potential{0}, a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is likewise \potential{0}.
+    We have a \potential{} \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
 
-    \hozline{}
+    Our goal is to establish this \potential{} \ros{} is a \ros{} \emph{simpliciter}.
 
+    \smallskip
+    Given the \pevent{}, \ros{}.
+    Hence, the agent satisfies all necessary conditions.
+    Therefore, by \autoref{prop:attribution}, some sufficient condition.
 
-    It is possible for there to be.
+    Now \supportII{}, denies for all \(\phi\), \(v\), \(\Phi\).
+    So, there may be cases.
 
-    What is missing?
+    We have, \(\Psi\).
+    sufficient to ensure progressive.
 
-    Well, from \pevent{}, something.
-    However, additional qualification.
+    \smallskip
+    Something from \pevent{}.
+    However, this cannot be a necessary condition in general.
+    For, this contradicts \supportII{}.
 
-    So, we have everything needed.
-    Both necessary and sufficient.
+    So, between now and \pevent{}, nothing necessary in general.
 
-    \begin{itemize}
-    \item
-      If \fc{} the every necessary property holds.
+    \smallskip
+    Deductive argument ends.
+    At this point, pressure.
 
-      Suppose some thing is necessary.
-      By \supportII{} (\supportIIpage{}), this thing does not follow from \wit{}.
-      By X \pevent{}.
-      And, by qualification, do not need any novel information.
-
-    \item
-      If \fc{} then some sufficient property holds.
-
-      Some collection of things which are sufficient.
-      Observe, disjunction of all sufficient thing is a necessary condition.
-      For, if \ros{} holds then some sufficient thing holds.
-      However, we have argued every necessary things holds.
-      Therefore, some sufficient thing must also hold.
-    \end{itemize}
+    There is nothing uniform between cases.
+    Therefore, it seems no non-ad-hoc way of denying \ros{}.
   \end{argument}
 
-  Only sufficient condition for \ros{} is conclusion.
-  Hence, \pevent{} to get sufficient condition.
-  However, \wit{} is not necessary.
-  So, some weaker sufficient condition.
-  Weaker sufficient condition must hold.
-
-  Still, think in terms of propositional justification.%
+  Think in terms of propositional justification.%
   \footnote{
     Distinct, however, from something like reflection.
     For, dealing with ideals.
     And, no need to complete reasoning.
   }
+  Or, if you prefer, substitute \autoref{prop:fcs-only-if-pot-support} for \supportII{}.
+  I prefer deductive arguments, and have the argument as motivation for idea/assumption.
+  However, does not make sense with structure.
 \end{note}
 
 \begin{note}
@@ -772,8 +863,8 @@
   Though, some things will need to be restructured.
 \end{note}
 
-\section{Summary}
-\label{cha:fcs::summary}
+\section*{Summary}
+% \label{cha:fcs::summary}
 
 
 % \subsubsection{\wit{3}}
