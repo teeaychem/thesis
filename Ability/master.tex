@@ -26,9 +26,35 @@
 \setmonofont[Scale=0.8]{Source Code Pro}
 
 \usepackage[match]{luatexja-fontspec}
-\setmainjfont{SourceHanSerif-Regular}
-\setsansjfont{SourceHanSans-Regular}
-\setmonojfont{SourceHanMono}
+% \setmainjfont{SourceHanSerif-Regular}
+% \setsansjfont{SourceHanSans-Regular}
+% \setmonojfont{SourceHanMono}
+
+\usepackage[british]{babel}
+\addto\extrasbritish{
+  \def\chapterautorefname{Chapter}
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+  \def\subsubsectionautorefname{Section}
+  \def\paragraphautorefname{Section}
+  \def\subparagraphautorefname{Section}
+  \def\algocflineautorefname{Algorithm}
+  \def\AlgoLineautorefname{Line}
+  \def\pageautorefname{Page}
+  \def\footnoteautorefname{Footnote}
+  \def\scenarioCounterautorefname{Scenario}
+  \def\observationCounterautorefname{Observation}
+  \def\specificationCounterautorefname{Specification}
+  \def\illustrationCounterautorefname{Illustration}
+  \def\sketchCounterautorefname{Sketch}
+  \def\linkCounterautorefname{Link}
+  \def\constraintCounterautorefname{Constraint}
+  \def\questionCounterautorefname{Question}
+  \def\assumptionCounterautorefname{Assumption}
+  \def\defiCounterautorefname{Definition}
+  \def\propCounterautorefname{Proposition}
+  \def\ideaCounterautorefname{Idea}
+}
 
 % \usepackage{selnolig}% For suppressing certain typographic ligatures automaically
 % % % % % % %
@@ -36,6 +62,11 @@
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{xfrac}
+\usepackage{array}
+% https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % \usepackage{silence}
 % \WarningsOff[marginnote]% Suppress warnings related to package
@@ -68,6 +99,7 @@
 % \setlength\bibitemsep{1.5\itemsep}
 \newcommand{\noopsort}[1]{}
 \addbibresource{Ability.bib}
+\DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
 % % % % % % % % % % % % % % %
 
 \RequirePackage[usenames, dvipsnames]{xcolor}
@@ -262,31 +294,7 @@ citecolor=highlight,
 {\multicitedelim}%
 {\usebibmacro{postnote}}
 
-\usepackage[british]{babel}
-\addto\extrasbritish{
-  \def\chapterautorefname{Chapter}
-  \def\sectionautorefname{Section}
-  \def\subsectionautorefname{Section}
-  \def\subsubsectionautorefname{Section}
-  \def\paragraphautorefname{Section}
-  \def\subparagraphautorefname{Section}
-  \def\algocflineautorefname{Algorithm}
-  \def\AlgoLineautorefname{Line}
-  \def\pageautorefname{Page}
-  \def\footnoteautorefname{Footnote}
-  \def\scenarioCounterautorefname{Scenario}
-  \def\observationCounterautorefname{Observation}
-  \def\specificationCounterautorefname{Specification}
-  \def\illustrationCounterautorefname{Illustration}
-  \def\sketchCounterautorefname{Sketch}
-  \def\linkCounterautorefname{Link}
-  \def\constraintCounterautorefname{Constraint}
-  \def\questionCounterautorefname{Question}
-  \def\assumptionCounterautorefname{Assumption}
-  \def\defiCounterautorefname{Definition}
-  \def\propCounterautorefname{Proposition}
-  \def\ideaCounterautorefname{Idea}
-}
+
 % Following commands mean autoref writes `section' rather that `subsection', etc.
 % https://tex.stackexchange.com/questions/177007/autoref-showing-subsection-and-subsubsection
 \let\subsectionautorefname\sectionautorefname
