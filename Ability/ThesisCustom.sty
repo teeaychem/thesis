@@ -1414,10 +1414,10 @@
 \NewDocumentCommand{\tR}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\typeAdj{#2}\space reasoning}
+    \hyperref[def:cmptnc]{\typeAdj{#2}-reasoning}
   }
   {
-    \hyperref[def:cmptnc]{\typeAdj{#2}\space #1}
+    \hyperref[def:cmptnc]{\typeAdj{#2}-#1}
   }
 }
 \ExplSyntaxOff
@@ -1425,8 +1425,8 @@
 \ExplSyntaxOn
 \NewDocumentCommand{\tRN}{ o m }{%
 \IfNoValueTF{#1}
-  {{\typeAdj{#2}\space reasoning}}
-  {{\typeAdj{#2}\space #1}}
+  {{\typeAdj{#2}-reasoning}}
+  {{\typeAdj{#2}-#1}}
 }
 \ExplSyntaxOff
 
@@ -1435,10 +1435,10 @@
 \NewDocumentCommand{\tRV}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\typeAdv{#2}\space reasoning}
+    \hyperref[def:cmptnc]{\typeAdv{#2}-reasoning}
   }
   {
-    \hyperref[def:cmptnc]{\typeAdv{#2}\space #1}
+    \hyperref[def:cmptnc]{\typeAdv{#2}-#1}
   }
 }
 \ExplSyntaxOff
@@ -1447,53 +1447,29 @@
 \NewDocumentCommand{\tRVN}{ o m }{%
 \IfNoValueTF{#1}
   {
-    {\typeAdv{#2}\space reasoning}
+    {\typeAdv{#2}-reasoning}
   }
   {
-    {\typeAdv{#2}\space #1}
+    {\typeAdv{#2}-#1}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\tC}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:tC]{\typeAdj{#2}\space concluding}
-  }
-  {
-    \hyperref[def:tC]{\typeAdj{#2}\space #1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tCV}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:tC]{\typeAdv{#2}\space concluding}
-  }
-  {
-    \hyperref[def:tC]{\typeAdv{#2}\space #1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\superTypeAdj}{ m }{%
+\NewDocumentCommand{\ptypeAdj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{very}%
+    \obeybreaks{pro-typical}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{very}%
+      \obeybreaks{pro-typical}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Very}%
+      \obeybreaks{Pro-typical}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\tJunk{}}%
@@ -1503,25 +1479,69 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\vtC}{ o m }{%
+\NewDocumentCommand{\ptypeAdv}{ o m }{%
+\tl_if_empty:nTF {#2}
+  {\IfNoValueTF{#1}{\obeybreaks{pro-typically}}{\obeybreaks{pro-typically\textsubscript{\ensuremath{#1}}}}}
+  {%
+    \ifnum0=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{pro-typically}}{\obeybreaks{pro-typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum1=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{pro-typically}}{\obeybreaks{pro-typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum2=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{Pro-typically}}{\obeybreaks{Pro-typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+    \ifnum3=#2\relax%
+      \IfNoValueTF{#1}{\obeybreaks{Pro-typically}}{\obeybreaks{Pro-typically\textsubscript{\ensuremath{#1}}}}
+    \fi
+  }
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ptR}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdj{0}\space concluding}
+    \hyperref[def:cmptnc]{\ptypeAdj{#2}-reasoning}
   }
   {
-    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdj{0}\space #1}
+    \hyperref[def:cmptnc]{\ptypeAdj{#2}-#1}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\vtCV}{ o m }{%
+\NewDocumentCommand{\ptRV}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdv{0}\space concluding}
+    \hyperref[def:cmptnc]{\ptypeAdv{#2}-reasoning}
   }
   {
-    \hyperref[def:tC]{\superTypeAdj{#2}\space \typeAdv{0}\space #1}
+    \hyperref[def:cmptnc]{\ptypeAdv{#2}-#1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tC}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdj{#2}-concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdj{#2}-#1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tCV}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdv{#2}-concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdv{#2}-#1}
   }
 }
 \ExplSyntaxOff
