@@ -1411,51 +1411,6 @@
 }
 
 \ExplSyntaxOn
-\NewDocumentCommand{\tR}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:cmptnc]{\typeAdj{#2}-reasoning}
-  }
-  {
-    \hyperref[def:cmptnc]{\typeAdj{#2}-#1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tRN}{ o m }{%
-\IfNoValueTF{#1}
-  {{\typeAdj{#2}-reasoning}}
-  {{\typeAdj{#2}-#1}}
-}
-\ExplSyntaxOff
-
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tRV}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:cmptnc]{\typeAdv{#2}-reasoning}
-  }
-  {
-    \hyperref[def:cmptnc]{\typeAdv{#2}-#1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tRVN}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    {\typeAdv{#2}-reasoning}
-  }
-  {
-    {\typeAdv{#2}-#1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \NewDocumentCommand{\ptypeAdj}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -1499,31 +1454,43 @@
 }
 
 \ExplSyntaxOn
-\NewDocumentCommand{\ptR}{ o m }{%
+\NewDocumentCommand{\ptC}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\ptypeAdj{#2}-reasoning}
+    \hyperref[def:ptC]{\ptypeAdj{#2}-concluding}
   }
   {
-    \hyperref[def:cmptnc]{\ptypeAdj{#2}-#1}
+    \hyperref[def:ptC]{\ptypeAdj{#2}-#1}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\ptRV}{ o m }{%
+\NewDocumentCommand{\ptCV}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:cmptnc]{\ptypeAdv{#2}-reasoning}
+    \hyperref[def:ptC]{\ptypeAdv{#2}-concluding}
   }
   {
-    \hyperref[def:cmptnc]{\ptypeAdv{#2}-#1}
+    \hyperref[def:ptC]{\ptypeAdv{#2}-#1}
   }
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tC}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdj{#2}-concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdj{#2}-#1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tCN}{ o m }{%
 \IfNoValueTF{#1}
   {
     \hyperref[def:tC]{\typeAdj{#2}-concluding}
@@ -1578,47 +1545,27 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\tRAdv}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:cmptnc]{\typeAdv{#2}\space reasoning}
-  }
-  {
-    \hyperref[def:cmptnc]{\typeAdv{#2}\space #1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\torN}{ m }{%
+\NewDocumentCommand{\tocN}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{type\space of\space reasoning}%
+    \obeybreaks{type\space of\space concluding}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{type\space of\space reasoning}%
+      \obeybreaks{type\space of\space concluding}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{types\space of\space reasoning}%
+      \obeybreaks{types\space of\space concluding}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Type\space of\space reasoning}%
+      \obeybreaks{Type\space of\space concluding}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Types\space of\space reasoning}%
+      \obeybreaks{Types\space of\space concluding}%
     \fi
   }
 }
 \ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tor}{ m }{%
-  \obeybreaks{\hyperref[def:tor]{\torN{#1}}}
-}
-\ExplSyntaxOff
-
-
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tI}{ m }{%
@@ -1647,43 +1594,20 @@
 \NewDocumentCommand{\tRep}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[def:rotor]{representative}}%
+    \obeybreaks{\hyperref[def:rotoc]{representative}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:rotor]{representative}}%
+      \obeybreaks{\hyperref[def:rotoc]{representative}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:rotor]{representatives}}%
+      \obeybreaks{\hyperref[def:rotoc]{representatives}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:rotor]{Representatives}}%
+      \obeybreaks{\hyperref[def:rotoc]{Representatives}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:rotor]{Representatives}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\rotorN}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \torN{0}}%
+      \obeybreaks{\hyperref[def:rotoc]{Representatives}}%
     \fi
   }
 }
@@ -1804,9 +1728,33 @@
 }
 \ExplSyntaxOff
 
+
 \ExplSyntaxOn
-\NewDocumentCommand{\rotor}{ m }{%
-  \obeybreaks{\hyperref[def:rotor]{\rotorN{#1}}}
+\NewDocumentCommand{\rotocN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rotoc}{ m }{%
+  \obeybreaks{\hyperref[def:rotoc]{\rotocN{#1}}}
 }
 \ExplSyntaxOff
 
