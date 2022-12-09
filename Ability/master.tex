@@ -30,31 +30,16 @@
 % \setsansjfont{SourceHanSans-Regular}
 % \setmonojfont{SourceHanMono}
 
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+\counterwithout{footnote}{chapter} % For continuous footnote numbering
+\counterwithout{figure}{chapter}
+
+\usepackage{nonumonpart} % Disable page numbers on 'Part' title pages
 \usepackage[british]{babel}
-\addto\extrasbritish{
-  \def\chapterautorefname{Chapter}
-  \def\sectionautorefname{Section}
-  \def\subsectionautorefname{Section}
-  \def\subsubsectionautorefname{Section}
-  \def\paragraphautorefname{Section}
-  \def\subparagraphautorefname{Section}
-  \def\algocflineautorefname{Algorithm}
-  \def\AlgoLineautorefname{Line}
-  \def\pageautorefname{Page}
-  \def\footnoteautorefname{Footnote}
-  \def\scenarioCounterautorefname{Scenario}
-  \def\observationCounterautorefname{Observation}
-  \def\specificationCounterautorefname{Specification}
-  \def\illustrationCounterautorefname{Illustration}
-  \def\sketchCounterautorefname{Sketch}
-  \def\linkCounterautorefname{Link}
-  \def\constraintCounterautorefname{Constraint}
-  \def\questionCounterautorefname{Question}
-  \def\assumptionCounterautorefname{Assumption}
-  \def\defiCounterautorefname{Definition}
-  \def\propCounterautorefname{Proposition}
-  \def\ideaCounterautorefname{Idea}
-}
 
 % \usepackage{selnolig}% For suppressing certain typographic ligatures automaically
 % % % % % % %
@@ -71,13 +56,6 @@
 % \usepackage{silence}
 % \WarningsOff[marginnote]% Suppress warnings related to package
 
-\usepackage{titlesec}
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{5pt}{\huge}
-\titlespacing*{\chapter}{0pt}{0pt}{40pt}
-
-\counterwithout{footnote}{chapter} % For continuous footnote numbering
-\counterwithout{figure}{chapter}
 
 % % % The bibliography % % %
 \usepackage[%
@@ -119,7 +97,6 @@
 \usepackage{CustomEnvs}
 % % % % % % % % % % % %
 
-
 \renewenvironment{quote}
   {\list{}{\rightmargin=.0325\textwidth \leftmargin=.0325\textwidth}%
    \item\relax}
@@ -158,13 +135,12 @@
   noitemsep,
 }
 
-
 % % % Misc packages % % %
 % \usepackage{setspace}
 % \usepackage{refcheck} % Can be used for checking references
 % \usepackage{lineno}   % For line numbers
 % \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
-\usepackage{nonumonpart} % Disable page numbers on 'Part' title pages
+
 % % % % % % % % % % % % %
 
 % % % Red Math % % %
@@ -185,9 +161,6 @@
 \usepackage{tabularray} % For fancy table features
 % \usepackage{multirow}
 % \usepackage{multicol}
-
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
 
 % % % % % % % % % % % % TIKZ
 \usepackage{tikz}
@@ -294,11 +267,32 @@ citecolor=highlight,
 {\multicitedelim}%
 {\usebibmacro{postnote}}
 
+\addto\extrasbritish{
+  \def\chapterautorefname{Chapter}
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+  \def\subsubsectionautorefname{Section}
+  \def\paragraphautorefname{Section}
+  \def\subparagraphautorefname{Section}
+  \def\algocflineautorefname{Algorithm}
+  \def\AlgoLineautorefname{Line}
+  \def\pageautorefname{Page}
+  \def\footnoteautorefname{Footnote}
+  \def\scenarioCounterautorefname{Scenario}
+  \def\observationCounterautorefname{Observation}
+  \def\specificationCounterautorefname{Specification}
+  \def\illustrationCounterautorefname{Illustration}
+  \def\sketchCounterautorefname{Sketch}
+  \def\linkCounterautorefname{Link}
+  \def\constraintCounterautorefname{Constraint}
+  \def\questionCounterautorefname{Question}
+  \def\assumptionCounterautorefname{Assumption}
+  \def\defiCounterautorefname{Definition}
+  \def\propCounterautorefname{Proposition}
+  \def\ideaCounterautorefname{Idea}
+}
 
-% Following commands mean autoref writes `section' rather that `subsection', etc.
-% https://tex.stackexchange.com/questions/177007/autoref-showing-subsection-and-subsubsection
-\let\subsectionautorefname\sectionautorefname
-\let\subsubsectionautorefname\sectionautorefname
+
 
 
 \title{

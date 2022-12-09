@@ -1545,6 +1545,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\NewDocumentCommand{\torN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{type\space of\space reasoning}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{type\space of\space reasoning}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{types\space of\space reasoning}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Type\space of\space reasoning}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Types\space of\space reasoning}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\tocN}{ m }{%
   \tl_if_empty:nTF {#1}
   {
