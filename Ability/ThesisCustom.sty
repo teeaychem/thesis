@@ -175,54 +175,6 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\ptivity}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:perspectivity]{perspectivity}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:perspectivity]{Perspectivity}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\newcommand{\ptivityQV}[0]{\ensuremath{\mathbb{P}}}
-
-\ExplSyntaxOn
-\NewDocumentCommand{\ptivityQ}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:perspectivityQ]{perspectivity\textsuperscript{\emph{Q}}}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:perspectivityQ]{Perspectivity\textsuperscript{\emph{Q}}}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
 \NewDocumentCommand{\deadEnd}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -372,34 +324,6 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\NewDocumentCommand{\requP}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:requP]{requisite\(^{\sharp}\)}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:requP]{requisite\(^{\sharp}\)}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:requP]{requisites\(^{\sharp}\)}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:requP]{Requisite\(^{\sharp}\)}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:requP]{Requisites\(^{\sharp}\)}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-% % % % % % Epistemic possibility, etc % % %
-
-
-
-
 % % %
 \ExplSyntaxOn
 \NewDocumentCommand{\illu}{ m }{
@@ -469,20 +393,6 @@
   }
 }
 \ExplSyntaxOff
-
-% % % Other
-% https://tex.stackexchange.com/questions/21644/how-do-you-superimpose-two-symbols-over-each-other
-\makeatletter
-\newcommand{\superimpose}[2]{%
-  {\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}
-}
-\makeatother
-
-\newcommand{\veewedge}{\mathpalette\superimpose{{\vee}{\wedge}}}
-\newcommand{\lessgreater}{\mathpalette\superimpose{{<}{>}}}
-\newcommand{\strikeQ}{\mathpalette\superimpose{{\text{---}}{Q}}}
-\newcommand{\RS}{\mathpalette\superimpose{{\text{R}}{\text{S}}}}
-% % %
 
 % % % Agents % % %
 
@@ -616,53 +526,7 @@
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\newcommand{\qzS}[0]{\text{\hyperref[question:zs]{\named{Z\text{-support}?}}}}
-
-\newcommand{\nqzS}[0]{\text{\hyperref[question:zs:neg]{\named{not\space Z\text{-support}?}}}}
-
-\newcommand{\qzSaV}[0]{\text{\(\mathbb{X}\)}}
-
-\newcommand{\zS}[0]{\text{\hyperref[idea:zS]{\(Z\)-support}}}
-
-\newcommand{\zSX}[0]{\text{\hyperref[idea:zSX]{\(Z^{\sharp}\)-support}}}
-
-\newcommand{\zSXp}[0]{\text{{\(\hyperref[idea:zS]{Z}^{\hyperref[idea:zSX]{(\sharp)}}\)\hyperref[idea:zS]{-support}}}}
-
-\newcommand{\izS}[0]{\text{\hyperref[idea:zS]{\named{\(Z\)-support}}}}
-
-% % % zeta support % % %
-
-\newcommand{\zetaSAb}[0]{\text{\(\zeta\)-support}}
-
-\newcommand{\zetaS}[0]{\text{\hyperref[idea:zetaS]{\zetaSAb}}}
-
-\newcommand{\izetaS}[0]{\text{\hyperref[idea:zetaS]{\named{\zetaSAb{}}}}}
-
-
 \newcommand*{\rleadsto}{\reflectbox{\(\leadsto\)}}%
-
-\ExplSyntaxOn
-\NewDocumentCommand{\zgb}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{zingiberaceae}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{zingiberaceae}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Zingiberaceae}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\fc}{ m }{%
@@ -686,37 +550,6 @@
   }
 }
 \ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\zSN}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\zgb{0}-support}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\zgb{0}-support}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\zgb{2}-support}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\newcommand{\squishA}[2]{\obeybreaks{
-  #1 agent satisfying \(\chi\) is sufficient to resolve whether #2 agent has \zetaS{} for \(\pv{\phi}{v}\) when concluding \(\pv{\phi}{v}\) from \(\Phi\)}%
-}
-
-\newcommand{\squishB}[1]{\obeybreaks{%
-  \(\chi\) entails #1 agent has satisfied \izetaS{}}%
-}
 
 \newcommand{\howBasic}[0]{\obeybreaks{%
   \emph{How}, in part, did the agent conclude \(\phi\) has value \(v\)?%
@@ -982,74 +815,6 @@
 \newcommand{\mRwe}[2]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}(#2,#1)}}}
 \newcommand{\mRweSym}[0]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}}}}
 
-\ExplSyntaxOn
-\NewDocumentCommand{\drift}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{drift}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{drift}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{drifts}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Drift}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Drifts}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\drifting}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{drifting}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{drifting}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Drifting}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\driftW}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\drift{0}-world}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\drift{0}-world}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\drift{0}-worlds}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\drift{2}-world}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\drift{2}-worlds}%
-    \fi
-  }
-}
-\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\closeW}{ m }{
@@ -1097,62 +862,16 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\NewDocumentCommand{\drAdj}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{appropriate}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{appropriate}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Appropriate}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
+% \newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Stretch}}}}}
+% \newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
+% \newcommand{\AlgGetCs}[0]{\hyperref[PrAl:g-c]{\obeybreaks{\text{\textsc{Get-Continuations}}}}}
+% \newcommand{\AlgGetStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-Stops}}}}}
+% \newcommand{\AlgGetPStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-\(R\)-Stops}}}}}
+% \newcommand{\AlgFindBranches}[0]{\hyperref[PrAl:find-branches]{\obeybreaks{\text{\textsc{Wiggle}}}}}
+% \newcommand{\AlgDevelopTree}[0]{\hyperref[PrAl:dev-tree]{\obeybreaks{\text{\textsc{Complete-Tree}}}}}
 
-\ExplSyntaxOn
-\NewDocumentCommand{\ndrAdj}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{inappropriate}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{inappropriate}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Inappropriate}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Stretch}}}}}
-\newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
-\newcommand{\AlgGetCs}[0]{\hyperref[PrAl:g-c]{\obeybreaks{\text{\textsc{Get-Continuations}}}}}
-\newcommand{\AlgGetStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-Stops}}}}}
-\newcommand{\AlgGetPStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-\(R\)-Stops}}}}}
-\newcommand{\AlgFindBranches}[0]{\hyperref[PrAl:find-branches]{\obeybreaks{\text{\textsc{Wiggle}}}}}
-\newcommand{\AlgDevelopTree}[0]{\hyperref[PrAl:dev-tree]{\obeybreaks{\text{\textsc{Complete-Tree}}}}}
-
-\newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
-\newcommand{\SetPC}[0]{\obeybreaks{\text{\(R\)-Continuations}}}
+% \newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
+% \newcommand{\SetPC}[0]{\obeybreaks{\text{\(R\)-Continuations}}}
 
 % % % % % % Potntial, etc % % %
 
@@ -1222,54 +941,6 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
-
-\ExplSyntaxOn
-\NewDocumentCommand{\curb}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:curb]{\obeybreaks{curb}}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:curb]{\obeybreaks{curbs}}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:curb]{\obeybreaks{Curb}}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:curb]{\obeybreaks{Curbs}}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\bCurb}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curb}}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{basic\space curbs}}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curb}}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:bCurb]{\obeybreaks{Basic\space curbs}}}%
     \fi
   }
 }
