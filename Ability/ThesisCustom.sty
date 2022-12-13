@@ -12,6 +12,12 @@
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{calc}
 
+\ExplSyntaxOn
+\NewDocumentCommand{\cenLine}{ m }{%
+  \mbox{ }\hfill#1\hfill\mbox{ }%
+}
+\ExplSyntaxOff
+
 \newcommand{\bsfrac}[2]{\ensuremath{\reflectbox{\sfrac{\reflectbox{#2}}{\reflectbox{#1}}}}}
 
 \newcommand{\tJunk}[0]{\obeybreaks{\#\$\%\&}}
@@ -476,30 +482,6 @@
 }
 \ExplSyntaxOff
 
-% % % Labels % % %
-
-% % % Two symbols for illustrations of rectangle reasoning wrt. ur and nr % % %
-% https://tex.stackexchange.com/questions/336070/symbol-creation-in-tikz
-\newcommand{\tBox}{%
-  \mathrel{%
-    \tikz[line cap=round, line join=round]
-    \draw
-      (1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle;%
-  }%
-}
-
-\newcommand{\tBoxd}{%
-  \mathrel{%
-    \tikz[line cap=round, line join=round]
-    \draw[dash pattern=on \pgflinewidth off 1.125pt]
-      (1.3ex, 0ex) -- (0ex, 0ex) -- (0ex, 1.3ex) -- (1.3ex, 1.3ex) -- cycle
-      %(1.3ex, 0.325ex) -- (0.325ex, 0.325ex) -- (0.325ex, 0.975ex)
-      %-- (1.3ex, 0.975ex)
-      %(-.13ex, 0ex) (1.3ex + .13ex, 0ex) % side bearings
-    ;%
-  }%
-}
-
 
 % % % https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
 \newcommand{\repeatCaption}[2]{%
@@ -559,196 +541,7 @@
   \emph{Why}, in part, did the agent conclude \(\phi\) has value \(v\)?%
 }}
 
-% Some customizable styles
-    \tikzset {
-        highlight/.style = {yellow, opacity=0.3},
-        digit/.style = {minimum height = 5mm, minimum width=5mm, anchor=center },
-        circle/.style = {draw=green!80!black, dotted, very thick},
-        cross/.style = {red, opacity=.5, shorten >=1mm, shorten <=1mm, very thick, line cap=round},
-        hint/.style={blue, font=\sf, minimum width=3mm, minimum height=3mm}
-    }
 
-% Original code-----------------------------------------------------------
-% Modified the \node to give a unique name to each one, which is the
-% row number, a dash and the column number. E.g: 1-1, 4-5, etc.
-    \newcounter{row}
-    \newcounter{col}
-
-    \newcommand\setrow[9]{
-        \setcounter{col}{1}
-        \foreach \n in {#1, #2, #3, #4, #5, #6, #7, #8, #9} {
-            \edef\x{\value{col} - 0.5}
-            \edef\y{9.5 - \value{row}}
-            \node[digit,name={\arabic{row}-\arabic{col}}] at (\x, \y) {\n};
-            \stepcounter{col}
-        }
-        \stepcounter{row}
-    }
-
-% New code -------------------------------------------------------------
-    \def\highlightcell#1#2{
-        \fill[highlight] (#1-#2.north west) rectangle (#1-#2.south east);
-    }
-
-    \def\circlecell#1#2{
-        \draw[circle] (#1-#2) circle(4mm);
-    }
-
-    \def\crosscell#1#2{
-        \draw[cross] (#1-#2.north west) -- (#1-#2.south east);
-        \draw[cross] (#1-#2.north east) -- (#1-#2.south west);
-    }
-
-    \def\highlightrow#1{
-       \fill[highlight] (#1-1.north west) rectangle (#1-9.south east);
-    }
-
-    \def\highlighcolumn#1{
-        \fill[highlight] (1-#1.north west) rectangle (9-#1.south east);
-    }
-
-    \def\hintcell#1#2#3{
-        \node at (#1-#2) {\hintbox{#3}};
-    }
-
-    \def\highlightrectangle#1#2#3#4{
-        \begin{pgfonlayer}{background}
-        \fill[highlight] (#1-#2.north west) rectangle (#3-#4.south east);
-        \end{pgfonlayer}
-    }
-
-% UGLY code. Do not read :-)
-\def\hintbox#1{
-    \resizebox{4.5mm}{4.5mm}{%
-        \tikz[scale=0.3]{%
-            \def\auxc{0}
-            \foreach \m in {1,...,9} {
-                \pgfmathparse{mod(\auxc,3)}
-                \xdef\x{\pgfmathresult}
-                \pgfmathparse{-floor(\auxc/3)}
-                \xdef\y{\pgfmathresult}
-                \xdef\hintprinted{0}
-                \foreach \n in {#1} {
-                    \ifnum\n=\m
-                        \node[hint] at (\x,\y) {\n};
-                        \xdef\hintprinted{1}
-                    \fi
-                }
-                \ifnum\hintprinted=0
-                      \node[hint, opacity=0.1] at (\x,\y) {\m};
-                \fi
-                \pgfmathparse{\auxc+1}
-                \xdef\auxc{\pgfmathresult}
-            }
-        }%
-    }
-}
-
-\newcommand{\sudokuGrid}[0]{
-  \begin{tikzpicture}[scale=.5]
-          \begin{scope}
-            \draw (0, 0) grid (9, 9);
-            \draw[very thick, scale=3] (0, 0) grid (3, 3);
-            \setcounter{row}{1}
-            % Single entries
-            \setrow { }{ }{ }  {2}{ }{ }  { }{ }{ }
-            \setrow { }{6}{5}  { }{ }{ }  {9}{ }{ }
-            \setrow { }{7}{ }  { }{ }{6}  { }{4}{ }
-            \setrow { }{ }{ }  { }{ }{1}  { }{ }{5}
-            \setrow {7}{1}{ }  { }{ }{ }  { }{ }{9}
-            \setrow { }{ }{9}  { }{2}{ }  { }{1}{ }
-            \setrow { }{ }{1}  { }{ }{ }  {7}{ }{ }
-            \setrow { }{8}{7}  {3}{ }{4}  { }{2}{ }
-            \setrow { }{ }{ }  { }{6}{ }  { }{9}{4}
-        \end{scope}
-      \end{tikzpicture}
-}
-
-\newcommand{\sudokuGridHints}[0]{
-\begin{tikzpicture}[scale=.5]
-        \begin{scope}
-          \draw (0, 0) grid (9, 9);
-          \draw[very thick, scale=3] (0, 0) grid (3, 3);
-          \setcounter{row}{1}
-          % Single entries
-          \setrow { }{ }{ }  {2}{ }{ }  { }{ }{ }
-          \setrow { }{6}{5}  { }{ }{ }  {9}{ }{ }
-          \setrow { }{7}{ }  { }{ }{6}  { }{4}{ }
-          \setrow { }{ }{ }  { }{ }{1}  { }{ }{5}
-          \setrow {7}{1}{ }  { }{ }{ }  { }{ }{9}
-          \setrow { }{ }{9}  { }{2}{ }  { }{1}{ }
-          \setrow { }{ }{1}  { }{ }{ }  {7}{ }{ }
-          \setrow { }{8}{7}  {3}{ }{4}  { }{2}{ }
-          \setrow { }{ }{ }  { }{6}{ }  { }{9}{4}
-          % Hints
-          % * Row 1
-          \hintcell{1}{1}{1,3,4,8,9}
-          \hintcell{1}{2}{3,4,9}
-          \hintcell{1}{3}{3,4,8}
-          \hintcell{1}{5}{1,3,4,5,7,8,9}
-          \hintcell{1}{6}{3,5,7,8,9}
-          \hintcell{1}{7}{1,3,5,6,8}
-          \hintcell{1}{8}{3,5,6,7,8}
-          \hintcell{1}{9}{1,3,6,7,8}
-          % * Row 2
-          \hintcell{2}{1}{1,2,3,4,8}
-          \hintcell{2}{4}{1,4,7,8}
-          \hintcell{2}{5}{1,3,4,7,8}
-          \hintcell{2}{6}{3,7,8}
-          \hintcell{2}{8}{3,7,8}
-          \hintcell{2}{9}{1,2,3,7,8}
-          % * Row 3
-          \hintcell{3}{1}{1,2,3,8,9}
-          \hintcell{3}{3}{2,3,8}
-          \hintcell{3}{4}{1,5,8,9}
-          \hintcell{3}{5}{1,3,5,8,9}
-          \hintcell{3}{7}{1,3,5,8}
-          \hintcell{3}{9}{1,2,3,8}
-          % * Row 4
-          \hintcell{4}{1}{2,3,4,8}
-          \hintcell{4}{2}{2,3,4}
-          \hintcell{4}{3}{2,3,4,6,8}
-          \hintcell{4}{4}{4,6,7,8,9}
-          \hintcell{4}{5}{3,4,7,8,9}
-          \hintcell{4}{7}{2,3,4,6,8}
-          \hintcell{4}{8}{3,6,7,8}
-          % * Row 5
-          \hintcell{5}{3}{2,3,4,6,8}
-          \hintcell{5}{4}{4,5,6,8}
-          \hintcell{5}{5}{3,4,5,8}
-          \hintcell{5}{6}{3,5,8}
-          \hintcell{5}{7}{2,3,4,6,8}
-          \hintcell{5}{8}{3,6,8}
-          % * Row 6
-          \hintcell{6}{1}{3,4,5,8}
-          \hintcell{6}{2}{3,4,5}
-          \hintcell{6}{4}{4,6,7,8}
-          \hintcell{6}{6}{3,7,8}
-          \hintcell{6}{7}{3,4,6,8}
-          \hintcell{6}{9}{3,6,7,8}
-          % * Row 7
-          \hintcell{7}{1}{2,3,4,6,9}
-          \hintcell{7}{2}{2,3,4,9}
-          \hintcell{7}{4}{5,8,9}
-          \hintcell{7}{5}{5,8,9}
-          \hintcell{7}{6}{2,5,8,9}
-          \hintcell{7}{8}{3,5,6,8}
-          \hintcell{7}{9}{3,6,8}
-          % * Row 8
-          \hintcell{8}{1}{6,9}
-          \hintcell{8}{5}{1,5,9}
-          \hintcell{8}{7}{1,5,6}
-          \hintcell{8}{9}{1,6}
-          % * Row 9
-          \hintcell{9}{1}{2,3,5}
-          \hintcell{9}{2}{2,3,5}
-          \hintcell{9}{3}{2,3}
-          \hintcell{9}{4}{1,7,8}
-          \hintcell{9}{6}{7,8}
-          \hintcell{9}{7}{1,8}
-        \end{scope}
-      \end{tikzpicture}
-}
 
 % Ability.
 
@@ -1184,11 +977,46 @@
 }
 \ExplSyntaxOff
 
+
 \ExplSyntaxOn
-\NewDocumentCommand{\cenLine}{ m }{%
-  \mbox{ }\hfill#1\hfill\mbox{ }%
+\NewDocumentCommand{\dtC}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdj{#2}\space concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdj{#2}\space #1}
+  }
 }
 \ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\dtCN}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdj{#2}\space concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdj{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\dtCV}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[def:tC]{\typeAdv{#2}\space concluding}
+  }
+  {
+    \hyperref[def:tC]{\typeAdv{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
+
+
+
+
 
 \newcommand{\sqE}{\obeybreaks{Squish\textbf{Elim}}}
 
@@ -1463,3 +1291,4 @@
   \textsf{\obeybreaks{#1}}
 }
 \ExplSyntaxOff
+
