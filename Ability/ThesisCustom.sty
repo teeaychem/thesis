@@ -135,6 +135,52 @@
 \newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
+\NewDocumentCommand{\prop}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:prop-val]{proposition}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{proposition}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{Proposition}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{propositions}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{Propositions}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\val}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:prop-val]{value}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{value}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{value}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{Values}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:prop-val]{Values}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\pool}{ m }{%
   \tl_if_empty:nTF {#1}
   {
@@ -1281,14 +1327,13 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\val}{ m }{%
+\NewDocumentCommand{\valI}{ m }{%
   \ensuremath{\text{\textsf{#1}}}
 }
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\prop}{ m }{%
+\NewDocumentCommand{\propI}{ m }{%
   \textsf{\obeybreaks{#1}}
 }
 \ExplSyntaxOff
-
