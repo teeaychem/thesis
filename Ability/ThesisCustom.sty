@@ -1337,3 +1337,28 @@
   \textsf{\obeybreaks{#1}}
 }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\dBCA}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[sketch:dBCA]{basic\space conditional\space analysis}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[sketch:dBCA]{basic\space conditional\space analysis}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[sketch:dBCA]{\tJunk{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[sketch:dBCA]{Basic\space conditional\space analysis}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[sketch:dBCA]{\tJunk{}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
