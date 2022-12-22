@@ -991,10 +991,10 @@
 \NewDocumentCommand{\tC}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:tC]{\typeAdj{#2}\space concluding}
+    \hyperref[idea:tC]{\typeAdj{#2}\space concluding}
   }
   {
-    \hyperref[def:tC]{\typeAdj{#2}\space #1}
+    \hyperref[idea:tC]{\typeAdj{#2}\space #1}
   }
 }
 \ExplSyntaxOff
@@ -1003,10 +1003,10 @@
 \NewDocumentCommand{\tCN}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:tC]{\typeAdj{#2}\space concluding}
+    \hyperref[idea:tC]{\typeAdj{#2}\space concluding}
   }
   {
-    \hyperref[def:tC]{\typeAdj{#2}\space #1}
+    \hyperref[idea:tC]{\typeAdj{#2}\space #1}
   }
 }
 \ExplSyntaxOff
@@ -1015,10 +1015,10 @@
 \NewDocumentCommand{\tCV}{ o m }{%
 \IfNoValueTF{#1}
   {
-    \hyperref[def:tC]{\typeAdv{#2}\space concluding}
+    \hyperref[idea:tC]{\typeAdv{#2}\space concluding}
   }
   {
-    \hyperref[def:tC]{\typeAdv{#2}\space #1}
+    \hyperref[idea:tC]{\typeAdv{#2}\space #1}
   }
 }
 \ExplSyntaxOff
@@ -1127,20 +1127,20 @@
 \NewDocumentCommand{\tRep}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{\hyperref[def:rotoc]{representative}}%
+    \obeybreaks{\hyperref[def:rotoc]{emblem}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{representative}}%
+      \obeybreaks{\hyperref[def:rotoc]{emblem}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{representatives}}%
+      \obeybreaks{\hyperref[def:rotoc]{emblems}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{Representatives}}%
+      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{Representatives}}%
+      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
     \fi
   }
 }
@@ -1327,3 +1327,37 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\NewDocumentCommand{\dBCAa}{ m }{%
+  \obeybreaks{\hyperref[sketch:dBCA]{BCA}}%
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\dSCA}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[sketch:dSCA]{simple\space conditional\space analysis}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[sketch:dSCA]{simple\space conditional\space analysis}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[sketch:dSCA]{simple\space conditional\space analyses}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[sketch:dSCA]{Simple\space conditional\space analysis}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[sketch:dSCA]{Simple\space conditional\space analyses}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\dSCAa}{ m }{%
+  \obeybreaks{\hyperref[sketch:dSCA]{SCA}}%
+}
+\ExplSyntaxOff
