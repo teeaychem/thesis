@@ -41,6 +41,15 @@
   }
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
+% https://tex.stackexchange.com/questions/212710/fill-space-created-by-phantom-with-other-text
+
+\newcommand{\textover}[3][l]{%
+ % #1 is the alignment, default l
+ % #2 is the text to be printed
+ % #3 is the text for setting the width
+ \makebox[\widthof{#3}][#1]{#2}%
+ }
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % % % Things such as templates, etc.
 \newcommand{\wrt}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} % Wright's revised template
