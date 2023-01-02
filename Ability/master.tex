@@ -10,25 +10,15 @@
 % \usepackage[margin=1in]{geometry}
 % \newcommand\hmmax{0}
 % \newcommand\bmmax{0}
-% % % Fonts% %
-\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
 
-\usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb]{mtpro2}
-\usepackage{bm}% Access to bold math symbols
-\usepackage[no-math]{fontspec}
-\defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
-% \protrudechars=2 % or \pdfprotrudechars=2 and
-\adjustspacing=2 %    \pdfadjustspacing=2 with luatex < v0.85
-\newfontfeature{Microtype}{protrusion=default;expansion=default;}
-\directlua{fonts.protrusions.setups.default.factor=.5}
-\setmainfont[Microtype,Ligatures=TeX,BoldFont={*-Semibold}]{Source Serif 4}
-\setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX,BoldFont={*-Semibold}]{Source Sans 3}
-\setmonofont[Scale=0.8]{Source Code Pro}
 
-\usepackage[match]{luatexja-fontspec}
-% \setmainjfont{SourceHanSerif-Regular}
-% \setsansjfont{SourceHanSans-Regular}
-% \setmonojfont{SourceHanMono}
+
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amssymb}
+
+
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
@@ -39,7 +29,6 @@
 \counterwithout{figure}{chapter}
 
 \usepackage{nonumonpart} % Disable page numbers on 'Part' title pages
-\usepackage[british]{babel}
 
 \RequirePackage[usenames, dvipsnames]{xcolor}
 
@@ -59,11 +48,8 @@
 \usepackage{ThesisFig}
 % % % % % % % % % % % %
 
-% \usepackage{selnolig}% For suppressing certain typographic ligatures automaically
+% \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
 % % % % % % %
-
-\usepackage{amsthm}         % (in part) For the defined environments
-\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{xfrac}
 \usepackage{array}
 \usepackage{arydshln}
@@ -99,8 +85,6 @@
 \addbibresource{Ability.bib}
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
 % % % % % % % % % % % % % % %
-
-
 
 \renewenvironment{quote}
   {\list{}{\rightmargin=.0325\textwidth \leftmargin=.0325\textwidth}%
@@ -151,8 +135,6 @@
   labelwidth = \widthof{\emph{Then}:},
 }
 
-
-
 % % % Misc packages % % %
 % \usepackage{setspace}
 % \usepackage{refcheck} % Can be used for checking references
@@ -161,14 +143,6 @@
 
 % % % % % % % % % % % % %
 
-% % % Red Math % % %
-
-% \usepackage{everysel}
-% \EverySelectfont{\color{black}}
-% \everymath{\color{red}}
-% \everydisplay{\color{black}}
-% % % % % % % % % %
-
 \usepackage[export]{adjustbox}
 \usepackage{subcaption}
 \usepackage{float}
@@ -176,9 +150,7 @@
 % \usepackage{pifont}
 % \newcommand{\hand}{\ding{43}}
 
-\usepackage{tabularray} % For fancy table features
-% \usepackage{multirow}
-% \usepackage{multicol}
+% \usepackage{tabularray} % For fancy table features
 
 % % % % % % % % % % % % TIKZ
 \usepackage{tikz}
@@ -186,7 +158,7 @@
 \usetikzlibrary{trees}
 \usetikzlibrary{backgrounds, positioning, fit, backgrounds}
 \usetikzlibrary{math}
-\usepackage{tikz-qtree} %for simple tree syntax
+% \usepackage{tikz-qtree} %for simple tree syntax
 % \usetikzlibrary{positioning,shapes.multipart} %for structured nodes
 \usetikzlibrary{tikzmark}
 % % % % % % % % % % % %
@@ -194,29 +166,11 @@
 \usepackage{graphicx} % for images (png/jpeg etc.)
 \usepackage{caption} % for \caption* command
 
-% \usepackage{svg}
-% \usepackage[off]{svg-extract}
-% \svgsetup{clean=true}
-
-\usepackage{extarrows}
-
 % % % % % % % % % % % % MY COMMANDS
 \newcommand{\hozlinedash}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
 }
 
-\def\nleadsto{\mathrel{%
-    \mathchoice{\NLEADSTO}{\NLEADSTO}{\scriptsize\NLEADSTO}{\tiny\NLEADSTO}%
-  }}
-\def\NLEADSTO{{%
-    \setbox0\hbox{\leadsto}%
-    \rlap{\hbox to \wd0{\hss\hspace{-10pt}\not\hss}}\box0
-  }}
-
-\usepackage{dashrule}
-\newcommand{\hozline}[0]{%
-  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}%
-}
 % % % % % % % % % % % %
 \usepackage{xskak} % For chess diagram
 % \usepackage{lplfitch} % For fitch proofs
@@ -241,6 +195,28 @@
   {1.5ex \@plus .2ex}%
   {\normalfont\normalsize\bfseries}}
 \makeatother
+
+
+% % % Fonts% %
+% \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb]{mtpro2}
+\usepackage{bm}% Access to bold math symbols
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
+% \protrudechars=2 % or \pdfprotrudechars=2 and
+\adjustspacing=2 %    \pdfadjustspacing=2 with luatex < v0.85
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\directlua{fonts.protrusions.setups.default.factor=.5}
+\setmainfont[Microtype,Ligatures=TeX]{Libertinus Serif}
+\setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX]{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+\usepackage[match]{luatexja-fontspec}
+% \setmainjfont{SourceHanSerif-Regular}
+% \setsansjfont{SourceHanSans-Regular}
+% \setmonojfont{SourceHanMono}
+
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{Libertinus Math}
 
 \usepackage[
 breaklinks,
@@ -415,4 +391,6 @@ citecolor=highlight,
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
+%%% TeX-engine: luatex
 %%% End:
+
