@@ -35,12 +35,8 @@
 \end{note}
 
 \begin{note}
-  The chapter is divided into three sections:
+  The chapter has two sections:
   \begin{TOCEnum}
-  \item
-    \TOCLine{cha:requs:infl}
-
-    Idea to help understand \requ{1}.
   \item
     \TOCLine{cha:requs:requs}
 
@@ -53,241 +49,34 @@
   \end{TOCEnum}
 \end{note}
 
-\section{\ninf{2}}
-\label{cha:requs:infl}
-
-\begin{note}
-  Consider the following \scen{0}:
-
-  \begin{scenario}[Apples]%
-    \label{scen:apples}%
-    Grey is walking to town.
-    Grey notices a bicycle for sale.
-    Grey purchases the bicycle, gets on the bicycle, and starts cycling to town.
-  \end{scenario}
-
-  \noindent%
-  The basic structure of \autoref{scen:apples} is simple:
-  \begin{itemize}[noitemsep]
-  \item
-    An initial event is in progress. \hfill (Grey is walking to town.)
-  \item
-    Some other event happens. \hfill (Grey notices and purchases the bicycle.)
-  \item
-    The initial event is not longer in progress. \hfill (Grey is cycling to town.)
-  \end{itemize}
-
-  \noindent%
-  Our interest is with the detail:
-
-  \begin{itemize}
-  \item
-    The initial event is not longer in progress due to an action the agent performed.
-  \end{itemize}
-
-  \noindent%
-  When an agent stops an event in progress by performing some action, we say the agent exerted `\ninf{}' over the initial event.
-  Hence, Grey exerted `\ninf{}' over whether or not they were walking to town.
-
-  Still, an agent does not need to exert \ninf{} to have \ninf{}.
-  Grey may have continued walking to town after noticing the bicycle for sale.
-
-  We define an agent having \ninf{} over an event as follows:
-
-  \begin{definition}[\ninf{2}]
-    \label{def:ninf}
-    \cenLine{
-      \begin{VAREnum}
-      \item
-        Agent: \vAgent{}
-      \item
-        Event: \(e\)
-      \item
-        Event description: \(\alpha\)
-      \item
-        \mbox{ }
-      \end{VAREnum}
-    }
-
-    \begin{itemize}
-    \item
-      \vAgent{} has \ninf{} over whether or not \(\text{Prog}(e, \alpha)\) is true.
-    \end{itemize}
-
-    \emph{If and only if}
-
-    \begin{itemize}
-    \item
-      Both~\ref{def:ninf:action} and~\ref{def:ninf:prog} are true:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      \item
-        \label{def:ninf:action}
-        There is some action \(b\) that \vAgent{} may (immediately) do.
-      \item
-        \label{def:ninf:prog}
-        \(\text{Prog}(e', \alpha)\) would be not be true if \vAgent{} does \(b\).
-      \end{enumerate}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  \noindent%
-  Applied to \autoref{scen:apples}:
-
-  \begin{itemize}[noitemsep]
-  \item
-    The agent is Grey.
-  \item
-    The event \(e\) spans some period of time which starts when or after Grey set out for town, and includes Grey noticing the bicycle for sale.
-  \item
-    \(\alpha\) is the description `Grey walks to town'.
-  \item
-    An instance of \(b\) is the action `Grey purchases and rides the bicycle'.
-  \end{itemize}
-
-  \noindent%
-  Of course, with additional detail given, other actions may satisfy \(b\) action of \autoref{def:ninf}.
-  For example, Grey may have turned back home or raided the local orchard.
-\end{note}
-
-\begin{note}
-  The following table lists a few additional examples of \ninf{0}:
-
-  \begin{center}
-    \bgroup
-    \def\arraystretch{1.125}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      Event description \(\alpha\) & Action \(b\) \\
-      \hline
-      Finish a book late at night. & Turn off the lights. \\
-      Listen to a (full) speech. & Leave before the speech is over. \\
-      Play a game of chess. & Flip the board in frustration.
-    \end{tabular}
-    \egroup
-  \end{center}
-
-  \noindent%
-  Having \ninf{} over whether or not event is in progress is common, but there are also various events an agent does not have \ninf{} over.
-  Here, event description and background condition which blocks.
-
-    \begin{center}
-    \bgroup
-    \def\arraystretch{1.125}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      Event description \(\alpha\) & Background condition \\
-      \hline
-      Take a shower. & Has been in the shower for a while. \\
-      Play chequers & Has made a few moves. \\
-      A bank robbery & Is in prison. \\
-    \end{tabular}
-    \egroup
-  \end{center}
-
-  \noindent%
-  We briefly comment on the first two examples:
-
-  \begin{itemize}
-  \item
-    If you've been in the shower for a while, then whatever happens it remains the case that you were taking a shower.
-  \item
-    Likewise, if you have made a few moves, then what events it remains the case you were playing chequers.
-    The contrast between playing chequers and playing a game of chess is the scope of the event.
-    One may play chequers (or chess) without playing a full game of chequers (or chess).
-  \end{itemize}
-\end{note}
-
-
-\begin{note}%
-  \nocite{Peacocke:2021aa}%
-  \ninf{2} is a general phenomenon.
-  Our specific interest in with whether an agent has \ninf{} over whether they are \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
-  In particular, \requ{1} rely on an agent having \ninf{} over concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  Still, before turning to \requ{1} we establish there are cases in which has \ninf{} over concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  \begin{proposition}[\ninf{2} over concluding]%
-    \label{prop:ninfConcl}%
-    There are instances in which an agent exerts \ninf{0} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{proposition}
-
-  \begin{argument}{prop:ninfConcl}
-    Consider an agent \vAgent{}, some proposition-value pair \(\pv{\phi}{v}\), \pool{} \(\Phi\), and event \(e\).
-
-    We make two observations:
-
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
-    \item
-      By \assuPP{2}, in order for \(e\) to be an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\), there must be some \progAdj{0} development \(e^{\sharp}\) of \(e\) such that \(e^{\sharp}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item
-      There are often actions which if performed by \vAgent{} would result in an event \(e^{+}\), where \(e^{+}\) is a development of \(e\), and there is no \progAdj{0} development of \(e^{+}\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-      In particular it may be the case that:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-        \label{prop:ninfConcl:obs:2:concludes}
-      \item
-        \(e^{+}\) does not develop into an event in which \vAgent{} \emph{concludes \(\pv{\phi}{v}\) from \(\Phi\)}.
-      \item
-        \label{prop:ninfConcl:obs:2:diffPoll}
-        \(e^{+}\) does develop into an event in which \vAgent{} concludes \(\pv{\phi}{v}\) \emph{from \(\Phi\)}.
-      \end{enumerate}
-    \end{enumerate}
-
-    \noindent%
-    We illustrate \ref{prop:ninfConcl:obs:2:concludes} and \ref{prop:ninfConcl:obs:2:diffPoll} turn:
-
-    \begin{itemize}
-    \item
-      Suppose \vAgent{} is playing a game of chess against an opponent.
-      The opponent claims checkmate, and \vAgent{} beings to determine whether or not they are in checkmate.
-
-      Still, \vAgent{} may flip the board, scattering pieces everywhere.
-      And, with pieces scattered everywhere, \vAgent{} does not have sufficient resources to determine whether or not they were in checkmate.
-
-      Hence, while determining whether or not they are in checkmate, \vAgent{} has \ninf{} over whether they are concluding they are in checkmate.
-    \end{itemize}
-
-    \begin{itemize}
-    \item
-      Suppose \vAgent{} is working on a homework problem which asks for solutions to the quadratic equation \(2x^{2} - x - 1 = 0\).
-      \vAgent{} starts to work on the problem via factorisation, and is making slow, but steady, progress.
-
-      Still, \vAgent{} understands the quadratic formula.
-      And, \vAgent{} may use the quadratic formula to solve the quadratic equation.
-      However, if \vAgent{} uses the quadratic formula, the relevant \pool{} \(\Phi\) must expand to include the details regarding the quadratic formula.
-
-      Hence, while working on the quadratic equation, \vAgent{} has \ninf{} over whether they are concluding \(x = 1\) or \(x = -\sfrac{1}{2}\) from \(\Phi\).
-      For, the agent may turn to concluding \(x = 1\) or \(x = -\sfrac{1}{2}\) from some expanded or variant \pool{} \(\Phi'\).
-    \end{itemize}
-
-    Abstracting a little:
-    There are cases in which there is nothing which prevents an agent from making unavailable some proposition-value pair necessary for the agent to reach some conclusion.
-    And, there are cases in which an agent may chose to appeal to additional proposition-value pairs in order to reach a conclusion.%
-    \footnote{
-      It does not follow the agent had a choice over how event develops, if the agent does not exert \ninf{}.
-      It may be that if the agent continued the event, they would have concluded \(\pv{\phi}{v}\) from \(\Phi\).
-      And, may remain the case that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
-    }
-  \end{argument}
-\end{note}
 
 \section{\requ{3}}
 \label{cha:requs:requs}
 
 \begin{note}
-  \autoref{cha:requs:infl} introduced the idea of an agent having \ninf{} over whether or not some action in the progressive is true of an event.
+  Idea of a \requ{} is something that must be the case in order for the agent to be concluding.
 
-  The key observation of \autoref{cha:requs:infl} was \autoref{prop:ninfConcl}.
-  An agent may exert \ninf{} over whether or the agent is concluding some proposition-value pair from some \pool{} is true of an event.
+  Various things need to be the case.
+  Alive, conscious, 
 
-  Our attention now turn to a phenomenon in which an agent does or would exert \ninf{} over whether or not the agent is concluding `due to' some proposition-value-\pool{} pairing not being a \fc{}.
+  In particular, this thing is a \fc{}.
 \end{note}
 
 \subsection{Definition}
 \label{cha:requs:def}
 
 \begin{note}
-  \requ{3} capture a phenomenon in which an agent does or would exert \ninf{} over whether or not the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) `due to' \(\pvp{\psi}{v'}{\Psi}\) pairing not being a \fc{}.
+  Event.
+  Event in which agent is concluding.
+  However, various aspects of event independent of whether the agent is concluding.
+  Familiar idea from event semantics.
+  So, build up description of event, without concluding.
+  A \requ{} then is a necessarily condition on concluding.
 
-  We state the definition of a \requ{} in full, and then clarify the way in which the definition works.
+  Same as \qWhyV{}.
+
+
+  Defined as follows:
 
   \begin{definition}[A \requ{0}]
     \label{def:requ}
@@ -326,7 +115,7 @@
 
     \begin{itemize}
     \item
-      For any alternative event \(e'\) to event \(e\) such that \(d\) is true of \(e'\):
+      For any event \(e'\) such that \(d\) is true of \(e'\):
       \begin{itenum}
       \item[\emph{If}:]
         \(\pv{\psi}{v'}\) from \(\Psi\) is not a \fc{} for \vAgent{}.
@@ -338,7 +127,7 @@
   \end{definition}
 
   \noindent%
-  As we will always consider events under some description, shorten the defined term to:
+  Shorten the defined term to:
   \begin{notation}
   \item
     \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
@@ -355,88 +144,239 @@
   \end{itemize}
 
   Or, as expressed in definition, fails to be a \fc{}, then \(e\) is not an event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  Descriptions.
-  The function of descriptions is to fix some things about the event so that consider way in which the event may have been.
-  Same as \qWhyV{}.
-
-  So, then, conditional is not true due to something contingent, but from something broader.
 \end{note}
 
-\paragraph*{Lost keys}
+\subsection{Illustrations}
+\label{cha:requs:firstIllu}
 
 \begin{note}
-  \scen{0} in which an agent is not concluding due to \requ{}.
+  Start with an easy \scen{0}.
+  Then, more complex to highlight issues.
+\end{note}
+
+\paragraph{Easy}
+
+\begin{note}
+  So, scenario is puzzle where independent sub-puzzles combine for solution.
+  If don't get sub-puzzle, then don't get puzzle.
+  So, if concluding answer to puzzle, then need sub-puzzles as \fc{1}.
+
+  The way this works is that if concluding in this way, then main thing needs to be a \fc{}.
+  And, anything necessary for main thing is also a \fc{}.
 \end{note}
 
 \begin{note}
-  \begin{illustration}[Lost keys]%
+  Key part of the argument is concluding, then this is a \fc{}.
+
+  \begin{scenario}[Goldbach Conjecture]%
+    The (Binary) Goldbach Conjecture states:
+
+    \begin{quote}
+      Every even number is a sum of two primes.
+    \end{quote}
+
+    An agent is travelling on a train with a some paper, a pencil.
+
+    The Conjecture is only a conjecture, and so there may (for all the agent knows), be an even number which is not the sum of two primes.
+
+    The agent is very bored.
+    The attempt to show false.
+    Methodology.
+    Write down even number.
+    Write down smaller primes.
+    Check sums.
+
+    The agent writes down an even number on the piece of paper, and attempts to find a pair of primes an even number is equal to.
+    Though, the agent is careful to ensure they do not make any mistakes.
+  \end{scenario}
+
+  The event, train journey.
+  Is the agent concluding the Goldbach Conjecture is false?
+
+  Suppose agent is concluding.
+  Then, conclude that some even number is not the sum of two primes.
+
+  On train, with no new information.
+  Chosen number.
+  It must be the case that this is a \fc{}.
+  But this doesn't really work neatly, as I really want a set.
+  
+
+  Now, in this case we need that it's a \fc{} because there's no new information.
+
+  And, various things for not concluding.
+  First, The conjecture has been verified up to \(4 \times 10^{14}\) (\cite[cf.][]{Richstein:2001aa}).
+  Second, enumerating primes whether possible.
+  Third, enumerating primes whether complete.
+
+  And so on.
+
+  Conversely, isolated on a train then simple cases where concluding.
+  For, it's got to be the case that concluding.
+
+
+  Failures of this conditional get failures of a \requ{}.
+  Two key ways.
+
+  New information.
+
+  Conclude regardless.
+\end{note}
+
+
+\paragraph{Difficult}
+
+\begin{note}
+  \begin{scenario}[Lost keys]%
     \label{illu:lost-key}%
-    I think I may have lost my keys.
-    I usually leave place my keys on the right side of my desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} which I've been saving for a rainy day.
-    And, my keys aren't there.
+    An agent thinks they may have lost their keys.
+    They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
+    And, their keys aren't there.
 
-    I've searched over the desk, under the desk, and beside the desk.
-    And, I haven't found my keys.
+    They've searched over the desk, under the desk, and beside the desk.
+    They haven't found their keys.
 
-    Still, I haven't (yet, at least) \emph{concluded} that I've lost my keys.
+    Still, the agent holds the following principle:
+    \begin{quote}
+      If the agent thinks of a place to look for an object, the agent does not conclude the object is lost without searching the place.
+    \end{quote}
+    % And, the agent may still think of a place to look.
 
-    For, there might still be some place I haven't looked.
-    If I think a little harder a figure out where that place is, I would conclude my keys might be in that place.
-    And, my keys aren't lost if they are in that place.
-    So, I might conclude that my keys aren't lost, which conflicts with concluding my keys are lost.
+    % They retrace earlier steps and recall they went to get coffee after arriving in the office.
+    % Could the keys be near the coffee machine?
+  \end{scenario}
 
-    I do not go on to conclude I have lost my keys.
-  \end{illustration}
-\end{note}
+  \noindent%
+  At issue is whether the agent concludes they have lost their keys without any further search.
+  Fix the event to begin when the \agents{} completes their initial search of the desk and extend the event until the agent either
+  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+  \item
+    concludes they have lost their keys without any further search, or
+  \item
+    sets of on a further search.
+  \end{enumerate*}
 
-\begin{note}
-  Filling in the details of \autoref{illu:lost-key}:
-  \begin{itemize}[noitemsep]
-  \item
-    I am the agent.
-  \item
-    \(\phi\) is the proposition: \propI{I have lost my keys}.
-  \item
-    \(\psi\) is the proposition: \propI{My keys are not in location \(l\)}
-  \item
-    Both \(v\) and \(v'\) are the value: \valI{True}.
-  \item
+  Given the description of \label{illu:lost-key}, we argue:%
+  \footnote{
     The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.
-  \item
-    Key parts of description:
-    \begin{itemize}
-    \item
-      If possible somewhere I haven't considered, not lost.
-    \item
-      Possible.
-    \end{itemize}
-  \end{itemize}
-
-  Hence, the relevant instance of the conditional by which a \requ{} is defined is:
+  }
+  %
+  \begin{quote}
+    \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}
+  \end{quote}
+  %
+  To do so, then the following conditional is true:
 
   \begin{quote}
     \begin{itenum}
     \item[\emph{If}:]
-      If \(\pv{\propI{My keys are not in location }l}{\valI{True}}\) from \(\Psi\) is not a \fc{}.
+      If \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} is not a \fc{}.
     \item[\emph{Then}:]
-      I am not concluding \(\pv{\propI{I have lost my keys}}{\valI{True}}\) from \(\Phi\).
+      The agent is not concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
     \end{itenum}
   \end{quote}
 
-  The antecedent is true, and hence the consequent is true due to \ninf{} I exert over whether or not I am concluding my keys are lost.
+  Argue for the contrapositive.
+
+  Suppose the agent is concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
+  Then, by principle, it must be the case that no further place.
+  For, else go look at that place.%
+  \footnote{
+    Assumes the agent has negative influence.
+
+    I think this is clear.
+    Various things that influence.
+
+    And, though possible that there are various demons that change things, exclude the existence of such demons by the relevant description.
+
+    Note, this does not entail that the agent has positive influence, nor choice.
+  }
+  And, if go look, then the relevant event is over.
+
+  Now, with conditional, is it the case that concluding?
+  Is the agent going to think of something?
+
+  If the agent does, then they go and search.
+  If the agent does not, then they conclude lost.
+
+  There is not immediate answer.
+  However, either or.
+
+  To illustrate further.
+  Suppose coffee.
+  May think to retrace steps.
+  If so, no conclusion.
+  However, the agent may fail to think of anything.
+  If so, the agent concludes.
+
+  Still, it is not the case that conclusion is in progress, for the agent may think of a place to search.
+
+  It may be the case that \fc{} and not concluding.
+  But, this is no problem.
+  For, \fc{1} are not exclusive.
+  But, this is consistent with \requ{}.
 \end{note}
 
-\begin{note}
-  At issue is only whether \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} for me in a particular event in which I am reasoning about whether I have lost my keys.%
-  \footnote{
-    You may disagree with the tension I see in~\autoref{illu:lost-key}.
-    Perhaps it's fine to conclude my keys are lost while allowing for the possibility that the keys are some place I haven't yet thought of.
-    This doesn't matter.
-    \requ{3} are for an agent, and that agent is me.
-  }
 
-  Hence, if one does not worry about the possibility that the keys are some place they haven't yet thought of, \(\pvp{\psi}{v'}{\Psi}\) would not be a \requ{1} of concluding they have lost their keys.
+
+\subsection{Observation}
+\label{cha:requs:def:obs}
+
+\begin{note}
+  \begin{observation}[\requ{3} may be irrelevant]%
+    \label{obs:requ-exp}%
+    \cenLine{
+      \begin{VAREnum}
+      \item
+        Agent: \vAgent{}
+      \item
+        \prop{3}: \(\phi\), \(\psi\)
+      \item
+        \val{3}: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        \mbox{ }
+      \end{VAREnum}
+    }
+
+    \cenLine{
+      \begin{VAREnum}
+      \item
+        Event: \(e\)
+      \item
+        Event description: \(d\)
+      \item
+        \mbox{ }
+      \end{VAREnum}
+    }
+
+    \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of \(e\) under description \(d\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\) does necessarily capture something relevant for understanding an event under description \(d\).
+  \end{observation}
+
+  Lose proposition.
+  The point is, just something that's true or false.
+  Though, discussion of \autoref{illu:lost-key} may suggest otherwise.
+  Here, briefly outline alternative, and example of this kind of observation.
+
+  \begin{motivation}{obs:requ-exp}
+    Have something which blocks conclusion.
+
+    Suggests it may be the case that at issue is not the absence of a \fc{}, but the presence of something which prevents \fc{}.
+
+    I think this is right.
+
+    In turn, provide an account of the phenomenon which does not rely on \fc{}.
+    However, this is not straightforward.
+    Intuitively, there's obvious conflict.
+    Possible location, so keys are not lost, by principle.
+
+    Plausibly the case that agent gets by concluding the obvious.
+  \end{motivation}
+
+  It's not the case that \requ{} explains.
+  Only thing for explanation is \qWhyV{}.
+  And, \qWhyV{} is about when an agent concludes.
 \end{note}
 
 \begin{note}
@@ -447,9 +387,6 @@
   This is what secures that there is no event.
 \end{note}
 
-
-\section{\requ{3} and \tC{}}
-\label{sec:typicalRequs}
 
 \begin{note}
   \(\pvp{\psi}{v'}{\Psi}\) being a \requ{0} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) amounts, roughly, to a necessary condition:
@@ -484,41 +421,26 @@
 
     \begin{itemize}
     \item
-      It is not necessarily the case that:
-      If \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), then \(\pvp{\phi}{v}{\Phi}\) \requ{} of some sub-event.
+      The following conditional is not necessarily the case:
+      \begin{itemize}
+      \item
+        If \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), then \(\pvp{\phi}{v}{\Phi}\) \requ{} of some sub-event.
+      \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{observation}
 
   In other words, \(\pv{\phi}{v}\) from \(\Phi\) need not be a \fc{} in order for an agent to be concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
-  \begin{argument}{prop:requ-not-refl}
-    \begin{enumerate}
-    \item
-      It need not be the case that there is any significant event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-      This case follows from \autoref{obs:cds-arb} (\autopageref{obs:cds-arb}).
-    \item
-      Regardless of whether \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
-
-      Even if there is some significant event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) before the agent concludes \(\pv{\phi}{v}\) from \(\Phi\), it is consistent with our general understanding of concluding that \(\pvp{\psi}{v'}{\Psi}\) fails to be a \requ{}.%
-    \footnote{
-      The present point is similar to issues raised by \citeauthor{Harman:1973ww} (\citeyear{Harman:1973ww}) regarding the proposed equivalence between reasons for which an agent believes something with reasons the agent would offer if asked to justify their belief.
-      As \citeauthor{Harman:1973ww} notes, an agent may offer reasons because they think they will convince their audience, not because the agent is compelled by the reasons, etc.
-      (\citeyear[Ch.2]{Harman:1973ww})
-
-      To the extent that \citeauthor{Harman:1973ww}'s point is that what holds from an \agpe{} need not actually be the case, the point in the same.
-      However, to the extent that \citeauthor{Harman:1973ww} relies on an under-specification of what holds from an \agpe{} --- i.e.\ the distinction between whether \(\phi\) has value \(v\) from the \agpe{} or whether the agent evaluates as true the proposition that their audience is responsive to \(\phi\) having value \(v\), the point is distinct.
-    }
-  \end{enumerate}
-  \end{argument}
-
-  Two general ways to deny \requ{1}.
-  I think examination of cases goes a long way.
-  However, theoretical footing with respect to \tC{}.
-
-  Key proposition, and then additional \illu{1}.
+  \begin{motivation}{prop:requ-not-refl}
+    Consider the partnered case from \autoref{obs:cds-arb} (\autopageref{obs:cds-arb}).%
+  \end{motivation}
 \end{note}
+
+
+
+\section{\requ{3} and \tC{}}
+\label{sec:typicalRequs}
 
 \begin{note}
   \begin{proposition}[\tC{2} and \requ{1}]
@@ -614,18 +536,17 @@
     \begin{center}
       \begin{fitch}
         \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
-        \phantlabel{illu:sP:2}\fj Q \\
+        \phantlabel{illu:sP:2}\fj R \\
         \phantlabel{illu:sP:3}\fa P & \sqE{}:\hyperref[illu:sP:1]{1} \\
-        \phantlabel{illu:sP:4}\fa P \land Q & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
+        \phantlabel{illu:sP:4}\fa P \land R & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
       \end{fitch}
     \end{center}
 
-    Still, I haven't yet concluded \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\).
+    Still, I haven't yet concluded \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
 
     For, \sqE{} may not be a sound rule of inference.
-    % , then \((P \rightarrow Q) \rightarrow P, Q\) may not entail \(P \land Q\).
 
-    I go on to conclude \((P \rightarrow Q) \rightarrow P, Q \vdash P \land Q\).
+    I go on to conclude \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
   \end{illustration}
 
   \begin{definition}[\sqE{}]%
@@ -659,7 +580,7 @@
   \item
     I am the agent.
   \item
-    \(\phi\) is the proposition: \(\mathsf{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}\).
+    \(\phi\) is the proposition: \(\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}\).
   \item
     \(\psi\) is the proposition: \propI{\sqE{} is sound}
   \item
@@ -668,10 +589,10 @@
   \item
     The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.%
     \footnote{
-      \((P \rightarrow Q) \rightarrow P\) and \(Q\) are premises of the deduction, and not elements of \(\Phi\).
+      \((P \rightarrow Q) \rightarrow P\) and \(R\) are premises of the deduction, and not elements of \(\Phi\).
 
-      For, my conclusion is \pv{\mathsf{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}}{\valI{True}}.
-      My conclusion is not \pv{\mathsf{ P \land Q}}{\valI{True}}.
+      For, my conclusion is \pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
+      My conclusion is not \pv{\mathsf{P \land R}}{\valI{True}}.
     }
   \item
     Key parts of description:
@@ -691,7 +612,7 @@
     \item[\emph{If}:]
       If \(\pv{\propI{\sqE{} is sound}}{\valI{True}}\) from \(\Psi\) is not a \fc{}.
     \item[\emph{Then}:]
-      I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, Q \vdash P \land Q}}{\valI{True}}\) from \(\Phi\).
+      I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}\) from \(\Phi\).
     \end{itenum}
   \end{quote}
 
@@ -719,7 +640,7 @@
     \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
       \prop{2}-\val{0} pair & \pool{2} \\
       \hline
-      \pv{(\phi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\textover[c]{Sound}{Unsound}} & \dots \\
+      \pv{(\phi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\textover[c]{\valI{Sound}}{\valI{Unsound}}} & \dots \\
       \pv{\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi}{\valI{Unsound}} & \dots \\
       \pv{\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi}{\valI{Unsound}} & \dots \\
       \pv{(\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\valI{Unsound}} & \dots \\
@@ -745,61 +666,6 @@
   Note, does not depend on \agpe{my}.
 \end{note}
 
-\paragraph*{A conjecture}
-
-\begin{note}
-  \begin{illustration}[Goldbach Conjecture]%
-    The (Binary) Goldbach Conjecture states:
-
-    \begin{quote}
-      Every even number is a sum of two primes.
-    \end{quote}
-
-    I am travelling on a train with a some paper, a pencil.
-
-    The Conjecture is only a conjecture, and so there may (for all I know), be an even number which is not the sum of two primes.
-
-    I write down \(573402\) on the piece of paper, and attempt to find a pair of primes that it is equal to.
-    Though, I am careful to ensure I do not make any arithmetical mistakes.
-
-    I am not concluding the Goldbach Conjecture is false.
-  \end{illustration}
-
-  Filling in the details of \autoref{illu:lost-key}:
-
-  \begin{itemize}[noitemsep]
-  \item
-    I am the agent.
-  \item
-    \(\phi\) is the proposition: \propI{The (Binary) Goldbach Conjecture}.
-  \item
-    \(\psi\) is a the proposition: \propI{573402 is equal to a the sum of two primes}
-  \item
-    Both \(v\) and \(v'\) are the value: \valI{False}.
-  \item
-    The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.
-  \item
-    Key parts of description:
-    \begin{itemize}
-    \item
-      Not making any arithmetical mistakes.
-    \end{itemize}
-  \end{itemize}
-
-  The conjecture has been verified up to \(4 \times 10^{14}\) (\cite[cf.][]{Richstein:2001aa}).
-  Therefore, need to do a number greater.
-  Careful about arithmetic, and limited time.
-  Therefore, not a \fc{0}.
-
-  Of course, certainly not proving false.
-  For, number chosen lower than verified.
-  Of interest is whether I am concluding.
-  Answer is no.
-  Not because finding two primes.
-  There is nothing to suggest develops.
-  For, will stop when arrive at destination.
-  Rather, because not a \fc{0}.
-\end{note}
 
 \paragraph*{\requ{3} and \issueConstraint{}}
 
@@ -844,6 +710,8 @@
   Motivated by \tC{}.
 \end{note}
 
+
+
 % \begin{note}[Problems of induction]
 %   Hence, the sketch does not apply to black ravens.
 %   I wouldn't conclude all ravens are black if I saw a white raven.
@@ -864,6 +732,16 @@
 
 %   However, conclusion is out of reach.
 % \end{note}
+
+    %   \footnote{
+    %     The present point is similar to issues raised by \citeauthor{Harman:1973ww} (\citeyear{Harman:1973ww}) regarding the proposed equivalence between reasons for which an agent believes something with reasons the agent would offer if asked to justify their belief.
+    %     As \citeauthor{Harman:1973ww} notes, an agent may offer reasons because they think they will convince their audience, not because the agent is compelled by the reasons, etc.
+    %     (\citeyear[Ch.2]{Harman:1973ww})
+
+    %     To the extent that \citeauthor{Harman:1973ww}'s point is that what holds from an \agpe{} need not actually be the case, the point in the same.
+    %     However, to the extent that \citeauthor{Harman:1973ww} relies on an under-specification of what holds from an \agpe{} --- i.e.\ the distinction between whether \(\phi\) has value \(v\) from the \agpe{} or whether the agent evaluates as true the proposition that their audience is responsive to \(\phi\) having value \(v\), the point is distinct.
+    %   }
+
 
 %%% Local Variables:
 %%% mode: latex
