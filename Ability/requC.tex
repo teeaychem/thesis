@@ -118,9 +118,9 @@
       For any event \(e'\) such that \(d\) is true of \(e'\):
       \begin{itenum}
       \item[\emph{If}:]
-        \(\pv{\psi}{v'}\) from \(\Psi\) is not a \fc{} for \vAgent{}.
+        \(e'\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \item[\emph{Then}:]
-        \(e'\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
       \end{itenum}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -134,106 +134,117 @@
   \end{notation}
 \end{note}
 
-\begin{note}
-  \requ{3} are defined with respect to an event \(e\) under description \(d\).
-
-  Given some event \(e\) and description \(d\), \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) intuitively corresponds to the following idea:
-  \begin{itemize}
-  \item
-    The agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) \emph{only if} \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}, for the agent.
-  \end{itemize}
-
-  Or, as expressed in definition, fails to be a \fc{}, then \(e\) is not an event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
-
 \subsection{Illustrations}
 \label{cha:requs:firstIllu}
 
 \begin{note}
-  Start with an easy \scen{0}.
-  Then, more complex to highlight issues.
-\end{note}
+  \begin{scenario}[Lucas numbers]
+    \label{scen:LucasNums}
+    The Lucas numbers are recursively defined as follows:%
+    \footnote{
+      Starting at \(2\), see \hyperlink{cite.OEIS.:aa}{OEIS sequence A000032} for more details.
+    }
+    %
+    \[
+      L_{n} = \left\{
+        \begin{array}{ll}
+          2 & \text{if } n = 0 \\
+          1 & \text{if } n = 1 \\
+          L_{n-1} + L_{n-2} & \text{if } n > 1 \\
+        \end{array}
+      \right.
+    \]
 
-\paragraph{Easy}
+    An agent is alone and quite bored.
+    The agent sets out to calculate the first ten Lucas numbers by applying the recursive definition.
 
-\begin{note}
-  So, scenario is puzzle where independent sub-puzzles combine for solution.
-  If don't get sub-puzzle, then don't get puzzle.
-  So, if concluding answer to puzzle, then need sub-puzzles as \fc{1}.
+    The agent begins:
 
-  The way this works is that if concluding in this way, then main thing needs to be a \fc{}.
-  And, anything necessary for main thing is also a \fc{}.
-\end{note}
-
-\begin{note}
-  Key part of the argument is concluding, then this is a \fc{}.
-
-  \begin{scenario}[Goldbach Conjecture]%
-    The (Binary) Goldbach Conjecture states:
-
-    \begin{quote}
-      Every even number is a sum of two primes.
-    \end{quote}
-
-    An agent is travelling on a train with a some paper, a pencil.
-
-    The Conjecture is only a conjecture, and so there may (for all the agent knows), be an even number which is not the sum of two primes.
-
-    The agent is very bored.
-    The attempt to show false.
-    Methodology.
-    Write down even number.
-    Write down smaller primes.
-    Check sums.
-
-    The agent writes down an even number on the piece of paper, and attempts to find a pair of primes an even number is equal to.
-    Though, the agent is careful to ensure they do not make any mistakes.
+    \[
+    \begin{array}{cccccc}
+      L_{0} & L_{1} & L_{2} & L_{3} & L_{4} & \cdots \\
+      \hline
+      2 & 1 & 3 & 4 & 7 & \cdots \\
+    \end{array}
+    \]
   \end{scenario}
 
-  The event, train journey.
-  Is the agent concluding the Goldbach Conjecture is false?
+  \begin{observation}[\requ{3} of \autoref{scen:LucasNums}]%
+    \label{obs:LucasRequ}%
+    For the event \(e\) as described by \autoref{scen:LucasNums}:
+    %
+    \begin{itemize}
+    \item
+      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from \(\Phi_{8}\) and \(\pv{\propI{L\textsubscript{7} = 29}}{\valI{True}}\) from \(\Phi_{7}\) are both \requ{1} of the agent concluding \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+    \end{itemize}
+    %
+    Where \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]} abbreviates \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}, and the \pool{1} \(\Phi_{7}\), \(\Phi_{8}\), and \(\Phi\) are left unspecified.
+  \end{observation}
 
-  Suppose agent is concluding.
-  Then, conclude that some even number is not the sum of two primes.
+  \begin{motivation}{obs:LucasRequ}
+    Let \(d\) be the description of \autoref{scen:LucasNums}.
+    Applying \autoref{def:requ} it is sufficient to establish:
 
-  On train, with no new information.
-  Chosen number.
-  It must be the case that this is a \fc{}.
-  But this doesn't really work neatly, as I really want a set.
-  
+    \begin{itemize}
+    \item
+      For any event \(e'\) such that \(d\) is true of \(e'\):
+      \begin{itenum}
+      \item[\emph{If}:]
+        \(e'\) is an event in which the agent is concluding\newline \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+      \item[\emph{Then}:]
+        \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} from \(\Phi_{8}\) is a \fc{} for the agent.
+      \end{itenum}
+    \end{itemize}
+    %
+    And, likewise for \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} from \(\Phi_{8}\).
 
-  Now, in this case we need that it's a \fc{} because there's no new information.
+    So, consider an arbitrary event \(e^{a}\) and suppose \(d\) is true of \(e^{a}\).
+    Further, suppose \(e'\) is an event in which the agent is concluding \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
 
-  And, various things for not concluding.
-  First, The conjecture has been verified up to \(4 \times 10^{14}\) (\cite[cf.][]{Richstein:2001aa}).
-  Second, enumerating primes whether possible.
-  Third, enumerating primes whether complete.
+    Suppose the agent is concluding \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
 
-  And so on.
+    By \assuPP{}, there is an event in which the agent concludes\newline \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+    For, the proposition contains the tenth Lucas number, and so it seems the agent must have concluded \pv{\propI{L\textsubscript{9} = 76}}{\valI{True}} from some \pool{} \(\Phi_{9}\).
 
-  Conversely, isolated on a train then simple cases where concluding.
-  For, it's got to be the case that concluding.
+    And, as the agent is reasoning by the recursive definition, the agent obtains \(L_{9}\) by adding \(L_{8}\) and \(L_{7}\).
+    Hence, prior to the conclusion \pv{\propI{L\textsubscript{9} = 76}}{\valI{True}}, it seems the agent must conclude \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} and \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}}.
 
+    And, as the agent is alone by description \(d\), it seems it must be the case the agent concludes \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} and \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} without any novel information.
 
-  Failures of this conditional get failures of a \requ{}.
-  Two key ways.
+    So, events.
+    Hence, \fc{1}.
+  \end{motivation}
 
-  New information.
+  Important parts of the motivation for \autoref{obs:LucasRequ} are need in order to conclude, and no other option.
 
-  Conclude regardless.
+  By the same reasoning, \(L_{6}\) and \(L_{5}\).
+
+  Indeed, \requ{1} of the event which secures \fc{}.
+
+  And, \(L_{9}\) itself.
 \end{note}
 
+\begin{note}
+  Is the agent concluding?
+  This depends on the event.
+  Are the relevant \prop{0}-\val{0} pairings \fc{1}?
 
-\paragraph{Difficult}
+  For example, if the agent makes a mistake, then not concluding.
+\end{note}
+
+\begin{note}
+  As defined, there is little to a \requ{1}.
+  The role of a \requ{} is to link an agent concluding to \fc{1}.
+\end{note}
 
 \begin{note}
   \begin{scenario}[Lost keys]%
     \label{illu:lost-key}%
     An agent thinks they may have lost their keys.
     They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
-    And, their keys aren't there.
+    Their keys aren't there.
 
-    They've searched over the desk, under the desk, and beside the desk.
+    They've searched over, under, and beside the desk.
     They haven't found their keys.
 
     Still, the agent holds the following principle:
@@ -256,42 +267,33 @@
     sets of on a further search.
   \end{enumerate*}
 
-  Given the description of \label{illu:lost-key}, we argue:%
+  Given the description of \autoref{illu:lost-key}, we argue:%
   \footnote{
     The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.
   }
-  %
-  \begin{quote}
+
+  \begin{observation}%
+    \label{obs:KeysRequ}%
     \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}
-  \end{quote}
-  %
-  To do so, then the following conditional is true:
+  \end{observation}
 
-  \begin{quote}
-    \begin{itenum}
-    \item[\emph{If}:]
-      If \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} is not a \fc{}.
-    \item[\emph{Then}:]
-      The agent is not concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
-    \end{itenum}
-  \end{quote}
 
-  Argue for the contrapositive.
+  \begin{motivation}{obs:KeysRequ}
+    Suppose the agent is concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
+    Then, by principle, it must be the case that no further place.
+    For, else go look at that place.%
+    \footnote{
+      Assumes the agent has negative influence.
 
-  Suppose the agent is concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
-  Then, by principle, it must be the case that no further place.
-  For, else go look at that place.%
-  \footnote{
-    Assumes the agent has negative influence.
+      I think this is clear.
+      Various things that influence.
 
-    I think this is clear.
-    Various things that influence.
+      And, though possible that there are various demons that change things, exclude the existence of such demons by the relevant description.
 
-    And, though possible that there are various demons that change things, exclude the existence of such demons by the relevant description.
-
-    Note, this does not entail that the agent has positive influence, nor choice.
-  }
-  And, if go look, then the relevant event is over.
+      Note, this does not entail that the agent has positive influence, nor choice.
+    }
+    And, if go look, then the relevant event is over.
+  \end{motivation}
 
   Now, with conditional, is it the case that concluding?
   Is the agent going to think of something?
