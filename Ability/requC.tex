@@ -13,7 +13,6 @@
   \end{itemize}
 
   A \requ{} is a relation between \(\pv{\psi}{v'}\) from \(\Psi\) being a \fc{} and the agent \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
-  Roughly, agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) only if \(\pv{\psi}{v'}\) is a \fc{}.
 \end{note}
 
 \begin{note}
@@ -49,7 +48,6 @@
   \end{TOCEnum}
 \end{note}
 
-
 \section{\requ{3}}
 \label{cha:requs:requs}
 
@@ -57,26 +55,15 @@
   Idea of a \requ{} is something that must be the case in order for the agent to be concluding.
 
   Various things need to be the case.
-  Alive, conscious, 
+  In general, the agent must be alive and conscious.
+  Specific instances, further constraints.
+  For example, the coffee is too hot.
+  Cup of coffee and a preference for the temperature of coffee.
+
+  A \requ{0} is a \prop{0}-\val{0} pair which must be a \fc{0} for the agent in order for the agent to be concluding some \prop{0}-\val{0} pair.
 
   In particular, this thing is a \fc{}.
-\end{note}
-
-\subsection{Definition}
-\label{cha:requs:def}
-
-\begin{note}
-  Event.
-  Event in which agent is concluding.
-  However, various aspects of event independent of whether the agent is concluding.
-  Familiar idea from event semantics.
-  So, build up description of event, without concluding.
-  A \requ{} then is a necessarily condition on concluding.
-
-  Same as \qWhyV{}.
-
-
-  Defined as follows:
+  We define \requ{1} as follows:
 
   \begin{definition}[A \requ{0}]
     \label{def:requ}
@@ -108,7 +95,7 @@
 
     \begin{itemize}
     \item
-      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) under description \(d\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) under (an incomplete) description \(d\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itemize}
 
     \emph{If and only if}
@@ -134,8 +121,32 @@
   \end{notation}
 \end{note}
 
-\subsection{Illustrations}
-\label{cha:requs:firstIllu}
+\begin{note}
+  The definition of a \requ{} appeals to an (incomplete) description \(d\) of an event in order to capture relation between agent concluding and \fc{}.
+  As the \itc{} is a material conditional, trivially true.
+
+  Indeed, same as \qWhyV{}.
+
+  Whether there is some feature of the event capture such that it is not possible for agent concluding while not a \fc{}.
+
+  Purpose of this is not to secure \requ{} by alternative events, but to ensure way in which get \requ{} does not rest on something trivial.
+  Of course, it may be the case that \(d\) is narrow, and hence \itc{} is trivially true.
+    However, never assume this.
+
+  This technicality aside, the definition of a \requ{} is minimal.
+  Note, in particular, it does not follow from \(\pvp{\phi}{v}{\Phi}\) being a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) that either:
+  \begin{itemize}
+  \item
+    \(\pv{\phi}{v}\) being a \fc{} from \(\Psi\) is relevant to the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), if the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \item
+    \(\pv{\phi}{v}\) not being a \fc{} from \(\Psi\) is relevant to the agent not concluding \(\pv{\phi}{v}\) from \(\Phi\), if the agent is not concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{itemize}
+
+  For \requ{} to be of interest, additional considerations.
+  Following section.
+
+  First, we two \illu{1} of \requ{1}.
+\end{note}
 
 \begin{note}
   \begin{scenario}[Lucas numbers]
@@ -221,13 +232,17 @@
 
   Indeed, \requ{1} of the event which secures \fc{}.
 
-  And, \(L_{9}\) itself.
+  And, \(L_{9}\) itself.%
+  \footnote{
+    However, it is not always the case that \(\pvp{\phi}{v}{\Phi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    For example, consider the partnered case from \autoref{obs:cds-arb}
+  }
 \end{note}
 
 \begin{note}
   Is the agent concluding?
   This depends on the event.
-  Are the relevant \prop{0}-\val{0} pairings \fc{1}?
+  Are the relevant \prop{0}-\val{0} pairs \fc{1}?
 
   For example, if the agent makes a mistake, then not concluding.
 \end{note}
@@ -251,49 +266,67 @@
     \begin{quote}
       If the agent thinks of a place to look for an object, the agent does not conclude the object is lost without searching the place.
     \end{quote}
-    % And, the agent may still think of a place to look.
-
-    % They retrace earlier steps and recall they went to get coffee after arriving in the office.
-    % Could the keys be near the coffee machine?
   \end{scenario}
 
   \noindent%
-  At issue is whether the agent concludes they have lost their keys without any further search.
-  Fix the event to begin when the \agents{} completes their initial search of the desk and extend the event until the agent either
-  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+  % At issue is whether the agent concludes they have lost their keys without any further search.
+  % Fix the event to begin when the \agents{} completes their initial search of the desk and extend the event until the agent either
+  % \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+  % \item
+  %   concludes they have lost their keys without any further search, or
+  % \item
+  %   sets of on a further search.
+  % \end{enumerate*}
+  Given the description of \autoref{illu:lost-key} it seems:
+  \begin{itemize}
   \item
-    concludes they have lost their keys without any further search, or
-  \item
-    sets of on a further search.
-  \end{enumerate*}
-
-  Given the description of \autoref{illu:lost-key}, we argue:%
+    \pvp{\propI{The agent has no further idea of where to look}}{\valI{True}}{\Psi} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}} from \(\Phi\).
+  \end{itemize}
+  The principle the agent holds requires the agent to conclude the have no further idea of where to look before concluding they have lost their keys.%
   \footnote{
-    The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.
-  }
+    Assumes the agent has negative influence.
 
-  \begin{observation}%
-    \label{obs:KeysRequ}%
-    \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}
+    I think this is clear.
+    Various things that influence.
+
+    And, though possible that there are various demons that change things, exclude the existence of such demons by the relevant description.
+
+    Note, this does not entail that the agent has positive influence, nor choice.
+  }
+  Then, by principle, it must be the case that no further place.
+  For, else go look at that place.
+  And, if go look, then the relevant event is over.
+
+  \requ{2}.
+  However, only given the description.
+  It may be the case that the agent abandons principle.
+  However, if so then description is not true of relevant event.
+  Subtle point.
+  Need something about the way things are which constrains the way things may develop.
+
+  If this is not the case, then no \requ{1}.
+  However, I assume this is the case.%
+  \footnote{
+    Various demons, rule out by description.
+  }
+\end{note}
+
+\begin{note}
+  Interesting features:
+
+  \begin{observation}
+    It need may be the case that both:
+    \begin{itemize}
+    \item
+      \pvp{\propI{The agent has no further idea of where to look}}{\valI{True}}{\Psi}
+    \item
+      \pvp{\propI{The agent's may be by the coffee machine}}{\valI{True}}{\Psi}
+    \end{itemize}
+    are \fc{1}.
   \end{observation}
 
-
-  \begin{motivation}{obs:KeysRequ}
-    Suppose the agent is concluding \pv{\propI{The agent has lost their keys}}{\valI{True}}.
-    Then, by principle, it must be the case that no further place.
-    For, else go look at that place.%
-    \footnote{
-      Assumes the agent has negative influence.
-
-      I think this is clear.
-      Various things that influence.
-
-      And, though possible that there are various demons that change things, exclude the existence of such demons by the relevant description.
-
-      Note, this does not entail that the agent has positive influence, nor choice.
-    }
-    And, if go look, then the relevant event is over.
-  \end{motivation}
+  This is fine.
+  If the latter, then the agent does not conclude they have lost their keys.
 
   Now, with conditional, is it the case that concluding?
   Is the agent going to think of something?
@@ -318,127 +351,6 @@
   For, \fc{1} are not exclusive.
   But, this is consistent with \requ{}.
 \end{note}
-
-
-
-\subsection{Observation}
-\label{cha:requs:def:obs}
-
-\begin{note}
-  \begin{observation}[\requ{3} may be irrelevant]%
-    \label{obs:requ-exp}%
-    \cenLine{
-      \begin{VAREnum}
-      \item
-        Agent: \vAgent{}
-      \item
-        \prop{3}: \(\phi\), \(\psi\)
-      \item
-        \val{3}: \(v\), \(v'\)
-      \item
-        \pool{3}: \(\Phi\), \(\Psi\)
-      \item
-        \mbox{ }
-      \end{VAREnum}
-    }
-
-    \cenLine{
-      \begin{VAREnum}
-      \item
-        Event: \(e\)
-      \item
-        Event description: \(d\)
-      \item
-        \mbox{ }
-      \end{VAREnum}
-    }
-
-    \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of \(e\) under description \(d\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\) does necessarily capture something relevant for understanding an event under description \(d\).
-  \end{observation}
-
-  Lose proposition.
-  The point is, just something that's true or false.
-  Though, discussion of \autoref{illu:lost-key} may suggest otherwise.
-  Here, briefly outline alternative, and example of this kind of observation.
-
-  \begin{motivation}{obs:requ-exp}
-    Have something which blocks conclusion.
-
-    Suggests it may be the case that at issue is not the absence of a \fc{}, but the presence of something which prevents \fc{}.
-
-    I think this is right.
-
-    In turn, provide an account of the phenomenon which does not rely on \fc{}.
-    However, this is not straightforward.
-    Intuitively, there's obvious conflict.
-    Possible location, so keys are not lost, by principle.
-
-    Plausibly the case that agent gets by concluding the obvious.
-  \end{motivation}
-
-  It's not the case that \requ{} explains.
-  Only thing for explanation is \qWhyV{}.
-  And, \qWhyV{} is about when an agent concludes.
-\end{note}
-
-\begin{note}
-  \fc{1} focus on event.
-  However, the existence of an event is secondary.
-  Present concern that applies to any reasoning about where keys are.
-
-  This is what secures that there is no event.
-\end{note}
-
-
-\begin{note}
-  \(\pvp{\psi}{v'}{\Psi}\) being a \requ{0} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) amounts, roughly, to a necessary condition:
-  \begin{itemize}
-  \item
-    The agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) \emph{only if} \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-  \end{itemize}
-
-  Hence, if an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\), it must be the case that \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-
-  However, we have granted that any instance of a \emph{conclusion} of \(\pv{\phi}{v}\) from \(\Phi\) may be arbitrary.
-  Two observations follow:
-
-  \begin{observation}
-    \label{prop:requ-not-refl}
-    \cenLine{
-      \begin{VAREnum}
-      \item
-        Agent: \vAgent{}
-      \item
-        \prop{2}: \(\phi\)
-      \item
-        \val{2}: \(v\)
-      \item
-        \pool{2}: \(\Phi\)
-      \item
-        Event: \(e\)
-      \item
-        \mbox{ }
-      \end{VAREnum}
-    }
-
-    \begin{itemize}
-    \item
-      The following conditional is not necessarily the case:
-      \begin{itemize}
-      \item
-        If \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), then \(\pvp{\phi}{v}{\Phi}\) \requ{} of some sub-event.
-      \end{itemize}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{observation}
-
-  In other words, \(\pv{\phi}{v}\) from \(\Phi\) need not be a \fc{} in order for an agent to be concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  \begin{motivation}{prop:requ-not-refl}
-    Consider the partnered case from \autoref{obs:cds-arb} (\autopageref{obs:cds-arb}).%
-  \end{motivation}
-\end{note}
-
 
 
 \section{\requ{3} and \tC{}}
@@ -467,6 +379,8 @@
       \item
         Event: \(e\)
       \item
+        Event description: \(d\)
+      \item
         Type of reasoning: \(T\)
       \item
         \mbox{ }
@@ -475,52 +389,57 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      \ref{prop:hinge:typical}, \ref{prop:hinge:rep}, and \ref{prop:hinge:tI} are true:
-
-      \begin{enumerate}[label=\alph*., ref=(\alph*), series=propHingeSer]
+      Clauses~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly hold for any event \(e'\) for which \(d\) is true:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
       \item
-        \label{prop:hinge:typical}
-        \(e\) is an event in which \vAgent{} is \tCV{0} \(\pv{\phi}{v}\) from \(\Phi\) by~type~\(T\).
-      \item
-        \label{prop:hinge:rep}
+        \label{prop:hinge:A:rep}
         \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e\).
       \item
-        \label{prop:hinge:tI}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\).
-      \end{enumerate}
-
-    \item[\emph{Then}:]
-      \ref{prop:hinge:requ} is true:
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=propHingeSer]
+        \label{prop:hinge:A:tI}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
       \item
-        \label{prop:hinge:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \label{prop:hinge:A:novel}
+        The following conditional is true:
+        \begin{itemize}
+        \item[\emph{If}:]
+          There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
+        \item[\emph{Then}:]
+          There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
+        \end{itemize}
       \end{enumerate}
+    \item[\emph{And}:]
+      \(d\) is true of \(e\).
+    \item[\emph{Then}:]
+      \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e\) being an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
-  The key to \autoref{prop:hinge} is \fc{1}.
-  \tC{} extends \tC{} to \fc{1}.
-  By assumption, concluding.
-  Hence, it must be the case that we get the \fc{}.
-
-  If this seems surprising, keep in mind that all of these definitions are in terms of the material conditional.
-
   \begin{argument}{prop:hinge}
-    Assume both~\ref{prop:hinge:typical}~and~\ref{prop:hinge:tI} hold.
-    And, suppose for a contradiction~\ref{prop:hinge:requ} does not hold.
+    \autoref{prop:hinge} is immediate from \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}) and the definition of a \requ{} (\autoref{def:requ}, \autopageref{def:requ}).
 
-    From~\ref{prop:hinge:typical}, \(e\) is an event.
+    Consider an arbitrary event \(e^{a}\) such that Clauses~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly hold.
+    Suppose \tCV{}.
+    Then, by \autoref{prop:tC-and-fc}, \fc{}.
 
-    From~\ref{prop:hinge:tI}, \(\pvp{\psi}{v'}{\Psi}\) is representative of some type \(T\).
-
-    Now, to show \requ{}.
-    Needs to be the case that, if not \fc{}, then not event.
-    Well, suppose not \fc{}.
-    Then, cannot be event.
-    For, conflicts with description.
+    Therefore, \(d\) is true of \(e\), then by \autoref{def:requ}, \requ{}.
   \end{argument}
+
+  Recap.
+
+  \tCV{}.
+  Intuitively, various other things conclude.
+  \tRep{}, requires events.
+  Conditional of \autoref{prop:hinge:A:novel} strengthens so no novel information.
+
+  As get \fc{}, then \requ{}.
+
+  Importance of \autoref{prop:hinge} is existence of \requ{}.
+  \tCV{} without novel information.
+
+  Now, to get \tRep{}, plausibly the case that \(d\) is narrow.
+  However, at issue is not whether there are other events for which \(d\) is true, but the way \requ{} follows.
+  (As with the way this is introduced.)
 \end{note}
 
 \paragraph*{Sound rules}
@@ -612,7 +531,7 @@
   \begin{quote}
     \begin{itenum}
     \item[\emph{If}:]
-      If \(\pv{\propI{\sqE{} is sound}}{\valI{True}}\) from \(\Psi\) is not a \fc{}.
+      If \pv{\propI{\sqE{} is sound}}{\valI{True}} from \(\Psi\) is not a \fc{}.
     \item[\emph{Then}:]
       I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}\) from \(\Phi\).
     \end{itenum}
@@ -636,7 +555,7 @@
   Though, in short, would fail to be reasoning if failed?
   Answer, yes.
 
-  Plausibly, four \prop{0}-\val{0}-\pool{0} pairings in type:
+  Plausibly, four \prop{0}-\val{0}-\pool{0} pairs in type:
 
   \begin{center}
     \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
