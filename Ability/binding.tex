@@ -21,92 +21,33 @@
 
 \begin{note}
   \autoref{cha:requs} introduced \requ{1}.
-  In this chapter, link \requ{1} to \qWhyV{}.
+  In this chapter, link \requ{1} to \qWhyV{} and \issueConstraint{}.
 \end{note}
 
 \begin{note}
   Three sections:
   \begin{TOCEnum}
   \item
-    \TOCLine{cha:binding:sec:requRos}
-  \item
-    \TOCLine{cha:binding:sec:requ-qWhyV}
-  \item
-    \TOCLine{cha:binding:sec:requ-iC}
+    \dots
   \end{TOCEnum}
 \end{note}
 
-\section{\requ{3} and \ros{1}}
-\label{cha:binding:sec:requRos}
+
+\section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
+\label{sec:comining-ingredients}
+
+
+\subsection{\requ{3} and \qWhyV{}}
 
 \begin{note}
-  We being by observing a key way in which \requ{1} interact with \ros{1}:
+  Selection, link \requ{1} to answers to \qWhyV{}.
+  Recall:
 
-  \begin{proposition}[\requ{3} and \ros{1}]
-    \label{prop:requ-ros}
-    \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Propositions: \(\phi\), \(\psi\)
-      \item
-        Values: \(v\), \(v'\)
-      \item
-        \pool{3}: \(\Phi\), \(\Psi\)
-      \item
-        Event: \(e\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
-    \begin{itemize}
-    \item
-      \(\pvp{\psi}{v'}{\Psi}\) being a \requ{} of \(e\).
-    \end{itemize}
-
-    \emph{Entails}:
-
-    \begin{itemize}
-    \item
-      \begin{itenum}
-      \item[\emph{If}:]
-        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold, for \vAgent{}, through \(e\).
-      \item[\emph{Then}:]
-        \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{itenum}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:requ-ros}
-    Assume \(\pvp{\psi}{v'}{\Psi}\) is a \requ{}.
-
-    Now, suppose a \ros{} fails to hold between \(\pv{\psi}{v'}\) and \(\Psi\) in \(e\).
-
-    By \autoref{prop:fcs-only-if-pot-support}, \(\pv{\phi}{v}\) from \(\Psi\) is not a \fc{} for \vAgent{}.
-
-    Therefore, by the definition of a \requ{}, the agent is not concluding.
-  \end{argument}
-\end{note}
-
-\begin{note}
-  Intuitively, \autoref{prop:requ-ros} states that, whatever \ros{1} amount to in practice, if a \ros{} fails to hold, from an \agpe{}, then no concluding.
-
-  % \ros{} capture distinctive relation between conclusion and \pool{}.
-  % \supportII{}, holds without \wit{}.
-  % \fc{}, holds.
-  % Hence, the proposition.
-\end{note}
-
-\section{\requ{3} and \qWhyV{}}
-\label{cha:binding:sec:requ-qWhyV}
-
-\begin{note}
   \reQuestion{questionWhyV}
+\end{note}
 
-  \begin{proposition}[\requ{3} and \qWhyV{}]
+\begin{note}
+ \begin{proposition}[\requ{3} and \qWhyV{}]
     \label{prop:requ-WhyV}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
@@ -128,41 +69,45 @@
     \begin{itenum}
     \item[\emph{If}:]
       \ref{prop:requ-WhyV:if:concludes},~\ref{prop:requ-WhyV:if:concluding}, and~\ref{prop:requ-WhyV:if:requ} hold:
-      \begin{enumerate}[label=\alph*., ref=(\alph*), series=propRequWhyVSeries]
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
       \item
         \label{prop:requ-WhyV:if:concludes}
         \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{prop:requ-WhyV:if:concluding}
-        \(e^{\flat}\) sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
         \label{prop:requ-WhyV:if:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\)
+        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\).
+      \item
+        \label{prop:requ-WhyV:if:concluding}
+        There is some sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \end{enumerate}
     \item[\emph{Then}:]
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=propRequWhyVSeries]
-      \item
-        \label{prop:requ-WhyV:tn:answer}
-        \(\pvp{\psi}{v'}{\Psi}\) is, in part, an answer to \qWhyV{}.
-      \end{enumerate}
+        \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
+  Here, two important things are a and b.
+  c clause is there to exclude cases in which agent concludes without concluding.
+
   \begin{argument}{prop:requ-WhyV}
     Suppose \ref{prop:requ-WhyV:if:concludes},~\ref{prop:requ-WhyV:if:concluding}, and~\ref{prop:requ-WhyV:if:requ} hold.
 
-    Now, suppose a \ros{} fails to hold between \(\pv{\psi}{v'}\) and \(\Psi\) in \(e^{\flat}\).
 
-    \autoref{prop:requ-ros}, \(e^{\flat}\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    Clause~\ref{prop:requ-WhyV:if:requ}.
+    So, if concluding, then \fc{}.
+    And, by Clause~\ref{prop:requ-WhyV:if:concluding}, concluding.
+    So, \fc{}.
+    And, so by \autoref{prop:fcs-only-if-pot-support}, a \ros{}.
 
-    Hence, does not develop.
+    Now, consider \(d\) such that \requ{}.
 
-    By assumption, does develop.
+    Suppose \ros{} fails to hold.
+    Then, by \autoref{prop:fcs-only-if-pot-support}, not \fc{}.
+    Therefore, not concluding.
+    So, does not develop.
 
-    Hence, \ros{} holds.
-
-    This gets us the a condition and conditional.
+    So, got the conditional.
+    By assumption concluding, hence get answer.
   \end{argument}
 \end{note}
 
@@ -174,32 +119,128 @@
   Hence, matters whether or not \ros{}.
 \end{note}
 
+\subsection{\requ{3} and \issueConstraint{}}
+\label{cha:binding:sec:requ-iC}
+
 \begin{note}
-  This is not merely some statement about \tC{}.
+  With \autoref{prop:requ-WhyV} we observe the way in which \tC{0}, \fc{1}, and \requ{1} may come together to provide counterexamples to \issueConstraint{}.
 
-  Intuitively, if \tC{} then something about what secures the agent's concluding as \tC{0}.
+  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
 
-  Stronger.
-  \requ{} is such that this is part of what makes the act an act of concluding.
+  In full:
 
-  Put it this way.
-  Concern about \tC{0}.
-  Then, it may still be the agent is concluding.
+  \begin{proposition}
+    \label{prop:requ-WhyV-ces}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        Events: \(e\), \(e^{\flat}\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-  With \requ{}, this is not the case.
+    \begin{itenum}
+    \item[\emph{If}:]
+      \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ},~and~\ref{prop:requ-WhyVCes:noW} hold:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
+      \item
+        \label{prop:requ-WhyVCes:if:concludes}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{prop:requ-WhyVCes:if:concluding}
+        \(e^{\flat}\) sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{prop:requ-WhyVCes:if:requ}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\)
+      \item
+        \label{prop:requ-WhyVCes:noW}
+        No \wit{} when concludes.
+      \end{enumerate}
+    \item[\emph{Then}:]
+      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:requ-WhyV-ces}
+    \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ} parallel the same conditions from \autoref{prop:requ-WhyV}.
+    Therefore, by~\autoref{prop:requ-WhyV}, \(\pvp{\psi}{v'}{\Psi}\) answers, in part, \qWhyV{}.
+
+    However, by~\ref{prop:requ-WhyVCes:noW}, the agent does not have a \wit{}.
+
+    Therefore, answer, in part, to \qWhyV{} such that no \wit{}.
+  \end{argument}
+
+  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
+  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
+
+  In \autoref{cha:ces} we will provide examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
 \end{note}
 
 \begin{note}
-  Before turning to \issueConstraint{}, apply to the pair of \scen{1} which satisfy conditions from \autoref{cha:requs}.
+  The existence of \requ{1} are compatible with \issueConstraint{}.
+
+  \begin{observation}%
+    \label{prop:requ-not-n-ce}%
+    \autoref{prop:requ-WhyV} is compatible with \issueConstraint{}.
+  \end{observation}
+
+  \begin{motivation}{prop:requ-not-n-ce}
+    \requ{3} are about an agent concluding.
+    \fc{} when the agent concludes.
+    An agent may fail to have a \wit{} for \fc{}.
+
+    However, \issueConstraint{}, \wit{} when the agent concludes.
+    Therefore, so long as \wit{} when the agent concludes, fine.
+
+    Two possibilities.
+    \begin{enumerate}
+    \item
+      Agent already has a \wit{}.
+
+      For example, first \scen{0}.
+      If concluding sequence, \fc{}.
+      Prior to getting \(L_{8}\), \fc{}.
+
+      However, expectation of \wit{} when sequence.
+      Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
+    \item
+      Agent obtains \wit{} prior to conclusion.
+
+      Consider \autoref{scen:squish}.
+      The agent has previously concluded \sqE{} is sound.
+      Therefore, the agent has a \wit{} for \ros{}.
+    \end{enumerate}
+  \end{motivation}
+
+  Note, however, that \autoref{prop:requ-not-n-ce} is weak.
+  Compatible in terms of existential.
+  Hence we only needed to show a single case in which \wit{} for \requ{}.
+  This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
 \end{note}
+
+\subsection{Tpyically concluding}
+\label{sec:tpyically-concluding}
 
 \begin{note}
-  \color{blue}
-
-  The description here\dots
+  Here, it's the same proposition, but with conditions sufficient for \requ{}.
 \end{note}
 
-\subsection{Applied}
+
+\section{X}
+\label{sec:x}
+
+
+\subsubsection{Applied}
 \label{sec:consequences}
 
 
@@ -245,449 +286,6 @@
 \end{note}
 
 
-\section{\requ{3} and \issueConstraint{}}
-\label{cha:binding:sec:requ-iC}
-
-\begin{note}
-  With \autoref{prop:requ-WhyV} we observe the way in which \tC{0}, \fc{1}, and \requ{1} may come together to provide counterexamples to \issueConstraint{}.
-
-  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
-
-  In full detail:
-
-  \begin{proposition}
-    \label{prop:requ-WhyV-ces}
-    \cenLine{
-      \begin{itemize*}[noitemsep, label=\(\circ\)]
-      \item
-        Agent: \vAgent{}
-      \item
-        Propositions: \(\phi\), \(\psi\)
-      \item
-        Values: \(v\), \(v'\)
-      \item
-        \pool{3}: \(\Phi\), \(\Psi\)
-      \item
-        Events: \(e\), \(e^{\flat}\)
-      \item
-        \mbox{ }
-      \end{itemize*}
-    }
-
-    \begin{itenum}
-    \item[\emph{If}:]
-      \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ},~and~\ref{prop:requ-WhyVCes:noW} hold:
-      \begin{enumerate}[label=\alph*., ref=(\alph*), series=propRequWhyVSeries]
-      \item
-        \label{prop:requ-WhyVCes:if:concludes}
-        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyVCes:if:concluding}
-        \(e^{\flat}\) sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyVCes:if:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\)
-      \item
-        \label{prop:requ-WhyVCes:noW}
-        No \wit{}.
-      \end{enumerate}
-    \item[\emph{Then}:]
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=propRequWhyVSeries]
-      \item
-        \label{prop:requ-WhyVCes:tn:answer}
-        \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
-      \end{enumerate}
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:requ-WhyV-ces}
-    \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ} parallel the same conditions from \autoref{prop:requ-WhyV}.
-    Therefore, by~\autoref{prop:requ-WhyV}, \(\pvp{\psi}{v'}{\Psi}\) answers, in part, \qWhyV{}.
-
-    However, by~\ref{prop:requ-WhyVCes:noW}, the agent does not have a \wit{}.
-
-    Therefore, answer, in part, to \qWhyV{} such that no \wit{}.
-  \end{argument}
-
-  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
-  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
-
-  In \autoref{cha:ces} we will provide examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
-\end{note}
-
-\begin{note}
-  Though, for preview.
-  \autoref{illu:gist:sudoku}.
-  Suppose fill in each square, and such that concluding solution.
-  Then, other squares are \fc{1}.
-\end{note}
-
-
-\begin{note}
-  The remainder of this chapter will briefly consider a handful of issues.
-\end{note}
-
-
-\section{Interest}
-\label{sec:interest}
-
-\begin{note}
-  So, established dependence as captured by conditional.
-
-  Does this really capture why the agent concluded?
-\end{note}
-
-
-\section{Considerations}
-\label{sec:objection}
-
-\subsection*{Factivity}
-
-\begin{note}
-  Non-factive explanation.
-
-  No, \requ{1} require that \(\pv{\psi}{v'}\) from \(\Psi\) \emph{is} a \fc{}.
-  Hence, if \(\pvp{\psi}{v'}{\Psi}\) answers \qWhyV{} via \requ{}, then there is a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-\end{note}
-
-% \subsubsection{Concluding}
-% \label{sec:concluding}
-
-% \begin{note}
-%   It is not clear the following suggestion holds.
-%   \begin{suggestion}
-%     If \(e\) is event which may develop, then \(e\) is event in which concluding.
-
-%     {
-%       \color{red}
-%       This is where the problem is.
-%       I don't think this is obvious.
-
-%       We have assumed that if \(e^{sub}\) \emph{is} an event of concluding, then may develop.
-
-%       However, this suggestion is the converse.
-%     }
-%   \end{suggestion}
-% \end{note}
-
-% \begin{note}
-%   For, \(e\) is an event in which the agent throws a dart at the centre of the dartboard.
-%   However, at the initial stage of \(e\), it is not the case that the agent is sure to throw the dart at the centre of the dartboard.
-
-%   There is a difference between how the event developed, and how the may have developed.
-
-%   So, this idea isn't right in general.
-
-%   Problem.
-%   For, if existential account of progressive, then get explain how things came to be simply by focusing on what happened.
-
-%   I do have an answer to this, which is that the role of the \fc{} is what happened.
-
-%   Okay, so hang on.
-%   For an agent to be concluding, it does not need to be the case that the event is guaranteed to develop in a way such that things work out.
-
-%   However, it does need to be the case that there is some way things work out.
-
-%   And, the way in which \requ{1} work is that failure means there is no way in which things work out.
-% \end{note}
-
-% \begin{note}
-%   There are ways to approach this:
-%   \begin{itemize}
-%   \item
-%     Deny the premise.
-
-%     If event in which an agent concludes, it need not be the case that the agent was concluding throughout all the relevant sub-events.
-
-%     Then, no issue is resolved.
-%   \item
-%     Deny that the event was an event in which the agent concluded.
-
-%     Specifically, narrow the relevant event.
-%     For, we have some initial event, which develops in two a larger event, which finishes with an event in which the agent concludes \(\pv{\phi}{v}\).
-%     So long as final sub-event, then the agent concludes.
-%     The issue only arises from the apparent link to earlier (sub-)events.
-%     But, if otherwise, then motivation to reject these as (sub-)events of an event in which the agent concludes.
-%   \item
-%     Shift perspective.
-
-%     What it true after the fact need not be true as things are developing.
-%     This is \citeauthor{Boylan:2020aa}'s approach.
-%   \end{itemize}
-
-%   I am inclined to consider the former.
-%   When speak on concluded, just picking out an event.
-%   Naturally event to some default event.
-%   However, flexible.
-
-%   So, here \citeauthor{Boylan:2020aa} and darts.
-%   I was able to, sure, but only after things hand developed so far.
-
-%   Additionally, consider picture.
-%   Drew a dog.
-%   However, not the case that drawing a dog throughout associated event.
-%   Started out as a doodle.
-
-%   Ran 10k.
-%   However, started out, plan was to run 5k.
-%   Interesting consequence here is that not running 5k.
-%   For, supposing extension came about by choice, something changed, and hence no force to finish at 5k.
-
-%   Running 10k includes running 5k.
-%   But, in a more basic case, running.
-%   Extends to drawing.
-
-%   In the case of concluding, have reasoning.
-% \end{note}
-
-\subsection*{\ros{3}}
-
-\begin{note}
-  Here's the thing.
-  It is somewhat unclear what it is for a \ros{} to hold.
-
-  We haven't clearly captured something from the \agpe{}, so to speak.
-  However, there's no good way to do this.
-
-  \begin{itemize}
-  \item
-    If go solely from \agpe{}, then \agpe{} is mistaken.
-  \item
-    If go solely from without \agpe{}, then \agpe{} doesn't matter.
-  \end{itemize}
-
-  \requ{3} aim to bridge this gap.
-
-  In particular, \ninf{}.
-\end{note}
-
-\subsection*{Embedding}
-\label{sec:embedding}
-
-\begin{note}
-  \ros{}.
-  However, know \fc{}, therefore, it need not be the case that \ros{} answers.
-
-  Complex, so separate chapter.
-\end{note}
-
-
-\section{The agent's involvement}
-\label{sec:infl}
-
-\begin{note}
-  Consider the following \scen{0}:
-
-  \begin{scenario}[Apples]%
-    \label{scen:apples}%
-    Grey is walking to town.
-    Grey notices a bicycle for sale.
-    Grey purchases the bicycle, gets on the bicycle, and starts cycling to town.
-  \end{scenario}
-
-  \noindent%
-  The basic structure of \autoref{scen:apples} is simple:
-  \begin{itemize}[noitemsep]
-  \item
-    An initial event is in progress. \hfill (Grey is walking to town.)
-  \item
-    Some other event happens. \hfill (Grey notices and purchases the bicycle.)
-  \item
-    The initial event is not longer in progress. \hfill (Grey is cycling to town.)
-  \end{itemize}
-
-  \noindent%
-  Our interest is with the detail:
-
-  \begin{itemize}
-  \item
-    The initial event is not longer in progress due to an action the agent performed.
-  \end{itemize}
-
-  \noindent%
-  When an agent stops an event in progress by performing some action, we say the agent exerted `\ninf{}' over the initial event.
-  Hence, Grey exerted `\ninf{}' over whether or not they were walking to town.
-
-  Still, an agent does not need to exert \ninf{} to have \ninf{}.
-  Grey may have continued walking to town after noticing the bicycle for sale.
-
-  We define an agent having \ninf{} over an event as follows:
-
-  \begin{definition}[\ninf{2}]
-    \label{def:ninf}
-    \cenLine{
-      \begin{VAREnum}
-      \item
-        Agent: \vAgent{}
-      \item
-        Event: \(e\)
-      \item
-        Event description: \(\alpha\)
-      \item
-        \mbox{ }
-      \end{VAREnum}
-    }
-
-    \begin{itemize}
-    \item
-      \vAgent{} has \ninf{} over whether or not \(\text{Prog}(e, \alpha)\) is true.
-    \end{itemize}
-
-    \emph{If and only if}
-
-    \begin{itemize}
-    \item
-      Both~\ref{def:ninf:action} and~\ref{def:ninf:prog} are true:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      \item
-        \label{def:ninf:action}
-        There is some action \(b\) that \vAgent{} may (immediately) do.
-      \item
-        \label{def:ninf:prog}
-        \(\text{Prog}(e', \alpha)\) would be not be true if \vAgent{} does \(b\).
-      \end{enumerate}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  \noindent%
-  Applied to \autoref{scen:apples}:
-
-  \begin{itemize}[noitemsep]
-  \item
-    The agent is Grey.
-  \item
-    The event \(e\) spans some period of time which starts when or after Grey set out for town, and includes Grey noticing the bicycle for sale.
-  \item
-    \(\alpha\) is the description `Grey walks to town'.
-  \item
-    An instance of \(b\) is the action `Grey purchases and rides the bicycle'.
-  \end{itemize}
-
-  \noindent%
-  Of course, with additional detail given, other actions may satisfy \(b\) action of \autoref{def:ninf}.
-  For example, Grey may have turned back home or raided the local orchard.
-\end{note}
-
-\begin{note}
-  The following table lists a few additional examples of \ninf{0}:
-
-  \begin{center}
-    \bgroup
-    \def\arraystretch{1.125}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      Event description \(\alpha\) & Action \(b\) \\
-      \hline
-      Finish a book late at night. & Turn off the lights. \\
-      Listen to a (full) speech. & Leave before the speech is over. \\
-      Play a game of chess. & Flip the board in frustration.
-    \end{tabular}
-    \egroup
-  \end{center}
-
-  \noindent%
-  Having \ninf{} over whether or not event is in progress is common, but there are also various events an agent does not have \ninf{} over.
-  Here, event description and background condition which blocks.
-
-    \begin{center}
-    \bgroup
-    \def\arraystretch{1.125}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      Event description \(\alpha\) & Background condition \\
-      \hline
-      Take a shower. & Has been in the shower for a while. \\
-      Play chequers & Has made a few moves. \\
-      A bank robbery & Is in prison. \\
-    \end{tabular}
-    \egroup
-  \end{center}
-
-  \noindent%
-  We briefly comment on the first two examples:
-
-  \begin{itemize}
-  \item
-    If you've been in the shower for a while, then whatever happens it remains the case that you were taking a shower.
-  \item
-    Likewise, if you have made a few moves, then what events it remains the case you were playing chequers.
-    The contrast between playing chequers and playing a game of chess is the scope of the event.
-    One may play chequers (or chess) without playing a full game of chequers (or chess).
-  \end{itemize}
-\end{note}
-
-
-\begin{note}%
-  \nocite{Peacocke:2021aa}%
-  \ninf{2} is a general phenomenon.
-  Our specific interest in with whether an agent has \ninf{} over whether they are \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
-  In particular, \requ{1} rely on an agent having \ninf{} over concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  Still, before turning to \requ{1} we establish there are cases in which has \ninf{} over concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  \begin{proposition}[\ninf{2} over concluding]%
-    \label{prop:ninfConcl}%
-    There are instances in which an agent exerts \ninf{0} over whether or not they are concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{proposition}
-
-  \begin{argument}{prop:ninfConcl}
-    Consider an agent \vAgent{}, some proposition-value pair \(\pv{\phi}{v}\), \pool{} \(\Phi\), and event \(e\).
-
-    We make two observations:
-
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*), noitemsep]
-    \item
-      By \assuPP{2}, in order for \(e\) to be an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\), there must be some \progAdj{0} development \(e^{\sharp}\) of \(e\) such that \(e^{\sharp}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item
-      There are often actions which if performed by \vAgent{} would result in an event \(e^{+}\), where \(e^{+}\) is a development of \(e\), and there is no \progAdj{0} development of \(e^{+}\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-      In particular it may be the case that:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-        \label{prop:ninfConcl:obs:2:concludes}
-      \item
-        \(e^{+}\) does not develop into an event in which \vAgent{} \emph{concludes \(\pv{\phi}{v}\) from \(\Phi\)}.
-      \item
-        \label{prop:ninfConcl:obs:2:diffPoll}
-        \(e^{+}\) does develop into an event in which \vAgent{} concludes \(\pv{\phi}{v}\) \emph{from \(\Phi\)}.
-      \end{enumerate}
-    \end{enumerate}
-
-    \noindent%
-    We illustrate \ref{prop:ninfConcl:obs:2:concludes} and \ref{prop:ninfConcl:obs:2:diffPoll} turn:
-
-    \begin{itemize}
-    \item
-      Suppose \vAgent{} is playing a game of chess against an opponent.
-      The opponent claims checkmate, and \vAgent{} beings to determine whether or not they are in checkmate.
-
-      Still, \vAgent{} may flip the board, scattering pieces everywhere.
-      And, with pieces scattered everywhere, \vAgent{} does not have sufficient resources to determine whether or not they were in checkmate.
-
-      Hence, while determining whether or not they are in checkmate, \vAgent{} has \ninf{} over whether they are concluding they are in checkmate.
-    \end{itemize}
-
-    \begin{itemize}
-    \item
-      Suppose \vAgent{} is working on a homework problem which asks for solutions to the quadratic equation \(2x^{2} - x - 1 = 0\).
-      \vAgent{} starts to work on the problem via factorisation, and is making slow, but steady, progress.
-
-      Still, \vAgent{} understands the quadratic formula.
-      And, \vAgent{} may use the quadratic formula to solve the quadratic equation.
-      However, if \vAgent{} uses the quadratic formula, the relevant \pool{} \(\Phi\) must expand to include the details regarding the quadratic formula.
-
-      Hence, while working on the quadratic equation, \vAgent{} has \ninf{} over whether they are concluding \(x = 1\) or \(x = -\sfrac{1}{2}\) from \(\Phi\).
-      For, the agent may turn to concluding \(x = 1\) or \(x = -\sfrac{1}{2}\) from some expanded or variant \pool{} \(\Phi'\).
-    \end{itemize}
-
-    Abstracting a little:
-    There are cases in which there is nothing which prevents an agent from making unavailable some proposition-value pair necessary for the agent to reach some conclusion.
-    And, there are cases in which an agent may chose to appeal to additional proposition-value pairs in order to reach a conclusion.%
-    \footnote{
-      It does not follow the agent had a choice over how event develops, if the agent does not exert \ninf{}.
-      It may be that if the agent continued the event, they would have concluded \(\pv{\phi}{v}\) from \(\Phi\).
-      And, may remain the case that \(\pv{\phi}{v}\) from \(\Phi\) is a \fc{}.
-    }
-  \end{argument}
-\end{note}
 
 
 %%% Local Variables:

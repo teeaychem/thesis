@@ -201,13 +201,15 @@
 % \usepackage[complete, subscriptcorrection, slantedGreek, mtpfrak, mtpbb]{mtpro2}
 \usepackage{bm}% Access to bold math symbols
 \usepackage[no-math]{fontspec}
-\defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
+% \defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
+% \defaultfontfeatures{Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
+\defaultfontfeatures{Ligatures={NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
 % \protrudechars=2 % or \pdfprotrudechars=2 and
 \adjustspacing=2 %    \pdfadjustspacing=2 with luatex < v0.85
 \newfontfeature{Microtype}{protrusion=default;expansion=default;}
 \directlua{fonts.protrusions.setups.default.factor=.5}
-\setmainfont[Microtype,Ligatures=TeX]{Libertinus Serif}
-\setsansfont[Microtype,Scale=MatchLowercase,Ligatures=TeX]{Libertinus Sans}
+\setmainfont[Microtype]{Libertinus Serif}
+\setsansfont[Microtype,Scale=MatchLowercase]{Libertinus Sans}
 \setmonofont{Libertinus Mono}
 
 \usepackage[match]{luatexja-fontspec}
@@ -371,6 +373,8 @@ citecolor=highlight,
 \include{binding}
 
 \include{ces}
+
+\include{concerns}
 
 \include{embed}
 
