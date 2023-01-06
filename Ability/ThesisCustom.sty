@@ -1393,3 +1393,38 @@
   \obeybreaks{\hyperref[sketch:dSCA]{SCA}}%
 }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rCon}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:rCon]{\requ{0}\space conditions}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:rCon]{\requ{0}\space conditions}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:rCon]{\requ{2}\space conditions}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tCCon}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:tCCon]{\typeAdj{0}\space conditions}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:tCCon]{\typeAdj{0}\space conditions}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:tCCon]{\typeAdj{2}\space conditions}}%
+    \fi
+  }
+}
+\ExplSyntaxOff

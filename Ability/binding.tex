@@ -6,26 +6,14 @@
 
   \autoref{cha:var} introduced \qWhyV{} and \qHowV{}, and a variant constraint.
 
-  \fc{}, and \requ{}.
+  Three ingredients.
+  \fc{3}, \tC{}, and \requ{1}.
 
   In this chapter, link \fc{1} and \requ{1} to \qWhyV{}.
 \end{note}
 
 \begin{note}
-  Chapter introduced \requ{1}.
-  \requ{3} focus on some concrete stuff: \fc{1}.
-
-  However, \qWhyV{} is stated with respect to \ros{}.
-\end{note}
-
-
-\begin{note}
-  \autoref{cha:requs} introduced \requ{1}.
-  In this chapter, link \requ{1} to \qWhyV{} and \issueConstraint{}.
-\end{note}
-
-\begin{note}
-  Three sections:
+  Sections:
   \begin{TOCEnum}
   \item
     \dots
@@ -40,28 +28,62 @@
 \subsection{\requ{3} and \qWhyV{}}
 
 \begin{note}
-  Selection, link \requ{1} to answers to \qWhyV{}.
-  Recall:
+  \begin{definition}[\rCon{2}]
+    \label{def:rCon}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        Events: \(e\), \(e^{\flat}\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
 
-  \reQuestion{questionWhyV}
-\end{note}
+    \begin{itemize}
+    \item
+      The \emph{\rCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
+    \end{itemize}
 
-\begin{note}
-  \begin{definition}[\requ{2} conditions]
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
+    \emph{If and only if}:
+
+    \begin{itemize}
+    \item
+      Conditions~%
+      \ref{def:rCs:concludes},~%
+      \ref{def:rCs:concluding},~and~%
+      \ref{def:rCs:requ}~%
+      jointly hold:
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
       \item
         \label{def:rCs:concludes}
         \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{def:rCs:concluding}
-        There is some sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \(e^{\flat}\) is a sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{def:rCs:requ}
         \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\).
       \end{enumerate}
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
   \end{definition}
 \end{note}
 
+
+\begin{note}
+  Selection, link \requ{1} to answers to \qWhyV{}.
+  Recall:
+
+  \reQuestion{questionWhyV}
+\end{note}
 
 \begin{note}
   \begin{proposition}[\requ{3} and \qWhyV{}]
@@ -85,7 +107,7 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      \requ{2} conditions jointly hold.
+      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{Then}:]
         \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
@@ -156,10 +178,10 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      \requ{2} conditions
+      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{And}:]
       \label{prop:requ-WhyVCes:noW}
-      No \wit{} when concludes.
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     \item[\emph{Then}:]
       \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
     \end{itenum}
@@ -225,7 +247,7 @@
   This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
 \end{note}
 
-\section{\tCV{2}}
+\section{\tC{2}, \qWhyV{}, and \issueConstraint{}}
 \label{sec:tpyically-concluding}
 
 \begin{note}
@@ -233,40 +255,73 @@
 \end{note}
 
 \begin{note}
-  \begin{definition}[Typical conditions]
-    Collection of conditions:
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
+  \begin{definition}[The \tCCon{0}]
+    \label{def:tCCon}
+        \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        Events: \(e\), \(e^{\flat}\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+
+    \begin{itemize}
     \item
-      \label{prop:tCV-WhyV:C}
-      \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      The \emph{\tCCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
+    \end{itemize}
+
+    \emph{If and only if}:
+
+    \begin{itemize}
     \item
-      \label{prop:tCV-WhyV:tCV}
-      There is some sub-event \(e^{\flat}\) of \(e\) in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
-    \item
-      \label{prop:tCV-WhyV:sR}
-      Conditions%
-      ~\ref{prop:tCV-WhyV:sR:rep},%
-      ~\ref{prop:tCV-WhyV:sR:tI}, and%
-      ~\ref{prop:tCV-WhyV:sR:itc} %
+      Conditions~%
+      \ref{def:tCCon:C},~%
+      \ref{def:tCCon:tCV},~and~%
+      \ref{def:tCCon:sR}~%
       jointly hold:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
       \item
-        \label{prop:tCV-WhyV:sR:rep}
-        \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e^{\flat}\).
+        \label{def:tCCon:C}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{prop:tCV-WhyV:sR:tI}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
+        \label{def:tCCon:tCV}
+        \(e^{\flat}\) is a sub-event of \(e\) in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{prop:tCV-WhyV:sR:itc}
-        The following conditional is true:
-        \begin{itemize}
-        \item[\emph{If}:]
-          There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
-        \item[\emph{Then}:]
-          There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
-        \end{itemize}
+        \label{def:tCCon:sR}
+        Conditions%
+        ~\ref{def:tCCon:sR:rep},%
+        ~\ref{def:tCCon:sR:tI}, and%
+        ~\ref{def:tCCon:sR:itc} %
+        jointly hold:
+        \begin{enumerate}[label=\alph*., ref=(\alph*)]
+        \item
+          \label{def:tCCon:sR:rep}
+          \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e^{\flat}\).
+        \item
+          \label{def:tCCon:sR:tI}
+          \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
+        \item
+          \label{def:tCCon:sR:itc}
+          The following conditional is true:
+          \begin{itemize}
+          \item[\emph{If}:]
+            There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
+          \item[\emph{Then}:]
+            There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
+          \end{itemize}
+        \end{enumerate}
       \end{enumerate}
-    \end{enumerate}
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
   \end{definition}
 
   Same as previous conditions, by now \tCV{} and \requ{} replaced with sufficient conditions for \requ{} given \tCV{}.
