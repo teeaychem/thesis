@@ -47,7 +47,24 @@
 \end{note}
 
 \begin{note}
- \begin{proposition}[\requ{3} and \qWhyV{}]
+  \begin{definition}[\requ{2} conditions]
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
+      \item
+        \label{def:rCs:concludes}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:rCs:concluding}
+        There is some sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:rCs:requ}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\).
+      \end{enumerate}
+  \end{definition}
+\end{note}
+
+
+\begin{note}
+  \begin{proposition}[\requ{3} and \qWhyV{}]
     \label{prop:requ-WhyV}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
@@ -68,18 +85,7 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      \ref{prop:requ-WhyV:if:concludes},~\ref{prop:requ-WhyV:if:concluding}, and~\ref{prop:requ-WhyV:if:requ} hold:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
-      \item
-        \label{prop:requ-WhyV:if:concludes}
-        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyV:if:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\).
-      \item
-        \label{prop:requ-WhyV:if:concluding}
-        There is some sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{enumerate}
+      \requ{2} conditions jointly hold.
     \item[\emph{Then}:]
         \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
@@ -90,12 +96,12 @@
   c clause is there to exclude cases in which agent concludes without concluding.
 
   \begin{argument}{prop:requ-WhyV}
-    Suppose \ref{prop:requ-WhyV:if:concludes},~\ref{prop:requ-WhyV:if:concluding}, and~\ref{prop:requ-WhyV:if:requ} hold.
+    Suppose \ref{def:rCs:concludes},~\ref{def:rCs:concluding}, and~\ref{def:rCs:requ} hold.
 
 
-    Clause~\ref{prop:requ-WhyV:if:requ}.
+    Clause~\ref{def:rCs:requ}.
     So, if concluding, then \fc{}.
-    And, by Clause~\ref{prop:requ-WhyV:if:concluding}, concluding.
+    And, by Clause~\ref{def:rCs:concluding}, concluding.
     So, \fc{}.
     And, so by \autoref{prop:fcs-only-if-pot-support}, a \ros{}.
 
@@ -129,7 +135,7 @@
 
   In full:
 
-  \begin{proposition}
+  \begin{proposition}[\requ{3} and \issueConstraint{}]
     \label{prop:requ-WhyV-ces}
     \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
@@ -150,21 +156,10 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ},~and~\ref{prop:requ-WhyVCes:noW} hold:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
-      \item
-        \label{prop:requ-WhyVCes:if:concludes}
-        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyVCes:if:concluding}
-        \(e^{\flat}\) sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyVCes:if:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\)
-      \item
-        \label{prop:requ-WhyVCes:noW}
-        No \wit{} when concludes.
-      \end{enumerate}
+      \requ{2} conditions
+    \item[\emph{And}:]
+      \label{prop:requ-WhyVCes:noW}
+      No \wit{} when concludes.
     \item[\emph{Then}:]
       \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
     \end{itenum}
@@ -172,14 +167,16 @@
   \end{proposition}
 
   \begin{argument}{prop:requ-WhyV-ces}
-    \ref{prop:requ-WhyVCes:if:concludes},~\ref{prop:requ-WhyVCes:if:concluding},~\ref{prop:requ-WhyVCes:if:requ} parallel the same conditions from \autoref{prop:requ-WhyV}.
+    \ref{def:rCs:concludes},~\ref{def:rCs:concluding},~\ref{def:rCs:requ} parallel the same conditions from \autoref{prop:requ-WhyV}.
     Therefore, by~\autoref{prop:requ-WhyV}, \(\pvp{\psi}{v'}{\Psi}\) answers, in part, \qWhyV{}.
 
     However, by~\ref{prop:requ-WhyVCes:noW}, the agent does not have a \wit{}.
 
     Therefore, answer, in part, to \qWhyV{} such that no \wit{}.
   \end{argument}
+\end{note}
 
+\begin{note}
   \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
   And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
 
@@ -228,11 +225,117 @@
   This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
 \end{note}
 
-\subsection{Tpyically concluding}
+\section{\tCV{2}}
 \label{sec:tpyically-concluding}
 
 \begin{note}
   Here, it's the same proposition, but with conditions sufficient for \requ{}.
+\end{note}
+
+\begin{note}
+  \begin{definition}[Typical conditions]
+    Collection of conditions:
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=propRequWhyVSeries]
+    \item
+      \label{prop:tCV-WhyV:C}
+      \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item
+      \label{prop:tCV-WhyV:tCV}
+      There is some sub-event \(e^{\flat}\) of \(e\) in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+    \item
+      \label{prop:tCV-WhyV:sR}
+      Conditions%
+      ~\ref{prop:tCV-WhyV:sR:rep},%
+      ~\ref{prop:tCV-WhyV:sR:tI}, and%
+      ~\ref{prop:tCV-WhyV:sR:itc} %
+      jointly hold:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{prop:tCV-WhyV:sR:rep}
+        \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e^{\flat}\).
+      \item
+        \label{prop:tCV-WhyV:sR:tI}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
+      \item
+        \label{prop:tCV-WhyV:sR:itc}
+        The following conditional is true:
+        \begin{itemize}
+        \item[\emph{If}:]
+          There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
+        \item[\emph{Then}:]
+          There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
+        \end{itemize}
+      \end{enumerate}
+    \end{enumerate}
+  \end{definition}
+
+  Same as previous conditions, by now \tCV{} and \requ{} replaced with sufficient conditions for \requ{} given \tCV{}.
+\end{note}
+
+\begin{note}
+  \begin{proposition}[\tCV{3} and \qWhyV{}]
+    \label{prop:tCV-WhyV}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        Events: \(e\), \(e^{\flat}\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      Typical conditions jointly hold.
+    \item[\emph{Then}:]
+        \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  Instead of \requ{} directly, strengthen to \tCV{} and sufficient conditions for \requ{} given \tCV{}.
+
+  \begin{argument}{prop:tCV-WhyV}
+    By definitions.
+  \end{argument}
+
+    \begin{proposition}[\tCV{3} and \issueConstraint{}]
+    \label{prop:tCV-WhyV-ces}
+    \cenLine{
+      \begin{itemize*}[noitemsep, label=\(\circ\)]
+      \item
+        Agent: \vAgent{}
+      \item
+        Propositions: \(\phi\), \(\psi\)
+      \item
+        Values: \(v\), \(v'\)
+      \item
+        \pool{3}: \(\Phi\), \(\Psi\)
+      \item
+        Events: \(e\), \(e^{\flat}\)
+      \item
+        \mbox{ }
+      \end{itemize*}
+    }
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      Typical conditions jointly hold.
+    \item[\emph{And}:]
+      No \wit{} when concludes.
+    \item[\emph{Then}:]
+      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
 \end{note}
 
 
