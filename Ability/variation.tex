@@ -81,19 +81,13 @@
       Which proposition-value-\pool{} pairs \(\pvp{\psi}{v'}{\Psi}\) are such that:
       \begin{itemize}
       \item
-        There exists some (incomplete) description \(d\) such that:
-        \begin{enumerate}[label=\alph*., ref=(\alph*)]
-        \item
-          There is some sub-event \(e^{\flat}\) of \(e\) and \(d\) is true of \(e^{\flat}\).
-        \item
-          For any event \(e'\), \(d\) being true of \(e'\) entails:
-          \begin{itenum}
-          \item[\emph{If}:]
-            A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} at \(e'\).
-          \item[\emph{Then}:]
-            \(e'\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-          \end{itenum}
-        \end{enumerate}
+        There is some sub-event \(e^{\flat}\) such that:
+        \begin{itenum}
+        \item[\emph{If}:]
+          A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} at \(e'\).
+        \item[\emph{Then}:]
+          \(e'\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+        \end{itenum}
       \end{itemize}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -119,62 +113,28 @@
 \end{note}
 
 \begin{note}
+  The \itc{} of \qWhyV{} is a material conditional.
+  \begin{itenum}
+  \item[\emph{Either}:]
+    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} at \(e'\).
+  \item[\emph{Or}:]
+    \(e'\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{itenum}
+
+  By assumption, \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  Something about the event which ensures this is the case.
+\end{note}
+
+\begin{note}
   The \itc{} of \qWhyV{} builds on two basic ideas regarding events:
   \begin{enumerate}
   \item
     An event may or may not develop into some other event.
-
-    For example, the event in which I take hold of a regular balloon may not develop into an event in which I float off into the sky.
-    (I'm a little to heavy.)
   \item
-    An event may be broken down into sub-events.
-
-    For example, the event in which I anxiously anticipate floating off into the sky has an initial sub-event in which I take hold of a balloon.
+    Something about event determines which events it may develop into.
   \end{enumerate}
 
-  Now, consider an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  This event may be broken down into various sub-events, and for any sub-event may or may not develop into the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  One part is easy.
-  The agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and so each sub-event may develop into the event in which the agent concludes.
-  However, some sub-events may not.
-  For example, the event in which I take hold of a regular balloon may develop into a happy day (so long as I forget about floating off into the sky).
-
-  Specifically, \qWhyV{} considers whether an sub-event does not develop into an event in which the agent concludes if a \ros{} failed to hold.
-  And, answers to \qWhyV{} are proposition-value-\pool{} pairing such that a \ros{} failing to hold is sufficient to ensure the sub-event does not develop into an event in which the agent concludes.
-  In this respect the \ros{} answers, in part, why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
-  For, without the \ros{} some other event happened.
-\end{note}
-
-\begin{note}
-  The role of descriptions and quantification over events is to reduce ambiguity.
-  Natural language conditionals are difficult.%
-  \footnote{
-    See, e.g.~(\cite{Edgington:2020aa}).
-    From an abstract perspective, \qWhyV{} may be seen as \emph{defining} a conditional under the usual restrictor analysis.
-    See~(\cite{Rothschild:2021aa}) for an overview.
-  }
-  Therefore, the \itc{} of \qWhyV{} is a material conditional.
-  So long as it is \emph{not} the case that the antecedent is true while the consequent is false, then the conditional is true.
-  This is straightforward.
-
-  Observe, event does develop.
-  So, if conditional is true then by contraposition \ros{} holds at sub-event.
-
-  However, this provides no information about what happens if the conditional fails to hold.
-  Hence, description.
-
-  Description captures parts of an event, and consider events which satisfy the description.
-  If conditional follows from description then there's no event where fails and concludes.
-
-  Incomplete description.
-  Don't simply capture everything true of the sub-event.
-  This is a little vague.
-  However, tolerable.
-  At issue is not application, but the threshold.
-\end{note}
-
-\begin{note}
-  To get a feel for the way the descriptions work, consider the following \scen{0}:
+  Consider the following \scen{0}:
 
   \begin{scenario}[Coin flip]%
     \label{illu:coinT}%
@@ -190,32 +150,15 @@
     Agent \(A\) has tossed the coin, but the result of the toss is hidden between Agent \(A\)'s hands.
   \end{scenario}
 
-  \autoref{illu:coinT} is an event, but the event is identified by a description (i.e.\ the text you are reading is the description), and this description partially captures the event.
-  For example, \autoref{illu:coinT} as a description does not detail where the agents are, the way in which they communicated, nor whether they are friends, etc.
-  Still, a pair of conditions follow from the description:%
+  \autoref{illu:coinT} is an event, may or may not develop into some other event.
+  Still, a pair of conditions follow:%
   \footnote{
     \label{fn:desc-con-caveat}
-    This is not immediate.
-    For, consider adding to the description of~\autoref{illu:coinT} that agent \(A\) is dishonest and will run before handing anything \(B\), or that neither agent really has \texteuro{}5 at hand and are hoping they win, or \dots
-    The point is, unless description \(d\) (logically) entails description \(d'\), there is some what for description \(d\) to be true and description \(d'\) to be false.
-    Hence, it may be argued that \(d'\) does not follow from \(d\).
-
-    However, enhance the description.
-    So long as there is something about the event which rules out, then add to description.
-  }
-
-  \begin{itemize}[noitemsep]
-  \item
-    If the coin has landed heads, then agent \(B\) will soon be \texteuro{}5 poorer.
-  \item
-    If the coin has landed tails, then agent \(A\) will soon be \texteuro{}5 poorer.
-  \end{itemize}
-
-  And, these conditionals follow from the description now matter any additional details.%
-  \footnote{
-    Given the caveats observed in \autoref{fn:desc-con-caveat}.
-  }
-  Hence, the description of \autoref{illu:coinT} identifies something about \autoref{illu:coinT} which holds regardless of whatever else is true of \autoref{illu:coinT}.%
+    This is not obvious.
+    For, perhaps agent \(A\) is dishonest and will run before handing anything \(B\), or that neither agent really has \texteuro{}5 at hand and are hoping they win, or \dots
+    However, there is a distinction between our description of the event and the event.
+    And, at issue is the event.
+  }\(^{,}\)%
   \footnote{
     \nocite{Tichy:1976tp}%
     Likewise, extend to event of \autoref{illu:coinT} so that the result of the toss has been revealed, then counterfactual conditionals, depending on the result.
@@ -229,44 +172,31 @@
 
     Indeed, with respect to subjunctive conditionals, say the conditionals which specify the gamble are `laws' (\cite{Chisholm:1955aa,Lewis:1979vm,Veltman:2005tj}) or `lump together' the facts regarding the coin and relative wealth of agents \(A\) and \(B\) (\cite{Kratzer:1981aa,Kratzer:1989aa}).
   }
+
+  \begin{itemize}[noitemsep]
+  \item
+    If the coin has landed heads, then agent \(B\) will soon be \texteuro{}5 poorer.
+  \item
+    If the coin has landed tails, then agent \(A\) will soon be \texteuro{}5 poorer.
+  \end{itemize}
 \end{note}
 
 \begin{note}
-  The role of descriptions is to observe that there is something about the event which generalises.
-
-  Returning to \qWhyV{}, the \itc{} follows from the specified description \(d\) in parallel to the way the observed conditionals follow from the description of the event as given in~\autoref{illu:coinT}.
+  Returning to \qWhyV{}, the \itc{} parallels to the way the observed conditionals hold of the event as given in~\autoref{illu:coinT}.
   The agent has concluded, but to evaluate whether or not \(\pvp{\psi}{v'}{\Psi}\) answers, rewind to sub-event.
-  Parallel, gamble has been settled, but rewind.%
-  \footnote{
-    One concern is overdetermination.
+  Parallel, gamble has been settled, but rewind.
 
-    It just so happens to be that both \(A\) and \(B\) have been visited by a pickpocket.
-    For, we may vary the presence of the pickpocket while maintaining the description of the \scen{0}, and given the gamble, the relevant transfer of wealth occurs.
+  Now, consider an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  This event may be broken down into various sub-events, and for any sub-event may or may not develop into the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  One part is easy.
+  The agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and so each sub-event may develop into the event in which the agent concludes.
+  However, some sub-events may not.
 
-    Though, add to the description to rule out the presence of a pickpocket.
-    So long as there's no pickpocket as the event happens, the description remains true.
-
-    May worry about disconnect between description and event.
-    Material, so it could be that in all other cases gamble, but in this case pickpocket.
-  }
+  Specifically, \qWhyV{} considers whether an sub-event does not develop into an event in which the agent concludes if a \ros{} failed to hold.
+  And, answers to \qWhyV{} are proposition-value-\pool{} pairing such that a \ros{} failing to hold is sufficient to ensure the sub-event does not develop into an event in which the agent concludes.
+  In this respect the \ros{} answers, in part, why an agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
+  For, without the \ros{} some other event happened.
 \end{note}
-
-\begin{note}
-  \phantlabel{mention:Hempel:1}
-  From a broad perspective, approach to why parallels \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
-
-    \begin{quote}
-      [A Deductive-Nomological] explanation answers the question
-      `\emph{Why} did the explanandum-phenomenon occur?'
-      by showing that the phenomenon resulted from certain particular circumstances, specified in \(C_{1}, C_{2}, \dots C_{k}\), in accordance with the laws \(L_{1}, L_{2}, \dots L_{\gamma}\).
-      By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
-      \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
-    \end{quote}
-
-    Event is relevant circumstance, and description captures laws which hold with respect to circumstance.
-    Why is given in terms of which \ros{} appeared in something lawlike.
-\end{note}
-
 
 \begin{note}
   In short, \qWhyV{}, captures the phenomenon where it is not possible to describe \(e\) as opposed to some other event without \ros{}.
@@ -308,24 +238,24 @@
 
   \autoref{scen:cup-of-tea} captures an event in which I made a cup of tea.
 
-  Each step is a sub-event, and the presentation is an adequate description of the sub-event.
-  Now consider the sub-event in which I pour water into the cup.
+  Each step is a sub-event.
+  In particular, consider the sub-event in which I pour water into the cup.
   It seems the truth of the following conditional more is-or-less immediate:
   \begin{itemize}
   \item
     If the water isn't boiled, tea isn't made.
   \end{itemize}
-  For, tea does not infuse in cold water.
-  And, the ways in which the conditional is less immediate may be ruled out by adding to the description.
-  For example, I wasn't cold-brewing tea, and I didn't have time to boil the water after noticing it was cold.
-  So, as long as the conditional is true for the sub-event as it happened, we may add to our description of the sub-event to secure the truth of the conditional without fully describing the event.
+  For, tea does not infuse in cold water.%
+  \footnote{
+    Provided I wasn't cold-brewing tea, didn't have time to boil the water after noticing it was cold, etc\dots
+  }
 \end{note}
 
 \begin{note}
-  There is a clear sense with which the description given to the event captures \emph{how} I made a cup of tea.
-  Indeed, with a little adjustment the description of \autoref{scen:cup-of-tea} functions as a series of instructions for how to make a cup of tea.
+  There is a clear sense with \autoref{scen:cup-of-tea} captures \emph{how} I made a cup of tea.
+  Indeed, with a little adjustment the presentation of \autoref{scen:cup-of-tea} functions as a series of instructions for how to make a cup of tea.
 
-  And, there is also a sense with which the description explains \emph{why} I made a cup of tea.
+  Still, there is also a sense with which \autoref{scen:cup-of-tea} captures \emph{why} I made a cup of tea.
   For, given the truth of the conditional, the event in which I boiled explains, in part, why some other event did not happen.
 
   There is a sense with which the description fails to capture why I made a cup of tea.
@@ -388,7 +318,7 @@ The former parallels our interest with conclusions.
     \pv{\propI{`No earlier than last year' was an appropriate response to my sign}}{\valI{True}}
   \]
 
-  Description, Pritcher is attempting to countersign.
+  Pritcher is attempting to countersign.
   Sequence, `I come from Miran.', `Miran is early this year.', `No earlier than last year.', \dots.
 
   Conditional, from \agpe{Fox's}:
@@ -398,7 +328,6 @@ The former parallels our interest with conclusions.
   \end{itemize}
 
   If \ros{} failed to hold, then conversation partner did not respond to `I come from Miran' with `Miran is early this year'.
-  Events are compatible with description.
   Attempting to countersign, so events in which attempts fail.
   Some event where Pritcher responds `Miran overslept', etc.
 \end{note}
@@ -415,6 +344,21 @@ The former parallels our interest with conclusions.
   \]
   Still, event in which Pritcher does not mumble.
   Countersign goes through, all fine.
+\end{note}
+
+\begin{note}
+  \phantlabel{mention:Hempel:1}
+  From a broad perspective, approach to why is similar \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
+
+  \begin{quote}
+    [A Deductive-Nomological] explanation answers the question
+    `\emph{Why} did the explanandum-phenomenon occur?'
+    by showing that the phenomenon resulted from certain particular circumstances, specified in \(C_{1}, C_{2}, \dots C_{k}\), in accordance with the laws \(L_{1}, L_{2}, \dots L_{\gamma}\).
+    By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
+    \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
+  \end{quote}
+
+  Event is relevant circumstance, expect the constraint to be lawlike.
 \end{note}
 
 \subsection{Link}
@@ -530,30 +474,16 @@ The former parallels our interest with conclusions.
   \end{observation}
 
   \begin{motivation}{obs:qWhyV:rosNNecAns}
-    In short, depends on description, and failure of \ros{} to hold blocks development.
+    Consider a \scen{0} in which an agent concludes \(23 \times 15 = 345\) from their understanding of arithmetic, such that some time shortly before the agent did the calculation, the agent concluded it would be good to brew a cup of tea.
 
-    Suppose \(d\) only captures conclusion.
-    Now, over determined.
+    Intuitively it should not be the case that the \ros{} and the conclusion that it would be good to get some coffee answers, in part, why the agent concluded some theorem is true from some \pool{}.
+    Though, it may well be the case that the agent would have been too tired to conclude the theorem without the aid of the coffee.%
+    \footnote{
+      \citeauthor{Armstrong:1968vh} (\citeyear[195--196]{Armstrong:1968vh}) discusses a similar example, and suggests further discussion of this issue may also be found in \textcite{Moore:1962up}.
+      See also \citeauthor{Sanford:1989aa} (\citeyear{Sanford:1989aa}) for a broader discussion of dependence as captured by subjunctive conditions (esp.\ pp.\ 192--193).
+    }
 
-
-    \begin{itemize}
-    \item
-      Suppose coin flip.
-      In the style of \citeauthor{Tichy:1976tp}.
-      Here, the coin flip makes no difference.
-    \item
-      For, consider a \scen{0} in which an agent concludes \(23 \times 15 = 345\) from their understanding of arithmetic, such that some time shortly before the agent did the calculation, the agent concluded it would be good to brew a cup of tea.
-
-      Intuitively it should not be the case that the \ros{} and the conclusion that it would be good to get some coffee answers, in part, why the agent concluded some theorem is true from some \pool{}.
-      Though, it may well be the case that the agent would have been too tired to conclude the theorem without the aid of the coffee.%
-      \footnote{
-        \citeauthor{Armstrong:1968vh} (\citeyear[195--196]{Armstrong:1968vh}) discusses a similar example, and suggests further discussion of this issue may also be found in \textcite{Moore:1962up}.
-        See also \citeauthor{Sanford:1989aa} (\citeyear{Sanford:1989aa}) for a broader discussion of dependence as captured by subjunctive conditions (esp.\ pp.\ 192--193).
-      }
-
-      However, if the agent is tired, then would there have been something else to help them focus?
-    \end{itemize}
-    \vspace{-\baselineskip}
+    However, if the agent is tired, then would there have been something else to help them focus?
   \end{motivation}
 
   \autoref{obs:qWhyV:rosNNecAns}.
@@ -571,7 +501,7 @@ The former parallels our interest with conclusions.
   \begin{observation}
     Maybe over-generates.
 
-    For, description so fine that everything about event matters.
+    For, everything about event matters.
     This comes down to understanding of events.
     However, I don't think this is too problematic.
     For, all of these things are captured by \qHow{}.
