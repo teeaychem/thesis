@@ -2,32 +2,67 @@
 \label{cha:binding}
 
 \begin{note}
-  \autoref{cha:intro} introduced two questions, \qWhy{} and \qHow{}, and motivated a constraint between answers to \qWhy{} and \qHow{}.
-
-  \autoref{cha:var} introduced \qWhyV{} and \qHowV{}, and a variant constraint.
-
   Three ingredients.
   \fc{3}, \tC{}, and \requ{1}.
 
-  In this chapter, link \fc{1} and \requ{1} to \qWhyV{}.
+  In this chapter, link these ingredients to \qWhyV{} and \issueConstraint{}.
 \end{note}
 
 \begin{note}
   Sections:
   \begin{TOCEnum}
   \item
-    \dots
+    \TOCLine{sec:recollection}
+
+    We briefly restate \qWhyV{} and \issueConstraint{}.
+  \item
+    \TOCLine{sec:comining-ingredients}
+  \item
+    \TOCLine{sec:tpyically-concluding}
   \end{TOCEnum}
+\end{note}
+
+\section{\qWhyV{} and \issueConstraint{}}
+\label{sec:recollection}
+
+\begin{note}
+  Selection, briefly recall \qWhyV{} and \issueConstraint{}.
+\end{note}
+
+
+\begin{note}
+  \reQuestion{questionWhyV}
+
+
+  To get answer to \qWhyV{}, agent is not concluding if a \ros{} fails to hold.
+  Sufficient conditions.
+\end{note}
+
+\begin{note}
+  \reConstraint{consConstraint}
+
+  Counterexample to \issueConstraint{}, answer to \qWhyV{} with no \wit{}.
 \end{note}
 
 
 \section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
 \label{sec:comining-ingredients}
 
+\begin{note}
+  Section links \requ{0} to \qWhyV{} and \issueConstraint{}.
 
-\subsection{\requ{3} and \qWhyV{}}
+  Start by defining a collection of conditions.
+  Then, \qWhy{}.
+  From this, additional condition to get counterexample to \issueConstraint{}.
+\end{note}
+
+\subsection{Conditions}
+\label{sec:conditions}
 
 \begin{note}
+  Link via a collection of conditions.
+  In short, event where agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and sub-event where concluding \(\pv{\phi}{v}\) from \(\Phi\) where \(\pvp{\psi}{v'}{\Psi}\) was a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
   \begin{definition}[\rCon{2}]
     \label{def:rCon}
     \cenLine{
@@ -57,33 +92,56 @@
     \begin{itemize}
     \item
       Conditions~%
-      \ref{def:rCs:concludes},~%
-      \ref{def:rCs:concluding},~and~%
-      \ref{def:rCs:requ}~%
+      \ref{def:rCs:C}~and~%
+      \ref{def:rCs:Cing}~%
       jointly hold:
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
       \item
-        \label{def:rCs:concludes}
+        \label{def:rCs:C}
         \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{def:rCs:concluding}
-        \(e^{\flat}\) is a sub-event of \(e\) in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{def:rCs:requ}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\).
+        \label{def:rCs:Cing}
+        There is some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:requ} and \ref{def:rCs:Cing:itc} jointly hold:
+        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
+        \item
+          \label{def:rCs:Cing:itc}
+          The following conditional is true:
+          \begin{itenum}
+          \item[\emph{If}:]
+            \(e^{\flat}\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+          \item[\emph{Then}:]
+            \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+          \end{itenum}
+        \item
+          \label{def:rCs:Cing:requ}
+          \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \end{enumerate}
       \end{enumerate}
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{definition}
+
+  Condition~\ref{def:rCs:C}, and event in which an agent concludes.
+  Hence, \qWhyV{} applies.
+
+  Some sub-event such that conditional of \qWhyV{} holds.
+
+  Condition~\ref{def:rCs:Cing} concerns the sub-event.
+
+  \ros{}.
+  Does not develop.
+
+  Sub-condition~\ref{def:rCs:Cing:itc}.
+  Does not develop.
+  However, agent is not concluding, rather than absence of a \ros{}.
+
+  A strong condition, but an intuitive one.
+  If event is not in progress, the event does not happen.
+
+  To link not concluding to \ros{}, Sub-condition~\ref{def:rCs:Cing:requ}.
 \end{note}
 
-
-\begin{note}
-  Selection, link \requ{1} to answers to \qWhyV{}.
-  Recall:
-
-  \reQuestion{questionWhyV}
-\end{note}
+\subsection{\requ{3} and \qWhyV{}}
 
 \begin{note}
   \begin{proposition}[\requ{3} and \qWhyV{}]
@@ -109,33 +167,49 @@
     \item[\emph{If}:]
       The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{Then}:]
-        \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
+      \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
-  Here, two important things are a and b.
-  c clause is there to exclude cases in which agent concludes without concluding.
-
   \begin{argument}{prop:requ-WhyV}
-    Suppose \ref{def:rCs:concludes},~\ref{def:rCs:concluding}, and~\ref{def:rCs:requ} hold.
+    Suppose the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
 
+    From Condition~\ref{def:rCs:C}, concludes.
+    So, \qWhyV{} applies.
 
-    Clause~\ref{def:rCs:requ}.
-    So, if concluding, then \fc{}.
-    And, by Clause~\ref{def:rCs:concluding}, concluding.
-    So, \fc{}.
-    And, so by \autoref{prop:fcs-only-if-pot-support}, a \ros{}.
+    Our task is to show the conditional of \qWhyV{} is true.
 
-    Now, consider \(d\) such that \requ{}.
+    From~\ref{def:rCs:Cing} of the \rCon{}, we have some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:itc} and \ref{def:rCs:Cing:requ} jointly hold.
 
-    Suppose \ros{} fails to hold.
-    Then, by \autoref{prop:fcs-only-if-pot-support}, not \fc{}.
-    Therefore, not concluding.
-    So, does not develop.
+    Consider the event \(e^{\flat}\) and assume a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
 
-    So, got the conditional.
-    By assumption concluding, hence get answer.
+    \autoref{prop:fcs-only-if-pot-support} (\autopageref{prop:fcs-only-if-pot-support}) established:
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\sharp}\).
+    \item[\emph{Then}:]
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\sharp}\).
+    \end{itenum}
+
+    \noindent%
+    So, by our assumption \(\pv{\psi}{v'}\) not a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
+
+    Now, by Sub-condition~\ref{def:rCs:Cing:requ} of the \rCon{}, \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    And, by expanding the definition of a \requ{} (\autopageref{def:requ}):
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(e\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
+    \end{itenum}
+
+    \noindent%
+    Hence, \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+    Therefore, by Sub-condition \ref{def:rCs:Cing:itc}, \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
   \end{argument}
 \end{note}
 
@@ -151,7 +225,7 @@
 \label{cha:binding:sec:requ-iC}
 
 \begin{note}
-  With \autoref{prop:requ-WhyV} we observe the way in which \tC{0}, \fc{1}, and \requ{1} may come together to provide counterexamples to \issueConstraint{}.
+  With \autoref{prop:requ-WhyV} we observe the way in which the \rCon{0} may provide counterexamples to \issueConstraint{}.
 
   In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
 
@@ -189,12 +263,10 @@
   \end{proposition}
 
   \begin{argument}{prop:requ-WhyV-ces}
-    \ref{def:rCs:concludes},~\ref{def:rCs:concluding},~\ref{def:rCs:requ} parallel the same conditions from \autoref{prop:requ-WhyV}.
-    Therefore, by~\autoref{prop:requ-WhyV}, \(\pvp{\psi}{v'}{\Psi}\) answers, in part, \qWhyV{}.
+    More-or-less immediate.
 
-    However, by~\ref{prop:requ-WhyVCes:noW}, the agent does not have a \wit{}.
-
-    Therefore, answer, in part, to \qWhyV{} such that no \wit{}.
+    If the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\), then \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}, given~\autoref{prop:requ-WhyV}.
+    And, granting \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), this immediately contradicts \issueConstraint{}.
   \end{argument}
 \end{note}
 
@@ -247,16 +319,50 @@
   This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
 \end{note}
 
-\section{\tC{2}, \qWhyV{}, and \issueConstraint{}}
+\begin{note}
+  \begin{observation}
+    \label{obs:denyCing}
+    Deny that needed to be the case agent was concluding.
+  \end{observation}
+
+  \begin{motivation}{obs:denyCing}
+    \qWhyV{} is about developing.
+    If it does not need to be the case that the agent is concluding, then it is possible for the agent to conclude.
+  \end{motivation}
+
+  In part, this ensures we don't get anything that is clearly redundant.
+
+  In general, possible to deny.
+  But, I don't think it is viable in many cases.
+  Agent is concluding.
+  The conclusion does not `happen'.
+
+  This is hand wavy.
+  Idea of an agent \tCV{} addresses this.
+\end{note}
+
+\section{\tC{2} and \issueConstraint{}}
 \label{sec:tpyically-concluding}
 
 \begin{note}
-  Here, it's the same proposition, but with conditions sufficient for \requ{}.
+  Understand \requ{} and counterexamples to \issueConstraint{}.
+
+  Introduced \tCV{} to motivate \requ{}.
+
+  In this section, recast previous section in terms of \tCV{}.
 \end{note}
 
+\subsection{Conditions}
+\label{sec:conditions-1}
+
 \begin{note}
-  \begin{definition}[The \tCCon{0}]
-    \label{def:tCCon}
+  The \tCon{0} parallel the \rCon{0}.
+  Difference is third.
+  Rather than \requ{}, conditions sufficient for \requ{} in terms of \tCV{}.
+
+
+  \begin{definition}[The \tCon{0}]
+    \label{def:tCon}
         \cenLine{
       \begin{itemize*}[noitemsep, label=\(\circ\)]
       \item
@@ -276,7 +382,7 @@
 
     \begin{itemize}
     \item
-      The \emph{\tCCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
+      The \emph{\tCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \end{itemize}
 
     \emph{If and only if}:
@@ -284,48 +390,86 @@
     \begin{itemize}
     \item
       Conditions~%
-      \ref{def:tCCon:C},~%
-      \ref{def:tCCon:tCV},~and~%
-      \ref{def:tCCon:sR}~%
+      \ref{def:tCon:C}~and~%
+      \ref{def:tCon:Cing}~%
       jointly hold:
       \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
       \item
-        \label{def:tCCon:C}
+        \label{def:tCon:C}
         \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{def:tCCon:tCV}
-        \(e^{\flat}\) is a sub-event of \(e\) in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{def:tCCon:sR}
-        Conditions%
-        ~\ref{def:tCCon:sR:rep},%
-        ~\ref{def:tCCon:sR:tI}, and%
-        ~\ref{def:tCCon:sR:itc} %
-        jointly hold:
-        \begin{enumerate}[label=\alph*., ref=(\alph*)]
+        \label{def:tCon:Cing}
+        There is some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:tCon:sR} and \ref{def:tCon:Cing:itc} jointly hold:
+        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
         \item
-          \label{def:tCCon:sR:rep}
-          \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e^{\flat}\).
-        \item
-          \label{def:tCCon:sR:tI}
-          \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
-        \item
-          \label{def:tCCon:sR:itc}
+          \label{def:tCon:Cing:itc}
           The following conditional is true:
-          \begin{itemize}
+          \begin{itenum}
           \item[\emph{If}:]
-            There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
+            \(e^{\flat}\) is not an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
           \item[\emph{Then}:]
-            There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
-          \end{itemize}
+            \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+          \end{itenum}
+        \item
+          \label{def:tCon:sR}
+          Conditions%
+          ~\ref{def:tCon:sR:rep},%
+          ~\ref{def:tCon:sR:tI}, and%
+          ~\ref{def:tCon:sR:itc} %
+          jointly hold:
+          \begin{enumerate}[label=\roman*., ref=(\arabic{enumi}\alph{enumii}.\roman*)]
+          \item
+            \label{def:tCon:sR:rep}
+            \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e^{\flat}\).
+          \item
+            \label{def:tCon:sR:tI}
+            \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
+          \item
+            \label{def:tCon:sR:itc}
+            The following conditional is true:
+            \begin{itemize}
+            \item[\emph{If}:]
+              There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
+            \item[\emph{Then}:]
+              There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
+            \end{itemize}
+          \end{enumerate}
         \end{enumerate}
       \end{enumerate}
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{definition}
 
-  Same as previous conditions, by now \tCV{} and \requ{} replaced with sufficient conditions for \requ{} given \tCV{}.
+  \noindent%
+  Similar to previous conditions.
+  Two key differences.
+  \ref{def:tCon:Cing}: \tCV{} rather than concluding.
+  \ref{def:tCon:sR}: Rather than \requ{}, sufficient conditions for \requ{} so long as an agent is \tCV{}.
+
+  In short, we slightly strengthen \ref{def:tCon:Cing} to provide a more specific account of the \scen{1} of interest.
 \end{note}
+
+\begin{note}
+  \begin{proposition}[\tCon{2} and \rCon{}]
+    \label{prop:rCon-tCon}
+    If the \tCon{0} are satisfied, then the \rCon{} are satisfied.
+  \end{proposition}
+
+  \begin{argument}{prop:rCon-tCon}
+    By \autoref{prop:hinge} (\autopageref{prop:hinge}), conditions%
+        ~\ref{def:tCon:sR:rep},%
+        ~\ref{def:tCon:sR:tI}, and%
+        ~\ref{def:tCon:sR:itc} entail \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+
+        And, by Condition~\ref{def:tCon:tCV} \(e^{\flat}\) is a sub-event of \(e\) in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+
+        So, concluding and \requ{} of instance of concluding.
+  \end{argument}
+\end{note}
+
+
+\subsection{\tCon{2}, \qWhyV{} and \issueConstraint{}}
+\label{sec:tccon2-qwhyv-}
 
 \begin{note}
   \begin{proposition}[\tCV{3} and \qWhyV{}]
@@ -349,9 +493,9 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      Typical conditions jointly hold.
+      The \tCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{Then}:]
-        \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
+      \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
@@ -359,7 +503,7 @@
   Instead of \requ{} directly, strengthen to \tCV{} and sufficient conditions for \requ{} given \tCV{}.
 
   \begin{argument}{prop:tCV-WhyV}
-    By definitions.
+    By the argument for \autoref{prop:requ-WhyV} and \autoref{prop:rCon-tCon}.
   \end{argument}
 
     \begin{proposition}[\tCV{3} and \issueConstraint{}]
@@ -383,65 +527,22 @@
 
     \begin{itenum}
     \item[\emph{If}:]
-      Typical conditions jointly hold.
+      The \tCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{And}:]
-      No \wit{} when concludes.
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     \item[\emph{Then}:]
       \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
+
+  \begin{argument}{prop:tCV-WhyV-ces}
+    Follows by adapting the argument for \autoref{prop:requ-WhyV-ces} with \autoref{prop:tCV-WhyV}.
+  \end{argument}
 \end{note}
 
 
-\section{X}
-\label{sec:x}
 
-
-\subsubsection{Applied}
-\label{sec:consequences}
-
-
-\begin{note}
-  \scen{1} which satisfy conditions from \autoref{cha:requs}.
-  \begin{itemize}
-  \item
-    \autoref{scen:squish}.
-
-    \pv{\propI{\sqE{} is sound}}{\valI{True}} from some \pool{} \(\Psi\).
-
-    Where, previous proof of \pv{\propI{\sqE{} is sound}}{\valI{True}} from \(\Psi\).
-  \item
-    \autoref{illu:gist:sudoku}.
-
-    Interactive \scen{0}, in which  repeat reasoning to some partial or full solution to Sudoku puzzle.
-  \end{itemize}
-\end{note}
-
-\begin{note}
-  \autoref{scen:squish}
-
-  It seems does explain, in part, why.
-  For, rehearsing, no \ros{}, no \fc{}, then stop.
-
-  Likewise with Sudoku.
-  Not only that you concluded, but that you would repeat.
-
-  At issue is \tC{}.
-\end{note}
-
-\begin{note}
-  In both cases, \wit{}.
-  Indeed, \wit{} follows from construction of \illu{1}.
-  Motivating idea was of repetition.
-  Repetition, requires original event.
-  And, original event serves as a \wit{}.
-\end{note}
-
-\begin{note}
-  It seems, also, that explain why I did not conclude lost keys.
-  And, why kettle logic is bad.
-\end{note}
 
 
 
