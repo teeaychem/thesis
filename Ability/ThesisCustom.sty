@@ -72,7 +72,20 @@
 
 % % % Property and event
 
-\newcommand{\agents}[0]{\obeybreaks{agent's}}
+\ExplSyntaxOn
+\NewDocumentCommand{\agents}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{agent's}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{agent's}\fi
+    \ifnum1=#1\relax\obeybreaks{\tJunk{}}\fi
+    \ifnum2=#1\relax\obeybreaks{Agent's}\fi
+    \ifnum3=#1\relax\obeybreaks{\tJunk{}}\fi
+  }
+}
+\ExplSyntaxOff
 
 \DeclareRobustCommand\conRel[2]{%
     \begin{tikzpicture}[baseline=(x.base)]%
@@ -1418,6 +1431,53 @@
     \fi
     \ifnum2=#1\relax%
       \obeybreaks{\hyperref[def:tCon]{\typeAdj{2}\space conditions}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\cExpl}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{causal\space explanation}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{causal\space explanation}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{causal\space explanations}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Causal\space explanation}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Causal\space explanations}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fExpl}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{factual\space explanation}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{factual\space explanation}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{factual\space explanations}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Factual\space explanation}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Factual\space explanations}%
     \fi
   }
 }
