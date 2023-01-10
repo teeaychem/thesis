@@ -2,78 +2,69 @@
 \label{cha:intro}
 
 \begin{note}
-  Our interest is understanding the way an event in which some agent concludes some proposition has some value happened.
+  Our interest is understanding the way an event in which an agent concludes happens.
 
   \begin{scenario}[Multiplication]%
     \label{illu:gist:calc}%
-    An agent enters `\(23 \cdot 15\)' into a calculator and presses a button marked `\(=\)'.
-    The calculator displays `\(345\)'.
+    An agent enters `\gistCalcLHS{}' into a calculator and presses a button marked `\(=\)'.
+    The calculator displays `\gistCalcRHS{}'.
 
     The agent pauses for a moment.
     They have a good understanding of arithmetic.
-    And, given the display on the calculator, it follows that if the calculator is trustworthy, then they would not fail to conclude \(23 \cdot 15 = 345\) via their understanding of arithmetic.
+    And, given the display on the calculator, it follows that if the calculator is trustworthy, then they would not fail to conclude \propM{\gistCalcEq{}} via their understanding of arithmetic.
 
-    The agent concludes \(23 \cdot 15 = 345\).
+    The agent concludes \propM{\gistCalcEq{}}.
   \end{scenario}
 
-  Intuitively, the agent concluded \(23 \cdot 15 = 345\) from the calculator.
-  % Personifying a little, we may say the agent concluded \(23 \cdot 15 = 345\) from the testimony of the calculator.
-  More could be said about the way the agent concluded \(23 \cdot 15 = 345\) from the calculator, but these details won't be of too much interest.%
+  \noindent%
+  Intuitively, the agent concludes \propM{\gistCalcEq{}} from the calculator.
+  More could be said about the way the agent concludes but these details won't be of too much interest.%
   \footnote{
-    For example, classify the agent as regarding the calculator as a source of testimony, adding that testimony are factive, and so concluded \(23 \cdot 15 = 345\) from the testimony of the calculator.
+    For example, classify the agent as regarding the calculator as a source of testimony, adding that testimony are factive, and so concluded \propM{\gistCalcEq{}} from the testimony of the calculator.
   }
 
   The agent's understanding of arithmetic, it seems, had no significant role.
-  So long as the calculator was correct, the agent had the opportunity to conclude \(23 \cdot 15 = 345\).
-  Still, the agent did not perform any arithmetic.
+  So long as the calculator was correct, the agent had the opportunity to conclude \propM{\gistCalcEq{}} by their understanding of arithmetic, but the agent did not perform any arithmetic.
 \end{note}
 
 \begin{note}
-  Abstracting a little, \(23 \cdot 15 = 345\) corresponds to a state of affairs.
-  If the truths of mathematics are necessary, then this state of affairs never fails to be, but \(23 \cdot 15 = 345\) captures the way things are in the same way as `kangaroos have tails' captures the way things are.
+  Abstracting a little, \propM{\gistCalcEq{}} corresponds to a state of affairs.
+  If the truths of mathematics are necessary, then this state of affairs never fails to be, but \propM{\gistCalcEq{}} captures the way things are in the same way as \propI{Kangaroos have tails} captures the way things are.
   For ease we refer to states of affairs as propositions.
 
-  Continuing the abstraction, when the agent concludes \(23 \cdot 15 = 345\), we may say the agent concludes \(23 \cdot 15 = 345\) is true.
-  Even if \(23 \cdot 15 = 345\) never fails to be, the calculator may have been faulty and the agent may have concluded \(23 \cdot 15 = 543\).
+  Continuing the abstraction, when the agent concludes \propM{\gistCalcEq{}}, we may say the agent concludes \propM{\gistCalcEq{}} has value \valI{True}.
+  Even if \propM{\gistCalcEq{}} never fails to be, the calculator may have been faulty and the agent may have concluded \propM{\gistCalcEqBad{}} has value \valI{True} or \propM{\gistCalcEq{}} has value \valI{False}.
 
-  So, say the agent concluded the proposition `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)'.
-
-  The agent also (intuitively) concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)' from the calculator.
-  Term this a premise.%
-  \footnote{
-    Strictly, of interest is that the relevant conclusions follow from the agent evaluating the relevant state of affairs as \(\text{True}\).
-    That is, with respect to~\autoref{illu:gist:calc}, of interest is that the agent concludes `\(23 \cdot 15 = 345\)' has value `\(\text{True}\)' \emph{from} the agent evaluating `the calculator testified \(23 \cdot 15 = 345\)' as `\(\text{True}\)'.
-    And, with respect to~\autoref{illu:gist:calc} it is likewise the birds `perceiving' an explanation from Snowball exists.
-    However, we adopt the shorthand for ease of expression.
-  }
-  Though, perhaps there are additional premises that may be mentioned.
-  So, say the agent concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)' from a \pool{} of premises which includes the calculator.
+  Likewise, as the agent concluded \propM{\gistCalcEq{}} has value \valI{True} from the calculator, we may say the agent concluded \propM{\gistCalcEq{}} has value \valI{True} from some \pool{} of premises.%
+  % \footnote{
+  %   Strictly, of interest is that the relevant conclusions follow from the agent evaluating the relevant state of affairs as \valI{True}.
+  %   That is, with respect to~\autoref{illu:gist:calc}, of interest is that the agent concludes \propM{\gistCalcEq{}} has value \valI{True} \emph{from} the agent evaluating \propI{The calculator testified \propM{\gistCalcEq{}}} has \valI{True}.
+  %   % And, with respect to~\autoref{illu:gist:calc} it is likewise the birds `perceiving' an explanation from Snowball exists.
+  %   % However, we adopt the shorthand for ease of expression.
+  % }
 \end{note}
 
 \begin{note}
-  Abstracting from almost all the details of \autoref{illu:gist:calc}, then we may say that an agent concluded some proposition has some value from some \pool{} of premises.
-  % We assume an event in which an agent concludes always amounts to a conclusion that some proposition has some value from some \pool{} of premises.
+  Abstracting from almost all the details of \autoref{illu:gist:calc} then, we say an agent concluded some \prop{} has some \val{} from some \pool{} of premises.
 
   For ease, we abbreviate `\pool{} of premises' to `\pool{}'.
-\end{note}
 
-\begin{note}
-  Our interest is understanding the way an event in which some agent concludes some proposition \(\phi\) has some value \(v\) happened.
+  So, our interest is understanding the way an event in which some agent concludes some proposition \(\phi\) has some value \(v\) from some \pool{} \(\Phi\) happens.
 
-  In this respect, our interest is with the intuition that the agent concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)' \emph{from} the calculator.
+  In this respect, our interest is with the intuition that the agent concluded \propM{\gistCalcEq{}} has value \valI{True} \emph{from} the calculator.
   This `\emph{from}' does work.
-  Our understanding of \autoref{illu:gist:calc} would be different if the agent concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)' from the their understanding of arithmetic, or if the agent concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)' from their conviction that the calculator guessed correctly.
+  Our understanding of \autoref{illu:gist:calc} would be different if the agent concluded \propM{\gistCalcEq{}} has value \valI{True} from the their understanding of arithmetic, or if the agent concluded \propM{\gistCalcEq{}} has value \valI{True} from their conviction that the calculator guessed correctly.
 
   What this relation amounts to is something we will not discuss.
-  The core intuition is that the relation of interest captures something beyond the observation that there was a sequence of events in which the agent used the calculator and then concluded `\(23 \cdot 15 = 543\)' has value `\(\text{True}\)'.
+  The core intuition is that the relation of interest captures something beyond the observation that there was a sequence of events in which the agent used the calculator and then concluded \propM{\gistCalcEq{}} has value \valI{True}.
   The conclusion was `from', `due to', `because of' \dots etc., the relevant \pool{}.
-
-  % It seems clear the same type of relation does not hold between `\(23 \cdot 15 = 543\)', `\(\text{True}\)', and the agent's understanding of arithmetic.
 \end{note}
 
 \begin{note}
-  \begin{scenario}[Animalism]
-    \label{scen:animalism}
+  Here's a second, slightly more complex \scen{0}:
+
+  \begin{scenario}[Animalism]%
+    \label{scen:animalism}%
     `Four legs good, two legs bad.'
     This, he said, contained the essential principle of Animalism.
     Whoever had thoroughly grasped it would be safe from human influences.
@@ -89,31 +80,31 @@
     \newline
   \end{scenario}
 
+  \noindent%
   The agents of interest are the birds, and the conclusion is the essential principle of Animalism:
-  `Four legs good, two legs bad'.
+  \propI{Four legs good, two legs bad} has value \valI{True}.
 
-  Snowball provided an argument against an objection from the birds, and the birds concluded `Four legs good, two legs bad' from Snowball's explanation.
+  Snowball provided an argument against an objection from the birds, and the birds concluded \propI{Four legs good, two legs bad} is \valI{True} from Snowball's explanation.
 
-  Though, as \citeauthor{Orwell:1976aa} highlights, the birds did not conclude `Four legs good, two legs bad' from \emph{the content of} Snowball's explanation.
-  Some words were too long.
+  Though, as \citeauthor{Orwell:1976aa} highlights, the birds did not conclude \propI{Four legs good, two legs bad} from \emph{the content of} Snowball's explanation.
+  (Some words were too long.)
   Instead, the birds concluded, at least in part, from (the existence of) \emph{Snowball's explanation}.
 
-  In parallel to the agent's understanding of arithmetic from~\autoref{illu:gist:calc} the birds of~\autoref{scen:animalism} did not, in part, conclude `Four legs good, two legs bad' from the content of Snowball's explanation.
+  % In parallel to the agent's understanding of arithmetic from~\autoref{illu:gist:calc} the birds of~\autoref{scen:animalism} did not, in part, conclude \propI{Four legs good, two legs bad} from the content of Snowball's explanation.
 \end{note}
 
 \begin{note}
   In line with the abstraction given, we may say:
-  The birds conclude the proposition `Four legs good, two legs bad' has value `\(\text{True}\)' from the existence of Snowball's explanation.
-  And, a relation holds between `Four legs good, two legs bad', `\(\text{True}\)' and the existence of Snowball's explanation, for each bird.
+  The birds conclude \propI{Four legs good, two legs bad} has value \valI{True} from the existence of Snowball's explanation.
+  And, for each bird, a relation holds between \propI{Four legs good, two legs bad}, \valI{True}, and the existence of Snowball's explanation.
 \end{note}
 
 \section*{\qWhy{}, \qHow{} and \issueInclusion{}}
 \label{cha:intro:why-how}
 
 \begin{note}
-  Our interest is understanding the way an event in which an agent concludes some proposition has some value happened.
-
-  \phantlabel{how-and-why-first-mention}
+  % Our interest is understanding the way an event in which some agent concludes some proposition \(\phi\) has some value \(v\) from some \pool{} \(\Phi\) happens.
+  \phantlabel{how-and-why-first-mention}%
   We distinguish two questions; `\qWhy{}' and `\qHow{}':%
   \footnote{
     \qWhy{} and \qHow{} are questions about the event.
@@ -156,9 +147,9 @@
       \item
         Agent: \vAgent{}
       \item
-        Proposition: \(\phi\)
+        \prop{2}: \(\phi\)
       \item
-        Value: \(v\)
+        \val{2}: \(v\)
       \item
         Event: \(e\)
       \item
@@ -182,9 +173,9 @@
       \item
         Agent: \vAgent{}
       \item
-        Proposition: \(\phi\)
+        \prop{2}: \(\phi\)
       \item
-        Value: \(v\)
+        \val{2}: \(v\)
       \item
         Event: \(e\)
       \item
@@ -196,7 +187,7 @@
     Given \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\):
     \begin{itemize}
     \item
-      Which events explain \emph{how} \(e\) is such that \vAgent{} concluded \(\phi\) has value \(v\)?
+      Which events explain \emph{how} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\)?
     \end{itemize}
     \vspace{-\baselineskip}
   \end{question}
@@ -204,60 +195,13 @@
 
 \begin{note}
   \qWhy{} seeks an understanding of the way an agent concluded \(\phi\) has value \(v\) in terms of relations between \prop{1}, \val{1}, and \pool{1}.
+
   \qHow{} seeks an understanding of the way an agent concluded \(\phi\) has value \(v\) in terms of what happened.
-
-  \illu{2} answers to each in turn:
 \end{note}
 
 \begin{note}
-  Following the analysis of \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism}, the relevant relations, respectively, seemed to be:
-
-  \begin{itemize}[noitemsep]
-  \item
-    The relation between `\(23 \cdot 15 = 345\)', `\(\text{True}\)', and the calculator.
-  \item
-    The relation between `Four legs good, two legs bad', `\(\text{True}\)' and the existence of Snowball's explanation.
-  \end{itemize}
-
-  As highlighted with respect to \autoref{illu:gist:calc} this relation seems to do work in guiding our understanding of the an event.
-  To observe that a relation held indicates something in addition to the observation of what happened.%
-  \footnote{
-    The \illu{1} of \qWhy{} by \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} is somewhat limited, as no \scen{0} involves an account of what motivates the respective agents.
-    \qWhy{} is not designed to rule out what motivates an agent.
-    For example, one may add to \autoref{illu:gist:calc} that the agent wants to calculate \(23 \cdot 15\).
-    Functions as a premise, given the understanding of \pool{1}.
-    More detail follows in~\autoref{cha:clar}.
-  }
-
-  What happened does not entail a corresponding relation.
-  For example, in \autoref{illu:gist:calc} the agent presses a button marked `\(=\)', but no relation seems to hold between `\(23 \cdot 15 = 345\)', `\(\text{True}\)', and the pressing the button marked `\(=\)'.
-
-  Further, understanding not only of what happened, but an understanding of what happened as opposed to anything else happening.
-  The relation between `Four legs good, two legs bad', `\(\text{True}\)', and existence of Snowball's explanation grants an understanding of why no parallel relation holds between `Four legs good, two legs bad', `\(\text{False}\)', and existence of Snowball's explanation.
-  Nothing, in principle, prevents the conclusion `Four legs good, two legs bad' has value `\(\text{False}\)' happening after Snowball's explanation.
-  % It seems, respectively, the calculator and Snowball's explanation are sufficient to understand the way the agent concluded the relevant proposition has the specified value.
-  %
-  % We do not, it seems, need to consider the agent calculating \(23 \cdot 15\) by their understanding of arithmetic, nor the birds understanding Snowball's explanation.
-  %
-  % In particular why this conclusion as opposed to any other conclusion.
-\end{note}
-
-\begin{note}
-  So, answers to \qHow{} when applied to \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism}, at least, are the events captured by the descriptions given.
-
-  No relation seems to hold between `\(23 \cdot 15 = 345\)', `\(\text{True}\)', and the pressing the button marked `\(=\)', but pressing the button marked `\(=\)' answers, in part \qHow{}.
-  If the agent's hadn't pressed the button, the calculator wouldn't have displayed `\(345\)'.
-
-  Whether or not a relation that answers \qWhy{} is something which answers \qHow{} is not something we have an opinion on.
-  Still, in the case of \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} it seems clear the events provide `witnesses' for the respective relations.
-  Something about \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} secures the relevant relations.
-  % Reasoned from \pool{} to conclusion.
-  % Events of \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} seem to provide an account of the way conclusion was obtained from \pool{}.
-\end{note}
-
-\begin{note}
-  It does not follow that answers to \qWhy{} are given in terms of answers to \qHow{}.
-  To illustrate this point, consider the following \scen{}:
+  In general, `why?' and `how?' are distinct questions.
+  To illustrate, consider the following \scen{}:
 
   \begin{scenario}[England AD 932]
     \label{scen:king}
@@ -280,19 +224,17 @@
   In turn, Dennis accepts the answer provided by Arthur as an account of how Arthur became king but rejects the answer an account of why Arthur is king.
   Instead, an answer is expected in involve the absence of an appropriate system of governance in England.
   So, the answer provided by Arthur is accepted by Dennis as an answer to how, but not as an answer to why.
-\end{note}
 
-\begin{note}
   The distinction between `why?' and `how?' present in \autoref{scen:king} parallels \qWhy{} and \qHow{} with respect to conclusions.
-  In \autoref{illu:gist:calc}, the agent considered performing mental arithmetic, but the consideration of calculating \(23 \cdot 15 = 345\) seems no basis for the conclusion.
+  In \autoref{illu:gist:calc}, the agent considered performing mental arithmetic, but the consideration of calculating \gistCalcEq{} seems no basis for the conclusion.
   Instead, it is the use of the calculator which is a basis.
 
-  And, when we consider the relation between `\(23 \cdot 15 = 345\)', `\(\text{True}\)', and the calculator, we understand why (and not merely how) the agent concluded \(23 \cdot 15 = 345\).
+  And, when we consider the relation between \propM{\gistCalcEq{}}, \valI{True}, and the calculator, we understand why (and not merely how) the agent concluded \gistCalcEq{}.
 \end{note}
 
 \begin{note}
-  Our interest is understanding the way an event in which an agent concludes some proposition has some value happened.
-  \qWhy{} and \qHow{} are distinct questions, and the following constraint on answers to \qWhy{} in terms of answers to \qHow{} seems intuitive:
+  So, \qWhy{} and \qHow{} are plausibly distinct questions.
+  Still, the following constraint on answers to \qWhy{} in terms of answers to \qHow{} seems intuitive:
 
   \begin{constraint}{consInclusion}{\issueInclusion{}}
     \mbox{ }
@@ -309,38 +251,65 @@
   \vspace{-\baselineskip}
   \end{constraint}
 
-  In short, for any relation between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\phi\) has value \(v\), there is an event such that the agent has concluded the proposition has some value from the \pool{}.
+  In short, for any relation between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\phi\) has value \(v\), there is an event such that the agent has concluded the proposition has some value from the \pool{}.%
+  \footnote{
+    What happened does not entail a corresponding relation.
+  For example, in \autoref{illu:gist:calc} the agent presses a button marked `\(=\)'.
+  However, the agent does not conclude \propM{\gistCalcEq{}} has value \valI{True} \emph{from} pressing the button marked `\(=\)'.
+  Hence, no relation seems to hold between \propM{\gistCalcEq{}}, \valI{True}, and the pressing the button marked `\(=\)'.
+  }
 \end{note}
 
 \begin{note}
-  I consider \issueInclusion{} intuitive.
-  In principle, relation between any \prop{0}, \val{0}, and \pool{} may answer \qWhy{}.
-  However, no other relation.
-
-  The analysis of \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} may be taken to motivate \issueInclusion{}, but I expect the analysis given is sensible given the adherence to \issueInclusion{}.
+  With respect to \qWhy{}, the relevant relations of \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} seem to be:%
+  \footnote{
+    The \illu{1} of \qWhy{} by \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism} is somewhat limited, as no \scen{0} involves an account of what motivates the respective agents.
+    \qWhy{} is not designed to rule out what motivates an agent.
+    For example, one may add to \autoref{illu:gist:calc} that the agent wants to calculate \gistCalcLHS{}.
+    Functions as a premise, given the understanding of \pool{1}.
+    More detail follows in~\autoref{cha:clar}.
+  }
 
   \begin{itemize}[noitemsep]
   \item
-    Consider \autoref{illu:gist:calc}.
+    \begin{itemize}
+    \item
+      The relation between \propM{\gistCalcEq{}}, \valI{True}, and something about the calculator.
+    \item
+      The agent concludes \propM{\gistCalcEq{}} has value \valI{True} from the calculator.
+    \end{itemize}
 
-    The agent concluded `\(23 \cdot 15 = 345\)' and `\(\text{True}\)' from the calculator, and hence if a relation between these items answers \qWhy{} (which it intuitively does), then there is a corresponding answer to \qHow{}.
+    The agent concluded \propM{\gistCalcEq{}} and \valI{True} from the calculator.
+    Hence, if a relation between these items answers \qWhy{} (which it intuitively does), then there is a corresponding answer to \qHow{}.
 
-    And, while a relation may hold between `\(23 \cdot 15 = 345\)', `\(\text{True}\)' and whatever \pool{} would be associated with the agent calculating \(23 \cdot 15 = 345\) from their understanding of Arithmetic.
-    There is no event in which the agent concluded `\(23 \cdot 15 = 345\)', has value `\(\text{True}\)' by performing arithmetic.
-    So, there is no answer to \qHow{} with respect to this \pool{}, and given \issueInclusion{}, it is not possible for the relation to answer \qWhy{}.
+    A relation may hold between \propM{\gistCalcEq{}}, \valI{True} and whatever \pool{} would be associated with the agent calculating \(\gistCalcEq{}\) from their understanding of Arithmetic.
+    However, there is no event in which the agent concludes \propM{\gistCalcEq{}}, has value \valI{True} by performing arithmetic.
+    So, there is no answer to \qHow{} with respect to the agent's understanding of arithmetic, and given \issueInclusion{}, it is not possible for the relation to answer \qWhy{}.
   \item
-    Parallel reasoning applies to~\autoref{scen:animalism}.
+    \begin{itemize}
+    \item
+      The relation between \propI{Four legs good, two legs bad}, \valI{True} and something about the existence of Snowball's explanation.
+    \item
+      The birds conclude \propI{Four legs good, two legs bad} has value \valI{True} from the existence of Snowball's explanation.
+    \end{itemize}
 
-    The bird's conclusion of `Four legs good, two legs bad' has value `\(\text{True}\)' from the existence of Snowball's explanation answers \qHow{}, and the relation between the \prop{0}, \val{0}, and \pool{} answers \qWhy{}, in line with \issueInclusion{}.
+    The bird's conclusion \propI{Four legs good, two legs bad} has value \valI{True} from the existence of Snowball's explanation answers \qHow{}, and the relation between the \prop{0}, \val{0}, and \pool{} answers \qWhy{}, in line with \issueInclusion{}.
 
-    And, while a relation may hold between `Four legs good, two legs bad' `\(\text{True}\)' and the \emph{content} of Snowball's explanation, the birds failed to understand the content.
+    And, while a relation may hold between \propI{Four legs good, two legs bad} \valI{True} and the \emph{content} of Snowball's explanation, the birds failed to understand the content.
     Hence, with no answer to \qHow{}, it is not possible for this relation to answer \qWhy{}.
   \end{itemize}
-  Hence, \issueInclusion{} seems plausible, and seems to do work.%
+  %
+  These relations seems to do work in guiding our understanding of the an event.
+  To observe that a relation held indicates something in addition to the observation of what happened, but for a relation to answer \qWhy{} it seems we need a `\wit{}' for the respective.
+  Hence, \issueInclusion{} requires that every relation which answers \qWhy{} has some \wit{}.
+\end{note}
+
+\begin{note}
+  \issueInclusion{} seems plausible, and seems to do work.%
   \footnote{
     Note, \qHow{} does not explicitly require the relevant event to be the event in which the agent concludes \(\phi\) has value \(v\) from the \pool{}.
-    Hence, a previous event in which the agent concluded `\(23 \cdot 15 = 345\)' has value `\(\text{True}\)' may answer \qHow{}.
-    Still, given \(23 \cdot 15 = 345\) in~\autoref{illu:gist:calc} functions as some arbitrary multiplication that the agent may calculation, we may assume the agent has never calculated \(23 \cdot 15 = 345\).
+    Hence, a previous event in which the agent concluded \propM{\gistCalcEq{}} has value \valI{True} may answer \qHow{}.
+    Still, given \(\gistCalcEq{}\) in~\autoref{illu:gist:calc} functions as some arbitrary multiplication that the agent may calculation, we may assume the agent has never calculated \(\gistCalcEq{}\).
   }\(^{,}\)%
   \footnote{
     Alternatively, \issueInclusion{} may be thought to narrow the range on answers to \qWhy{}.
@@ -350,15 +319,13 @@
     I think it is plausible that the sense of `why' present in \qWhy{} may be understood without reference to \issueInclusion{}, and hence that \issueInclusion{} amounts to a substantive constraint.
     The document will assume this is the case, but only the framing depends on this.
   }
-\end{note}
 
-\begin{note}
   Still, we have only considered two \scen{1} and \issueInclusion{} is a general constraint.
   Hence, if there is some doubt regarding \issueInclusion{} then further argument is required.
-  It is not clear that there are \scen{1} in which \issueInclusion{} fails to hold.
-  However, lack of apparent counterexamples is not argument.
+  It is not obvious that there are \scen{1} in which \issueInclusion{} fails to hold.
+  However, lack of immediate counterexamples is no argument.
 
-  Though I would very much like to provide an argument for \issueInclusion{}, I am not aware of any.%
+  Though I would like to consider an argument for \issueInclusion{}, I am not aware of any.%
   \footnote{
     The particular construct of \qWhy{}, \qHow{}, and \issueInclusion{} is somewhat idiosyncratic, and so it is no surprise there are no direct argument for \issueInclusion{}.
     However, I take the idea captured by \issueInclusion{} to be intuitive, and I am not aware of any argument for this idea.
@@ -368,10 +335,17 @@
 
   In any case, no argument will be provided.
   The goal of this document is to provide a recipe for generating counterexamples to \issueInclusion{}.
-  By recipe, features of \scen{1} which lead to violations.
+
+  By `recipe', I mean an description of some features which hold of \scen{1} and an account of the way in which these combine which entails violations of \issueInclusion{}.
+  With the recipe in hand, we will construct a few counter samples, but our interest is with the way in which \issueInclusion{} fails, rather than the failure of \issueInclusion{}.
 
   Before closing this introduction, say a little more regarding the recipe for counterexamples.
-  First, though no clear arguments for \issueInclusion{}, motivation by relation to reasons.
+  First, we consider motivation for \issueInclusion{} via the literature on reasons.
+  I am not aware of any arguments for \issueInclusion{}, but I think there is strong motivation for \issueInclusion{}.%
+  \footnote{
+    \color{red}
+    And, refinement to questions, provide further motivation.
+  }
 \end{note}
 
 \section*{\issueInclusion{} and reasons}
@@ -389,13 +363,10 @@
 
   To borrow an an example given by \citeauthor{Hieronymi:2011aa}, the extreme heat or the faulty construction is a reason why the engine failed (\citeyear[409]{Hieronymi:2011aa}).
   Likewise, the engine failing may be a reason why the steamboat is moored, and the steamboat being moored is a reason why the hotel is fully booked, etc.
-
-  With \qWhy{}, the relevant explanatory reason is a relation between a \prop{0}, \val{0}, and a \pool{}.
-  The relation between `\(23 \cdot 15 = 345\)', `\(\text{True}\)' and the calculator captures a reason why the agent has concluded `\(23 \cdot 15 = 345\)' has value `\(\text{True}\)'.
 \end{note}
 
 \begin{note}
-  In general, explanatory reasons are distinct from an \emph{agent's} reasons, whatever these may be.
+  In general, explanatory reasons are distinct from an \emph{\agents{}} reasons, whatever these may be.
   Though, in some cases, explanatory reasons may be involve an agent's reasons.
   This contrast and involvement forms the opening question of \citeauthor{Davidson:1963aa}'s \citetitle{Davidson:1963aa}:
 
@@ -405,54 +376,66 @@
     \mbox{}\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
   \end{quote}
 
-  \citeauthor{Davidson:1963aa}'s primary interest is with an explanatory reason which explains an action by giving the agent's reason for performing the action.
-  At issue is why the agent did what they did, and the explanatory reason for this involves the agent's reason.
-
-  % A conclusion is also the result of an act and isolate the relevant belief component as the premises.
-\end{note}
-
-\begin{note}
-  Rationalisation for \citeauthor{Davidson:1963aa} covers all actions.
-  Conclusions are the result of a kind of action.%
-  % \footnote{
-  %   `The agent concluded \(\phi\) has value \(v\)' may be re-expressed as `the agent performed an act in which they concluded \(\phi\) has value \(v\)', in the same way as `the agent buttered the toast' may be re-expressed as `the agent performed an act in which the toast was buttered'.
-  % }
-  And, with respect to conclusions, a sensible candidate for an agent's reasons are \pool{0}.
-  For example, we may say with relative ease that:%
+  \citeauthor{Davidson:1963aa} is interested with explanatory reasons \emph{such that} the explanatory reason involves the agent's reason.%
   \footnote{
     These may also be understood, in line with \citeauthor{Smith:1994wo} (\citeyear{Smith:1994wo}), as `motivating reasons':
     \begin{quote}
       The distinctive feature of a motivating reason to \(\phi\) is that, in virtue of having such a reason, an agent is in a state that is \emph{explanatory} of her \(\phi\)-ing, at least other things being equal --- other things must be equal because an agent may have a motivating reason to \(\phi\) without that reason's being overriding.%
       \mbox{}\hfill\mbox{(\citeyear[96]{Smith:1994wo})}
     \end{quote}
-    However, our interest is with the \emph{relation} between a \prop{0}, \val{0}, and \pool{}.
   }
 
-  \begin{itemize}[noitemsep]
+  For \citeauthor{Davidson:1963aa} specifying:
+  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
   \item
-    The reason for which the agent concluded \(23 \cdot 15 = 345\) was the calculator.
+    Some sort of pro attitude (a want, obligation, etc.) toward actions of a certain kind, and
   \item
-    The reason for which the birds concluded `Four legs good, two legs bad' was (the existence of) Snowball's explanation.
-  \end{itemize}
+    a belief (or perception, notice, etc.) that his action is of that kind.
+  \end{enumerate*}
+  Is sufficient to characterise the agent's reason for doing something.
+  (\citeyear[Cf.][685,686]{Davidson:1963aa})
 
-  So, it seems relations between \prop{1}, \val{1}, and \pool{1} may be understood as \citeauthor{Davidson:1963aa}ian rationalisations.
-  Or, conversely, one may grant a relation between a \prop{0}, \val{0}, and a \pool{1} provides an explanatory reason, and understand the explanatory reason in terms of an agent's reasons by identifying the \pool{1} as the agent's reasons.%
-  \footnote{
-    For \citeauthor{Davidson:1963aa} an agent's reason is, roughly; \textquote{some feature, consequence, or aspect of the action the agent wanted, desired, prized, held dear, thought dutiful, beneficial, obligatory, or agreeable} (\citeyear[685]{Davidson:1963aa}).
-  In this respect, belief-desire pair, and action is something like buttering the toast.
-  However, interest with conclusions, and hence ignore the pro-attitude component.
-}
+  Colloquially, a desire-belief pair.
+
+  So, what is the relation between a reason and an action when the reason explains the action by giving a desire-belief pair?
 \end{note}
 
 \begin{note}
-  The main argument of made in \citetitle{Davidson:1963aa} is:
+  For us, action is conclusion.
+  Rather than desire-belief pair, relation between \prop{0}, \val{0}, and \pool{0}.
+
+  Sufficient parallel.
+  Conclusions, \citeauthor{Carroll:1895uj}.
+  No attitude is sufficient.
+
+  For example, we may say with relative ease that:
+
+  \begin{itemize}[noitemsep]
+  \item
+    The reason for which the agent concluded \propM{\gistCalcEq{}} is \valI{True} was the relation between \propM{\gistCalcEq{}}, \valI{True} and the calculator.
+  \item
+    The reason for which the birds concluded \propI{Four legs good, two legs bad} is \valI{True} was the relation between \propI{Four legs good, two legs bad}, \valI{True}  and (the existence of) Snowball's explanation.
+  \end{itemize}
+
+  {
+    \color{red}
+    Difficult to capture as a propositional attitude.
+    Still, no real issue here.
+
+    Relation, as connection between these things.
+    The \pool{} in isolation isn't clearly doing anything.
+  }
+\end{note}
+
+\begin{note}
+  Now, the main argument of made in \citetitle{Davidson:1963aa} is:
   %
   \begin{quote}
     [R]ationalization is a species of ordinary causal explanation.%
     \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
   \end{quote}
   %
-  If we grant relations between a \prop{0}, \val{0}, and \pool{1} are rationalisations, and rationalisations are causal explanations, and \pool{1} capture an agent's reasons then \issueInclusion{} seems to follow, at least when considering the \agents{} reasons.
+  If we grant relations between a \prop{0}, \val{0}, and \pool{1} are rationalisations, and rationalisations are causal explanations, and relations between \prop{1}, \val{1}, and \pool{1} capture an agent's reasons then \issueInclusion{} seems to follow, at least when considering the \agents{} reasons.
 
   For, suppose some relation between a \prop{0}, \val{0}, and \pool{} which answers \qWhy{}.
   By assumption, this relation amounts to a rationalisation.
@@ -463,63 +446,45 @@
 \end{note}
 
 \begin{note}
-  \color{red}
-  Important things with \citeauthor{Davidson:1963aa}.
-  \begin{enumerate}
-  \item
-    Reason
-  \item
-    Relation between reason and action.
-  \item
-    Assumption that reason explains the action by giving the agent's reason.
-  \end{enumerate}
+  Limitation.
 
-  So, restricted to giving the agent's reason.
-  In the cases I construct, I don't clearly give the agent's reason.
+  Reason explains the action by giving the agent's reason.
 
-  Liberties.
-  \prop{0}-\val{0}-\pool{0} pairs are plausibly broader.
-  And, it's not the case that \qWhy{} is restricted by the agent's reason.
+  So, restricted to giving the agent's reasons.
+  \qWhy{} is not clearly so restricted.
 
-  However, `\agpe{}'.
-  Is it the case that similar argument holds?
-  Suspect this leads to some tension with \citeauthor{Davidson:1963aa}'s account.
-\end{note}
+  For example, steamboat being moored, hotel.
+  However, not in terms of hotel's reasons.
+  Simply too many guests.
 
+  Two difficult points.
 
-\begin{note}
-  \citeauthor{Broome:2013aa}'s account of active reasoning explicitly links the same idea to conclusions:
-  \begin{quote}
-    Active reasoning is a particular sort of process by which conscious premise-attitudes cause you to acquire a conclusion-attitude.
-    The process is that you operate on the contents of your premise-attitudes following a rule, to construct the conclusion, which is the content of a new attitude of yours that you acquire in the process.%
-    \mbox{ }\hfill\mbox{(\citeyear[234]{Broome:2013aa})}
-  \end{quote}
+  First, \qWhy{}, only about relations, but not clear that relations need to be the agent's reasons.
 
-  \citeauthor{Broome:2019aa}'s account of active reasoning parallels \citeauthor{Davidson:1963aa}'d understanding of rationalisations.
-  However, \citeauthor{Broome:2019aa}'s account is strictly stronger.
-  For, \citeauthor{Davidson:1963aa} assumes rationalisations are such that an action is explained by giving an agent's reason for doing what they did.
-  Hence, in certain cases there may be cases in which rationalisations do not exhaust explanatory reasons.
-  \citeauthor{Broome:2019aa}, however, holds that causation of a conclusion-attitude by premise-attitudes is sufficient for a process to be active reasoning, and so we do not need to consider anything other than the causal relation to understand the way the event happened.%
+  This is a gap.
+  I think it is plausible that these things line up.
+  However, no real use in working through what an agent's reason is, for \citeauthor{Davidson:1963aa}.%
   \footnote{
-    I claimed above that I am not aware of any argument for \issueInclusion{}.
-    However, if the link between \citeauthor{Broome:2013aa}'s account of active reasoning and \issueInclusion{} holds, it seems whatever argument \citeauthor{Broome:2013aa} has given from the account of active reasoning should extend to \issueInclusion{}.
-
-    Still, while \citeauthor{Broome:2013aa} motivate the account of active reasoning, at issue is whether the condition \citeauthor{Broome:2013aa} gives is sufficient.
-    \citeauthor{Broome:2013aa} considers and dismisses a number of other conditions to secure sufficiency
-    (\citeyear[cf.][\S13.2]{Broome:2013aa}), and while I think this is good motivation, it falls short of an argument.
-    For, I see no clear way to extend the specific dismissals to ensure no other condition is required for sufficiency in general.
-
-    Likewise, we noted how \citeauthor{Davidson:1963aa}'s account is compatible with other explanatory reasons.
-    %focuses on causal explanation, and does not rule out that there may be cases in a reason explains an action by given the agent's reason for doing what they did in addition to other considerations (which may be causally involved).
+    Following from the footnote.
+    Issue is about agency.
   }
+
+  Second, have not said anything about how relations interact with attitudes.
+  Causal explanation.
+  It may still be the case that relation has causal role, though it is not part of the event.
+  In part, issue with causal explanation.
+  
+
+  Hence, motivation.
+  
 \end{note}
 
 \begin{note}
   So, capturing explanatory reasons in terms of causal explanation motivations \issueInclusion{}.
-  However, abstracting a little, the role of causation in \citeauthor{Davidson:1963aa} and \citeauthor{Broome:2013aa}'s account is of interest only to the extent that the relevant causal relations ensure the relation between a \prop{0}, \val{0}, and \pool{} which holds between the conclusion and the \pool{} is sufficient.
+  However, abstracting a little, the role of causation in \citeauthor{Davidson:1963aa}'s account is of interest only to the extent that the relevant causal relations ensure the relations between \prop{1}, \val{1}, and \pool{1} are sufficient.
   And, such accounts do not need to appeal to causation to ensure this sufficiency.
 
-  For a final illustration, consider \citeauthor{Hieronymi:2011aa}'s (\citeyear{Hieronymi:2011aa}) account of action explanation:
+  Consider \citeauthor{Hieronymi:2011aa}'s (\citeyear{Hieronymi:2011aa}) account of action explanation:
 
   \begin{quote}
     [W]henever an agent acts for reasons, the agent, in some sense, takes certain considerations to settle the question of whether so to act, therein intends so to act, and executes that intention in action.
@@ -570,12 +535,12 @@
 
 \begin{note}
   As seen above with respect to \autoref{scen:animalism}, it follows from \issueInclusion{} that the content of Snowball's explanation is irrelevant.
-  For, the birds do not understand Snowball's explanation, hence there is no event in which the birds reason from the content to `Four legs good, two legs bad' has value `\(\text{True}\)'.
+  For, the birds do not understand Snowball's explanation, hence there is no event in which the birds reason from the content to \propI{Four legs good, two legs bad} has value \valI{True}.
   And, I think this is correct.
 
   However, parallel reasoning entails the agent's understanding of arithmetic is irrelevant with respect to \autoref{illu:gist:calc}.
   And, I do not think this entailment holds.
-  I think it may be the case that a relation between `\(23 \cdot 15 = 543\)', `\(\text{True}\)' and the agent's understanding of arithmetic \emph{may} answer \qWhy{}.
+  I think it may be the case that a relation between \propM{\gistCalcEq{}}, \valI{True} and the agent's understanding of arithmetic \emph{may} answer \qWhy{}.
   Whether this is the case will depend on whether some additional details hold of~\autoref{illu:gist:calc}.
   Still, as the details matter, the entailment, and hence \issueInclusion{}, is not right.
 \end{note}
@@ -583,8 +548,10 @@
 \begin{note}
   In other words, I think there are counterexamples to \issueInclusion{}.
   The primary goal of this document is to provide a recipe for generating counterexample to \issueInclusion{}.
+\end{note}
 
-  The document is split into four parts:
+\begin{note}
+  The document has three parts:
 
   \begin{TOCEnum}
   \item
@@ -615,70 +582,13 @@
   The details are too important.
   The recipe is not based on an intuitive understanding of any particular \scen{}.
   Instead, the recipe is based on the way a number of ideas come together when we understand the way some agent concludes some proposition \(\phi\) has some value \(v\) happened.
+
+  The beginning of each part has additional details on the way in which the part is structured.
+  Brief account of the chapters, and occasionally supplementary details.
 \end{note}
 
 
-
 % \begin{note}
-%   Now, all this has been said without giving attention to the conditional observed by the agent in \autoref{illu:gist:calc}:
-
-%   \begin{itemize}
-%   \item
-%     If the calculator is trustworthy, then the agent would not fail to conclude \(23 \cdot 15 = 345\) via their understanding of arithmetic.
-%   \end{itemize}
-
-%   Both natural, and somewhat surprising.
-
-%   Consider the contraposition.
-
-%   \begin{itemize}
-%   \item
-%     If the agent were to fail to conclude \(23 \cdot 15 = 345\) via their understanding of arithmetic, then the calculator is not trustworthy.
-%   \end{itemize}
-
-%   \begin{itemize}
-%   \item
-%     Is it possible for the agent to fail to conclude \(23 \cdot 15 = 345\) via their understanding of arithmetic?
-%   \end{itemize}
-
-%   If possible, then difficulty.
-%   For, testimony, so must be, but at the same time, possible that it is not.
-%   If not possible, then it doesn't seem that observing \(23 \cdot 15 = 345\) via the testimony of the calculator is sufficient.
-%   For, by the previous observation, difficulty with the testimony of the calculator.
-
-%   \begin{itemize}
-%   \item
-%     Testimony of the calculator \emph{only if} \(23 \cdot 15 = 345\) is a \fc{0} given the agent's understanding of arithmetic.
-%   \end{itemize}
-% \end{note}
-
-% \begin{note}
-%   Important:
-
-%   Multiple ways to conclude.
-%   So, have a check.
-
-%   Differs to, for example, concluding {\color{red} ???} from a scientific calculator.
-%   {\color{red} ???} goes beyond typical understanding of arithmetic.
-%   Parallel pair of conditionals does not hold.
-
-%   Or, alternatively, testimony that {\color{red} ???}.
-%   Beyond understanding.
-% \end{note}
-
-% \begin{note}
-%   I am not sure what to make of \ref{illu:gist:calc}.
-%   Understanding of arithmetic is a partial check.
-%   However, testimony.
-
-%   Unsure because status of a premise.
-
-%   Basic contrary idea only requires some instances.
-
-%   Argument against this intuition.
-%   Type of cases, premises are fixed.
-%   Check on own reasoning.
-
 %   First, expand on intuition.
 %   Then, introduce type of \scen{0} of interest.
 % \end{note}
@@ -689,9 +599,9 @@
 
 % {\color{red} Place somewhere?}.%
 %   \footnote{
-%     Roughly, if it were the agent failed to conclude \(23 \cdot 15 = 345\) in \autoref{illu:gist:calc}, then there would be conflict between the agent's understanding of arithmetic and the testimony of the calculator.
-%     Expressed differently, there would be conflict between the agent's failure to conclude \(23 \cdot 15 = 345\) by their understanding of arithmetic, and a premises involved in concluding \(23 \cdot 15 = 345\) via the calculator.
-%     I.e. supposing the agent concludes \(23 \cdot 15 \ne 345\), then for the agent the calculator is not a source of testimony.
+%     Roughly, if it were the agent failed to conclude \propM{\gistCalcEq{}} in \autoref{illu:gist:calc}, then there would be conflict between the agent's understanding of arithmetic and the testimony of the calculator.
+%     Expressed differently, there would be conflict between the agent's failure to conclude \propM{\gistCalcEq{}} by their understanding of arithmetic, and a premises involved in concluding \propM{\gistCalcEq{}} via the calculator.
+%     I.e. supposing the agent concludes \(\gistCalcLHS{} \ne \gistCalcRHS{}\), then for the agent the calculator is not a source of testimony.
 %     In the \scen{1} of interest, this hypothetical --- or in some cases possible --- conflict will strictly be between the agent's reasoning from \pool{1} to conclusions.
 %   }
 % \end{note}
@@ -761,38 +671,6 @@
 %   Here, we get a causal trace.
 %   No need to look for any relation of support other than premises of reasoning.
 % \end{note}
-
-% \begin{note}
-%   \begin{scenario}[Sudoku]
-%     \label{scen:sudoku:intro}
-%     An agent has some free time.
-%     They take out copy of \citetitle{Coussement:2007up} and open the book to some Sudoku puzzle.
-%     The agent methodically fills in each cell of the puzzle.
-
-%     The agent pauses for a moment.
-%     They have a good understanding of the rules of Sudoku and some free time.
-%     Hence, if solution is correct, then would not fail to complete any other Sudoku puzzle in the book.
-
-%     If encounter difficulty, then re-examine proposed solution.
-
-%     The agent concludes the proposed solution is the correct solution to the Sudoku puzzle.
-%   \end{scenario}
-
-%   Proposition, `The solution is correct', value `\(\text{True}\)'.
-%   The \pool{} includes the initial Sudoku grid and the rules of Sudoku.
-
-%   Relation.
-
-%   Possible relation between some other puzzle and the initial Sudoku grid for that other puzzle and the rules of Sudoku.
-
-%   However, as with \scen{3}~\ref{illu:gist:calc}~and~\ref{scen:animalism}, no role.
-% \end{note}
-
-% \begin{note}
-%   More broadly, I take the basic idea to capture a pre-theoretical constraint on classes of theories.
-%   There are theories that agree with the basic idea, such as \citeauthor{Davidson:1963aa}' causal theory of action (when the action is concluding) and there \emph{may be} theories which do not agree with the basic idea --- though I do not know of any specific theories that are explicitly of this kind.
-% \end{note}
-
 
 
 %%% Local Variables:
