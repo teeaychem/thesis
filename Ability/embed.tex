@@ -296,159 +296,6 @@
 \subsection{Embedding \ros{1}}
 \label{cha:var:ros:Emb}
 
-\begin{note}
-  The present section concerns, for some arbitrary proposition-value pair \(\pv{\phi}{v}\) and \pool{} \(\Psi\), the distinction between:
-
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-  \item
-    \label{Embed:no}
-    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  \item
-    \label{Embed:yes}
-    A \ros{0} between \(\Phi\) and \(\pv{\phi}{v}\), where:
-    \begin{itemize}
-    \item
-      \(\Phi\) contains:
-      \begin{itemize}
-      \item
-        \(\pv{\propI{A \ros{} between }\pv{\psi}{v'}\propI{ and }\Psi}{\valI{True}}\)
-      \end{itemize}
-    \end{itemize}
-  \end{enumerate}
-
-  \ref{Embed:no} is a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  By contrast, \ref{Embed:yes} is a \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) which \emph{involves} a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\)%
-  ---%
-  the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is occurs in a premise of the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-
-  If \ros{} occurs within some premise of a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), we say the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is \emph{embedded} within the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-\end{note}
-
-\begin{note}
-  It need not be the case that an agent has a \wit{0} for a \ros{0} in order for \ros{} to be involved in answering \qWhyV{}.
-
-  For, suppose an agent does not have a \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  The upshot of the distinction between~\ref{Embed:no} and~\ref{Embed:yes} is as follows:
-
-  \begin{itemize}
-  \item
-    If the \ros{0} of \ref{Embed:no} is, in part, an answer to \qWhyV{} then the \ros{0} is a counterexample to \issueConstraint{}.
-  \item
-    If the \ros{0} of \ref{Embed:yes} is, in part, an answer to \qWhyV{} then the \ros{0} is \emph{not} a counterexample to \issueConstraint{}.
-  \end{itemize}
-
-  The difference is \emph{the way in which} the \ros{} functions with respect to the agent pairing \(\phi\) with \(v\).
-  Whether the \ros{} functions as a premise when the agent concludes \(\pv{\phi}{v}\), or whether the \ros{} functions in a way that is different to a premise.
-\end{note}
-
-\begin{note}
-  Embedding of this kind will be:
-  \begin{itemize}[noitemsep]
-  \item
-    Useful for relating the variations of \qWhy{} and \qHow{} to theories of concluding, or related phenomena. And,
-  \item
-    Important for clarifying a difficult for developing counterexamples to \issueInclusion{}.
-  \end{itemize}
-\end{note}
-
-\subsubsection{Definitions}
-\label{cha:var:ros:Emb:defs}
-
-\begin{note}
-  In full, we define embedding in the following way:%
-  \footnote{
-    We assume, in general, that if a proposition \(\phi\) includes some other proposition \(\phi'\), then if \(\pv{\phi}{\valI{True}} \in \Phi\) then \(\pv{\phi'}{\valI{True}} \in \Phi\).
-    In other words, if \(\pv{\phi'\text{ and }\phi''}{\valI{True}} \in \Phi\) then both \(\pv{\phi'}{\valI{True}} \in \Phi\) and \(\pv{\phi''}{\valI{True}} \in \Phi\).
-    We do not extend this assumption to values other than `True'.
-  }
-
-  \begin{definition}[Degree of embedding withing a \ros{}]
-    \label{def:embedding:degree}
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), \pool{} \(\Phi\), and \(i \in \mathbb{N}\):
-
-    \begin{itemize}
-    \item
-      \(\pv{\psi}{v'}\) has a \emph{degree of embedding \(1\)} with respect to a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) if and only if \(\pv{\psi}{v'} \in \Phi\).
-    \item
-      \(\pv{\psi}{v'}\) is has a \emph{degree of embedding \(i\)} with respect to a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) if and only if:
-      \begin{itemize}
-      \item
-        There exists some \(\pv{\theta}{v''}\) and \(\Theta\) such that:
-        \begin{itemize}
-        \item
-          \(\pv{\psi}{v'} \in \Theta\)
-        \item
-          \(\pv{\propI{A \ros{} between }\pv{\theta}{v''}\propI{ and }\Theta}{\valI{True}}\) has degree of embedding \(i - 1\) with respect to the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  The cases of interest to us are where \(\pv{\psi}{v'}\) is embedded within in a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), no matter the degree of embedding:
-
-  \begin{definition}[Embedding within a \ros{}]
-    \label{def:embedding}
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and a \pool{} \(\Phi\):
-
-
-    \begin{itemize}
-    \item
-      \(\pv{\psi}{v'}\) is \emph{embedded} within in a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\)
-    \end{itemize}
-
-    \emph{If and only if:}
-
-    \begin{itemize}
-    \item
-      \(\pv{\psi}{v'}\) is has a degree of embedding \(i\) with respect to the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), for some \(i \in \mathbb{N}\).
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  The definition of an embedding covers arbitrary proposition-value pairs.
-  However, the cases of embedding of interest to us are where \ros{1} are embedded within a \ros{}.
-  A final definition captures when this is the case:
-
-  \begin{definition}[Embedded \ros{1}]
-    For a proposition-value pairs \(\pv{\psi}{v'}\), \(\pv{\phi}{v}\), and \pool{1} \(\Phi\), \(\Psi\):
-
-    \begin{itemize}
-    \item
-      The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is \emph{embedded} within the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-    \end{itemize}
-
-    \emph{If and only if}
-
-    \begin{itemize}
-    \item
-      For some proposition-value pair \(\pv{\chi}{v''}\) in \(\Phi\):
-      \begin{itemize}[noitemsep]
-      \item
-        \(\chi\) is the proposition: \propI{A \ros{} between }\pv{\psi}{v'}\propI{ and }\Psi.
-      \item
-        \(v''\) is the value: \valI{True}
-      \end{itemize}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-\end{note}
-
-\begin{note}
-  Idea is somewhat familiar from distinction between object- and meta-language with respect to propositional logic.
-  Certain kind of equivalence between proof and conditional.
-  It is possible to find a corresponding conditional to any proof with a finite number of premises, proof captures derivation of conclusion from premises.
-
-  Corresponding conditional is not a premise, nor any part, of the proof.
-
-  For example, consider a proof from \(P\) and \(P \rightarrow Q\) to \(Q\) by conditional detachment.
-  Corresponding conditional is \((P \land (P \rightarrow Q)) \rightarrow Q\).
-  However, not part of the proof.
-
-  Intuitive distinction between what a proof and a conditional refer to.
-  However, informally there is no difficulty in treating a proof as a premise.
-  \(P\), and I have a proof of \(P \rightarrow Q\), therefore \(Q\).
-\end{note}
 
 
 \subsection{Embedding \requ{1}}
@@ -482,8 +329,6 @@
 \begin{note}
   Squish is a great example, as I plausibly rely on my memory of a prior proof.
   Indeed, I am not inclined to think about this for proofs I have no done at some point in the past.
-
-  
 \end{note}
 
 \subsection{Embedding in the literature}
@@ -549,8 +394,6 @@
   \end{quote}
   Causation between mental states, but explanatory relation between things.
 \end{note}
-
-
 
 % \subsection{\citeauthor{Owens:2006tw}}
 
