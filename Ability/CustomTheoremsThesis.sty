@@ -1,0 +1,33 @@
+\ProvidesPackage{CustomTheoremsThesis}
+
+% % % The following section relates to theorems, etc. % % %
+\RequirePackage{thmtools, thm-restate}
+\RequirePackage{adforn}
+\RequirePackage{xparse} % For creating commands with complex arguments
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries,
+notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace = \newline,
+qed=\adfdownleafleft
+]{propstyle}
+
+% https://tex.stackexchange.com/questions/472298/variable-headpunct-for-theorem-styles-using-thmtools
+% https://tex.stackexchange.com/questions/110244/using-mdframed-style-within-declaretheoremstyle-to-change-title
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\normalfont\bfseries,
+notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace = \newline,
+qed=\adfoutlineleafleft
+]{assstyle}
+
+
+\declaretheorem[name=Theorem]{theorem}
+

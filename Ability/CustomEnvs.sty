@@ -1,0 +1,396 @@
+\ProvidesPackage{CustomEnvs}
+
+\RequirePackage{xparse}
+\RequirePackage{marginnote}
+\RequirePackage{adforn}
+
+
+\NewDocumentEnvironment{argument}{ m +b}
+{%
+  \smallskip%
+  \noindent\emph{Argument~for~\autoref{#1}}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adforn{39}%
+  \par\smallskip
+}
+
+
+\NewDocumentEnvironment{motivation}{ m +b}
+{%
+  \smallskip%
+  \noindent\emph{Motivation~for~\autoref{#1}}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adforn{39}%
+  \par\smallskip
+}
+
+
+\newcounter{scenarioCounter}
+\setcounter{scenarioCounter}{0}
+\renewcommand{\thescenarioCounter}{\arabic{scenarioCounter}}
+
+\NewDocumentEnvironment{scenario}{ o +b}
+{%
+  \refstepcounter{scenarioCounter}%
+  \smallskip%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Scenario~\arabic{scenarioCounter}}}%
+    {\noindent\textbf{Scenario~\arabic{scenarioCounter}}~(#1)}%
+  \ignorespaces%
+  \newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \smallskip
+}
+
+
+\newcounter{observationCounter}
+\setcounter{observationCounter}{0}
+\renewcommand{\theobservationCounter}{\arabic{observationCounter}}
+
+\NewDocumentEnvironment{observation}{o +b}
+{%
+  \refstepcounter{observationCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Observation~\arabic{observationCounter}}}%
+    {\noindent\textbf{Observation~\arabic{observationCounter}}~(#1)}%
+  \ignorespaces%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}{}
+
+
+% \newcounter{specificationCounter}
+% \setcounter{specificationCounter}{0}
+% \renewcommand{\thespecificationCounter}{\arabic{specificationCounter}}
+
+% \NewDocumentEnvironment{specification}{ o +b}
+% {%
+%   \refstepcounter{specificationCounter}%
+%   \smallskip%
+%   \IfNoValueTF{#1}%
+%     {\noindent\textbf{Specification~\arabic{specificationCounter}}}%
+%     {\noindent\textbf{Specification~\arabic{specificationCounter}}~(#1)}%
+%   \mbox{ }\newline%
+%   #2%
+%   \mbox{ }\hfill\adfdownleafleft%
+%   \par\smallskip
+% }
+
+\newcounter{illustrationCounter}
+\setcounter{illustrationCounter}{0}
+\renewcommand{\theillustrationCounter}{\arabic{illustrationCounter}}
+
+\NewDocumentEnvironment{illustration}{ o +b}
+{%
+  \refstepcounter{illustrationCounter}%
+  \smallskip%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Illustration~\arabic{illustrationCounter}}}%
+    {\noindent\textbf{Illustration~\arabic{illustrationCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfgee%
+  \par\smallskip
+}
+
+
+\newcounter{sketchCounter}
+\setcounter{sketchCounter}{0}
+\renewcommand{\thesketchCounter}{\arabic{sketchCounter}}
+
+\NewDocumentEnvironment{sketch}{ o +b}
+{%
+  \refstepcounter{sketchCounter}%
+  \smallskip%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Sketch~\arabic{sketchCounter}}}%
+    {\noindent\textbf{Sketch~\arabic{sketchCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfgee%
+  \par\smallskip
+}
+
+
+\newcounter{linkCounter}
+\setcounter{linkCounter}{0}
+\renewcommand{\thelinkCounter}{\arabic{linkCounter}}
+
+\NewDocumentEnvironment{link}{ o +b}
+{%
+  \refstepcounter{linkCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Link~\arabic{linkCounter}}}%
+    {\noindent\textbf{Link~\arabic{linkCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfgee%
+  \par\smallskip
+}
+
+
+\newcounter{ideaCounter}
+\setcounter{ideaCounter}{0}
+\renewcommand{\theideaCounter}{\arabic{ideaCounter}}
+
+\NewDocumentEnvironment{idea}{ o +b}
+{%
+  \refstepcounter{ideaCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Idea~\arabic{ideaCounter}}}%
+    {\noindent\textbf{Idea~\arabic{ideaCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfast3%
+  \par\smallskip
+}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\assumptionName}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {\obeybreaks{assumption}}
+  {%
+    \ifnum0=#1\relax\obeybreaks{assumption}\fi
+    \ifnum1=#1\relax\obeybreaks{assumptions}\fi
+    \ifnum2=#1\relax\obeybreaks{Assumption}\fi
+    \ifnum3=#1\relax\obeybreaks{Assumptions}\fi
+  }
+}
+\ExplSyntaxOff
+
+
+\newcounter{assumptionCounter}
+\setcounter{assumptionCounter}{0}
+\renewcommand{\theassumptionCounter}{\arabic{assumptionCounter}}
+
+\NewDocumentEnvironment{assumption}{ o +b}
+{%
+  \refstepcounter{assumptionCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{\assumptionName{2}~\arabic{assumptionCounter}}}%
+    {\noindent\textbf{\assumptionName{2}~\arabic{assumptionCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfoutlineleafleft%
+  \par\smallskip
+}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\definitionName}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {\obeybreaks{definition}}
+  {%
+    \ifnum0=#1\relax\obeybreaks{definition}\fi
+    \ifnum1=#1\relax\obeybreaks{definitions}\fi
+    \ifnum2=#1\relax\obeybreaks{Definition}\fi
+    \ifnum3=#1\relax\obeybreaks{Definitions}\fi
+  }
+}
+\ExplSyntaxOff
+
+\newcounter{defiCounter}
+\setcounter{defiCounter}{0}
+\renewcommand{\thedefiCounter}{\arabic{defiCounter}}
+
+\NewDocumentEnvironment{definition}{ o +b}
+{%
+  \refstepcounter{defiCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{\definitionName{2}~\arabic{defiCounter}}}%
+    {\noindent\textbf{\definitionName{2}~\arabic{defiCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+
+\newcounter{propCounter}
+\setcounter{propCounter}{0}
+\renewcommand{\thepropCounter}{\arabic{propCounter}}
+
+\NewDocumentEnvironment{proposition}{ o +b}
+{%
+  \refstepcounter{propCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Proposition~\arabic{propCounter}}}%
+    {\noindent\textbf{Proposition~\arabic{propCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+
+\newcounter{coroCounter}
+\setcounter{coroCounter}{0}
+\renewcommand{\thecoroCounter}{\arabic{coroCounter}}
+
+\NewDocumentEnvironment{corollary}{ o +b}
+{%
+  \refstepcounter{coroCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Corollary~\arabic{coroCounter}}}%
+    {\noindent\textbf{Corollary~\arabic{coroCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+% % % Notes % % %
+
+\renewcommand*{\marginfont}{\ttfamily\scriptsize}
+
+\newcounter{noteCounter} % new counter for notes
+
+% Using \unskip removes space which is default for missing argument
+\newenvironment{note}[1][\unskip]{%
+  \refstepcounter{noteCounter}%
+  % {%
+  %   \reversemarginpar%
+  %   \marginnote{\raggedright\arabic{noteCounter}.\newline#1}%
+  % }%
+  \smallskip%
+  \noindent%
+  \ignorespaces % Gets rid of minor indent?
+  % https://tex.stackexchange.com/questions/480530/use-marginnote-without-affecting-spacing
+}{%
+%End code
+}
+
+\newcounter{todoCounter}
+\newenvironment{todo}[1][\unskip]{%
+  \refstepcounter{todoCounter}%
+  {%
+    \reversemarginpar%
+    \marginnote{\raggedright\arabic{todoCounter}.\newline#1}%
+  }%
+  \smallskip%
+  \noindent%
+  \ignorespaces % Gets rid of minor indent?
+  \ttfamily
+  \footnotesize
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+}{%
+  \newline
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{}
+}
+
+% From https://tex.stackexchange.com/questions/94699/absolutely-definitely-preventing-page-break
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+    \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+    \prevdepth=\tpd}
+
+% Marginnote
+% https://mirrors.concertpass.com/tex-archive/macros/latex/contrib/marginnote/marginnote.pdf
+
+% \makeatletter
+% \newenvironment{shiftpar}[1][1.5em]
+%   {\list{}{%\listparindent #1%
+%     %\itemindent\parindent
+%     \leftmargin#1
+% %    \rightmargin\leftmargin
+%     \parsep\z@\@plus\p@}%
+%     \item\relax}
+%   {\endlist}
+% \makeatother
+
+
+% % RESTATABLE ENVS % %
+
+%https://tex.stackexchange.com/questions/406984/call-repeat-duplicate-equation-based-on-label
+
+
+\newcommand\literalbody[2]{%
+  \label{#1}
+  \expandafter\gdef\csname literalbody_#1\endcsname{#2}
+  #2
+}
+\newcommand\literallabel[2]{%
+  \label{#1}
+  \expandafter\gdef\csname literallabel_#1\endcsname{#2}
+  #2
+}
+
+\newcounter{constraintCounter}
+\setcounter{constraintCounter}{0}
+\renewcommand{\theconstraintCounter}{\arabic{constraintCounter}}
+
+\NewDocumentEnvironment{constraint}{ m m +b}
+{%
+  \refstepcounter{constraintCounter}%
+  \label{#1}
+  \smallskip%
+  \parindent0pt%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Constraint~\arabic{constraintCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+\newcommand\reConstraint[1]{
+  \smallskip%
+  \noindent\textbf{Constraint~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+\newcounter{questionCounter}
+\setcounter{questionCounter}{0}
+\renewcommand{\thequestionCounter}{\arabic{questionCounter}}
+
+\NewDocumentEnvironment{question}{ m m +b}
+{%
+  \refstepcounter{questionCounter}%
+  \label{#1}
+  \smallskip%
+  \parindent0pt%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Question~\arabic{questionCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+\newcommand\reQuestion[1]{
+  \smallskip%
+  \noindent\textbf{Question~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}

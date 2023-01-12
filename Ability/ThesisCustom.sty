@@ -1470,8 +1470,7 @@
     \obeybreaks{factual\space explanation}%
   }
   {%
-    \ifnum0=#1\relax%
-      \obeybreaks{factual\space explanation}%
+    \ifnum0=#1\relax\obeybreaks{factual\space explanation}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{factual\space explanations}%
@@ -1481,6 +1480,50 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{Factual\space explanations}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosE}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{embedded}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{embedded}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Embedded}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosNE}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{embedded}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{unembedded}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Unembedded}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
     \fi
   }
 }
