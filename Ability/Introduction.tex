@@ -49,8 +49,10 @@
   However, in addition to this sequence, something about the calculator led the agent to conclude \propM{\gistCalcEq{}} has value \valI{True}.
 
   Our understanding of \autoref{scen:calc} is be different if the agent applied their understanding of arithmetic, or if the agent asked some other person.
+\end{note}
 
-  Abstractly, we say something about the calculator \emph{supports} \propM{\gistCalcEq{}} being \valI{True}, from the \agpe{}.
+\begin{note}
+  Abstracting further, we say something about the calculator \emph{supports} \propM{\gistCalcEq{}} being \valI{True}, from the \agpe{}.
 
   We limit ourselves to two basic assumptions about \ros{1}:
   %
@@ -66,8 +68,7 @@
   Still, a \ros{} may also hold between \propM{\gistCalcEq{}}, \valI{True} and the \agents{} understanding of arithmetic, though the agent did not conclude from their understanding of arithmetic.
 
   Further, it seems \ros{1} provide some understanding of the way an event in which some agent concludes happens.
-
-  Specifically, a \ros{} seems to provide some understanding of \emph{why} an event in which some agent concludes happens.
+  In particular, a \ros{} seems to provide some understanding of \emph{why} an event in which some agent concludes happens.
   A \ros{} does not clearly provide some understanding of \emph{how} the event in which the agent concludes happens.
 
   Still, there is a plausible connexion between `why' and `how' with respect to \autoref{scen:calc}.
@@ -179,8 +180,8 @@
 \end{note}
 
 \begin{note}
-  \qWhy{} seeks an understanding of the way an agent concluded \(\phi\) has value \(v\) in terms of \ros{} between \prop{1}, \val{1}, and \pool{1}.
-  And \qHow{} seeks an understanding of the way an agent concluded \(\phi\) has value \(v\) in terms of what happened.
+  \qWhy{} seeks an understanding of the way an event developed so that an agent concluded \(\phi\) has value \(v\) in terms of \ros{} between \prop{1}, \val{1}, and \pool{1}.
+  And \qHow{} seeks an understanding of the way an event developed so that an agent concluded \(\phi\) has value \(v\) in terms of what happened.
 
   Specifically, both \qWhy{} and \qHow{} seek `explanatory reasons', summarised by \citeauthor{Hieronymi:2011aa} (\citeyear{Hieronymi:2011aa}) as:
   % 
@@ -315,8 +316,48 @@
   Perhaps the failure of \issueInclusion{} is recognised and I have yet to stumble upon the acknowledgement of its failure.
   Or, perhaps this constraint isn't of significant interest.
 
-  In any case, no argument for \issueInclusion{} will be given.
-  Instead, the goal of this document is to provide a recipe for generating counterexamples to \issueInclusion{}.
+  I think \scen{1}~\ref{scen:calc}~and~\ref{scen:animalism} intuitively motivate \issueInclusion{}.
+  For, consider the following observation:
+
+  \begin{observation}%
+    \label{obs:iIceRestriction}%
+    Any counterexample to \issueInclusion{} must involve an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) where:
+    % 
+    \begin{itemize}
+    \item
+      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}, such that:
+      \begin{itemize}
+      \item
+        Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
+      \item
+        There is no prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
+      \end{itemize}
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
+  \end{observation}
+  %
+  \begin{motivation}{obs:iIceRestriction}
+    Suppose an agent concludes \(\phi\) has value \(v\) from \(\Phi\).
+    Then, the agent has a \wit{} for a \ros{} between \(\phi\), \(v\), and \(\Phi\).
+    Hence, a \ros{} between \(\phi\), \(v\), and \(\Phi\) answering \qWhy{} is compatible with \issueInclusion{}.
+
+    Likewise if there is a prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\) then the agent has a \wit{} for a \ros{} between \(\phi\), \(v\), and \(\Phi\).
+  \end{motivation}
+
+  \autoref{obs:iIceRestriction} neatly combines with the intuition that the only \ros{1} which answer \qWhy{} with respect to \scen{1}~\ref{scen:calc}~and~\ref{scen:animalism} are, respectively:
+  \begin{itemize}
+  \item
+    The \ros{} between \propM{\gistCalcEq{}}, \valI{True}, and something about the calculator.
+  \item
+    The \ros{} between \propI{Four legs good, two legs bad}, \valI{True} and something about the existence of Snowball's explanation.
+  \end{itemize}
+  %
+  Indeed, an implicit acceptance of \issueInclusion{} may motivate the given intuitions.
+\end{note}
+
+\begin{note}
+  No argument for \issueInclusion{} will be given.
+  The goal of this document is to provide a recipe for generating counterexamples to \issueInclusion{}.
 
   By `recipe', I mean an description of some features which hold of \scen{1} and an account of the way in which these combine which entails violations of \issueInclusion{}.
   With the recipe in hand, we will construct a few counter samples, but our interest is with the way in which \issueInclusion{} fails, rather than the failure of \issueInclusion{}.
@@ -329,71 +370,49 @@
     Though, there is an important distinction between definitions and propositions and the motivation for definitions and propositions.
     I do not claim the relevant motivation is (more-or-less) deductive.
   }
+
+  % \begin{scenario}[Multiplication]%
+  %   \label{scen:calc:var}%
+  %   An agent enters `\gistCalcLHS{}' into a calculator and presses a button marked `\(=\)'.
+  %   The calculator displays `\gistCalcRHS{}'.
+
+  %   The agent pauses for a moment.
+  %   They have a good understanding of arithmetic.
+  %   And, given the display on the calculator, it follows that if the calculator is trustworthy, then they would not fail to conclude \propM{\gistCalcEq{}} via their understanding of arithmetic.
+
+  %   The agent does the arithmetic and concludes \propM{\gistCalcEq{}}.
+  % \end{scenario}
+
+  % \noindent%
+  % \autoref{scen:calc:var} is a variation of \autoref{scen:calc} where the agent does arithmetic.
+
+  % Now, suggest that \ros{} holds between the agent's understanding of arithmetic and various other equations.
+
+  % Do any of these \ros{} answer \qWhy{}?
+  % Of course, understanding of arithmetic, but are \ros{} required for this?
+  % I don't think this is obvious.
+  % For example, if reasoning is rule governed,%
+  % \footnote{
+  %   See, for example, \textcite{Boghossian:2008vf} and \textcite{Broome:2013aa}.
+  % }
+  % then it seems sufficient to observe the agent followed the relevant rule.
+
+
+  % Likewise, variation of \autoref{scen:animalism} where the birds understand Snowball's long words but are swayed by Snowball's rhetoric.
+  % A \ros{} may hold, but seems irrelevant.
 \end{note}
 
 \begin{note}
-  Note, any counterexample to \issueInclusion{} must involve an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) where:
-  % 
-  \begin{itemize}
-  \item
-    A \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}, such that:
-    \begin{itemize}
-    \item
-      Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
-    \item
-      There is no prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
-    \end{itemize}
-  \end{itemize}
-  % 
-  To see this, observe that when an agent concludes \(\phi\) has value \(v\) from \(\Phi\) have an answer to \qHow{}.
-  Hence, a \ros{} between \(\phi\), \(v\), and \(\Phi\) answering \qWhy{} is compatible with \issueInclusion{}.
-
-  Intuition of \scen{1}~\ref{scen:calc}~and~\ref{scen:animalism} is that no other \ros{} matters.
-
-  \begin{scenario}[Multiplication]%
-    \label{scen:calc:var}%
-    An agent enters `\gistCalcLHS{}' into a calculator and presses a button marked `\(=\)'.
-    The calculator displays `\gistCalcRHS{}'.
-
-    The agent pauses for a moment.
-    They have a good understanding of arithmetic.
-    And, given the display on the calculator, it follows that if the calculator is trustworthy, then they would not fail to conclude \propM{\gistCalcEq{}} via their understanding of arithmetic.
-
-    The agent does the arithmetic and concludes \propM{\gistCalcEq{}}.
-  \end{scenario}
-
-  \noindent%
-  \autoref{scen:calc:var} is a variation of \autoref{scen:calc} where the agent does arithmetic.
-
-  Now, suggest that \ros{} holds between the agent's understanding of arithmetic and various other equations.
-
-  Do any of these \ros{} answer \qWhy{}?
-  Of course, understanding of arithmetic, but are \ros{} required for this?
-  I don't think this is obvious.
-  For example, if reasoning is rule governed,%
-  \footnote{
-    See, for example, \textcite{Boghossian:2008vf} and \textcite{Broome:2013aa}.
-  }
-  then it seems sufficient to observe the agent followed the relevant rule.
-
-
-  Likewise, variation of \autoref{scen:animalism} where the birds understand Snowball's long words but are swayed by Snowball's rhetoric.
-  A \ros{} may hold, but seems irrelevant.
+  Before closing this introduction, we say a little more regarding the recipe for counterexamples.
+  First, we briefly consider constraints similar to \issueInclusion{} in the literature on reasons, but highlight some differences.
 \end{note}
-
-\begin{note}
-  Before closing this introduction, say a little more regarding the recipe for counterexamples.
-  First, we briefly consider constraints similar to \issueInclusion{} in the literature on reasons, but highlight a key difference.
-\end{note}
-
-\section*{Rationalalisations and the basing relations}
 
 \subsection*{\issueInclusion{} and rationalisations}
 \label{sec:reasons}
 
-\begin{note}
-  \qWhy{} and \qHow{} are questions about the way an event in which an agent concludes some proposition has some value happened.
-\end{note}
+% \begin{note}
+%   \qWhy{} and \qHow{} are questions about the way an event in which an agent concludes some proposition has some value happened.
+% \end{note}
 
 \begin{note}
   \citeauthor{Davidson:1963aa} opens \citetitle{Davidson:1963aa} with the following question:
@@ -404,16 +423,14 @@
     \mbox{}\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
   \end{quote}
   % 
-  \citeauthor{Davidson:1963aa}'s interest is with explanatory reasons \emph{such that} the explanatory reason involves the agent's reason.%
+  In short, a rationalisation is an explanatory reason for why an agent did some action which states the \agents{} reason for doing what they did.%
   \footnote{
-    These may also be understood, in line with \citeauthor{Smith:1994wo} (\citeyear{Smith:1994wo}), as `motivating reasons':
-    \begin{quote}
-      The distinctive feature of a motivating reason to \(\phi\) is that, in virtue of having such a reason, an agent is in a state that is \emph{explanatory} of her \(\phi\)-ing, at least other things being equal --- other things must be equal because an agent may have a motivating reason to \(\phi\) without that reason's being overriding.%
-      \mbox{}\hfill\mbox{(\citeyear[96]{Smith:1994wo})}
-    \end{quote}
+    The \agents{} reason may be understood, in line with \citeauthor{Smith:1994wo} (\citeyear{Smith:1994wo}), as a `motivating reason' where
+    \textquote{[t]he distinctive feature of a motivating reason to \(\phi\) is that, in virtue of having such a reason, an agent is in a state that is \emph{explanatory} of her \(\phi\)-ing, at least other things being equal --- other things must be equal because an agent may have a motivating reason to \(\phi\) without that reason's being overriding}
+    (\citeyear[96]{Smith:1994wo}).
   }
 
-  So, two questions, which mirror \qWhy{} and \qHow{}:
+  Variants of \qWhy{} and \qHow{} suited to rationalisations and actions follow:
 
   \begin{question}{questionWhyR}{\qWhyR{}}
     \cenLine{
@@ -460,59 +477,69 @@
   \end{question}
 
   \noindent%
-  Parallel to \ros{} as answers to \qWhy{}.
-
-  \begin{itemize}
-  \item
-    \ros{} explains why agent concluded \(\phi\) has value \(v\) from \(\Phi\).
-  \item
-    Rationalisation explains why an agent did some action.
-  \end{itemize}
-\end{note}
-
-\paragraph*{Constraints on rationalisations}
-
-\begin{note}
-  \citeauthor{Davidson:1963aa}'s argument of \citetitle{Davidson:1963aa} is:
-  % 
-  \begin{quote}
-    [R]ationalization is a species of ordinary causal explanation.%
-    \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
-  \end{quote}
-  % 
-  So, a reason explains the action by giving the agent's reason for doing what he did when the agent's reason \emph{causes} the action.
-
-  A causal relation captures how something happened, and \citeauthor{Davidson:1963aa} holds causal relation explains how event happens.
-  Hence, \citeauthor{Davidson:1963aa} constrains answers to \qWhyR{} by answers to \qHowR{}.
+  \qWhyR{} seeks an understanding of the way an event developed such that an agent did some action in terms of rationalisations.
+  In contrast, \qWhy{} seeks an understanding of the way an event developed such that an agent concludes \(\phi\) has value \(v\) from \(\Phi\) in terms of \ros{}.
+  Likewise, \qHowR{} seeks an understanding of the way an event developed such that an agent did some action in terms of what happened, while \qHow{} is a restriction of \qHowR{} to events in which the relevant action is `concludes \(\phi\) has value \(v\) from \(\Phi\)'.
 \end{note}
 
 \begin{note}
-  In contrast to causal explanation, \citeauthor{Hieronymi:2011aa} (\citeyear{Hieronymi:2011aa}) appeals to a complex fact:%
-  \footnote{
-    Consider also \citeauthor{Harman:1973ww} account of reason explanation:
+  \qWhyR{} is a variant of \qWhy{} and \qHowR{} is a variant of \qHow{}.
+  We make two observations.
+
+  \begin{enumerate}
+  \item
+    Variants of \issueInclusion{} have been proposed for \qWhyR{} and \qHow{}.
+  \item
+    There is no straightforward motivation for \issueInclusion{} by constraints on answers to \qWhyR{} in terms of answers to \qHow{}.
+  \end{enumerate}
+\end{note}
+
+\begin{note}
+  \begin{observation}%
+    \label{obs:whRconstraintMotivation}%
+    Variants of \issueInclusion{} have been proposed for \qWhyR{} and \qHow{}.
+  \end{observation}
+  \begin{motivation}{obs:whRconstraintMotivation}
+    We consider proposals by \citeauthor{Davidson:1963aa} and \citeauthor{Hieronymi:2011aa} in turn.
+    \medskip
+
+    \noindent%
+    \citeauthor{Davidson:1963aa}'s argument of \citetitle{Davidson:1963aa} is:
     % 
     \begin{quote}
-      Reasons may or may not be causes; but explanation by reasons is not causal or deterministic explanation.
-      It describes the sequence of considerations that led to belief in a conclusion without supposing that the sequence was determined.%
-      \mbox{ }\hfill\mbox{(\citeyear[52]{Harman:1973ww})}
+      [R]ationalization is a species of ordinary causal explanation.%
+      \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
     \end{quote}
-  }
-  % 
-  \begin{quote}
-    [W]henever an agent acts for reasons, the agent, in some sense, takes certain considerations to settle the question of whether so to act, therein intends so to act, and executes that intention in action.
+    % 
+    So, a reason explains the action by giving the agent's reason for doing what he did when the agent's reason \emph{causes} the action.
 
-    If this much is uncontroversial (and, under some interpretation, I believe it must be), we can use it as a form for filling out.
-    I propose, then, that we explain an event that is an action done for reasons by appealing to the fact that the agent took certain considerations to settle the question of whether to act in some way, therein intended so to act, and successfully executed that intention in action.
-    I suggest that \emph{this} complex fact [\dots] is the reason that rationalizes the action---that explains the action by giving the agent's reason for acting.%
-    \mbox{ }\hfill\mbox{(\citeyear[421]{Hieronymi:2011aa})}
-  \end{quote}
-  % 
-  In short, \citeauthor{Hieronymi:2011aa} observes a particular (complex) fact holds when an agent agents for reasons.
-  If we grant that the fact \citeauthor{Hieronymi:2011aa} observes explains how an agent did what they did, then \citeauthor{Hieronymi:2011aa}'s proposal likewise constrains answers to \qWhyR{} in terms of answers to \qHowR{} --- in order for a rationalisation to explain why and agent did what they did there must be an event where the agent settles what to do via the (\agents{}) reasons present in the rationalisation.
-\end{note}
+    A causal relation captures how something happened, and \citeauthor{Davidson:1963aa} holds causal relation explains how event happens.
+    Hence, \citeauthor{Davidson:1963aa} constrains answers to \qWhyR{} by answers to \qHowR{}.
+    \medskip
 
-\begin{note}
-  In short, then, the arguments/proposals of \citeauthor{Davidson:1963aa} and \citeauthor{Hieronymi:2011aa} entail a constraint which parallels \issueInclusion{}, with respect to the variant questions \qWhyR{} and \qHowR{}.
+    \noindent%
+    In contrast to causal explanation, \citeauthor{Hieronymi:2011aa} (\citeyear{Hieronymi:2011aa}) appeals to a complex fact:%
+    \footnote{
+      Consider also \citeauthor{Harman:1973ww}'s account of reason explanation:
+      \textquote{Reasons may or may not be causes; but explanation by reasons is not causal or deterministic explanation.
+        It describes the sequence of considerations that led to belief in a conclusion without supposing that the sequence was determined} (\citeyear[52]{Harman:1973ww}).
+    }
+    % 
+    \begin{quote}
+      [W]henever an agent acts for reasons, the agent, in some sense, takes certain considerations to settle the question of whether so to act, therein intends so to act, and executes that intention in action.
+
+      If this much is uncontroversial (and, under some interpretation, I believe it must be), we can use it as a form for filling out.
+      I propose, then, that we explain an event that is an action done for reasons by appealing to the fact that the agent took certain considerations to settle the question of whether to act in some way, therein intended so to act, and successfully executed that intention in action.
+      I suggest that \emph{this} complex fact [\dots] is the reason that rationalizes the action---that explains the action by giving the agent's reason for acting.%
+      \mbox{ }\hfill\mbox{(\citeyear[421]{Hieronymi:2011aa})}
+    \end{quote}
+    % 
+    In short, \citeauthor{Hieronymi:2011aa} observes a particular (complex) fact holds when an agent agents for reasons.
+    If we grant that the fact \citeauthor{Hieronymi:2011aa} observes explains how an agent did what they did, then \citeauthor{Hieronymi:2011aa}'s proposal likewise constrains answers to \qWhyR{} in terms of answers to \qHowR{} --- in order for a rationalisation to explain why and agent did what they did there must be an event where the agent settles what to do via the (\agents{}) reasons present in the rationalisation.
+  \end{motivation}
+
+  \noindent%
+  In short, the arguments/proposals of \citeauthor{Davidson:1963aa} and \citeauthor{Hieronymi:2011aa} entail a constraint which parallels \issueInclusion{}, with respect to the variant questions \qWhyR{} and \qHowR{}.
 
   Still, to argue \issueInclusion{} follows from either \citeauthor{Davidson:1963aa}'s or \citeauthor{Hieronymi:2011aa}'s account of rationalisations requires an argument for the following conditional:
   % 
@@ -530,7 +557,6 @@
   For example, we may casually say with relative ease:%
   \footnote{
     This intuition ignores details about what \citeauthor{Davidson:1963aa} and \citeauthor{Hieronymi:2011aa} think reasons are.
-    We consider issues about what reasons are below.
   }
 
   \begin{itemize}
@@ -553,66 +579,108 @@
     \end{itenum}
   \end{itemize}
   % 
-  Still, we observed any counterexample to \issueInclusion{} must involve a \ros{} between \(\psi\), \(v'\), and \(\Psi\) (where either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).)
+  Still, we observed any counterexample to \issueInclusion{} must involve a \ros{} between \(\psi\), \(v'\), and \(\Psi\) (where either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\)).
+  Hence, the plausible conditional does not cover \ros{1} which \emph{may} be counterexamples to \issueInclusion{}.
 
-  And, it seems there is no way link a \ros{} between \(\psi\), \(v'\), and \(\Psi\) to a rationalisation if either \(\psi\) is distinct from \(\phi\) or \(v\) is distinct from \(v'\).
+  \begin{observation}
+    \label{obs:whRdifficult}%
+    There is no straightforward motivation for \issueInclusion{} by constraints on answers to \qWhyR{} in terms of answers to \qHow{}.
 
-  For, a rationalisation explains an action by giving an agent's reason for doing the action.
-  For us, the relevant action is fixed as the action by which the agent concludes \(\phi\) has value \(v\).
-  So, with respect to conclusions rationalisations have a single free variable \(X\) for the \agents{} reason:
-  % 
-  \begin{itemize}
-  \item
-    \(X\) is the \agents{} reason for the conclusion \(\phi\) has value \(v\) (from \(\Phi\)).
-  \end{itemize}
-  % 
-  Therefore, if \(\psi\) is distinct from \(\phi\) or \(v'\) is distinct from \(v\), \(\phi\) or \(v'\) must be referenced by \(X\).
-  In short, it seems the \ros{} between \(\psi\), \(v'\) and \(\Psi\) must be understood as the \agents{} reason:
-  % 
-  \begin{itemize}
-  \item
-    The \ros{} between \(\psi\), \(v'\), and \(\Psi\) is the \agents{} reason for the conclusion \(\phi\) has value \(v\) (from \(\Phi\)).
-  \end{itemize}
-  % 
-  To see why this proposal is insufficient, consider it applied to the \ros{} between \(\phi\), \(v\), and \(\Phi\):
-  % 
-  \begin{itemize}
-  \item
-    The \ros{} between \(\phi\), \(v\), and \(\Phi\) is the \agents{} reason for the conclusion \(\phi\) has value \(v\) (from \(\Phi\)).
-  \end{itemize}
-  % 
-  We introduced \ros{} as a act-neutral account of what follows from what.
-  Hence, the above suggests conclusion \(\phi\) has value \(v\) (from \(\Phi\)) is \emph{from} the \ros{} between \(\phi\), \(v\), and \(\Phi\).
-  And, in turn this suggests the relevant \ros{} which answers \qWhy{} is a \ros{} between \(\phi\) having value \(v\) and [the \ros{} between \(\phi\), \(v\), and \(\Phi\)].
+    In particular, there is no way link a \ros{} between \(\psi\), \(v'\), and \(\Psi\) to a rationalisation if either \(\psi\) is distinct from \(\phi\) or \(v\) is distinct from \(v'\).
+  \end{observation}
 
-  In short, a it seems a rationalisation implicitly captures a specific kind of \ros{}.
-  And, as a rationalisation implicitly captures a specific \ros{1}, a rationalisation is not suitable for capturing general \ros{1}.
-\end{note}
+  \begin{motivation}{obs:whRdifficult}%
+    A rationalisation explains an action by giving an agent's reason for doing the action.
+    Hence, rationalisations have a single free variable for the \agents{} reason.
 
-\begin{note}
-  Still, may argue no \ros{} between \(\phi\), \(v\), and \(\Psi\) is a counterexample to \issueInclusion{}.
-  For, the \(\Psi\) rationalises conclusion \(\phi\) has value \(v\).
-  But, then causal relation or complex fact which secures a \wit{} for the \ros{}.
-\end{note}
+    Applied to conclusions, rationalisations are of the form:
+    % 
+    \begin{itemize}
+    \item
+      \(R\) is the \agents{} reason for the conclusion \(\phi\) has value \(v\) (from \(\Phi\)).
+    \end{itemize}
+    % 
+    Where \(R\) stands for an \agents{} reason.
 
-\begin{note}
+    Now, assume a \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}, where \(\psi\) is distinct from \(\phi\) and \(v'\) is distinct from \(v\).
+
+    By assumption, the \ros{} answers \qWhy{}, and so to capture the explanatory relation between the \ros{} and the \ros{} and the \agents {} conclusion \(\phi\) has value \(v\) (from \(\Phi\)), \(\phi\) or \(v'\) must be referenced by \(R\).
+
+    Further \(\psi\) is distinct from \(\phi\) and \(v'\) is distinct from \(v\), the relevant rationalisation is for the conclusion \(\psi\) has value \(v'\) (from \(\Phi\)).
+
+    I think the only plausible proposal given these constraints is to understand the \ros{} between \(\psi\), \(v'\) and \(\Psi\) must be understood as the \agents{} reason:
+    % 
+    \begin{itemize}
+    \item
+      The \ros{} between \(\psi\), \(v'\), and \(\Psi\) is the \agents{} reason for the conclusion \(\phi\) has value \(v\) (from \(\Phi\)).
+    \end{itemize}
+    % 
+    Yet, we introduced \ros{} as a act-neutral account of what follows from what.
+    Hence, the above suggests conclusion \(\phi\) has value \(v\) (from \(\Phi\)) is \emph{from} the \ros{} between \(\psi\), \(v'\), and \(\Psi\).
+    So, the relevant \ros{} which answers \qWhy{} is a \ros{} between \(\phi\) having value \(v\) and [the \ros{} between \(\psi\), \(v'\), and \(\Psi\)].
+    Yet, our assumption was the \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
+  \end{motivation}
+
+  \noindent%
+  A rationalisation implicitly may capture a specific kind of \ros{}.
+  However, as a rationalisation is, at best, restricted to a specific \ros{1}, rationalisations are not suitable for capturing \ros{1} in general.
+
   So, while certain accounts of rationalisations constrain answers to a why question by answers to a how question in a similar way to \issueInclusion{}, I doubt it is possible to motivate \issueInclusion{} directly by those accounts of rationalisations.
 
-  At least, not without an additional premise regarding rationalisations.
+  To progress further some additional premise is needed.
   For example, if you hold:
   % 
   \begin{itemize}
   \item
-    A \ros{} answers \qWhy{} \emph{only if} there is a corresponding rationalisation that answers \qWhyR{}
+    A \ros{} answers \qWhy{} \emph{only if} there is a corresponding rationalisation that answers \qWhyR{} (in line with the plausible conditional above).
   \end{itemize}
   % 
-  Then a more carefully developed version of the argument just made entails it is not possible for a \ros{} between \(\phi\), \(v'\), and \(\Phi\) (where \(\psi\) is distinct from \(\phi\) or \(v'\) is distinct from \(v\)) to answer \qWhy{}.
-
-  A key part of such an argument requires specifying the way in which \ros{} connect to an \agents{} reasons.
-  And, I suspect any such specification would amount to a substantive constraint on what an \agents{} reasons may be.%
+  Then a more carefully developed version of \autoref{obs:whRdifficult} entails it is not possible for a \ros{} between \(\phi\), \(v'\), and \(\Phi\) to answer \qWhy{} (where \(\psi\) is distinct from \(\phi\) or \(v'\) is distinct from \(v\)).
+  And, combined with \citeauthor{Davidson:1963aa}'s or \citeauthor{Hieronymi:2011aa}'s account of rationalisations, \issueInclusion{} follows.%
+  % \footnote{
+  % A key part of such an argument requires specifying the way in which \ros{} connect to an \agents{} reasons.
+  % And, I suspect any such specification would amount to a substantive constraint on what an \agents{} reasons may be.
+  % 
+  % I.e.\ I think such specification is possible, but would not hold for an arbitrary account of what an \agents{} reasons are.
+  % In particular, I think counterexamples to \issueInclusion{} are compatible with \citeauthor{Davidson:1963aa}'s, \citeauthor{Hieronymi:2011aa}'s restriction on answers to \qWhyR{} in terms of answers to \qHowR{}.
+  % }%
+  %   \(^{,}\)%
   \footnote{
-    I.e.\ I think such specification is possible, but would not hold for an arbitrary account of what an \agents{} reasons are.
-    In other words, I think it is possible that counterexamples to \issueInclusion{} are compatible with \citeauthor{Davidson:1963aa}'s, \citeauthor{Hieronymi:2011aa}'s, or any other similar restriction on answers to \qWhyR{} in terms of answers to \qHowR{}.
+    Variants of \qWhy{} and \qHow{} stated in terms of the (epistemic) basing relation.
+    Where, the basing relation is understood as a \textquote{relation which holds between a reason and a belief if and only if the reason is a reason for which the belief is held} (\cite{Korcz:2021ue}).
+
+    In contrast to rationalisations, instances of the basing relation concern a belief, rather than action.
+    Further, instances of the basing relation are typically tied to justification rather than explanation.
+    (See \cite{Korcz:2021ue} and \cite[35]{Pollock:1999tm})
+    Still, as an abstract relation, accounts of the basing relation may suggest motivation for or against \issueInclusion{}.
+
+    Now, the core of \autoref{obs:whRdifficult} concerns how rationalisations hold fixed an action.
+    And, as basing relations hold fixed a belief, a variant of \autoref{obs:whRdifficult} extends to the basing relation.
+    So, accounts of the basing relation do not provide direct motivation \emph{for} \issueInclusion{}.
+
+    Still, given variants of \qWhy{} and \qHow{}, motivation \emph{against} \issueInclusion{}.
+
+    For example, \citeauthor{Swain:1981wd}'s (\citeyear{Swain:1981wd}) `causal-counterfactual' account of the basing relation is promising in name.
+    Perhaps there are instances of the basing relation which hold given the causal relations of counterfactual events!
+    Yet, the relevant counterfactuals of \citeauthor{Swain:1981wd}'s concern events which happened that would have been a cause if the actual cause of an \agents{} belief had not occurred, and hence require a \wit{0}.
+
+    Indeed, the \emph{causal} accounts of the basing relation I have worked through in detail (\cite{Moser:1989tv}, \cite{Ye:2020ux}, and \cite{Turri:2011aa}) seem to motivate \issueInclusion{}, at best.
+
+    \emph{Doxastic} accounts of the basing relation are more permissive, and \citeauthor{Tolliver:1982us}'s (\citeyear{Tolliver:1982us}) account is compatible with failures of a variant of \issueInclusion{} as the account makes no reference to anything that happened, only what the agent believes at a given time.
+    Still, the examples \citeauthor{Tolliver:1982us} gives to motivate their account are consistent with a variant of \issueInclusion{}.
+
+    Further, some care must be taken in order to understand the way in which an account of the basing relation is connected to concluding.
+    For example, taken at face value, \citeauthor{Evans:2013tw}'s disposition account of the basing relation holds:
+    \textquote{S's belief that \emph{p} is based on \emph{m} iff S is disposed to revise her belief that \emph{p} when she loses \emph{m}} (\citeyear[2952]{Evans:2013tw})/
+  This is suggestive of counterexamples to a variant of \issueInclusion{} as an agent may be disposed without witnessing the disposition.
+  However, \citeauthor{Evans:2013tw}' theory is designed to capture what \emph{sustains} an agent's belief.%
+  And, our interest with \issueInclusion{} is restricted to the event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\).
+  \issueInclusion{} is silent about whatever happens after an agent concludes.
+
+  Similar observations extend to \citeauthor{Moretti:2019wx}'s (\citeyear{Moretti:2019wx}) account of basing via enthymematic inferences, and to  \citeauthor{Audi:1986to}'s suggestion of cases in which `[b]elieving for a reason does not entail having \textbf{come} to believe for that reason, or for any reason' (\citeyear[32--33]{Audi:1986to}).
+  % Expansion of an enthymematic inferences may be basis for an \agents{} belief with respect to justification, but it is not clear the expansion of an enthymematic inference matters with respect to an \agents{} conclusion if the agent concludes via an enthymematic inference.
+  % 
+  % An agent may come to believe for one reason, and sustain the belief by some other reason, but unless the sustaining reason explains why the agent formed the initial belief, such cases are of no interest to us.
   }
 \end{note}
 
@@ -631,167 +699,106 @@
 %   But this is still distinct from a reason.
 % \end{note}
 
-\subsection*{The basing relation}
-
-\begin{note}
-  \citeauthor{Pollock:1999tm} introduce the basing relation with the following observation:
-  % 
-  \begin{quote}
-    To be justified in believing something it is not sufficient merely to \emph{have} a good reason for believing it.
-    One could have a good reason at one's disposal but never make the connection.
-    [\dots]
-    Surely, you are not justified in believing [a conclusion], despite the fact that you have impeccable reasons for it at your disposal [if] you do not believe the conclusion on the basis of those reasons.%
-    \mbox{}\hfill\mbox{(\citeyear[35]{Pollock:1999tm})}
-  \end{quote}
-  % 
-  The observation falls short of being an account of the basing relation, but the intuition \citeauthor{Pollock:1999tm} appeal to is instructive.
-  It seems that an agent must connect reasons and the content of a belief in order for the belief to be formed on the basis of those reasons, and hence be justified by those reasons.
-\end{note}
-
-\begin{note}
-  Difficulty, no explicit link between basing relations and explanations.
-  Instead, justification.
-  These two things are distinct.
-  Need not require justification for \ros{} to explain.
-
-  Still, basing relations are superficially similar to \ros{1}.
-  For, concern way in which conclusion.
-  And, it disappointing if counterexamples to \issueInclusion{} required unjustified \ros{1}.
-\end{note}
-
-\begin{note}
-  Same issue as rationalisations.
-
-  Basing relation is between a conclusion and the basis for the conclusion.
-
-  However, possibility of a case where \(\Psi\) is distinct from \(\Phi\).
-\end{note}
-
-\begin{note}
-  Still, suggests \issueInclusion{} may fail.
-
-  For example, \citeauthor{Swain:1981wd}'s (\citeyear{Swain:1981wd}) `causal-counterfactual' account of the basing relation is promising in name.
-  Yet, the relevant counterfactuals concern events which happened that would have been a cause if the actual cause of an \agents{} belief had not occurred, and hence require a \wit{0}.
-
-  Causal, \textcite{Moser:1989tv}, \textcite{Ye:2020ux}, and \citeauthor{Turri:2011aa}.
-  Doxasitc.
-  \textcite{Tolliver:1982us}.
-  Is technically compatible.
-  However, belief at time, and belief that these connect.
-  However, examples \citeauthor{Tolliver:1982us} gives are consistent with constraint.
-\end{note}
-
-\begin{note}
-  Further, some care must be taken in order to understand the way in which an account of the basing relation is connected to concluding.
-  For example, taken at face value, \citeauthor{Evans:2013tw}'s disposition account of the basing relation suggests :
-
-  \begin{quote}
-    S's belief that \emph{p} is based on \emph{m} iff S is disposed to revise her belief that \emph{p} when she loses \emph{m}.%
-    \mbox{}\hfill\mbox{(\citeyear[2952]{Evans:2013tw})}
-  \end{quote}
-
-  However, \citeauthor{Evans:2013tw}' dispositional theory is designed to capture what \emph{sustains} an agent's belief.%
-  And, our interest with \issueInclusion{} is restricted to the event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\).
-  \issueInclusion{} is silent about whatever happens after an agent concludes.%
-  \footnote{
-    A similar observation extends to \citeauthor{Moretti:2019wx}'s (\citeyear{Moretti:2019wx}) account of basing via enthymematic inferences.
-    Expansion of an enthymematic inferences may be basis for an \agents{} belief with respect to justification, but it is not clear the expansion of an enthymematic inference matters with respect to an \agents{} conclusion if the agent concludes via an enthymematic inference.
-
-    Likewise, to \citeauthor{Audi:1986to}'s suggestion of cases in which `[b]elieving for a reason does not entail having \textbf{come} to believe for that reason, or for any reason' (\citeyear[32--33]{Audi:1986to}).
-    An agent may come to believe for one reason, and sustain the belief by some other reason, but unless the sustaining reason explains why the agent formed the initial belief, such cases are of no interest to us.
-  }
-\end{note}
-
 \section*{Counterexamples to \issueInclusion{}}
 
 \begin{note}
   The goal is to provide a recipe for constructing counterexamples to \issueInclusion{}.
-  \scen{3} where:
-  \begin{itemize}
+  Specifically, the recipe identifies \scen{1} with three key features:
+  %
+  \begin{enumerate}
   \item
     An event \(e\) in which an agent \vAgent{} concludes \(\phi\) has value \(v\) from \(\Phi\).
   \item
-    A \ros{} between \(\psi\), \(v'\), and \(\Psi\) explains \emph{why} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\).
-  \item
-    There is no prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
-  \item
-    Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
-  \end{itemize}
+    A \ros{} between \(\psi\), \(v'\), and \(\Psi\) such that:
+    \begin{itemize}
+    \item
+      There is no prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
+    \item
+      The \ros{} explains \emph{why} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\).
+    \end{itemize}
+  \end{enumerate}
+  %
+  And, from \autoref{obs:iIceRestriction}, we have established either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
 \end{note}
 
 \begin{note}
-  Document has three parts.
+  This document has three parts.
   \begin{TOCEnum}
   \item
     \autoref{part:prep} (\nameref{part:prep})
 
-    Refine everything.
+    Before constructing counterexamples to \issueInclusion{} we detail key ideas introduced in this introduction.
 
-    Conclusions, \ros{}, and variations on \qWhy{} and \qHow{}.
-    In particular, precise variation on \qWhy{}.
+    In particular, we detail the way in which we understand an event in which an agent concludes, and \ros{1}.
+    And, we provide a precise account of answers to \qWhy{} and \qHow{}.
 
-    Precisely capture what the counterexamples we generate our counterexamples to
+    The details are important.
+    For, without a sufficiently detailed account of the phenomena of interest, any recipe proposed with fail to identify \scen{1}.
+    And, without a detailed account of \qWhy{} and \qHow{} it is unclear whether any identified \scen{1} is a counterexample to \issueInclusion{}.
+
+    Strictly, then, the main argument focuses on \emph{variations} of \qWhy{}, \qHow{}, and \issueInclusion{}.
+    We argue any counterexample to the variation of \issueInclusion{} is a counterexample to \issueInclusion{} itself.
+    Whether this argument holds depends on the way in which you understand `why' and `how', though whether the recipe constructs counterexamples to the variation of \issueInclusion{} should be clear for you to evaluate.
   \item
     \autoref{part:ing}: (\nameref{part:ing})
 
-    Second part, a handful of observations used to generate counterexamples.
+    To construct counterexamples to \issueInclusion{} we require a \ros{} between \(\psi\), \(v'\), and \(\Psi\) such that there is no prior or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
 
-    \fc{3}.
-    However, additional things.
+    The idea of a \fc{} is used to identify candidate \ros{}.
+
+    And, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) also explains \emph{why} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\).
+
+    To link \ros{1} obtained from \fc{1} to answers to \qWhy{} we introduce two ideas.
+    First, the idea of an agent \tCV{}, and second the idea of a \requ{}.
+
+    \requ{3} are the key link between \ros{} and answers to \qWhy{}, and whether an agent is \tCV{} \(\phi\) has value \(v\) from \(\Phi\) is used to motivate the existence of \requ{1}.
+
+    Still, \fc{1}, an agent \tCV{0}, and the idea of a \requ{} do not (individually or collectively) entail counterexamples to \issueInclusion{}, these ingredients must be combined in the right way to obtain the desired counterexamples.
+    Hence, these ingredients are introduced and motivated without presupposing counterexamples to \issueInclusion{} exist.
   \item
     \autoref{part:dir} (\nameref{part:dir})
 
-    Third part, combine.
-
-    Link things together, and provide a handful of samples.
+    The final part details the way in which \fc{1}, an agent \tCV{0}, and \requ{} combine with respect to particular events to obtain counterexamples to \issueInclusion{}.
+    A handful of counter-samples are given, and a few remaining issues are considered.
   \end{TOCEnum}
 \end{note}
 
 \begin{note}
-  This covers how things will happen.
-  I do not have a brief account of what will happen.
-  The details are too important.
-  The recipe is not based on an intuitive understanding of any particular \scen{}.
-  Instead, the recipe is based on the way a number of ideas come together when we understand the way some agent concludes some proposition \(\phi\) has some value \(v\) happened.
+  This is an outline of what is to follow.
+  I do not have a brief account.
+
+  Still, a pair of quick notes:
+
+  First, I hold explanatory reasons are factive, and I think that answers to \qWhy{} reduce to psychological facts of an agent, specifically psychological facts which hold of the agent when they conclude.%
+  % \footnote{
+  %   This is in slight tension with views of reasons explanation advanced by~(\cite{Dancy:2000aa}) and~(\cite{Alvarez:2013aa}), in which the state of affairs may be an agent's reason (and not just the evaluation of some state of affairs).
+  %   Though, the argument will not depend on assuming that the relations reduce to psychological facts.
+
+  %   See~(\cite[413--418]{Hieronymi:2011aa}),~(\cite[3--5]{DOro:2013vh}), and~(\cite[\S2]{Alvarez:2017aa}) for more.
+  % }
+
+  Given what I hold and think, from a very broad perspective, \issueInclusion{} is a restriction on which psychological facts of an agent matter when an agent concludes:
+
+  If \issueInclusion{} holds, the only facts which matter are those which secure the \ros{} between \(\phi\), \(v\), and \(\Phi\).
+
+  And, if \issueInclusion{} fails, facts other than those which secure the \ros{} between \(\phi\), \(v\), and \(\Phi\) matter, specifically, facts which secure some \ros{} between \(\phi\), \(v\), and \(\Phi\).
 \end{note}
 
-\begin{note}
-  Does it matter what else the premises may do?
+% \begin{note}
+%   As seen above with respect to \autoref{scen:animalism}, it follows from \issueInclusion{} that the content of Snowball's explanation is irrelevant.
+%   For, the birds do not understand Snowball's explanation, hence there is no event in which the birds reason from the content to \propI{Four legs good, two legs bad} has value \valI{True}.
+%   And, I think this is correct.
 
-  Does it matter if alternative premises for conclusion?
-\end{note}
-
-
-\begin{note}
-  Still, a pair of brief notes:
-\end{note}
-
-\begin{note}
-  I think that answers to \qWhy{} reduce to psychological facts of an agent, specifically psychological facts which hold of the agent when they conclude.%
-  \footnote{
-    This is incompatible with views of reasons explanation advanced by~(\cite{Dancy:2000aa}) and~(\cite{Alvarez:2013aa}), in which the state of affairs may be an agent's reason (and not just the evaluation of some state of affairs).
-    Though, the argument will not depend on assuming that the relations reduce to psychological facts.
-
-    See~(\cite[413--418]{Hieronymi:2011aa}),~(\cite[3--5]{DOro:2013vh}), and~(\cite[\S2]{Alvarez:2017aa}) for more.
-  }
-  However, I do not think that a relation between the \prop{0}, \val{0}, and \pool{} exhaust the relevant psychological facts.
-  In particular, I think that in various cases additional relations between distinct \prop{1}, \val{1} and \pool{1} answer \qWhy{} without there being an event in which the agent concluded the propositions have values from \pool{1}.
-\end{note}
+%   However, parallel reasoning entails the agent's understanding of arithmetic is irrelevant with respect to \autoref{scen:calc}.
+%   And, I do not think this entailment holds.
+%   I think it may be the case that a relation between \propM{\gistCalcEq{}}, \valI{True} and the agent's understanding of arithmetic \emph{may} answer \qWhy{}.
+%   Whether this is the case will depend on whether some additional details hold of~\autoref{scen:calc}.
+%   Still, as the details matter, the entailment, and hence \issueInclusion{}, is not right.
+% \end{note}
 
 \begin{note}
-  As seen above with respect to \autoref{scen:animalism}, it follows from \issueInclusion{} that the content of Snowball's explanation is irrelevant.
-  For, the birds do not understand Snowball's explanation, hence there is no event in which the birds reason from the content to \propI{Four legs good, two legs bad} has value \valI{True}.
-  And, I think this is correct.
-
-  However, parallel reasoning entails the agent's understanding of arithmetic is irrelevant with respect to \autoref{scen:calc}.
-  And, I do not think this entailment holds.
-  I think it may be the case that a relation between \propM{\gistCalcEq{}}, \valI{True} and the agent's understanding of arithmetic \emph{may} answer \qWhy{}.
-  Whether this is the case will depend on whether some additional details hold of~\autoref{scen:calc}.
-  Still, as the details matter, the entailment, and hence \issueInclusion{}, is not right.
-\end{note}
-
-\begin{note}
-  Still, distinction between psychological facts exercise of agency.
+  Still, there is distinction between psychological facts and the exercise of agency.
+  To illustrate, there a senses in which the following two questions are distinct:
 
   \begin{itemize}
   \item
@@ -800,27 +807,26 @@
     \emph{Why} is it the case \vAgent{} concludes \(\phi\) has value \(v\) in \(e\)?
   \end{itemize}
 
-  For example, steamboat being moored, hotel.
-  However, not in terms of hotel's reasons.
-  Simply too many guests.
+  Consider \citeauthor{Davidson:1973vd}'s climber:
 
-  Capturing the way things are from the \agpe{}.
-  Still, issue about agency.
-  Worry, answers to \qWhy{} are not necessarily sufficiently restricted to explanations in terms of the exercise of the agent's \emph{agency}.%
-  \footnote{
-    In particular, agency is problem for \citeauthor{Davidson:1963aa}.
-    Problem of deviant causal chains.
-    \citeauthor[79]{Davidson:1973vd}
-    Climber.
-    \begin{quote}
-      Beliefs and desires that would rationalize an action if they caused it in the right way—through a course of practical reasoning, as we might try saying---may cause it in other ways.%
-      \mbox{ }\hfill\mbox{(\citeyear[79]{Davidson:1973vd})}
-    \end{quote}
-  }
-\end{note}
+  \begin{quote}
+    A climber might want to rid himself of the weight and danger of holding another man on a rope, and he might know that by loosening his hold on the rope he could rid himself of the weight and danger.
+    This belief and want might so unnerve him as to cause him to loosen his hold, and yet it might be the case that he never chose to loosen his hold, nor did he do it intentionally.%
+    \mbox{ }\hfill\mbox{(\citeauthor[79]{Davidson:1973vd})}
+  \end{quote}
 
-\begin{note}
-  Rather than attempt to incorporate, argument against \issueInclusion{}, and then motivate that relevant counterexamples either involve agency or have nearby neighbours which involve agency.
+  The \agents{} belief and want are psychological facts about the agent, and answer why \emph{the event} is an event in which the agent loosens their hold on the rope.
+  However, the \agents{} belief and want do not answer why \emph{the agent} loosens their hold on the rope.
+  Indeed, there seems no answer to why the agent loosens their hold on the rope --- the act was not an exercise of agency.
+
+  \citeauthor{Davidson:1973vd}'s climber does not conclude.
+  Still, if an agent may loosen their grip without exercising their agency, it is seems plausible that a \ros{} between \(\psi\), \(v'\) and \(\Psi\) which answers why is \emph{\(e\) is an event} in which \vAgent{} concludes \(\phi\) has value \(v\) may fail to answer why is it the case the agent concludes \(\phi\) has value \(v\) in \(e\).
+
+  In short, it is not clear that any counterexample to \issueInclusion{} relates to an exercise of agency.
+  Whether this matters is for you to decide.
+  On some days I think this matters a great deal, and on other days I doubt there is any coherent idea of what an exercise of agency amounts to.
+
+  We set concerns about agency aside for the argument against \issueInclusion{}, and then motivate that relevant counterexamples either involve agency or have nearby neighbours which involve agency.
 \end{note}
 
 %   \begin{quote}
