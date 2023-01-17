@@ -258,6 +258,25 @@
   \par\smallskip
 }
 
+
+\newcounter{notationCounter}
+\setcounter{notationCounter}{0}
+\renewcommand{\thenotationCounter}{\arabic{notationCounter}}
+
+\NewDocumentEnvironment{notation}{ o +b}
+{%
+  \refstepcounter{notationCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Notation~\arabic{notationCounter}}}%
+    {\noindent\textbf{Notation~\arabic{notationCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
 % % % Notes % % %
 
 \renewcommand*{\marginfont}{\ttfamily\scriptsize}

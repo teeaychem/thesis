@@ -1241,6 +1241,29 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
+\NewDocumentCommand{\evals}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{evaluates}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{evaluates}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{evaluates}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Evaluates}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Evaluates}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
 \NewDocumentCommand{\evalion}{ m }{%
   \tl_if_empty:nTF {#1}
   {
