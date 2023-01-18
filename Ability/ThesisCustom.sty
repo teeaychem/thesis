@@ -1509,19 +1509,19 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\rosE}{ m }{%
+\NewDocumentCommand{\rosNE}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{embedded}%
+    \obeybreaks{direct}%
   }
   {%
-    \ifnum0=#1\relax\obeybreaks{embedded}%
+    \ifnum0=#1\relax\obeybreaks{direct}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Embedded}%
+      \obeybreaks{Direct}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\tJunk{}}%
@@ -1531,19 +1531,19 @@
 \ExplSyntaxOff
 
 \ExplSyntaxOn
-\NewDocumentCommand{\rosNE}{ m }{%
+\NewDocumentCommand{\rosE}{ m }{%
   \tl_if_empty:nTF {#1}
   {
-    \obeybreaks{unembedded}%
+    \obeybreaks{vicarious}%
   }
   {%
-    \ifnum0=#1\relax\obeybreaks{unembedded}%
+    \ifnum0=#1\relax\obeybreaks{vicarious}%
     \fi
     \ifnum1=#1\relax%
       \obeybreaks{\tJunk{}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Unembedded}%
+      \obeybreaks{Vicarious}%
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\tJunk{}}%
