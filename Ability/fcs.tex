@@ -373,6 +373,34 @@
   And, if you enjoy Sudoku puzzles then, so long as you have the puzzle and sufficient time to spare, the solution to any puzzle is a \fc{}.
 \end{note}
 
+\begin{note}[Propositional logic]
+  \begin{illustration}[Propositional theorems]
+    \label{illu:sketch:prop-logic}
+    Suppose an agent has a good grasp of propositional logic.
+    In particular:
+    The agent has a good understanding of some method to construct semantic proofs.
+    For example, by constructing truth tables, or reasoning about valuation functions.
+
+    The agent has some free time, and considers the formula:
+    \[
+      ((P \rightarrow Q) \rightarrow P) \rightarrow P
+    \]
+  \end{illustration}
+
+  Given the agent's understanding of propositional logic, the following is a \fc{}:
+  \begin{itemize}
+  \item
+    For any valuation \(v\), \(v \vDash ((P \rightarrow Q) \rightarrow P) \rightarrow P \)
+  \end{itemize}
+
+  There's nothing particularly special about the formula.
+  Given a good understanding, any formula of a reasonable length will do.
+
+  Note, the agent is concluding.
+  It's fine for the agent to work things through on a piece of paper.
+\end{note}
+
+
 \begin{note}[Non-deductive \illu{1}]
   \autoref{illu:fc:chess:I} and parallel examples are motivated by an agent's grasp on some effective method to solve a type of problem.
   However, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) does not require an effective method.
@@ -534,10 +562,56 @@
   One may calculate \(4^{4!}\), or \dots\space use a calculator.
 \end{note}
 
-\paragraph*{Conflict}
+\paragraph*{Novel information}
 
 \begin{note}
+  \begin{scenario}[Where's Wally]
+    \label{illu:CS:wheres-wally}
+    \nagent{15} has a book containing numerous drawings of scenes in which various characters are doing a variety of things.
+    And, somewhere in each scene is a character called `Wally', identifiable by a collection of individually necessary and jointly sufficient distinguishing features.
+    These features include a red and white striped jumper, blue trousers, short brown wavy hair, and so on.
 
+    \nagent{15} has searched through one particular scene, and has identified a character with a variety of the features.
+    Before concluding that the character is Wally, \nagent{15} remembers that there is a picture of Wally On the cover of the book, with all the identifying features present.
+
+    Wally is always wearing a pair of round glasses, but this was not a feature \nagent{15} kept in mind when searching for Wally.
+    So, perhaps the character \nagent{15} identified is not wearing round glasses  --- \nagent{15} only recalls the features they identified.
+  \end{scenario}
+
+  It's not a \fc{}, as the agent needs to get some novel information.
+\end{note}
+
+\paragraph*{Conflict}
+
+\begin{note}[A copper kettle]
+  A further \illu{0} builds on a story as told by~\citeauthor{Freud:1960wx}.
+  \begin{illustration}[A copper kettle]
+    \label{illu:kettle}
+    \mbox{ }
+    \vspace{-\baselineskip}
+    \begin{quote}
+      `A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable.
+      His defence was:
+      ``First, I never borrowed a kettle from B.\ at all;
+      secondly, the kettle had a hole in it already when I got it from him;
+      and thirdly, I gave him back the kettle undamaged.%
+      '''\newline
+      \mbox{ }\hfill\mbox{(\citeyear[62]{Freud:1960wx})}
+    \end{quote}
+    An agent listens to A.'s defence, but does not conclude A.\ has provided testimony.
+  \end{illustration}
+
+  For, A.\ has provided testimony only if what A.\ has said is true.
+  And, what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
+  Putting these observations together, we have the following conditional:
+
+  \begin{itemize}
+  \item
+    A.\ has provided testimony \emph{only if} if the three points of A.'s defence are jointly consistent.
+  \end{itemize}
+\end{note}
+
+\begin{note}
   \begin{scenario}[Knowing whether and belief]%
     \label{ill:fcs:kw}%
     \citeauthor{Barker:1975un} suggests the following two principles hold with respect to knowing whether:
@@ -664,62 +738,232 @@
   If do restrict, though, some things will need to be restructured.
 \end{note}
 
+\section{Connexions}
+\label{sec:connexions}
+
+\subsection{\fc{3} and \supportII{}}
+
+\begin{note}
+  We now consider the relationship between \fc{1} and \ros{0}.
+
+  Our primary goal is to establish the following conditional:
+
+  \begin{itemize}
+  \item
+    If \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\), then a \ros{} holds between \(\pv{\psi}{v'}\) and \(\Psi\).
+  \end{itemize}
+
+  \noindent%
+  We break down the argument into two propositions, and then highlight the relation to \issueConstraint{}.
+\end{note}
+
+\begin{note}
+  First, a helper proposition.
+  Relates necessary and sufficient conditions.
+  We begin by defining our understanding of necessary and sufficient conditions.
+
+  \begin{definition}[Sufficient and necessary conditions]
+    \label{def:NScon}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      \(C\) is a \emph{sufficient} condition for attribute \(A\), if and only if:
+      \begin{itemize}
+      \item
+        \emph{If} condition \(C\) obtains, \emph{then} \vAgent{} has attribute \(A\)
+      \end{itemize}
+    \item
+      \(C\) is a \emph{necessary} condition for attribute \(A\), if and only if:
+      \begin{itemize}
+      \item
+        \emph{If} \vAgent{} has attribute \(A\), \emph{then} condition \(C\) obtains.
+      \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  \noindent%
+  As usual, the conditionals by which sufficient and necessary conditions are defined are material conditions.
+  Hence, \autoref{def:NScon} captures the \textquote{standard theory} of sufficient and necessary conditions
+  (\cite[cf.][\S2]{Brennan:2022aa}).
+  I doubt the follow proposition depends on \autoref{def:NScon}.
+  However, the argument given does.
+
+  \begin{proposition}[Attribution]
+    \label{prop:attribution}
+    For any attribute \(X\):
+    \begin{itenum}
+    \item[\emph{If}:]
+      \vAgent{} satisfies all necessary conditions for having attribute \(X\).
+    \item[\emph{Then}:]
+      \vAgent{} satisfies some sufficient condition for having attribute \(X\).
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:attribution}
+    We argue by contraposition.
+
+    Consider sufficient conditions \(S_{1}, S_{2}, \dots, S_{j}\)
+
+    If \vAgent{} has \(X\), then \vAgent{} satisfies some \(S_{i}\).
+    For, \vAgent{} has \(x\).
+    Hence, some condition obtains, and this is sufficient.
+
+    Therefore, disjunction of \(S_{1}, S_{2}, \dots, S_{j}\).
+
+    Suppose \vAgent{} does not satisfy disjunction.
+    Then, \vAgent{} does not have attribute \(X\).
+    For, if did, then some sufficient condition.
+
+    Therefore, disjunction is necessary.
+
+    If does not satisfy any sufficient, does not satisfy disjunction, does not satisfy all necessary.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  Importance of \autoref{prop:attribution} is limitation on \ros{}.
+  Only sufficient condition (\supportI{}).
+  However, \supportII{} limits necessary conditions.
+\end{note}
+
+\begin{note}
+    \begin{proposition}[\fc{3} and \ros{1}]
+    \label{prop:fcs-only-if-pot-support}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e\).
+    \item[\emph{Then}:]
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e\).
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:fcs-only-if-pot-support}
+    Suppose \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\), for \vAgent{}.
+
+    \smallskip
+    Observe there is a \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+    This is immediate by \autoref{prop:fc:pevent} (\autopageref{prop:fc:pevent}).
+
+    \smallskip
+    Consider the \pevent{} in which \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+    As \vAgent{} concludes \(\pv{\psi}{v'}\) from \(\Psi\), then by~\supportI{} (\supportIpage{}), a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds when \vAgent{} \eval{1} \(\psi\) as having value \(v'\).
+
+    We have a \potential{} \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+
+    Our goal is to establish this \potential{} \ros{} is a \ros{}.
+
+    \smallskip
+    Given the \pevent{}, \ros{}.
+    Hence, the agent satisfies all necessary conditions.
+    Therefore, by \autoref{prop:attribution}, some sufficient condition.
+
+    Is it the case that the sufficient condition holds of the agent?
+
+    \smallskip
+    From \supportII{}, it follows that none of the stuff introduced is a necessary condition.
+    So, this is not part of the sufficient condition.
+
+    So, the only stuff that we get in the \pevent{} is prior to conclusion.
+
+
+    Still, can get arbitrarily close.
+    For example, agent recognises premises, etc.
+
+    Well, in general, conclusion from various sub-conclusions.
+    However, sub-conclusions,
+
+    Well, only need to consider immediate conclusions.
+    For, any conclusion is an immediate conclusion from some sub-conclusion.
+
+    \smallskip
+    Something from \pevent{}.
+    However, this cannot be a necessary condition in general.
+    For, this contradicts \supportII{}.
+
+    So, between now and \pevent{}, nothing necessary in general.
+
+    \smallskip
+    Deductive argument ends.
+    At this point, pressure.
+
+    There is nothing uniform between cases.
+    Therefore, it seems no non-ad-hoc way of denying \ros{}.
+  \end{argument}
+
+  Think in terms of propositional justification.%
+  \footnote{
+    Distinct, however, from something like reflection.
+    For, dealing with ideals.
+    And, no need to complete reasoning.
+  }
+  Or, if you prefer, substitute \autoref{prop:fcs-only-if-pot-support} for \supportII{}.
+  I prefer deductive arguments, and have the argument as motivation for idea/assumption.
+  However, does not make sense with structure.
+\end{note}
+
+\subsection{\fc{3} and \issueConstraint{}}
+
+\begin{note}
+  To clarify the importance of \autoref{prop:fcs-only-if-pot-support}:
+
+  \begin{proposition}%
+    \label{prop:fc-wit}%
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      Both~\ref{prop:fc-wit:fc} and~\ref{prop:fc-wit:noC} hold:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        \label{prop:fc-wit:fc}
+        \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\), for \vAgent{}
+      \item
+        \label{prop:fc-wit:noC}
+        \vAgent{} has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).
+      \end{enumerate}
+    \item[\emph{Then}:]
+      Both~\ref{prop:fc-wit:ros} and~\ref{prop:fc-wit:noW} hold:
+      \begin{enumerate}[label=\alph*\('\)., ref=(\alph*\('\))]
+      \item
+        \label{prop:fc-wit:ros}
+        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\), for \vAgent{}.
+      \item
+        \label{prop:fc-wit:noW}
+        \vAgent{} doesn't have a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+      \end{enumerate}
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:fc-wit}
+    \ref{prop:fc-wit:fc} entails \ref{prop:fc-wit:ros} by \autoref{prop:fcs-only-if-pot-support}.
+
+    \noindent \ref{prop:fc-wit:noC} entails \ref{prop:fc-wit:noW} by the definition of a \wit{} (\witpage{}).
+  \end{argument}
+
+  For, in order to argue against \issueConstraint{}, need some \(\pvp{\psi}{v'}{\Psi}\) such that answers \qWhyV{}.
+  Consider \autoref{scen:calc}.
+  \fc{}.
+  However, intuitively does not answer \qWhy{} nor \qWhyV{}.
+\end{note}
+
+\begin{note}
+  Note, there is nothing that requires a \fc{} has no prior conclusion.
+
+  Hence, it may be the case that an agent has a \wit{} for a \fc{}.
+\end{note}
+
+
 \section*{Summary}
-% \label{cha:fcs::summary}
-
-
-% \subsubsection{\wit{3}}
-% \label{sec:wit3}
-
-% \begin{note}
-%   Note, there is nothing that requires a \fc{} has no prior conclusion.
-
-%   Hence, it may be the case that an agent has a \wit{} for a \fc{}.
-
-%   \begin{proposition}[\wit{3} for \fc{1}]
-%     \label{prop:wit-for-fc}
-%     Possible for \wit{} from \fc{}.
-%   \end{proposition}
-
-%   \begin{argument}{prop:wit-for-fc}
-%       Immediate by def of \wit{}.
-%     \end{argument}
-%   \end{note}
-
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"
 %%% End:
 
-
-% \begin{note}
-%   \begin{illustration}[Modal logic I]
-%     \label{illu:fc:logic:CR}
-%     The modal system obtained from adding \(\Diamond\Box p \rightarrow \Box\Diamond p\) as an axiom to \(\mathbf{K}\) is canonical for the Church-Rosser property.
-
-%     I.e. the canonical model \(W,R,V\) for \(\mathbf{K} + \Diamond\Box p \rightarrow \Box\Diamond p\) is such that \(\forall s,t,u((Rst \land Rsu) \rightarrow \exists v(Rtv \land Ruv))\).
-%   \end{illustration}
-
-%   \autoref{illu:fc:logic:CR} is a \fc{} for me.
-%   Though, in contrast to the previous \illu{1}, I think there is a reasonable change that \autoref{illu:fc:logic:CR} is not a \fc{} for you.
-
-%   Fairly routine, but two important things.
-%   First, grasp on the relevant concepts.
-%   If you are unaware of how to construct canonical models for normal modal logics, then unlikely that you will complete the relevant proof.
-%   Second, sufficient familiarity with the relevant concepts.
-%   The proof is mostly straightforward, though some care needs to be taken in showing that the canonical model for \(\mathbf{K} + \Diamond\Box p \rightarrow \Box\Diamond p\) has the Church-Rosser property.
-%   Proof by contradiction is my preferred way of obtaining the result, but this requires keeping certain facts about the canonical model in mind.%
-%   \footnote{
-%     A slightly more interesting variation is showing that \(\mathbf{K} + \Diamond\Box p \rightarrow \Box\Diamond p\) is (strongly) complete with respect to the class of frame which have the Church-Rosser property without detour via a canonical model.
-%   }
-
-%   Similar features as \illu{1} given above.
-
-%   In particular, perhaps clearer than \autoref{illu:gist:Sudoku} in terms of mistakes.
-%   For, go down some wrong path, still will not conclude until counterexample.
-%   And, this is very hard to get.
-% \end{note}
 
   %   \begin{itemize}
   %   \item
@@ -750,17 +994,6 @@
   %   \end{center}
   %   \vspace{-\baselineskip}
 
-
-%   For an additional example, consider the following from~\citeauthor{Grice:1957vg}'s~\citetitle{Grice:1957vg}:
-
-%   \begin{quote}
-%     He intends the audience's recognition of his intention to produce that response to be effective in producing that response.
-%     He does not regard it as a foregone conclusion that his action will produce the intended response, whether or not his intention is recognised.%
-%     \mbox{ }\hfill\mbox{(\citeyear[385]{Grice:1957vg}/\citeyear[Cf.][219]{Grice:1989uf})}
-%   \end{quote}
-
-%   In this case, the term `foregone conclusion' is embedded under negation, to highlight that the agent in question entertains the possibility that the agent's action will not produce the intended response.
-
 % \begin{note}
 %   Still, the conclusion need not be easy.
 
@@ -772,32 +1005,6 @@
 %   Might need to do some work to recall principles, but it's okay.
 % \end{note}
 
-% \begin{note}[Propositional logic]
-%   \begin{illustration}[Propositional theorems]
-%     \label{illu:sketch:prop-logic}
-%     Suppose an agent has a good grasp of propositional logic.
-%     In particular:
-%     The agent has a good understanding of some method to construct semantic proofs.
-%     For example, by constructing truth tables, or reasoning about valuation functions.
-
-%     The agent has some free time, and considers the formula:
-%     \[
-%       ((P \rightarrow Q) \rightarrow P) \rightarrow P
-%     \]
-%   \end{illustration}
-
-%   Given the agent's understanding of propositional logic, the following is a \fc{}:
-%   \begin{itemize}
-%   \item
-%     For any valuation \(v\), \(v \vDash ((P \rightarrow Q) \rightarrow P) \rightarrow P \)
-%   \end{itemize}
-
-%   There's nothing particularly special about the formula.
-%   Given a good understanding, any formula of a reasonable length will do.
-
-%   Note, the agent is concluding.
-%   It's fine for the agent to work things through on a piece of paper.
-% \end{note}
 
 % \begin{note}[ML II]
 %   \begin{illustration}[Modal logic II]
@@ -831,13 +1038,6 @@
 %   \end{illustration}
 %   For, the equation does not hold.
 % \end{note}
-
-  %
-  % \footnote{
-  %   \nocite{Simon:1997aa}
-  %   \textquote{[R]ationality can be bounded by assuming complexity in the cost function or other environmental constraints so great as to prevent the actor from calculating the best course of action} (\citeyear[164]{Simon:1972aa}).
-  % }
-
 
 % \begin{note}
 %   This is no different from conclusion that it's 13:48 by looking at the clock.
