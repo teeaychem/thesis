@@ -374,6 +374,48 @@
     \fi
   }
 }
+
+\NewDocumentCommand{\pwP}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{partial}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{partial}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Partial}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+
+\NewDocumentCommand{\pwit}{ O{} m }{%
+  \tl_if_empty:nTF {#2}
+  {%
+    \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witness#1}}%
+  }
+  {%
+    \ifnum0=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witness#1}}%
+    \fi
+    \ifnum1=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witnesses}}%
+    \fi
+    \ifnum2=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{2} \space witness#1}}%
+    \fi
+    \ifnum3=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{2} \space witnesses}}%
+    \fi
+  }
+}
 \ExplSyntaxOff
 \newcommand{\witpage}[0]{\autopageref{def:witnessing}}
 
