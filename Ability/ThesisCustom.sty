@@ -58,7 +58,17 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 %\newcommand{\TOCLine}[1]{\nameref{#1}\mbox{ }\hfill\autoref{#1}}
-\newcommand{\TOCLine}[1]{\nameref{#1}\dotfill\autoref{#1},\space\autopageref{#1}}
+\ExplSyntaxOn
+\NewDocumentCommand{\TOCLine}{ O{} m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \nameref{#2}\dotfill\autoref{#2},\space\autopageref{#2}
+  }
+  {%
+    \nameref{#2}\space{#1}\dotfill\autoref{#2},\space\autopageref{#2}
+  }
+}
+\ExplSyntaxOff
 % % % Verbs
 
 \makeatletter
