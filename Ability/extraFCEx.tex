@@ -1,6 +1,30 @@
 \chapter{Additional examples of \fc{1}}
 \label{cha:addit-exampl-fcs1}
 
+\begin{note}
+    \begin{scenario}[Fibonacci numbers]%
+    \label{scen:fc:fib}%
+    The \(i\)th number in the Fibonacci sequence is given by \(f(i)\), where:
+
+    \[
+      \begin{array}{rcl}
+        f(0) &=& 0 \\
+        f(1) &=& 1 \\
+        f(n + 2) &=& f(n) + f(n + 1)
+      \end{array}
+    \]
+  \end{scenario}
+
+  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+  \item
+    \label{scen:fc:fib:c}
+    \pv{\propI{The sixth number in the Fibonacci sequence is 5}}{\valI{True}}
+  \end{enumerate}
+  %
+  I leave you to verify you may immediately perform an action in which you are concluding \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} without novel information.
+  Though, \pv{\propI{The sixtieth number in the Fibonacci sequence is 1548008755920}}{\valI{True}}
+\end{note}
+
 \subsection{\scen{3} where some \prop{0}-\val{0} pair is a \fc{}}
 
 \begin{note}[Propositional logic]
@@ -67,67 +91,7 @@
 
 \paragraph*{Lack of capacity}
 
-\begin{note}[Chess II]
-  Consider \autoref{illu:fc:chess:II} in the same context as \autoref{illu:fc:chess:I}:
 
-  \begin{scenario}[\citeauthor{Emms:2000aa}' Puzzle 150 (\citeyear[33]{Emms:2000aa})]%
-    \label{illu:fc:chess:II}%
-    \mbox{ }\hfill%
-    \begin{adjustbox}{minipage=\linewidth,scale=0.8}
-      \centering
-      \newchessgame[
-      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5},
-      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4},
-      ]%
-      \setchessboard{showmover=false}%
-      \chessboard
-    \end{adjustbox}%
-    \label{fig:chess:intro}%
-    \hfill\mbox{ }
-
-    \begin{center}
-      It is possible for Black to checkmate in four moves?
-    \end{center}
-    \vspace{-\baselineskip}
-  \end{scenario}
-
-  \noindent The conclusion of interest is:
-
-  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
-  \item
-    \label{illu:fc:chess:II:c}
-    \pv{\propI{Black checkmates in four moves}}{\valI{Possible}}
-  \end{enumerate}
-
-  The difference between \autoref{illu:fc:chess:II} and \autoref{illu:fc:chess:I} is the difficulty of the puzzle.%
-  \footnote{
-    \citeauthor{Emms:2000aa} suggests:
-    \textquote{%
-      \variation{1... Nb6!}%
-      (threatening \variation{2... Nb3\#})%
-      \variation{2. b5}%
-      (or \variation{2. Bd1 Nxc4+} \variation{3. Ka4 b5\#})%
-      \variation{2... c5!}%
-      \variation{3. bxa6 Nxc4+}%
-      \variation{4. Ka4 b5\#}%
-      \textbf{(0-1)}%
-    }
-    (\citeyear[46]{Emms:2000aa}).
-  }
-  An agent may do an action described by `begin an attempt to solve\dots'.
-  However, a basic understanding of chess does not imply the capacity to work through a complex sequence of moves in the relevant situation.
-
-  Note, this sense of capacity is not limited to the possibility of concluding.
-  There may be a possible event in which the agent concludes~\ref{illu:fc:chess:II:c}.
-  For, the agent may get lucky and consider a suitable sequence of four moves.
-  However, the possibility of a lucky sequence of events does not secure the truth of the progressive.
-  For example, there is a possible event in which one wins the lottery after purchasing a ticket, but purchasing a ticket does not entail an event in which one wins the lottery is in progress.
-  For some, chess puzzles aren't sufficiently fun to put the effort in.%
-  \footnote{
-    Specifically,~\ref{illu:fc:chess:II:c} was not a \fc{} for me.
-    I gave up after fifteen minutes or so.
-  }
-\end{note}
 
 \paragraph*{Novel information}
 
@@ -136,11 +100,10 @@
     \label{illu:fc:wally}
     An agent has a book containing numerous drawings of scenes in which various characters are doing a variety of things.
     Somewhere in each scene is a character called `Wally', identifiable by a collection distinguishing features.
-    These features include a red and white striped jumper, blue trousers, short brown wavy hair, and so on.
-
-    The agent has searched through a scene, and has identified a character.
-    However, the character is wearing glasses, and whether Wally wears round glasses is not a feature the agent kept in mind.
+    These features include a red and white striped jumper, blue trousers, short brown wavy hair, round glasses, and so on.
   \end{scenario}
+
+  Agent does not keep in mind 
 
   \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
   \item
@@ -148,7 +111,9 @@
     \pv{\propI{The character identified is Wally}}{\valI{True}}
   \end{enumerate}
 
-  It's not a \fc{}, as the agent needs to get some novel information.
+  Consider slight variation.
+  Agent forgets whether Wally wears round glasses part way through.
+  It remains the case that \autoref{illu:fc:wally:c} is a \fc{}, so long as there was some 
 \end{note}
 
 \paragraph*{Conflict}
@@ -191,6 +156,34 @@
   }
   And, given a counterexample one will not conclude the principle is true.
 \end{note}
+
+% \begin{note}[Non-deductive \illu{1}]
+%   \autoref{illu:fc:chess:I} and parallel examples are motivated by an agent's grasp on some effective method to solve a type of problem.
+%   However, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) does not require an effective method.
+%   It need only be the case that the agent is concluding \(\pv{\psi}{v'}\) from \(\Psi\) after an action is done.
+%   Consider, the following \scen{0}:
+
+%   \begin{scenario}[Sunny days]%
+%     \label{illu:fc:sunny}%
+%     It's mid summer day in the Bay Area.
+%   \end{scenario}
+
+%   \noindent For me, the following conclusion is a \fc{} from some \pool{}:
+
+%   \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+%   \item
+%     \label{illu:fc:sunny:c}
+%     \pv{\propI{It will rain tomorrow}}{\valI{False}}
+%   \end{enumerate}
+
+%   \noindent%
+%   There is no effective method for me to determine whether it will rain tomorrow, and I recognise there may be rain tomorrow.
+%   Still, I am sufficiently committed to some uniformity principle.%
+%   \footnote{
+%     Cf. (\cite[70]{Hempel:1965aa}),~(\cite{Henderson:2022aa}).
+%   }
+%   And, that the principle together with past experience, ensure that if I consider whether it will rain tomorrow, I conclude it will not rain.%
+% \end{note}
 
 %%% Local Variables:
 %%% mode: latex
