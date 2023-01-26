@@ -33,21 +33,6 @@
   \autoref{cha:binding} explicitly links \requ{1} and \issueConstraint{}.
 \end{note}
 
-\begin{note}
-  The chapter has two sections:
-  \begin{TOCEnum}
-  \item
-    \TOCLine{cha:requs:requs}
-
-    Introduction, definition, intuition, and \illu{1}
-  \item
-    \TOCLine{sec:typicalRequs}
-
-    \autoref{cha:typical}, \tC{}.
-    Motivate existence of \requ{1}.
-  \end{TOCEnum}
-\end{note}
-
 \section{\requ{3}}
 \label{cha:requs:requs}
 
@@ -67,28 +52,6 @@
 
   \begin{definition}[A \requ{0}]%
     \label{def:requ}%
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     \prop{3}: \(\phi\), \(\psi\)
-    %   \item
-    %     \val{3}: \(v\), \(v'\)
-    %   \item
-    %     \pool{3}: \(\Phi\), \(\Psi\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }\newline
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Event: \(e\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
@@ -341,278 +304,265 @@
   But, this is consistent with \requ{}.
 \end{note}
 
-
-\section{\requ{3} and \tC{}}
-\label{sec:typicalRequs}
+\section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
+\label{sec:comining-ingredients}
 
 \begin{note}
-  \begin{proposition}[\tC{2} and \requ{1}]
-    \label{prop:hinge}
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     \prop{3}: \(\phi\), \(\psi\)
-    %   \item
-    %     \val{3}: \(v\), \(v'\)
-    %   \item
-    %     \pool{3}: \(\Phi\), \(\Psi\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }\newline
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Event: \(e\)
-    %   \item
-    %     Type of reasoning: \(T\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
+  Section links \requ{0} to \qWhyV{} and \issueConstraint{}.
+
+  Start by defining a collection of conditions.
+  Then, \qWhy{}.
+  From this, additional condition to get counterexample to \issueConstraint{}.
+\end{note}
+
+\subsection{Conditions}
+\label{sec:conditions}
+
+\begin{note}
+  Link via a collection of conditions.
+  In short, event where agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and sub-event where concluding \(\pv{\phi}{v}\) from \(\Phi\) where \(\pvp{\psi}{v'}{\Psi}\) was a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+
+  \begin{definition}[\rCon{2}]
+    \label{def:rCon}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      The \emph{\rCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
+    \end{itemize}
+
+    \emph{If and only if}:
+
+    \begin{itemize}
+    \item
+      Conditions~%
+      \ref{def:rCs:C}~and~%
+      \ref{def:rCs:Cing}~%
+      jointly hold:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \item
+        \label{def:rCs:C}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:rCs:Cing}
+        There is some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:requ} and \ref{def:rCs:Cing:itc} jointly hold:
+        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
+        \item
+          \label{def:rCs:Cing:itc}
+          The following conditional is true:
+          \begin{itenum}
+          \item[\emph{If}:]
+            \(e^{\flat}\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+          \item[\emph{Then}:]
+            \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+          \end{itenum}
+        \item
+          \label{def:rCs:Cing:requ}
+          \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \end{enumerate}
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
+  \end{definition}
+
+  Condition~\ref{def:rCs:C}, and event in which an agent concludes.
+  Hence, \qWhyV{} applies.
+
+  Some sub-event such that conditional of \qWhyV{} holds.
+
+  Condition~\ref{def:rCs:Cing} concerns the sub-event.
+
+  \ros{}.
+  Does not develop.
+
+  Sub-condition~\ref{def:rCs:Cing:itc}.
+  Does not develop.
+  However, agent is not concluding, rather than absence of a \ros{}.
+
+  A strong condition, but an intuitive one.
+  If event is not in progress, the event does not happen.
+
+  In particular, getting conclusion from premises.
+  It may be the case that agent concludes.
+  However, if not concluding, then difficult to say that it's from these premises.
+
+  For example, arithmetic or something.
+  Working through a problem.
+  Intuitively, conclude from some \pool{} captures understanding of arithmetic.
+  If not concluding, then is it the case that conclude from \pool{} captures understanding of arithmetic?
+
+  This is not \agpe{}, but the way things are.
+
+  To link not concluding to \ros{}, Sub-condition~\ref{def:rCs:Cing:requ}.
+\end{note}
+
+\subsection{\requ{3} and \qWhyV{}}
+
+\begin{note}
+  \begin{proposition}[\requ{3} and \qWhyV{}]
+    \label{prop:requ-WhyV}
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      Clauses~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly hold for \(e\):
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-      \item
-        \label{prop:hinge:A:rep}
-        \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(e\).
-      \item
-        \label{prop:hinge:A:tI}
-        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
-      \item
-        \label{prop:hinge:A:novel}
-        The following conditional is true:
-        \begin{itemize}
-        \item[\emph{If}:]
-          There is some available action \(a\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\), when \vAgent{} does \(a\).
-        \item[\emph{Then}:]
-          There is some available action \(a'\) such that \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) without use of any novel information obtained by doing \(a'\), when \vAgent{} does \(a'\).
-        \end{itemize}
-      \end{enumerate}
+      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
     \item[\emph{Then}:]
-      \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e\) being an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+      \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
-  \noindent%
-  \autoref{prop:hinge}, sufficient conditions for \requ{} when \tCV{}.
-  Useful proposition with respect to counterexamples to \issueConstraint{}.
+  \begin{argument}{prop:requ-WhyV}
+    Suppose the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
 
-  Intuitive motivation for \autoref{prop:hinge} is simple.
-  \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}).
+    From Condition~\ref{def:rCs:C}, concludes.
+    So, \qWhyV{} applies.
 
-  If clauses hold and agent is \tCV{}, then \fc{}.
-  This is exactly what is required for \requ{}.
+    Our task is to show the conditional of \qWhyV{} is true.
 
-  In detail:
+    From~\ref{def:rCs:Cing} of the \rCon{}, we have some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:itc} and \ref{def:rCs:Cing:requ} jointly hold.
 
-  \begin{argument}{prop:hinge}
-    Assume~ clauses~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly hold.
-    Suppose \tCV{}.
-    Then, by \autoref{prop:tC-and-fc}, \fc{}.
+    Consider the event \(e^{\flat}\) and assume a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
 
-    Then by \autoref{def:requ}, \requ{}.
-  \end{argument}
+    \autoref{prop:fcs-only-if-pot-support} (\autopageref{prop:fcs-only-if-pot-support}) established:
 
-  Recap.
-
-  \tCV{}.
-  Intuitively, various other things conclude.
-  \tRep{}, requires events.
-  Conditional of \autoref{prop:hinge:A:novel} strengthens so no novel information.
-
-  As get \fc{}, then \requ{}.
-
-  Importance of \autoref{prop:hinge} is existence of \requ{}.
-  \tCV{} without novel information.
-\end{note}
-
-\paragraph*{Sound rules}
-
-\begin{note}
-  \phantlabel{squish-elimination-proof}
-
-  \begin{illustration}[Squish elimination]%
-    \label{scen:squish}%
-    It is late morning on a sunny day.
-    I ate a good breakfast, and drank some nice coffee.
-    I have completed a handful of syntactic proofs for entailments of propositional logic using the basic rules of inference in a Fitch-style system.
-
-    I create the following syntactic proof:
-    \begin{center}
-      \begin{fitch}
-        \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
-        \phantlabel{illu:sP:2}\fj R \\
-        \phantlabel{illu:sP:3}\fa P & \sqE{}:\hyperref[illu:sP:1]{1} \\
-        \phantlabel{illu:sP:4}\fa P \land R & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
-      \end{fitch}
-    \end{center}
-
-    Still, I haven't yet concluded \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
-
-    For, \sqE{} may not be a sound rule of inference.
-
-    I go on to conclude \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
-  \end{illustration}
-
-  \begin{definition}[\sqE{}]%
-    \label{def:sque}%
-    \sqE{} is the following rule:
-    \begin{center}
-      \begin{fitch}
-        \ftag{\text{\scriptsize \emph{i}}}{\fa (\phi \rightarrow \psi) \rightarrow \phi} \\
-        \ftag{\text{\scriptsize }}{\fa \vdots } \\
-        \ftag{\text{\scriptsize \emph{j}}}{\fa \phi } & \sqE{}:\emph{i} \\
-      \end{fitch}
-    \end{center}
-  \end{definition}
-
-  \sqE{} is sound.%
-  \footnote{
-    \label{prop:sqE-sound}
-    Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we prove that the corresponding semantic entailment holds:
-
-    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \valI{True}\).
-    Further, assume for contradiction \(v(\phi) = \valI{False}\).
-
-    As \(v(\phi) = \valI{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \valI{True}\).
-    Therefore, by the first assumption, it must be the case that \(v(\phi) = \valI{True}\).
-    This contradictions the second assumption.
-    % Hence, \((\phi \rightarrow \psi) \rightarrow \phi \vDash \phi\).
-  }
-
-  The relevant propositions, values, and \pool{1} are as follows:
-  \begin{itemize}[noitemsep]
-  \item
-    I am the agent.
-  \item
-    \(\phi\) is the proposition: \(\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}\).
-  \item
-    \(\psi\) is the proposition: \propI{\sqE{} is sound}
-  \item
-    Both \(v\) and \(v'\) are the value: \valI{True}.
-    And,
-  \item
-    The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.%
-    \footnote{
-      \((P \rightarrow Q) \rightarrow P\) and \(R\) are premises of the deduction, and not elements of \(\Phi\).
-
-      For, my conclusion is \pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
-      My conclusion is not \pv{\mathsf{P \land R}}{\valI{True}}.
-    }
-  \item
-    Key observations:
-    \begin{itemize}[noitemsep]
-    \item
-      sunny day, good breakfast, nice coffee.
-      I.e.\ as ideal as situations may be for syntactic proofs.
-    \item
-      Proved \sqE{} numerous times before.
-    \end{itemize}
-  \end{itemize}
-
-  Hence, the relevant instance of the conditional by which a \requ{} is defined is:
-
-  \begin{quote}
     \begin{itenum}
     \item[\emph{If}:]
-      If \pv{\propI{\sqE{} is sound}}{\valI{True}} from \(\Psi\) is not a \fc{}.
+      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\sharp}\).
     \item[\emph{Then}:]
-      I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}\) from \(\Phi\).
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\sharp}\).
     \end{itenum}
-  \end{quote}
 
-  In contrast to \autoref{illu:lost-key}, \autoref{scen:squish} leads to a conclusion.
+    \noindent%
+    So, by our assumption \(\pv{\psi}{v'}\) not a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
 
-  At issue is whether \requ{}.
-  By \autoref{prop:hinge}, three things.
-  \begin{itemize}
-  \item
-    \tRep{}
-  \item
-    \sqE{} is \tI{} of \(T'\).
-  \item
-    Conditional.
-  \end{itemize}
+    Now, by Sub-condition~\ref{def:rCs:Cing:requ} of the \rCon{}, \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    And, by expanding the definition of a \requ{} (\autopageref{def:requ}):
 
-  Plausibly, four \prop{0}-\val{0}-\pool{0} pairs in type:
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(e\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
+    \end{itenum}
 
-  \begin{center}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      \prop{2}-\val{0} pair & \pool{2} \\
-      \hline
-      \pv{(\phi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\textover[c]{\valI{Sound}}{\valI{Unsound}}} & \dots \\
-      \pv{\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi}{\valI{Unsound}} & \dots \\
-      \pv{\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi}{\valI{Unsound}} & \dots \\
-      \pv{(\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\valI{Unsound}} & \dots \\
-    \end{tabular}
-  \end{center}
+    \noindent%
+    Hence, \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
-  Throughout \autoref{scen:squish} I \emph{know} \sqE{} is sound.
-  Prior to \autoref{scen:squish} I have proved \sqE{} is sound on various occasions using the same basic observations made in the argument for \autoref{prop:sqE-sound}.
-
-  However, there is a distinction between \emph{knowing} \sqE{} is sound and \emph{proving} \sqE{} is sound.
-  For example, if I have just drunk a considerable amount of wine, or woken from a night of tormented sleep.
-  Generally said, I may not be thinking straight.
-
-  Of course, I may conclude \(\pv{\phi}{v}\) from \(\Phi\) regardless of whether \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-  Indeed, given some particularly good wine I may conclude \(P \land C \vdash O\).%
-  \footnote{
-    For, \(P \land C\) reads `Pac', \(O\) looks like a pellet, and Pacman likes to eat pellets.
-  }
-  However, then not \tCV{}.
+    Therefore, by Sub-condition \ref{def:rCs:Cing:itc}, \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{argument}
 \end{note}
 
 \begin{note}
-  Note, does not depend on \agpe{my}.
+  Key.
+
+  Intuition is that \tC{}.
+  Therefore, matters whether or not \fc{}.
+  Hence, matters whether or not \ros{}.
 \end{note}
 
-\section*{Summary}
+\subsection{\requ{3} and \issueConstraint{}}
+\label{cha:binding:sec:requ-iC}
 
 \begin{note}
-  Introduced \requ{1}.
+  With \autoref{prop:requ-WhyV} we observe the way in which the \rCon{0} may provide counterexamples to \issueConstraint{}.
 
-  Defined in terms of \tC{}.
+  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
 
-  Motivated by \tC{}.
+  In full:
+
+  \begin{proposition}[\requ{3} and \issueConstraint{}]
+    \label{prop:requ-WhyV-ces}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
+    \item[\emph{And}:]
+      \label{prop:requ-WhyVCes:noW}
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:requ-WhyV-ces}
+    More-or-less immediate.
+
+    If the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\), then \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}, given~\autoref{prop:requ-WhyV}.
+    And, granting \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), this immediately contradicts \issueConstraint{}.
+  \end{argument}
 \end{note}
 
+\begin{note}
+  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
+  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
 
+  \autoref{cha:ces} provides examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
+\end{note}
 
-% \begin{note}[Problems of induction]
-%   Hence, the sketch does not apply to black ravens.
-%   I wouldn't conclude all ravens are black if I saw a white raven.
+\begin{note}
+  The existence of \requ{1} are compatible with \issueConstraint{}.
 
-%   I may worry about shortly seeing a white raven when concluding all ravens are black, and I may refuse to entertain the possibility that the sun will rise tomorrow when planning to mow the grass.
+  \begin{observation}%
+    \label{prop:requ-not-n-ce}%
+    \autoref{prop:requ-WhyV} is compatible with \issueConstraint{}.
+  \end{observation}
 
-%   However, it's not possible to reason to seeing a white raven, nor is it possible to reason to the sun not rising tomorrow.
+  \begin{motivation}{prop:requ-not-n-ce}
+    \requ{3} are about an agent concluding.
+    \fc{} when the agent concludes.
+    An agent may fail to have a \wit{} for \fc{}.
 
-%   Abstractly, at issue in~\autoref{illu:lost-key} is the possibility of failing to a reason to some proposition-value pair given \emph{present} information, rather than the possibility of failing to a reason to some proposition-value pair given \emph{new} information.
+    However, \issueConstraint{}, \wit{} when the agent concludes.
+    Therefore, so long as \wit{} when the agent concludes, fine.
 
-%   To the extent that problems of induction arise from receiving new information, what is at issue is distinct.%
-%   \footnote{
-%     See~\textcite{Henderson:2020wb} for more on the problem of induction.
-%   }
+    Two possibilities.
+    \begin{enumerate}
+    \item
+      Agent already has a \wit{}.
 
-%   Similar points for external world scepticism.
-%   Would not conclude that I have hand if disembodied brain in a vat.
+      For example, first \scen{0}.
+      If concluding sequence, \fc{}.
+      Prior to getting \(L_{8}\), \fc{}.
 
-%   However, conclusion is out of reach.
-% \end{note}
+      However, expectation of \wit{} when sequence.
+      Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
+    \item
+      Agent obtains \wit{} prior to conclusion.
 
-    %   \footnote{
-    %     The present point is similar to issues raised by \citeauthor{Harman:1973ww} (\citeyear{Harman:1973ww}) regarding the proposed equivalence between reasons for which an agent believes something with reasons the agent would offer if asked to justify their belief.
-    %     As \citeauthor{Harman:1973ww} notes, an agent may offer reasons because they think they will convince their audience, not because the agent is compelled by the reasons, etc.
-    %     (\citeyear[Ch.2]{Harman:1973ww})
+      Consider \autoref{scen:squish}.
+      The agent has previously concluded \sqE{} is sound.
+      Therefore, the agent has a \wit{} for \ros{}.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{motivation}
 
-    %     To the extent that \citeauthor{Harman:1973ww}'s point is that what holds from an \agpe{} need not actually be the case, the point in the same.
-    %     However, to the extent that \citeauthor{Harman:1973ww} relies on an under-specification of what holds from an \agpe{} --- i.e.\ the distinction between whether \(\phi\) has value \(v\) from the \agpe{} or whether the agent evaluates as true the proposition that their audience is responsive to \(\phi\) having value \(v\), the point is distinct.
-    %   }
+  Note, however, that \autoref{prop:requ-not-n-ce} is weak.
+  Compatible in terms of existential.
+  Hence we only needed to show a single case in which \wit{} for \requ{}.
+  This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
+\end{note}
+
+\begin{note}
+  \begin{observation}
+    \label{obs:denyCing}
+    Deny that needed to be the case agent was concluding.
+  \end{observation}
+
+  \begin{motivation}{obs:denyCing}
+    \qWhyV{} is about developing.
+    If it does not need to be the case that the agent is concluding, then it is possible for the agent to conclude.
+  \end{motivation}
+
+  In part, this ensures we don't get anything that is clearly redundant.
+
+  In general, possible to deny.
+  But, I don't think it is viable in many cases.
+  Agent is concluding.
+  The conclusion does not `happen'.
+
+  This is hand wavy.
+  Idea of an agent \tCV{} addresses this.
+\end{note}
 
 
 %%% Local Variables:
