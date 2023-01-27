@@ -40,7 +40,7 @@
     \TOCLine{cha:ros:I}
 
     The first idea, roughly:
-    An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for a \ros{} to hold, from \agpe{the \agents{}}.
+    If an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) then a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{the \agents{}}.
   \item
     \TOCLine{cha:ros:W}
 
@@ -50,21 +50,16 @@
     \TOCLine{cha:ros:II}
 
     The second idea, roughly:
-    It is not necessary for an agent to have a \wit{} for a \ros{} to hold between \(\pv{\phi}{v}\) and \(\Phi\) from the \agpe{\agents{}}.
+    If an agent \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) then a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{the \agents{}}.
+    % It is not necessary for an agent to have a \wit{} for a \ros{} to hold between \(\pv{\phi}{v}\) and \(\Phi\) from the \agpe{\agents{}}.
   \end{TOCEnum}
 \end{note}
 
 \begin{note}
-  So, \supportI{} gives a sufficient condition, while \supportII{} denies the sufficient condition amounts to a necessary condition.
+  From a broad perspective, \supportI{} gives a sufficient condition, while \supportII{} denies the sufficient condition amounts to a necessary condition.
 
   \supportI{}, `follows from' of interest is present when agent concludes `from'.
   \supportII{} denies `follows from' is equivalent to `from' by possibility of `follows from' without corresponding `from'.
-\end{note}
-
-\begin{note}
-  Note, \supportII{} does not provide sufficient conditions for a \ros{} to hold without a corresponding \wit{0}.
-
-  We defer the argument for such cases to \autoref{part:ing} (specifically \autoref{cha:fc:fc-sII}).
 \end{note}
 
 \section{\supportI{}}
@@ -107,6 +102,12 @@
   {
     \color{red}
     So, this allows us to abbreviate `\ros{} from \agpe{}' to `\ros{}'.
+  }
+
+  {
+    \color{green}
+    Still, you are free to restrict \supportI{}.
+    We do not do so for simplicity.
   }
 \end{note}
 
@@ -302,278 +303,227 @@
 \label{cha:ros:II}
 
 \begin{note}
-  At the start of this chapter we gave the following paraphrase of \supportII{}:
-  %
-  \begin{itemize}
-  \item
-    It is not necessary for an agent to have a \wit{} for a \ros{} to hold between \(\pv{\phi}{v}\) and \(\Phi\) from the \agpe{\agents{}}.
-  \end{itemize}
-  %
-  Taken at face value, this paraphrase suggests a strong idea.
-  For, the paraphrase concerns all agents and \prop{0}-\val{0}-\pool{0} pairs.
-  Yet, a \ros{} is designed to capture a \prop{0}-\val{0} `following from' a \pool{}, from an \agpe{}.
-  And, it is not clear it is possible for an arbitrary \prop{0}-\val{0} to `follow from' a \pool{}, from an \agpe{}.
-
-  Two examples illustrate this point.
-
-  \begin{enumerate}
-  \item
-    Consider the proposition \propM{0 = 1}, value \valI{True}, and a \pool{} which captures a common understanding of arithmetic.
-
-    It seems implausible \pv{\propM{0 = 1}}{\valI{True}} `follows from' a mathematician's (common) understanding of arithmetic during their normal workday.
-  \item
-    Consider the proposition \propI{The headline of tomorrow's newspaper contains an even number of vowels}, value \valI{True}, and any \pool{} which includes \prop{0}-\val{0} pairs available to the agent.
-  \end{enumerate}
-
-  It seems implausible a \ros{} holds between the relevant \prop{0}-\val{0}-\pool{0} pairs for any agent.
-  For the first, consider a mathematician during their normal workday.
-  \propI{0 = 1} \emph{conflicts} with a common understanding of arithmetic.
-
-  For the second, consider an agent who has no information about tomorrows newspaper.
-  \propI{The headline of tomorrow's newspaper contains an even number of vowel} \emph{exceeds} the information available to the agent.
-
-
-  Of course, mistakes happen, and one may conclude a conclude some contradiction is true, but there is a distinction between a mistake which happens when an agent concludes, and a mistake present in the agent's understanding of some subject matter.
-  %
-\end{note}
-
-\begin{note}
-  In short, it is intuitively possible that a \ros{} holds without a \wit{} in some situations.
-  However, it is not intuitively possible that a \ros{} holds without a \wit{} in all situations.
-\end{note}
-
-\begin{note}
-  The idea in full is a little more complex.
+  A \ros{} `follows from'.
+  \supportII{}, possibility without `from'.
 
   \begin{idea}[\supportII{}]%
     \label{idea:support:possible}%
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) for \vAgent{}.
+      \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) for \vAgent{} throughout \(e\).
     \item[\emph{Then}:]
-      A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
-      % Following conditional does not hold:
-      % \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      % \item[\emph{If}:]
-      %   \label{idea:support:possible:ros}
-      %   A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
-      % \item[\emph{Then}:]
-      %   \label{idea:support:possible:noWit}
-      %   \vAgent{} has a (\pwP{}) \wit{} for the \ros{} between \(\pv{\phi}{v}\) and~\(\Phi\).
-      % \end{enumerate}
+      A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'} throughout \(e\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{idea}
 
   \noindent%
-  Paraphrased:
-  So long as there is an option for the agent to conclude, then it is possible for a \ros{}.
-
-  Working through a little more slowly.
-  Action.
-  Agent is concluding.
-  By \assuPP{}, this entails there is a possible event in which the agent concludes.
-  However, the sense of possibility is restricted by the possible event being a development.
-  Needs to be the case that prior to the agent's conclusion, there is something which makes it the case that there is a development of the event in which the agent concludes.
-
-  Here, deal with mistakes.
-  Working mathematician.
-  If working well, then no event when concluding.
-  For, always possible to notice mistake.
-
-  Likewise, newspaper, something the agent has no information about.
-
-  The additional constraint, it may be the case that the agent receives information.
-  For example, newspaper.
-  Friend in the room.
-  Action, wonder aloud.
-  Friend provides information.
-  Agent is concluding, but not without novel information.
-
-
-  Still, the antecedent of \supportII{} is a little stronger.
-
-
-
-
-
-
-
-
-  Expanding the definition of a (\pwP{}) \wit{}, the consequent of \supportII{} states it is possible for a \ros{} to hold between \(\pv{\phi}{v}\) and \(\Phi\) from an \agpe{agent's} though there is no present or prior event in which the agent (\emph{is concluding} or) concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-  A \ros{} `follows from'.
-  \supportII{}, possibility without `from'.
-  If focus on the absence of an event in which an agent concludes, then event just prior to conclusion.
-  \pwit{} avoids this.
-
-  The role of the antecedent is to limit the scope.
-  Possible, so situation in which \ros{} but no (\pwP{}) \wit{}.
-\end{note}
-
-\begin{note}
-  Possible for \ros{} without \wit{}.
-  However, implausible this holds for arbitrary \prop{0}-\val{0}-\pool{0} pairs and agents.
-
-  Antecedent of \supportII{} limits.
-\end{note}
-
-\begin{note}
-  Two refinements on this basic idea.
-
-  \begin{enumerate}
-  \item
-    Agent is concluding.
-    By \assuPP{}, if there is an event in which the agent is concluding, then there is an event in which the agent concludes.
-    And, an event in progress narrows the sense in which there is a possible event in which the agent concludes.
-  \item
-    Additional restriction on event in which agent concludes.
-
-    For, it may be the case that agent only concludes given some substantial change to psychological facts.
-  \end{enumerate}
-\end{note}
-
-
-\section{\ros{3} and \fc{1}}
-\label{cha:fc:fc-sII}
-
-\begin{note}
-  \supportII{} is an idea about when it is \emph{possible} for a \ros{} to hold from an \agpe{} without the agent having a (\pwP{}) \wit{}.
-  We now argue \supportII{} \emph{entails} a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from an \agpe{} whenever \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\).
-  Hence, strengthen consequent.
-
-  May consider this in place of \supportII{}.
-  However, there is no need.
-  Helps clarify \agpe{my} on these things.
-\end{note}
-
-\begin{note}
-  First, a we define our understanding of necessary and sufficient conditions.
-  With the definition in hand, we state a helper proposition, and then argue for the proposition of interest.
-\end{note}
-
-\begin{note}
-  We understand necessary and sufficient conditions in line with the \textquote{standard theory}  (\cite[cf.][\S2]{Brennan:2022aa}).
-  In this respect, necessary and sufficient conditions are equivalent to the truth of a corresponding material conditional.
-  In full:
-
-  \begin{definition}[Necessary and sufficient conditions]
-    \label{def:NScon}
-    \vspace{-\baselineskip}
+  Expanded with the definition of a \fc{}, \supportII{} reads:
+  \begin{itenum}
+  \item[\emph{If}:]
     \begin{itemize}
     \item
-      \(C\) is a \emph{necessary} condition for \vAgent{} to have attribute \(A\), \emph{if and only if}:
-      \begin{itemize}
+      Throughout \(e\) there is some action \(a\) \vAgent{} may immediately perform such that both \ref{def:fc:act} and \ref{def:fc:result} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
-        \emph{If} \vAgent{} has attribute \(A\), \emph{then} condition \(C\) obtains.
-      \end{itemize}
-    \item
-      \(C\) is a \emph{sufficient} condition for \vAgent{} to have attribute \(A\), \emph{if and only if}:
-      \begin{itemize}
+        For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\) prior to doing \(a\).
+
       \item
-        \emph{If} condition \(C\) obtains, \emph{then} \vAgent{} has attribute \(A\).
-      \end{itemize}
+        The event \(e^{\sharp}\) in which \vAgent{} does \(a\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
     \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
+  \item[\emph{Then}:]
+    A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'} throughout \(e\).
+  \end{itenum}
 
   \noindent%
-  With this definition in hand, a simple proposition follows:
+  \ros{3} capture `follows from'.
+  So, starting point \(\Phi\), everything \evaled{}.
+  And, path to destination, action so that event in is progress which, by \assuPP{} entails there is a possible event in which the agent concludes.
+  By \supportI{}, this gets \ros{}, and by \supportII{}, nothing obtained along the path is required to for \ros{}.
 
-  \begin{proposition}[Attribution]%
-    \label{prop:attribution}%
-    For any attribute \(A\):
-    \begin{itenum}
-    \item[\emph{If}:]
-      All necessary conditions hold for \vAgent{} to have attribute \(A\).
-    \item[\emph{Then}:]
-      Some sufficient condition holds for \vAgent{} for having attribute \(A\).
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:attribution}
-    We argue by contraposition.
-
-    Suppose it is not the case that some sufficient condition holds for \vAgent{} for having attribute \(A\).
-    
-
-    It is trivially the case that: \emph{If} \vAgent{} has attribute \(A\), \emph{then} \vAgent{} has attribute \(A\).
-    Therefore, by \autoref{def:NScon} having attribute \(A\) is a sufficient condition for an agent to have attribute \(A\) .
-    Hence, \vAgent{} does not have attribute \(A\).
-
-    Now, consider the collection of all attributes that hold of \vAgent{}.
-    Observe: \emph{If} an agent \vAgent{}' satisfies all attributes that hold of \vAgent{} \emph{then} \vAgent{}' does not have attribute \(A\).
-    
+  Suppose something is required.
+  Then, an event in which the agent obtains the required thing is in progress.
+  For, if the event is not in progress, then event in which agent concludes is not in progress.
+  So, anything required is going to be obtained.
+  And, it's not something about the \agpe{}.
+  For, something is
 
 
-    \vAgent{} has attribute \(A\), \emph{then} condition \(C\) obtains
+  So, something about the \agpe{\agents{} present} secured anything that required to hold from the \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  For, event in which comes to hold from the \agpe{} is in progress.
+  If not, then it is immediate that event in which agent concludes is not in progress.
 
-
-
-
- 
-    It is immediate that any agent failing to have some attribute which holds of \vAgent{} is a necessary condition for an agent to have attribute \(A\).
-    For, by assumption, if all attributes, then the agent does not have attribute \(A\).
-
-    Hence, \vAgent{} fails to satisfy some necessary conditions for having attribute \(A\).
-    Equivalently, it is not the case that \vAgent{} satisfies all necessary conditions for having attribute \(A\).
-  \end{argument}
-
-  % \noindent%
-  % \autoref{prop:attribution} rests on \autoref{def:NScon}.
-  % However, I suspect the contrapositive of \autoref{prop:attribution} holds for a range of accounts of what necessary and sufficient conditions are.
-  % The `insight' is that it is not possible for an agent to have an attribute if they fail to satisfy some sufficient condition, and in turn this means something must necessarily differ between the agent and an agent who does have the attribute.
-  % Our interest is the contraposition of this insight, but our conditionals are material conditionals, hence do not depend on their content.
+  For example, initial \fc{} \scen{}.
+  The prices.
+  Then je ne sais qua.
+  If that je ne sais qua isn't in progress, then not an event in progress.
 \end{note}
 
 \begin{note}
-  Importance of \autoref{prop:attribution} is limitation on \ros{}.
-  Only sufficient condition (\supportI{}).
-  However, \supportII{} limits necessary conditions.
+  Additional example.
+    \begin{scenario}[Fibonacci numbers]%
+    \label{scen:fc:fib}%
+    The \(i\)th number in the Fibonacci sequence is given by \(f(i)\), where:
+
+    \[
+      \begin{array}{rcl}
+        f(0) &=& 0 \\
+        f(1) &=& 1 \\
+        f(n + 2) &=& f(n) + f(n + 1)
+      \end{array}
+    \]
+  \end{scenario}
+
+  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+  \item
+    \label{scen:fc:fib:c}
+    \pv{\propI{The sixth number in the Fibonacci sequence is 5}}{\valI{True}}
+  \end{enumerate}
+  %
+  I leave you to verify you may immediately perform an action in which you are concluding \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} without novel information.
+  Though, \pv{\propI{The sixtieth number in the Fibonacci sequence is 1548008755920}}{\valI{True}}
 \end{note}
 
 \begin{note}
-    \begin{proposition}[\fc{3} and \ros{1}]
-    \label{prop:fcs-only-if-pot-support}
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) for \vAgent{} throughout \(e\).
-    \item[\emph{Then}:]
-      A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds for \vAgent{} throughout \(e\).
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
+  Note, agent is concluding.
+  Hence, this rules out cases of guidance.
 
-  \begin{argument}{prop:fcs-only-if-pot-support}
-    Suppose \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\), for \vAgent{}.
+  Still, a slight gap.
+  For, it may be the case that when the agent does the action, something changes.
+  For example, has the option to try, and so long as does action, given additional powers.
+  Possibility, given the contrasting chess scenarios.
 
-    If \vAgent{} has a \wit{}, then immediate by \supportI{}.
+  No real way to avoid this given the basic ideas.
+  \emph{Could} be that event is in progress.
+  But, this significantly complicates things.
 
-    Suppose \vAgent{} does not have a \wit{}.
-
-    By assumption, \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\), for \vAgent{}.
-
-
-    Therefore, there is some action agent does action concludes.
-    By \assuPP{}, there is a possible event in which the agent concludes.
-    And, by \supportI{} a \ros{} holds.
-
-    Now, a \ros{} holds, and therefore agent satisfies all necessary conditions.
-    For, fail some necessary condition and then no \ros{}.
-
-    So, by \autoref{prop:attribution}, some sufficient condition.
-
-    Now, task is to show the sufficient condition holds of \vAgent{} prior to performing the action.
-
-    Suppose fails.
-    Then some condition changes.
-    However, this entails a (\pwP{}) \wit{} is necessary.
-    Which, \supportII{} denies.
-  \end{argument}
+  However, it is fine.%
+  \footnote{
+    It's not really, and it kind of hurts.
+  }
+  For, interest is in constructing counterexamples.
+  So long as do not rely on features, then counterexamples persist.
 \end{note}
+
+\begin{note}
+  \begin{observation}%
+    \label{obs:supportIIplus}%
+    If deny \supportII{} then always (\pwP{}) \wit{} or something compatible with absence of \wit{}.
+  \end{observation}
+
+  \begin{argument}{obs:supportIIplus}
+    Suppose all compatible with absence of a \wit{}.
+    Now,
+
+    Suppose \fc{} and no \ros{}.
+    Then, it must be the case that (\pwP{}) \wit{} for \ros{}.
+    For, there is some action the agent does, the agent may do the action, and the completion of the action concludes, and at this point, a \ros{} by \supportII{}.
+
+    Hence, it is always the case that (\pwP{}) \wit{}.
+  \end{argument}
+
+  Our interest is with the initial disjunct.
+  It must be the case that (\pwP{}) \wit{}.
+  We tie \ros{1} to conclusions and to avoid commitment.
+  However, free to strengthen if you like.
+
+  Key insight here is that you are free to strengthen, so long as compatible.
+\end{note}
+
+\section*{Summary}
+
+\begin{note}
+  A \ros{} holding between \(\pv{\phi}{v}\) and \(\Phi\) is a state of affairs.
+  Therefore, it is possible for an agent to \eval{} the proposition \propI{A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\)} as \valI{True}, \valI{Possible}, \valI{Desired}, and so on\dots.
+
+  Hence, it is possible for both \ref{Embed:no} and \ref{Embed:yes} to occur:
+
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+  \item
+    \label{Embed:no}
+    A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{an \agents{}}.
+  \item
+    \label{Embed:yes}
+    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds from \agpe{an \agents{}}, where \(\Psi\) contains:
+
+      \pv{\propI{A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{my}}}{\valI{True}}
+  \end{enumerate}
+
+  Now, in the case of \ref{Embed:yes}, it is not necessarily the case that a A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{the}.
+  For example, confident that a \ros{} holds between XXX and YYY, though I am mistaken.
+
+  When speak of \ros{}, state of affairs.
+  Not a state of affairs from \agpe{an \agents{}}.
+
+  Of course, \ref{Embed:no} and \ref{Embed:yes} may occur simultaneously, and \ref{Embed:no} may be the case, in part, due to \ref{Embed:yes} being the case.
+  However, as this takes some effort to think about, we will not (directly, at least) consider cases where \ref{Embed:no} is the case due to \ref{Embed:yes} being the case.
+
+  In other words, argument to follow does not rely (directly) rely on extracting identifying \ros{} which hold due to the agent \evaling{} a proposition containing the \ros{} as \valI{True}.
+\end{note}
+
+
+% \begin{note}
+%   It need not be the case that an agent has a \wit{0} for a \ros{0} in order for \ros{} to be involved in answering \qWhyV{}.
+
+%   For, suppose an agent does not have a \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+%   The upshot of the distinction between~\ref{Embed:no} and~\ref{Embed:yes} is as follows:
+
+%   \begin{itemize}
+%   \item
+%     If the \ros{0} of \ref{Embed:no} is, in part, an answer to \qWhyV{} then the \ros{0} is a counterexample to \issueConstraint{}.
+%   \item
+%     If the \ros{0} of \ref{Embed:yes} is, in part, an answer to \qWhyV{} then the \ros{0} is \emph{not} a counterexample to \issueConstraint{}.
+%   \end{itemize}
+
+%   The difference is \emph{the way in which} the \ros{} functions with respect to the agent pairing \(\phi\) with \(v\).
+%   Whether the \ros{} functions as a premise when the agent concludes \(\pv{\phi}{v}\), or whether the \ros{} functions in a way that is different to a premise.
+% \end{note}
+
+\begin{note}
+  From a structural perspective, our approach to characterising \ros{1} is similar to \citeauthor{Goldman:1979ui}'s account of \citeauthor{Goldman:1979ui}'s account of \emph{ex ante} justification in terms of \emph{ex post} justification.%
+  \footnote{
+    \citeauthor{Turri:2010aa} (\citeyear{Turri:2010aa}) provides similar account.
+    However, \citeauthor{Turri:2010aa} does not hold that this is sufficient.
+  }
+
+  Here's a paraphrase of \citeauthor{Goldman:1979ui}'s account of \emph{ex post} justification:
+  \begin{quote}
+    Person \emph{S} is \emph{ex post} justified in believing \emph{p} when \emph{S} believes \emph{p}, and we say \emph{S}' believing \emph{p} is~justified.%
+    \mbox{ }\hfill\mbox{(\citeyear[Cf.][21]{Goldman:1979ui})}
+  \end{quote}
+  %
+  And here's \citeauthor{Goldman:1979ui}'s account of \emph{ex ante} justification:
+  %
+  \begin{quote}
+    Person \emph{S} is \emph{ex ante} justified in believing \emph{p} at \emph{t} if and only if there is a reliable belief-forming operation available to \emph{S} which is such that if \emph{S} applied that operation to his total cognitive state at \emph{t}, \emph{S} would believe pat \emph{t}-plus-delta (for a suitably small delta) and that belief would be \emph{ex post} justified.%
+    \mbox{ }\hfill\mbox{(\citeyear[21]{Goldman:1979ui})}
+  \end{quote}
+  %
+  So, we have \dots
+
+  Two immediate differences: Definition, and justification.%
+  \footnote{
+    \citeauthor{Goldman:1979ui}'s notions of \emph{ex ante} and \emph{ex post} justification is similar to the distinction between doxastic and propositional justification (see \cite{Firth:1978vi} and \cite[esp.\ fn.1]{Silva:2020aa}).
+
+    Given the parallels between \ros{1} and \emph{ex ante} justification, may think of \ros{1} in line with propositional justification.
+  }
+
+  However, we have no interest in justification.
+  Again, this is not because anything will turn on cases where an agent lacks justification.
+  Rather, do not wish to make the distinction.
+  Ideas apply to cases in which an agent has justification, and lacks justification.
+
+  {
+    \color{red}
+    Also, justification.
+    This restricts the relevant event.
+    It's not the case that the agent suddenly believes.
+    By contrast, we have no justification, and hence the role of the agent concluding.
+  }
+\end{note}
+
 
 % \begin{note}
 %   \begin{itemize}
@@ -736,99 +686,6 @@
 %     \vspace{-\baselineskip}
 %   \end{definition}
 % \end{note}
-
-\section*{Summary}
-
-\begin{note}
-  A \ros{} holding between \(\pv{\phi}{v}\) and \(\Phi\) is a state of affairs.
-  Therefore, it is possible for an agent to \eval{} the proposition \propI{A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\)} as \valI{True}, \valI{Possible}, \valI{Desired}, and so on\dots.
-
-  Hence, it is possible for both \ref{Embed:no} and \ref{Embed:yes} to occur:
-
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-  \item
-    \label{Embed:no}
-    A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{an \agents{}}.
-  \item
-    \label{Embed:yes}
-    A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds from \agpe{an \agents{}}, where \(\Psi\) contains:
-
-      \pv{\propI{A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{my}}}{\valI{True}}
-  \end{enumerate}
-
-  Now, in the case of \ref{Embed:yes}, it is not necessarily the case that a A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{the}.
-  For example, confident that a \ros{} holds between XXX and YYY, though I am mistaken.
-
-  When speak of \ros{}, state of affairs.
-  Not a state of affairs from \agpe{an \agents{}}.
-
-  Of course, \ref{Embed:no} and \ref{Embed:yes} may occur simultaneously, and \ref{Embed:no} may be the case, in part, due to \ref{Embed:yes} being the case.
-  However, as this takes some effort to think about, we will not (directly, at least) consider cases where \ref{Embed:no} is the case due to \ref{Embed:yes} being the case.
-
-  In other words, argument to follow does not rely (directly) rely on extracting identifying \ros{} which hold due to the agent \evaling{} a proposition containing the \ros{} as \valI{True}.
-\end{note}
-
-
-% \begin{note}
-%   It need not be the case that an agent has a \wit{0} for a \ros{0} in order for \ros{} to be involved in answering \qWhyV{}.
-
-%   For, suppose an agent does not have a \wit{0} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-%   The upshot of the distinction between~\ref{Embed:no} and~\ref{Embed:yes} is as follows:
-
-%   \begin{itemize}
-%   \item
-%     If the \ros{0} of \ref{Embed:no} is, in part, an answer to \qWhyV{} then the \ros{0} is a counterexample to \issueConstraint{}.
-%   \item
-%     If the \ros{0} of \ref{Embed:yes} is, in part, an answer to \qWhyV{} then the \ros{0} is \emph{not} a counterexample to \issueConstraint{}.
-%   \end{itemize}
-
-%   The difference is \emph{the way in which} the \ros{} functions with respect to the agent pairing \(\phi\) with \(v\).
-%   Whether the \ros{} functions as a premise when the agent concludes \(\pv{\phi}{v}\), or whether the \ros{} functions in a way that is different to a premise.
-% \end{note}
-
-\begin{note}
-  From a structural perspective, our approach to characterising \ros{1} is similar to \citeauthor{Goldman:1979ui}'s account of \citeauthor{Goldman:1979ui}'s account of \emph{ex ante} justification in terms of \emph{ex post} justification.%
-  \footnote{
-    \citeauthor{Turri:2010aa} (\citeyear{Turri:2010aa}) provides similar account.
-    However, \citeauthor{Turri:2010aa} does not hold that this is sufficient.
-  }
-
-  Here's a paraphrase of \citeauthor{Goldman:1979ui}'s account of \emph{ex post} justification:
-  \begin{quote}
-    Person \emph{S} is \emph{ex post} justified in believing \emph{p} when \emph{S} believes \emph{p}, and we say \emph{S}' believing \emph{p} is~justified.%
-    \mbox{ }\hfill\mbox{(\citeyear[Cf.][21]{Goldman:1979ui})}
-  \end{quote}
-  %
-  And here's \citeauthor{Goldman:1979ui}'s account of \emph{ex ante} justification:
-  %
-  \begin{quote}
-    Person \emph{S} is \emph{ex ante} justified in believing \emph{p} at \emph{t} if and only if there is a reliable belief-forming operation available to \emph{S} which is such that if \emph{S} applied that operation to his total cognitive state at \emph{t}, \emph{S} would believe pat \emph{t}-plus-delta (for a suitably small delta) and that belief would be \emph{ex post} justified.%
-    \mbox{ }\hfill\mbox{(\citeyear[21]{Goldman:1979ui})}
-  \end{quote}
-  %
-  So, we have \dots
-
-  Two immediate differences: Definition, and justification.%
-  \footnote{
-    \citeauthor{Goldman:1979ui}'s notions of \emph{ex ante} and \emph{ex post} justification is similar to the distinction between doxastic and propositional justification (see \cite{Firth:1978vi} and \cite[esp.\ fn.1]{Silva:2020aa}).
-
-    Given the parallels between \ros{1} and \emph{ex ante} justification, may think of \ros{1} in line with propositional justification.
-  }
-
-  However, we have no interest in justification.
-  Again, this is not because anything will turn on cases where an agent lacks justification.
-  Rather, do not wish to make the distinction.
-  Ideas apply to cases in which an agent has justification, and lacks justification.
-
-  {
-    \color{red}
-    Also, justification.
-    This restricts the relevant event.
-    It's not the case that the agent suddenly believes.
-    By contrast, we have no justification, and hence the role of the agent concluding.
-  }
-\end{note}
-
 
 
 %%% Local Variables:
