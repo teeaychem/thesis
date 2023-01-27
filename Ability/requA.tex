@@ -51,10 +51,11 @@
 
   \begin{definition}[A \requ{0}]%
     \label{def:requ}%
-    \vspace{-\baselineskip}
+    For any event \(e\) such that \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    %
     \begin{itemize}
     \item
-      \(\pvp{\psi}{v'}{\Psi}\) is a \emph{\requ{}} of \(e\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\) is a \emph{\requ{}} of \(e\).
     \end{itemize}
 
     \emph{If and only if}
@@ -63,13 +64,18 @@
     \item
       \begin{itenum}
       \item[\emph{If}:]
-        \(e\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        \(e^{\flat}\) develops into \(e\).
       \item[\emph{Then}:]
-        \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
+        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
       \end{itenum}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
+
+  {\color{red}
+
+    \(e^{\flat}\) develops into an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  }
 
   \noindent%
   Shorten the defined term to:
@@ -203,6 +209,183 @@
   The role of a \requ{} is to link an agent concluding to \fc{1}.
 \end{note}
 
+
+\section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
+\label{sec:comining-ingredients}
+
+\begin{note}
+  Section links \requ{0} to \qWhyV{} and \issueConstraint{}.
+
+  Start by defining a collection of conditions.
+  Then, \qWhy{}.
+  From this, additional condition to get counterexample to \issueConstraint{}.
+\end{note}
+
+\subsection{\requ{3} and \qWhyV{}}
+
+\begin{note}
+  \begin{proposition}[\requ{3} and \qWhyV{}]
+    \label{prop:requ-WhyV}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      Conditions~%
+      \ref{def:rCs:C}~and~%
+      \ref{def:rCs:Cing}~%
+      jointly hold:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \item
+        \label{def:rCs:C}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{def:rCs:Cing}
+        There is some sub-event \(e^{\flat}\) of \(e\) such that:
+        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
+        \item
+          \label{def:rCs:Cing:requ}
+          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\) is a \requ{} of \(e\).
+        \end{enumerate}
+      \end{enumerate}
+    \item[\emph{Then}:]
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:requ-WhyV}
+    Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold.
+
+    From Condition~\ref{def:rCs:C}, \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    So, \qWhyV{} applies to \(e\).
+
+    Our task is to show the conditional of \qWhyV{} is true.
+
+    Consider the event \(e^{\flat}\).
+    Suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
+
+    \supportII{}:
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\sharp}\).
+    \item[\emph{Then}:]
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\sharp}\).
+    \end{itenum}
+
+    \noindent%
+    So, by our supposition \(\pv{\psi}{v'}\) not a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
+    Then, \(e^{\flat}\) is not, or does not develop into, \(e\).
+    This contradicts  \ref{def:rCs:Cing}.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  Key.
+
+  Intuition is that \tC{}.
+  Therefore, matters whether or not \fc{}.
+  Hence, matters whether or not \ros{}.
+\end{note}
+
+\subsection{\requ{3} and \issueConstraint{}}
+\label{cha:binding:sec:requ-iC}
+
+\begin{note}
+  With \autoref{prop:requ-WhyV} we observe the way in which the \rCon{0} may provide counterexamples to \issueConstraint{}.
+
+  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
+
+  In full:
+
+  \begin{proposition}[\requ{3} and \issueConstraint{}]
+    \label{prop:requ-WhyV-ces}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      Conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing}~jointly hold:
+      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \item
+        \label{prop:requ-WhyV-ces:C}
+        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{prop:requ-WhyV-ces:Cing}
+        There is some sub-event \(e^{\flat}\) of \(e\) such that:
+        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
+        \item
+          \label{prop:requ-WhyV-ces:Cing:requ}
+          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\) is a \requ{} of \(e\).
+        \end{enumerate}
+      \end{enumerate}
+    \item[\emph{And}:]
+      \label{prop:requ-WhyVCes:noW}
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:requ-WhyV-ces}
+    More-or-less immediate.
+
+    % If the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\), then \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}, given~\autoref{prop:requ-WhyV}.
+    % And, granting \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), this immediately contradicts \issueConstraint{}.
+  \end{argument}
+\end{note}
+
+\begin{note}
+  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
+  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
+
+  \autoref{cha:ces} provides examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
+\end{note}
+
+\begin{note}
+  The existence of \requ{1} are compatible with \issueConstraint{}.
+
+  \begin{observation}%
+    \label{prop:requ-not-n-ce}%
+    \autoref{prop:requ-WhyV} is compatible with \issueConstraint{}.
+  \end{observation}
+
+  \begin{motivation}{prop:requ-not-n-ce}
+    \requ{3} are about an agent concluding.
+    \fc{} when the agent concludes.
+    An agent may fail to have a \wit{} for \fc{}.
+
+    However, \issueConstraint{}, \wit{} when the agent concludes.
+    Therefore, so long as \wit{} when the agent concludes, fine.
+
+    Two possibilities.
+    \begin{enumerate}
+    \item
+      Agent already has a \wit{}.
+
+      For example, first \scen{0}.
+      If concluding sequence, \fc{}.
+      Prior to getting \(L_{8}\), \fc{}.
+
+      However, expectation of \wit{} when sequence.
+      Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
+    \item
+      Agent obtains \wit{} prior to conclusion.
+
+      Consider \autoref{scen:squish}.
+      The agent has previously concluded \sqE{} is sound.
+      Therefore, the agent has a \wit{} for \ros{}.
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{motivation}
+
+  Note, however, that \autoref{prop:requ-not-n-ce} is weak.
+  Compatible in terms of existential.
+  Hence we only needed to show a single case in which \wit{} for \requ{}.
+  This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
+\end{note}
+
+\section{Additional motivation for \requ{1}}
+\label{sec:addit-motiv-requ1}
+
 \begin{note}
   \begin{scenario}[Lost keys]%
     \label{illu:lost-key}%
@@ -301,266 +484,6 @@
   But, this is no problem.
   For, \fc{1} are not exclusive.
   But, this is consistent with \requ{}.
-\end{note}
-
-\section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
-\label{sec:comining-ingredients}
-
-\begin{note}
-  Section links \requ{0} to \qWhyV{} and \issueConstraint{}.
-
-  Start by defining a collection of conditions.
-  Then, \qWhy{}.
-  From this, additional condition to get counterexample to \issueConstraint{}.
-\end{note}
-
-\subsection{Conditions}
-\label{sec:conditions}
-
-\begin{note}
-  Link via a collection of conditions.
-  In short, event where agent concludes \(\pv{\phi}{v}\) from \(\Phi\), and sub-event where concluding \(\pv{\phi}{v}\) from \(\Phi\) where \(\pvp{\psi}{v'}{\Psi}\) was a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-  \begin{definition}[\rCon{2}]
-    \label{def:rCon}
-    \vspace{-\baselineskip}
-    \begin{itemize}
-    \item
-      The \emph{\rCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
-    \end{itemize}
-
-    \emph{If and only if}:
-
-    \begin{itemize}
-    \item
-      Conditions~%
-      \ref{def:rCs:C}~and~%
-      \ref{def:rCs:Cing}~%
-      jointly hold:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-      \item
-        \label{def:rCs:C}
-        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{def:rCs:Cing}
-        There is some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:requ} and \ref{def:rCs:Cing:itc} jointly hold:
-        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
-        \item
-          \label{def:rCs:Cing:itc}
-          The following conditional is true:
-          \begin{itenum}
-          \item[\emph{If}:]
-            \(e^{\flat}\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-          \item[\emph{Then}:]
-            \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-          \end{itenum}
-        \item
-          \label{def:rCs:Cing:requ}
-          \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-        \end{enumerate}
-      \end{enumerate}
-    \end{itemize}
-    \vspace{-1.5\baselineskip}
-  \end{definition}
-
-  Condition~\ref{def:rCs:C}, and event in which an agent concludes.
-  Hence, \qWhyV{} applies.
-
-  Some sub-event such that conditional of \qWhyV{} holds.
-
-  Condition~\ref{def:rCs:Cing} concerns the sub-event.
-
-  \ros{}.
-  Does not develop.
-
-  Sub-condition~\ref{def:rCs:Cing:itc}.
-  Does not develop.
-  However, agent is not concluding, rather than absence of a \ros{}.
-
-  A strong condition, but an intuitive one.
-  If event is not in progress, the event does not happen.
-
-  In particular, getting conclusion from premises.
-  It may be the case that agent concludes.
-  However, if not concluding, then difficult to say that it's from these premises.
-
-  For example, arithmetic or something.
-  Working through a problem.
-  Intuitively, conclude from some \pool{} captures understanding of arithmetic.
-  If not concluding, then is it the case that conclude from \pool{} captures understanding of arithmetic?
-
-  This is not \agpe{}, but the way things are.
-
-  To link not concluding to \ros{}, Sub-condition~\ref{def:rCs:Cing:requ}.
-\end{note}
-
-\subsection{\requ{3} and \qWhyV{}}
-
-\begin{note}
-  \begin{proposition}[\requ{3} and \qWhyV{}]
-    \label{prop:requ-WhyV}
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
-    \item[\emph{Then}:]
-      \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}.
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:requ-WhyV}
-    Suppose the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
-
-    From Condition~\ref{def:rCs:C}, concludes.
-    So, \qWhyV{} applies.
-
-    Our task is to show the conditional of \qWhyV{} is true.
-
-    From~\ref{def:rCs:Cing} of the \rCon{}, we have some sub-event \(e^{\flat}\) of \(e\) such that \ref{def:rCs:Cing:itc} and \ref{def:rCs:Cing:requ} jointly hold.
-
-    Consider the event \(e^{\flat}\) and assume a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
-
-    \supportII{}:
-
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\sharp}\).
-    \item[\emph{Then}:]
-      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\sharp}\).
-    \end{itenum}
-
-    \noindent%
-    So, by our assumption \(\pv{\psi}{v'}\) not a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
-
-    Now, by Sub-condition~\ref{def:rCs:Cing:requ} of the \rCon{}, \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of \(e^{\flat}\) being an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    And, by expanding the definition of a \requ{} (\autopageref{def:requ}):
-
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(e\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \item[\emph{Then}:]
-      \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{} for \vAgent{}.
-    \end{itenum}
-
-    \noindent%
-    Hence, \(e\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
-    Therefore, by Sub-condition \ref{def:rCs:Cing:itc}, \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{argument}
-\end{note}
-
-\begin{note}
-  Key.
-
-  Intuition is that \tC{}.
-  Therefore, matters whether or not \fc{}.
-  Hence, matters whether or not \ros{}.
-\end{note}
-
-\subsection{\requ{3} and \issueConstraint{}}
-\label{cha:binding:sec:requ-iC}
-
-\begin{note}
-  With \autoref{prop:requ-WhyV} we observe the way in which the \rCon{0} may provide counterexamples to \issueConstraint{}.
-
-  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
-
-  In full:
-
-  \begin{proposition}[\requ{3} and \issueConstraint{}]
-    \label{prop:requ-WhyV-ces}
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      The \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\).
-    \item[\emph{And}:]
-      \label{prop:requ-WhyVCes:noW}
-      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item[\emph{Then}:]
-      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prop:requ-WhyV-ces}
-    More-or-less immediate.
-
-    If the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\), then \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}, given~\autoref{prop:requ-WhyV}.
-    And, granting \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), this immediately contradicts \issueConstraint{}.
-  \end{argument}
-\end{note}
-
-\begin{note}
-  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
-  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
-
-  \autoref{cha:ces} provides examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
-\end{note}
-
-\begin{note}
-  The existence of \requ{1} are compatible with \issueConstraint{}.
-
-  \begin{observation}%
-    \label{prop:requ-not-n-ce}%
-    \autoref{prop:requ-WhyV} is compatible with \issueConstraint{}.
-  \end{observation}
-
-  \begin{motivation}{prop:requ-not-n-ce}
-    \requ{3} are about an agent concluding.
-    \fc{} when the agent concludes.
-    An agent may fail to have a \wit{} for \fc{}.
-
-    However, \issueConstraint{}, \wit{} when the agent concludes.
-    Therefore, so long as \wit{} when the agent concludes, fine.
-
-    Two possibilities.
-    \begin{enumerate}
-    \item
-      Agent already has a \wit{}.
-
-      For example, first \scen{0}.
-      If concluding sequence, \fc{}.
-      Prior to getting \(L_{8}\), \fc{}.
-
-      However, expectation of \wit{} when sequence.
-      Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
-    \item
-      Agent obtains \wit{} prior to conclusion.
-
-      Consider \autoref{scen:squish}.
-      The agent has previously concluded \sqE{} is sound.
-      Therefore, the agent has a \wit{} for \ros{}.
-    \end{enumerate}
-    \vspace{-\baselineskip}
-  \end{motivation}
-
-  Note, however, that \autoref{prop:requ-not-n-ce} is weak.
-  Compatible in terms of existential.
-  Hence we only needed to show a single case in which \wit{} for \requ{}.
-  This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
-\end{note}
-
-\begin{note}
-  \begin{observation}
-    \label{obs:denyCing}
-    Deny that needed to be the case agent was concluding.
-  \end{observation}
-
-  \begin{motivation}{obs:denyCing}
-    \qWhyV{} is about developing.
-    If it does not need to be the case that the agent is concluding, then it is possible for the agent to conclude.
-  \end{motivation}
-
-  In part, this ensures we don't get anything that is clearly redundant.
-
-  In general, possible to deny.
-  But, I don't think it is viable in many cases.
-  Agent is concluding.
-  The conclusion does not `happen'.
-
-  This is hand wavy.
-  Idea of an agent \tCV{} addresses this.
 \end{note}
 
 
