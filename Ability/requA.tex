@@ -2,17 +2,7 @@
 \label{cha:requs}
 
 \begin{note}
-  \autoref{cha:fcs} introduced \fc{1}.
-
-  \fc{1} are such that:
-  \begin{itemize}
-  \item
-    \ros{} holds between \(\pv{\psi}{v'}\) and \(\Psi\) (for the agent).
-  \item
-    The agent doesn't have a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  \end{itemize}
-
-  A \requ{} is a relation between \(\pv{\psi}{v'}\) from \(\Psi\) being a \fc{} and the agent \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
+  A \requ{} is a relation between \(\pv{\psi}{v'}\) from \(\Psi\) being a \fc{} and an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
 \begin{note}
@@ -36,19 +26,6 @@
 \label{cha:requs:requs}
 
 \begin{note}
-  Idea of a \requ{} is something that must be the case in order for the agent to be concluding.
-
-  Various things need to be the case.
-  In general, the agent must be alive and conscious.
-  Specific instances, further constraints.
-  For example, the coffee is too hot.
-  Cup of coffee and a preference for the temperature of coffee.
-
-  A \requ{0} is a \prop{0}-\val{0} pair which must be a \fc{0} for the agent in order for the agent to be concluding some \prop{0}-\val{0} pair.
-
-  In particular, this thing is a \fc{}.
-  We define \requ{1} as follows:
-
   \begin{definition}[A \requ{0}]%
     \label{def:requ}%
     For any event \(e\) such that \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
@@ -64,7 +41,7 @@
     \item
       \begin{itenum}
       \item[\emph{If}:]
-        \(e^{\flat}\) develops into \(e\).
+        \(e^{\flat}\) develops into an event \(e\).
       \item[\emph{Then}:]
         \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
       \end{itenum}
@@ -72,46 +49,36 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  {\color{red}
+  \noindent%
+  Broad idea of a \requ{} is that we fix an event, and then consider what must be the case with respect to some sub-event.
+  Specifically, applied to an event in which an agent concludes, and holds just in case what must be the case is a \fc{}.%
+  \footnote{
+    \itc{2}, so either does not develop or \fc{}.
 
-    \(e^{\flat}\) develops into an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    Something about the event secures requirement.
+  }%
+  \footnote{
+    Note, it is not always the case that \(\pvp{\phi}{v}{\Phi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    For example, consider the partnered case from \autoref{obs:cds-arb}
   }
 
-  \noindent%
-  Shorten the defined term to:
-  \begin{notationList}
-  \item
-    \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{notationList}
+  In this respect, the definition of a \requ{} is similar to \qWhy{}.
+  However, in contrast to \qWhy{}, a \requ{} concerns \fc{1} rather than \ros{1} and is a statement.
+
+  Still, there is a close connexion between \fc{1} and \ros{} given \supportII{} and we soon observe \ros{} answers \qWhy{}.
+
+  We define \requ{} in terms of \fc{1} as a \ros{} is an abstraction for which we only have sufficient conditions.
+  A \fc{} on the other hand, is something we have defined.
 \end{note}
+
+\subsection{Illustrations}
+\label{sec:illustrations}
 
 \begin{note}
-  Similar to \qWhyV{} on \autopageref{questionWhyV}.
-  Something about event which gets this constraint.
-
-  \itc{2}, so either not concluding or \fc{}.
-
-  Something about the event secures requirement.
-
-  Agent is or is not concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  However, requirement if agent is concluding.
-  And, possible block if agent is not.
-
-  However, it does not follow from \(\pvp{\phi}{v}{\Phi}\) being a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) that either:
-  \begin{itemize}
-  \item
-    \(\pv{\phi}{v}\) being a \fc{} from \(\Psi\) is relevant to the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), if the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    \(\pv{\phi}{v}\) not being a \fc{} from \(\Psi\) is relevant to the agent not concluding \(\pv{\phi}{v}\) from \(\Phi\), if the agent is not concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{itemize}
-
-  For \requ{} to be of interest, additional considerations.
-  Following section.
-
-  First, we two \illu{1} of \requ{1}.
+  Work through a \scen{} to illustrate the definition of a \requ{}.
 \end{note}
 
-\paragraph*{\illu{3}}
+\paragraph*{Lucas numbers}
 
 \begin{note}
   \begin{scenario}[Lucas numbers]%
@@ -130,85 +97,122 @@
         \end{array}
       \right.
     \]
-
+    %
     An agent is alone and quite bored.
     The agent sets out to calculate the first ten Lucas numbers by applying the recursive definition.
-
+    %
     The agent begins:
-
+    %
     \[
-    \begin{array}{cccccc}
-      L_{0} & L_{1} & L_{2} & L_{3} & L_{4} & \cdots \\
-      \hline
-      2 & 1 & 3 & 4 & 7 & \cdots \\
-    \end{array}
+      \begin{array}{cccccc}
+        L_{0} & L_{1} & L_{2} & L_{3} & L_{4} & \cdots \\
+        \hline
+        2 & 1 & 3 & 4 & 7 & \cdots \\
+      \end{array}
     \]
+    %
+    And, eventually concludes:
+    %
+    \[
+      \pv{\propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}}{\valI{True}}
+    \]
+    %
+    From some \pool{} \(\Phi\).
   \end{scenario}
+
+  Event of interest is \(e\) such that \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47, 76]}{\valI{True}} from \(\Phi\).%
+  \footnote{
+    \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47, 76]} shortens \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}.
+  }
 
   \begin{observation}[\requ{3} of \autoref{scen:LucasNums}]%
     \label{obs:LucasRequ}%
-    For the event \(e\) as described by \autoref{scen:LucasNums}:
+    There is some sub-event \(e^{\flat}\) of \(e\) such that:
     %
     \begin{itemize}
     \item
-      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from \(\Phi_{8}\) and \(\pv{\propI{L\textsubscript{7} = 29}}{\valI{True}}\) from \(\Phi_{7}\) are both \requ{1} of the agent concluding \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from some \pool{} \(\Phi_{8}\) is \requ{1} of the agent concluding .
     \end{itemize}
-    %
-    Where \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]} abbreviates \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}, and the \pool{1} \(\Phi_{7}\), \(\Phi_{8}\), and \(\Phi\) are left unspecified.
   \end{observation}
 
   \begin{motivation}{obs:LucasRequ}
-    Applying \autoref{def:requ} it is sufficient to establish:
+    The agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
 
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(e\) is an event in which the agent is concluding\newline \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
-    \item[\emph{Then}:]
-      \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} from \(\Phi_{8}\) is a \fc{} for the agent.
-    \end{itenum}
-    %
-    And, likewise for \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} from \(\Phi_{8}\).
+    The agent reasons by the recursive definition.
+    Hence, the agent obtains \(L_{9}\) by adding \(L_{8}\) and \(L_{7}\).
+    So, agent concludes \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from \(\Phi_{8}\).
+    And, \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} from \(\Phi_{7}\)
+    For, without \(L\textsubscript{8}\) and \(L\textsubscript{7}\), the agent does not get \(L\textsubscript{9}\).
 
-    Suppose the agent is concluding \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+    Sub-event \(e^{8}\)
 
-    By \assuPP{}, there is an event in which the agent concludes\newline \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
-    For, the proposition contains the tenth Lucas number, and so it seems the agent must have concluded \pv{\propI{L\textsubscript{9} = 76}}{\valI{True}} from some \pool{} \(\Phi_{9}\).
+    Now, \(e^{8}\) agent concludes.
+    So, by parallel reasoning, \(L\textsubscript{7}\) and \(L\textsubscript{6}\).
+    But, then \(L\textsubscript{7}\), \(L\textsubscript{6}\) and definition.
+    Hence, action, and when the agent does this, \(L\textsubscript{8}\).
 
-    And, as the agent is reasoning by the recursive definition, the agent obtains \(L_{9}\) by adding \(L_{8}\) and \(L_{7}\).
-    Hence, prior to the conclusion \pv{\propI{L\textsubscript{9} = 76}}{\valI{True}}, it seems the agent must conclude \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} and \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}}.
-
-    And, as the agent is alone, it seems it must be the case the agent concludes \pv{\propI{L\textsubscript{8} = 47}}{\valI{True}} and \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} without any novel information.
-
-    So, events.
-    Hence, \fc{1}.
+    So, must be \(L\textsubscript{8}\) and clear just prior to this, \(L\textsubscript{8}\) is a \fc{}.
   \end{motivation}
 
-  Important parts of the motivation for \autoref{obs:LucasRequ} are need in order to conclude, and no other option.
+  The same applies to \(L\textsubscript{7}\), \(L\textsubscript{6}\), and so on until we reach the base cases of \(L\textsubscript{1}\) and \(L\textsubscript{0}\), as these are given.
+\end{note}
 
-  By the same reasoning, \(L_{6}\) and \(L_{5}\).
+\begin{note}
+  A \requ{} is nothing special.
+  It's an observation about what is.
 
-  Indeed, \requ{1} of the event which secures \fc{}.
+  In this case, given an event, and works backwards given additional details to observe which \fc{1} held.
+  Note, however, that when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\) the agent has a \wit{} for all \ros{} mentioned.
+\end{note}
 
-  And, \(L_{9}\) itself.%
-  \footnote{
-    However, it is not always the case that \(\pvp{\phi}{v}{\Phi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    For example, consider the partnered case from \autoref{obs:cds-arb}
+\paragraph*{Lost keys}
+
+\begin{note}
+  \requ{} does not require an event has happened.
+  In particular, consider development of an event.
+  \requ{} helps observe an event is not such that concluding.
+
+  \begin{scenario}[Lost keys]%
+    \label{illu:lost-key}%
+    An agent thinks they may have lost their keys.
+    They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
+    Their keys aren't there.
+
+    They've searched over, under, and beside the desk.
+    They haven't found their keys.
+
+    Still, the agent holds the following principle:
+    \begin{quote}
+      If they thinks of a place to look for an object, they do not conclude the object is lost without searching the place.
+    \end{quote}
+  \end{scenario}
+
+  \begin{observation}
+    \label{obv:lK:requ}
+    If some action such that agent consider may be in  \(l\), then agent is not concluding.
+  \end{observation}
+
+  {
+    \color{red}
+  \begin{itemize}
+  \item
+    \pvp{\propI{The agent has no further idea of where to look}}{\valI{True}}{\Psi} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}} from \(\Phi\).
+  \end{itemize}
   }
+
+  \begin{motivation}{obv:lK:requ}
+    Suppose agent is concluding.
+    Then, by \assuPP{} event in which agent concludes.
+    Therefore, \requ{} of any such event.
+    For, else the agent goes and searches.
+
+    Antecedent assumes there is some action.
+    Therefore, problem.
+  \end{motivation}
+
+  Note, this doesn't rule out \(l\) and no as a \fc{}.
+  The problem is, not in a position to determine which conclusion.
 \end{note}
-
-\begin{note}
-  Is the agent concluding?
-  This depends on the event.
-  Are the relevant \prop{0}-\val{0} pairs \fc{1}?
-
-  For example, if the agent makes a mistake, then not concluding.
-\end{note}
-
-\begin{note}
-  As defined, there is little to a \requ{1}.
-  The role of a \requ{} is to link an agent concluding to \fc{1}.
-\end{note}
-
 
 \section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
 \label{sec:comining-ingredients}
@@ -318,18 +322,18 @@
       \end{enumerate}
     \item[\emph{And}:]
       \label{prop:requ-WhyVCes:noW}
-      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     \item[\emph{Then}:]
-      \(\pvp{\psi}{v'}{\Psi}\) is a counterexample to \issueConstraint{}.
+      \issueConstraint{} does not hold.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
   \begin{argument}{prop:requ-WhyV-ces}
-    More-or-less immediate.
+    \color{blue}
+    Immediate from ???
 
-    % If the \rCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e^{\flat} \rangle\), then \(\pvp{\psi}{v'}{\Psi}\), in part, answers \qWhyV{}, given~\autoref{prop:requ-WhyV}.
-    % And, granting \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\), this immediately contradicts \issueConstraint{}.
+    For, \ros{} answers \qWhy{} an no \wit{}
   \end{argument}
 \end{note}
 
@@ -381,109 +385,6 @@
   Compatible in terms of existential.
   Hence we only needed to show a single case in which \wit{} for \requ{}.
   This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
-\end{note}
-
-\section{Additional motivation for \requ{1}}
-\label{sec:addit-motiv-requ1}
-
-\begin{note}
-  \begin{scenario}[Lost keys]%
-    \label{illu:lost-key}%
-    An agent thinks they may have lost their keys.
-    They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
-    Their keys aren't there.
-
-    They've searched over, under, and beside the desk.
-    They haven't found their keys.
-
-    Still, the agent holds the following principle:
-    \begin{quote}
-      If the agent thinks of a place to look for an object, the agent does not conclude the object is lost without searching the place.
-    \end{quote}
-  \end{scenario}
-
-  \noindent%
-  % At issue is whether the agent concludes they have lost their keys without any further search.
-  % Fix the event to begin when the \agents{} completes their initial search of the desk and extend the event until the agent either
-  % \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
-  % \item
-  %   concludes they have lost their keys without any further search, or
-  % \item
-  %   sets of on a further search.
-  % \end{enumerate*}
-  Given the presentation of \autoref{illu:lost-key} it seems:
-  \begin{itemize}
-  \item
-    \pvp{\propI{The agent has no further idea of where to look}}{\valI{True}}{\Psi} is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}} from \(\Phi\).
-  \end{itemize}
-  The principle the agent holds requires the agent to conclude the have no further idea of where to look before concluding they have lost their keys.%
-  \footnote{
-    Assumes the agent has negative influence.
-
-    I think this is clear.
-    Various things that influence.
-
-    And, though possible that there are various demons that change things, do not consider these relevant.
-
-    Note, this does not entail that the agent has positive influence, nor choice.
-  }
-  Then, by principle, it must be the case that no further place.
-  For, else go look at that place.
-  And, if go look, then the relevant event is over.
-
-  \requ{2}.
-  However, only given the principle.
-  It may be the case that the agent abandons principle.
-  However, if so then description is not true of relevant event.
-  Subtle point.
-  Need something about the way things are which constrains the way things may develop.
-
-  If this is not the case, then no \requ{1}.
-  However, I assume this is the case.%
-  \footnote{
-    Various demons, rule out by description.
-  }
-\end{note}
-
-\begin{note}
-  Interesting features:
-
-  \begin{observation}
-    It need may be the case that both:
-    \begin{itemize}
-    \item
-      \pvp{\propI{The agent has no further idea of where to look}}{\valI{True}}{\Psi}
-    \item
-      \pvp{\propI{The agent's may be by the coffee machine}}{\valI{True}}{\Psi}
-    \end{itemize}
-    are \fc{1}.
-  \end{observation}
-
-  This is fine.
-  If the latter, then the agent does not conclude they have lost their keys.
-
-  Now, with conditional, is it the case that concluding?
-  Is the agent going to think of something?
-
-  If the agent does, then they go and search.
-  If the agent does not, then they conclude lost.
-
-  There is not immediate answer.
-  However, either or.
-
-  To illustrate further.
-  Suppose coffee.
-  May think to retrace steps.
-  If so, no conclusion.
-  However, the agent may fail to think of anything.
-  If so, the agent concludes.
-
-  Still, it is not the case that conclusion is in progress, for the agent may think of a place to search.
-
-  It may be the case that \fc{} and not concluding.
-  But, this is no problem.
-  For, \fc{1} are not exclusive.
-  But, this is consistent with \requ{}.
 \end{note}
 
 
