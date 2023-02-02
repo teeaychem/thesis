@@ -289,6 +289,7 @@
     \vspace{-\baselineskip}
   \end{definition}
 
+  \noindent%
   We have no interest in what conclusions beyond \evals{} the way things are from an \agpe{}.
   Further, our interest with conclusions is limited to \emph{fresh} \evals{}.
   Where `fresh' identifies an \eval{} that did not hold of the agent just prior to the conclusion.
@@ -328,36 +329,74 @@
     \vspace{-\baselineskip}
   \end{definition}
 
-  English does not have a quick, unambiguous, way of expressing events in progress.%
-  \footnote{
-    This is difficult.
-    I have considered ensuring every instance of an `-ing' verb expresses the progressive, but this is quite hard (see the fourth word in this sentence).
-    And, I have considered writing `\(\text{Prog}(\text{concludes})\)' in place of `concluding', but this is too clumsy.
-  }
-  For, consider the sentence:
-  \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
-  \item
-    \label{prog:abmig}
-    \textquote{John is studying for an exam}.
-  \end{enumerate}
-  \ref{prog:abmig} may be understand to express either the continuous or progressive aspect.
-
-  Under the continuous aspect, \ref{prog:abmig} captures something about John, rather than something about an event happening.
-  Hence, it need to be the case that John is engaged in an event of studying when \ref{prog:abmig} is said.
-  For example, we may expand:
-  \textquote{Sam is studying for an exam, but is taking a short nap.}
-
-  By contrast, \ref{prog:abmig} under the progressive captures an event in where John studying is in progress.%
-  \footnote{
-    See,~\textcite{Richards:1981wo},~\textcite{Portner:2011vi}, etc.
-  }
-  For example, we may expand:
-  \textquote{Sam is studying for an exam, so they aren't taking a nap.}
-
-  Our use of the term \textquote{concluding} will always capture an event in progress.
-  \textquote{The agent is concluding \(\phi\) has \val{0} \(v\)} is read in parallel to a natural reading of  \textquote{Taylor walking to the shops} or \textquote{Riley is filling a bathtub}.
-  An event is in progress, but the event has not been completed.
+  \noindent%
+  In short, our use of the term \textquote{concluding} always capture an event in progress.
+  Hence, \textquote{the agent is concluding \(\phi\) has \val{0} \(v\)} is read in parallel to a natural reading of \textquote{the agent is walking to the shops} or \textquote{the agent is filling a bathtub}.
 \end{note}
+
+
+\begin{note}
+  \assuPP{2} entails there is some possible event in which the agent concludes:
+
+  \begin{proposition}[Possible events in which an agent concludes]%
+    \label{prp:peventC}%
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(e_{d}\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      There is a possible event \(e'_{d'}\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prp:peventC}
+    Immediate by \assuPP{}~(\autoref{assu:PP}).
+  \end{argument}
+
+  \noindent%
+  Though, the quasi-converse of \assuPP{} does not necessarily hold:
+
+  \begin{observation}[Conclusions without concluding]%
+    \label{obs:cds-arb}%
+    The following conditional is not necessarily true:
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      There is some \se{0} \(e'\) of \(e\) such that:
+      \begin{itemize}
+      \item
+        \(e'\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{itemize}
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{observation}
+
+  \begin{motivation}{obs:cds-arb}
+    There are (at least) two ways the conditional may fail:
+
+    \begin{itemize}
+    \item
+      There may have been no `inertia' with respect to the events prior to the event in which the agent concludes.
+
+      For example, there are exactly five intermediate logics that have the interpolation property (\cite[cf.][]{Maksimova:1977un}).
+      However, \citeauthor{Maksimova:1977un} may have been ready to give up on the proof at any point.%
+      \footnote{%
+        Though, admittedly, it is unlikely \citeauthor{Maksimova:1977un} would have given up.
+      }
+    \item
+      It may fail to be the case that the \emph{agent} is concluding.
+
+      For example, consider being guided through a complex argument.
+      (E.g. \citeauthor{Maksimova:1977un}'s proof.)
+      At each step, the guide signposts the way to the conclusion.
+      However, without the guide the agent would fail to reach the conclusion.
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{motivation}
+\end{note}
+
 
 \section{Assumptions}
 \label{sec:assumptions}
@@ -372,18 +411,6 @@
 \begin{note}
   \begin{assumption}[Conclusions from \pool{3}]
     \label{assu:concluding:pools}
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     Proposition: \(\phi\)
-    %   \item
-    %     Value: \(v\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
@@ -458,22 +485,6 @@
 
   \begin{assumption}[Conclusions by reasoning]
     \label{assu:ConRea}
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     Proposition: \(\phi\)
-    %   \item
-    %     Value: \(v\)
-    %   \item
-    %     \pool{2}: \(\Phi\)
-    %   \item
-    %     Event: \(e\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
@@ -484,6 +495,7 @@
     \vspace{-\baselineskip}
   \end{assumption}
 
+  \noindent%
   In short, an event in which an agent concludes is particular case of an event in which an agent reasons.
 
   For example, an agent may conclude \(\pv{\psi}{\valI{True}}\) from a \pool{} containing \(\pv{\phi}{\valI{True}}\) and \(\pv{\propI{If }\phi\propI{ then }\psi}{\valI{True}}\) by reasoning via \emph{modus ponens}.
@@ -516,13 +528,13 @@
   \end{quote}
 
   The second instance is from \citeauthor{Bratman:1979aa}'s discussion of temptation:
-
+  %
   \begin{quote}
     Sam thinks both that in certain respects his drinking would be, \emph{prima facie}, best, and that in certain other respects his abstaining would be, \emph{prima facie}, best.
     Weighing these conflicting considerations he concludes that it would be best to abstain, rather than drink.%
     \mbox{ }\hfill\mbox{(\citeyear[156]{Bratman:1979aa})}
   \end{quote}
-
+  %
   Both passages capture a similar process.
   From some \agpe{} various states of affairs are evaluated in different ways, and after some consideration the agent chooses to do something.
 
@@ -561,7 +573,7 @@
 
   % By contrast, I read \ref{Cing:SandM:j} in line with \citeauthor{Bratman:1979aa}.
   % When considering Sam and Max as a pair, in which a non-distributive reading of `conclude' is forced by the parenthetical `jointly', the event includes the trading of ideas back and forth.
-  % Though, the relevant event includes sub-event in which Sam and Max separately evaluate that \(a\) is an answer to problem \(p\).
+  % Though, the relevant event includes \se{0} in which Sam and Max separately evaluate that \(a\) is an answer to problem \(p\).
   % }
 \end{note}
 
@@ -619,290 +631,11 @@
 %   However, nothing in particular hangs on this.
 % \end{note}
 
-\subsection{Events in progress and \assuPP{}}
-
-\begin{note}
-  Final assumption is about what it is for an event to be in progress.
-
-  \begin{assumption}[\assuPP{2}]%
-    \label{assu:PP}%
-    For any event \(e\) and action description \(\alpha\):
-    \begin{itenum}
-    \item[\emph{If}:]
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      \item
-        \(e\) is an event in which \(\alpha\) is in progress.
-      \end{enumerate}
-    \item[\emph{Then}:]
-      \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
-      \item
-        There is some \progAdj{0} event \(e'\) such that~\ref{assu:PP:pe:dev} and~\ref{assu:PP:pe:verb} are both true:
-        \begin{enumerate}[label=\roman*., ref=(\roman*)]
-        \item
-          \label{assu:PP:pe:dev}
-          \(e'\) is a development of \(e\).
-        \item
-          \label{assu:PP:pe:verb}
-          \(\alpha\) is true of \(e'\).
-        \end{enumerate}
-      \end{enumerate}
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{assumption}
-
-  \assuPP{} has a key role in parts of the argument to follow.
-
-  Question is, what it is for \(e'\) to be a development of \(e\).
-  Do not offer an answer.
-  Captures a constraint on \progAdj{0} event of interest.
-
-  Assume an implicit understanding based on progressive aspect.%
-  \footnote{
-    \nocite{Portner:1998um}
-    \nocite{Engelberg:1999vi}
-    I suggest \textcite{Landman:1992wh} as an introduction, as \citeauthor{Landman:1992wh} considers a variety of important considerations in a straightforward way.
-    Further, \citeauthor{Landman:1992wh}'s account of the progressive is developed in terms of closeness between worlds, and the way in which \citeauthor{Landman:1992wh} wrangles closeness to provide an account of the progressive is illustrative of the difficulties and does not rely too heavily on being well versed in formal semantics.
-
-    \textcite{Szabo:2004ul} provides a concise summary:
-    \begin{quote}
-      [A] progressive sentence is true at some time just in case some event occurs at that time, and if we follow the development of the event (within our world as long as it goes, then jumping into a nearby world, and iterating the process within the limits of reasonability) we will reach a possible world where the perfective correlate is true of the continuation.\newline
-      \mbox{ }\hfill\mbox{(\citeyear[34]{Szabo:2004ul})}
-    \end{quote}
-    See also (\cite[764--766]{Portner:1998um}) for a more in depth summary.
-
-    For some of the issues with \citeauthor{Landman:1992wh}'s account, see (\cite{Bonomi:1997uq}), (\cite[49--50]{Engelberg:1999vi}), (\cite[35]{Szabo:2004ul}), (\cite[767]{Portner:1998um}), and (\cite[esp.][1256]{Portner:2011vi}).
-  }
-
-  \assuPP{2} is a common feature of analyses of the progressive.%
-  \footnote{
-    See, e.g.:
-    \cite{Bennett:1972uw},
-    \cite{Dowty:1979vq},
-    \cite{Parsons:1990aa},
-    \cite{Landman:1992wh},
-    \cite{Portner:1998um}.
-
-    \assuPP{} is often motivated by the `imperfective paradox' (\cite[cf.][Ch.3.1]{Dowty:1979vq}).
-
-    \citeauthor{Bach:1986tb} summarises:
-    \begin{quote}
-      [H]ow can we characterize the meaning of a progressive sentences like \ref{Bach:impP:17} on the basis of the meaning of a simple sentence like \ref{Bach:impP:18} when \ref{Bach:impP:17} can be true of a history without \ref{Bach:impP:18} ever being true?
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-        \setcounter{enumi}{16}
-      \item
-        \label{Bach:impP:17}
-        John was crossing the street.
-      \item
-        \label{Bach:impP:18}
-        John crossed the street.%
-        \mbox{ }\hfill\mbox{(\citeyear[12]{Bach:1986tb})}
-      \end{enumerate}
-    \end{quote}
-    % 
-    The `paradox' amounts to two seemingly incompatible observations:
-    \begin{enumerate}[noitemsep]
-    \item
-      \ref{Bach:impP:17} entains an event in which John is crosses the street is in progress.
-    \item
-      There need not be an (actual) event in which John is crosses the street.%
-    \end{enumerate}
-    % 
-    For example, John may have been hit by a bus.
-    In parallel, it may be true that you are falling asleep before a fire alarm is set off.
-    The `solution' to this paradox is that the event in which the agent completes the action need not be an actual event.%\footnotemark
-
-    Still,~\assuPP{0} is denied by some.
-    For example, \citeauthor{Szabo:2004ul} argues:
-    \textquote{Sometimes we are \emph{doing} things even though there is no real chance that we could get them \emph{done}, and this is true even if we abstract away from the possibility of miraculous intervention.}
-    (\citeyear[40]{Szabo:2004ul})
-    E.g., \citeauthor{Szabo:2004ul} denies~\ref{Szabo:Arch} is necessarily false:
-    \begin{quote}
-      \begin{enumerate}[label=(\arabic*), ref=(\arabic*)]
-        \setcounter{enumi}{12}
-      \item
-        \label{Szabo:Arch}
-        As the architect was building the cathedral he knew that, although he would be building it for another year or so, he couldn't possibly complete it.%
-        \mbox{ }\hfill\mbox{(\citeyear[38]{Szabo:2004ul})}
-      \end{enumerate}
-    \end{quote}
-    Though,~\ref{Szabo:Arch} seems always false to me.
-    The only sense with which I read~\ref{Szabo:Arch} as true under the progressive requires factivity of knowledge to fail, thus allowing the cathedral to be built.
-
-    See \cite[1245]{Portner:2011vi}) for additional, distinct, discussion of (\cite{Szabo:2004ul}).
-  }
-  % \footnotetext{
-  %   Note, however, possible does not necessarily entail `non-actual'.
-
-  %   Contrast \textquote{listening to a radio drama} and \textquote{listening to an entire radio drama}.
-  %   Suppose the radio drama accidentally stops halfway through.
-  %   The former does not require a non-actual possible event, as the event in which the agent was listening to a radio drama is an event in which the agent listens to a radio drama.
-  %   To listen does not require to listen until completion.
-  %   The latter, by contrast, requires a non-actual event, as there is no actual event in which the agent listens to the entire radio drama.
-  %   In parallel, concluding \(\pv{\phi}{v}\) from \(\Phi\) requires completion.
-  % }
-\end{note}
-
-\begin{note}[Interest with the progressive]
-  Still, we make a few observations to highlight some features.
-
-  \begin{observation}[\assuPP{2} and existential modality]%
-    \label{obs:prog-not-reg-poss}%
-    The sense of possibility in \assuPP{} does not reduce to existential \{logical, metaphysical, nomic, \dots\} possibility.
-  \end{observation}
-  \begin{motivation}{obs:prog-not-reg-poss}
-    Suppose John is sitting a multiple choice exam.
-    To pass the exam John only needs to chose some number of correct choices.
-    It is certainly logically, metaphysically, and nomically possible that John chooses a sufficient number of correct choices.
-    However, it does not follow that John is passing the exam.%
-    \footnote{
-      See also Igal Kvart's example of Mary wiping out the Roman army (\cite[18]{Landman:1992wh}).
-    }
-  \end{motivation}
-
-  \begin{observation}[\assuPP{2} and counterfactuals]%
-    \label{obs:prog-not-cfs}%
-    There is no simple relation between the sense of possibility in \assuPP{} and counterfactuals.
-  \end{observation}
-  \begin{motivation}{obs:prog-not-cfs}
-    Suppose John is passing an exam without external help.
-    Then, a classmate slips John some answers, which John then uses.
-    It is no longer true that John is passing the exam without external help.
-    And, in the closest possible world where the classmate does not slip John answers, it need not be true that John passes the exam without external help.
-    For, if John is surrounded by students of a similar mindset then it is plausible that the in closest possible world a different classmate slips John the same answers.
-  \end{motivation}
-
-  \begin{observation}[\assuPP{} and uniqueness]%
-    \label{obs:prog-no-unique}%
-    The progressive may be true of an event without the event being sufficiently developed to `indicate' a unique outcome.
-  \end{observation}
-  \begin{motivation}{obs:prog-no-unique}
-    Suppose John has drawn a straight line on a piece of paper.
-    It may be true that John is drawing a triangle.
-    However, the straight line is compatible with John drawing an \(n\)-sided polygon, for any \(n\) within a some reasonable bound.%
-    \footnote{
-      This observation is inspired by \citeauthor{Dowty:1979vq}'s example involving a circle and a triangle (\citeyear[133]{Dowty:1979vq}).
-    }
-  \end{motivation}
-
-  Loosely paraphrased, if an event is in progress, then there is something about the way things are which ensures the existence of a possible completion event (\autoref{obs:prog-no-unique}) which is robust against external influence (\autoref{obs:prog-not-cfs}) and does not require luck (\autoref{obs:prog-not-reg-poss}).
-\end{note}
-
-
-
-\begin{note}
-  Our interest with events in progress is with respect to events in which an agent is concluding.
-  \assuPP{} entails there is some possible event in which the agent concludes:
-
-  \begin{proposition}[Possible events in which an agent concludes]%
-    \label{prp:peventC}%
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     Proposition: \(\phi\)
-    %   \item
-    %     Value: \(v\)
-    %   \item
-    %     \pool{2}: \(\Phi\)
-    %   \item
-    %     Event: \(e\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
-
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(e\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-    \item[\emph{Then}:]
-      There is a possible event \(e'\) in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
-
-  \begin{argument}{prp:peventC}
-    Immediate by \assuPP{}~(\autoref{assu:PP}).
-  \end{argument}
-
-  \noindent%
-  Though, the quasi-converse of \assuPP{} does not necessarily hold:
-
-  \begin{observation}[Conclusions without concluding]%
-    \label{obs:cds-arb}%
-    % \cenLine{
-    %   \begin{VAREnum}
-    %   \item
-    %     Agent: \vAgent{}
-    %   \item
-    %     Proposition: \(\phi\)
-    %   \item
-    %     Value: \(v\)
-    %   \item
-    %     \pool{2}: \(\Phi\)
-    %   \item
-    %     Event: \(e\)
-    %   \item
-    %     \mbox{ }
-    %   \end{VAREnum}
-    % }
-    The following conditional is not necessarily true:
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item[\emph{Then}:]
-      There is some sub-event \(e'\) of \(e\) such that:
-      \begin{itemize}
-      \item
-        \(e'\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{itemize}
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{observation}
-
-  \begin{argument}{obs:cds-arb}
-    There are (at least) two ways the conditional may fail:
-
-    \begin{itemize}[leftmargin=*]
-    % \item
-    %   It may be the case that an agent instantly concludes \(\phi\) has \val{0} \(v\).
-
-    %   For example, an agent looks outside, sees a bird in a tree and concludes \propI{There is a bird in that tree} has \val{0} \valI{True}.%
-    %   \footnote{
-    %     This example highlights an unintuitive consequence of \autoref{assu:ConRea}.
-    %     For, conclusions may be `instantaneous' or without any clear reasoning.
-    %     I think it is plausible to understand this conclusion in this example to follow from reasoning
-    %     %
-    %     % This process may be \emph{fast} without being `instantaneous'.
-
-    %     We set this issue aside.
-    %     You may revise \autoref{assu:ConRea} to exclude `instantaneous' instances, if you like.
-    %   }
-    \item
-      There may have been no `inertia' with respect to the events prior to the event in which the agent concludes.
-
-    For example, there are exactly five intermediate logics that have the interpolation property (\cite[cf.][]{Maksimova:1977un}).
-    However, \citeauthor{Maksimova:1977un} may have been ready to give up on the proof at any point.%
-    \footnote{%
-      Though, admittedly, it is unlikely \citeauthor{Maksimova:1977un} would have given up.
-    }
-  \item
-    It may fail to be the case that the \emph{agent} is concluding.
-
-    For example, consider being guided through a complex argument.
-    (E.g. \citeauthor{Maksimova:1977un}'s proof.)
-    At each step, the guide signposts the way to the conclusion.
-    However, without the guide the agent would fail to reach the conclusion.
-  \end{itemize}
-  \vspace{-\baselineskip}
-  \end{argument}
-\end{note}
-
 
 
 \section{Compatibility}
 \label{sec:compatibility}
+
 
 \begin{note}
   Above, compatible with various accounts of what an event in which an agent concludes is.
@@ -935,6 +668,7 @@
   In our terminology, evaluation \emph{p} has \val{0} \valI{True}.
   From belief \emph{q}, \pool{} which contains \pv{q}{\valI{True}}.
 \end{note}
+
 
 \begin{note}
   Likewise, \citeauthor{Broome:2002aa}'s (\citeyear{Broome:2013aa}) rule following account of (active) reasoning:
@@ -1010,7 +744,6 @@
 % \end{note}
 
 
-
 % \begin{note}[Responding to reasons]
 %   Consider the proposal at the core of \citeauthor{Lord:2018aa}'s (\citeyear{Lord:2018aa}) thesis that being rational is to correctly respond to reasons.
 
@@ -1073,6 +806,7 @@
   This chapter detailed the way in which we understand conclusions, events in which an agent concludes, and events in which an agent is concluding.
 \end{note}
 
+
 \begin{note}
   A brief summary:
   \begin{itemize}
@@ -1084,12 +818,6 @@
     A conclusion is always from a \pool{1} of \evalN{1} (\autoref{assu:concluding:pools}).
   \item
     An event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is an event in which the agent reasons to \(\pv{\phi}{v}\) from \(\Phi\) (\autoref{assu:ConRea}).
-  \item
-    An event in which an agent is concluding is an event in which an event in which the agent concludes is in progress.
-
-    By \assuPP{} (\autoref{assu:PP}), if an agent is concluding there is a possible event in which the agent concludes (\autoref{prp:peventC}).
-  \item
-    \pevent{3} (\autoref{def:potenital-event}) are defined in terms of the availability of an action for which the progressive would be true, and hence the sense of modality captured by `\potential{0}' is primarily reduces to the sense of `possible' identified by \assuPP{}.
   \end{itemize}
 \end{note}
 
@@ -1406,7 +1134,7 @@
 %     }
 %     \begin{itemize}
 %     \item
-%       An event in which an agent concludes \(\pv{\phi}{v}\) but is there is no sub-event in which the agent is concluding.
+%       An event in which an agent concludes \(\pv{\phi}{v}\) but is there is no \se{0} in which the agent is concluding.
 %     \end{itemize}
 %     \vspace{-\baselineskip}
 %   \end{assumption}

@@ -1580,6 +1580,65 @@
 % \end{note}
 
 
+
+\begin{note}
+  builds on two ideas regarding events:
+  \begin{enumerate}
+  \item
+    An event may or may not develop into some other event.
+  \item
+    Something about an event may influence which other events it may develop into.
+  \end{enumerate}
+  %
+  To illustrate, consider the following \scen{0}:
+
+  \begin{scenario}[Coin flip]%
+    \label{illu:coinT}%
+    Agent \(B\) has accepted gamble on coin toss from Agent \(A\).
+    The gamble is captured by the following pair of conditionals:
+    %
+    \begin{itemize}
+    \item
+      If the coin lands heads, Agent \(B\) gives \texteuro{}5 to Agent \(A\).
+    \item
+      If the coin lands tails, Agent \(A\) gives \texteuro{}5 to Agent \(B\).
+    \end{itemize}
+    %
+    Agent \(A\) has tossed the coin, and the result is hidden between Agent \(A\)'s hands.
+  \end{scenario}
+
+  \noindent%
+  Intuitively, the gamble of \autoref{illu:coinT} influences any development of \autoref{illu:coinT}.
+  In particular, a pair of conditional follow from the gamble:
+  %
+  \begin{itemize}
+  \item
+    If the coin has landed heads, then agent \(B\) will soon be \texteuro{}5 poorer.
+  \item
+    If the coin has landed tails, then agent \(A\) will soon be \texteuro{}5 poorer.
+  \end{itemize}
+  %
+  Likewise, given the gamble, it is not the case that Agent \(A\) notices the coin has landed heads and receives \texteuro{}5 from Agent \(B\).%
+  \footnote{
+    \label{fn:desc-con-caveat}
+    Note the distinction between our description of the event and the event.
+    It is consistent with our description of the event that Agent \(A\) is dishonest and will run before handing anything to \(B\), or that neither agent really has \texteuro{}5 at hand and are hoping they win, or \dots
+    However, at issue is the event.
+  }
+
+  The \itc{} of \qWhyV{} parallels to the way the observed conditionals hold of the event as given in~\autoref{illu:coinT}.
+
+  For, consider an event \(e\) in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  This event may be broken down into various sub-events, and for any sub-event may or may not develop into \(e\).
+  And, an sub-event \(e^{\flat}\) of \(e\) may required a \ros{} to hold between \(\pv{\psi}{v'}\) and \(\Psi\) to developed into \(e\).
+
+  {
+    \color{red}
+    WITHOUT CONDITIONALS, THEN `WHY' IS IT THE CASE THAT MONEY IS HANDED OVER?
+  }
+\end{note}
+
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"

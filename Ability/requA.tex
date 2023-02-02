@@ -28,11 +28,11 @@
 \begin{note}
   \begin{definition}[A \requ{0}]%
     \label{def:requ}%
-    For any event \(e\) such that \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    For any event \(e_{d}\) such that \(e_{d}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     %
     \begin{itemize}
     \item
-      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\) is a \emph{\requ{}} of \(e\).
+      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\) is a \emph{\requ{}} of \(e_{d}\).
     \end{itemize}
 
     \emph{If and only if}
@@ -41,9 +41,9 @@
     \item
       \begin{itenum}
       \item[\emph{If}:]
-        \(e^{\flat}\) develops into an event \(e\).
+        \(e^{\flat}_{d^{\flat}}\) develops into an event \(e_{d}\).
       \item[\emph{Then}:]
-        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
+        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\).
       \end{itenum}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -234,21 +234,18 @@
     \begin{itenum}
     \item[\emph{If}:]
       Conditions~%
-      \ref{def:rCs:C}~and~%
-      \ref{def:rCs:Cing}~%
-      jointly hold:
-      \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+      \ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold:
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{def:rCs:C}
-        \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+        \(e_{d}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{def:rCs:Cing}
-        There is some sub-event \(e^{\flat}\) of \(e\) such that:
-        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
+        There is some sub-event \(e^{\flat}_{d^{\flat}}\) of \(e_{d}\) such that:
+        \begin{itemize}
         \item
-          \label{def:rCs:Cing:requ}
-          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\) is a \requ{} of \(e\).
-        \end{enumerate}
+          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\) is a \requ{} of \(e_{d}\).
+        \end{itemize}
       \end{enumerate}
     \item[\emph{Then}:]
       A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{}.
@@ -259,47 +256,40 @@
   \begin{argument}{prop:requ-WhyV}
     Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold.
 
-    From Condition~\ref{def:rCs:C}, \(e\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    So, \qWhyV{} applies to \(e\).
+    From Condition~\ref{def:rCs:C}, \(e_{d}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    So, \qWhyV{} applies to \(e_{d}\).
 
     Our task is to show the conditional of \qWhyV{} is true.
 
-    Consider the event \(e^{\flat}\).
-    Suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
+    Let \(e^{\flat}_{d^{\flat}}\) by an event which satisfies the existential of Condition~\ref{def:rCs:Cing}.
 
-    \supportII{}:
+    Further, suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(e^{\flat}\).
 
+    Now, as an instance of \supportII{}:
+    %
     \begin{itenum}
     \item[\emph{If}:]
-      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\sharp}\).
+      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\).
     \item[\emph{Then}:]
-      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\sharp}\).
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\).
     \end{itenum}
-
+    %
     \noindent%
-    So, by our supposition \(\pv{\psi}{v'}\) not a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}\).
-    Then, \(e^{\flat}\) is not, or does not develop into, \(e\).
-    This contradicts  \ref{def:rCs:Cing}.
+    Hence, as a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) \emph{fails} to hold for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\), it follows that \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\).
+
+    And, as \(e^{\flat}_{d^{\flat}}\) satisfies the existential of \ref{def:rCs:Cing} and is \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(e^{\flat}_{d^{\flat}}\), it follows that \(e^{\flat}_{d^{\flat}}\) is not, or does not develop into, \(e_{d}\).
+    This contradicts \(e^{\flat}_{d^{\flat}}\) being a \se{0} of \(e_{d}\), and hence contradicts Condition~\ref{def:rCs:Cing}.
   \end{argument}
 \end{note}
 
-\begin{note}
-  Key.
 
-  Intuition is that \tC{}.
-  Therefore, matters whether or not \fc{}.
-  Hence, matters whether or not \ros{}.
-\end{note}
 
 \subsection{\requ{3} and \issueConstraint{}}
 \label{cha:binding:sec:requ-iC}
 
 \begin{note}
-  With \autoref{prop:requ-WhyV} we observe the way in which the \rCon{0} may provide counterexamples to \issueConstraint{}.
-
-  In short, we need some instance in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) such that \(\pvp{\psi}{v'}{\Psi}\) is a \requ{} of the agent concluding \(\pv{\phi}{v}\) from \(\Phi\), yet the agent does not have a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Psi\).
-
-  In full:
+  \autoref{prop:requ-WhyV} is the basis for counterexamples to \issueConstraint{}.
+  For, the following proposition immediately follows from \autoref{prop:requ-WhyV} and \issueConstraint{}.
 
   \begin{proposition}[\requ{3} and \issueConstraint{}]
     \label{prop:requ-WhyV-ces}
@@ -330,18 +320,12 @@
   \end{proposition}
 
   \begin{argument}{prop:requ-WhyV-ces}
-    \color{blue}
-    Immediate from ???
+    Suppose both antecedents holds.
 
-    For, \ros{} answers \qWhy{} an no \wit{}
+    Observe conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing} from the first antecedent entail a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} via \autoref{prop:requ-WhyV}.
+    Therefore, by \issueConstraint{} it must be the case that \vAgent{} has a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+    However, by the second antecedent, \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
   \end{argument}
-\end{note}
-
-\begin{note}
-  \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
-  And, as we were careful not to presuppose counterexamples to \issueConstraint{} when developing \tC{0}, \fc{1}, and \requ{1}, we have no yet seen any explicit counterexamples to \issueConstraint{}.
-
-  \autoref{cha:ces} provides examples which satisfy the conditions of \autoref{prop:requ-WhyV-ces}.
 \end{note}
 
 \begin{note}
@@ -363,7 +347,11 @@
     Two possibilities.
     \begin{enumerate}
     \item
-      Agent already has a \wit{}.
+      The agent may already have a \wit{} for a \ros{} which follows from a \fc{}.
+
+      In other words, the agent may have already concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+    \item
+      Agent may obtain a \wit{} prior to conclusion.
 
       For example, first \scen{0}.
       If concluding sequence, \fc{}.
@@ -371,20 +359,12 @@
 
       However, expectation of \wit{} when sequence.
       Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
-    \item
-      Agent obtains \wit{} prior to conclusion.
-
-      Consider \autoref{scen:squish}.
-      The agent has previously concluded \sqE{} is sound.
-      Therefore, the agent has a \wit{} for \ros{}.
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{motivation}
 
-  Note, however, that \autoref{prop:requ-not-n-ce} is weak.
-  Compatible in terms of existential.
-  Hence we only needed to show a single case in which \wit{} for \requ{}.
-  This does not suggest that \requ{1} are not in tension with \issueConstraint{}.
+  \noindent%
+  Hence, \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
 \end{note}
 
 

@@ -452,7 +452,7 @@
     \fi
   }
 }
-
+\ExplSyntaxOff
 
 % % % % % % Requisites etc % % %
 
@@ -1625,6 +1625,29 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\se}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{sub-event}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{sub-event}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{sub-events}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Sub-event}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Sub-events}%
     \fi
   }
 }

@@ -259,6 +259,25 @@
 }
 
 
+\newcounter{condCounter}
+\setcounter{condCounter}{0}
+\renewcommand{\thecondCounter}{\arabic{condCounter}}
+
+\NewDocumentEnvironment{condition}{ o +b}
+{%
+  \refstepcounter{condCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Condition~\arabic{condCounter}}}%
+    {\noindent\textbf{Condition~\arabic{condCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+
 \newcounter{notationCounter}
 \setcounter{notationCounter}{0}
 \renewcommand{\thenotationCounter}{\arabic{notationCounter}}
