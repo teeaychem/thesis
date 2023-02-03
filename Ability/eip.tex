@@ -7,11 +7,50 @@
 
 
 \begin{note}
-  \(e_{d}\) abbreviates `\(e\) under description \(d\)'
+  \begin{assumption}
+    An event \(e\) is always understood in terms of some description \(d\).
+  \end{assumption}
 
   The role of description is to fix a particular characterisation of an event.
+  For example, distinction between an event in which an agent concludes and an event in which an agent concludes by using a calculator.
+  Former is compatible with it being the case that the agent concludes by their understanding of arithmetic.
 
-  \(e\) is implicitly read `\(e\) under some description \(d\)'.
+  It is safe to assume the description is detailed.
+  For example, concludes, information about method and so on.
+
+  {
+    \color{red}
+    Hence, in the case of \qWhy{} and \qHow{}, intuitive the description is detailed.
+    We're not just asking why and how event is such that the agent concludes, but additional details such as method and so on.
+  }
+
+  In most cases, I expect the relevant description is clear.
+  However, in certain cases explicitly stating the relevant description is important for clarity.
+
+  \begin{notationList}
+  \item
+    For ease of expression `\(e_{d}\)' abbreviate `\(e\) under description \(d\)'.
+
+    And, `\(e\)' abbreviates `\(e\) under any description \(d\)'
+  \end{notationList}
+
+  We place one important constraint on descriptions:
+
+  \begin{constraint}{Fog}{Fog}
+    Description does not reference future events.
+  \end{constraint}
+
+  For example, coin flip.
+  The coin flip lands heads.
+  It is not the case that \(d\) states that coin flip which lands heads.
+
+  However, description may contain information which entails something happens.
+  For example, hit the billiard ball.
+  Then, determinism, missed the pocket.
+\end{note}
+
+\begin{note}
+
 \end{note}
 
 
@@ -19,14 +58,50 @@
 \section{Events in progress}
 \label{sec:events-progress}
 
+
 \begin{note}
-    \noindent%
-  English does not have a quick, unambiguous, way of expressing events in progress.%
+  Events in progress are understood in terms of the progressive aspect.
+
+  \begin{definition}[Events in progress]
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      \(e_{d}\) is an event in which \vAgent{} does action \(a\) is in progress.
+    \end{itemize}
+    % 
+    \emph{If and only if}:
+    % 
+    \begin{itemize}
+    \item
+      It is true that \(e_{d}\) is an event in which \vAgent{} is \(a\)ing.
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  \noindent%
+  Assume an implicit understanding based on progressive aspect.%
   \footnote{
-    This is difficult.
-    I have considered ensuring every instance of an `-ing' verb expresses the progressive, but this is quite hard (see the fourth word in this sentence).
-    And, I have considered writing `\(\text{Prog}(\text{concludes})\)' in place of `concluding', but this is too clumsy.
+    \nocite{Portner:1998um}
+    \nocite{Engelberg:1999vi}
+    I suggest \textcite{Landman:1992wh} as an introduction, as \citeauthor{Landman:1992wh} considers a variety of important considerations in a straightforward way.
+    Further, \citeauthor{Landman:1992wh}'s account of the progressive is developed in terms of closeness between worlds, and the way in which \citeauthor{Landman:1992wh} wrangles closeness to provide an account of the progressive is illustrative of the difficulties and does not require much technical background.
+
+    \citeauthor{Szabo:2004ul} (\citeyear[34]{Szabo:2004ul}) provides a concise summary:
+    \begin{quote}
+      [A] progressive sentence is true at some time just in case some event occurs at that time, and if we follow the development of the event (within our world as long as it goes, then jumping into a nearby world, and iterating the process within the limits of reasonability) we will reach a possible world where the perfective correlate is true of the continuation.
+    \end{quote}
+    See also (\cite[764--766]{Portner:1998um}) for a more in depth summary.
+
+    For some of the issues with \citeauthor{Landman:1992wh}'s account, see (\cite{Bonomi:1997uq}), (\cite[49--50]{Engelberg:1999vi}), (\cite[35]{Szabo:2004ul}), (\cite[767]{Portner:1998um}), and (\cite[esp.][1256]{Portner:2011vi}).
   }
+
+\end{note}
+
+
+
+\begin{note}
+  \noindent%
+  English does not have a quick, unambiguous, way of expressing events in progress.
   For, consider the sentence:
   \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
   \item
@@ -48,12 +123,25 @@
   \textquote{Sam is studying for an exam, so they aren't taking a nap.}
 \end{note}
 
-\subsection{Events in progress and \assuPP{}}
+
+\subsection{Assumptions}
+\label{sec:assumptions-1}
+
 
 \begin{note}
-  \color{red}
-  The original \assuPP{}.
+  \begin{assumption}[Exclusivity]
+    \label{assu:p:ex}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      It is not possible for \(d\) and \(d'\) to simultaneously be true of any event \(e\).
+    \item[\emph{Then}:]
+      \(e_{d}\) is in progress, it is not the case that \(e'_{d'}\) is in progress.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{assumption}
 \end{note}
+
 
 
 \begin{note}
@@ -89,22 +177,6 @@
   Do not offer an answer.
   Captures a constraint on \progAdj{0} event of interest.
 
-  Assume an implicit understanding based on progressive aspect.%
-  \footnote{
-    \nocite{Portner:1998um}
-    \nocite{Engelberg:1999vi}
-    I suggest \textcite{Landman:1992wh} as an introduction, as \citeauthor{Landman:1992wh} considers a variety of important considerations in a straightforward way.
-    Further, \citeauthor{Landman:1992wh}'s account of the progressive is developed in terms of closeness between worlds, and the way in which \citeauthor{Landman:1992wh} wrangles closeness to provide an account of the progressive is illustrative of the difficulties and does not rely too heavily on being well versed in formal semantics.
-
-    \textcite{Szabo:2004ul} provides a concise summary:
-    \begin{quote}
-      [A] progressive sentence is true at some time just in case some event occurs at that time, and if we follow the development of the event (within our world as long as it goes, then jumping into a nearby world, and iterating the process within the limits of reasonability) we will reach a possible world where the perfective correlate is true of the continuation.\newline
-      \mbox{ }\hfill\mbox{(\citeyear[34]{Szabo:2004ul})}
-    \end{quote}
-    See also (\cite[764--766]{Portner:1998um}) for a more in depth summary.
-
-    For some of the issues with \citeauthor{Landman:1992wh}'s account, see (\cite{Bonomi:1997uq}), (\cite[49--50]{Engelberg:1999vi}), (\cite[35]{Szabo:2004ul}), (\cite[767]{Portner:1998um}), and (\cite[esp.][1256]{Portner:2011vi}).
-  }
 
   \assuPP{2} is a common feature of analyses of the progressive.%
   \footnote{
@@ -175,29 +247,6 @@
   % }
 \end{note}
 
-
-
-\begin{note}
-  \begin{illustration}[Darts]
-    Agent wins at darts just in case there is some action available to the agent, such that if the agent were to perform the action they would be winning at darts.
-
-    Winning is a complex action.
-  An agent has three dart throws to lower their score from 501 to 0 before play switches to the other player, and play continues until neither player may lower their score further on their next turn (without going past 0).
-  Playing a game is a complex action, as the region of a dartboard an agent wishes to hit changes according to previous throws.
-  For example, if the agent's score is 51 with three throws remaining, the agent will not wish to hit bullseye, as there is no way to reduce their score by a single point using two darts.
-  If the agent goes on to hit 20, then the score of the remaining to darts should equal 31, and so on.
-  \end{illustration}
-
-  Note, the initial sequence of actions may be more or less arbitrary.
-  It is not possible to score 501 in three or six dart throws, so an agent \emph{could} start by throwing a few darts blindly, so long as they have sufficient skill to recover on subsequent throws.
-
-  Of course, throwing darts is quite different from concluding, but this note extends.
-  An agent may be concluding a theorem is true even though their first line of enquiry turns out to be a dead end, etc.
-
-  This is the appeal of the progressive.
-\end{note}
-
-
 \begin{note}[Interest with the progressive]
   Still, we make a few observations to highlight some features.
 
@@ -245,58 +294,48 @@
 \end{note}
 
 
-
-\subsection{Exclusivity}
-\label{sec:events-progr-addit}
-
+\section{\se{3}}
 
 \begin{note}
-  \begin{assumption}[Exclusivity]
-    \label{assu:p:ex}
-    If: It is not possible for \(d\) and \(d'\) to simultaneously be true of any event \(e\).
-    Then: \(e_{d}\) is in progress, it is not the case that \(e'_{d'}\) is in progress.
-  \end{assumption}
-\end{note}
-
-
-
-\subsection{\se{3}}
-
-\begin{note}
-  \begin{assumption}[\se{3}]
+  \begin{definition}[\se{3}]
     \label{assu:p:se}
-    For any events \(e\), \(e^{\flat}\):
-    \begin{itenum}
-    \item[\emph{If}:]
-      \begin{enumerate}
-      \item
-        \(e^{\flat}_{d^{\flat}}\) is a \emph{\se{0}} of \(e_{d}\)
-      \item
-        \(e^{^{\flat}}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
-      \item
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      \(e^{\flat}_{d^{\flat}}\) is a \emph{\se{0}} of \(e_{d}\).
+    \end{itemize}
+    \emph{If and only if}:
+    \begin{itemize}
+    \item
+      Both \ref{assu:p:se:prog} and \ref{assu:p:se:hCon} hold:
+    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \item
+      \label{assu:p:se:prog}
+      \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
+    \item
+      \label{assu:p:se:hCon}
+      The following conditional is true:
+      \begin{itenum}
+      \item[\emph{If}:]
         \(e_{d}\) happens.
-      \end{enumerate}
-    \item[\emph{Then}:]
-      \(e_{d}\) happens as a result of \(e^{\flat}_{d^{\flat}}\).
-    \end{itenum}
-  \end{assumption}
+      \item[\emph{Then}:]
+        \(e_{d}\) happens as a result of \(e^{\flat}_{d^{\flat}}\).
+      \end{itenum}
+    \end{enumerate}
+  \end{itemize}
+  \vspace{-\baselineskip}
+  \end{definition}
 
   \noindent%
-  In other words, the role of \autoref{assu:p:se} is to place a restriction on \se{1}.
-  Idea is that progress, happens, and happens as a result are fixed.
-  Hence, \autoref{assu:p:se} constrains what \se{0} are.%
-  \footnote{
-    Is it easier to say, \(e'\) is a \se{0} of \(e\) only if \(e\) happens as a result of \(e'\).
-    But, \autoref{assu:p:se} is weaker.
-  }
+  The role of \autoref{assu:p:se} is to identify events such that an event is in progress and, in turn, the event happens as a result of the event in progress.
 
   Alternative, substitute `causes' in place of `happens as a result of'.%
   \footnote{
     For link between progressive and causation, \textcite{Szabo:2004ul}!
 
     \begin{quote}
-    This captures the idea that in the course of events leading up to Mary’s being on the other side of the street there must be a point beyond which there is no more causally relevant external interference with the progress of Mary’s crossing.
-  \end{quote}
+      This captures the idea that in the course of events leading up to Mary’s being on the other side of the street there must be a point beyond which there is no more causally relevant external interference with the progress of Mary’s crossing.
+    \end{quote}
   }
 \end{note}
 
@@ -317,6 +356,110 @@
   And, by \assuPP{} there is a possible event in which agent concludes.
   But, it is not \(e\).
 \end{note}
+
+
+
+
+\section{Progressive explanation}
+\label{sec:what-these-do}
+
+\begin{note}
+  With \autoref{assu:p:ex} and \autoref{assu:p:se} in hand, an observation about events in progress an explanations about why an event happened --- given the sense of `why' present in \qWhy{} --- follows.
+
+  \begin{observation}[Progressive explanation]%
+    \label{obs:PE}%
+    Given \(e_{d}\) is an event in which \vAgent{} does \(a\):
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      There is some \se{} \(e^{\flat}_{d^{\flat}}\) of \(e_{d}\) such that:
+      Conditions \ref{obs:PE:prog} and \ref{obs:PE:ros}:
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{obs:PE:prog}
+        \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
+      \item
+        \label{obs:PE:ros}
+        \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress \emph{only if} feature \(f\) of \(d_{\flat}\) holds throughout \(e^{\flat}_{d^{\flat}}\).
+      \end{enumerate}
+    \item[\emph{Then:}]
+      Feature \(f\) explains `why' \(e_{d}\) happened, if the sense of `why' present in \qWhy{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{observation}
+
+  \begin{motivation}{obs:PE}
+    The motivation for \autoref{obs:PE} follows from the way in which we understand the sense of `why' present in \qWhy{} and the way we understand \se{} such that an agent is concluding given \autoref{assu:p:se} and \autoref{assu:p:ex}.
+
+    For, we understand the sense of `why' present in \qWhy{} as the did the event \(e_{d}\) in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happen, rather than an event in which the agent cleans the lint from their pocket, etc.
+
+    Hence, if it is possible to point to something that favours \(e_{d}\) happening over any other event happening, then that thing explains `why' \(e_{d}\) happened, as opposed any other event.
+
+    Now, consider \(e^{\flat}_{d^{\flat}}\) as a \se{} of \(e_{d}\).
+
+    From \ref{obs:PE:prog}, why happened.
+    For, \autoref{assu:p:se}, \(e_{d}\), and \(e^{\flat}_{d^{\flat}}\) is a \se{}.
+    Therefore, \(e_{d}\) happened as a result of \(e^{\flat}_{d^{\flat}}\).
+
+    In this respect, if there is something about \(e^{\flat}_{d^{\flat}}\) which favours \(e_{d}\), then `why'.
+    For, result of something which favoured \(e_{d}\) over any other event.
+
+    And, \autoref{assu:p:ex}, favours.
+
+    If event happens as a result of event in progress, then the event explains `why' the event happened.
+
+    Clause~\ref{obs:PE:ros} highlights a specific feature \(f\) of \(d_{\flat}\).
+  \end{motivation}
+
+  {
+    \color{red}
+    Recall card shuffle.
+  }
+
+  This is a simple observation.%
+  \footnote{
+    \phantlabel{mention:Hempel:1}
+    Consider \autoref{obs:PE} with respect to \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
+
+    \begin{quote}
+      [A Deductive-Nomological] explanation answers the question
+      `\emph{Why} did the explanandum-phenomenon occur?'
+      by showing that the phenomenon resulted from certain particular circumstances, specified in \(C_{1}, C_{2}, \dots C_{k}\), in accordance with the laws \(L_{1}, L_{2}, \dots L_{\gamma}\).
+      By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
+      \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
+    \end{quote}
+
+    Something about circumstances and laws, \emph{expected}.
+  }
+  If we want to understand why, then anything that favours over any other event, that's enough.
+  What it is for an event to be in progress is the narrow \(e\) from range of possible events.
+\end{note}
+
+
+
+\subsection{Ex}
+
+\begin{note}
+  \begin{illustration}[Darts]
+    Agent wins at darts just in case there is some action available to the agent, such that if the agent were to perform the action they would be winning at darts.
+
+    Winning is a complex action.
+    An agent has three dart throws to lower their score from 501 to 0 before play switches to the other player, and play continues until neither player may lower their score further on their next turn (without going past 0).
+    Playing a game is a complex action, as the region of a dartboard an agent wishes to hit changes according to previous throws.
+    For example, if the agent's score is 51 with three throws remaining, the agent will not wish to hit bullseye, as there is no way to reduce their score by a single point using two darts.
+    If the agent goes on to hit 20, then the score of the remaining to darts should equal 31, and so on.
+  \end{illustration}
+
+  Note, the initial sequence of actions may be more or less arbitrary.
+  It is not possible to score 501 in three or six dart throws, so an agent \emph{could} start by throwing a few darts blindly, so long as they have sufficient skill to recover on subsequent throws.
+
+  Of course, throwing darts is quite different from concluding, but this note extends.
+  An agent may be concluding a theorem is true even though their first line of enquiry turns out to be a dead end, etc.
+
+  This is the appeal of the progressive.
+\end{note}
+
+
 
 
 
