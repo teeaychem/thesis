@@ -1634,20 +1634,43 @@
 \NewDocumentCommand{\se}{ m }{%
   \tl_if_empty:nTF {#1}
   {%
-    \obeybreaks{sub-event}%
+    \obeybreaks{\hyperref[def:se]{sub-event}}%
   }
   {%
     \ifnum0=#1\relax%
-      \obeybreaks{sub-event}%
+      \obeybreaks{\hyperref[def:se]{sub-event}}%
     \fi
     \ifnum1=#1\relax%
-      \obeybreaks{sub-events}%
+      \obeybreaks{\hyperref[def:se]{sub-events}}%
     \fi
     \ifnum2=#1\relax%
-      \obeybreaks{Sub-event}%
+      \obeybreaks{\hyperref[def:se]{Sub-event}}%
     \fi
     \ifnum3=#1\relax%
-      \obeybreaks{Sub-events}%
+      \obeybreaks{\hyperref[def:se]{Sub-events}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\progEx}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[obs:PE]{progressive\space explanation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[obs:PE]{progressive\space explanation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[obs:PE]{\tJunk{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[obs:PE]{Progressive\space explanation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[obs:PE]{\tJunk{}}}%
     \fi
   }
 }

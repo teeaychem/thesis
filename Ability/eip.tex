@@ -33,7 +33,10 @@
 
     And, `\(e\)' abbreviates `\(e\) under any description \(d\)'
   \end{notationList}
+\end{note}
 
+
+\begin{note}
   We place one important constraint on descriptions:
 
   \begin{constraint}{Fog}{Fog}
@@ -47,10 +50,6 @@
   However, description may contain information which entails something happens.
   For example, hit the billiard ball.
   Then, determinism, missed the pocket.
-\end{note}
-
-\begin{note}
-
 \end{note}
 
 
@@ -134,9 +133,9 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      It is not possible for \(d\) and \(d'\) to simultaneously be true of any event \(e\).
+      It is not possible for \(d\) and \(d'\) to both be true of an event.
     \item[\emph{Then}:]
-      \(e_{d}\) is in progress, it is not the case that \(e'_{d'}\) is in progress.
+      It is not the case that: \(e_{d}\) is in progress and \(e'_{d'}\) is in progress.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{assumption}
@@ -298,7 +297,7 @@
 
 \begin{note}
   \begin{definition}[\se{3}]
-    \label{assu:p:se}
+    \label{def:se}
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
@@ -327,7 +326,7 @@
   \end{definition}
 
   \noindent%
-  The role of \autoref{assu:p:se} is to identify events such that an event is in progress and, in turn, the event happens as a result of the event in progress.
+  The role of \autoref{def:se} is to identify events such that an event is in progress and, in turn, the event happens as a result of the event in progress.
 
   Alternative, substitute `causes' in place of `happens as a result of'.%
   \footnote{
@@ -360,67 +359,70 @@
 
 
 
-\section{Progressive explanation}
+\section{\progEx{2}}
 \label{sec:what-these-do}
 
 \begin{note}
-  With \autoref{assu:p:ex} and \autoref{assu:p:se} in hand, an observation about events in progress an explanations about why an event happened --- given the sense of `why' present in \qWhy{} --- follows.
+  With \autoref{assu:p:ex} and \autoref{def:se} in hand, an observation about events in progress an explanations about why an event happened --- given the sense of `why' present in \qWhy{} --- follows.
 
-  \begin{observation}[Progressive explanation]%
+  \begin{observation}[\progEx{2}]%
     \label{obs:PE}%
     Given \(e_{d}\) is an event in which \vAgent{} does \(a\):
 
     \begin{itenum}
     \item[\emph{If}:]
       There is some \se{} \(e^{\flat}_{d^{\flat}}\) of \(e_{d}\) such that:
-      Conditions \ref{obs:PE:prog} and \ref{obs:PE:ros}:
-      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \begin{itemize}
       \item
-        \label{obs:PE:prog}
-        \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
-      \item
-        \label{obs:PE:ros}
         \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress \emph{only if} feature \(f\) of \(d_{\flat}\) holds throughout \(e^{\flat}_{d^{\flat}}\).
-      \end{enumerate}
+      \end{itemize}
     \item[\emph{Then:}]
-      Feature \(f\) explains `why' \(e_{d}\) happened, if the sense of `why' present in \qWhy{}.
+      Feature \(f\) explains `why' \(e_{d}\) happened, in the sense of `why' present in \qWhy{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{observation}
 
   \begin{motivation}{obs:PE}
-    The motivation for \autoref{obs:PE} follows from the way in which we understand the sense of `why' present in \qWhy{} and the way we understand \se{} such that an agent is concluding given \autoref{assu:p:se} and \autoref{assu:p:ex}.
+    The motivation for \autoref{obs:PE} follows from the way in which we understand the sense of `why' present in \qWhy{} and the way we understand \se{} such that an agent is concluding given \autoref{def:se} and \autoref{assu:p:ex}.
 
-    For, we understand the sense of `why' present in \qWhy{} as the did the event \(e_{d}\) in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happen, rather than an event in which the agent cleans the lint from their pocket, etc.
+    For, we understand the sense of `why' present in \qWhy{} as the did the event \(e_{d}\) in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happen, rather than any incompatible event --- e.g., an event in which the agent cleans the lint from their pocket, etc.
 
     Hence, if it is possible to point to something that favours \(e_{d}\) happening over any other event happening, then that thing explains `why' \(e_{d}\) happened, as opposed any other event.
+    \medskip
 
+    \noindent%
     Now, consider \(e^{\flat}_{d^{\flat}}\) as a \se{} of \(e_{d}\).
 
-    From \ref{obs:PE:prog}, why happened.
-    For, \autoref{assu:p:se}, \(e_{d}\), and \(e^{\flat}_{d^{\flat}}\) is a \se{}.
-    Therefore, \(e_{d}\) happened as a result of \(e^{\flat}_{d^{\flat}}\).
+    As \(e_{d}\) happened and \(e^{\flat}_{d^{\flat}}\) is a \se{} of \(e_{d}\), then by \autoref{def:se}:
+    %
+    \begin{itemize}
+    \item
+      \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
+    \item
+      \(e_{d}\) happened as a result of \(e^{\flat}_{d^{\flat}}\).
+    \end{itemize}
+    %
+    Further, consider any event \(e'_{d'}\) such that it is not possible for \(d\) and \(d'\) to both be true of an event.
+    Then, by \autoref{assu:p:ex}, it is not the case that \(e'_{d'}\) is in progress.
+    Therefore, \(e^{\flat}_{d^{\flat}}\) being such that \(e_{d}\) is in progress favours \(e_{d}\) happening over any other incompatible event happening.
 
-    In this respect, if there is something about \(e^{\flat}_{d^{\flat}}\) which favours \(e_{d}\), then `why'.
-    For, result of something which favoured \(e_{d}\) over any other event.
+    And, as \(e_{d}\) happened as a result of \(e^{\flat}_{d^{\flat}}\), \(e_{d}\) happened as the result of something which favoured \(e_{d}\) happening over any other incompatible event happening.
 
-    And, \autoref{assu:p:ex}, favours.
+    So, whatever features of \(e^{\flat}_{d^{\flat}}\) make it the case that \(e^{\flat}_{d^{\flat}}\) is a \se{} of \(e_{d}\) explain `why' \(e_{d}\) happened, in the sense of `why' present in \qWhy{}.
+    For, \(e^{\flat}_{d^{\flat}}\) favoured it being the case that \(e_{d}\) happened, and \(e_{d}\) happened as a result of \(e^{\flat}_{d^{\flat}}\).
+    \medskip
 
-    If event happens as a result of event in progress, then the event explains `why' the event happened.
-
-    Clause~\ref{obs:PE:ros} highlights a specific feature \(f\) of \(d_{\flat}\).
+    \noindent%
+    Finally, then, consider some feature \(f\) such that \(e_{d}\) is in progress \emph{only if} feature \(f\) of \(d_{\flat}\) holds throughout \(e^{\flat}_{d^{\flat}}\).
+    By \autoref{def:se}, if feature \(f\) fails to hold, then \(e^{\flat}_{d^{\flat}}\) is not a \se{} of \(e_{d}\).
+    Hence, \(f\) is part of what makes it the case that \(e^{\flat}_{d^{\flat}}\) is a \se{} of \(e_{d}\).\newline
   \end{motivation}
 
-  {
-    \color{red}
-    Recall card shuffle.
-  }
-
-  This is a simple observation.%
-  \footnote{
+  \noindent%
+  Setting the particular way I have motivated \progEx{} aside, I take \progEx{} to be intuitive.
+  For example, consider \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
     \phantlabel{mention:Hempel:1}
-    Consider \autoref{obs:PE} with respect to \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
-
+    %
     \begin{quote}
       [A Deductive-Nomological] explanation answers the question
       `\emph{Why} did the explanandum-phenomenon occur?'
@@ -428,16 +430,58 @@
       By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
       \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
     \end{quote}
+    %
+    Observe, \citeauthor{Hempel:1965aa} stress a connexion with observing an event \textquote{was to be expected} and an explanation allowing us to \textquote{understand why} the event occurred (the italics are \citeauthor{Hempel:1965aa}'s).
+    Though, while \citeauthor{Hempel:1965aa} details the link with circumstances and laws, while we detail the link in terms of a \se{}.
+\end{note}
 
-    Something about circumstances and laws, \emph{expected}.
-  }
-  If we want to understand why, then anything that favours over any other event, that's enough.
-  What it is for an event to be in progress is the narrow \(e\) from range of possible events.
+
+\begin{note}
+  \progEx{2} is a key part of the arguments to follow.
+  For, \progEx{0} provides, in some detail, sufficient conditions for a \ros{} to be an answer to \qWhy{}:
+
+  \begin{sketch}[\progEx{2}, conclusions, and \ros{1}]%
+    \label{sketch:PE:cROS}%
+    Given \(e_{d}\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\) from \(\Phi\):
+
+    \begin{itenum}
+    \item[\emph{If}:]
+      There is some \se{} \(e^{\flat}_{d^{\flat}}\) of \(e_{d}\) such that:
+      \begin{itemize}
+      \item
+        \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress \emph{only if} a \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds throughout \(e^{\flat}_{d^{\flat}}\).
+      \end{itemize}
+    \item[\emph{Then:}]
+      The \ros{} between \(\psi\), \(v'\) and \(\Psi\) explains `why' \(e_{d}\) happened, in the sense of `why' present in \qWhy{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{sketch}
+
+  \begin{motivation}{sketch:PE:cROS}
+    \autoref{sketch:PE:cROS} follows from \autoref{obs:PE}, by taking the  action \(a\) to be a conclusion that \(\phi\) has value \(v\) from \(\Phi\), and feature \(f\) to be a \ros{} between \(\psi\), \(v'\) and \(\Psi\).
+  \end{motivation}
+
+  \noindent%
+  In \autoref{cha:var} we re-express \autoref{sketch:PE:cROS} as a sufficient condition for answers to \qWhy{}, after clarifying the way in which we understand conclusions and \ros{}.
+
+  Still, \autoref{sketch:PE:cROS} hints at the overall argument to follow.
+  For, given an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) then if the antecedent is satisfied by a \ros{} between \(\psi\), \(v'\) and \(\Psi\) and there is no past or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\), then \issueInclusion{} fails to hold.
 \end{note}
 
 
 
 \subsection{Ex}
+
+{
+  \color{red}
+  Here, this example is to be reworked to highlight interesting features of events in progress and \progEx{}.
+
+  Basically, when scoring darts, event in progress through a variety of different things happen.
+  Then, as play goes on, this constrains what the agent may do (as the need to score 501).
+  E.g. if it's the last throw and the agent has a score of 481, then they need to hit a 20.
+
+  In turn, one the game is over, understand why agent won, as, e.g. they were hitting a 20 on the last throw.
+}
 
 \begin{note}
   \begin{illustration}[Darts]
