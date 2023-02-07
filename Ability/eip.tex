@@ -2,44 +2,92 @@
 \label{cha:events-progress}
 
 
+\begin{note}
+  Our interest is understanding the way an event in which an agent concludes happens.
+
+  This chapter briefly outlines the way we understand both events and events in progress.
+
+  A key takeaway of this chapter is `\progEx{}' which characterises the sense of `why' present in \qWhy{} in terms of features of an event in progress.
+\end{note}
+
+
 \section{Events}
 \label{sec:events}
 
-
 \begin{note}
-  \begin{assumption}
-    An event \(e\) is always understood in terms of some description \(d\).
-  \end{assumption}
+  We understand events in a (Neo-)\citeauthor{Davidson:1967aa}ian framework.
 
-  The role of description is to fix a particular characterisation of an event.
-  For example, distinction between an event in which an agent concludes and an event in which an agent concludes by using a calculator.
-  Former is compatible with it being the case that the agent concludes by their understanding of arithmetic.
+  Events are things we refer to by way of descriptions which are true of the event.
 
-  It is safe to assume the description is detailed.
-  For example, concludes, information about method and so on.
-
-  {
-    \color{red}
-    Hence, in the case of \qWhy{} and \qHow{}, intuitive the description is detailed.
-    We're not just asking why and how event is such that the agent concludes, but additional details such as method and so on.
+  For example, a natural language sentence such as:
+  %
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), series=ESERIES]
+  \item
+    \label{ESERIES:toast}
+    Sam buttered some toast in the kitchen.
+  \end{enumerate}
+  %
+  Is understood as saying there is some event \(e\) such that \(e\) is a butter event, the agent of \(e\) is Sam, the theme of \(e\) is some toast, and the location of \(e\) is the kitchen.%
+  \footnote{
+    Alternatively:
+    \(\exists e [\textsc{butter}(e)\text{ \& }\textsc{agent}(e, \text{Sam})\text{ \& }\exists x(\textsc{theme}(e, \text{toast}(x)))\text{ \& }\textsc{in}(e, \text{the kitchen})]\)
   }
 
-  In most cases, I expect the relevant description is clear.
-  However, in certain cases explicitly stating the relevant description is important for clarity.
+  Likewise:
+  %
+  \begin{enumerate}[label=\arabic*., ref=(\arabic*), resume*=ESERIES]
+  \item
+    \label{ESERIES:gistCalcEq}
+    Max concludes \gistCalcEq{} has value \valI{True}.
+  \end{enumerate}
+  %
+  Is understood as sating there is some event \(e\) such that \(e\) is a conclude event, the agent of \(e\) is Max, the \prop{0} of \(e\) is \gistCalcEq{} and the \val{} of \(e\) is \valI{True}.
 
+  As events are referred to by descriptions true of an event, a description captures a specific event only if there is a unique event which satisfies the description.
+
+  Neither \ref{ESERIES:toast} nor \ref{ESERIES:gistCalcEq} refer to a unique event without additional background information.
+  For example, the description of \ref{ESERIES:toast} is compatible with Sam buttering three pieces of toast and with Sam buttering five pieces of toast.
+  Hence, if Sam has buttered three pieces of toast and Sam has buttered five pieces of toast, the reference of \ref{ESERIES:toast} is under-determined.
+  Likewise \ref{ESERIES:gistCalcEq} is compatible with Max using a calculator or their understanding of arithmetic to conclude \gistCalcEq{} has value \valI{True}.
+
+  Still, when considering the way an event in which an agent concludes happens, we have a specific event in mind.
+  Hence, to avoid clutter we make the following assumption:
+
+  \begin{assumption}[Happened uniquely]%
+    \label{assu:HaUniqueD}%
+    The description of an event which has happened is satisfied by a unique event.
+  \end{assumption}
+
+  For example, if \ref{ESERIES:gistCalcEq} has happened, then \ref{ESERIES:gistCalcEq} may be expanded to include information about the time when, or method by which, Max concluded \gistCalcEq{} has value \valI{True}.
+
+  Note, \autoref{assu:HaUniqueD} only concerns events which have happened.
+  For example, if \ref{ESERIES:gistCalcEq} has not happened, then \ref{ESERIES:gistCalcEq} is compatible with Max using a calculator or their understanding of arithmetic to conclude \gistCalcEq{} has value \valI{True}.
+  We clarify the importance of this note with \autoref{obs:eip-partial}, below.
+
+  Still, in the case of \qWhy{} and \qHow{}, both questions are asked with respect to an event which has happened.
+  So, by \autoref{assu:HaUniqueD} both \qWhy{} and \qHow{} concern a unique event, no matter the description given of the event.
+\end{note}
+
+
+\begin{note}
   \begin{notationList}
   \item
     For ease of expression `\(e_{d}\)' abbreviate `\(e\) under description \(d\)'.
 
     And, `\(e\)' abbreviates `\(e\) under any description \(d\)'
   \end{notationList}
+
+  Whether or not \(e\) is unique is given by context.
 \end{note}
+
+
 
 
 \begin{note}
   We place one important constraint on descriptions:
 
   \begin{constraint}{Fog}{Fog}
+    \label{cons:no-f-ref}
     Description does not reference future events.
   \end{constraint}
 
@@ -61,28 +109,35 @@
 \begin{note}
   Events in progress are understood in terms of the progressive aspect.
 
+  For example\dots
+
+  
+
   \begin{definition}[Events in progress]
+    \label{def:es-in-prog}
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      \(e_{d}\) is an event in which \vAgent{} does action \(a\) is in progress.
+      \(e_{d}\) is an event in which \(e'_{d'}\) is in progress.
     \end{itemize}
-    % 
+    %
     \emph{If and only if}:
-    % 
+    %
     \begin{itemize}
     \item
-      It is true that \(e_{d}\) is an event in which \vAgent{} is \(a\)ing.
+      \(\text{Prog}[e'_{d'}]\) is entailed by \(d\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
 
   \noindent%
-  Assume an implicit understanding based on progressive aspect.%
+  We assume an implicit understanding based on progressive aspect.%
   \footnote{
     \nocite{Portner:1998um}
     \nocite{Engelberg:1999vi}
-    I suggest \textcite{Landman:1992wh} as an introduction, as \citeauthor{Landman:1992wh} considers a variety of important considerations in a straightforward way.
+    See,~\textcite{Richards:1981wo},~\textcite{Portner:2011vi}, etc.
+
+    Though, I suggest \textcite{Landman:1992wh} as an introduction, as \citeauthor{Landman:1992wh} considers a variety of important considerations in a straightforward way.
     Further, \citeauthor{Landman:1992wh}'s account of the progressive is developed in terms of closeness between worlds, and the way in which \citeauthor{Landman:1992wh} wrangles closeness to provide an account of the progressive is illustrative of the difficulties and does not require much technical background.
 
     \citeauthor{Szabo:2004ul} (\citeyear[34]{Szabo:2004ul}) provides a concise summary:
@@ -92,15 +147,10 @@
     See also (\cite[764--766]{Portner:1998um}) for a more in depth summary.
 
     For some of the issues with \citeauthor{Landman:1992wh}'s account, see (\cite{Bonomi:1997uq}), (\cite[49--50]{Engelberg:1999vi}), (\cite[35]{Szabo:2004ul}), (\cite[767]{Portner:1998um}), and (\cite[esp.][1256]{Portner:2011vi}).
-  }
-
-\end{note}
-
-
-
-\begin{note}
-  \noindent%
-  English does not have a quick, unambiguous, way of expressing events in progress.
+  }%
+  \(^{,}\)%
+  \footnote{
+    Note, though, that English does not have a quick, unambiguous, way of expressing events in progress.
   For, consider the sentence:
   \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
   \item
@@ -114,13 +164,41 @@
   For example, we may expand:
   \textquote{Sam is studying for an exam, but is taking a short nap.}
 
-  By contrast, \ref{prog:abmig} under the progressive captures an event in where John studying is in progress.%
-  \footnote{
-    See,~\textcite{Richards:1981wo},~\textcite{Portner:2011vi}, etc.
-  }
+  By contrast, \ref{prog:abmig} under the progressive captures an event in where John studying is in progress.
   For example, we may expand:
   \textquote{Sam is studying for an exam, so they aren't taking a nap.}
+  }
+  Hence, given \autoref{def:es-in-prog}, the following are equivalent:
+  \begin{itemize}
+  \item
+    \(e_{d}\) is an event in which Max concludes \propM{\gistCalcEq{}} is \valI{True} is in progress.
+  \item
+    \(d\) is true of \(e\) and \(\text{Prog}[\text{Max concludes \propM{\gistCalcEq{}} has value \valI{True}}]\) is entailed by \(d\).
+  \item
+    \(d\) is true of \(e\) and Max is concluding \propM{\gistCalcEq{}} is \valI{True} is entailed by \(d\).
+  \end{itemize}
+
 \end{note}
+
+
+\begin{note}
+  \begin{observation}[Events in progress and `incomplete' descriptions]%
+    \label{obs:eip-partial}%
+    Usually, when \(e_{d}\) is an event in which \(e'_{d'}\) is in progress, \(d'\) may be satisfied by multiple events.\newline
+  \end{observation}
+
+  \begin{motivation}{obs:eip-partial}
+    Consider an agent flipping a coin until it lands heads or lands tails ten times in a row.
+    Given sufficient determination from the agent, it is true that an event in which the agent flips a coin until it lands heads or lands tails ten times in a row is in progress.
+
+    Now, a `complete' description of an event in which the agent flips a coin until it lands heads or lands tails ten times in a row specifies either the \(i\)th throw the coin lands heads on, or ten throws in which the coin lands tails.
+
+    However, coin flips are quite random (\cite{Gelman:2002ww}) hence the coin may land heads on the \(i\)th throw the coin lands heads on, or the coin may land tails ten times in a row.
+    And, by \autoref{cons:no-f-ref} it is not the case that \(d'\) references future events.
+    So, it is not possible for \(d'\) to be satisfied by a unique event.
+  \end{motivation}
+\end{note}
+
 
 
 \subsection{Assumptions}
@@ -151,19 +229,19 @@
     \item[\emph{If}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*)]
       \item
-        \(e\) is an event in which \(\alpha\) is in progress.
+        \(e_{d}\) is an event in which \(e'_{d'}\) is in progress.
       \end{enumerate}
     \item[\emph{Then}:]
       \begin{enumerate}[label=\alph*., ref=(\alph*), resume]
       \item
-        There is some \progAdj{0} event \(e'\) such that~\ref{assu:PP:pe:dev} and~\ref{assu:PP:pe:verb} are both true:
+        There is some \progAdj{0} event \(e^{\sharp}\) such that~\ref{assu:PP:pe:dev} and~\ref{assu:PP:pe:verb} are both true:
         \begin{enumerate}[label=\roman*., ref=(\roman*)]
         \item
           \label{assu:PP:pe:dev}
           \(e'\) is a development of \(e\).
         \item
           \label{assu:PP:pe:verb}
-          \(\alpha\) is true of \(e'\).
+          \(d'\) is true of \(e^{\sharp}\).
         \end{enumerate}
       \end{enumerate}
     \end{itenum}
@@ -310,7 +388,9 @@
     \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
     \item
       \label{assu:p:se:prog}
-      \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d}\) is in progress.
+      \(e^{\flat}_{d^{\flat}}\) is such that \(e_{d'}\) is in progress.
+    \item
+      \(d\) is true of \(e\) only if \(d'\) is true of \(e\).
     \item
       \label{assu:p:se:hCon}
       The following conditional is true:
