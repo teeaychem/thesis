@@ -1675,3 +1675,29 @@
   }
 }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ed}{ O{} m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \tl_if_empty:nTF {#2}
+    {%
+      \ensuremath{e\sb{d}}
+    }
+    {
+     \ensuremath{e\sp{#2}\sb{d\sp{#2}}}
+    }
+  }
+  {
+    \tl_if_empty:nTF {#2}
+    {%
+      \ensuremath{e\sb{d\sp{#1}}}
+    }
+    {
+     \ensuremath{e\sp{#2}\sb{d\sp{#1}}}
+    }
+
+  }
+}
+\ExplSyntaxOff
