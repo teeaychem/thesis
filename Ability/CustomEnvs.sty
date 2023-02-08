@@ -296,6 +296,26 @@
   \par\smallskip
 }
 
+
+
+\newcounter{intuitionCounter}
+\setcounter{intuitionCounter}{0}
+\renewcommand{\theintuitionCounter}{\arabic{intuitionCounter}}
+
+\NewDocumentEnvironment{intuition}{ o +b}
+{%
+  \refstepcounter{intuitionCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Intuition~\arabic{intuitionCounter}}}%
+    {\noindent\textbf{Intuition~\arabic{intuitionCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
 % % % Notes % % %
 
 \renewcommand*{\marginfont}{\ttfamily\scriptsize}
