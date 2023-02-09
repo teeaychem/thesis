@@ -11,14 +11,13 @@
 \end{note}
 
 \begin{note}
-  The initial role of \fc{1} is to help characterise \ros{}.
-  Specifically, \fc{1} are used to help characterise \ros{} which hold between some \prop{0}-\val{0} pair and \pool{} without an simultaneous or prior event in which the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
+  The idea of a \fc{0} is central to the way in which we characterise \ros{1}, and the way in which we generate counterexamples to \issueInclusion{}.
+  However, \fc{1} as defined are compatible with \issueInclusion{}.
+\end{note}
 
-  From a broad perspective, \fc{1} \ros{}.
-  \ros{} \qWhy{}.
-  Counterexamples to \issueInclusion{} from \fc{1}.
-
-  Still, \fc{1} are not incompatible with \issueInclusion{}.
+\begin{note}
+  The first section of this chapter defines \fc{1}.
+  The second section of this chapter provide a handful of \illu{1} of \prop{0}-\val{0}-\pool{0} pairs which are \fc{1} and \prop{0}-\val{0}-\pool{0} pairs which are not.
 \end{note}
 
 \section{Definition}
@@ -37,10 +36,10 @@
 
     \begin{itemize}
     \item
-      For any sub-event \(e^{\flat}\) of \(e_{d}\) there is some action \(a\) \vAgent{} may immediately do such that both \ref{def:fc:act} and \ref{def:fc:result} are true:
-      % 
-      \begin{enumerate}[label=\alph*., ref=(\alph*), series=fcCounter]
-        % 
+      For any sub-event \(e^{\flat}\) of \(e_{d}\) there is some description \(d^{\flat}\) such that \(\ed{\flat}\) is an event in which \vAgent{} may immediately do action \(a\) and conditions \ref{def:fc:act} and \ref{def:fc:result} are true:
+      %
+      \begin{enumerate}[label=\Alph*., ref=\Alph*, series=fcCounter]
+        %
       \item
         \label{def:fc:act}
         The event \(e^{\sharp}_{d^{\sharp}}\) in which \vAgent{} does \(a\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
@@ -55,18 +54,27 @@
   \end{definition}
 
   \noindent%
+  The core idea of \(\pv{\phi}{v}\) being a \fc{} from \(\Phi\) is the availability of an action such that an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is in progress when the agent does the action.
+
+  In order to easily connect \fc{1} to other ideas in this document, \fc{1} are defined with respect to events, and in order to allow for the possibility of distinct actions being done, the existence of a relevant action is stated with respect to sub-events.
+
+  Still, for ease of expression we talk as through there is a common available action through all sub-events of an event when discussing \fc{1}.
+\end{note}
+
+\begin{note}
   As defined, \fc{1} concern the availability of an action such that an agent is concluding.
-  The relevant (foregone-)conclusion follows from \ref{def:fc:act} and \assuPP{}.
+  The relevant (foregone-)\emph{conclusion} intuitively follows from Condition~\ref{def:fc:act} and \assuPP{}.
   For, by \assuPP{}, if an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) there is a possible event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
-  The sense in which the relevant conclusion is forgone follows from \ref{def:fc:act} and \ref{def:fc:result}.
+  The sense in which the relevant conclusion \emph{is forgone} follows from \ref{def:fc:act} and \ref{def:fc:result}.
 
-  From \ref{def:fc:act}, something prior to conclusion is sufficient to ensure an action such that an event in which the agent concludes is in progress.
-
-  From \ref{def:fc:result}, when the agent does not require any novel \evals{} to conclude \(\pv{\phi}{v}\).
+  From Condition~\ref{def:fc:act}, something prior to conclusion is sufficient to ensure an action such that an event in which the agent concludes is in progress.
+  And, from Condition~\ref{def:fc:result}, when the agent does not require any novel \evals{} to conclude \(\pv{\phi}{v}\).
   `Novel' in the sense that \eval{} is not obtained from present \eval{1}.
+\end{note}
 
-  In this respect, our technical term `\fc{}' associates with (by is not an analysis of) a sense of the common term `foregone conclusion' as an expected result of reasoning.%
+\begin{note}
+  Given the above, our technical term `\fc{}' associates with (by is not an analysis of) a sense of the common term `foregone conclusion' as an expected result of reasoning.%
   \footnote{
     For example:
 
@@ -98,19 +106,12 @@
     \end{quote}
     See also \citeauthor{Grice:1957vg}'s discussion of intention recognition (\citeyear[385]{Grice:1957vg}/\citeyear[219]{Grice:1989uf}), and \citeauthor{Machover:1996vu}'s preface of their approach to the G\"{o}del-Rosser First Incompleteness Theorem (\citeyear[viii]{Machover:1996vu}).
   }
-
-  \smallbreak
-  For ease of connecting \fc{1} to other ideas in this document, we define a \fc{} with respect to an event.
-  Throughout, at all points.
-  In turn, allow the possibility that at different points throughout the event there are different actions the agent may perform.
 \end{note}
+
+
 
 \section{Illustrations}
 \label{cha:fcs:illu}
-
-\begin{note}
-  go through a number of illustrations.
-\end{note}
 
 
 \paragraph{Illustration 1}
@@ -151,13 +152,12 @@
   %
   In general, puzzles like that of \autoref{scen:fc:chick} are a simple way of identifying \fc{1}.
   For, the puzzle is designed such that, given appropriate background, the agent has all the information required to solve the puzzle, once read.
-  And, though we limit ourselves to a single example from \citeauthor{Dudeney:1995aa}'s \citetitle{Dudeney:1995aa} the book contains roughly 500 or so puzzles for which there is an associated \fc{0} from some \pool{}.%
+  And, though we limit ourselves to a single example from \citeauthor{Dudeney:1995aa}'s \citetitle{Dudeney:1995aa} the book contains roughly 500 or so puzzles for which there is plausible an associated \fc{0} from some \pool{} given a reader with the sufficient background.%
   \footnote{
     Some require \evals{} you may not have.
-    For example, 527 on page 217 assumes knowledge of the size of American coins (excluding a penny).
-    And others do not have well-defined answers, such 523 on page 215, which is a joke.
+    For example, 527 on page 217 assumes knowledge of the size of some American coins.
+    And others do not have well-defined answers, such 523 on page 215.
   }
-  % Further, that \ref{scen:fc:chick:c} is a \fc{} from \(\Phi\) is plausibly a design criteria for a introductory algebraic puzzle.
 
   Still, I have no detailed account of the way in which an agent concludes \ref{scen:fc:chick:c}.
   For, there is no general strategy.
@@ -358,23 +358,26 @@
 %   However, there is a distinction between a mistake which happens when an agent concludes, and a mistake present in the agent's understanding of some subject matter.
 % \end{note}
 
-\begin{note}
-  Still, nothing prevents two conflicting \prop{0}-\val{0} pair being \fc{1}.
-  For example, consistency of testimony, but may also be swayed by A.'s rhetoric.
-  So, focus on content, or focus on presentation.
-  Different actions, different conclusions.
+% \begin{note}
+%   Still, nothing prevents two conflicting \prop{0}-\val{0} pairs from being \fc{1}.
+%   We argued \autoref{illu:kettle:c} is not a \fc{} due to requiring testimony is consistent.
+%   However, an agent may be a little more flexible, and willing to ignore whether testimony is consistent if they are swayed by rhetoric.
+%   Hence, 
+%   For example, consistency of testimony, but may also be swayed by A.'s rhetoric.
+%   So, focus on content, or focus on presentation.
+%   Different actions, different conclusions.
 
-  A \fc{} only captures possible conclusion.
-  Nothing in particular hangs on this.
-  We refrain from placing additional constraints on \fc{1} in order to keep the definition of a \fc{} simple.
-  If you prefer to strengthen definition with justification, etc. that's okay.
-  And, we implicitly assume \fc{1} are sensible.
-\end{note}
+%   A \fc{} only captures possible conclusion.
+%   Nothing in particular hangs on this.
+%   We refrain from placing additional constraints on \fc{1} in order to keep the definition of a \fc{} simple.
+%   If you prefer to strengthen definition with justification, etc. that's okay.
+%   And, we implicitly assume \fc{1} are sensible.
+% \end{note}
 
 \paragraph{Illustration 5}
 
 \begin{note}
-  Finally, in some cases a \prop{0}-\val{0} pair may fail to be a \fc{} from a specific \pool{} of premises as an agent requires 
+  Finally, in some cases a \prop{0}-\val{0} pair may fail to be a \fc{} from a specific \pool{} due to the absence of some \prop{0}-\val{0} pairs.
 
   \begin{scenario}[Stag hunt]%
     \label{fc:sh}%
@@ -393,7 +396,7 @@
     \pv{\propI{Hunt stag}}{\valI{Do}}
   \end{enumerate}
   % 
-  \ref{fc:sh:c} is plausibly fails to be a \fc{} for either hunter without information about what the other hunter is inclined to do, as there is not expected payoff for hunting hare alone.%
+  \ref{fc:sh:c} is plausibly fails to be a \fc{} for either hunter without information about what the other hunter is inclined to do, as there is not expected payoff for hunting stag alone.%
   \footnote{
     \citeauthor{Skyrms:2004aa} expands:
     \begin{quote}
@@ -404,193 +407,24 @@
     \end{quote}
     And, we may say \pv{\propI{Hunt hare}}{\valI{Do}} is a \fc{} for the both a pessimist and cautious player.
   }
-
 \end{note}
-
-\begin{note}
-  \color{red}
-
-  Likewise \propI{The headline of tomorrow's newspaper contains an even number of vowels}, value \valI{True}, and any \pool{} which includes \prop{0}-\val{0} pairs available to the agent.
-  For  an agent who has no information about tomorrows newspaper.
-\end{note}
-
-% \section{Notes}
 
 % \begin{note}
 %   \color{red}
-%   Here, ability versus compulsion.
-%   Nothing really hangs on this.%
-%   \footnote{
-%     \label{fn:fc-ability}
-%     In particular, I suspect `\fc{3}' is close to an ability modal while `foregone conclusion' is close to a compulsion modal.
-%     (See (\cite{Mandelkern:2017aa}) for discussion).
-%     Indeed, our definition of a \fc{} is close to an act conditional analysis of ability.
-%     However, there is no immediate parallel.
-%     We return to this observation in \autoref{cha:sec:fcs-def:ability}.
-%   }
+
+%   Likewise \propI{The headline of tomorrow's newspaper contains an even number of vowels}, value \valI{True}, and any \pool{} which includes \prop{0}-\val{0} pairs available to the agent.
+%   For  an agent who has no information about tomorrows newspaper.
 % \end{note}
 
-\begin{note}
-  % The definition of a \fc{} may be strengthened in various ways.
-  % For example:
-
-  % \begin{enumerate}[label=\alph*., ref=(\alph*), resume*=fcCounter]
-  % \item
-  %   \label{def:fc:alt:c}
-  %   For any proposition \(\chi\), value \(v''\), and action \(b\) such that \vAgent{} is concluding \(\pv{\chi'}{v''}\) from \(X\) after \(b\) is done:
-  %   \begin{itemize}
-  %   \item
-  %     Either~\ref{def:fc:extra:1} or~\ref{def:fc:extra:2} is the case:
-  %     \begin{enumerate}[label=\arabic*., ref=\arabic*]
-  %     \item
-  %       \label{def:fc:extra:1}
-  %       \(\chi\) is \(\psi\) and \(v''\) is \(v'\).
-  %     \item
-  %       \label{def:fc:extra:2}
-  %       Throughout event in which \vAgent{} concludes \(\pv{\chi}{v''}\) from \(X\), there is some action \(c\) such that:
-  %       \begin{itemize}
-  %       \item
-  %         \vAgent{} may easily and immediately do \(c\).
-  %       \item
-  %         \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) when \vAgent{} does \(c\).
-  %         \begin{itemize}
-  %         \item
-  %           Without use of any novel inf.\ obtained by doing \(a\) and \(b\).
-  %         \end{itemize}
-  %       \end{itemize}
-  %     \end{enumerate}
-  %   \end{itemize}
-  % \end{enumerate}
-
-  % \noindent Paraphrased:
-
-  % \begin{itemize}[noitemsep]
-  % \item
-  %   Sub-clause~\ref{def:fc:extra:1} states \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\) after \vAgent{} does \(b\).
-  % \item
-  %   Sub-clause~\ref{def:fc:extra:2} states \vAgent{} \(\pv{\psi}{v'}\) from \(\Psi\) remains a \fc{} after \vAgent{} does \(b\).
-  % \end{itemize}
-
-  % \noindent This is a much stronger condition.
-  % Not only is it the case that concluding, but remains the case that concluding is available for any other conclusion.
-
-  % This rules out pairwise conflicts.%
-  % \footnote{
-  % Though, does not rule out more.
-  % }
-  % We do not add any additional clauses as this is all we need.
-  % Still, additional clauses may be added.
-
-  % No restrictions placed on what an agent may conclude.
-  % So, no restrictions placed on \fc{1}.
-\end{note}
-
-% \begin{note}
-%   Still, if you prefer something stronger, that's okay.
-
-%   For, an agent may conclude two things and then fail.
-%   Perhaps, in the words of Achilles, a \fc{} should be such that \textquote{you ca'n't help yourself} (\cite[280]{Carroll:1895uj}).
-%   Though, what this amounts to\dots
-
-%   There's nothing in what follows that strictly requires that definition of a \fc{} is as general as it is.
-%   Additional restrictions limit instances of \fc{1}.
-%   And, use is existence of \fc{1}.
-%   So long as \fc{1} with no \wit{} exist, good.
-
-%   If do restrict, though, some things will need to be restructured.
-% \end{note}
 
 \section*{Summary}
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "master"
-%%% End:
 
+\begin{note}
+  This chapter defined \fc{1} and provide a handful of \illu{1} of \prop{0}-\val{0}-\pool{0} pairs such that the \prop{0}-\val{0} pair is (not) a \fc{} from the \pool{}.
+  Additional \illu{1} of \fc{1} follow in later chapters as the idea of a \fc{0} is central to the way in which we characterise \ros{1}, and the way in which we generate counterexamples to \issueInclusion{}.
+\end{note}
 
-% \begin{itemize}
-% \item
-%   The agent has a good understanding of some formal proof system.
-%   For example, some Fitch-style system.
-% \item
-%   The agent has a good understanding of some method to construct semantic proofs.
-%   For example, by constructing truth tables, or reasoning about valuation functions.
-% \item
-%   The agent understands the proof system is sound.
-%   That is to say, the agent understands there exists a proof of some sentence \(A\) \emph{only if} \(A\) is true given an arbitrary valuation.
-% \end{itemize}
-% The agent constructs the following proof:
-% \begin{center}
-%   \begin{fitch}
-%     \phantlabel{illu:sPF:1}\fa \fh (P \rightarrow Q) \rightarrow P \\
-%     \phantlabel{illu:sPF:2}\fa \fa \fh  \lnot P \\
-%     \phantlabel{illu:sPF:3}\fa \fa \fa \fh  P \\
-%     \phantlabel{illu:sPF:4}\fa \fa \fa \fa  \bot & \(\bot\)\textbf{Intro:}\hyperref[illu:sPF:2]{2},\hyperref[illu:sPF:3]{3}\\
-%     \phantlabel{illu:sPF:5}\fa \fa \fa \fa  Q & \(\bot\)\textbf{Elim:}\hyperref[illu:sPF:4]{4}\\
-%     \phantlabel{illu:sPF:6}\fa \fa \fa P \rightarrow Q & \(\rightarrow\)\textbf{Intro:}\hyperref[illu:sPF:3]{3}--\hyperref[illu:sPF:5]{5} \\
-%     \phantlabel{illu:sPF:7}\fa \fa \fa P & \(\rightarrow\)\textbf{Elim:}\hyperref[illu:sPF:1]{1},\hyperref[illu:sPF:6]{6}\\
-%     \phantlabel{illu:sPF:8}\fa \fa \fa \bot & \(\bot\)\textbf{Intro:}\hyperref[illu:sPF:2]{2},\hyperref[illu:sPF:7]{7}\\
-%     \phantlabel{illu:sPF:9}\fa \fa \lnot\lnot P & \(\lnot\)\textbf{Intro:}\hyperref[illu:sPF:2]{2},\hyperref[illu:sPF:8]{8}\\
-%     \phantlabel{illu:sPF:10}\fa \fa P & \(\lnot\)\textbf{Elim:}\hyperref[illu:sPF:9]{9}\\
-%     \phantlabel{illu:sPF:11}\fa ((P \rightarrow Q) \rightarrow P) \rightarrow P & \(\rightarrow\)\textbf{Intro:}\hyperref[illu:sPF:1]{1}--\hyperref[illu:sPF:10]{10} \\
-%   \end{fitch}
-% \end{center}
-% \vspace{-\baselineskip}
-
-% \begin{note}
-%   Still, the conclusion need not be easy.
-
-%   \begin{illustration}
-%     \[\frac{(3 + \sqrt{3})^{2} + \sqrt{6}^{2} - (2\sqrt{3})^{2}}{2(3 + \sqrt{3})\sqrt{6}} = \frac{1}{\sqrt{2}}\]
-%   \end{illustration}
-
-%   I suspect this is a \fc{}.
-%   Might need to do some work to recall principles, but it's okay.
-% \end{note}
-
-
-% \begin{note}[ML II]
-%   \begin{illustration}[Modal logic II]
-%     \label{illu:fc:ML2}
-%     The modal system \(\mathbf{GL} = \mathbf{K} + \Box(\Box p \rightarrow p) \rightarrow \Box p\) is weakly complete with respect to the class of finite strict partial orders (that is, the class of finite irreflexive transitive frames).
-%   \end{illustration}
-
-%   \autoref{illu:fc:ML2} is similar in structure to \autoref{illu:fc:logic:CR}.
-%   Indeed, both proofs involve constructing a canonical model.
-%   The key distinguishing feature of \autoref{illu:fc:ML2}, however, is the difficulty of establishing the canonical model has the desired properties.
-%   In particular, the general method I keep in mind for proving the relevant result requires a syntactic proof that \(\vdash_{\mathbf{GL}} \Box p \rightarrow \Box \Box p\).
-%   And, as I have failed to recall the relevant syntactic on sufficient occasion, I do not consider the result a \fc{0} from my understanding of modal logic.
-
-%   Hence, the result (plausibly) fails to be a \fc{} from my understanding of modal logic because there is no guarantee that I would provide a proof if I set out to do so.%
-%   \footnote{
-%   On the other hand, I have completed the relevant proof a sufficient number of times.
-%   So, the result is a \fc{0} from whatever premises are associated with my memory.
-% }
-% \end{note}
-
-% \begin{note}
-%   \illu{3} may be obtained by taking a proposition-value pairing which conflicts with \fc{}.
-%   The following is \emph{not} a \fc{}.%
-%   \footnote{
-%   However, I suspect the following equation is a \fc{}:
-%   \[\frac{(3 + \sqrt{3})^{2} + \sqrt{6}^{2} - (2\sqrt{3})^{2}}{2(3 + \sqrt{3})\sqrt{6}} = \frac{1}{\sqrt{2}}\]
-% }
-
-%   \begin{illustration}
-%     \[\frac{(3 + \sqrt{3})^{2} + \sqrt{6}^{2} - (2\sqrt{3})^{2}}{2(3 + \sqrt{3})\sqrt{6}} = \frac{1}{\sqrt{3}}\]
-%   \end{illustration}
-%   For, the equation does not hold.
-% \end{note}
-
-% \begin{note}
-%   This is no different from conclusion that it's 13:48 by looking at the clock.
-%   I recognise there is a possibility that the clock is broken.
-%   However, nothing to suggest it is.
-
-%   This highlights qualification.
-%   Without it, then so long as wearing watch, time is a \fc{}.
-%   For, look at watch.
-% \end{note}
 
 %%% Local Variables:
 %%% mode: latex
