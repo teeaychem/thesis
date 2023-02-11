@@ -315,29 +315,44 @@
 
 
 \begin{note}
+  \color{blue}
   Intuitively, given an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) then a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) answers \qWhy{} and the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) answers \qHow{}.
   Hence, it should be the case that a \ros{} between \(\pv{\phi}{v}\) and \(\Psi\) answers \qWhyV{} and the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) answers \qHowV{}.
   This is the case:
 
   \begin{proposition}[Sanity check]%
     \label{prop:vSantity}%
-    A \ros{} between \(\pv{\phi}{v}\) from \(\Phi\) is always an answer to \qWhyV{}.
-    And an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is always an answer to \qHowV{}.
+    \vspace{-\baselineskip}
+    \begin{itenum}
+      \item[\emph{If}:]
+        \(\ed{}\) is an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of concluding \(\pv{\phi}{v}\) from \(\Phi\) where \fc{}.
+      \item[\emph{Then}]
+        Conditions \ref{prop:vSantity:why} and \ref{prop:vSantity:how} both hold:
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{prop:vSantity:why}%
+        A \ros{} between \(\pv{\phi}{v}\) from \(\Phi\) answers \qWhyV{}.
+      \item
+        \label{prop:vSantity:how}%
+        An event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is always an answer to \qHowV{}.
+      \end{enumerate}
+    \end{itenum}
+    \vspace{-\baselineskip}
   \end{proposition}
 
   \begin{argument}{prop:vSantity}
-    Suppose \(\ed{}\) is an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \(\ed{}\) is an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
-    As the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) there is an event in which the agent \evals{} \(\phi\) to have \val{} \(v\) (\autoref{def:conclusionE}).
+    As the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of concluding \(\pv{\phi}{v}\) from \(\Phi\) there is an event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
-    Take \(\ed{\flat}\) as the event in which the agent \evals{} \(\phi\) to have \val{} \(v\).
+    Take \(\ed{\flat}\) as the event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
     \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     For, it is clear that \(\ed{}\) is in progress (conclusion when).
     And, \(\ed{}\) happens as a result of \(\ed{\flat}\).
 
     Further, \(\ed{\flat}\) is in progress \emph{only if} a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds throughout \(\ed{\flat}\).
-    For, by \supportI{} a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) must hold if \(\ed{\flat}\) is an event in which the agent \evals{} \(\phi\) to have \val{} \(v\).
+    For, by \supportII{} a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) must hold if \(\ed{\flat}\) is an event in which the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
     Hence, the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) answers \qWhyV{}.
 
@@ -365,7 +380,7 @@
   \end{constraint}
 
   \noindent%
-  The remainder of the document focuses on (counterexamples) to \issueConstraint{}.
+  The remainder of the document focuses on (counterexamples to) \issueConstraint{}.
   For, if there are counterexamples to \issueConstraint{}, then by \autoref{prop:support-and-witnessing} either \linkW{}, \linkH{}, or \issueInclusion{} fails to hold.
 
   I take \linkH{} to be trivial, and \linkW{} to be sufficiently well-motivated by \progEx{}.
