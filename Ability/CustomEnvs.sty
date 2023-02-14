@@ -46,6 +46,33 @@
 }
 
 
+\NewDocumentEnvironment{rscenario}{ m m +b}
+{%
+  \refstepcounter{scenarioCounter}%
+  \label{#1}
+  \smallskip%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Scenario~\arabic{scenarioCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+
+\newcommand\reScenario[1]{
+  \smallskip%
+  \noindent\textbf{Scenario~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \par\smallskip
+}
+
+
 \newcounter{observationCounter}
 \setcounter{observationCounter}{0}
 \renewcommand{\theobservationCounter}{\arabic{observationCounter}}
