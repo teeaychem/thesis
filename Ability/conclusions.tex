@@ -501,7 +501,15 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) {\color{blue}  and was concluding}.
+      Clauses \ref{assu:ConRea:event} and \ref{assu:ConRea:prog} hold:
+      \begin{enumerate}[label=\Alph*., ref=\Alph*]
+      \item
+        \label{assu:ConRea:event}
+        \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{assu:ConRea:prog}
+        There is some \se{} \(\ed{\flat}\) such that \(\ed{\flat}\) \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\)
+      \end{enumerate}
     \item[\emph{Then}:]
       \(\ed{}\) is an event in which \vAgent{} \emph{reasons} to \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itenum}
@@ -509,10 +517,16 @@
   \end{assumption}
 
   \noindent%
-  In short, an event in which an agent concludes is particular case of an event in which an agent reasons.
+  In short, an event in which an agent concludes is particular case of an event in which an agent reasons, so long as the conclusion was no immediate.
 
   For example, an agent may conclude \(\pv{\psi}{\valI{True}}\) from a \pool{} containing \(\pv{\phi}{\valI{True}}\) and \(\pv{\propI{If }\phi\propI{ then }\psi}{\valI{True}}\) by reasoning via \emph{modus ponens}.
   Given~\autoref{assu:ConRea}, the event in which the agent concludes includes the the agent's use of \emph{modus ponens}.
+
+  However, an agent may conclude \pv{\propI{The room is red}}{\valI{True}} due to visual stimuli.
+  In this case, the relevant \pool{} may plausible be empty and no reasoning takes place, and hence Clause~\ref{assu:ConRea:prog} ensures we do not assume reasoning took place.%
+  \footnote{
+    Though see \textcite{Siegel:2017aa} for counterpoint.
+  }
 \end{note}
 
 \begin{note}

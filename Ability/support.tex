@@ -3,7 +3,7 @@
 
 
 \begin{note}
-  \ros{3} captures the way in which a \prop{0}-\val{0} pair \(\pv{\phi}{v}\) `follows from' some \pool{} \(\Phi\), from an \agpe{}.
+  \ros{3} capture the way in which a \prop{0}-\val{0} pair \(\pv{\phi}{v}\) `follows from' some \pool{} \(\Phi\), from an \agpe{}.
   Where the `following from' relation contrasts with `from' in the sense that  an agent concludes \(\pv{\phi}{v}\) `from' \(\Phi\).
 \end{note}
 
@@ -27,7 +27,7 @@
 
 
 \begin{note}
-  The role of \supportI{} is to characterise when a \ros{} holds between some \prop{0}-\val{0} pair and \pool{} from an \agpe{} \emph{given} an event in which the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
+  The role of \supportI{} is to characterise when a \ros{} holds between some \prop{0}-\val{0} pair and \pool{} \emph{given} an event in which the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
 
   \begin{idea}[\supportI{}]
     \label{idea:support}
@@ -36,7 +36,7 @@
     \item[\emph{If}:]
       \(e_{d}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     \item[\emph{Then}:]
-      When \vAgent{} \eval{1} \(\phi\) as having value \(v\) as a \se{0} of \(e_{d}\):
+      When \vAgent{} \eval{1} \(\phi\) as having value \(v\): %as a \se{0} of \(e_{d}\):
       \begin{itemize}
       \item
         A \emph{\ros{}} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'}.
@@ -52,33 +52,201 @@
   The role of \ros{0} a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) is to abstractly capture the way in which \(\pv{\phi}{v}\) `follows from' \(\Phi\) from the \agpe{}.
   And, if an agent concludes \(\pv{\phi}{v}\) from \(\Phi\), then \(\pv{\phi}{v}\) `follows from' \(\Phi\) from the \agpe{}.
 
-  In other words, the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) just captures whatever it is, for the agent, that led to the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  In other words, the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) just captures whatever it is, for the agent, that led to the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).%
+  \footnote{
+    As an event in which an agent concludes may span the \agents{} reasoning to \(\pv{\phi}{v}\) from \(\Phi\) (\autoref{assu:ConRea}), the existence of a \ros{} by \supportI{} is restricted to the sub-event when the agent \evals{} \(\phi\) as having \val{} \(v\).
+  }
 \end{note}
 
 
 \begin{note}
-  \color{blue}
-  \ros{} in \autoref{scen:countS}.
-\end{note}
-
-
-\begin{note}
-  Sub-event.
-  For, by \autoref{assu:ConRea} the event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) spans the agent's reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
-  And, a \ros{} may only hold as the result of reasoning.
+  \supportI{} ensures a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and some \pool{} which captures the \agents{} understanding of factorisation or the quadratic formula holds when the agent makes the relevant conclusion in \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF}.
+  Likewise, \supportI{} ensures a \ros{} between \pv{\propI{What Pritcher said was a sign}}{\valI{True}} and some \pool{} \(\Psi\) holds from \agpe{Fox's} in \autoref{scen:countS} when Fox responds to `I come from Miran' with `Miran is early this year'.
 \end{note}
 
 
 \begin{note}
   Our characterisation of \ros{} by \supportI{} rests on the way in which we understand conclusions.
   In particular, \supportI{} allows for \ros{} to hold between any \prop{0}-\val{0}-\pool{0} pair, so long as the agent concludes the relevant \prop{0} has the specified \val{0} from the given \pool{}, or the \prop{0}-\val{0} pair is a \fc{} from the \pool{}.
-  Hence, a \ros{} may hold between, e.g., \pv{\propI{Fish are mammals}}{\valI{True}} and so \pool{} from the \agpe{}.
+  Hence, a \ros{} may hold between, e.g., \pv{\propI{Fish are mammals}}{\valI{True}} and some \pool{} from the \agpe{}.
 
   If the way in which conclusions are understood is restricted, the \ros{} as characterised are likewise restricted.
   And, that \ros{1} hold between certain \prop{0}-\val{0} pairs and \pool{1} is important for the argument to follow, not that \ros{1} may hold between arbitrary \prop{0}-\val{0} pairs and \pool{1}.
   The benefit of the characterisation given is simplicity.
   For example, I expect the argument to follow is compatible with restricting \ros{} to justified conclusions.
 \end{note}
+
+
+
+\section{\wit{3} for \ros{1}}
+\label{cha:ros:W}
+
+
+\begin{note}
+  With \supportI{}, and hence some characterisation of \ros{}, in hand we define a `\wit{0}' for \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+  In full:
+
+  \begin{definition}[A \wit{0} for a \ros{1}]%
+    \label{def:witnessing}%
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      An event \(e^{-}_{d^{-}}\) is \emph{\wit{0}} for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), for \vAgent{} through event \(e_{d}\)
+    \end{itemize}
+
+    \emph{If and only if:}
+
+    \begin{itemize}
+    \item
+      \(e^{-}_{d^{-}}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item
+      \(e^{-}_{d^{-}}\) occurs prior to or at the same time as \(e_{d}\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{definition}
+
+  \noindent%
+  In short, a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) is some (extant) event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+  And, if an agent has concluded \(\pv{\phi}{v}\) from \(\Phi\), we say the agent `has a \wit{}' for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+\end{note}
+
+
+\begin{note}
+  An important, but trivial, case of \autoref{def:witnessing} is when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  For, if an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) then it is immediate that there is some event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) --- the very same event --- and hence the agent has a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
+\end{note}
+
+
+
+\section{\supportII{}}
+\label{cha:ros:II}
+
+
+\begin{note}
+  The role of \supportII{} is to characterise a sufficient condition for a \ros{} to hold between some \prop{0}-\val{0} pair and \pool{} from an \agpe{} \emph{regardless of} an event in which the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
+
+  In \autoref{cha:intro} we motivated the idea of such \ros{} via some action may immediately do such that the agent is concluding \(\phi\) has value \(v\) from \(\Phi\) when the agent does the action (\autopageref{rosFirst}).
+  In full, we use the idea of a \fc{0} to identify such \ros{1}:
+
+  \begin{idea}[\supportII{}]%
+    \label{idea:support:possible}%
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) for \vAgent{} throughout \(e_{d}\).
+    \item[\emph{Then}:]
+      A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{\vAgent{}'} throughout \(e_{d}\).
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{idea}
+
+  \noindent%
+  A \ros{} is designed to abstractly capture the way in which some \prop{0}-\val{0} pair `follows from' some \pool{} from an \agpe{}.
+  \supportII{}, states that \(\pv{\phi}{v}\) being a \fc{} from \(\Phi\) is sufficient for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) to hold from the \agpe{}.
+\end{note}
+
+
+
+
+\begin{note}
+  \noindent%
+  Expanded with the definition of a \fc{}, \supportII{} reads:
+  \begin{itenum}
+  \item[\emph{If}:]
+    \begin{itemize}
+    \item
+      Throughout \(e_{d}\) there is some action \(a\) \vAgent{} may immediately perform such that both \ref{def:fc:act} and \ref{def:fc:result} are true:
+      \begin{enumerate}[label=\alph*., ref=(\alph*)]
+      \item
+        For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\) prior to doing \(a\).
+      \item
+        The event \(e^{\sharp}_{d^{\sharp}}\) in which \vAgent{} does \(a\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \end{itemize}
+  \item[\emph{Then}:]
+    A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'} throughout \(e_{d}\).
+  \end{itenum}
+
+  \noindent%
+  In short, something about the \agpe{\agents{} present} already secures anything that is required to hold from the \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+
+
+\begin{note}
+  \supportII{} captures the idea that a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and some \pool{} which captures their understanding of factorisation or the quadratic formula holds when the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} in \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF}.
+
+  Still, in \autoref{scen:countS} \supportII{} does not assume a \ros{} between \pv{\propI{What Pritcher said was a sign}}{\valI{True}} and some \pool{} \(\Psi\) holds \emph{prior to} Fox's conclusion of \pv{\propI{What Pritcher said was a sign}}{\valI{True}} from \(\Psi\).
+  For, for example, Pritcher may have said `I come from Wilau' and failed to sign and hence \pv{\propI{What Pritcher said was a sign}}{\valI{True}} was not a \fc{} from \(\Psi\).
+\end{note}
+
+
+\begin{note}
+  Recall puzzles from XXX.
+
+  Given the way we have characterised \ros{} we may characterise a puzzle as a problem for which a \ros{} holds between some solution to the puzzle and some \pool{} for which the agent does not (yet) have a \wit{}.
+
+  A good puzzle is when obtaining a \wit{} is enjoyable.
+\end{note}
+
+
+\begin{note}
+  Additional example.
+
+  \begin{scenario}[Fibonacci numbers]%
+    \label{scen:fc:fib}%
+    The Fibonacci numbers are recursively defined as follows:
+
+    \[
+      F_{n} = \left\{
+        \begin{array}{ll}
+          0 & \text{if } n = 0 \\
+          1 & \text{if } n = 1 \\
+          F_{n-1} + F_{n-2} & \text{if } n > 1 \\
+        \end{array}
+      \right.
+    \]
+  \end{scenario}
+
+  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+  \item
+    \label{scen:fc:fib:c}
+    \pv{\propI{The sixth number in the Fibonacci sequence is 5}}{\valI{True}}
+  \end{enumerate}
+  % 
+  Given an understanding of \(f\) and sufficient motivation, action an agent performs such that the agent is concluding \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} without novel information.
+  Hence, \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} is a \fc{} from some \pool{}.
+
+  Though, \pv{\propI{The sixtieth number in the Fibonacci seq.\ is 1548008755920}}{\valI{True}} need not be \fc{0}.
+  So, it need not be the case by \supportII{} that a \ros{} holds between \pv{\propI{The sixtieth number in the Fibonacci sequence is 1548008755920}}{\valI{True}} and some \pool{}.
+\end{note}
+
+
+\begin{note}
+  Note, agent is concluding.
+  Hence, this rules out cases of guidance.
+
+  Still, a slight gap.
+  For, it may be the case that when the agent does the action, something changes.
+  For example, has the option to try, and so long as does action, given additional powers.
+  Possibility, given the contrasting chess scenarios.
+
+  No real way to avoid this given the basic ideas.
+  \emph{Could} be that event is in progress.
+  But, this significantly complicates things.
+
+  However, it is fine.%
+  \footnote{
+    It's not really, and it kind of hurts.
+  }
+  For, interest is in constructing counterexamples.
+  So long as do not rely on features, then counterexamples persist.
+\end{note}
+
+
+\section{Optional notes}
+
 
 
 \paragraph*{\supportI{} and \citeauthor{Boghossian:2014aa} Taking Condition \hfill (Optional)}
@@ -193,171 +361,6 @@
 % \end{note}
 
 
-
-\section{\wit{3} for \ros{1}}
-\label{cha:ros:W}
-
-
-\begin{note}
-  With \supportI{}, and hence some characterisation of \ros{}, in hand we define a `\wit{0}' for \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-  In full:
-
-  \begin{definition}[A \wit{0} for a \ros{1}]%
-    \label{def:witnessing}%
-    \vspace{-\baselineskip}
-    \begin{itemize}
-    \item
-      An event \(e^{-}_{d^{-}}\) is \emph{\wit{0}} for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\), for \vAgent{} through event \(e_{d}\)
-    \end{itemize}
-
-    \emph{If and only if:}
-
-    \begin{itemize}
-    \item
-      \(e^{-}_{d^{-}}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item
-      \(e^{-}_{d^{-}}\) occurs prior to or at the same time as \(e_{d}\).
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{definition}
-
-  \noindent%
-  In short, a \wit{} for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) is some (extant) event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-  And, if an agent has concluded \(\pv{\phi}{v}\) from \(\Phi\), we say the agent `has a \wit{}' for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-\end{note}
-
-
-\begin{note}
-  An important, but trivial, case of \autoref{def:witnessing} is when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  For, if an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) then it is immediate that there is some event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) --- the very same event --- and hence the agent has a \wit{} for the \ros{} between \(\pv{\phi}{v}\) and \(\Phi\).
-\end{note}
-
-
-
-\section{\supportII{}}
-\label{cha:ros:II}
-
-
-\begin{note}
-  The role of \supportII{} is to characterise a sufficient condition for a \ros{} to hold between some \prop{0}-\val{0} pair and \pool{} from an \agpe{} \emph{prior to} an event in which the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
-
-  To do so, we use the idea of a \prop{0}-\val{0} pair being a \fc{} from the relevant \pool{}:
-
-  \begin{idea}[\supportII{}]%
-    \label{idea:support:possible}%
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(\pv{\phi}{v}\) is a \fc{0} from \(\Phi\) for \vAgent{} throughout \(e_{d}\).
-    \item[\emph{Then}:]
-      A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{\vAgent{}'} throughout \(e_{d}\).
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{idea}
-
-  \noindent%
-  A \ros{} is designed to abstractly capture the way in which some \prop{0}-\val{0} pair `follows from' some \pool{} from an \agpe{}.
-  \supportII{}, states that \(\pv{\phi}{v}\) being a \fc{} from \(\Phi\) is sufficient for a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) to hold from the \agpe{}.
-\end{note}
-
-
-\begin{note}
-  \noindent%
-  Expanded with the definition of a \fc{}, \supportII{} reads:
-  \begin{itenum}
-  \item[\emph{If}:]
-    \begin{itemize}
-    \item
-      Throughout \(e_{d}\) there is some action \(a\) \vAgent{} may immediately perform such that both \ref{def:fc:act} and \ref{def:fc:result} are true:
-      \begin{enumerate}[label=\alph*., ref=(\alph*)]
-      \item
-        For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\) prior to doing \(a\).
-      \item
-        The event \(e^{\sharp}_{d^{\sharp}}\) in which \vAgent{} does \(a\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
-      \end{enumerate}
-    \end{itemize}
-  \item[\emph{Then}:]
-    A \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds, from \agpe{\vAgent{}'} throughout \(e_{d}\).
-  \end{itenum}
-
-  \noindent%
-  In short, something about the \agpe{\agents{} present} already secures anything that is required to hold from the \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
-
-
-\begin{note}
-  Recall puzzles from XXX.
-
-  Given the way we have characterised \ros{} we may characterise a puzzle as a problem for which a \ros{} holds between some solution to the puzzle and some \pool{} for which the agent does not (yet) have a \wit{}.
-
-  A good puzzle is when obtaining a \wit{} is enjoyable.
-\end{note}
-
-
-\begin{note}
-  Additional example.
-
-  \begin{scenario}[Fibonacci numbers]%
-    \label{scen:fc:fib}%
-    The Fibonacci numbers are recursively defined as follows:
-
-    \[
-      F_{n} = \left\{
-        \begin{array}{ll}
-          0 & \text{if } n = 0 \\
-          1 & \text{if } n = 1 \\
-          F_{n-1} + F_{n-2} & \text{if } n > 1 \\
-        \end{array}
-      \right.
-    \]
-  \end{scenario}
-
-  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
-  \item
-    \label{scen:fc:fib:c}
-    \pv{\propI{The sixth number in the Fibonacci sequence is 5}}{\valI{True}}
-  \end{enumerate}
-  % 
-  Given an understanding of \(f\) and sufficient motivation, action an agent performs such that the agent is concluding \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} without novel information.
-  Hence, \pv{\propI{The six number in the Fibonacci sequence is 5}}{\valI{True}} is a \fc{} from some \pool{}.
-
-  Though, \pv{\propI{The sixtieth number in the Fibonacci seq.\ is 1548008755920}}{\valI{True}} need not be \fc{0}.
-  So, it need not be the case by \supportII{} that a \ros{} holds between \pv{\propI{The sixtieth number in the Fibonacci sequence is 1548008755920}}{\valI{True}} and some \pool{}.
-\end{note}
-
-
-\begin{note}
-  Note, agent is concluding.
-  Hence, this rules out cases of guidance.
-
-  Still, a slight gap.
-  For, it may be the case that when the agent does the action, something changes.
-  For example, has the option to try, and so long as does action, given additional powers.
-  Possibility, given the contrasting chess scenarios.
-
-  No real way to avoid this given the basic ideas.
-  \emph{Could} be that event is in progress.
-  But, this significantly complicates things.
-
-  However, it is fine.%
-  \footnote{
-    It's not really, and it kind of hurts.
-  }
-  For, interest is in constructing counterexamples.
-  So long as do not rely on features, then counterexamples persist.
-\end{note}
-
-
-
-
-
-
-
-
-
-
-
 \paragraph*{\supportII{} and \citeauthor{Goldman:1979ui}'s account of \emph{ex ante} justification \hfill (Optional)}
 
 
@@ -420,8 +423,8 @@
   Now, in the case of \ref{Embed:yes}, it is not necessarily the case that a A \ros{0} between \(\pv{\phi}{v}\) and \(\Phi\) holds from \agpe{the}.
   For example, confident that a \ros{} holds between XXX and YYY, though I am mistaken.
 
-  When speak of \ros{}, state of affairs.
-  Not a state of affairs from \agpe{an \agents{}}.
+  When speak of \ros{}, \prop{0}.
+  Not a \prop{0} from \agpe{an \agents{}}.
 
   Of course, \ref{Embed:no} and \ref{Embed:yes} may occur simultaneously, and \ref{Embed:no} may be the case, in part, due to \ref{Embed:yes} being the case.
   However, as this takes some effort to think about, we will not (directly, at least) consider cases where \ref{Embed:no} is the case due to \ref{Embed:yes} being the case.
