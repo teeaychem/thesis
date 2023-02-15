@@ -126,7 +126,7 @@
   Rather than say that the \prop{1} has the \val{1} \emph{follows from} the \pool{1} (from the \agpe{}) we say a \ros{} between the \prop{0}, \val{0}, and \pool{0} (from the \agpe{}).
 
   For example, in \autoref{illu:gist:roots:F} the agent concludes \propM{\rootsCon{}} has value \valI{True} from some \pool{} which captures their understanding of factorisation.
-  Hence, a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of arithmetic holds, from \agpe{their}.
+  Hence, a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of factorisation holds, from \agpe{their}.
 \end{note}
 
 
@@ -156,7 +156,7 @@
   \end{itemize}
   %
   In this respect, a \ros{} between \propM{\rootsCon{}}, \valI{True} and a \pool{} which captures the \agents{} understanding of \emph{the quadratic equation} may hold at the second step of reasoning in \autoref{illu:gist:roots:F} as the agent may abandon factorisation and do the reasoning outlined in \autoref{illu:gist:roots:QF}.
-  And, it need not be the case that, given \(y = \sqrt{2 + \sqrt{ 2 + \sqrt{2 + \cdots}}}\), a \ros{} holds between \propM{y = 2}, \valI{True}, and the \agents{} understanding of factorisation (even though it is clear \(y^{2} - y - 2 = 0\) given a little insight).
+  And, it need not be the case that, given \(y = \sqrt{ 2 + \sqrt{2 + \cdots}}\), a \ros{} holds between \propM{y = 2}, \valI{True}, and the \agents{} understanding of factorisation (even though it is clear \(y^{2} - y - 2 = 0\) given a little insight).
 \end{note}
 
 
@@ -184,8 +184,6 @@
 
 
 \begin{note}
-  \ros{3} of interest are not necessarily restricted to the final conclusion.
-
   \begin{rscenario}{scen:countS}{Countersign}%
     \indent The captain mumbled, ``I come from Miran.''
 
@@ -209,13 +207,14 @@
   \end{rscenario}
 
   \noindent%
-  In the event described by \autoref{scen:countS} Fox concludes \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True}.
-  Pritcher tells Fox the are a fellow member of the party at the end of the \scen{}.
-  Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
-  And, intuitively, Pritcher saying, No earlier than last year' in response to Fox saying `Miran is early this year' explains why the event develop in an event in which Fox concludes Pritcher is a fellow member of the party.
+  In the event described by \autoref{scen:countS} Fox concludes \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True}.%
+  \footnote{
+    Pritcher tells Fox the are a fellow member of the party at the end of the \scen{}.
+    Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
+  }
 
   Consider Pritcher's opening gambit `I come from Miran'.
-  The following conditional holds, from \agpe{Fox's}:
+  The following conditional plausibly holds, from \agpe{Fox's}:
   %
   \begin{itenum}
   \item[\emph{If}:]
@@ -225,16 +224,24 @@
   \end{itenum}
   %
   And, if Fox doesn't think Pritcher is engaging in countersign, it seems clear Fox does not conclude Pritcher a fellow member of the party.
-  Hence, phrased in terms of \ros{}, we have:
+  Hence, phrased in terms of \ros{1}, we have:
   \begin{itenum}
   \item[\emph{If}:]
-    A \ros{} between \propI{What they said was an appropriate sign}, \valI{True} and some \pool{} \(\Psi\) fails to hold from \agpe{Fox's}.
+    A \ros{} between \propI{What they said was an appropriate sign}, \valI{True} and some \pool{} \(\Psi\) fails to hold.
   \item[\emph{Then}:]
-    The event does not develop into an event in which Fox concludes \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True} from \(\Phi\).
+    Fox does not conclude \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True} from some \pool{} \(\Phi\).
   \end{itenum}
   %
-  In contrast to \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, this \ros{} does not hold prior to Pritcher's opening.
-  However, this \ros{} does hold prior to Fox's conclusion, as Fox engages in countersign before concluding Pritcher is a member of The Party.
+  In contrast to \scen{1} \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, the highlighted \ros{} \propI{What they said was an appropriate sign}, \valI{True} and \(\Psi\) is distinct from the \ros{} which characterises Fox's final conclusion.
+  Further, the \ros{} did not hold prior to Pritcher saying `I come from Miran'.
+  And, the \ros{} does not ensure Fox is concluding \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True} from \(\Phi\).
+
+  Still, the \ros{} between \propI{What they said was an appropriate sign}, \valI{True} and \(\Psi\) is tightly connected to \emph{whether} Fox is concluding \propI{The person I'm talking to is a member of the Democratic Underground Party} has value \valI{True} from \(\Phi\) by the second conditional.%
+  \footnote{
+    If Pritcher does not sign, Fox does not countersign, and the \scen{} goes differently.
+  }
+
+  Hence, the same abstractions applied to \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} apply to \autoref{scen:countS}.
 \end{note}
 
 
@@ -245,13 +252,14 @@
 
 \begin{note}
   \phantlabel{how-and-why-first-mention}%
-  With respect to understanding the way an event in which an agent concludes happens we distinguish two questions; `\qWhy{}' and `\qHow{}':
+  With respect to understanding the way an event in which an agent concludes happens we distinguish two questions:
+  `\qWhy{}' and `\qHow{}'.
 
   \begin{question}{questionWhy}{\qWhy{}}
     Given \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\):
     \begin{itemize}
     \item
-      Which \ros{} between \prop{1}, \val{1}, and \pool{1} explain \emph{why} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\)?
+      Which \ros{} between \prop{1}, \val{1}, and \pool{1} explain \emph{why} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\) (rather than some other event)?
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
@@ -261,7 +269,7 @@
     Given \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\):
     \begin{itemize}
     \item
-      Which past or present events explain \emph{how} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\)?
+      Which past or present events explain \emph{how} \(e\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\) (rather than some other event)?
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
@@ -269,18 +277,18 @@
 
 
 \begin{note}
-  \qWhy{} fixes an event, and queries why the event is an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) rather than an event in which something incompatible with the conclusion \(\phi\) has value \(v\) for \(\Phi\) happens.
+  \qWhy{} fixes an event, and queries why the event is an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) rather than an event in which something incompatible with the conclusion \(\phi\) has \val{0} \(v\) for \(\Phi\) happens.
   For example, an event in which the agent concludes \(\pv{\phi'}{v}\) from \(\Phi\), \(\pv{\phi}{v}\) from \(\Phi'\), takes their dog for a walk, runs a bath, etc.
 
-  \qHow{}, by contrast, queries how the event is an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) came about.
+  \qHow{}, by contrast, queries how the event is an event in which an agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) came about.
 \end{note}
 
 
-\paragraph*{`Why'}
+\paragraph*{The sense of `why' at issue in \qWhy{}}
 
 
 \begin{note}
-  To get a feel for the sense of `why' at issue, consider an event in which a deck of cards is shuffled.
+  To get a feel for the sense of `why' at issue in \qWhy{}, consider an event in which a deck of cards is shuffled.
 
   If the cards are randomly shuffled, then, intuitively, nothing explains \emph{why} \mainCard{} is \mainCardPos{} after the shuffle.
   For, if cards are shuffled randomly, then nothing favours \mainCard{} being at any particular position in the pack after the shuffle.
@@ -324,38 +332,24 @@
 
 
 \begin{note}
-  \qWhy{}, specifically, seeks answers to an event in which an agent concludes in the form of \ros{1}.
+  Now, \qWhy{}, specifically, seeks answers to an event in which an agent concludes in the form of \ros{1}.
 
   In this respect, for a \ros{} to answer \qWhy{}, a \ros{} holds prior to agent's conclusion, and favours the conclusion over some other event.
 
-  We introduced \ros{} with via \autoref{scen:calc} given conclusion.
-  However, plausibly prior to the conclusion.
-  It's already the case that the agent is concluding \propM{\gistCalcEq{}} has value \valI{True} prior to the agent's conclusion that \propM{\gistCalcEq{}} has value \valI{True}.
+  In the case of \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} we suggested a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of factorisation or the quadratic formula holds prior to the \agents{} conclusion and the \ros{} ensures the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
+  In this respect, as the \ros{} ensures the agent is concluding, the \ros{} answers \qWhy{}.
+  For, an event in which an agent is concluding favours an event in which an agent concludes.
 
-  Like the bias of a biased die.
-  As resource-bound agent's, things take a little time.
+  Likewise, in the case of \autoref{scen:countS} we considered a \ros{} between \propI{What Pritcher said was an appropriate sign}, \valI{True} and some \pool{} \(\Psi\) with respect to Fox and noted the if the \ros{} fails to hold, Fox does not conclude Pritcher is a member of The Party.
+  In this respect, the \ros{} favours an event in which Fox concludes \propI{The person I'm talking to is a member of The Party} has value \valI{True} from some \pool{} \(\Phi\).
 
-  But, like bias taking effect, or perhaps a card being shuffled to the top of the deck by sleight of hand, may only be that favours conclusion.
-\end{note}
+  Of course, that an agent is concluding is no guarantee that an agent concludes.
+  However, in parallel, an agent performing sleight of hand does not guarantee the agent performs slight of hand, and the bias of a biased die does not guarantee the die lands in line with the bias.
+  Answers to \qWhy{} do not need to `completely' answer \qWhy{}.
 
-
-\begin{note}
-  It need not be the case that a \ros{} answers \qWhy{}.
-  For, an agent may conclude, in the same way \mainCard{} being randomly shuffled to \mainCardPos{} happens.
-  At least, without placing additional constraints on what a conclusion is.%
-  \footnote{
-    Consider, e.g.\ \citeauthor{Anscombe:1957aa}'s (\citeyear{Anscombe:1957aa}) discussion of action `for no particular reason', and ponder whether there may be cases in which the relevant action is a conclusion.
-  }
-
-  However, in some cases, seems a \ros{} answers \qWhy{}.
-
-  Conclusion as the result of something which favoured conclusion.
-
-  Conclusion is a result of \ros{} holding, from the \agpe{}.
-
-  \ros{} prior to conclusion.
-  This is like bias on a die.
-  No guarantee but favours event in which agent concludes.
+  And, it need not be the case that a \ros{} which holds between \(\phi\), \(v\), and \(\Phi\) answers \qWhy{}.
+  For, example, a \ros{} between \propI{What Pritcher said was an appropriate sign}, \valI{True} and some \pool{} \(\Psi\) fails to answer \qWhy{} Fox concluded \propI{What Pritcher said was an appropriate sign} has value \valI{True} from \(\Psi\) as the \ros{} did not hold prior to Fox's (intermediate) conclusion.
+  Though, as noted above, the \ros{} favours Fox's (overall) conclusion that \propI{The person I'm talking to is a member of The Party} has value \valI{True} from \(\Phi\).
 \end{note}
 
 
@@ -364,8 +358,7 @@
 
 
 \begin{note}
-  So, \qWhy{} and \qHow{} are plausibly distinct questions.
-  Still, in the case of \qWhy{} and \qHow{} the following constraint on answers to \qWhy{} in terms of answers to \qHow{} seems intuitive:
+  Consider the following constraint on answers to \qWhy{} in terms of answers to \qHow{}:
 
   \begin{constraint}{consInclusion}{\issueInclusion{}}
     \mbox{ }
@@ -380,57 +373,42 @@
   \end{constraint}
 
   \noindent%
-  In short, for any \ros{} between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\phi\) has value \(v\), there is an event such that the agent concludes the \prop{} has the \val{} from the \pool{}.%
-  \footnote{
-    \color{blue}
-    What happened does not entail a corresponding \ros{}.
-    For example, 
-  }
-
-  In other words, a \ros{} between \(\psi\), \(v'\), and \(\Psi\) may hold when an agent concludes \(\phi\) has value \(v\) from \(\Phi\), as the agent does not conclude \(\psi\) has value \(v'\) from \(\Psi\), this \ros{} is irrelevant to why the agent concludes \(\phi\) has value \(v\) from \(\Phi\).
-\end{note}
-
-
-
-\paragraph*{Motivation for \issueInclusion{}}
-
-
-\begin{note}
-  \color{blue}
-  Consider the die case.
-  Intuitively, it needs to be the case that the bias of the die does something.
-
-  If the die is dropped directly down from a short distance, then no room for bias to do any work.
-\end{note}
-
-
-\begin{note}
-  \issueInclusion{} always holds for \ros{} that do not hold prior to an agent's conclusion, such as the \ros{} between \propI{What they said was an appropriate sign}, \valI{True} and some \pool{} from \agpe{Fox's} in \autoref{scen:countS}.
-
-  However, \issueInclusion{} is a substantial constraint if a \ros{} may hold prior to a conclusion, such as with \propI{\rootsCon{}}, \valI{True}, and \pool{1} capturing the agents understanding of the quadratic formula or factorisation in \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF}.
-
-  Still, \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} seem to motivate \issueInclusion{}.
-
-  Consider \autoref{illu:gist:roots:F}
-  A \ros{} between between \propM{\rootsCon{}}, \valI{True}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}.
-
-  For, \agents{} understanding of factorisation paired with application of that understanding favoured an event in which the agent concludes \propM{\rootsCon{}} has value \valI{True} from their understanding of factorisation over any other event.
-
-  And, the agent concluded \propM{\rootsCon{}} has value \valI{True} from their understanding of factorisation.
-  Hence, there is a corresponding answer to \qHow{}.
-
-  A \ros{} may hold between \propM{\rootsCon{}}, \valI{True} and a \pool{} which captures the \agents{} understanding of the quadratic formula.
-  However, the agent did not conclude \propM{\rootsCon{}} has value \valI{True} from their understanding of the quadratic formula.
-\end{note}
-
-
-\begin{note}
-  \issueInclusion{} seems plausible, and seems to do work.%
+  In short, \issueInclusion{} states that for any \ros{} between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\phi\) has value \(v\), there is an event such that the agent concludes the \prop{} has the \val{} from the \pool{}.%
   \footnote{
     Note, \qHow{} does not explicitly require the relevant event to be the event in which the agent concludes \(\phi\) has value \(v\) from \(\Phi\).
-    Hence, a previous event in which the agent concluded \propM{\gistCalcEq{}} has value \valI{True} may answer \qHow{}.
+    Hence, a previous event in which the agent concludes \(\psi\) has value \(v\) from \(\Psi\) may answer \qHow{}.
+    \issueInclusion{} is a constraint, and hence is compatible with a more stringent constraint.
+    Still, we have no interest in motivating a more stringent constraint.
   }
 
+  I think \issueInclusion{} is intuitive.
+
+  For example, \issueInclusion{} is compatible with the \ros{1} highlighted with respect to \scen{1}~\ref{illu:gist:roots:F},~\ref{illu:gist:roots:QF}, and \autoref{scen:countS}.
+
+  With respect to \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} the \ros{} of interest holds between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of factorisation or the quadratic formula.
+  And, the agent concludes \propM{\rootsCon{}} has value \valI{True} from \pool{} which captures the \agents{} understanding of factorisation or the quadratic formula.
+
+  And, with respect to \autoref{scen:countS} the \ros{} of interest holds between \propI{What Pritcher said was an appropriate sign}, \valI{True} and some \pool{} \(\Psi\).
+  Fox has concluded \propI{What Pritcher said was an appropriate sign} has value \valI{True} from \(\Psi\) when Fox concludes \propI{The person I'm talking to is a member of The Party} has value \valI{True} from some \pool{} \(\Phi\).
+\end{note}
+
+
+\begin{note}
+  To get a feel for what \issueInclusion{} rules out, consider \autoref{illu:gist:roots:F} and a \ros{} which holds between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of the quadratic formula.
+  We suggested above the agent may abandon factorisation and conclude \propM{\rootsCon{}} has value \valI{True} via the quadratic formula.
+  Hence, it is may be the case a \ros{} which holds between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of the quadratic formula answers `why' the agent concluded \propM{\rootsCon{}} has value \valI{True} from their understanding of factorisation.
+  However, this seems bad.
+  The agent concluded by factorisation and the quadratic formula was irrelevant to the reasoning the agent did, even if it was reasoning the agent had the option to do.
+
+  More explicitly, it seems implausible that the \agents{} understanding of the quadratic formula favoured an event in which the agent concluded \propM{\rootsCon{}} has value \valI{True} from their understanding of factorisation over any other event.
+
+  To draw an analogy, if a die's bias towards \(6\) takes effect as the die is rolling and the die lands \(6\), it seems the die bias explain (in part) why the die landed \(6\).
+  However, if a biased die is dropped from a short height to ensure it does not roll and lands \(6\), then the die's bias is irrelevant to explaining why (in part) the die landed \(6\).
+\end{note}
+
+
+\begin{note}
+  I think \issueInclusion{} is intuitive.
   Still, we have only considered a few \scen{1} and \issueInclusion{} is a general constraint.
   Hence, if there is some doubt regarding \issueInclusion{} then further argument is required.
   However, I am not aware of any arguments for \issueInclusion{}.%
@@ -443,6 +421,7 @@
       The appendix on rationalisations.
     }
   }
+  And, no argument for \issueInclusion{} will not be given.
 \end{note}
 
 
@@ -487,16 +466,16 @@
 
 
 \begin{note}
-  The importance of clauses \ref{reciF:qWhy} and \ref{reciF:distinct} follow from the following observation:
+  The importance of clauses \ref{reciF:qWhy}, \ref{reciF:distinct}, and \ref{reciF:nHow} follow from the following observation:
 
     \begin{observation}[Failures to \issueInclusion{}]%
     \label{obs:iIceRestriction}%
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a counterexample to \issueInclusion{}.
+      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a for sure a counterexample to \issueInclusion{}.
     \item[\emph{Then}:]
-      Conditions \ref{obs:iIceRestriction:why} and \ref{obs:iIceRestriction:distinct} are true of the \ros{} between \(\psi\), \(v'\), and \(\Psi\):
+      Conditions \ref{obs:iIceRestriction:why}, \ref{obs:iIceRestriction:distinct}, and \ref{obs:iIceRestriction:prior} are true of the \ros{} between \(\psi\), \(v'\), and \(\Psi\):
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{obs:iIceRestriction:why}
@@ -504,6 +483,9 @@
       \item
         \label{obs:iIceRestriction:distinct}
         Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
+      \item
+        \label{obs:iIceRestriction:prior}
+        There is no prior (or present) event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
       \end{enumerate}
     \end{itenum}
     \vspace{-1.5\baselineskip}
@@ -523,15 +505,13 @@
     Now, if \(\psi\) is the same as \(\phi\), \(v'\) is the same as \(v\), and \(\Psi\) is the same as \(\Phi\) then the event in which the agent concludes \(\phi\) has value \(v\) from \(\Phi\) is an event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
     And, the event in which the agent concludes \(\phi\) has value \(v\) from \(\Phi\) answers \qHow{}.
     Hence, an event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\) answers \qHow{}.
+  \item
+    Finally, \qHow{} is compatible with \scen{1} where some prior event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\) answers \qHow{}.
+    Whether or not there are \scen{1} with this feature is something we set aside.
+    Still, a counterexample to \issueInclusion{} is not guarantee if there is some prior event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\).
   \end{enumerate}
   \vspace{-\baselineskip}
   \end{motivation}
-
-  \noindent%
-  Clause \ref{reciF:nHow} is optional.
-  In short, the clause ensures the recipe is compatible with \scen{1} where some prior event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\) answers \qHow{}.
-  Whether or not there are \scen{1} with this feature is something we set aside.
-  I am not sure whether there are such \scen{1} though we do not assume there are no such \scen{1}.
 \end{note}
 
 
