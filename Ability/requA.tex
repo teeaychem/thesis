@@ -2,12 +2,12 @@
 \label{cha:requs}
 
 \begin{note}
-  A \requ{} is a relation between \(\pv{\psi}{v'}\) from \(\Psi\) being a \fc{} and an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-\end{note}
+  This chapter introduces the idea of a \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) as a \requ{1} of an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
-\begin{note}
-  Important to generate counterexamples to \issueConstraint{}.
-  Still, only certain \requ{1} generate counterexamples to \issueConstraint{}.%
+  The role of \requ{1} is to capture a core feature of failures of \issueConstraint{}.
+  Following the introduction of \requ{1} we provide a few examples in isolation from \issueConstraint{} and then clarify the connexion between \requ{1}, \qWhyV{}, and \issueConstraint{}.
+
+  Still, the existence of \requ{1} does not presuppose \issueConstraint{} fails to hold.%
   \footnote{
     I.e.\ one may jointly hold:
     \begin{enumerate*}[label=(\alph*)]
@@ -19,8 +19,12 @@
     .
     For more, see \autoref{prop:requ-not-n-ce} on \autopageref{prop:requ-not-n-ce}, below.
   }
-  Hence, we introduce and motivate the idea of a \requ{0} with \requ{1} which are compatible with \issueConstraint{}.
+  Key to failure the failure of \issueConstraint{} is the existence of \requ{1} \emph{such that} \issueConstraint{} fails to hold.
+  We suggest provide a plausible example at the end of the chapter.
+  However, the argument for \requ{1} such that \issueConstraint{} fails to hold takes place in \autoref{cha:typical}.
 \end{note}
+
+
 
 \section{\requ{3}}
 \label{cha:requs:requs}
@@ -50,17 +54,10 @@
   \end{definition}
 
   \noindent%
-  Broad idea of a \requ{} is that we fix an event, and then consider what must be the case with respect to some sub-event.
-  Specifically, applied to an event in which an agent concludes, and holds just in case what must be the case is a \fc{}.%
-  \footnote{
-    \itc{2}, so either does not develop or \fc{}.
+  Paraphrased, \autoref{def:requ} captures when \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) is entailed by some an event being such that an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) is in progress (so long as the agents conclusion of \(\pv{\phi}{v}\) from \(\Phi\) happens as a result of the event in progress, if it happens).
 
-    Something about the event secures requirement.
-  }%
-  % \footnote{
-  %   \color{green}
-  %   Note, it is not always the case that \(\pvp{\phi}{v}{\Phi}\) is a \requ{} of an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  % }
+  Hence, a \requ{} does not explicitly mention a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+  Still, by \supportII{}, if \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) then a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds.
 \end{note}
 
 \subsection{Illustrations}
@@ -109,44 +106,70 @@
       \pv{\propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}}{\valI{True}}
     \]
     %
-    From some \pool{} \(\Phi\).
+    From some \pool{} \(\Phi\) which captures the \agents{} understanding of the Lucas numbers.
   \end{scenario}
 
-  Event of interest is \(\ed{}\) such that \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47, 76]}{\valI{True}} from \(\Phi\).%
+  \noindent%
+  The event of interest is \(\ed{}\) is when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\), after studying the definition of Lucas numbers.%
   \footnote{
-    \propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47, 76]} shortens \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}.
+    \propI{L\textsubscript{[:9]} = [2, \dots, 76]} shortens \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}.
   }
 
   \begin{observation}[\requ{3} of \autoref{scen:LucasNums}]%
     \label{obs:LucasRequ}%
-    There is some sub-event \(\ed{\flat}\) of \(\ed{}\) such that:
+    There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
     %
     \begin{itemize}
     \item
-      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from some \pool{} \(\Phi_{8}\) is \requ{1} of the agent concluding .
+      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
     \end{itemize}
+    \vspace{-\baselineskip}
   \end{observation}
 
   \begin{motivation}{obs:LucasRequ}
-    The agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\).
+    \(e_{d}\) is such that the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) by the recursive definition.
 
-    The agent reasons by the recursive definition.
-    Hence, the agent obtains \(L_{9}\) by adding \(L_{8}\) and \(L_{7}\).
-    So, agent concludes \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) from \(\Phi_{8}\).
-    And, \pv{\propI{L\textsubscript{7} = 29}}{\valI{True}} from \(\Phi_{7}\)
-    For, without \(L\textsubscript{8}\) and \(L\textsubscript{7}\), the agent does not get \(L\textsubscript{9}\).
+    As \propI{L\textsubscript{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers, there must be some sub-event in which the agent concludes \(\pv{\propM{L\textsubscript{9} = 76}}{\valI{True}}\) by adding \(L_{8}\) and \(L_{7}\).
+    For, the agent does not have a method to obtain \(L_{9}\) without \(L_{8}\) and \(L_{7}\), given the agent is reasoning by the recursive definition.
 
-    Sub-event \(e^{8}\)
+    And, in turn, there must be a sub-event in which the agent concludes \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) from \(\Phi\).
+    Likewise for \(L_{7}\), \(L_{6}\), and \(L_{5}\).
 
-    Now, \(e^{8}\) agent concludes.
-    So, by parallel reasoning, \(L\textsubscript{7}\) and \(L\textsubscript{6}\).
-    But, then \(L\textsubscript{7}\), \(L\textsubscript{6}\) and definition.
-    Hence, action, and when the agent does this, \(L\textsubscript{8}\).
+    I particular, consider the event \(\ed{\flat}\) just after the agent has concluded \(\pv{\propM{L_{6} = 18}}{\valI{True}}\) and \(\pv{\propM{L_{5} = 11}}{\valI{True}}\).
 
-    So, must be \(L\textsubscript{8}\) and clear just prior to this, \(L\textsubscript{8}\) is a \fc{}.
+    Suppose \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+    Our task is to show \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+
+    {
+      \color{red}
+      So, \se{}.
+      Hence, agent is concluding.
+      But, need to go all the way.
+
+      So, it is clear there is some action the agent may immediately do.
+      For, add \(L_{6}\) to \(l_{5}\) to obtain \(L_{7}\) and then add \(L_{7}\) to \(L_{6}\) to obtain \(L_{8}\).
+
+
+      Well, \(\Phi\) is fine.
+      The agent makes use of \(L_{7}\) and \(L_{6}\), along with \(L_{5}\), etc.
+      However, these follow from the \agents{} understanding of Lucas numbers.
+    }
   \end{motivation}
 
-  The same applies to \(L\textsubscript{7}\), \(L\textsubscript{6}\), and so on until we reach the base cases of \(L\textsubscript{1}\) and \(L\textsubscript{0}\), as these are given.
+  {
+    \color{blue}
+    Key step of previous argument.
+    Would be good to identify.
+
+    Key idea is \se{}.
+    So, further steps.
+    In turn, \fc{}.
+
+    This is where the intuitive argument stops.
+    For, it really doesn't follow that concluding only if additional step to guarantee \fc{}.
+  }
+
+  The same applies to \(L_{7}\), \(L_{6}\), and so on until we reach the base cases of \(L_{1}\) and \(L_{0}\), as these are given.
 \end{note}
 
 \begin{note}
@@ -154,7 +177,7 @@
   It's an observation about what is.
 
   In this case, given an event, and works backwards given additional details to observe which \fc{1} held.
-  Note, however, that when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, 1, 3, 4, 7, 11, 18, 29, 47 76]}}{\valI{True}} from \(\Phi\) the agent has a \wit{} for all \ros{} mentioned.
+  Note, however, that when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) the agent has a \wit{} for all \ros{} mentioned.
 \end{note}
 
 \paragraph*{Lost keys}
@@ -329,7 +352,7 @@
 
 
 \begin{note}
-  The existence of \requ{1} is suggests tension with \issueConstraint{}.
+  The existence of \requ{1} suggests tension with \issueConstraint{}.
 \end{note}
 
 \begin{note}
@@ -352,7 +375,7 @@
         \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{prop:requ-WhyV-ces:Cing}
-        There is some sub-event \(\ed{\flat}\) of \(\ed{}\) such that:
+        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
         \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
         \item
           \label{prop:requ-WhyV-ces:Cing:requ}
@@ -396,46 +419,6 @@
   Rather, understanding of the event in which conclude \(L_{9}\).
 \end{note}
 
-
-
-
-
-\paragraph{An illustration}
-% \label{sec:an-illustration}
-
-
-
-\begin{note}
-  Return to \autoref{scen:countS}:
-
-  \reScenario{scen:countS}
-
-  \noindent%
-  In the event described by \autoref{scen:countS} Fox concludes \propI{The person Fox is talking to is a fellow member of the Democratic Underground Party} is \valI{True}.
-  Pritcher calmly tells Fox the are a fellow member of the party at the end of the \scen{}.
-  Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
-  And, intuitively, Pritcher saying, No earlier than last year' in response to Fox saying `Miran is early this year' explains why the event develop in an event in which Fox concludes Pritcher is a fellow member of the party.
-
-  Consider the \se{0} \(\ed{\flat}\) from Pritcher's response to `Miran is early this year' with `No earlier than last year' and Fox asking `Who are you?'.
-  The following conditional holds, from \agpe{Fox's}:
-  %
-  \begin{itenum}
-  \item[\emph{If}:]
-    They didn't appropriately respond to `Miran is early this year'.
-  \item[\emph{Then}:]
-    They're not engaging in countersign.
-  \end{itenum}
-  %
-  And, if Fox doesn't think Pritcher is engaging in countersign, it seems clear Fox does not conclude Pritcher a fellow member of the party.
-  Hence, phrased in terms of \ros{}, we have:
-  \begin{itenum}
-  \item[\emph{If}:]
-    A \ros{} between \pv{\propI{What they said was an appropriate response}}{\valI{True}} and some \pool{} \(\Psi\) fails to hold from \agpe{Fox's} through \(\ed{\flat}\).
-  \item[\emph{Then}:]
-    \(\ed{\flat}\) is not, or does not develop into an event in which Fox concludes \propI{The person Fox is talking to is a fellow member of the Democratic Underground Party} is \valI{True} from some \pool{} \(\Phi\).
-  \end{itenum}
-  In this respect, \ros{} answers \qWhy{}.
-\end{note}
 
 % \footnote{
 %     \nocite{Tichy:1976tp}%
