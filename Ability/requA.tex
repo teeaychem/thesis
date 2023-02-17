@@ -5,7 +5,7 @@
   This chapter introduces the idea of a \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) as a \requ{1} of an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
   The role of \requ{1} is to capture a core feature of failures of \issueConstraint{}.
-  Following the introduction of \requ{1} we provide a few examples in isolation from \issueConstraint{} and then clarify the connexion between \requ{1}, \qWhyV{}, and \issueConstraint{}.
+  Following the introduction of \requ{1} we provide a detailed example of a \requ{0} in isolation from \issueConstraint{} and then clarify the connexion between \requ{1}, \qWhyV{}, and \issueConstraint{}.
 
   Still, the existence of \requ{1} does not presuppose \issueConstraint{} fails to hold.%
   \footnote{
@@ -60,16 +60,9 @@
   Still, by \supportII{}, if \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) then a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds.
 \end{note}
 
-\subsection{Illustrations}
-\label{sec:illustrations}
-
 \begin{note}
-  Work through a \scen{} to illustrate the definition of a \requ{}.
-\end{note}
+  We work through a \scen{} to illustrate the definition of a \requ{}.
 
-\paragraph*{Lucas numbers}
-
-\begin{note}
   \begin{scenario}[Lucas numbers]%
     \label{scen:LucasNums}%
     The Lucas numbers are recursively defined as follows:%
@@ -110,9 +103,9 @@
   \end{scenario}
 
   \noindent%
-  The event of interest is \(\ed{}\) is when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\), after studying the definition of Lucas numbers.%
+  The event of interest is \(\ed{}\) is when the agent concludes \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\), after studying the definition of Lucas numbers.%
   \footnote{
-    \propI{L\textsubscript{[:9]} = [2, \dots, 76]} shortens \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}.
+    \propM{L_{[:9]} = [2, \dots, 76]} shortens \propI{The first ten Lucas numbers are 2, 1, 3, 4, 7, 11, 18, 29, 47, and 76}.
   }
 
   \begin{observation}[\requ{3} of \autoref{scen:LucasNums}]%
@@ -121,113 +114,95 @@
     %
     \begin{itemize}
     \item
-      \(\pv{\propI{L\textsubscript{8} = 47}}{\valI{True}}\) being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
+      \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{observation}
 
-  \begin{motivation}{obs:LucasRequ}
-    \(e_{d}\) is such that the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) by the recursive definition.
+  \noindent%
+  The motivation for \autoref{obs:LucasRequ} parallels the way in which we connected a \ros{} to a \se{} when we applied \qWhyV{} to \autoref{illu:gist:roots:F} in \autoref{cha:var} (\autopageref{qWhyV:ex:con}).
 
-    As \propI{L\textsubscript{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers, there must be some sub-event in which the agent concludes \(\pv{\propM{L\textsubscript{9} = 76}}{\valI{True}}\) by adding \(L_{8}\) and \(L_{7}\).
+  \begin{motivation}{obs:LucasRequ}
+    \(e_{d}\) is such that the agent concludes \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) by the recursive definition.
+
+    As \propM{L_{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers, there must be some sub-event in which the agent concludes \(\pv{\propM{L_{9} = 76}}{\valI{True}}\) by adding \(L_{8}\) and \(L_{7}\).
     For, the agent does not have a method to obtain \(L_{9}\) without \(L_{8}\) and \(L_{7}\), given the agent is reasoning by the recursive definition.
 
     And, in turn, there must be a sub-event in which the agent concludes \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) from \(\Phi\).
     Likewise for \(L_{7}\), \(L_{6}\), and \(L_{5}\).
 
     I particular, consider the event \(\ed{\flat}\) just after the agent has concluded \(\pv{\propM{L_{6} = 18}}{\valI{True}}\) and \(\pv{\propM{L_{5} = 11}}{\valI{True}}\).
+    \medskip
 
     Suppose \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     Our task is to show \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
 
-    {
-      \color{red}
-      So, \se{}.
-      Hence, agent is concluding.
-      But, need to go all the way.
+    By assumption, \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+    Hence, \(\ed{\flat}\) is such that the agent is concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}}.
+    As observed the agent must conclude \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) in order to conclude \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}}.
+    So, as agent is concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} and has not yet concluded \(\pv{\propM{L_{8} = 47}}{\valI{True}}\), the agent must also --- in part --- be concluding \(\pv{\propM{L_{8} = 47}}{\valI{True}}\).
+    \medskip
 
-      So, it is clear there is some action the agent may immediately do.
-      For, add \(L_{6}\) to \(l_{5}\) to obtain \(L_{7}\) and then add \(L_{7}\) to \(L_{6}\) to obtain \(L_{8}\).
-
-
-      Well, \(\Phi\) is fine.
-      The agent makes use of \(L_{7}\) and \(L_{6}\), along with \(L_{5}\), etc.
-      However, these follow from the \agents{} understanding of Lucas numbers.
-    }
+    Now, by \assuPP{} an agent is concluding \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) by the recursive definition there is some possible event in which the agent concludes \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) by the recursive definition.
+    Hence, there must be some action available to the agent such that the agent adds \(L_{6}\) and \(L_{5}\) to get \(L_{7}\) and then adds \(L_{7}\) and \(L6\) to get \(L_{8}\).
+    And, as \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) follows from the \agents{} understanding of the Lucas numbers, the agent concludes \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) from \(\Phi\) when the agent does the relevant action.
+    Therefore, \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) is a \fc{} from \(\Phi\).
   \end{motivation}
 
-  {
-    \color{blue}
-    Key step of previous argument.
-    Would be good to identify.
+  \noindent%
+  With minor adjustments the motivation for \autoref{obs:LucasRequ} also shows \(\pv{\propM{L_{7} = 29}}{\valI{True}}\) being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
+  And, likewise for \(L_{6}\), \(L_{5}\), and so on until the base cases of \(L_{1}\) and \(L_{0}\), as these are given by the \agents{} understanding of the Lucas numbers.
 
-    Key idea is \se{}.
-    So, further steps.
-    In turn, \fc{}.
-
-    This is where the intuitive argument stops.
-    For, it really doesn't follow that concluding only if additional step to guarantee \fc{}.
-  }
-
-  The same applies to \(L_{7}\), \(L_{6}\), and so on until we reach the base cases of \(L_{1}\) and \(L_{0}\), as these are given.
+  In parallel, \pv{\rootsCon{}}{\valI{True}} being a \fc{} from \(\Phi\) through \(\ed{\flat}\) is a \requ{} for \(\ed{}\) (being an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\)) with respect to \autoref{illu:gist:roots:F} by the argument given in \autoref{cha:var}.
 \end{note}
 
 \begin{note}
   A \requ{} is nothing special.
   It's an observation about what is.
-
-  In this case, given an event, and works backwards given additional details to observe which \fc{1} held.
-  Note, however, that when the agent concludes \pv{\propI{L\textsubscript{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) the agent has a \wit{} for all \ros{} mentioned.
 \end{note}
 
-\paragraph*{Lost keys}
+% \paragraph*{Lost keys}
 
-\begin{note}
-  \requ{} does not require an event has happened.
-  In particular, consider development of an event.
-  \requ{} helps observe an event is not such that concluding.
+% \begin{note}
+%   \requ{} does not require an event has happened.
+%   In particular, consider development of an event.
+%   \requ{} helps observe an event is not such that concluding.
 
-  \begin{scenario}[Lost keys]%
-    \label{illu:lost-key}%
-    An agent thinks they may have lost their keys.
-    They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
-    Their keys aren't there.
+%   \begin{scenario}[Lost keys]%
+%     \label{illu:lost-key}%
+%     An agent thinks they may have lost their keys.
+%     They usually leave place my keys on the right side of their desk, near a copy of~\citeauthor{Vickers:1989tr}'s~\citetitle{Vickers:1989tr} they've been saving for a rainy day.
+%     Their keys aren't there.
 
-    They've searched over, under, and beside the desk.
-    They haven't found their keys.
+%     They've searched over, under, and beside the desk.
+%     They haven't found their keys.
 
-    Still, the agent holds the following principle:
-    \begin{quote}
-      If they thinks of a place to look for an object, they do not conclude the object is lost without searching the place.
-    \end{quote}
-  \end{scenario}
+%     Still, the agent holds the following principle:
+%     \begin{quote}
+%       If they think of a place to look for an object, they do not conclude the object is lost without searching the place.
+%     \end{quote}
+%   \end{scenario}
 
-  \begin{observation}
-    \label{obv:lK:requ}
-    If some action such that agent consider may be in  \(l\), then agent is not concluding.
-  \end{observation}
+%   \begin{observation}%
+%     \label{obv:lK:requ}%
+%     \pv{\propI{I have no further idea of where to look}}{\valI{True}} being a \fc{} from \(\Psi\) is a \requ{} of the agent concluding \pv{\propI{I have lost my keys}}{\valI{True}} from \(\Phi\).
+%   \end{observation}
 
-  {
-    \color{red}
-  \begin{itemize}
-  \item
-    \pv{\propI{The agent has no further idea of where to look}}{\valI{True}} being a \fc{} from \(\Psi\) is a \requ{} of the agent concluding \pv{\propI{The agent has lost their keys}}{\valI{True}} from \(\Phi\).
-  \end{itemize}
-  }
+%   \begin{motivation}{obv:lK:requ}
+%     Suppose agent is concluding.
+%     Then, by \assuPP{} event in which agent concludes.
+%     Therefore, \requ{} of any such event.
+%     For, else the agent goes and searches.
 
-  \begin{motivation}{obv:lK:requ}
-    Suppose agent is concluding.
-    Then, by \assuPP{} event in which agent concludes.
-    Therefore, \requ{} of any such event.
-    For, else the agent goes and searches.
+%     Antecedent assumes there is some action.
+%     Therefore, problem.
+%   \end{motivation}
 
-    Antecedent assumes there is some action.
-    Therefore, problem.
-  \end{motivation}
+%   Note, this doesn't rule out \(l\) and no as a \fc{}.
+%   The problem is, not in a position to determine which conclusion.
+% \end{note}
 
-  Note, this doesn't rule out \(l\) and no as a \fc{}.
-  The problem is, not in a position to determine which conclusion.
-\end{note}
+
 
 \section{\requ{3}, \qWhyV{}, and \issueConstraint{}}
 \label{sec:comining-ingredients}
@@ -241,6 +216,7 @@
 \end{note}
 
 \subsection{\requ{3} and \qWhyV{}}
+
 
 \begin{note}
   \begin{proposition}[\requ{3} and \qWhyV{}]
@@ -256,7 +232,7 @@
         \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{def:rCs:Cing}
-        There is some sub-event \(\ed{\flat}\) of \(\ed{}\) such that:
+        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
         \begin{itemize}
         \item
           \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
@@ -268,6 +244,9 @@
     \vspace{-\baselineskip}
   \end{proposition}
 
+  \noindent%
+  The argument for \autoref{prop:requ-WhyV} revisits part of the argument made when we connected a \ros{} to a \se{} with respect to \qWhyV{} and \autoref{illu:gist:roots:F} in \autoref{cha:var} (\autopageref{qWhyV:ex:con}).
+
   \begin{argument}{prop:requ-WhyV}
     Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold.
 
@@ -277,6 +256,11 @@
     Our task is to show the conditional of \qWhyV{} is true.
 
     Let \(\ed{\flat}\) by an event which satisfies the existential of Condition~\ref{def:rCs:Cing}.
+    So, \(\ed{\flat}\) is a \se{} of \(\ed{}\) such that:
+    \begin{itemize}
+    \item
+      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
+    \end{itemize}
 
     Further, suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(\ed{\flat}\).
 
@@ -295,20 +279,51 @@
     And, as \(\ed{\flat}\) satisfies the existential of \ref{def:rCs:Cing} and is \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\), it follows that \(\ed{\flat}\) is not, or does not develop into, \(\ed{}\).
     This contradicts \(\ed{\flat}\) being a \se{0} of \(\ed{}\), and hence contradicts Condition~\ref{def:rCs:Cing}.
   \end{argument}
+
+  \noindent%
+  \autoref{prop:requ-WhyV-ces} is more-or-less immediate from \autoref{prop:requ-WhyV}:
+
+  \begin{proposition}[\requ{3} and \issueConstraint{}]
+    \label{prop:requ-WhyV-ces}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      Conditions~\ref{prop:requ-WhyV-ces:C},~\ref{prop:requ-WhyV-ces:Cing} and \ref{prop:requ-WhyVCes:noW} jointly hold:
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{prop:requ-WhyV-ces:C}
+        \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \item
+        \label{prop:requ-WhyV-ces:Cing}
+        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+        \begin{itemize}
+        \item
+          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
+        \end{itemize}
+      \item
+        \label{prop:requ-WhyVCes:noW}
+      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      \end{enumerate}
+    \item[\emph{Then}:]
+      \issueConstraint{} does not hold.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \begin{argument}{prop:requ-WhyV-ces}
+    Suppose both antecedents holds.
+
+    Note conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing} from the first antecedent entail a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} via \autoref{prop:requ-WhyV}.
+    So, by \issueConstraint{} it must be the case that \vAgent{} has a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
+    However, by the second antecedent, \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  \end{argument}
 \end{note}
 
 
-
-\subsection{\requ{3} and \issueConstraint{}}
-\label{cha:binding:sec:requ-iC}
-
-
-
-\paragraph*{Compatibility}
-
-
 \begin{note}
-  The existence of \requ{1} are compatible with \issueConstraint{}.
+  \autoref{prop:requ-WhyV-ces} provides a collection of conditions which, if satisfied.
+  Specifically, in terms of \requ{1}.
+  Still, the existence of \requ{1} is compatible with \issueConstraint{}.
 
   \begin{observation}%
     \label{prop:requ-not-n-ce}%
@@ -328,96 +343,53 @@
     \item
       The agent may already have a \wit{} for a \ros{} which follows from a \fc{}.
 
-      In other words, the agent may have already concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+      In other words, the agent may have already concluded \(\pv{\psi}{v'}\) from \(\Psi\).
+
+      This is the case with respect to \autoref{obs:LucasRequ}.
+      For, the agent has concluded \(\pv{\propM{L_{8} = 47}}{\valI{True}}\) from \(\Phi\) prior to the \agents{} conclusion of \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\).
     \item
-      Agent may obtain a \wit{} prior to conclusion.
+      Agent may obtain a \wit{} when the agent concludes.
 
-      For example, first \scen{0}.
-      If concluding sequence, \fc{}.
-      Prior to getting \(L_{8}\), \fc{}.
+      In other words, the event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) from \(\Psi\).
 
-      However, expectation of \wit{} when sequence.
-      Indeed, \(L_{9}\) from \(L_{8} + L_{7}\).
+      This is the case with respect to \autoref{illu:gist:roots:F}.
+      For, \pv{\rootsCon{}}{\valI{True}} being a \fc{} from \(\Phi\) is a \requ{} of some \se{}, though the event of interest is such that the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
     \end{enumerate}
     \vspace{-\baselineskip}
   \end{motivation}
-
-  \noindent%
-  Hence, \autoref{prop:requ-WhyV-ces} does not guarantee the existence of counterexamples to \issueConstraint{}.
 \end{note}
-
-
-
-\paragraph*{Tension}
 
 
 \begin{note}
-  The existence of \requ{1} suggests tension with \issueConstraint{}.
+  Given \autoref{prop:requ-not-n-ce}, the idea of a \requ{} is compatible with \issueInclusion{}.
+  Still, the idea of a \requ{1} hints the failure of \issueConstraint{}.
 \end{note}
+
 
 \begin{note}
-  \begin{observation}[Tension]
-    \label{obs:reqTension}%
-    \autoref{prop:requ-WhyV} is in tension with \issueConstraint{}.
-  \end{observation}
+  For example, consider \autoref{scen:LucasNums}.
+  In particular, \(\ed{\flat}\) again.
+  \(l_{8}\) was a \fc{}.
+  It seems \(\pv{\propM{L_{10} = 123}}{\valI{True}}\) is likewise a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
 
-  Before motivating \autoref{obs:reqTension} we establish a consequence of \autoref{prop:requ-WhyV}:
+  Is it possible that the agent is concluding and \(L_{10}\) is not a \fc{}?
 
-  \begin{proposition}[\requ{3} and \issueConstraint{}]
-    \label{prop:requ-WhyV-ces}
-    \vspace{-\baselineskip}
-    \begin{itenum}
-    \item[\emph{If}:]
-      Conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing}~jointly hold:
-      \begin{enumerate}[label=\arabic*., ref=\arabic*]
-      \item
-        \label{prop:requ-WhyV-ces:C}
-        \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-      \item
-        \label{prop:requ-WhyV-ces:Cing}
-        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
-        \begin{enumerate}[label=\alph*., ref=(\arabic{enumi}\alph*)]
-        \item
-          \label{prop:requ-WhyV-ces:Cing:requ}
-          \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
-        \end{enumerate}
-      \end{enumerate}
-    \item[\emph{And}:]
-      \label{prop:requ-WhyVCes:noW}
-      \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-    \item[\emph{Then}:]
-      \issueConstraint{} does not hold.
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{proposition}
+  There is a clear sense in which the answer is yes.
+  For, agent may be limited, or something may happen.
 
-  \begin{argument}{prop:requ-WhyV-ces}
-    Suppose both antecedents holds.
+  Still, exclude such cases with a description.
 
-    Note conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing} from the first antecedent entail a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} via \autoref{prop:requ-WhyV}.
-    So, by \issueConstraint{} it must be the case that \vAgent{} has a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-    However, by the second antecedent, \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \end{argument}
+  So, granting there is nothing which prevents the agent from continuing to calculate Lucas numbers, is it possible that the agent is concluding and \(L_{10}\) is not a \fc{}?
 
+  I doubt this is the case.
+  The same thing that gets \(L_{8}\) and \(L_{9}\) gets \(L_{10}\).
 
-  \begin{motivation}{obs:reqTension}
-    By \autoref{prop:requ-WhyV-ces}, \fc{} which is a \requ{} such that the agent does not have a \ros{}.
+  Then, \requ{}.
+  So, just need \se{}.
 
-    \supportII{}.
-    This is possible.
-  \end{motivation}
-
-  Example, \(L_{10}\).
-  When conclude \(L_{9}\), one more?
-  If so, \fc{}.
-  Now, suppose \(L_{10}\) is \emph{not} a \fc{}.
-
-  Is this compatible with conclusion of \(L_{9}\) from \(\Phi_{L_{9}}\).
-
-  At issue is not whether \eval{} \(L_{9}\).
-  That clearly happened.
-  Rather, understanding of the event in which conclude \(L_{9}\).
+  Still, this is quite and focuses on a single \scen{}.
 \end{note}
+
 
 
 % \footnote{

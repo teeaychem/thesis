@@ -20,8 +20,15 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      Conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly with respect to \(\ed{}\):
+      Conditions \ref{prop:hinge:tC} and \ref{prop:hinge:A} jointly hold:
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{prop:hinge:tC}
+        \(\ed{}\) is an event in which \vAgent{} is \tCp{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
+      \item
+        \label{prop:hinge:A}
+        Conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly with respect to some \se{} \(\ed{\flat}\) of \(\ed{}\):
+        \begin{enumerate}[label=\alph*., ref=\theenumi\alph*]
       \item
         \label{prop:hinge:A:rep}
         \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(\ed{}\).
@@ -30,26 +37,32 @@
         \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
       \item
         \label{prop:hinge:A:novel}
-        {
-          \color{red}
-          For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\).
-        }
+          For each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in \(\Psi\), \vAgent{} \evals{} \(\psi'\) as having value \(v''\) prior to \(\ed{\flat}\).
       \end{enumerate}
-    \item[\emph{Then}:]
-      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is a \requ{} of \(\ed{}\) being an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+    \end{enumerate}
+  \item[\emph{Then}:]
+    \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
     \end{itenum}
-    \vspace{-\baselineskip}
   \end{proposition}
 
   \begin{argument}{prop:hinge}
-    \color{blue}
-    Assume conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} jointly hold.
+    Assume conditions \ref{prop:hinge:tC} and \ref{prop:hinge:A} jointly hold.
 
-    Assume \(\ed{}\) is an event in which the agent is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
-    By \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}), \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) throughout \(\ed{}\).
+    In particular, consider some \se{} \(\ed{\flat}\) of \(\ed{}\) such that conditions \ref{prop:hinge:A:rep}, \ref{prop:hinge:A:tI}, and \ref{prop:hinge:A:novel}.
+    By Conditions \ref{prop:hinge:tC} \(\ed{}\) is an event in which \vAgent{} \tCp{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
+    And, by assumption \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+    So, \(\ed{\flat}\) is an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
+    Pairing this observation with conditions \ref{prop:hinge:A:rep}, \ref{prop:hinge:A:tI}, and \ref{prop:hinge:A:novel}, it follows \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) by \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}).
 
-    Hence, consider an event \(\ed{\flat}\) such that \(\ed{\flat}\) is a \se{} of \(\ed{}\).
-    Then, by \autoref{def:requ}, \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) is a \requ{}.
+    And, by assumption \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+    So, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\) is immediate by \autoref{def:requ}.%
+    \footnote{
+      All the conditionals stated in definitions, propositions, etc.\ of this document are material conditionals.
+      So, if \(A\) and \(B\) are true, \emph{if} \(A\) \emph{then} \(B\) is likewise true.
+      If you don't like this appeal to the material condition, then adjust Condition~\ref{prop:hinge:A} to state that \(\ed{\flat}\) is an event in which the agent is \tC{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
+      \autoref{prop:tC-and-fc} ensures \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) by the revised constraint on \(\ed{\flat}\) and conditions, \ref{prop:hinge:A:rep}, \ref{prop:hinge:A:tI}, and \ref{prop:hinge:A:novel} alone.
+      Hence, holds under the additional assumption that \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+    }
   \end{argument}
 \end{note}
 
@@ -65,16 +78,14 @@
   Key idea with \tC{} is that agent is \tC{} only if conclusions from various \prop{0}-\val{0}-\pool{0}.
   However, as \fc{1} are defined with respect to actions, additional constraints on relevant \prop{0}-\val{0}-\pool{0} to ensure \tC{} requires the \prop{0}-\val{0}-\pool{0} is a \fc{}.
 
-  Hence, clauses~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} capture sufficient conditions for \fc{}.
+  Hence, conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} capture sufficient conditions for \fc{}.
   And, \autoref{prop:hinge} simply observes that as \fc{}, then trivially the case that if \se{}, then \requ{}.
 \end{note}
 
 
+
 \paragraph*{Sound rules}
 
-\begin{note}
-  \color{red}
-\end{note}
 
 \begin{note}
   \phantlabel{squish-elimination-proof}
@@ -114,8 +125,7 @@
     \end{center}
   \end{definition}
 
-  \sqE{} is sound.
-  If not the case that pause and show \sqE{} is sound, then not \tC{}.%
+  \sqE{} is sound.%
   \footnote{
     \label{prop:sqE-sound}
     Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we prove that the corresponding semantic entailment holds:
@@ -127,87 +137,52 @@
     Therefore, by the first assumption, it must be the case that \(v(\phi) = \valI{True}\).
     This contradictions the second assumption.
   }
+  Of interest is whether the soundness of \sqE{} being a \fc{} from the agent from some \pool{} is a \requ{} of the agent \tCV{} \pv{\propM{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}} from the relevant \pool{}.
 
-  % The relevant propositions, values, and \pool{1} are as follows:
-  % \begin{itemize}[noitemsep]
-  % \item
-  %   I am the agent.
-  % \item
-  %   \(\phi\) is the proposition: \(\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}\).
-  % \item
-  %   \(\psi\) is the proposition: \propI{\sqE{} is sound}
-  % \item
-  %   Both \(v\) and \(v'\) are the value: \valI{True}.
-  %   And,
-  % \item
-  %   The pools of premises \(\Phi\) and \(\Psi\) are left unspecified.%
-  %   \footnote{
-  %     \((P \rightarrow Q) \rightarrow P\) and \(R\) are premises of the deduction, and not elements of \(\Phi\).
+  Given \autoref{prop:hinge}, we need to establish two conditions.
 
-  %     For, my conclusion is \pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
-  %     My conclusion is not \pv{\mathsf{P \land R}}{\valI{True}}.
-  %   }
-  % \item
-  %   Key observations:
-  %   \begin{itemize}[noitemsep]
-  %   \item
-  %     sunny day, good breakfast, nice coffee.
-  %     I.e.\ as ideal as situations may be for syntactic proofs.
-  %   \item
-  %     Proved \sqE{} numerous times before.
-  %   \end{itemize}
-  % \end{itemize}
+  The first condition is that the agent is \tC{} \pv{\propM{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
+  This, we assume.
 
-  % Hence, the relevant instance of the conditional by which a \requ{} is defined is:
+  The sub-conditions of the second condition.
 
-  % \begin{quote}
-  %   \begin{itenum}
-  %   \item[\emph{If}:]
-  %     If \pv{\propI{\sqE{} is sound}}{\valI{True}} from \(\Psi\) is not a \fc{}.
-  %   \item[\emph{Then}:]
-  %     I am not concluding \(\pv{\mathsf{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}\) from \(\Phi\).
-  %   \end{itenum}
-  % \end{quote}
-
-  % In contrast to \autoref{illu:lost-key}, \autoref{scen:squish} leads to a conclusion.
-
-  At issue is whether \requ{}.
-  By \autoref{prop:hinge}, three things.
   \begin{itemize}
   \item
-    \tRep{}
+    \tRep{} and \sqE{} is \tI{} of \(T'\).
+    For present purposes, we need only consider \(T'\) with soundness of \sqE{}.
+    There may be other types which are \tRep{1}.
+    However, \autoref{prop:hinge} does not place any constraints on the \tRep{} of interest.%
+    \footnote{
+      For example, the type may also include \(\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi\), \(\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi\), and \((\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi\) are unsound, along with various other syntactic derivations.
+    }
+
+    Plausibly.
+    The agent is working through a syntactic proof.
+    However, soundness of a rule is distinct from syntactic proof.
+    Rather than apply syntactic rules, the relevant reasoning is semantic.
+    Assume the assumptions of the rule are true for any model, and show the result of applying the rule must be true.
+
+    However, if the agent has a basic grasp of (the meta-theory of) propositional logic, the soundness of \sqE{} is quick (see \autoref{prop:sqE-sound}, above).
+
+    You could narrow, but common-sense.
+    If fail at soundness of \sqE{} then perhaps the agent is doing a little better than creating logic soup, but the agent's reasoning is off.
   \item
-    \sqE{} is \tI{} of \(T'\).
-  \item
-    Conditional.
+    That the relevant \pool{}.
+    This should be the case.
+    The \agents{} understanding of (the meta-theory of) propositional logic.
   \end{itemize}
 
-  Plausibly, four \prop{0}-\val{0}-\pool{0} pairs in type:
-
-  \begin{center}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      \prop{2}-\val{0} pair & \pool{2} \\
-      \hline
-      \pv{(\phi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\textover[c]{\valI{Sound}}{\valI{Unsound}}} & \dots \\
-      \pv{\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi}{\valI{Unsound}} & \dots \\
-      \pv{\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi}{\valI{Unsound}} & \dots \\
-      \pv{(\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi}{\valI{Unsound}} & \dots \\
-    \end{tabular}
-  \end{center}
-
-  Throughout \autoref{scen:squish} I \emph{know} \sqE{} is sound.
+  Throughout \autoref{scen:squish} I (think I) \emph{know} \sqE{} is sound.
   Prior to \autoref{scen:squish} I have proved \sqE{} is sound on various occasions using the same basic observations made in the argument for \autoref{prop:sqE-sound}.
 
-  However, there is a distinction between \emph{knowing} \sqE{} is sound and \emph{proving} \sqE{} is sound.
-  For example, if I have just drunk a considerable amount of wine, or woken from a night of tormented sleep.
-  Generally said, I may not be thinking straight.
+  However, there is a distinction between thinking one \emph{knows} \sqE{} is sound and proving \sqE{} is sound.
+  I may not be thinking straight.
+  For example, I may have just woken from a night of tormented sleep.
 
   Of course, I may conclude \(\pv{\phi}{v}\) from \(\Phi\) regardless of whether \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-  Indeed, given some particularly good wine I may conclude \(P \land C \vdash O\).%
-  \footnote{
-    For, \(P \land C\) reads `Pac', \(O\) looks like a pellet, and Pacman likes to eat pellets.
-  }
+  Indeed, given some very tormented sleep I may conclude \pv{\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi}{\valI{Sound}}.
   However, then not \tCV{}.
+  I have some logic soup, and later in the day I'll (hopefully) check my work.
 \end{note}
 
 
@@ -270,34 +245,27 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      Conditions \ref{def:tCon:C}, \ref{def:tCon:Cing}, and \ref{def:tCon:nWit} jointly hold:
+      Conditions \ref{prop:hinge:X:tC}, \ref{prop:hinge:A}, and \ref{def:tCon:nWit} jointly hold:
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
-        \label{def:tCon:C}
-        \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+        \label{prop:hinge:X:tC}
+        \(\ed{}\) is an event in which \vAgent{} is \tCp{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
       \item
-        \label{def:tCon:Cing}
-        There is some sub-event \(\ed{\flat}\) of \(\ed{}\) such that conditions%
-          ~\ref{def:tCon:sR:rep},%
-          ~\ref{def:tCon:sR:tI}, and%
-          ~\ref{def:tCon:sR:itc} %
-          jointly hold:
-          \begin{enumerate}[label=\roman*., ref=\arabic{enumi}\roman*]
-          \item
-            \label{def:tCon:sR:rep}
-            \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(\ed{\flat}\).
-          \item
-            \label{def:tCon:sR:tI}
-            \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
-          \item
-            \label{def:tCon:sR:itc}
-            {
-              \color{red}
-              For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\).
-            }
-        \end{enumerate}
+        \label{prop:hinge:X:A}
+        Conditions~\ref{prop:hinge:X:A:rep},~\ref{prop:hinge:X:A:tI},~and~\ref{prop:hinge:X:A:novel} jointly with respect to some \se{} \(\ed{\flat}\) of \(\ed{}\):
+        \begin{enumerate}[label=\alph*., ref=\theenumi\alph*]
       \item
-        \label{def:tCon:nWit}
+        \label{prop:hinge:X:A:rep}
+        \(T'\) is a \tRep{} of \vAgent{} \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\) in \(\ed{}\).
+      \item
+        \label{prop:hinge:X:A:tI}
+        \(\pvp{\psi}{v'}{\Psi}\) is a \tI{} of \(T'\)
+      \item
+        \label{prop:hinge:X:A:novel}
+        For each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in \(\Psi\), \vAgent{} \evals{} \(\psi'\) as having value \(v''\) prior to \(\ed{\flat}\).
+      \end{enumerate}
+    \item
+      \label{def:tCon:nWit}
         \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \end{enumerate}
     \item[\emph{Then}:]
@@ -307,57 +275,16 @@
   \end{proposition}
 
   \begin{argument}{prop:tCV-WhyV-ces}
-    Assume conditions \ref{def:tCon:C}, \ref{def:tCon:Cing}, and \ref{def:tCon:nWit} jointly hold.
+    Assume conditions \ref{prop:hinge:X:tC}, \ref{prop:hinge:A}, and \ref{def:tCon:nWit} jointly hold.
 
-    Given Condition \ref{def:tCon:nWit}, consider sub-event \(\ed{\flat}\) of \(\ed{}\) such that conditions \ref{def:tCon:sR:rep}, \ref{def:tCon:sR:tI}, and \ref{def:tCon:sR:itc} jointly hold.
-    From \autoref{prop:hinge} (\autopageref{prop:hinge}), it follows that \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is a \requ{} of \(\ed{}\) being an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+    From conditions \ref{prop:hinge:X:tC}, \ref{prop:hinge:A}, and \autoref{prop:hinge} (\autopageref{prop:hinge}) it follows there is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
 
-    Hence, by \autoref{prop:requ-WhyV} (\autopageref{prop:requ-WhyV}), a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{}.
+    So, from this observation and Condition~\ref{prop:hinge:X:tC}, a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} by \autoref{prop:requ-WhyV} (\autopageref{prop:requ-WhyV}).
 
     However, by Condition~\ref{def:tCon:nWit}, the agent does not have a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
 
-    So, \issueConstraint{} does not hold.
+    So, \issueConstraint{} fails to hold.
   \end{argument}
-\end{note}
-
-
-
-
-
-
-\subsection{Additional upshots}
-
-\begin{note}
-  \color{red}
-  \tCV{2} motivates, and also takes care of a potential objection, which is somewhat standard.
-
-  Something like, explanation supervenes on facts.
-  If possible to change facts while explanation holds, then those facts are not explanatory.
-
-  Things hinge of \requ{}.
-  Change whether something is a \requ{}.
-  Intuitively, agent still concludes.
-
-  In short, it's not the case that \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-  For, possible for \ros{} to fail while agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-  In general this may be true.
-
-  However, in this case, the agent is not \tCV{}.
-
-  For, if \ros{} fails then not \fc{}, and hence agent is not \tCV{}.
-\end{note}
-
-\begin{note}
-  Second, agency.
-
-  \tCV{}, then agency.
-
-  Else, it's accidental to what the agent is doing that they're \tCV{}.
-  And, in some cases I think this may be right, but not in general.
-
-  The agent \emph{is} \tCV{}.
-  It is not merely the case that the agent \emph{happens to be} \tCV{}.
 \end{note}
 
 
