@@ -1,14 +1,23 @@
-\chapter{\requ{3} and \tC{}}
+\chapter{\tC{2} and \requ{1}}
 \label{sec:typicalRequs}
 
 
 \begin{note}
-  Chapter links \tC{0} and \requ{1}.
+  This chapter links \tC{} to \requ{}, and focuses on two propositions.
+
+  The first is a sufficient condition for a \requ{} when an agent is \tC{}.
+
+  The second is a variation on \autoref{prop:requ-WhyV-ces} from \autoref{cha:requs} and characterises when \issueConstraint{} fails to hold via an agent \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+
+\begin{note}
+  At the close of the chapter all the idea relating to counterexamples to \issueConstraint{} will have been stated, and the following chapter (\autoref{cha:ces}) provides some counter-samples.
 \end{note}
 
 
 
-\section{\tC{2} and \requ{1}}
+\section{\tC{2}, \requ{1}}
 \label{sec:tc2-requ1}
 
 
@@ -45,6 +54,14 @@
     \end{itenum}
   \end{proposition}
 
+  \noindent%
+  \autoref{prop:hinge} is a more-or-less a direct consequence of \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}).
+
+  In short, given \autoref{prop:tC-and-fc}, conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} capture sufficient conditions for \fc{}.
+  Hence, it is trivially the case that if the event to which conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} is also a \se{} of an event in which the agent \tCV{} \(\pv{\phi}{v}\) from \(\Phi\), then the \fc{} satisfies the definition of a \requ{}.
+
+  In long:
+
   \begin{argument}{prop:hinge}
     Assume conditions \ref{prop:hinge:tC} and \ref{prop:hinge:A} jointly hold.
 
@@ -52,7 +69,7 @@
     By Conditions \ref{prop:hinge:tC} \(\ed{}\) is an event in which \vAgent{} \tCp{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
     And, by assumption \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     So, \(\ed{\flat}\) is an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
-    Pairing this observation with conditions \ref{prop:hinge:A:rep}, \ref{prop:hinge:A:tI}, and \ref{prop:hinge:A:novel}, it follows \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) by \autoref{prop:tC-and-fc} (\autopageref{prop:tC-and-fc}).
+    Pairing this observation with conditions \ref{prop:hinge:A:rep}, \ref{prop:hinge:A:tI}, and \ref{prop:hinge:A:novel}, it follows \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) by \autoref{prop:tC-and-fc}.
 
     And, by assumption \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     So, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\) is immediate by \autoref{def:requ}.%
@@ -68,179 +85,10 @@
 
 
 \begin{note}
-  Recap.
+  Paired with \autoref{prop:requ-WhyV} (\autopageref{prop:requ-WhyV}), \autoref{prop:hinge} provides sufficient conditions for answers to \qWhyV{}.
+  Still, our key interest is with the failure of \issueConstraint{}, and \autoref{prop:hinge}, likewise, provides sufficient conditions:
 
-  \se{} to focus on sub-events in which agent is concluding so that if agent concludes, concludes as a result.
-
-  \requ{} states that if \se{} then \fc{}.
-  In other words, \se{} \emph{only if} \fc{}.
-
-  Key idea with \tC{} is that agent is \tC{} only if conclusions from various \prop{0}-\val{0}-\pool{0}.
-  However, as \fc{1} are defined with respect to actions, additional constraints on relevant \prop{0}-\val{0}-\pool{0} to ensure \tC{} requires the \prop{0}-\val{0}-\pool{0} is a \fc{}.
-
-  Hence, conditions~\ref{prop:hinge:A:rep},~\ref{prop:hinge:A:tI},~and~\ref{prop:hinge:A:novel} capture sufficient conditions for \fc{}.
-  And, \autoref{prop:hinge} simply observes that as \fc{}, then trivially the case that if \se{}, then \requ{}.
-\end{note}
-
-
-
-\paragraph*{Sound rules}
-
-
-\begin{note}
-  \phantlabel{squish-elimination-proof}
-
-  \begin{illustration}[Squish elimination]%
-    \label{scen:squish}%
-    It is late morning on a sunny day.
-    I ate a good breakfast, and drank some nice coffee.
-    I have completed a handful of syntactic proofs for entailments of propositional logic using the basic rules of inference in a Fitch-style system.
-
-    I create the following syntactic proof:
-    \begin{center}
-      \begin{fitch}
-        \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
-        \phantlabel{illu:sP:2}\fj R \\
-        \phantlabel{illu:sP:3}\fa P & \sqE{}:\hyperref[illu:sP:1]{1} \\
-        \phantlabel{illu:sP:4}\fa P \land R & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
-      \end{fitch}
-    \end{center}
-
-    Still, I haven't yet concluded \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
-
-    For, \sqE{} may not be a sound rule of inference.
-
-    I go on to conclude \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
-  \end{illustration}
-
-  \begin{definition}[\sqE{}]%
-    \label{def:sque}%
-    \sqE{} is the following rule:
-    \begin{center}
-      \begin{fitch}
-        \ftag{\text{\scriptsize \emph{i}}}{\fa (\phi \rightarrow \psi) \rightarrow \phi} \\
-        \ftag{\text{\scriptsize }}{\fa \vdots } \\
-        \ftag{\text{\scriptsize \emph{j}}}{\fa \phi } & \sqE{}:\emph{i} \\
-      \end{fitch}
-    \end{center}
-  \end{definition}
-
-  \sqE{} is sound.%
-  \footnote{
-    \label{prop:sqE-sound}
-    Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we prove that the corresponding semantic entailment holds:
-
-    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \valI{True}\).
-    Further, assume for contradiction \(v(\phi) = \valI{False}\).
-
-    As \(v(\phi) = \valI{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \valI{True}\).
-    Therefore, by the first assumption, it must be the case that \(v(\phi) = \valI{True}\).
-    This contradictions the second assumption.
-  }
-  Of interest is whether the soundness of \sqE{} being a \fc{} from the agent from some \pool{} is a \requ{} of the agent \tCV{} \pv{\propM{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}} from the relevant \pool{}.
-
-  Given \autoref{prop:hinge}, we need to establish two conditions.
-
-  The first condition is that the agent is \tC{} \pv{\propM{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
-  This, we assume.
-
-  The sub-conditions of the second condition.
-
-  \begin{itemize}
-  \item
-    \tRep{} and \sqE{} is \tI{} of \(T'\).
-    For present purposes, we need only consider \(T'\) with soundness of \sqE{}.
-    There may be other types which are \tRep{1}.
-    However, \autoref{prop:hinge} does not place any constraints on the \tRep{} of interest.%
-    \footnote{
-      For example, the type may also include \(\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi\), \(\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi\), and \((\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi\) are unsound, along with various other syntactic derivations.
-    }
-
-    Plausibly.
-    The agent is working through a syntactic proof.
-    However, soundness of a rule is distinct from syntactic proof.
-    Rather than apply syntactic rules, the relevant reasoning is semantic.
-    Assume the assumptions of the rule are true for any model, and show the result of applying the rule must be true.
-
-    However, if the agent has a basic grasp of (the meta-theory of) propositional logic, the soundness of \sqE{} is quick (see \autoref{prop:sqE-sound}, above).
-
-    You could narrow, but common-sense.
-    If fail at soundness of \sqE{} then perhaps the agent is doing a little better than creating logic soup, but the agent's reasoning is off.
-  \item
-    That the relevant \pool{}.
-    This should be the case.
-    The \agents{} understanding of (the meta-theory of) propositional logic.
-  \end{itemize}
-
-  Throughout \autoref{scen:squish} I (think I) \emph{know} \sqE{} is sound.
-  Prior to \autoref{scen:squish} I have proved \sqE{} is sound on various occasions using the same basic observations made in the argument for \autoref{prop:sqE-sound}.
-
-  However, there is a distinction between thinking one \emph{knows} \sqE{} is sound and proving \sqE{} is sound.
-  I may not be thinking straight.
-  For example, I may have just woken from a night of tormented sleep.
-
-  Of course, I may conclude \(\pv{\phi}{v}\) from \(\Phi\) regardless of whether \(\pv{\psi}{v'}\) from \(\Psi\) is a \fc{}.
-  Indeed, given some very tormented sleep I may conclude \pv{\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi}{\valI{Sound}}.
-  However, then not \tCV{}.
-  I have some logic soup, and later in the day I'll (hopefully) check my work.
-\end{note}
-
-
-
-\section{\tC{2} and \issueConstraint{}}
-\label{sec:tpyically-concluding}
-
-\begin{note}
-  Understand \requ{} and counterexamples to \issueConstraint{}.
-
-  Introduced \tCV{} to motivate \requ{}.
-
-  In this section, recast a key proposition from \autoref{cha:requs} (\autoref{prop:requ-WhyV-ces}) in terms of \tCV{}.
-\end{note}
-
-
-% \begin{note}
-%   \begin{definition}[The \tCon{0}]
-%     \label{def:tCon}
-%     \vspace{-\baselineskip}
-%     \begin{itemize}
-%     \item
-%       The \emph{\tCon{0}} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e \rangle\).
-%     \end{itemize}
-
-%     \emph{If and only if}:
-
-%         \vspace{-1.5\baselineskip}
-%   \end{definition}
-% \end{note}
-
-% \begin{note}
-%   \begin{proposition}[\tCV{3} and \qWhyV{}]
-%     \label{prop:tCV-WhyV}
-%     \vspace{-\baselineskip}
-%     \begin{itenum}
-%     \item[\emph{If}:]
-%       The \tCon{0} hold of \(e\) with respect to \(\langle \vAgent{}, \pvp{\phi}{v}{\Phi}, \pvp{\psi}{v'}{\Psi}, e \rangle\).
-%     \item[\emph{Then}:]
-%       A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{}.
-%     \end{itenum}
-%     \vspace{-1.5\baselineskip}
-%   \end{proposition}
-
-%   Instead of \requ{} directly, strengthen to \tCV{} and sufficient conditions for \requ{} given \tCV{}.
-
-%   \begin{argument}{prop:tCV-WhyV}
-%     The argument parallels the argument for \autoref{prop:requ-WhyV} (\autopageref{prop:requ-WhyV}) with minor adjustment.
-
-%     % Rather appeal to Sub-condition~\ref{def:rCs:Cing:requ} of the \rCon{} to observe \(e^{\flat}\) is not an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\), appeal to Sub-condition~\ref{def:tCon:sR} of the \tCon{} to observe \(e^{\flat}\) is not an event in which \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\).
-%     % And, with this observation in hand appeal to Sub-condition~\ref{def:tCon:Cing:itc} to observe \(e^{\flat}\) is not, or does not develop into, an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
-% \end{argument}
-% \end{document}
-
-\begin{note}
-  The relevant parallel to \autoref{prop:requ-WhyV-ces}:
-
-  \begin{proposition}[\tCV{3} and \issueConstraint{}]
+    \begin{proposition}[\tCV{3} and \issueConstraint{}]
     \label{prop:tCV-WhyV-ces}
     \vspace{-\baselineskip}
     \begin{itenum}
@@ -287,6 +135,164 @@
   \end{argument}
 \end{note}
 
+
+
+
+
+\section{An \illu{0}}
+
+
+\begin{note}
+  \autoref{prop:hinge} may be applied to the \scen{1} of \autoref{cha:typical}  used to illustrate \tCN{}.
+  
+\end{note}
+
+
+\begin{note}
+  \phantlabel{squish-elimination-proof}
+
+  \begin{scenario}[Squish elimination]%
+    \label{scen:squish}%
+    Some time ago the agent showed \sqE{} is sound.
+
+    It is now late morning on a sunny day.
+    The agent ate a good breakfast, and drank some nice coffee and does the following syntactic proof:
+    %
+    \begin{center}
+      \begin{fitch}
+        \phantlabel{illu:sP:1}\fa (P \rightarrow Q) \rightarrow P \\
+        \phantlabel{illu:sP:2}\fj R \\
+        \phantlabel{illu:sP:3}\fa P & \sqE{}:\hyperref[illu:sP:1]{1} \\
+        \phantlabel{illu:sP:4}\fa P \land R & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
+      \end{fitch}
+    \end{center}
+    %
+    The agent concludes \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\).
+  \end{scenario}
+
+  \noindent%
+  Intuitively, agent \tCN{} \((P \rightarrow Q) \rightarrow P, R \vdash P \land R\) from some \pool{} which captures the \agents{} understanding of the relevant Fitch-style proof system \emph{and} the \torN{} captures the \agents{} understanding of the relevant Fitch-style proof system.
+
+
+
+  
+  Still, the agent uses \sqE{}.
+  And, \sqE{} is a non-standard rule.%
+  \footnote{
+    \label{prop:sqE-sound}
+    Rather than prove \sqE{} is sound (which would require a detailed statement of the proof system in question), we show that the key corresponding semantic entailment holds:
+
+    Let \(v\) be an arbitrary (truth-functional) valuation, and assume \(v((\phi \rightarrow \psi) \rightarrow \phi) = \valI{True}\).
+    Further, assume for contradiction \(v(\phi) = \valI{False}\).
+
+    As \(v(\phi) = \valI{False}\), it immediately follows that \(v(\phi \rightarrow \psi) = \valI{True}\).
+    Therefore, by the first assumption, it must be the case that \(v(\phi) = \valI{True}\).
+    This contradictions the second assumption.
+  }
+
+  Specifically:
+
+  \begin{definition}[\sqE{}]%
+    \label{def:sque}%
+    \sqE{} is the following rule:
+    \begin{center}
+      \begin{fitch}
+        \ftag{\text{\scriptsize \emph{i}}}{\fa (\phi \rightarrow \psi) \rightarrow \phi} \\
+        \ftag{\text{\scriptsize }}{\fa \vdots } \\
+        \ftag{\text{\scriptsize \emph{j}}}{\fa \phi } & \sqE{}:\emph{i} \\
+      \end{fitch}
+    \end{center}
+  \end{definition}
+
+  If the agent concludes by their understanding of the relevant Fitch-style proof system, then \sqE{} follows from their understanding of the proof system.
+  Plausibly, to be \tC{}, \sqE{} follows from the \agents{} understanding of the proof system.
+
+  \autoref{scen:squish} states the agent has showed \sqE{} is sound.
+  However, \dots
+
+  \begin{illustration}[Squash elimination]%
+    \label{scen:squish}%
+    Some time ago the agent showed \sqE{} is sound.
+
+    It is now late morning on a sunny day.
+    The agent ate a good breakfast, and drank some nice coffee and does the following syntactic proof:
+    %
+    \begin{center}
+      \begin{fitch}
+        \phantlabel{illu:sP:1}\fa P \rightarrow (Q \rightarrow P) \\
+        \phantlabel{illu:sP:2}\fj R \\
+        \phantlabel{illu:sP:3}\fa P & \sqE{}:\hyperref[illu:sP:1]{1} \\
+        \phantlabel{illu:sP:4}\fa P \land R & \(\land\)\textbf{Intro:} \hyperref[illu:sP:2]{2},\hyperref[illu:sP:3]{3}
+      \end{fitch}
+    \end{center}
+    %
+    The agent concludes \(P \rightarrow (Q \rightarrow P), R \vdash P \land R\).
+  \end{illustration}
+
+  \(P \rightarrow (Q \rightarrow P), R \vdash P \land R\) is logic soup.
+  The \agents{} application of \sqE{} is not an instance of \sqE{}.
+  Instead, it is an instance of \sqaE{}.%
+  \footnote{
+    In shorthand: \(\phi \rightarrow (\psi \rightarrow \phi) \space/\space \phi\).
+  }
+  And, \sqaE{} is not sound.%
+  \footnote{
+    If \(v(P) = \valI{False}\) then \(v(P \rightarrow (Q \rightarrow P)) = \valI{True}\).
+    So, \(P\) does not follow from \(P \rightarrow (Q \rightarrow P)\).
+  }
+  The same is true of \sqoE{} and \sqeE{}.%
+  \footnote{
+    \(\psi \rightarrow (\phi \rightarrow \psi) \space/\space \phi\), and \((\psi \rightarrow \phi) \rightarrow \psi \space/\space \phi\), respectively.
+  }
+\end{note}
+
+
+\begin{note}
+  Intuitively, \tCV{}.
+  For some \tRep{}, soundness of \sqE{} is a \tI{} of the \tRep{} and likewise for \sqaE{}, \sqoE{}, and \sqeE{} being unsound.
+
+  Given \autoref{prop:hinge}, we need to establish two conditions.
+
+  The first condition is that the agent is \tC{} \pv{\propM{(P \rightarrow Q) \rightarrow P, R \vdash P \land R}}{\valI{True}}.
+  This is given.
+
+  The sub-conditions of the second condition.
+
+  \begin{itemize}
+  \item
+    \tRep{} and \sqE{} is \tI{} of \(T'\).
+    For present purposes, we need only consider \(T'\) with soundness of \sqE{}.
+    There may be other types which are \tRep{1}.
+    However, \autoref{prop:hinge} does not place any constraints on the \tRep{} of interest.%
+    \footnote{
+      For example, the type may also include  are unsound, along with various other syntactic derivations.
+    }
+
+    Plausibly.
+
+      Two options.
+  Either directly show \sqE{} follows from the \agents{} understanding of the proof system via constructing a meta-proof of \sqE{} or indirectly show \sqE{} follows by providing a semantic argument and combine with completeness result.
+  If neither direct or indirect, then the \agents{} use of \sqE{} does not follow from the \agents{} understanding of relevant Fitch-style proof system.
+  \item
+    That the relevant \pool{}.
+    This should be the case.
+    The \agents{} understanding of (the meta-theory of) propositional logic.
+  \end{itemize}
+\end{note}
+
+
+
+\begin{note}
+  So, by \autoref{prop:tC-and-fc}, \fc{}.
+  Hence, by \autoref{prop:hinge} a \requ{}.
+  
+\end{note}
+
+
+
+\begin{note}
+  \autoref{def:sque} is the same as 
+\end{note}
 
 
 
