@@ -1698,21 +1698,34 @@
   {%
     \tl_if_empty:nTF {#2}
     {%
-      \ensuremath{e\sb{d}}
+      \ensuremath{e\sp{d}}
     }
     {
-     \ensuremath{e\sp{#2}\sb{d\sp{#2}}}
+     \ensuremath{e\sb{#2}\sp{d\sb{#2}}}
     }
   }
   {
     \tl_if_empty:nTF {#2}
     {%
-      \ensuremath{e\sb{d\sp{#1}}}
+      \ensuremath{e\sp{d\sb{#1}}}
     }
     {
-     \ensuremath{e\sp{#2}\sb{d\sp{#1}}}
+     \ensuremath{e\sb{#2}\sp{d\sb{#1}}}
     }
 
   }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\edn}{ m }{%
+      \ensuremath{e\sb{#1}}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\edo}{ m }{%
+      \ensuremath{d\sb{#1}}
 }
 \ExplSyntaxOff
