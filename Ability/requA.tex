@@ -43,12 +43,15 @@
 
     \begin{itemize}
     \item
-      \begin{itenum}
-      \item[\emph{If}:]
+      Clauses \ref{def:requ:se} and \ref{def:requ:fc} hold:
+      \begin{enumerate}[label=\Alph*., ref=\Alph*]
+      \item
+        \label{def:requ:se}
         \(\ed{\flat}\) is a \se{} of \(\ed{}\).
-      \item[\emph{Then}:]
+      \item
+        \label{def:requ:fc}
         \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
-      \end{itenum}
+      \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
@@ -56,28 +59,23 @@
   \noindent%
   The definition of a \requ{} captures a particular instance of \progEx{} (\autopageref{obs:PE}).
   Specifically, when there is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that \(\ed{\flat}\) is a \se{} of \(\ed{}\) \emph{only if} \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for the agent throughout \(\ed{\flat}\).
-
-  In other words, the definition of a \requ{} concerns a \se{} \(\ed{\flat}\) of some other event \(\ed{}\).
-  Expanded, the definition of a \requ{} concerns an event \(\ed{\flat}\) in which
-  \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
-  \item
-    a conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is in progress, and
-  \item
-    the conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is a result of \(\ed{\flat}\) (if the conclusion happens).
-  \end{enumerate*}
-
-  And, the definition of a \requ{} applies to \(\ed{\flat}\) just in case \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is entailed by \(\ed{\flat}\) being a \se{} of \(\ed{}\).
 \end{note}
 
 
 \begin{note}
-  The definition of a \requ{} does not state when \(\ed{\flat}\) being a \se{} of \(\ed{}\) entails \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
-  The identification of \requ{} is, for our purposes, established on a \scen{0} by \scen{0} basis.
-  (Though, \autoref{cha:typical} provides sufficient conditions for a \requ{}.)
-
-  Still, the definition of a \requ{} captures the key way in which a \ros{} is connected to a \se{}.
-  For, by \supportII{}, if \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) then a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds.
-  Hence:
+  Expanded, the definition of a \requ{} concerns an event \(\ed{\flat}\) in which:
+  %
+  \begin{enumerate}[label=(\alph*), ref=(\alph*)]
+  \item
+    A conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is in progress, and
+  \item
+    If the agents conclusion of \(\pv{\phi}{v}\) from \(\Phi\) in progress during \(\ed{\flat}\) happens, then the conclusion happens as a result of \(\ed{\flat}\).
+  \item
+    \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is required for \(\ed{\flat}\) to be an event such that a conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is in progress.
+  \end{enumerate}
+  %
+  The conditions capture the key way in which a \ros{} answers \qWhyV{}.
+  For, with the definition of a \requ{} and \autoref{prop:requ-WhyV} in hand, we only need to identify a \requ{} in order to find an answer to \qWhyV{}:
 
   \begin{proposition}[\requ{3} and \qWhyV{}]
     \label{prop:requ-WhyV}
@@ -92,7 +90,7 @@
         \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{def:rCs:Cing}
-        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+        There is some event \(\ed{\flat}\) such that:
         \begin{itemize}
         \item
           \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
@@ -105,10 +103,7 @@
   \end{proposition}
 
   \noindent%
-  \autoref{prop:requ-WhyV} captures the role of \requ{1}.
-  For, with the definition of a \requ{} and \autoref{prop:requ-WhyV} in hand, we only need to identify a \requ{} in order to find an answer to \qWhyV{}.
-
-  The argument for \autoref{prop:requ-WhyV} revisits part of the argument made when we connected a \ros{} to a \se{} with respect to \qWhyV{} and \autoref{illu:gist:roots:F} in \autoref{cha:var} (\autopageref{qWhyV:ex:con}).
+  The argument for \autoref{prop:requ-WhyV} revisits part of the argument made when we connected a \ros{} to a \se{} with respect to \qWhyV{} and \autoref{illu:gist:roots:F} in \autoref{cha:var}.
 
   \begin{argument}{prop:requ-WhyV}
     Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold.
@@ -119,7 +114,7 @@
     Our task is to show the conditional of \qWhyV{} is true.
 
     Let \(\ed{\flat}\) by an event which satisfies the existential of Condition~\ref{def:rCs:Cing}.
-    So, \(\ed{\flat}\) is a \se{} of \(\ed{}\) such that:
+    So, \(\ed{\flat}\) is such that:
     \begin{itemize}
     \item
       \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
@@ -307,14 +302,14 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      Conditions~\ref{prop:requ-WhyV-ces:C},~\ref{prop:requ-WhyV-ces:Cing} and \ref{prop:requ-WhyVCes:noW} jointly hold:
+      Conditions~\ref{prop:requ-WhyV-ces:C},~\ref{prop:requ-WhyV-ces:Cing} and \ref{prop:requ-WhyVCes:noW} hold:
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{prop:requ-WhyV-ces:C}
         \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{prop:requ-WhyV-ces:Cing}
-        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+        There is some event \(\ed{\flat}\) such that:
         \begin{itemize}
         \item
           \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
@@ -333,11 +328,11 @@
   \autoref{prop:requ-WhyV-ces} is more-or-less immediate from \autoref{prop:requ-WhyV}:
 
   \begin{argument}{prop:requ-WhyV-ces}
-    Suppose both antecedents holds.
+    Assume conditions~\ref{prop:requ-WhyV-ces:C},~\ref{prop:requ-WhyV-ces:Cing} and \ref{prop:requ-WhyVCes:noW} hold.
 
-    Note conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing} from the first antecedent entail a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} via \autoref{prop:requ-WhyV}.
+    Conditions~\ref{prop:requ-WhyV-ces:C}~and~\ref{prop:requ-WhyV-ces:Cing} entail a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhyV{} via \autoref{prop:requ-WhyV}.
     So, by \issueConstraint{} it must be the case that \vAgent{} has a \wit{} for the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\).
-    However, by the second antecedent, \vAgent{} does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    However, by Condition~\ref{prop:requ-WhyVCes:noW}, the agent does not have a \wit{} for a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) when \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
   \end{argument}
 \end{note}
 
