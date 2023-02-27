@@ -43,7 +43,7 @@
     \label{illu:gist:roots:QF}%
     An agent reasons as follows:
     %
-    \begin{enumerate}[label=\arabic*., ref=(\arabic*)]
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
     \item
       \label{illu:gist:roots:QF:eq}
       For some \(x \in \mathbb{R}\), \(2x^{2} - x - 1 = 0\).
@@ -225,8 +225,8 @@
     Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
   }
 
-  Further, after Pritcher's opening gambit `I come from Miran', Fox (sub-)concludes \propI{What they said was a sign} has \val{0} \valI{True} and some \pool{} \(\Psi\).
-  And, of interest is with the \ros{} between \propI{What they said was a sign}, \valI{True} and some \pool{} \(\Psi\).
+  Further, after Pritcher's opening gambit `I come from Miran', Fox (sub-)concludes \propI{What Pritcher said was a sign} has \val{0} \valI{True} and some \pool{} \(\Psi\).
+  And, of interest is with the \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\).
 
   In contrast to \scen{1} \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, the highlighted \ros{} is distinct from the \ros{} which characterises Fox's final conclusion.
   Further, the \ros{} did not hold prior to Pritcher saying `I come from Miran'.
@@ -246,7 +246,7 @@
   Hence, phrased in terms of \ros{1}, we have:
   \begin{itenum}
   \item[\emph{If}:]
-    A \ros{} between \propI{What they said was a sign}, \valI{True} and some \pool{} \(\Psi\) fails to hold.
+    A \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\) fails to hold.
   \item[\emph{Then}:]
     Fox does not conclude \propI{\signConA{}} has value \valI{True} from some \pool{} \(\Phi\).
   \end{itenum}
@@ -304,66 +304,145 @@
 
 
 \begin{note}
-  To get a feel for the sense of `why' at issue in \qWhy{}, consider an event in which a deck of cards is shuffled.
-
-  If the cards are randomly shuffled, then, then nothing favours \mainCard{} being at any particular position in the pack after the shuffle.
-  So, intuitively, nothing explains \emph{why} \mainCard{} is \mainCardPos{} after the shuffle.
-
-  However, if the shuffler is engaging in sleight of hand there is an explanation for why \mainCard{} is \mainCardPos{} after the shuffle.
-  The key to any such explanation is that \mainCard{} is selected, and a sleight ensures \mainCard{} is at the \mainCardPos{} after the shuffle.%
+  The sense of `why' at issue in \qWhy{} is roughly%
   \footnote{
-    A similar observation applies to coin flips.
-    For, intuitively nothing explains why a unbiased coin landed heads rather than tails.
-    Though, it is hard to bias a coin flip. (\cite{Gelman:2002ww})
+    Some subtle details are expanded on in \autoref{cha:events-progress}.
   }
+  captured by the following idea:
 
-  So, at a high level on may say: The shuffler selected \mainCard{} and then performed sleight of hand.
-  And, at a lower levels, one may expand on the details of the sleight --- such as what a break and shuffle is (\cite[cf.][189--190]{Hilliard:1994aa}) or the shufflers' specific method for a break and shuffle.
-\end{note}
+  \begin{idea}[`Why']%
+    \label{idea:why}%
+    For a given event \(e\), some thing \(t\) answers why \(e\) happened just in case:
+  %
+    \begin{enumerate}[label=\Alph*., ref=\Alph*]
+    \item
+      \label{idea:why:result}
+      There is some event \(e'\) such that \(e\) is a result of \(e'\), and:
+    \item
+      \label{idea:why:favour}
+      \(e'\) favours \(e\).
+    \item
+      \label{idea:why:feat}
+      \(e'\) favours \(e\) happening only if \(t\) is the case during \(e'\).
+    \end{enumerate}
+    \vspace{-\baselineskip}
+  \end{idea}
 
-
-\begin{note}%
-  \nocite{Hoefer:2023aa}%
-  Generalising, there is no answer to `why' any random event happened, given the sense of `why' present in \qWhy{}.
-  And, anything one may highlight which favours an event \(e\) happening over any other event \(e'\) answers `why' \(e\) happened, given the sense of `why' present in \qWhy{}.
+  \noindent%
+  In short, some thing \(t\) answers `why' an event \(e\) happened when \(t\) being the case follows from \(e\) being favoured over some other event.
 \end{note}
 
 
 \begin{note}
-  The idea of a shuffler is engaging in sleight of hand suggests determinism.
-  However, some thing may answer `why' an event happened without the thing determining that the event happens.
-  For example, consider rolling a die.
-  As with a random shuffle, intuitively nothing answers `why' an agent rolls a 6 with an unbiased die --- setting causal determinism aside.%
+  We briefly motivate \autoref{idea:why} with two examples independent of conclusions.
+  We then return to \scen{}~\ref{illu:gist:roots:F},~\ref{illu:gist:roots:QF}, and \ref{scen:countS}.
+\end{note}
+
+
+\begin{note}
+  Consider an event \(e\) in which a deck of cards is shuffled, and \mainCard{} is \mainCardPos{}.
+  Our interest is with why \mainCard{} is \mainCardPos{}.
+
+  As the deck of cards was shuffled, there is a collection of events in which the cards are being shuffled.
+  Some event \(e'\) satisfies Clause~\ref{idea:why:result} of \autoref{idea:why}.
+  For, \mainCard{} was shuffled to \mainCardPosX{}, hence there is some event in which \mainCard{} being shuffled to \mainCardPos{}, a results in \(e\).
+
+  Clause~\ref{idea:why:favour} is not immediately satisfied --- setting causal determinism aside.%
   \footnote{
+    \nocite{Hoefer:2023aa}%
     Indeed, if causal determinism holds --- any event is the result of antecedent events together with the laws of nature --- then there is always some answer to `why' the event happened.
     For, the antecedent events and laws of nature ensure no other event may have happened.
   }
-  However, if an agent rolls a 6 with a die biased toward 6 then, the bias of the die favours an event in which any agent rolls a 6.
-  Though, an agent may still roll of 1,2,4, etc. with given die with bias towards a 6.
+  For, during a random shuffle \mainCard{} being in \mainCardPos{} was not favoured over \mainCard{} being in any other position of the deck.
+  For example, if the cards are randomly shuffled, then, intuitively, nothing favours \mainCard{} being in \mainCardPos{} after the shuffle.
+  Hence, though Clause~\ref{idea:why:result} of \autoref{idea:why} is satisfied, Clause~\ref{idea:why:favour} is not satisfied.
+
+  Still, if the shuffler is engaging in sleight of hand clauses \ref{idea:why:result}, \ref{idea:why:favour}, and \ref{idea:why:feat} are satisfied.
+
+  The shuffle happens as a result of the agent shuffling.
+  As the agent is engaging in sleight of hand, \mainCard{} being in \mainCardPos{} is favoured over \mainCard{} being in any other position.
+  And, only if sleight of hand.%
+  \footnote{
+    One may, of course, expand on the details of the sleight --- such as what a break and shuffle is (\cite[cf.][189--190]{Hilliard:1994aa}) or the shufflers' specific method for a break and shuffle.
+  }
 \end{note}
 
 
 \begin{note}
-  Now, \qWhy{}, specifically, seeks answers to an event in which an agent concludes in the form of \ros{1}.
-  So, for a \ros{} to answer \qWhy{}, the \ros{} must hold prior the \agents{} conclusion, and favour a conclusion over some other event.
-
-  In the case of \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} we suggested a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which captures the \agents{} understanding of factorisation or the quadratic formula holds prior to the \agents{} conclusion and the \ros{} ensures the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
-  In this respect, as the \ros{} ensures the agent is concluding, the \ros{} answers \qWhy{}.
-  For, an event in which an agent is concluding favours an event in which an agent concludes.
-
-  Likewise, in the case of \autoref{scen:countS} we considered a \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\) with respect to Fox and noted that if the \ros{} fails to hold, Fox does not conclude Pritcher is a Party member.
-  In this respect, the \ros{} favours an event in which Fox concludes \propI{\signConA{}} has value \valI{True} from some \pool{} \(\Phi\), and Fox makes the relevant conclusion.
-
-  Of course, that an agent is concluding is no guarantee that an agent concludes.
-  However, in parallel, an agent performing sleight of hand does not guarantee the agent performs slight of hand, and the bias of a biased die does not guarantee the die lands in line with the bias.
-  Answers to \qWhy{} do not need to `completely' answer \qWhy{}.%
+  The idea of a shuffler is engaging in sleight of hand may suggest determinism.
+  However, some thing may answer `why' an event happened without the thing determining that the event happens.
+  For example, consider rolling a biased die.%
   \footnote{
-    Note also, a \ros{} between \(\phi\), \(v\), and \(\Phi\) may fail to answer \qWhy{}.
-    For, example, a \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\) plausibly fails to answer \qWhy{} applies to Fox's conclusion of \propI{What Pritcher said was a sign} has value \valI{True} from some \pool{}.
-    For, it is implausible the relevant \ros{} holds prior to Fox's conclusion.
-    Though, the \ros{} favours Fox's (overall) conclusion that \propI{\signConA{}} has value \valI{True} from \(\Phi\).
+    It is hard to bias a coin flip. (\cite{Gelman:2002ww})
   }
+  As biased die need not guarantee a roll which lands on 6.
+  However, if an agent lands a 6 with a die biased toward 6 then the bias of the die favours an event in which any agent rolls a 6.
+  Hence, so long as happens as a result of bias, then clauses \ref{idea:why:result}, \ref{idea:why:favour}, and \ref{idea:why:feat} of \autoref{idea:why} are satisfied by an event \(e'\) in which the die is rolling and the bias influences the roll.
+  In particular:
+  Clause~\ref{idea:why:result} is satisfied as the die landing on 6 is the result of the die rolling.
+  Clause~\ref{idea:why:favour} is satisfied as the die is biased toward landing on 6, by assumption.
+  And, Clause~\ref{idea:why:feat} is satisfied as the die is biased toward landing on 6 only if the die has bias.
+
+  Clause~\ref{idea:why:feat} is important.
+  For, consider the same die dropped from a short height to ensure it lands 6 without rolling.
+  Clauses~\ref{idea:why:result} and~\ref{idea:why:favour} are seen to be satisfied by parallel reasoning.
+  However, a die without bias also lands 6 if dropped from a short height to ensure it lands 6.
+  Hence, the bias of the die does not explain why the die dropped from a short height to ensure it lands 6 without rolling lands 6, given~\autoref{idea:why}.
+
+  (Though details of the drop do explain why the die lands 6.)
 \end{note}
+
+
+\begin{note}
+  Now, \qWhy{}, specifically, seeks answers to why \(e\) is an event in which an agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) in terms of \ros{1}.
+  Hence, given \autoref{idea:why}, our interest is with whether there is some event \(e'\) such that:
+  \begin{enumerate*}[label=]
+  \item \(e\) is the result of \(e'\),
+  \item \(e'\) favours \(e\), and
+  \item \(e'\) favours \(e\) happening only if a \ros{} holds during \(e'\).
+  \end{enumerate*}
+\end{note}
+
+
+\begin{note}
+  Consider an event corresponding to Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
+  Clause~\ref{idea:why:result} is satisfied as the eventual conclusion is a result of figuring out \((2x + 1)(x - 1) = 0\).
+
+  Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \((2x + 1)(x - 1) = 0\) favours an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{} over an event in which the agent fails to conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
+  In short, an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} when the agent figures out \((2x + 1)(x - 1) = 0\) is in progress.
+
+  Finally, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \propI{\rootsCon{}}, \valI{True} and the \pool{} captures \emph{that} the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
+  Indeed, \ros{1} were introduced above to abstractly capture whatever makes it the case that the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
+  So, the \ros{} captures what it is for the agent to be concluding \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
+\end{note}
+
+
+\begin{note}
+  In short, the relevant \ros{0} answers \qWhy{} as the \ros{} captures what it is for the conclusion to in progress, and hence be favoured over some other event.
+
+  Parallel reasoning applies to the other (non-final) steps of \scen{1}~\ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}.
+\end{note}
+
+
+\begin{note}
+  Our discussion of \autoref{scen:countS} focused on a \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\).
+  In contrast to the \ros{1} from \scen{1}~\ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, this \ros{} does not hold prior to Fox concluding \propI{What Pritcher said was a sign} has value \valI{True} from some \pool{} \(\Phi\).
+  So, the reasoning applied to Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F} does not apply to the between \propI{What Pritcher said was a sign}, \valI{True} and \(\Psi\).
+
+  Still, Fox concludes \propI{\signConA{}} has value \valI{True} from \(\Phi\) as a result of countersign.
+  Hence, we observed \emph{if} a \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\) failed to hold \emph{then} Fox does not conclude \propI{\signConA{}} has value \valI{True} from \(\Phi\).
+  For, the relevant \ros{} captures Fox observing the initial step of the countersign.
+
+  In short, given \(e'\) is the event in which Fox concludes \propI{What Pritcher said was a sign} has \val{0} \valI{True} from \(\Psi\) and \(e\) is the event in which Fox concludes \propI{\signConA{}} has value \valI{True} from \(\Phi\), and the \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and \(\Psi\):
+
+  Clause~\ref{idea:why:result} is satisfied as Fox concludes \propI{\signConA{}} has value \valI{True} from \(\Phi\) by countersign as a result of Fox observing Pritcher's sign.
+
+  Clause~\ref{idea:why:favour} is satisfied as Fox recognising Pritcher's sign leads Fox to continue the countersign.
+
+  And, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and \(\Psi\) captures Fox's observation that Pritcher is engaging in countersign.
+
+\end{note}
+
 
 
 
@@ -427,8 +506,7 @@
   And, this seems intuitive.
   For, it seems implausible that the \agents{} understanding of the quadratic formula favoured an event in which the agent concluded \propM{\rootsCon{}} has value \valI{True} from their understanding of factorisation over any other event, as the agent did not conclude by the quadratic formula.
 
-  More broadly, if a die's bias towards \(6\) takes effect as the die is rolling and the die lands \(6\), it seems the bias explains why the die landed \(6\).
-  However, if a biased die is dropped from a short height to ensure it does not roll and lands \(6\), then it seems the die's bias is irrelevant to explaining why the die landed \(6\) --- there was no opportunity for the bias to take effect.
+  
 \end{note}
 
 
@@ -547,10 +625,20 @@
 
 
 \begin{note}
-  The broad idea of the recipe is simple.
+  The broad idea of the recipe is as follows:
 
-  A \ros{} answers \qWhy{} just in case it favours an event in which the agent concludes over any other event.
+  A \ros{} answers \qWhy{} when the \ros{} explains why an event in which an agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) happens, rather than some other event.
+  Given \autoref{idea:why}, a \ros{} answers \qWhy{} just in case the \ros{} holding is a key part of some event which both:
+  \begin{itemize}
+  \item
+    Favours the \agents{} conclusion of \(\phi\) having \val{0} \(v\) from \(\Phi\).
+  \item
+    Results in the \agents{} conclusion of \(\phi\) having \val{0} \(v\) from \(\Phi\).
+  \end{itemize}
+\end{note}
 
+
+\begin{note}
   Consider an event in which an agent concludes some \prop{0} \(\phi\) has \val{} \(v\) from some \pool{} \(\Phi\).
   Further, suppose there is an event in which the agent is \emph{concluding} \(\phi\) has \val{} \(v\) from \(\Phi\).
   And, suppose the agent concludes \(\phi\) has \val{} \(v\) from \(\Phi\) as a result of whatever happened when the agent was concluding \(\phi\) has \val{} \(v\) from \(\Phi\).
@@ -559,12 +647,15 @@
   %
   \begin{itemize}
   \item
-    For example, consider the event captured by Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}).
-  When the agent figures out \((2x + 1)(x - 1) = 0\), the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation, and the eventual conclusion is a result of figuring out \((2x + 1)(x - 1) = 0\).
-  So, a \ros{} between \propI{\rootsCon{}}, \valI{True}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any event in which the agent does not conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the relevant \pool{}.
+    For example, the event captured by Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
+    When the agent figures out \((2x + 1)(x - 1) = 0\), the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation.
+    And, the eventual conclusion is a result of figuring out \((2x + 1)(x - 1) = 0\).
+    So, a \ros{} between \propI{\rootsCon{}}, \valI{True}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any event in which the agent does not conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the relevant \pool{}.
   \end{itemize}
   %
-  Now, it may be the case the agent is concluding \(\phi\) has \val{0} \(v\) from \(\Phi\) \emph{only if} a \ros{} between \(\psi\), \(v'\), and \(\Psi\) also holds.
+  Still, it may be the case the agent is concluding \(\phi\) has \val{0} \(v\) from \(\Phi\) \emph{only if} a \ros{} between \(\psi\), \(v'\), and \(\Psi\) (also) holds.
+  Hence, if the \ros{} between \(\psi\), \(v'\), and \(\Psi\) fails to hold, the agent is not concluding \(\phi\) has \val{0} \(v\) from \(\Phi\).
+  Yet, as the agent \emph{is} concluding \(\phi\) has \val{0} \(v\) from \(\Phi\), the \ros{} between \(\psi\), \(v'\), and \(\Psi\) favours an event in which the agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) over some other event.
   %
   \begin{itemize}
   \item
@@ -573,9 +664,6 @@
     For, if \propI{\rootsSimp{}} having \val{0} \valI{True} plausibly follows from the \agents{} understanding of factorisation.
   \end{itemize}
   %
-  So, a \ros{} between \(\psi\), \(v'\), and \(\Psi\) fails to hold, the agent is not concluding \(\phi\) has \val{0} \(v\) from \(\Phi\).
-  Yet, as the agent \emph{is} concluding \(\phi\) has \val{0} \(v\) from \(\Phi\), the \ros{} between \(\psi\), \(v'\), and \(\Psi\) favours an event in which the agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) over some other event.
-
   In other words, a \ros{} between \(\psi\), \(v'\), and \(\Psi\) holding is part of what it is for the agent to be concluding \(\phi\) has \val{0} \(v\) from \(\Phi\).
   And, as the event in which the agent is concluding \(\phi\) has \val{0} \(v\) from \(\Phi\) favours a conclusion of \(\phi\) having \val{0} \(v\) from \(\Phi\), and the conclusion is the result of the concluding, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
   The only remaining task is to ensure the agent has not concluded \(\psi\) has \val{0} \(v'\) from \(\Psi\), but instances are not too difficult to find.
@@ -587,7 +675,12 @@
   \end{itemize}
   %
   This, is more-or-less it.
+
   Sometimes an agent concludes as a result of concluding in a particular way (e.g.\ by factorisation), and if the agent is concluding in a particular way, then various distinct \ros{1} holding are part of what it is to conclude in that particular way, and hence these answer \qWhy{}.
+  Put otherwise, sometimes an agent concludes as a result of concluding in a particular way and the agent is concluding in a particular way \emph{only if} various distinct \ros{1} holding are part of what it is to conclude in that particular way.
+  Hence, given \autoref{idea:why}, those \ros{} answer \qWhy{}.
+
+  I think \issueInclusion{} is intuitive, though I also think this argument is basic enough to highlight that the intuition isn't quite right.
 
   Most of the work to be done is setting things up so that a precise argument is given which does not lead to the various objects that may be raised against this sketch.
 \end{note}
