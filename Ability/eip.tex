@@ -173,7 +173,7 @@
       \(\text{Prog}[\ed{\ast}]\) is entailed by \(\edo{}\).\newline
       \mbox{ }\hfill (Where \(\text{Prog}[\ed{\ast}]\) is \(\edo{\ast}\) under the progressive aspect.)
     \end{itemize}
-    \vspace{-\baselineskip}
+    \vspace{-.5\baselineskip}
   \end{intuition}
 
   \noindent%
@@ -256,7 +256,7 @@
       \end{enumerate}
     \end{quote}
     % 
-    The `paradox' amounts to two seemingly incompatible observations:
+    The paradox amounts to two seemingly incompatible observations:
     \begin{enumerate}[noitemsep]
     \item
       \ref{Bach:impP:17} entails an event in which John is crosses the street is in progress.
@@ -477,22 +477,22 @@
     \emph{If and only if}:
     \begin{itemize}
     \item
-      Conditions~\ref{assu:p:se:prog}, \ref{assu:p:se:desc}, and \ref{assu:p:se:hCon} hold:
+      For some description \(\edo{\sharp}\), clauses~\ref{assu:p:se:prog}, \ref{assu:p:se:desc}, and \ref{assu:p:se:hCon} hold:
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{assu:p:se:prog}
-        \(\ed{\flat}\) is such that \(\edn{}\) under description \(d'\) is in progress.
+        \(\ed{\flat}\) is such that an event \(\edn{\circ}\) under description \(\edo{\sharp}\) is in progress.
       \item
         \label{assu:p:se:desc}
-        \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(d'\) is true of \(\edn{}\).
+        \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(\edo{\sharp}\) is true of \(\edn{}\).
       \item
         \label{assu:p:se:hCon}
         The following conditional is true:
         \begin{itenum}
         \item[\emph{If}:]
-          \(\ed{}\) happens.
+          \(\ed[\sharp]{}\) happens.
         \item[\emph{Then}:]
-          \(\ed{}\) happens as a result of \(\ed{\flat}\).
+          \(\ed[\sharp]{}\) happens as a result of \(\ed{\flat}\).
         \end{itenum}
       \end{enumerate}
     \end{itemize}
@@ -500,19 +500,110 @@
   \end{definition}
 
   \noindent%
-  Paraphrased, a \se{} is an event such that an event is in progress and, in turn, if the event in progress happens, it happens as a result of the \se{}.
+  Paraphrased, a \se{} of \(\ed{}\) is an event such that \(\ed{}\) is in progress and, in turn, if \(\ed{}\) happens, \(\ed{}\) happens as a result of the \se{}.
 
-  Still, given \autoref{assu:HaUniqueD} and \autoref{obs:eip-partial}, the paraphrase of a \se{} may be misleading.
-  For, by \autoref{assu:HaUniqueD}, if \(\ed{}\) happens then \(\edo{}\) is satisfied by a unique event.
-  And, by \autoref{obs:eip-partial} if \(\ed{}\) is in progress, then \(\edo{}\) may be satisfied by multiple events.
-  Hence, \autoref{def:se} distinguishes the event in progress and links the event in progress to the event which happens by Condition~\autoref{assu:p:se:desc}.
+  The definition is a little more delicate than this paraphrase.
+  For, the relevant description \(\edo{}\) of \(\edn{}\) may include details in excess of what is in progress given the description \(\edo{\flat}\) of \(\edn{\flat}\).
+  So, paraphrased a little more carefully, a \se{} of \(\ed{}\) is an event such that \(\edn{}\) under a partial description \(\edo{\sharp}\) is in progress and, in turn, if \(\edn{}\) under \(\edo{\sharp}\) happens, \(\edn{}\) as a result of the \se{}.
 
-  Paraphrased a little more carefully, a \se{} is an event such that an event is in progress and, in turn, if an event happens such that the event in progress happens, the event happens as a result of the \se{}.
+  The key feature of a \se{} of some event \(\ed{}\) is that \(\edn{}\) happens \emph{as a result} of the \se{}.
+  In this respect `causes' may be substituted in place of `happens as a result of'.%
+  \footnote{
+    For link between progressive and causation, \textcite{Szabo:2004ul}.
+  }
+  Though, we prefer `happens as a result of' to avoid requiring a causal relation.
+
+  We first walk through an example, and then highlight the importance of Clause~\ref{assu:p:se:hCon}.
 \end{note}
 
 
 \begin{note}
-  A quick variation of \autoref{obs:prog-not-cfs} highlights the importance of Condition~\autoref{assu:p:se:hCon}:
+  \begin{observation}[A \se{} of \autoref{illu:gist:roots:F}]
+    \label{obs:se-inst}%
+    There is some description such that the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning is a \se{} of the event described by \autoref{illu:gist:roots:F}.
+  \end{observation}
+
+  \begin{motivation}{obs:se-inst}
+    Let \(\edn{\flat}\) be the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning.
+
+    \autoref{illu:gist:roots:F} describes \(\edn{\flat}\) as an event in which the agent is attempting to find possible values for \(x\) such that \(2x^{2} - x - 1 = 0\) and figures out \((2x + 1)(x - 1) = 0\).
+    I take it to be sufficiently clear that the agent \emph{is} (regardless of any description) concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\).
+    Therefore, we may fix a description \(\edo{\flat}\) of \(\edn{\flat}\) which states, roughly, `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.%
+    \footnote{
+      We have fixed a description such that clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:desc} are mostly immediate.
+      This is in keeping with the spirit of \autoref{def:se}.
+      For, the role of \(d'\) is to avoid capturing irrelevant details of \(\edn{}\) --- e.g.\ that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) without furrowing their brow.
+    }
+    \medskip
+
+    \noindent%
+    Our task is to show the clauses of of \autoref{def:se} hold with respect to some description \(d'\).
+    Let \(d'\) be `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)'.
+
+    We argue for each clause in turn.
+    \medskip
+
+    \noindent%
+    Clause~\ref{assu:p:se:prog} requires \(\ed{\flat}\) is such that \(\edn{}\) under description `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)' is in progress.
+
+    By taking the left conjunct of \(\edo{\flat}\) it is immediate that \emph{an} event such that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is in progress.%
+    \footnote{
+      For, if the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\), then an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is in progress (cf.\ \autoref{def:es-in-prog}), {
+        \color{red} and \assuPP{}.
+      }
+    }
+    \medskip
+
+    \noindent%
+    Clause~\ref{assu:p:se:desc} requires:
+    \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(d'\) is true of \(\edn{}\).
+
+    Our interest with \(\ed{}\) is that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    So, no matter any further details included in \(\edo{}\), it also holds that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    \medskip
+
+    \noindent%
+    Clause~\ref{assu:p:se:hCon} requires the following conditional to be true:
+    \emph{If} \(\ed{}\) happens \emph{then} \(\ed{}\) happens as a result of \(\ed{\flat}\).
+
+    We obtain this conditional by a slightly stronger result.
+    Specifically, we argue:
+
+    Any event which satisfies \(\edo{\sharp}\) and happens after \(\edo{\flat}\) \emph{without} an intermediary event \(\edn{\triangle}\) such that \(\edo{\flat}\) is true of \(\edn{\triangle}\) happens as a result of \(\ed{\flat}\).%
+    \footnote{
+      This constraint is motivated by the observation that the agent may do Step~\ref{illu:gist:roots:F:factor}, be interrupted, discard the result and then factor \(2x^{2} - x - 1 = 0\) again.
+      In this case, Step~\ref{illu:gist:roots:F:factor:done} plausibly need not happen as a result of Step~\ref{illu:gist:roots:F:factor}.
+    }
+
+    The argument is by contradiction.
+    Suppose \(\edn{\square}\) is an event which satisfies \(\edo{\sharp}\), happens after \(\edo{\flat}\), and without an intermediary event as described.
+    And, suppose \(\edn{\square}\) does not happen as a result of \(\ed{\flat}\).
+
+    Now, \(\edn{\square}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    And, \(\Phi\) captures the \agents{} understanding of factorisation.
+
+    By assumption, \(\edn{\square}\) does not happen as a result of \(\ed{\flat}\) and there is intermediary event \(\edn{\triangle}\) between \(\edn{\flat}\) and \(\edn{\square}\) in which the agent figures out \((2x + 1)(x - 1) = 0\).
+    Therefore, \(\edn{\square}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
+
+    This is a contradiction.
+    For, \(\edn{\square}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
+    And, \(\edn{\square}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} of premises which captures their understanding of factorisation.
+    Yet, as the agent did not conclude by factoring \(2x^{2} - x - 1 = 0\), it cannot be the case that the \agents{} concluded by their understanding of factorisation.
+    The agent must have concluded \propM{\rootsCon{}} has \val{0} \valI{True} by some other \pool{}.
+
+    So, any event which satisfies \(\edo{\sharp}\) and happens after \(\edo{\flat}\) \emph{without} an intermediary event \(\edn{\triangle}\) such that \(\edo{\flat}\) is true of \(\edn{\triangle}\) happens as a result of \(\ed{\flat}\).
+    And, as \(\ed[\sharp]{}\) satisfies these constraints, if \(\ed[\sharp]{}\) happens, \(\ed[\sharp]{}\) happens as a result of \(\ed{\flat}\).
+  \end{motivation}
+
+  \noindent%
+  Establishing that some event \(\ed{\flat}\) is a \se{} of some other event \(\ed{}\)  takes some effort.
+  Still, the key idea is somewhat straightforward:
+  Observe that it makes no sense for \(\edo{\flat}\) to be true of \(\edo{}\) if \(\ed[\flat]{}\) does not happen as a result of \(\ed{\flat}\).
+\end{note}
+
+
+\begin{note}
+  A quick variation of \autoref{obs:prog-not-cfs} highlights the importance of Condition~\ref{assu:p:se:hCon}:
 
   \begin{observation}[Condition \ref{assu:p:se:hCon}!]%
     \label{obs:se-need-hCon}%
@@ -525,7 +616,6 @@
     \end{itenum}
     \vspace{-\baselineskip}
   \end{observation}
-
   \begin{motivation}{obs:se-need-hCon}
     Suppose an agent is passing an exam without external help.
     Then, a classmate passes the agent some answers, which the agent uses.
@@ -534,12 +624,7 @@
 \end{note}
 
 
-\begin{note}
-  Alternative, substitute `causes' in place of `happens as a result of'.%
-  \footnote{
-    For link between progressive and causation, \textcite{Szabo:2004ul}.
-  }
-\end{note}
+
 
 \subsection{\progEx{2}}
 \label{sec:what-these-do}
