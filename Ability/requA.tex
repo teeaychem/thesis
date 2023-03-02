@@ -43,14 +43,18 @@
 
     \begin{itemize}
     \item
-      Clauses \ref{def:requ:se} and \ref{def:requ:fc} hold:
+      {
+        \color{blue}
+        For some minimal description \(\edo{m}\) of \(\edn{\flat}\) which captures \(\ed{}\) is in progress throughout \(\edn{\flat}\),%
+      }
+      clauses \ref{def:requ:se} and \ref{def:requ:fc} hold:
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{def:requ:se}
-        \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+        \(\ed[m]{\flat}\) is a \se{} of \(\ed{}\).
       \item
         \label{def:requ:fc}
-        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
+        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed[m]{\flat}\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
@@ -63,16 +67,16 @@
 
 
 \begin{note}
-  Expanded, the definition of a \requ{} concerns an event \(\ed{\flat}\) in which:
+  Expanded, the definition of a \requ{} concerns an event \(\ed{\flat}\) such that:
   %
-  \begin{enumerate}[label=\roman*., ref=(\roman*)]
+  \begin{itemize}%[label=\roman*., ref=(\roman*)]
   \item
     A conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is in progress, and
   \item
     If the agents conclusion of \(\pv{\phi}{v}\) from \(\Phi\) in progress during \(\ed{\flat}\) happens, then the conclusion happens as a result of \(\ed{\flat}\).
   \item
     \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is required for \(\ed{\flat}\) to be an event such that a conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is in progress.
-  \end{enumerate}
+  \end{itemize}
   %
   The conditions capture the key way in which a \ros{} answers \qWhyV{}.
   For, with the definition of a \requ{} and \autoref{prop:requ-WhyV} in hand, we only need to identify a \requ{} in order to find an answer to \qWhyV{}:
@@ -102,42 +106,62 @@
     \vspace{-\baselineskip}
   \end{proposition}
 
-  \noindent%
-  The argument for \autoref{prop:requ-WhyV} revisits part of the argument made when we connected a \ros{} to a \se{} with respect to \qWhyV{} and \autoref{illu:gist:roots:F} in \autoref{cha:var}.
-
   \begin{argument}{prop:requ-WhyV}
-    Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing}~jointly hold.
+    \color{blue}
+    Assume conditions~\ref{def:rCs:C}~and~\ref{def:rCs:Cing} hold.
 
     From Condition~\ref{def:rCs:C}, \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
     So, \qWhyV{} applies to \(\ed{}\).
+    Our main task is to show the conditional of \qWhyV{} (\autopageref{questionWhyV}) is true.
+    \medskip
 
-    Our task is to show the conditional of \qWhyV{} is true.
-
+    \noindent%
     Let \(\ed{\flat}\) by an event which satisfies the existential of Condition~\ref{def:rCs:Cing}.
-    So, \(\ed{\flat}\) is such that:
-    \begin{itemize}
-    \item
-      \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
-    \end{itemize}
+    So, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\) is a \requ{} of \(\ed{}\).
+    Hence, by \supportII{} A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(\ed{\flat}\).
 
-    Further, suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(\ed{\flat}\).
-
-    Now, as an instance of \supportII{}:
-    %
+    So, it is immediately the case that:
     \begin{itenum}
     \item[\emph{If}:]
-      \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
+      \(\ed{\flat}\) is an event such that \(\ed{}\) is in progress.
     \item[\emph{Then}:]
-      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(\ed{\flat}\).
+      A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) holds for \vAgent{} throughout \(\ed{\flat}\)
     \end{itenum}
     %
-    \noindent%
-    Hence, as a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) \emph{fails} to hold for \vAgent{} throughout \(\ed{\flat}\), it follows that \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
+    % %
+    % Further, suppose a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold for \vAgent{} through \(\ed{\flat}\).
 
-    And, as \(\ed{\flat}\) satisfies the existential of \ref{def:rCs:Cing} and is \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\), it follows that \(\ed{\flat}\) is not, or does not develop into, \(\ed{}\).
-    This contradicts \(\ed{\flat}\) being a \se{0} of \(\ed{}\), and hence contradicts Condition~\ref{def:rCs:Cing}.
+    % Now, as an instance of :
+    % %
+    % \begin{itenum}
+    % \item[\emph{If}:]
+    %   \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
+    % \item[\emph{Then}:]
+      
+    % \end{itenum}
+    % %
+    % \noindent%
+    % Hence, as a \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) \emph{fails} to hold for \vAgent{} throughout \(\ed{\flat}\), it follows that \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\).
+
+    % And, as \(\ed{\flat}\) satisfies the existential of \ref{def:rCs:Cing} and is \(\pv{\psi}{v'}\) is \emph{not} a \fc{0} from \(\Psi\) for \vAgent{} throughout \(\ed{\flat}\), it follows that \(\ed{\flat}\) is not, or does not develop into, \(\ed{}\).
+    % This contradicts \(\ed{\flat}\) being a \se{0} of \(\ed{}\), and hence contradicts Condition~\ref{def:rCs:Cing}.
   \end{argument}
+
+  The argument requires a little commentary.
+
+  By assumption, \(\ed{\flat}\) is a \se{} of \(\ed{}\).
+  In this respect, \(\ed{}\) is in progress.
+  The way in which an answer to \qWhyV{} intuitively follows is that 
+
 \end{note}
+
+
+\begin{note}
+  Given \autoref{obs:se-inst} (\autopageref{obs:se-inst}) and \autoref{obs:var:factor:fc} (\autopageref{obs:var:factor:fc}) it immediately follows \pv{\rootsCon{}}{\valI{True}} being a \fc{} from \(\Phi\) through \(\ed{\flat}\) is a \requ{} of \(\ed{}\), where \(\ed{}\) captures \autoref{illu:gist:roots:F}  \(\ed{\flat}\) and captures Step~\ref{illu:gist:roots:F:eq} of the \agents{} reasoning.
+
+  For, by \autoref{obs:se-inst} \(\ed{\flat}\) is a \se{} of \(\ed{}\) and by \autoref{obs:var:factor:fc} \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+\end{note}
+
 
 
 
@@ -195,56 +219,69 @@
 
   \begin{observation}[\requ{3} of \autoref{scen:LucasNums}]%
     \label{obs:LucasRequ}%
-    There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+    There is some event \(\ed{\flat}\) such that:
     %
     \begin{itemize}
     \item
-      \pv{\propM{L_{8} = 47}}{\valI{True}} being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
+      \pv{\propM{L_{8} = 47}}{\valI{True}} being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{}\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{observation}
 
   \noindent%
-  The motivation for \autoref{obs:LucasRequ} parallels the way in which we connected a \ros{} to a \se{} when we applied \qWhyV{} to \autoref{illu:gist:roots:F} in \autoref{cha:var} (\autopageref{qWhyV:ex:con}).
+  The motivation for \autoref{obs:LucasRequ} largely follows the motivation given for a \se{} and \fc{} in connexion with the second step of the \agents{} reasoning in \autoref{illu:gist:roots:F} --- see \autoref{obs:se-inst} (\autopageref{obs:se-inst}) and \autoref{obs:var:factor:fc} (\autopageref{obs:var:factor:fc}), respectively.
+
+  So, rather than work through the full definitions of a \se{} and a \fc{} we first identify an event of interest and then sketch the key observations.
+
 
   \begin{motivation}{obs:LucasRequ}
-    \(e_{d}\) is such that the agent concludes \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) by the recursive definition.
+    By assumption \(e_{d}\) is such that the agent concludes \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\), where \(\Phi\) captures the \agents{} understanding of the Lucas numbers.
 
-    As \propM{L_{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers, there must be some sub-event in which the agent concludes \pv{\propM{L_{9} = 76}}{\valI{True}} by adding \(L_{8}\) and \(L_{7}\).
-    For, the agent does not have a method to obtain \(L_{9}\) without \(L_{8}\) and \(L_{7}\), given the agent is reasoning by the recursive definition.
+    Now, \propM{L_{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers.
+    Implicit in the description of \autoref{scen:LucasNums} is that the agent has no calculated the first nine Lucas numbers prior to \(\ed{}\).
+    And, explicit in the description of \autoref{scen:LucasNums} is that the agent concludes by applying the given definition.
+    So, as \propM{L_{[:9]} = [2, \dots, 76]} contains the first nine Lucas numbers there must be some sub-event in which the agent concludes \pv{\propM{L_{9} = 76}}{\valI{True}} by adding \(L_{8}\) and \(L_{7}\).
+    And, in turn, there must be a sub-event in which the agent concludes \pv{\propM{L_{8} = 47}}{\valI{True}} by adding \(L_{7}\) and \(L_{6}\), and so on\dots
 
-    And, in turn, there must be a sub-event in which the agent concludes \pv{\propM{L_{8} = 47}}{\valI{True}} from \(\Phi\).
-    Likewise for \(L_{7}\), \(L_{6}\), and \(L_{5}\).
+    %\pv{\propM{L_{7} = 29}}{\valI{True}} and \pv{\propM{L_{6} = 18}}{\valI{True}}
 
-    I particular, consider the event \(\ed{\flat}\) just after the agent has concluded \pv{\propM{L_{6} = 18}}{\valI{True}} and \pv{\propM{L_{5} = 11}}{\valI{True}}.
+    Fix \(\edn{\flat}\) as the event when the agent concludes \pv{\propM{L_{7} = 29}}{\valI{True}}, and take \(\edo{\flat}\) as a natural description of the event.
     \medskip
 
-    Suppose \(\ed{\flat}\) is a \se{} of \(\ed{}\).
-    Our task is to show \pv{\propM{L_{8} = 47}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+    \noindent%
+    The first task is to show \(\ed{\flat}\) is a \se{} of \ed{}.
 
-    By assumption, \(\ed{\flat}\) is a \se{} of \(\ed{}\).
-    Hence, \(\ed{\flat}\) is such that the agent is concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}}.
-    As observed the agent must conclude \pv{\propM{L_{8} = 47}}{\valI{True}} in order to conclude \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}}.
-    So, as agent is concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} and has not yet concluded \pv{\propM{L_{8} = 47}}{\valI{True}}, the agent must also --- in part --- be concluding \pv{\propM{L_{8} = 47}}{\valI{True}}.
+    The key to \(\ed{\flat}\) being a \se{} of \ed{} is Clause~\ref{assu:p:se:hCon} of \autoref{def:se} .
+    Roughly:
+    \emph{If} \(\ed{}\) happens \emph{then} \(\ed{}\) happens as a result of \(\ed{\flat}\).
+
+    In other words, our task is to show the agent concludes \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} as a result of concluding \pv{\propM{L_{7} = 29}}{\valI{True}}.
+
+    As with \autoref{obs:se-inst} (\autopageref{obs:se-inst}) this reduces to the observation that it is not possible for the agent to conclude \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\) if the \agents{} conclusion is not a result (in part) of figuring out \pv{\propM{L_{7} = 29}}{\valI{True}}.
+    For, \(\Phi\) captures the \agents{} understanding of the Lucas numbers and there is no way for the agent to figure out \propM{L_{[:9]} = [2, \dots, 76]} without figuring out \propM{L_{7} = 29} unless the agent appeals to something other than their understanding of the Lucas numbers.
     \medskip
 
-    Now, by \assuPP{} an agent is concluding \pv{\propM{L_{8} = 47}}{\valI{True}} by the recursive definition there is some possible event in which the agent concludes \pv{\propM{L_{8} = 47}}{\valI{True}} by the recursive definition.
-    Hence, there must be some action available to the agent such that the agent adds \(L_{6}\) and \(L_{5}\) to get \(L_{7}\) and then adds \(L_{7}\) and \(L6\) to get \(L_{8}\).
-    And, as \pv{\propM{L_{8} = 47}}{\valI{True}} follows from the \agents{} understanding of the Lucas numbers, the agent concludes \pv{\propM{L_{8} = 47}}{\valI{True}} from \(\Phi\) when the agent does the relevant action.
-    Therefore, \pv{\propM{L_{8} = 47}}{\valI{True}} is a \fc{} from \(\Phi\).
+    \noindent%
+    The second task is to show \pv{\propM{L_{8} = 47}}{\valI{True}} is a \fc{} from \(\Phi\) through~\(\ed{\flat}\).
+
+    The broad idea parallels \autoref{obs:var:factor:fc} (\autopageref{obs:var:factor:fc}).
+    In short, \(\ed{\flat}\) is an event in which the agent concludes \pv{\propM{L_{7} = 29}}{\valI{True}}.
+    And, \(\ed{\flat}\) is such that the agent is concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}}.
+    As observed the agent must conclude \pv{\propM{L_{8} = 47}}{\valI{True}} in order to conclude \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\).
+    And, the agent has not yet concluded \pv{\propM{L_{8} = 47}}{\valI{True}}.
+    Therefore, as there is some action available to the agent such that the agent continues to be concluding \pv{\propM{L_{[:9]} = [2, \dots, 76]}}{\valI{True}} from \(\Phi\), the same action also ensures involves the agent concluding \pv{\propM{L_{8} = 47}}{\valI{True}} from \(\Phi\).
   \end{motivation}
 
   \noindent%
-  With minor adjustments the motivation for \autoref{obs:LucasRequ} also shows \pv{\propM{L_{7} = 29}}{\valI{True}} being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
-  And, likewise for \(L_{6}\), \(L_{5}\), and so on until the base cases of \(L_{1}\) and \(L_{0}\), as these are given by the \agents{} understanding of the Lucas numbers.
-
-  In parallel, \pv{\rootsCon{}}{\valI{True}} being a \fc{} from \(\Phi\) through \(\ed{\flat}\) is a \requ{} for \(\ed{}\) (being an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\)) with respect to \autoref{illu:gist:roots:F} by the argument given in \autoref{cha:var}.
+  With minor adjustments the motivation for \autoref{obs:LucasRequ} also shows \pv{\propM{L_{9} = 76}}{\valI{True}} being a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) is a \requ{0} of \(\ed{\flat}\).
+  And, likewise, the motivation may be adapted to earlier events and numbers in the sequence until the base cases of \(L_{1}\) and \(L_{0}\), as these are given by the \agents{} understanding of the Lucas numbers.
 \end{note}
 
-\begin{note}
-  A \requ{} is nothing special.
-  It's an observation about what is.
-\end{note}
+
+% \begin{note}
+%   A \requ{} is nothing special.
+%   It's an observation about what is.
+% \end{note}
 
 % \paragraph*{Lost keys}
 

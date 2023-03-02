@@ -24,13 +24,14 @@
   \begin{proposition}[\ros{3} and progressive explanation]%
     \label{obs:qWhyEIP}%
     Given \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
-    %
+    % 
     \begin{itenum}
     \item[\emph{If}:]
       There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
       \begin{itemize}
       \item
-        \(\ed{\flat}\) is such that \(\ed{}\) is in progress \emph{only if} a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+        \(\edo{\flat}\) entails is true of \(\edn{\flat}\) that:
+        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds throughout \(\ed{\flat}\).
       \end{itemize}
     \item[\emph{Then:}]
       The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhy{}.
@@ -113,18 +114,12 @@
 
   \noindent%
   The event of interest \(\ed{}\) is the event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation.
-  Note, \(\ed{}\) spans Step~\ref{illu:gist:roots:F:eq} to Step~\ref{illu:gist:roots:F:factor:done}.
-  And, as we assume the agent understands factorisation prior to \(\ed{}\), it follows that:
-  %
-  \begin{itemize}
-  \item
-    For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to the \agents{} actions in \autoref{illu:gist:roots:F}.
-  \end{itemize}
+  Note, \(\ed{}\) spans Step~\ref{illu:gist:roots:F:eq} to Step~\ref{illu:gist:roots:F:factor:done} and we assume the agent understands factorisation prior to \(\ed{}\).
 \end{note}
 
 
 \begin{note}
-  Now, given the definition of \qWhy{}, our task is to:
+  Given the definition of \qWhy{}, our task is to:
   \begin{itemize}
   \item
     Find some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
@@ -135,46 +130,61 @@
       \(\ed{\flat}\) is not an event such that \(\ed{}\) is in progress.
     \end{itenum}
   \end{itemize}
-  %
+  % 
   The event of interest is the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning.
   Let \(\edn{\flat}\) by the event and \(\edo{\flat}\) be the description `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.
-
   \label{qWhyV:ex:con}
   \(\edo{\flat}\) is clearly true of \(\edn{\flat}\).
-  And, we have already argued \(\ed{\flat}\) is a \se{} of \(\ed{}\) (\autoref{obs:se-inst}, \autopageref{obs:se-inst}).
-  So, our task is to show the conditional is true.
+
+  Further, we have already argued \(\ed{\flat}\) is a \se{} of \(\ed{}\) (\autoref{obs:se-inst}, \autopageref{obs:se-inst}).
+
+  So, our task is to show the conditional is true with respect to \(\ed{\flat}\).
+  The argument is by contraposition --- we assume \(\ed{\flat}\) is an event such that \(\ed{}\) is in progress and then show the relevant \ros{} holds throughout \(\ed{\flat}\).
+\end{note}
+
+\begin{note}
+  Suppose \(\ed{\flat}\) is an event such that \(\ed{}\) is in progress.
+
+  We first show \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) (\autoref{def:fc}, \autopageref{def:fc}) and then apply \supportII{} (\autopageref{idea:support:possible}) to obtain the desired \ros{}.
 \end{note}
 
 
 \begin{note}
-  Suppose suppose a \ros{} between \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) fails to hold throughout \(\ed{\flat}\).
-  Then, given \supportII{}, it follows that \pv{\rootsCon{}}{\valI{True}} is not a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  \begin{observation}
+    \label{obs:var:factor:fc}
+    \color{blue}
+    For any \(d\) \dots
+    \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  \end{observation}
 
-  However, when the agent does Step~\ref{illu:gist:roots:F:factor} the agent has not concluded \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
-  For, steps \ref{illu:gist:roots:F:zero} through to \ref{illu:gist:roots:F:factor:done} remain.
-  And, as the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) then by \assuPP{} there is a possible event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
-  Therefore, if \(\ed{\flat}\) is such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\), there must be some action the agent may immediately do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
-  Specifically, the result of the relevant action is captured by Step~\ref{illu:gist:roots:F:zero}.
+  \begin{motivation}{obs:var:factor:fc}
+    Consider any event \(\edn{\flat i}\) in a partition \(\edn{\flat 1}, \dots, \edn{\flat k}\) of \(\ed{\flat}\) into sub-events.
+    And, let \(\ed{\flat i}\) capture \(\edn{\flat i}\) is an event in which the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
+    \footnote{
+      \(\edo{\flat i}\) is clearly true of \(\edn{\flat i}\) as \(\edn{\flat i}\) is a sub-event of \(\edn{\flat}\) and \(\edo{\flat}\) is true of \(\edn{\flat}\).
+    }
 
-  So:
-  \begin{itemize}
-  \item
-    Throughout Step~\ref{illu:gist:roots:F:factor} there is some action the agent may immediately do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
-  \end{itemize}
-  Further, we observed above:
-  \begin{itemize}
-  \item
-    For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to the \agents{} actions in \autoref{illu:gist:roots:F}.
-  \end{itemize}
-  Putting these two observations together, it follows that \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) via \autoref{def:fc}.
+    As the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) there is a possible event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) by \assuPP{} (\autopageref{assu:PP}).
+    Further, as \(\edo{\flat}\) captures the agent figuring out \((2x + 1)(x - 1) = 0\), it is clear \(\ed{\flat i}\) is not an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
+    \footnote{
+      Steps \ref{illu:gist:roots:F:zero} through to \ref{illu:gist:roots:F:factor:done} remain
+    }
+    Hence, in order for it to there to be a possible event in which the concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\), there must be some action the agent may immediately do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
+    So, Clause~\ref{def:fc:act} of \autoref{def:fc} is satisfied.
 
-  Yet, we noted if \ros{} between \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) \emph{fails to hold} throughout \(\ed{\flat}\) then \pv{\rootsCon{}}{\valI{True}} is not a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) .
-  So, it must be the case that a \ros{} between \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) \emph{holds} throughout \(\ed{\flat}\).
+    Further, we assumed the agent understands factorisation prior to \(\ed{}\), and as \(\ed{\flat}\) is included in \(\ed{}\), the agent understands factorisation prior to \(\ed{\flat}\) by assumption.
+    Hence, for each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to \(\ed{\flat i}\).
+    Therefore, Clause~\ref{def:fc:result} of \autoref{def:fc} is satisfied.
+
+    As \(\edn{\flat 1}, \dots, \edn{\flat k}\) was an arbitrary partition of \(\ed{\flat}\) into sub-events and we have shown clause~\ref{def:fc:act} and~\ref{def:fc:result} are satisfied with respect to any sub-event of the partition, it follows \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  \end{motivation}
+
+  Given \autoref{obs:var:factor:fc} \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  Hence, \supportII{} entails a \ros{} between \pv{\rootsCon{}}{\valI{True}} and \(\Phi\) holds throughout \(\ed{\flat}\).
 
   This completes the argument.
   The \ros{0} between\pv{\rootsCon{}}{\valI{True}} and \(\Phi\) answers \qWhyV{} as applied to \autoref{illu:gist:roots:F}.
 \end{note}
-
 
 
 \subparagraph*{Structure}
@@ -192,7 +202,7 @@
   \item
     Observing a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds throughout \(\ed{\flat}\) as \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
   \end{enumerate}
-  %
+  % 
   The details argument may generalise to a \ros{} between \(\pv{\psi}{v'}\) and \(\Phi\) when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) though this is far from immediate.
 
   We revisit these features separate from any particular \scen{0} in \autoref{cha:requs}.
@@ -222,16 +232,16 @@
 
   \noindent%
   Intuitively it is not be the case that the \ros{} and the conclusion to get some tea answers why \emph{the agent} concluded some theorem is true from some \pool{}.%
-    \footnote{
-      \citeauthor{Armstrong:1968vh} (\citeyear[195--196]{Armstrong:1968vh}) discusses a similar example, and suggests further discussion of this issue may also be found in \textcite{Moore:1962up}.
-      See also \citeauthor{Sanford:1989aa} (\citeyear{Sanford:1989aa}) for a discussion of dependence as captured by subjunctive conditions (esp.\ pp.\ 192--193).
-    }
+  \footnote{
+    \citeauthor{Armstrong:1968vh} (\citeyear[195--196]{Armstrong:1968vh}) discusses a similar example, and suggests further discussion of this issue may also be found in \textcite{Moore:1962up}.
+    See also \citeauthor{Sanford:1989aa} (\citeyear{Sanford:1989aa}) for a discussion of dependence as captured by subjunctive conditions (esp.\ pp.\ 192--193).
+  }
 
-    Still, \qWhy{} and \qWhyV{} concern the way in which an event in which an agent concludes develops, and various \ros{} which hold during an event when an agent concludes may answer this.
+  Still, \qWhy{} and \qWhyV{} concern the way in which an event in which an agent concludes develops, and various \ros{} which hold during an event when an agent concludes may answer this.
 
-    Note, however, it must be the case that a \ros{} is required to hold in order for a \se{} to be a event in which the agent is concluding.
-    Hence, a \ros{} between \pv{\propI{Brew a cup of coffee}}{\valI{Do}} and some \pool{} \(\Psi'\) does not answer \qWhyV{} as the agent concluded to get tea, rather than coffee (and even if the choice between tea and coffee was a figurative coin flip).
-    And, a \ros{} between \pv{\propI{Brew a cup of tea}}{\valI{Do}} and \(\Psi\) fails to answer \qWhyV{} if the agent may have concluded \(\pv{\phi}{v}\) from \(\Phi\) without the aid of the cup of tea.
+  Note, however, it must be the case that a \ros{} is required to hold in order for a \se{} to be a event in which the agent is concluding.
+  Hence, a \ros{} between \pv{\propI{Brew a cup of coffee}}{\valI{Do}} and some \pool{} \(\Psi'\) does not answer \qWhyV{} as the agent concluded to get tea, rather than coffee (and even if the choice between tea and coffee was a figurative coin flip).
+  And, a \ros{} between \pv{\propI{Brew a cup of tea}}{\valI{Do}} and \(\Psi\) fails to answer \qWhyV{} if the agent may have concluded \(\pv{\phi}{v}\) from \(\Phi\) without the aid of the cup of tea.
 \end{note}
 
 
@@ -342,13 +352,13 @@
 
   \begin{proposition}[\qWhyV{}-\qWhy{}-\qHow{}-\qHowV{}]%
     \label{prop:support-and-witnessing}%
-      \linkW{}, \linkH{}, and \issueInclusion{} (jointly) entail the following conditional:
-      \begin{itenum}
-      \item[\emph{If}:]
-        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is an answer to \qWhyV{}.
-      \item[\emph{Then}:]
-        An event \(\ed{\prime}\) which \wit[es]{0} a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qHowV{}.
-      \end{itenum}
+    \linkW{}, \linkH{}, and \issueInclusion{} (jointly) entail the following conditional:
+    \begin{itenum}
+    \item[\emph{If}:]
+      A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) is an answer to \qWhyV{}.
+    \item[\emph{Then}:]
+      An event \(\ed{\prime}\) which \wit[es]{0} a \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qHowV{}.
+    \end{itenum}
     \vspace{-\baselineskip}
   \end{proposition}
 
@@ -373,10 +383,10 @@
 %     \label{prop:vSantity}%
 %     \vspace{-\baselineskip}
 %     \begin{itenum}
-%       \item[\emph{If}:]
-%         \(\ed{}\) is an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of concluding \(\pv{\phi}{v}\) from \(\Phi\) where \fc{}.
-%       \item[\emph{Then}]
-%         Conditions \ref{prop:vSantity:why} and \ref{prop:vSantity:how} both hold:
+%     \item[\emph{If}:]
+%       \(\ed{}\) is an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of concluding \(\pv{\phi}{v}\) from \(\Phi\) where \fc{}.
+%     \item[\emph{Then}]
+%       Conditions \ref{prop:vSantity:why} and \ref{prop:vSantity:how} both hold:
 %       \begin{enumerate}[label=\arabic*., ref=\arabic*]
 %       \item
 %         \label{prop:vSantity:why}%
@@ -446,85 +456,59 @@
 
   Further, we observed a constraint on answers to \qWhyV{} in terms of answers to \qHowV{} follows from \issueInclusion{}.
   So, if you like, you may now forget about \qWhy{} and \qHow{} and \issueInclusion{}.
-  The remainder of this document focuses on counterexamples to \issueConstraint{}.
+  The remainder of this document focuses on (counterexamples to) \issueConstraint{}.
 \end{note}
 
 
-% \section{The role of variant questions}
-% \label{cha:var:sec:wiggling}
+% \footnote{
+% \phantlabel{fn:past-witness}
+% To illustrate, consider an agent working on some mathematical problem.
 
-  % \begin{observation}
-  %   \label{obs:qWhyV-description}
-  %   Some \ros{1} matter.
-  % \end{observation}
-  % \begin{motivation}{obs:qWhyV-description}
-  %   Situation.
-  %   Flip coin.
-  %   If heads, then by understanding of arithmetic.
-  %   If tails, then by calculator.
+% As part of their work on the problem the agent concludes the hypotenuse of some right-angled triangle is \(\sqrt{74}\text{cm}\) by use of the Pythagorean theorem.
+% Further, the agent has, at some point in the past proved the Pythagorean theorem from more basic principles.
 
-  %   Now, coin lands heads.
-  %   Well, sure, it seems this is needed.
-  %   However, suppose coin lands tails.
-  %   Then the agent would decide otherwise.
-  %   So, really, the coin flip didn't matter.
+% Perhaps the agent concludes the hypotenuse of the triangle is \(\sqrt{74}\text{cm}\), in part, from those more basic principles.
+% Perhaps in general it is true that if a agent concluded \(X\) from \(Y\) and \(Y\) from \(Z\), then the agent, in part at least, concluded \(X\) from \(Z\).
+% On the other hand perhaps the more basic principles have no role explanatory role in the present.
+% The agent only appealed to the theorem, rather than any basic principles.
 
-  %   The point is that any event, and the description didn't rule out reversing.
+% Though we will not take a stand on whether a relevant \wit{0} for some conclusion is distinct from the event in which the agent concludes, the first option highlights an issue with \autoref{def:witnessing}.
+% Consider an agent working through a proof of some theorem \(\theta\), and let \(\Theta\) be the relevant \pool{}.
+% Our interest is with the conclusion \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
 
-  %   Does this matter?
-  %   Not really, expand description.
-  %   For any problematic event which differs from the way things are, rule out with description.
-  % \end{motivation}
+% Suppose the agent reasons to \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
+% Further, suppose the \agents{} reasoning is sound.
+% However, the agent is worried about some parts of their reasoning.
+% Hence, given their worries, \emph{reasons} to --- but does not conclude --- \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
+% Some time later the agent resolves their worries and concludes the theorem is true.
+% I see no issue with the possibility that:
+%   % 
+% \begin{itemize}[noitemsep]
+% \item
+%   When the agent revisited the proof, they concluded \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
+% \item
+%   In part, a \ros{} between \(\pv{\theta}{\valI{True}}\) and \(\Theta\), from the \agpe{}, answers why the agent concluded \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
+% \item
+%   The event in which the agent reasoned to \(\pv{\theta}{\valI{True}}\) from \(\Theta\) answers, in part, how the agent \(\pv{\theta}{\valI{True}}\) from \(\Theta\) by being a \wit{} for the \ros{} between \(\pv{\theta}{\valI{True}}\) and \(\Theta\).
+% \end{itemize}
+%   % 
+% However, the idea is incompatible with the way a \wit{0} is understood.
+% For, by the definition, an event which is a \wit{0} must be an event in which the agent \emph{concludes}.
+% And, by construction of the \scen{0}, the \agents{} worries prevent the agent from forming the relevant conclusion.
 
-  % \footnote{
-  %   \phantlabel{fn:past-witness}
-  %   To illustrate, consider an agent working on some mathematical problem.
+% Perhaps \autoref{def:witnessing} should be revised so that an event \(\ed{\prime}\) may be \wit{} so long as the agent adequately reasons (an optionally concludes).
+%   % However, providing an adequate characterisation of the relevant event is difficult.
+%   % That the agent \emph{reasoned} to \(\pv{\theta}{\valI{True}}\) from \(\Theta\) is insufficient.
+%   % 
+%   % For example, consider a variation of the \scen{} in which the agent identifies a problem with the proof.
+%   % Given the presence of a problem, there may be no \ros{} for the agent to have a \wit{0} for.
+% Still,
+%   % rather than attempt to characterise \ros{1} independently of conclusions,
+% we keep the present definition of a \wit{} for simplicity.
+% }
 
-  %   As part of their work on the problem the agent concludes the hypotenuse of some right-angled triangle is \(\sqrt{74}\text{cm}\) by use of the Pythagorean theorem.
-  %   Further, the agent has, at some point in the past proved the Pythagorean theorem from more basic principles.
-
-  %   Perhaps the agent concludes the hypotenuse of the triangle is \(\sqrt{74}\text{cm}\), in part, from those more basic principles.
-  %   Perhaps in general it is true that if a agent concluded \(X\) from \(Y\) and \(Y\) from \(Z\), then the agent, in part at least, concluded \(X\) from \(Z\).
-  %   On the other hand perhaps the more basic principles have no role explanatory role in the present.
-  %   The agent only appealed to the theorem, rather than any basic principles.
-
-  %   Though we will not take a stand on whether a relevant \wit{0} for some conclusion is distinct from the event in which the agent concludes, the first option highlights an issue with \autoref{def:witnessing}.
-  %   Consider an agent working through a proof of some theorem \(\theta\), and let \(\Theta\) be the relevant \pool{}.
-  %   Our interest is with the conclusion \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
-
-  %   Suppose the agent reasons to \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
-  %   Further, suppose the \agents{} reasoning is sound.
-  %   However, the agent is worried about some parts of their reasoning.
-  %   Hence, given their worries, \emph{reasons} to --- but does not conclude --- \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
-  %   Some time later the agent resolves their worries and concludes the theorem is true.
-  %   I see no issue with the possibility that:
-  %   %
-  %   \begin{itemize}[noitemsep]
-  %   \item
-  %     When the agent revisited the proof, they concluded \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
-  %   \item
-  %     In part, a \ros{} between \(\pv{\theta}{\valI{True}}\) and \(\Theta\), from the \agpe{}, answers why the agent concluded \(\pv{\theta}{\valI{True}}\) from \(\Theta\).
-  %   \item
-  %     The event in which the agent reasoned to \(\pv{\theta}{\valI{True}}\) from \(\Theta\) answers, in part, how the agent \(\pv{\theta}{\valI{True}}\) from \(\Theta\) by being a \wit{} for the \ros{} between \(\pv{\theta}{\valI{True}}\) and \(\Theta\).
-  %   \end{itemize}
-  %   %
-  %   However, the idea is incompatible with the way a \wit{0} is understood.
-  %   For, by the definition, an event which is a \wit{0} must be an event in which the agent \emph{concludes}.
-  %   And, by construction of the \scen{0}, the \agents{} worries prevent the agent from forming the relevant conclusion.
-
-  %   Perhaps \autoref{def:witnessing} should be revised so that an event \(\ed{\prime}\) may be \wit{} so long as the agent adequately reasons (an optionally concludes).
-  %   % However, providing an adequate characterisation of the relevant event is difficult.
-  %   % That the agent \emph{reasoned} to \(\pv{\theta}{\valI{True}}\) from \(\Theta\) is insufficient.
-  %   % 
-  %   % For example, consider a variation of the \scen{} in which the agent identifies a problem with the proof.
-  %   % Given the presence of a problem, there may be no \ros{} for the agent to have a \wit{0} for.
-  %   Still,
-  %   % rather than attempt to characterise \ros{1} independently of conclusions,
-  %   we keep the present definition of a \wit{} for simplicity.
-  % }
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "master"
-%%% TeX-engine: luatex
-%%% End:
+%%%   Local Variables:
+%%%   mode: latex
+%%%   TeX-master: "master"
+%%%   TeX-engine: luatex
+%%%   End:
