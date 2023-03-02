@@ -477,22 +477,22 @@
     \emph{If and only if}:
     \begin{itemize}
     \item
-      For some description \(\edo{\sharp}\), clauses~\ref{assu:p:se:prog}, \ref{assu:p:se:desc}, and \ref{assu:p:se:hCon} hold:
+      Clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:hCon} hold:
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{assu:p:se:prog}
-        \(\ed{\flat}\) is such that an event \(\edn{\circ}\) under description \(\edo{\sharp}\) is in progress.
-      \item
-        \label{assu:p:se:desc}
-        \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(\edo{\sharp}\) is true of \(\edn{}\).
+        \(\ed{\flat}\) is such that an event \(\edn{\circ}\) under description \(\edo{}\) is in progress.
+      % \item
+      %   \label{assu:p:se:desc}
+      %   \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(\edo{\sharp}\) is true of \(\edn{}\).
       \item
         \label{assu:p:se:hCon}
         The following conditional is true:
         \begin{itenum}
         \item[\emph{If}:]
-          \(\ed[\sharp]{}\) happens.
+          \(\ed{}\) happens.
         \item[\emph{Then}:]
-          \(\ed[\sharp]{}\) happens as a result of \(\ed{\flat}\).
+          \(\ed{}\) happens as a result of \(\ed{\flat}\).
         \end{itenum}
       \end{enumerate}
     \end{itemize}
@@ -502,16 +502,29 @@
   \noindent%
   Paraphrased, a \se{} of \(\ed{}\) is an event such that \(\ed{}\) is in progress and, in turn, if \(\ed{}\) happens, \(\ed{}\) happens as a result of the \se{}.
 
-  The definition is a little more delicate than this paraphrase.
-  For, the relevant description \(\edo{}\) of \(\edn{}\) may include details in excess of what is in progress given the description \(\edo{\flat}\) of \(\edn{\flat}\).
-  So, paraphrased a little more carefully, a \se{} of \(\ed{}\) is an event such that \(\edn{}\) under a partial description \(\edo{\sharp}\) is in progress and, in turn, if \(\edn{}\) under \(\edo{\sharp}\) happens, \(\edn{}\) as a result of the \se{}.
-
   The key feature of a \se{} of some event \(\ed{}\) is that \(\edn{}\) happens \emph{as a result} of the \se{}.
   In this respect `causes' may be substituted in place of `happens as a result of'.%
   \footnote{
     For link between progressive and causation, \textcite{Szabo:2004ul}.
   }
-  Though, we prefer `happens as a result of' to avoid requiring a causal relation.
+  Though, we prefer `happens as a result of' to avoid requiring a causal relation, as speaking of causal relations tends to draw attention away from particular features of an event.
+\end{note}
+
+
+
+\begin{note}
+  The definition is a little more delicate than this paraphrase.
+  For, \(\edn{}\) is a particular event.
+  Rather than \(\edn{}\) in particular, any event such that the relevant description \(\edo{}\) of the event.
+  Still, the second part focuses on \(\edn{}\), as \(\edo{}\) may be insufficient to establish \(\edn{}\) is a result of \(\ed{\flat}\).
+
+  An example is going to help.
+
+
+  For, the relevant description \(\edo{}\) of \(\edn{}\) may include details in excess of what is in progress given the description \(\edo{\flat}\) of \(\edn{\flat}\).
+  So, paraphrased a little more carefully, a \se{} of \(\ed{}\) is an event such that \(\edn{}\) under a partial description \(\edo{\sharp}\) is in progress and, in turn, if \(\edn{}\) under \(\edo{\sharp}\) happens, \(\edn{}\) as a result of the \se{}.
+
+  
 
   We first walk through an example, and then highlight the importance of Clause~\ref{assu:p:se:hCon}.
 \end{note}
@@ -559,69 +572,36 @@
     }
     \medskip
 
-    \noindent%
-    Our task is to show \autoref{def:se} hold with respect to some description \(d'\).
-    Let \(d'\) be `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)'.
+    Okay, there's a trick here.
+    We're interested in a specific event \(\edn{}\).
+    This is not any event \(\edn{\sharp}\) such that \(\edo{}\) is true of \(\edn{\sharp}\).
+    Hence, though we want to show \(\edn{}\) under description \(\edo{}\) happens as a result of \(\ed{\flat}\), we may still appeal to certain features of \(\edn{}\) which are not captured by \(\edo{}\).
 
-    We argue for each clause in turn.
-    \medskip
-
-    \noindent%
-    Clause~\ref{assu:p:se:prog} requires \(\ed{\flat}\) is such that \(\edn{}\) under description `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)' is in progress.
-
-    By taking the left conjunct of \(\edo{\flat}\) it is immediate that \emph{an} event such that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is in progress.%
-    \footnote{
-      For, if the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\), then an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is in progress (cf.\ \autoref{def:es-in-prog}), {
-        \color{red} and \assuPP{}.
-      }
-    }
-    \medskip
-
-    \noindent%
-    Clause~\ref{assu:p:se:desc} requires:
-    \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(d'\) is true of \(\edn{}\).
-
-    Our interest with \(\ed{}\) is that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
-    So, no matter any further details included in \(\edo{}\), it also holds that the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
-    \medskip
-
-    \noindent%
-    Clause~\ref{assu:p:se:hCon} requires the following conditional to be true:
-    \emph{If} \(\ed{}\) happens \emph{then} \(\ed{}\) happens as a result of \(\ed{\flat}\).
-
-    We obtain this conditional by a slightly stronger result.
-    Specifically, we argue:
-
-    Any event which satisfies \(\edo{\sharp}\) and happens after \(\edo{\flat}\) \emph{without} an intermediary event \(\edn{\triangle}\) such that \(\edo{\flat}\) is true of \(\edn{\triangle}\) happens as a result of \(\ed{\flat}\).%
+    For our purposes, \(\edn{}\) is that there is no event after \(\edn{\flat}\) in which the agent re-figures out \((2x + 1)(x - 1) = 0\).%
     \footnote{
       This constraint is motivated by the observation that the agent may do Step~\ref{illu:gist:roots:F:factor}, be interrupted, discard the result and then factor \(2x^{2} - x - 1 = 0\) again.
       In this case, Step~\ref{illu:gist:roots:F:factor:done} plausibly need not happen as a result of Step~\ref{illu:gist:roots:F:factor}.
+      This does not follow from \(\edo{\flat}\) alone.
+      An event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is in progress (cf.\ \autoref{def:es-in-prog}) and by \assuPP{} possible event.
+      However, \dots
     }
 
     The argument is by contradiction.
-    Suppose \(\edn{\square}\) is an event which satisfies \(\edo{\sharp}\), happens after \(\edo{\flat}\), and without an intermediary event as described.
-    And, suppose \(\edn{\square}\) does not happen as a result of \(\ed{\flat}\).
 
-    Now, \(\edn{\square}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
-    And, \(\Phi\) captures the \agents{} understanding of factorisation.
-
-    By assumption, \(\edn{\square}\) does not happen as a result of \(\ed{\flat}\) and there is intermediary event \(\edn{\triangle}\) between \(\edn{\flat}\) and \(\edn{\square}\) in which the agent figures out \((2x + 1)(x - 1) = 0\).
-    Therefore, \(\edn{\square}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
-
+    Suppose \(\edn{}\) does not happen as a result of \(\ed{\flat}\).
     This is a contradiction.
-    For, \(\edn{\square}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
-    And, \(\edn{\square}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} of premises which captures their understanding of factorisation.
+    \medskip
+
+    \noindent%
+    For, by supposition \(\edn{}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
+    And, \(\edn{}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} of premises which captures their understanding of factorisation.
     Yet, as the agent did not conclude by factoring \(2x^{2} - x - 1 = 0\), it cannot be the case that the \agents{} concluded by their understanding of factorisation.
     The agent must have concluded \propM{\rootsCon{}} has \val{0} \valI{True} by some other \pool{}.
-
-    So, any event which satisfies \(\edo{\sharp}\) and happens after \(\edo{\flat}\) \emph{without} an intermediary event \(\edn{\triangle}\) such that \(\edo{\flat}\) is true of \(\edn{\triangle}\) happens as a result of \(\ed{\flat}\).
-    And, as \(\ed[\sharp]{}\) satisfies these constraints, if \(\ed[\sharp]{}\) happens, \(\ed[\sharp]{}\) happens as a result of \(\ed{\flat}\).
   \end{motivation}
 
   \noindent%
-  Establishing that some event \(\ed{\flat}\) is a \se{} of some other event \(\ed{}\)  takes some effort.
-  Still, the key idea is somewhat straightforward:
-  Observe that it makes no sense for \(\edo{\flat}\) to be true of \(\edo{}\) if \(\ed[\flat]{}\) does not happen as a result of \(\ed{\flat}\).
+  The key idea is somewhat straightforward:
+  Observe it makes no sense for \(\edo{}\) to be true of \(\edn{}\) if it is not the case that \(\ed{}\) happens as a result of \(\ed{\flat}\).
 \end{note}
 
 
