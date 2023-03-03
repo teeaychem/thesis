@@ -67,38 +67,49 @@
 
   \begin{assumption}[Happened uniquely]%
     \label{assu:HaUniqueD}%
-    A description of an event which has happened is satisfied by a unique event.
+    \begin{itemize}
+    \item
+      \(\edn{}\) picks out the event \(\edn{}\) under a `maximal' description.
+    \item
+      \(\ed{}\) captures \(\edn{}\) under the particular description \(\edo{}\).
+    \end{itemize}
   \end{assumption}
 
   \noindent%
-  For example, if \ref{ESERIES:gistCalcEq} has happened, then \ref{ESERIES:gistCalcEq} is assumed to include information about the time when, or method by which, Max concluded \gistCalcEq{} has value \valI{True}.
+  For example,
+  {
+    \color{red}
+    \ref{ESERIES:gistCalcEq} captures an event under a particular description.
+    However, \ref{ESERIES:gistCalcEq} captures a particular event, and so it is also true that the event captured by \ref{ESERIES:gistCalcEq} happens at a particular time, and involves a particular method by which Max concludes \gistCalcEq{} has value \valI{True}, etc.
+  }
 
-  Note, \autoref{assu:HaUniqueD} only concerns events which have happened.
-  For example, if \ref{ESERIES:gistCalcEq} has not happened, then \ref{ESERIES:gistCalcEq} is compatible with Max using a calculator or their understanding of arithmetic to conclude \gistCalcEq{} has value \valI{True}.
+  In order to talk about an event which satisfies the description, explicitly mark that of interest is any event which satisfies the description.
+  For example, the description of \ref{ESERIES:gistCalcEq} is compatible with Max using a calculator or their understanding of arithmetic to conclude \gistCalcEq{} has value \valI{True}, and so on.
   We clarify the importance of this note with \autoref{obs:eip-partial}, below.
 
-  Still, in the case of \qWhy{} and \qHow{}, both questions are asked with respect to an event which has happened.
-  So, by \autoref{assu:HaUniqueD} both \qWhy{} and \qHow{} concern a unique event, no matter the description given of the event.
+  Still, in the case of \qWhy{} and \qHow{}, both questions are asked with respect to a specific event.
+  However, what is of interest is only a particular feature of the event --- the conclusion.
+  {
+    \color{blue}
+    Flexible.
+    Description of the conclusion may be more or less detailed.
+    For the most part, our interest is with a `minimal' description.
+    `The agent concluded' etc.
+    Adding more detail adds to possible answers to \qWhy{}.
+  }
 \end{note}
 
-
-\begin{note}
-  \begin{notationList}
-  \item
-    For ease of expression `\(\ed{}\)' abbreviates `\(\edn{}\) under description \(\edo{}\)'.
-  \end{notationList}
-\end{note}
 
 \begin{note}
   We place one important constraint on descriptions:
 
   \begin{constraint}{Fog}{Fog}%
     \label{cons:no-f-ref}%
-    A description of an event is limited to what is true of the event when the event happened.
+    A description \(\edo{}\) of an event \(\edn{}\) is limited to what is true of \(\edn{}\) when \(\edn{}\) happens.
   \end{constraint}
 
   \noindent%
-  \autoref{cons:no-f-ref} rules out describing an event by using information about the way in which the event develops.
+  \autoref{cons:no-f-ref} rules out describing an event by using information what happens after the relevant event happens.
 
   For example, consider an event \(\edn{}\) under description \(\edo{}\) in which an agent has rolled nine using a two dice.
   Now, consider the event \(\edn{-}\) under description \(\edo{-}\) in which the dice are tumbling around in the agent's hands before being released on the table.
@@ -108,9 +119,7 @@
   Of course, \(\edo{-}\) may be more detailed, and granting the present determines the future it may be the case that \(\edo{-}\) entails \(\edn{-}\) is an event which develops into an event in which the agent rolls a nine.
   However, this entailment rests on what is true of \(\edn{}\) being determined by what is true of \(\edn{-}\).
 
-  Note, however, that even if one grants the present determines the future, it need not be the case that \(\edo{-}\) is sufficiently detailed to entails the agent rolls a nine.
-  And, this is the case even if \(\edo{-}\) is uniquely satisfied by \(\edn{-}\).
-  For, an description may be ensure unique satisfaction by pointing to a specific piece of space-time without describing in any further detail what occurs during the piece of space-time.
+  Note, however, that even if one grants the present determines the future, it need not be the case that \(\edo{-}\) is sufficiently detailed to entail the agent rolls a nine.%
 \end{note}
 
 
@@ -170,11 +179,26 @@
     % 
     \begin{itemize}
     \item
-      \(\text{Prog}[\ed{\ast}]\) is entailed by \(\edo{}\).\newline
+      \(\edo{}\) entails:
+      \(\text{Prog}[\ed[\ast]{}]\).\newline
       \mbox{ }\hfill (Where \(\text{Prog}[\ed{\ast}]\) is \(\edo{\ast}\) under the progressive aspect.)
     \end{itemize}
     \vspace{-.5\baselineskip}
   \end{intuition}
+
+  {
+    \color{blue}
+    In other words, we get an additional description of \(\edn{}\).
+
+    Note, \(\ed{}\) being an event in which \(\ed{\ast}\) is in progress is distinct from \(\ed{}\) being an event in which \(\edn{\ast}\) is in progress.
+    Here, there is far more involved.
+    The point is, we're only looking at \(\edn{\ast}\) under \(\edo{\ast}\).
+    The description is limited.
+
+    In this respect, disingenuous to mention \(\edn{\ast}\).
+    However, relation between two specific events is important.
+  }
+  
 
   \noindent%
   For example, going by \autoref{def:es-in-prog}, the following are equivalent:
@@ -367,7 +391,7 @@
 
   \begin{observation}[Events in progress and common satisfaction]%
     \label{obs:eip-partial}%
-    Sometimes, when \(\ed{}\) is an event in which \(\ed{\ast}\) is in progress, \(d'\) may be satisfied by multiple events.
+    Sometimes, when \(\ed{}\) is an event in which \(\ed{\ast}\) is in progress, \(\edo{\ast}\) may be satisfied by multiple events.
   \end{observation}
 
   \begin{motivation}{obs:eip-partial}
@@ -481,73 +505,191 @@
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{assu:p:se:prog}
-        \(\ed{\flat}\) is such that an event \(\edn{\circ}\) under description \(\edo{}\) is in progress.
-      % \item
-      %   \label{assu:p:se:desc}
-      %   \(\edo{}\) is true of \(\edn{}\) \emph{only if} \(\edo{\sharp}\) is true of \(\edn{}\).
+        \(\ed{\flat}\) is such that \(\ed{}\) is in progress.
       \item
         \label{assu:p:se:hCon}
-        The following conditional is true:
-        \begin{itenum}
-        \item[\emph{If}:]
-          \(\ed{}\) happens.
-        \item[\emph{Then}:]
-          \(\ed{}\) happens as a result of \(\ed{\flat}\).
-        \end{itenum}
+        \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat}\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{definition}
 
   \noindent%
-  Paraphrased, a \se{} of \(\ed{}\) is an event such that \(\ed{}\) is in progress and, in turn, if \(\ed{}\) happens, \(\ed{}\) happens as a result of the \se{}.
+  \(\ed{\flat}\) being a \emph{\se{0}} of \(\ed{}\) concerns specific events \(\edn{\flat}\) and \(\edn{}\).
+  And, of interest is whether specific descriptions \(\edo{}\) and \(\edo{\flat}\) capture a particular connexion between \(\edn{\flat}\) and \(\edn{}\).
 
-  The key feature of a \se{} of some event \(\ed{}\) is that \(\edn{}\) happens \emph{as a result} of the \se{}.
-  In this respect `causes' may be substituted in place of `happens as a result of'.%
+  Still, our interest is only with parts of \(\edn{\flat}\) and \(\edn{}\), respectively.
+  Intuitively:
+  %
+  \begin{itemize}
+  \item
+    Clause~\ref{assu:p:se:prog} `looks forward':
+
+    The description \(\edo{\flat}\) of \(\edn{\flat}\) captures that an event described by \(\edo{}\) is in progress.
+  \item
+    Clause~\ref{assu:p:se:hCon} `looks backward':
+
+    \(\edn{}\) as described by \(\edo{}\) happened in part as a result of \(\edn{\flat}\) as described by \(\edo{\flat}\).
+  \end{itemize}
+
+  The role of Clause~\ref{assu:p:se:prog} is to ensure the event \(\edn{}\) is favoured over some other event.
+  For, by \autoref{assu:p:ex} as \(\ed{}\) is in progress, it is not the case that \(\ed[x]{}\) is in progress, grating it is not possible for \(\edo{}\) and \(\edo{x}\) to both be true of an event.
+
+  And, the role of Clause~\ref{assu:p:se:hCon} is to ensure \(\edn{}\) happens as a result of being favoured.
+\end{note}
+
+
+\begin{note}
+  The role of clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:hCon} combined to give answers to `why' (in the sense of \qWhy{}) \(\ed{}\) happened.
+  Still, for the moment our interest is with what clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:hCon} say rather than their role.
+
+  As Clause~\ref{assu:p:se:prog} simply places a constraint on the relevant description \(\edo{\flat}\) our discussion focuses on Clause~\ref{assu:p:se:hCon}.
+  We briefly discuss what is it is for an event to happen `--- in part --- as a result of' some other event.
+  Following this, we provide a handful of observations (and a proposition) which important features of Clause~\ref{assu:p:se:hCon}.
+  Finally, before moving on, we provide an argument for \se{} with respect to \autoref{illu:gist:roots:F}.
+\end{note}
+
+
+\begin{note}
+  I have little to say in abstract about what is it is for an event to happen `--- in part --- as a result of' some other event.
+  Roughly, it was not possible for \(\ed{}\) to happen without \(\ed{\flat}\).
+  In this respect, \(\ed{}\) only happened --- in part --- as a result \(\ed{\flat}\).%
   \footnote{
-    For link between progressive and causation, \textcite{Szabo:2004ul}.
+    I suspect `causally depends on' may be substituted in place of `happens --- in part --- as a result of'.
+
+    For example, if \(\ed{}\) causally depends on \(\ed{\flat}\) \emph{just in case} \(\ed{}\) would not occur were \(\ed{\flat}\) not occur (\cite[cf.][1.1]{Menzies:2020aa}), then the agent buttering toast causally depends on the bread being toasted.
+
+    However, in contrast to an event being --- in part --- the result of some other event I doubt there is much pre-theoretical intuition for what causal dependence amounts to.
+
+    A number of Aesop's fable, in translation at least, talk about events being results of other events and I have not found a (translation of a) fable that talks about causal dependence.
+    E.g.:
+    %
+    \begin{quote}
+      A deer had fallen ill and was resting on the grassy plain.
+      When the other animals came to see her, they ate up all the grass in her pasture.
+      As a result, when the deer recovered from her illness, she ended up dying since her pasture had come to an end.%
+      \mbox{ }\hfill\mbox{(\cite[124]{Aesop:2002aa})}
+    \end{quote}
+    %
+    Still, Clause~\ref{assu:p:se:prog} requires \(\ed{}\) is in progress, and if the progressive is understood via causation as suggested, e.g. \textcite{Szabo:2004ul}, then both clauses may then be expressed via causation.
   }
-  Though, we prefer `happens as a result of' to avoid requiring a causal relation, as speaking of causal relations tends to draw attention away from particular features of an event.
+
+  For example, it is not possible for an agent to be paddling in the ocean unless the agent steps foot into the ocean.
+  Hence, the agent paddling in the ocean happened --- in part --- as the result of the agent stepping foot into the ocean.
+
+  Likewise, it is not possible for an agent to butter some toast without some bread being toasted.
+  Hence, the agent buttering toast happened --- in part --- as a result of the bread being toasted.
+
+  Note, however, \(\ed{}\) happening --- in part --- as a result of \(\ed{\flat}\) does not follow from \(\ed{\flat}\) being such that an event \(\ed{}\) is in progress:
+
+  \begin{observation}[Condition \ref{assu:p:se:hCon}!]%
+    \label{obs:se-need-hCon}%
+    It may be the case that:
+    \begin{itemize}
+    \item
+      \(\ed{\flat}\) is such that an event \(\ed{}\) is in progress and \(\ed{}\) happens.
+    \item
+      \(\ed{}\) does not happen as a result of \(\ed{\flat}\).
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{observation}
+
+  \begin{motivation}{obs:se-need-hCon}
+    Suppose an agent is passing an exam without external help.
+    Then, a classmate passes the agent some answers, which the agent uses.
+    The agent passes the exam, and was passing an exam without external help but the agent does not pass the exam as a result passing an exam without external help.
+  \end{motivation}
+\end{note}
+
+
+\begin{note}
+  \begin{proposition}[Limited descriptions]
+    \label{prop:se-d-lim}
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat}\).
+    \item[\emph{Then}:]
+      \(\edo{\flat}\) does not include features of \(\edn{\flat}\) that \(\ed{}\) does not happen as a result of.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
+
+  \noindent%
+  In other words, \(\edn{}\) as captured by \(\edo{}\) constrains which descriptions of \(\edn{\flat}\) are of interest.
+
+  \begin{argument}{prop:se-d-lim}
+    Expanded, our interest is in whether \(\edn{}\) as described by \(\edo{}\) happens --- in part --- as a result of \(\edn{\flat}\) as described by \(\edo{\flat}\).
+
+    Our interest is \emph{not} with whether \(\edn{}\) as described by \(\edo{}\) happens --- in part --- as a result of \(\edn{\flat}\) as described by \emph{some part of} \(\edo{\flat}\).
+
+    In this respect, \(\ed{}\) must be a result of everything captured by \(\edo{\flat}\).
+  \end{argument}
+
+  \noindent%
+  For example, suppose \(\edo{}\) is the description `an agent shuffles a deck so that \mainCard{} is \mainCardPos{} by sleight of hand', and \(\edo{}\) is true of \(\edn{}\).
+  Further, suppose \(\edo{\flat}\) is the description `the agent marks the \mainCard{} so they do not lose the card in a shuffle' and \(\edo{\flat}\) is true of \(\edn{\flat}\).
+
+  Now, intuitively \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat}\).
+  For, \(\ed{\flat}\) captures part of the sleight of hand.
+  It is not possible for the agent to shuffle a deck so that \mainCard{} is \mainCardPos{} by sleight of hand without ensuring they do not lose \mainCard{} in the shuffle.%
+  \footnote{
+    Of course, the agent may randomly shuffle a deck so that \mainCard{} is \mainCardPos{}, but then the agent has not shuffled a deck \emph{so that} \mainCard{} is \mainCardPos{}.
+  }
+
+  However, \(\edo{\flat}\) may be expanded to include further details.
+  For example, let \(\edo{\flat +}\) be the description `the agent marks the \mainCard{} so they do not lose the card in a shuffle while finding a hole in their sock'.
+  Intuitively, it is not the case that \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat +}\).
+  For, the agent finding a hole in their sock had no influence on whether the agent marked \mainCard{}.
+
+  Though, if \(\edn{}\) is described by \(\edo{+}\) as shuffles the deck by performing sleight of hand while coming to regret not buying a new pair of socks in the January sale, then \(\ed{+}\) plausibly happens as a result of \(\ed{\flat +}\).
+\end{note}
+
+
+\begin{note}
+  Our interest is not with whether \emph{any} event captured by description \(\edo{}\) is a result of any event captured by description \(\edo{\flat}\).
+  This is highlighted by the following observation.
+
+  \begin{observation}
+    \label{obs:theEventsHuh}
+    It may be the case that \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat}\) only given details of \(\edn{}\) and \(\edn{\flat}\) which are not captured by \(\edo{}\) and \(\edo{\flat}\).
+  \end{observation}
+
+  \begin{motivation}{obs:theEventsHuh}
+    Consider the example just given following \autoref{prop:se-d-lim}.
+
+    \(\edo{}\) is the description `an agent shuffles a deck so that \mainCard{} is \mainCardPos{} by sleight of hand', and \(\edo{}\) is true of \(\edn{}\).
+    And, \(\edo{\flat}\) is the description `the agent marks the \mainCard{} so they do not lose the card in a shuffle' and \(\edo{\flat}\) is true of \(\edn{\flat}\).
+
+    \(\ed{}\) intuitively happens --- in part --- as a result of \(\ed{\flat}\).
+    However, \(\edo{\flat}\) does not guarantee that the agent successfully completes the shuffle.
+    For example, it is consistent with \(\edo{\flat}\) that the agent loses their mark.
+    Still, the implicit understanding of \(\edn{}\) and \(\edn{\flat}\) is that the two shuffles are connected.
+    And, so long as the two shuffles are connected \(\ed{}\) plausibly does happen --- in part --- as a result of \(\ed{\flat}\) for the motivated given above.
+  \end{motivation}
+\end{note}
+
+
+\begin{note}
+  \autoref{obs:theEventsHuh} may be seen to pair with \autoref{prop:se-d-lim}.
+  For, our interest is in whether \(\edn{}\) as described by \(\edo{}\) happens --- in part --- as a result of \(\edn{\flat}\) as described by \(\edo{\flat}\).
+  This means that everything in the description \(\edo{\flat}\) must be relevant to whether \(\edn{}\) as described by \(\edo{}\) happens.
+  However, this does not means that everything relevant to whether \(\edn{}\) as described by \(\edo{}\) happens is captured by \(\edo{\flat}\).
 \end{note}
 
 
 
 \begin{note}
-  The definition is a little more delicate than this paraphrase.
-  For, \(\edn{}\) is a particular event.
-  Rather than \(\edn{}\) in particular, any event such that the relevant description \(\edo{}\) of the event.
-  Still, the second part focuses on \(\edn{}\), as \(\edo{}\) may be insufficient to establish \(\edn{}\) is a result of \(\ed{\flat}\).
+  In short, I take the idea \(\ed{}\) happening --- in part --- as a result of \(\ed{\flat}\) to be intuitive.
 
-  An example is going to help.
-
-
-  For, the relevant description \(\edo{}\) of \(\edn{}\) may include details in excess of what is in progress given the description \(\edo{\flat}\) of \(\edn{\flat}\).
-  So, paraphrased a little more carefully, a \se{} of \(\ed{}\) is an event such that \(\edn{}\) under a partial description \(\edo{\sharp}\) is in progress and, in turn, if \(\edn{}\) under \(\edo{\sharp}\) happens, \(\edn{}\) as a result of the \se{}.
-
-  
-
-  We first walk through an example, and then highlight the importance of Clause~\ref{assu:p:se:hCon}.
+  Our interest is in the feature of \(\edn{}\) captured by description \(\edo{}\) being --- in part --- a result of the feature of \(\edn{\flat}\) captured by description \(\edo{\flat}\).
+  Hence, \(\edo{\flat}\) is limited to what is relevant to \(\edn{}\) as captured by description \(\edo{}\) happening (\autoref{prop:se-d-lim}) though \(\edo{\flat}\) need not exhaust what is relevant to \(\edn{}\) as captured by description \(\edo{}\) happening (\autoref{obs:theEventsHuh}).
 \end{note}
 
 
 \begin{note}
-  \color{blue}
-  Note, Clause~\ref{assu:p:se:hCon} places a restriction on descriptions \(\edo{\flat}\).
-  For, \(\ed[\sharp]{}\) happens as a result of \(\ed{\flat}\).
+  To close this section we provide an argument for \se{} with respect to \autoref{illu:gist:roots:F}.
 
-  Suppose flip a coin, lands heads, and I lose a bet.
-  Lose the bet as a result of the coin landing heads.
-  Various other things may be true.
-  For example, did not sleep the previous night, have just drank a cup of coffee, and so on.
-
-  In turn, \(\edo{}\) is delicate.
-  If include it may be the case that \(\edo{}\) includes too much about \(\edn{}\) to say that the event is in progress.
-
-  In short, balance.
-\end{note}
-
-
-\begin{note}
   \begin{observation}[A \se{} of \autoref{illu:gist:roots:F}]
     \label{obs:se-inst}%
     Given the \(\edn{}\) is the event described by \autoref{illu:gist:roots:F} and \(\edo{}\) is the description `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)', where captures the \agents{} understanding of factorisation:
@@ -564,7 +706,7 @@
 
     \autoref{illu:gist:roots:F} describes \(\edn{\flat}\) as an event in which the agent is attempting to find possible values for \(x\) such that \(2x^{2} - x - 1 = 0\) and figures out \((2x + 1)(x - 1) = 0\).
     I take it to be sufficiently clear that the agent \emph{is} (regardless of any description) concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\).
-    Therefore, we may fix a description \(\edo{\flat}\) of \(\edn{\flat}\) which states, roughly, `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.%
+    Therefore, we fix a description \(\edo{\flat}\) of \(\edn{\flat}\) which states, roughly, `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.%
     \footnote{
       We have fixed a description such that clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:desc} are mostly immediate.
       This is in keeping with the spirit of \autoref{def:se}.
@@ -590,42 +732,23 @@
 
     Suppose \(\edn{}\) does not happen as a result of \(\ed{\flat}\).
     This is a contradiction.
-    \medskip
 
-    \noindent%
     For, by supposition \(\edn{}\) does not happen as a result of an event in which the agent figures out \((2x + 1)(x - 1) = 0\).
     And, \(\edn{}\) is an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} of premises which captures their understanding of factorisation.
     Yet, as the agent did not conclude by factoring \(2x^{2} - x - 1 = 0\), it cannot be the case that the \agents{} concluded by their understanding of factorisation.
     The agent must have concluded \propM{\rootsCon{}} has \val{0} \valI{True} by some other \pool{}.
+    \medskip
+
+    So, the proposition.
+    This is satisfied.
+    Does happen as a result of figuring out.
+
   \end{motivation}
 
   \noindent%
-  The key idea is somewhat straightforward:
-  Observe it makes no sense for \(\edo{}\) to be true of \(\edn{}\) if it is not the case that \(\ed{}\) happens as a result of \(\ed{\flat}\).
+  The key idea of \autoref{obs:se-inst} is somewhat straightforward:
+  Observe it makes no sense for \(\edo{}\) to be true of \(\edn{}\) if it is not the case that \(\ed{}\) happens --- in part --- as a result of \(\edo{\flat}\) being true of \(\edn{\flat}\).
 \end{note}
-
-
-\begin{note}
-  A quick variation of \autoref{obs:prog-not-cfs} highlights the importance of Condition~\ref{assu:p:se:hCon}:
-
-  \begin{observation}[Condition \ref{assu:p:se:hCon}!]%
-    \label{obs:se-need-hCon}%
-    It is not the case that:
-    \begin{itenum}
-    \item[\emph{If}:]
-      \(\ed{\flat}\) is an event such that conditions~\ref{assu:p:se:prog} and \ref{assu:p:se:desc} hold of \(\ed{\flat}\) and \(\ed{}\) happens.
-    \item[\emph{Then}:]
-      \(\ed{}\) happens as a result of \(\ed{\flat}\).
-    \end{itenum}
-    \vspace{-\baselineskip}
-  \end{observation}
-  \begin{motivation}{obs:se-need-hCon}
-    Suppose an agent is passing an exam without external help.
-    Then, a classmate passes the agent some answers, which the agent uses.
-    The agent passes the exam, and was passing an exam without external help but the agent does not pass the exam as a result passing an exam without external help.
-  \end{motivation}
-\end{note}
-
 
 
 
@@ -644,10 +767,7 @@
       There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
       \begin{itemize}
       \item
-        {
-          \(\edo{\flat}\) entails it is true of \(\edn{\flat}\) that: \(f\).
-          % is such that \(\ed{}\) is in progress \emph{only if} feature \(f\) of \(\edo{\flat}\) holds throughout \(\ed{\flat}\).
-          }
+        \(\edo{\flat}\) being true of \(\edn{\flat}\)  (non-vacuously) entails \(f\) is true of \(\edn{\flat}\).
       \end{itemize}
     \item[\emph{Then:}]
       \(f\) explains `why' \(\ed{}\) happened, in the sense of `why' present in \qWhy{}.
@@ -655,86 +775,102 @@
     \vspace{-\baselineskip}
   \end{observation}
 
+  \noindent%
+  The motivation for \autoref{obs:PE} follows from the way in which we understand the sense of `why' present in \qWhy{}, the definition of a \se{} (\autoref{def:se}) and our assumption that it is not possible for two incompatible events to be in progress (\autoref{assu:p:ex}).
+
+  In particular, we understand the sense of `why' present in \qWhy{} in terms of why did the event \(\ed{}\) in which an agent concludes some \prop{0} \(\phi\) has \val{0} \(v\) from some \pool{0} \(\Phi\) happen, rather than any incompatible event --- e.g., an event in which the agent failed to conclude \(\phi\) has \val{0} \(v\) from \(\Phi\).
+
+  Our interest is with explanations of `why' \(\ed{}\) happened over any other event.
+  However, our interest is not with \emph{complete} explanations of `why' \(\ed{}\) happened over any other event.
+  Hence, if it is possible to point to something that is involved in \(\ed{}\) being favoured over any other incompatible event happening, then that thing explains `why' \(\ed{}\) happened, for our purposes.
+
+  In this respect, things which explain `why' \(\ed{}\) happened over any other event do not necessarily need to be particularly interesting, they just need to be sufficiently involved in `why' it is the case that \(\ed{}\) happened over any other event.
+
   {
     \color{blue}
-    The key observation here is that by construction of a \se{} event, \(\ed{}\) happens as a result of \(\ed{\flat}\).
-    The description is fixed.
-    If there is something irrelevant to the description, then \(\ed{\flat}\) is not a \se{} event.
-    Instead, there's some restricted description available.
+    In particular, our interest is with \ros{}.
+    These are designed to be an abstraction.
+    Hence, it is not possible to argue that a \ros{} has got to be part of any description.
+    This is what motivate entailment.
+    This abstraction is something which we get from a \se{} and in turn due to \se{1} answering why, \ros{} also answers why.
+    In other words, \progEx{0} provides, in some detail, sufficient conditions for a \ros{} to be an answer to \qWhy{} so long as entailment.
+    }
 
-    In other words, being a \se{} has already places restrictions on the possible descriptions of \(\edn{\flat}\).
-  }
 
   \begin{motivation}{obs:PE}
-    The motivation for \autoref{obs:PE} follows from the way in which we understand the sense of `why' present in \qWhy{} and the way we understand \se{} such that an agent is concluding given \autoref{def:se} and \autoref{assu:p:ex}.
-
-    For, we understand the sense of `why' present in \qWhy{} as the did the event \(\ed{}\) in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happen, rather than any incompatible event --- e.g., an event in which the agent cleans the lint from their pocket, etc.
-
-    Hence, if it is possible to point to something that favours \(\ed{}\) happening over any other event happening, then that thing explains `why' \(\ed{}\) happened, as opposed any other event.
+    Consider \(\ed{\flat}\) as a \se{} of \(\ed{}\).
     \medskip
 
     \noindent%
-    Now, consider \(\ed{\flat}\) as a \se{} of \(\ed{}\).
-
-    As \(\ed{}\) happened and \(\ed{\flat}\) is a \se{} of \(\ed{}\), then by \autoref{def:se}:
-      \(\ed{\flat}\) is such that \(\ed{}\) is in progress \emph{and}
-      \(\ed{}\) happened as a result of \(\ed{\flat}\).
-
-      Further, consider any event \(\ed{\ast}\) such that it is not possible for \(\edo{}\) and \(\edo{\ast}\) to both be true of an event.
-    Then, by \autoref{assu:p:ex}, it is not the case that \(\ed{\ast}\) is in progress.
-    Therefore, \(\ed{\flat}\) being such that \(\ed{}\) is in progress favours \(\ed{}\) happening over any other incompatible event happening.
-
-    And, as \(\ed{}\) happened as a result of \(\ed{\flat}\), \(\ed{}\) happened as the result of something which favoured \(\ed{}\) happening over any other incompatible event happening.
-
-    So, whatever features of \(\ed{\flat}\) make it the case that \(\ed{\flat}\) is a \se{} of \(\ed{}\) explain `why' \(\ed{}\) happened, in the sense of `why' present in \qWhy{}.
-    For, \(\ed{\flat}\) favoured it being the case that \(\ed{}\) happened, and \(\ed{}\) happened as a result of \(\ed{\flat}\).
+    By Clause~\ref{assu:p:se:prog}, \(\ed{\flat}\) is such that \(\ed{}\) is in progress.
+    So, \autoref{assu:p:ex}, it is not the case that \(\ed{\ast}\) is in progress, given it is not possible for \(\edo{}\) and \(\edo{\ast}\) to both be true of an event.
+    So, \(\ed{\flat}\) being such that \(\ed{}\) is in progress favours \(\ed{}\) happening over any other incompatible event happening.
     \medskip
 
     \noindent%
-    Finally, then, consider some feature \(f\) such that \(\ed{}\) is in progress \emph{only if} feature \(f\) of \(\edo{\flat}\) holds throughout \(\edn{\flat}\).
-    By \autoref{def:se}, if feature \(f\) fails to hold, then \(\ed{\flat}\) is not a \se{} of \(\ed{}\).
-    Hence, \(f\) is part of what makes it the case that \(\ed{\flat}\) is a \se{} of \(\ed{}\).\newline
+    By Clause~\ref{assu:p:se:hCon}, \(\ed{}\) happens --- in part --- as a result of \(\ed{\flat}\).
+    So, \(\ed{}\) happened --- in part --- as a result of something with favoured \(\ed{}\) happening over any other incompatible event happening.
+    \medskip
+
+    \noindent%
+    In other words, Clause~\ref{assu:p:se:hCon} tells us \(\ed{}\) happened --- in part --- as a result of \(\ed{\flat}\) and that happened and Clause~\ref{assu:p:se:prog} allows us to expand this observation to see \(\ed{}\) happened --- in part --- as a result of something which favoured \(\ed{}\) happening over any other (incompatible) event.
+
+    In this respect, \(\edo{\flat}\) being true of \(\ed{}\) explains `why' \(\ed{}\) happened, as opposed any other event.
+    {
+      \color{blue}
+      For, happen and happen over any other event.
+    }
+    \medskip
+
+    \noindent%
+    Finally, consider \(f\) such that \(f\) is (non-vacuously) entailed by \(\edo{\flat}\).
+
+
+    By \autoref{prop:se-d-lim} \(\edo{\flat}\) does not include features of \(\edn{\flat}\) that \(\ed{}\) does not happen as a result of.
+    So, as \(f\) is (non-vacuously) entailed by \(\edo{\flat}\) and \(\edo{\flat}\) does not include features of \(\edn{\flat}\) that \(\ed{}\) does not happen as a result of, it is not possible to capture the features of \(\edn{\flat}\) of \(\ed{}\) captured by \(\edn{\flat}\) without \(f\) being the case.
+    In short, \(f\) must be the case in order for \(\ed{}\) to happen --- in part --- as a result of \(\ed{\flat}\).
+    \smallskip
+
+    Now, it is not necessarily the case that \(f\) is a \se{}.
+    However, when we turn to why, we're not interested in capturing everything about \(\edo{\flat}\).
+    What we're interested in understanding way in which event happened.
+    Answers to why themselves do not need to be such that \(\ed{}\) is a result of those things.
+    But, everything involved in an \se{} provides understanding, and in this respect explain why.
+
+    As such, \(f\) (also) explains `why' \(\ed{}\) happened, as opposed any other event.
+    For, \(f\) is just part of the explanation of `why' \(\ed{}\) happened, as opposed any other event given by \(\edo{\flat}\).
   \end{motivation}
-
-  \noindent%
-  Setting the particular way \progEx{} is motivated aside, I take \progEx{} to be intuitive.
-  For example, consider \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
-  \phantlabel{mention:Hempel:1}
-  % 
-  \begin{quote}
-    [A Deductive-Nomological] explanation answers the question
-    `\emph{Why} did the explanandum-phenomenon occur?'
-    by showing that the phenomenon resulted from certain particular circumstances, specified in \(C_{1}, C_{2}, \dots C_{k}\), in accordance with the laws \(L_{1}, L_{2}, \dots L_{\gamma}\).
-    By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
-    \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
-  \end{quote}
-  % 
-  Observe, \citeauthor{Hempel:1965aa} stress a connexion with observing an event \textquote{was to be expected} and an explanation allowing us to \textquote{understand why} the event occurred (the italics are \citeauthor{Hempel:1965aa}'s).
-  Though, while \citeauthor{Hempel:1965aa} details the link with circumstances and laws, while we detail the link in terms of a \se{}.
 \end{note}
 
 
-\begin{note}
-  \progEx{2} is a key part of the arguments to follow.
-  For, \progEx{0} provides, in some detail, sufficient conditions for a \ros{} to be an answer to \qWhy{}:
 
-  \begin{sketch}[\progEx{2}, conclusions, and \ros{1}]%
+
+\begin{note}
+  Given previous:
+  
+  \begin{observation}[\progEx{2}, conclusions, and \ros{1}]%
     \label{sketch:PE:cROS}%
     Given \(\ed{}\) is an event in which \vAgent{} concludes \(\phi\) has value \(v\) from \(\Phi\):
 
     \begin{itenum}
     \item[\emph{If}:]
-      There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+      Both true:
       \begin{itemize}
       \item
-        \(\edo{\flat}\) entails it is true of \(\edn{\flat}\) that:
-        A \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+        \(\ed{}\) is event in which agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\).
+      \item
+        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+        \begin{itemize}
+        \item
+          \(\edo{\flat}\) entails it is true of \(\edn{\flat}\) that:
+          A \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+        \end{itemize}
       \end{itemize}
     \item[\emph{Then:}]
       The \ros{} between \(\psi\), \(v'\) and \(\Psi\) explains `why' \(\ed{}\) happened, in the sense of `why' present in \qWhy{}.
     \end{itenum}
     \vspace{-\baselineskip}
-  \end{sketch}
+  \end{observation}
 
   \begin{motivation}{sketch:PE:cROS}
     \autoref{sketch:PE:cROS} follows from \autoref{obs:PE}, by taking the  action \(a\) to be a conclusion that \(\phi\) has value \(v\) from \(\Phi\), and \(f\) to be a \ros{} between \(\psi\), \(v'\) and \(\Psi\).
@@ -747,6 +883,27 @@
   For, given an event in which an agent concludes \(\phi\) has value \(v\) from \(\Phi\) then if the antecedent is satisfied by a \ros{} between \(\psi\), \(v'\) and \(\Psi\) and there is no past or present event in which the agent concludes \(\psi\) has value \(v'\) from \(\Psi\), then \issueInclusion{} fails to hold.
 \end{note}
 
+
+
+\begin{note}
+  Setting the particular way \progEx{} is motivated aside, I take the basic idea of \progEx{} to be intuitive.
+  For example, consider \citeauthor{Hempel:1965aa}'s Deductive-Nomological account of scientific explanation:
+  \phantlabel{mention:Hempel:1}
+  % 
+  \begin{quote}
+    [A Deductive-Nomological] explanation answers the question
+    `\emph{Why} did the explanandum-phenomenon occur?'
+    by showing that the phenomenon resulted from certain particular circumstances, specified in \(C_{1}, C_{2}, \dots C_{k}\), in accordance with the laws \(L_{1}, L_{2}, \dots L_{\gamma}\).
+    By pointing this out, the argument shows that, given the particular circumstances and the laws in question, the occurrence of the phenomenon \emph{was to be expected}; and it is in this sense that the explanation enables us to \emph{understand why} the phenomenon occurred.%
+    \mbox{ }\hfill\mbox{(\citeyear[337]{Hempel:1965aa})}
+  \end{quote}
+  % 
+  Observe, \citeauthor{Hempel:1965aa} stress a connexion with observing an event \textquote{was to be expected} and an explanation allowing us to \textquote{understand why} the event occurred (the italics are \citeauthor{Hempel:1965aa}'s).
+  {
+    \color{blue}
+    Though, while \citeauthor{Hempel:1965aa} details the link with circumstances and laws, while we detail the link in terms of a \se{}.
+  }
+\end{note}
 
 
 \section*{Summary}
