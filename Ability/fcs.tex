@@ -38,13 +38,16 @@
 
     \begin{itemize}
     \item
-      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(d_{i}\) such that \(\ed{i}\) is an event in which \vAgent{} may immediately do action \(a_{i}\) and conditions \ref{def:fc:act} and \ref{def:fc:result} are true:
+      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(\edo{1}, \dots, \edo{k}\) such that clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} are true:
       %
       \begin{enumerate}[label=\Alph*., ref=\Alph*, series=fcCounter]
+      \item
+        \label{def:fc:ai}
+        \(\ed{i}\) is an event in which \vAgent{} may do some action \(a_{i}\).
         %
       \item
         \label{def:fc:act}
-        The event \(\ed{i\sharp}\) in which \vAgent{} does \(a_{i}\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        The event \(\edn{i +}\) in which \vAgent{} does \(a_{i}\) is an event in which \vAgent{} is concluding \(\pv{\phi}{v}\) from \(\Phi\).
         %
       \item
         \label{def:fc:result}
@@ -58,29 +61,48 @@
   \noindent%
   The core idea of \(\pv{\phi}{v}\) being a \fc{} from \(\Phi\) is the availability of an action such that an event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is in progress when the agent does the action.
 
-  In order to easily connect \fc{1} to other ideas in this document, \fc{1} are defined with respect to events, and in order to allow for the possibility of distinct actions being done, the existence of a relevant action is stated with respect to sub-events of the event.
-  Though, for ease of expression we talk as through there is a common available action through all sub-events of an event when discussing \fc{1}.
+  In order to easily connect \fc{1} to other ideas in this document, \fc{1} are defined with respect to events.
+  This slightly complicates the definition.
+  For, of interest is that the agent do something and as a result be concluding \(\pv{\phi}{v}\) from \(\Phi\) throughout the event.
+  And, depending on your view of actions, there may be no single action available to the agent throughout the relevant event.
+  So, rather than presuppose there is some unique action a potentially restrict the events \autoref{def:fc} applies to, \autoref{def:fc} allows breaking down the relevant event into a series of sub-events such that each sub-event has an associated action.
+  Still, \(\edn{}\) itself is trivially a partition and sub-event of \(\edn{}\), so this complication may be easily ignored.
 \end{note}
 
 \begin{note}
-  As defined, \fc{1} concern the availability of an action such that an agent is concluding.
-  The relevant \emph{conclusion} intuitively follows from Condition~\ref{def:fc:act} and \assuPP{}.
-  For, by \assuPP{}, if an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) there is a possible event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+  \fc{3} are about the possibility of an agent concluding.
 
-  The sense in which the relevant conclusion \emph{is forgone} follows from \ref{def:fc:act} and \ref{def:fc:result}.
+  The sense in which something is \emph{foregone} is captured by Clause~\ref{def:fc:ai} and \autoref{cons:no-f-ref} (\autopageref{cons:no-f-ref}).
+  For, by \autoref{cons:no-f-ref} the description \(\edo{i}\) of \(\edn{i}\) is limited to what is true of \(\edn{i}\) when \(\edn{i}\) happens.
+  So, when \(\edn{i}\) happens it is true that the agent may do some action \(a_{i}\), before the agent does \(a_{i}\).
 
-  From Condition~\ref{def:fc:act}, something prior to conclusion is sufficient to ensure an action such that an event in which the agent concludes is in progress.
-  And, from Condition~\ref{def:fc:result}, when the agent does not require any novel \evals{} to conclude \(\pv{\phi}{v}\).
-  `Novel' in the sense that \eval{} is not obtained from present \eval{1}.%
+  And, the sense in which the something foregone is a \emph{conclusion} is captured by Clause~\ref{def:fc:act} and \assuPP{} (\autoref{assu:PP}).
+  For, by Clause~\ref{def:fc:ai} doing the action \(a_{i}\) results in the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  And, by \assuPP{}, if an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) there is a possible event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+
+  So, prior to the agent doing \(a_{i}\), something about \(\edn{i}\) ensures it is the case the agent may be concluding \(\pv{\phi}{v}\) from \(\Phi\), and hence by \assuPP{} this something ensures the agent may conclude \(\pv{\phi}{v}\) from \(\Phi\).
+\end{note}
+
+\begin{note}
+  Still, our interest is with conclusions which already follow from an \agpe{}, and clauses~\ref{def:fc:ai} and \ref{def:fc:act} alone do not quite capture this way a conclusion may be foregone.
+
+  For example, consider an agent working in a library.
+  At any moment the agent may look up and read the time from a clock on the wall.
+  And, if the agent starts to read the clock the agent is clearly concluding \pv{\propI{It's XX:XX}}{\valI{True}} from some \pool{} which captures the \agents{} perception of the clock.
+
+  The role of Clause~\ref{def:fc:result} is to strengthen the sense in which the conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is foregone by ensuring everything the agent requires to conclude \(\pv{\phi}{v}\) from \(\Phi\) is available to the agent prior to doing action \(a_{i}\).
+  So, prior to the agent doing \(a_{i}\), something about \(\edn{i}\) ensures it is the case the agent may conclude \(\pv{\phi}{v}\) from \(\Phi\) from the way things are from the \agpe{} prior to doing \(a_{i}\).
+
+  Clause~\ref{def:fc:result} rules out \pv{\propI{It's XX:XX}}{\valI{True}} being a \fc{} from some \pool{} which captures the \agents{} perception of the clock, so long as the agent has not looked at the clock.
+  However, Clause~\ref{def:fc:result} allows \pv{\propI{\rootsCon{}}}{\valI{True}} to be a \fc{} from some \pool{} which captures the \agents{} understanding of factorisation in \autoref{illu:gist:roots:F}, given the \agents{} understanding of factorisation is fixed prior to the event of \autoref{illu:gist:roots:F}.%
   \footnote{
-    There is a slight problem.
-
-    For, it may be the case that when the agent does the action, something changes.
-    For example, suppose an agent has the option to attempt to make some conclusion, and so long as the agent makes an attempt, the agent is given additional deductive powers.
-    Whether the conclusion is really `foregone' in the intuitive sense appealed to here is unclear.
-    For, the conclusion may not follow from the relevant \pool{} with respect to the agent as they are.
-
-    However, I do not think it is worth complicating the definition of a \fc{} to rule out this possibility.
+    There may be further considerations which favour strengthening \autoref{def:fc} further.
+    In particular, one may construct cases where something important changes after the agent performs the action.
+    Still, I have not found a clearly compelling case.
+    Perhaps some action leads to a transformative experience, and the relevant conclusion is not sufficiently connected to the \agpe{\agents{} present}.
+    Still, I doubt it is worth complicating \autoref{def:fc} any further.
+    The role of \autoref{def:fc} is to identify certain a phenomenon.
+    Without additional restrictions this phenomenon may be a little broader than intended, but still includes the phenomenon of direct interest.
   }
 \end{note}
 
@@ -90,8 +112,7 @@
     For example:
 
     \begin{quote}
-      [\dots] Russell's evaluation of such sentences as false is predetermined by his existence presuppositional semantics for the ‘existential' quantifier, and by the fact that his logic permits no alternative means of considering the semantic status of sentences ostensibly containing proper names for nonexistent objects.
-      This makes it an altogether philosophically foregone conclusion that sentences like ‘Pegasus is winged,' which many logicians would otherwise consider to be true propositions of mythology, are false.%
+      [Russell's] presuppositional semantics for the ‘existential' quantifier, [\dots] makes it an altogether philosophically foregone conclusion that sentences like ‘Pegasus is winged,' [\dots] are false.%
       \mbox{ }\hfill\mbox{(\cite[6]{Jacquette:2002up})}
     \end{quote}
 
@@ -121,21 +142,127 @@
 
 
 
-\section{Illustrations}
+\section{An application and some \illu{1}}
+
+\begin{note}
+  This section contains an application of \autoref{def:fc} to~\autoref{illu:gist:roots:F}, and a handful of more relaxed \illu{1} of \fc{1}.
+
+  We begin with the application as it highlights the way we put the definition of a \fc{} to use in the remainder of this document.
+  And, as with \autoref{obs:se-inst} (\autopageref{obs:se-inst}) we will appeal to the application again later in the document.
+
+  The \illu{1} which follow the application are a little more free-flowing and intended to help build intuition about the phenomenon the definition of a \fc{} is designed to capture.
+  Still, as the \illu{1} are only for intuition, these may safely be skipped over.
+  (Though, you may prefer to take a look at the \illu{1} prior to working through the application.)
+\end{note}
+
+
+\subsection{An application}
+
+\begin{note}
+  \begin{application}[A \fc{} of \autoref{illu:gist:roots:F}]%
+    \label{obs:var:factor:fc}%
+    Given:
+    %
+    \begin{itemize}
+    \item
+      \(\edn{}\) is the event described by \autoref{illu:gist:roots:F}.
+    \item
+      \(\Phi\) captures the \agents{} understanding of factorisation prior to \(\edn{}\).
+    \item
+      \(\edo{}\) is the description `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)'.
+    \item
+      \(\edn{\flat}\) covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning in \autoref{illu:gist:roots:F}
+    \end{itemize}
+    %
+    It is the case that:
+    %
+    \begin{itemize}
+    \item
+      For any description \(\edo{\flat}\) true of \(\edn{\flat}\) which includes `the agent is \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)'.
+      \begin{itemize}
+      \item
+        \(\edo{\flat}\) entails \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+      \end{itemize}
+    \end{itemize}
+    \vspace{-2\baselineskip}
+  \end{application}
+
+  \begin{dets}{obs:var:factor:fc}
+    Consider any event \(\edn{i}\) in a partition \(\edn{1}, \dots, \edn{k}\) of \(\ed{\flat}\) into sub-events.
+    And, let \(\ed{i}\) capture \(\edn{i}\) is an event in which the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
+    \footnote{
+      Note, \(\edo{i}\) is clearly true of \(\edn{i}\) as \(\edn{i}\) is a sub-event of \(\edn{\flat}\) and \(\edo{\flat}\) is true of \(\edn{\flat}\).
+    }
+    \medskip
+
+    \noindent%
+    Our goal is to show clauses \ref{def:fc:ai}, \ref{def:fc:act} and  \ref{def:fc:result} of \autoref{def:fc} are satisfied.
+    \medskip
+
+    \noindent%
+    To begin, observe that by assumption \(\ed{i}\) is such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
+    Therefore, by \assuPP{} (\autopageref{assu:PP}) there is a possible event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
+    And, as \(\edn{\flat}\) is the event in which the agent figures out \((2x + 1)(x - 1) = 0\), it is clear \(\ed{i}\) is not an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
+    Hence, in order for it to there to be a possible event in which the concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\), there must be some action the agent may do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
+    So, clause~\autoref{def:fc:ai} and~\ref{def:fc:act} of \autoref{def:fc} is satisfied.
+    \medskip
+
+    \noindent%
+    Further, we assumed the agent understands factorisation prior to \(\ed{}\), and as \(\ed{\flat}\) is included in \(\ed{}\), the agent understands factorisation prior to \(\ed{\flat}\) by assumption.
+    Hence, for each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to \(\ed{i}\).
+    Therefore, Clause~\ref{def:fc:result} of \autoref{def:fc} is satisfied.
+    \medskip
+
+    \noindent%
+    Finally, \(\edn{\flat 1}, \dots, \edn{\flat k}\) was an arbitrary partition of \(\ed{\flat}\) into sub-events and we have shown clauses \ref{def:fc:ai},~\ref{def:fc:act} and~\ref{def:fc:result} are satisfied with respect to any sub-event of the partition, it follows \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  \end{dets}
+\end{note}
+
+\begin{note}
+  In short, \autoref{obs:var:factor:fc} reduces to observing that if \(\ed{\flat}\) is an event in which an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) then there must be some possible event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) by \assuPP{}.
+  Hence, so long as the agent does not conclude \(\pv{\phi}{v}\) from \(\Phi\) during \(\edn{\flat}\) then throughout \(\edn{\flat}\) there must be some action such that the agent continues to be concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  So, clauses \ref{def:fc:ai} and \ref{def:fc:act} are almost trivially satisfied.
+  And, Clause~\ref{def:fc:result} is satisfied by assumption.
+\end{note}
+
+\begin{note}
+  The pair of \autoref{obs:se-inst} and \autoref{obs:var:factor:fc} show that \pv{\rootsCon{}}{\valI{True}} being a \fc{} from \(\Phi\) answers `why' (in the sense of \qWhy{}) the agent concluded \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).
+
+  \autoref{cha:var} makes this connexion in detail, though first we links \ros{1} to \fc{1} to obtain `direct' answers to \qWhy{} \autoref{cha:ros}.
+\end{note}
+
+
+\subsection{Illustrations}
 \label{cha:fcs:illu}
+
+
+\begin{note}
+  \illu{1}.
+  Pattern.
+  Set up the background details.
+  Highlight \prop{0}-\val{0} pair of interest.
+  Observe the \prop{0}-\val{0} pair is, intuitively, a \fc{}.
+\end{note}
+
 
 
 \paragraph{Illustration 1}
 
+
 \begin{note}
-  \begin{scenario}[\cite[9]{Dudeney:1995aa}]
+  \begin{scenario}[Paltry]
     \label{scen:fc:chick}%
-    Three chickens and one duck sold for as much as two geese; one chicken, two ducks, and three geese were sold together for \$25.00.
-    What was the price of each bird in an exact number of dollars?
+    An agent reads Puzzle~25 of \citeauthor{Dudeney:1995aa}'s \citetitle{Dudeney:1995aa}:
+    %
+    \begin{quote}
+      Three chickens and one duck sold for as much as two geese; one chicken, two ducks, and three geese were sold together for \$25.00. What was the price of each bird in an exact number of dollars?%
+      \mbox{ }\hfill\mbox{(\citeyear[9]{Dudeney:1995aa})}
+    \end{quote}
+    \vspace{-\baselineskip}
   \end{scenario}
 
   \noindent%
-  With respect to \autoref{scen:fc:chick}, the \fc{} of interest is the solution to the puzzle:
+  The \prop{0}-\val{0} pair of interest is the solution to the puzzle:
   %
   \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
   \item
@@ -143,62 +270,76 @@
     \pv{\propI{The price of a chicken was \$2.00, for a duck \$4.00, and for a goose \$5.00}}{\valI{True}}
   \end{enumerate}
   %
-  Intuitively, \ref{scen:fc:chick:c} is a \fc{} from some \pool{} \(\Phi_{\ref{scen:fc:chick:c}}\) which characterises the agent's experience with both algebra and recasting natural language problems as algebraic problems.
-  Given the agent's experience with both algebra and recasting natural language problems as algebraic problems is sufficient to solve the puzzle.
-
-  For, after reading the puzzle:
-  \begin{itemize}
-  \item
-    Attempting to solve the puzzle is some action the agent may immediately do.
-    And, both \ref{scen:fc:chick:ex:a} and \ref{scen:fc:chick:ex:b} are true:
-    \begin{enumerate}[label=\alph*., ref=(\alph*)]
-    \item
-      \label{scen:fc:chick:ex:a}
-      When the agent attempts to solve the puzzle, the agent is solving the puzzle.
-    \item
-      \label{scen:fc:chick:ex:b}
-      The agent's experience with both algebra and recasting natural language problems as algebraic problems holds prior to the agent attempting to solve the puzzle and the details of the puzzle.
-    \end{enumerate}
-  \end{itemize}
+  Intuitively, \ref{scen:fc:chick:c} is a \fc{} from some \pool{} \(\Phi_{\ref{scen:fc:chick:c}}\) which characterises the \agents{} understanding of natural langauge algebraic problems.
+  For, so long as the agent has time to attempt a solution after reading the puzzle:
   %
+  \begin{enumerate}[label=\alph*., ref=\alph*]
+  \item
+    \label{scen:fc:chick:ex:ai}
+    The agent may attempt to solve Puzzle~25.
+  \item
+    \label{scen:fc:chick:ex:a}
+    When the agent attempts to solve the puzzle, the agent is surely solving the puzzle given their understanding of natural langauge algebraic problems.
+  \item
+    \label{scen:fc:chick:ex:b}
+    The \agents{} understanding of natural langauge algebraic problems is present prior to the agent attempting a solution.
+  \end{enumerate}
+  %
+  Notes \ref{scen:fc:chick:ex:ai}, \ref{scen:fc:chick:ex:a}, and \ref{scen:fc:chick:ex:b} correspond to clauses \ref{def:fc:ai} \ref{def:fc:act} and \ref{def:fc:result} of \autoref{def:fc}, and we ignore the possibility of refining `trying' into a collection of finer-grained actions.
+\end{note}
+
+
+\begin{note}
   In general, puzzles like that of \autoref{scen:fc:chick} are a simple way of identifying \fc{1}.
   For, the puzzle is designed such that, given appropriate background, the agent has all the information required to solve the puzzle, once read.
-  And, though we limit ourselves to a single example from \citeauthor{Dudeney:1995aa}'s \citetitle{Dudeney:1995aa} the book contains roughly 500 or so puzzles for which there is plausible an associated \fc{0} from some \pool{} given a reader with the sufficient background.%
+  And, though we limit ourselves to a single example from \citeauthor{Dudeney:1995aa}'s book the book contains roughly 500 or so puzzles for which there is plausibly an associated \fc{0} from some \pool{} given a reader with the sufficient background.%
   \footnote{
     Some require \evals{} you may not have.
     For example, 527 on page 217 assumes knowledge of the size of some American coins.
     And others do not have well-defined answers, such 523 on page 215.
   }
+  And, various other books full of similar puzzles are available.
 
-  Still, I have no detailed account of the way in which an agent concludes \ref{scen:fc:chick:c}.
-  For, there is no general strategy.
-  It is straightforward to write \(3c + 1d = 2g\) and \(1c + 2d + 3g = 25\), multiply the first equation by \(3\), the right equation by \(2\), and then substitute and simplify.
-  However, figuring out which thing, out of all the other things one may do, involves some \emph{je ne sais quoi}.
+  The downside of such puzzles is absence of a clear way to argue the \prop{0}-\val{0} pair is a \fc{}.
+  Puzzles like Puzzle~25 involve some \emph{je ne sais quoi}.
+  It is straightforward to write \(3c + 1d = 2g\) and \(1c + 2d + 3g = 25\), multiply the first equation by \(3\), the right equation by \(2\), substitute, and then simplify.
+  However, this is a solution given in hindsight.
+  And, the definition of a \fc{} requires such a solution to be given in foresight.
+
+  Most cases are like \autoref{scen:fc:chick}.
+  Some \prop{0}-\val{0} pair is intuitively a \fc{} from some \pool{}, though it is hard to specify what ensures \prop{0}-\val{0} pair is a \fc{} from the \pool{}.
+  Still, in some cases we may do a little better.
+  The following \illu{0} sketches an argument for some \prop{0}-\val{0} pair being a \fc{} from some \pool{}.
 \end{note}
 
+
+
 \paragraph{Illustration 2}
+
 
 \begin{note}[Chess I]
   To motivate that an agent is concluding some \prop{0}-\val{0} pair from some \pool{} after performing an action in detail we turn to chess puzzles and exhaustive search.
 
-  \begin{scenario}[\citeauthor{Emms:2000aa}' Puzzle 113 (\citeyear[33]{Emms:2000aa})]%
+  \begin{scenario}[Chess I]%
     \label{illu:fc:chess:I}%
-    \mbox{ }\hfill%
-    \begin{adjustbox}{minipage=\linewidth,scale=0.75}
-      \centering
-      \newchessgame[
-      setwhite={pa2,pb2,pc2,pd3,pf2,pg3,ra1,re1,bd4,kg1,qe5},
-      addblack={ra8,pa7,ba6,pb5,rc8,pd5,pf7,kg8,qg4,ph7,ph4},
-      ]%
-      \setchessboard{showmover=false}%
-      \chessboard
-    \end{adjustbox}%
-    \label{fig:chess:easy}%
-    \hfill\mbox{ }
-
-    \begin{center}
-      Is possible for White to checkmate in a single move?
-    \end{center}
+    An agent reads \citeauthor{Emms:2000aa}' Puzzle 113 (\citeyear[33]{Emms:2000aa}):
+    \begin{quote}
+      \mbox{ }\hfill%
+      \begin{adjustbox}{minipage=\linewidth,scale=0.75}
+        \centering
+        \newchessgame[
+        setwhite={pa2,pb2,pc2,pd3,pf2,pg3,ra1,re1,bd4,kg1,qe5},
+        addblack={ra8,pa7,ba6,pb5,rc8,pd5,pf7,kg8,qg4,ph7,ph4},
+        ]%
+        \setchessboard{showmover=false}%
+        \chessboard
+      \end{adjustbox}%
+      \label{fig:chess:easy}%
+      \hfill\mbox{ }
+      \begin{center}
+        Is possible for White to checkmate in a single move?
+      \end{center}
+    \end{quote}
     \vspace{-\baselineskip}
   \end{scenario}
 \end{note}
@@ -253,24 +394,26 @@
   Still, a basic understanding of chess does not entail any chess puzzle is a \fc{}.
   For example, consider \citeauthor{Emms:2000aa}' Puzzle 150:
 
-  \begin{scenario}[\citeauthor{Emms:2000aa}' Puzzle 150 (\citeyear[33]{Emms:2000aa})]%
+  \begin{scenario}[Chess II]%
     \label{illu:fc:chess:II}%
-    \mbox{ }\hfill%
-    \begin{adjustbox}{minipage=\linewidth,scale=0.75}
-      \centering
-      \newchessgame[
-      setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5},
-      addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4},
-      ]%
-      \setchessboard{showmover=false}%
-      \chessboard
-    \end{adjustbox}%
-    \label{fig:chess:intro}%
-    \hfill\mbox{ }
-
-    \begin{center}
-      It is possible for Black to checkmate in four moves?
-    \end{center}
+    An agent reads \citeauthor{Emms:2000aa}' Puzzle 150 (\citeyear[33]{Emms:2000aa}):
+    \begin{quote}
+      \mbox{ }\hfill%
+      \begin{adjustbox}{minipage=\linewidth,scale=0.75}
+        \centering
+        \newchessgame[
+        setwhite={ka5,pa3,pb4,pc4,pe5,pf6,bg5,bh5},
+        addblack={pa6,pb7,pc6,pe6,pf7,kc7,nd7,nd4},
+        ]%
+        \setchessboard{showmover=false}%
+        \chessboard
+      \end{adjustbox}%
+      \label{fig:chess:intro}%
+      \hfill\mbox{ }
+      \begin{center}
+        It is possible for Black to checkmate in four moves?
+      \end{center}
+    \end{quote}
     \vspace{-\baselineskip}
   \end{scenario}
 
@@ -280,7 +423,7 @@
   \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
   \item
     \label{illu:fc:chess:II:c}
-    \pv{\propI{Black checkmates in four moves}}{\valI{Possible}}
+    \pv{\propI{It is possible for Black to checkmate in four moves}}{\valI{True}}
   \end{enumerate}
   % 
   The difference between \autoref{illu:fc:chess:II} and \autoref{illu:fc:chess:I} is the difficulty of the puzzle.%
@@ -320,28 +463,9 @@
   In some cases it is possible to easily point to something which prevents an agent from drawing a conclusion.
   For example, consider the following story:
 
-  \begin{scenario}[A copper kettle --- \cite[62]{Freud:1960wx}]%
+  \begin{scenario}[A copper kettle]%
     \label{illu:kettle}%
-    A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable.
-    His defence was:
-    ``%
-    First, I never borrowed a kettle from B.\ at all;
-    secondly, the kettle had a hole in it already when I got it from him;
-    and thirdly, I gave him back the kettle undamaged.%
-    ''
-  \end{scenario}
-
-  \noindent%
-  Consider an agent who has listened to A.'s defence.
-  The conclusion of interest is:
-  % 
-  \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
-  \item
-    \label{illu:kettle:c}
-    \pv{\propI{A.'s defence is testimony}}{\valI{True}}
-  \end{enumerate}
-  % 
-  Further, suppose the agent is committed to the following principle:%
+    An agent is committed to the following principle:%
   \footnote{
     Motivated by the observations that
     \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
@@ -350,13 +474,36 @@
     \item what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
     \end{enumerate*}
   }
-  % 
+  %
   \begin{itemize}
   \item
-    A.\ has provided testimony \emph{only if} if the three points of A.'s defence are jointly consistent.
+    An agent has provided testimony \emph{only if} if what they say is internally consistent.
   \end{itemize}
+  %
+  And listens to A.'s defence:
+    %
+    \begin{quote}
+      A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable. His defence was: ``%
+      First, I never borrowed a kettle from B.\ at all; secondly, the kettle had a hole in it already when I got it from him; and thirdly, I gave him back the kettle undamaged.%
+      ''%
+      \mbox{ }\hfill\mbox{(\cite[62]{Freud:1960wx})}
+    \end{quote}
+    \vspace{-\baselineskip}
+  \end{scenario}
+
+  \noindent%
+  The conclusion of interest is:
   % 
-  Then, \ref{illu:kettle:c} is not a \fc{} from any \pool{}, as it is not possible for the agent to conclude \pv{\propI{The three points of A.'s defence are jointly consistent}}{\valI{True}}.
+  \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
+  \item
+    \label{illu:kettle:c}
+    \pv{\propI{A.'s defence is testimony}}{\valI{True}}
+  \end{enumerate}
+  % 
+  Further, suppose 
+  % 
+  It seems \ref{illu:kettle:c} is not a \fc{} from any \pool{} for the agent.
+  For, it is not possible for the agent to conclude \pv{\propI{The three points of A.'s defence are jointly consistent}}{\valI{True}} given the principle the agent is committed to.
   Indeed, it seems clear \pv{\propI{The three points of A.'s defence are jointly \emph{in}consistent}}{\valI{True}} is a \fc{} from any relevant \pool{}.
   For, it takes only a moments reflection to observe it is not possible to return a kettle one has not borrowed.
 \end{note}
@@ -385,105 +532,50 @@
 %   And, we implicitly assume \fc{1} are sensible.
 % \end{note}
 
-\paragraph{Illustration 5}
-
-\begin{note}
-  Finally, in some cases a \prop{0}-\val{0} pair may fail to be a \fc{} from a specific \pool{} due to the absence of some \prop{0}-\val{0} pairs.
-
-  \begin{scenario}[Stag hunt]%
-    \label{fc:sh}%
-    Two hunters may hunt either stag or hare.
-    It is possible for each hunter to capture hare alone, but to capture a stag requires cooperation.
-    Hence, the hunters expect a payoff for hunting hare regardless of what the other does, but they one expect a payoff for hunting hare if they do so together.
-    And, as a stag is much larger than a hare, the expected payoff for a hunting stag (together) is higher than hunting hare.
-  \end{scenario}
-
-  \noindent%
-  The conclusion of interest is:
-
-  \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
-  \item
-    \label{fc:sh:c}
-    \pv{\propI{Hunt stag}}{\valI{Do}}
-  \end{enumerate}
-  % 
-  \ref{fc:sh:c} is plausibly fails to be a \fc{} for either hunter without information about what the other hunter is inclined to do, as there is not expected payoff for hunting stag alone.%
-  \footnote{
-    \citeauthor{Skyrms:2004aa} expands:
-    \begin{quote}
-      It is clear that a pessimist, who always expects the worst, would hunt hare [and] a cautious player, who was so uncertain that he thought the other player was as likely to do one thing as another, would also hunt hare.
-      [\dots]
-      That is not to say that rational players could not coordinate on the stag hunt equilibrium that gives them both a better payoff, but it is to say that they need a measure of trust to do so.%
-      \mbox{ }\hfill\mbox{(\citeyear[3]{Skyrms:2004aa})}
-    \end{quote}
-    And, we may say \pv{\propI{Hunt hare}}{\valI{Do}} is a \fc{} for the both a pessimist and cautious player.
-  }
-\end{note}
+% \paragraph{Illustration 5}
 
 % \begin{note}
-%   \color{red}
+%   Finally, in some cases a \prop{0}-\val{0} pair may fail to be a \fc{} from a specific \pool{} due to the absence of some \prop{0}-\val{0} pairs.
 
-%   Likewise \propI{The headline of tomorrow's newspaper contains an even number of vowels}, value \valI{True}, and any \pool{} which includes \prop{0}-\val{0} pairs available to the agent.
-%   For  an agent who has no information about tomorrows newspaper.
+%   \begin{scenario}[Stag hunt]%
+%     \label{fc:sh}%
+%     Two hunters may hunt either stag or hare.
+%     It is possible for each hunter to capture hare alone, but to capture a stag requires cooperation.
+%     Hence, the hunters expect a payoff for hunting hare regardless of what the other does, but they one expect a payoff for hunting hare if they do so together.
+%     And, as a stag is much larger than a hare, the expected payoff for a hunting stag (together) is higher than hunting hare.
+%   \end{scenario}
+
+%   \noindent%
+%   The conclusion of interest is:
+
+%   \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
+%   \item
+%     \label{fc:sh:c}
+%     \pv{\propI{Hunt stag}}{\valI{Do}}
+%   \end{enumerate}
+%   % 
+%   \ref{fc:sh:c} is plausibly fails to be a \fc{} for either hunter without information about what the other hunter is inclined to do, as there is no expected payoff for hunting stag alone.%
+%   \footnote{
+%     \citeauthor{Skyrms:2004aa} expands:
+%     \begin{quote}
+%       It is clear that a pessimist, who always expects the worst, would hunt hare [and] a cautious player, who was so uncertain that he thought the other player was as likely to do one thing as another, would also hunt hare.
+%       [\dots]
+%       That is not to say that rational players could not coordinate on the stag hunt equilibrium that gives them both a better payoff, but it is to say that they need a measure of trust to do so.%
+%       \mbox{ }\hfill\mbox{(\citeyear[3]{Skyrms:2004aa})}
+%     \end{quote}
+%     And, we may say \pv{\propI{Hunt hare}}{\valI{Do}} is a \fc{} for the both a pessimist and cautious player.
+%   }
 % \end{note}
 
-
-\section{An application}
-
-
-\begin{note}
-  Finally, we apply \autoref{def:fc} to~\autoref{illu:gist:roots:F}.
-\end{note}
-
-
-\begin{note}
-  \begin{application}%
-    \label{obs:var:factor:fc}%
-    \color{blue}
-    For any \(d\) such that concluding, \emph{entails}
-    \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  \end{application}
-
-  \begin{dets}{obs:var:factor:fc}
-    Consider any event \(\edn{\flat i}\) in a partition \(\edn{\flat 1}, \dots, \edn{\flat k}\) of \(\ed{\flat}\) into sub-events.
-    And, let \(\ed{\flat i}\) capture \(\edn{\flat i}\) is an event in which the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
-    \footnote{
-      \(\edo{\flat i}\) is clearly true of \(\edn{\flat i}\) as \(\edn{\flat i}\) is a sub-event of \(\edn{\flat}\) and \(\edo{\flat}\) is true of \(\edn{\flat}\).
-    }
-
-    Note, \(\ed{}\) spans Step~\ref{illu:gist:roots:F:eq} to Step~\ref{illu:gist:roots:F:factor:done} and we assume the agent understands factorisation prior to \(\ed{}\).
-    \medskip
-
-    \noindent%
-    As the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) there is a possible event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) by \assuPP{} (\autopageref{assu:PP}).
-    Further, as \(\edo{\flat}\) captures the agent figuring out \((2x + 1)(x - 1) = 0\), it is clear \(\ed{\flat i}\) is not an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
-    \footnote{
-      Steps \ref{illu:gist:roots:F:zero} through to \ref{illu:gist:roots:F:factor:done} remain
-    }
-    Hence, in order for it to there to be a possible event in which the concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\), there must be some action the agent may immediately do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
-    So, Clause~\ref{def:fc:act} of \autoref{def:fc} is satisfied.
-
-    Further, we assumed the agent understands factorisation prior to \(\ed{}\), and as \(\ed{\flat}\) is included in \(\ed{}\), the agent understands factorisation prior to \(\ed{\flat}\) by assumption.
-    Hence, for each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to \(\ed{\flat i}\).
-    Therefore, Clause~\ref{def:fc:result} of \autoref{def:fc} is satisfied.
-
-    As \(\edn{\flat 1}, \dots, \edn{\flat k}\) was an arbitrary partition of \(\ed{\flat}\) into sub-events and we have shown clause~\ref{def:fc:act} and~\ref{def:fc:result} are satisfied with respect to any sub-event of the partition, it follows \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  \end{dets}
-\end{note}
-
-\begin{note}
-  Almost argued that \ros{} answers.
-  Still, need \ros{}.
-  Following chapter.
-\end{note}
 
 
 \section*{Summary}
 
 
 \begin{note}
-  This chapter defined \fc{1} and provide a handful of \illu{1} of \prop{0}-\val{0}-\pool{0} pairs such that the \prop{0}-\val{0} pair is (not) a \fc{} from the \pool{}.
-  Additional \illu{1} of \fc{1} follow in later chapters.
+  This chapter defined \fc{1}, applied the definition of a \fc{} to \autoref{illu:gist:roots:F} to highlight the way we put the definition of a \fc{} to use in the remainder of this document, and provided a handful of \illu{1} of \prop{0}-\val{0}-\pool{0} pairs such that the \prop{0}-\val{0} pair is (not) a \fc{} from the \pool{} to help firm intuition about the phenomenon captured.
+
+  Additional applications and \illu{1} of \fc{1} follow in later chapters.
 \end{note}
 
 
