@@ -36,7 +36,7 @@
     \item[\emph{Then:}]
       The \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhy{}.
     \end{itenum}
-    \vspace{-2\baselineskip}
+    \vspace{-\baselineskip}
   \end{proposition}
   \smallskip
 
@@ -44,7 +44,7 @@
   \autoref{obs:qWhyEIP} is \autoref{sketch:PE:cROS} (\autopageref{sketch:PE:cROS}), re-expressed as stating a sufficient condition now we have clarified the way in which we understand conclusions and \ros{}.
 
   \begin{argument}{obs:qWhyEIP}
-    \autoref{obs:qWhyEIP} is an instance of \progEx{} (\autoref{obs:PE}, \autopageref{obs:PE}).
+    \autoref{obs:qWhyEIP} is an instance of \progEx{} (\autoref{sec:ProgEx}, \autopageref{sec:ProgEx}).
   \end{argument}
 \end{note}
 
@@ -68,13 +68,12 @@
       Which \ros{1} are such that:
       \begin{itemize}
       \item
-        For some \se{0} \(\ed{\flat}\) of \(\ed{}\):
-        \begin{itenum}
-        \item[\emph{If}:]
-          A \ros{0} between \(\pv{\psi}{v'}\) and \(\Psi\) fails to hold from \agpe{\vAgent{}'} through \(\ed{\flat}\).
-        \item[\emph{Then}:]
-          \(\ed{\flat}\) is not an event such that \(\ed{}\) is in progress.
-        \end{itenum}
+        There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+        \begin{itemize}
+        \item
+          \(\edo{\flat}\) entails is true of \(\edn{\flat}\) that:
+          A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+        \end{itemize}
       \end{itemize}
     \end{itemize}
     \vspace{-1.5\baselineskip}
@@ -104,109 +103,64 @@
 
 \begin{note}
   To help understand the way in which \qWhyV{} works, we return to \autoref{illu:gist:roots:F} and argue a \ros{} between \pv{\rootsCon{}}{\valI{True}} and some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation answers \qWhyV{}.
-\end{note}
 
-
-\begin{note}
-  Recall, \autoref{illu:gist:roots:F} is the following \scen{0}:
-
-  \reScenario{illu:gist:roots:F}
-
-  \noindent%
-  The event of interest \(\ed{}\) is the event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation.
-  Note, \(\ed{}\) spans Step~\ref{illu:gist:roots:F:eq} to Step~\ref{illu:gist:roots:F:factor:done} and we assume the agent understands factorisation prior to \(\ed{}\).
-\end{note}
-
-
-\begin{note}
-  Given the definition of \qWhy{}, our task is to:
-  \begin{itemize}
-  \item
-    Find some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
-    \begin{itenum}
-    \item[\emph{If}:]
-      A \ros{0} between \pv{\rootsCon{}}{\valI{True}} and \(\Phi\) fails to hold from \agpe{\vAgent{}'} through \(\ed{\flat}\).
-    \item[\emph{Then}:]
-      \(\ed{\flat}\) is not an event such that \(\ed{}\) is in progress.
-    \end{itenum}
-  \end{itemize}
-  % 
-  The event of interest is the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning.
-  Let \(\edn{\flat}\) by the event and \(\edo{\flat}\) be the description `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.
-  \label{qWhyV:ex:con}
-  \(\edo{\flat}\) is clearly true of \(\edn{\flat}\).
-
-  Further, we have already argued \(\ed{\flat}\) is a \se{} of \(\ed{}\) (\autoref{obs:se-inst}, \autopageref{obs:se-inst}).
-
-  So, our task is to show the conditional is true with respect to \(\ed{\flat}\).
-  The argument is by contraposition --- we assume \(\ed{\flat}\) is an event such that \(\ed{}\) is in progress and then show the relevant \ros{} holds throughout \(\ed{\flat}\).
-\end{note}
-
-\begin{note}
-  Suppose \(\ed{\flat}\) is an event such that \(\ed{}\) is in progress.
-
-  We first show \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) (\autoref{def:fc}, \autopageref{def:fc}) and then apply \supportII{} (\autopageref{idea:support:possible}) to obtain the desired \ros{}.
-\end{note}
-
-
-\begin{note}
-  \begin{observation}
-    \label{obs:var:factor:fc}
+  \begin{application}[\qWhyV{} to \autoref{illu:gist:roots:F}]%
+    \label{appl:qWhyV-s1}%
     \color{blue}
-    For any \(d\) \dots
-    \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  \end{observation}
+    The event of interest \(\ed{}\) is the event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation.
+  \end{application}
 
-  \begin{motivation}{obs:var:factor:fc}
-    Consider any event \(\edn{\flat i}\) in a partition \(\edn{\flat 1}, \dots, \edn{\flat k}\) of \(\ed{\flat}\) into sub-events.
-    And, let \(\ed{\flat i}\) capture \(\edn{\flat i}\) is an event in which the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
-    \footnote{
-      \(\edo{\flat i}\) is clearly true of \(\edn{\flat i}\) as \(\edn{\flat i}\) is a sub-event of \(\edn{\flat}\) and \(\edo{\flat}\) is true of \(\edn{\flat}\).
-    }
+  \begin{dets}{appl:qWhyV-s1}
+    Given the definition of \qWhy{}, our task is to:
+    %
+    \begin{itemize}
+    \item
+      Find some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+      \begin{itemize}
+      \item
+        \(\edo{\flat}\) entails is true of \(\edn{\flat}\) that:
+        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+      \end{itemize}
+    \end{itemize}
+    %
+    \medskip
 
-    As the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) there is a possible event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) by \assuPP{} (\autopageref{assu:PP}).
-    Further, as \(\edo{\flat}\) captures the agent figuring out \((2x + 1)(x - 1) = 0\), it is clear \(\ed{\flat i}\) is not an event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\).%
-    \footnote{
-      Steps \ref{illu:gist:roots:F:zero} through to \ref{illu:gist:roots:F:factor:done} remain
-    }
-    Hence, in order for it to there to be a possible event in which the concludes \pv{\rootsCon{}}{\valI{True}} from \(\Phi\), there must be some action the agent may immediately do such that the agent is concluding \pv{\rootsCon{}}{\valI{True}} from \(\Phi\) when they do the action.
-    So, Clause~\ref{def:fc:act} of \autoref{def:fc} is satisfied.
+    \noindent
+    The event of interest is the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning.
+    Let \(\edn{\flat}\) by the event and \(\edo{\flat}\) be the description `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.
 
-    Further, we assumed the agent understands factorisation prior to \(\ed{}\), and as \(\ed{\flat}\) is included in \(\ed{}\), the agent understands factorisation prior to \(\ed{\flat}\) by assumption.
-    Hence, for each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to \(\ed{\flat i}\).
-    Therefore, Clause~\ref{def:fc:result} of \autoref{def:fc} is satisfied.
+    \label{qWhyV:ex:con}
+    \(\edo{\flat}\) is clearly true of \(\edn{\flat}\).
 
-    As \(\edn{\flat 1}, \dots, \edn{\flat k}\) was an arbitrary partition of \(\ed{\flat}\) into sub-events and we have shown clause~\ref{def:fc:act} and~\ref{def:fc:result} are satisfied with respect to any sub-event of the partition, it follows \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  \end{motivation}
+    Further, we have already argued \(\ed{\flat}\) is a \se{} of \(\ed{}\) (\autoref{obs:se-inst}, \autopageref{obs:se-inst}).
+    And, that \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) (\autoref{obs:var:factor:fc}, \autopageref{obs:var:factor:fc}).
 
-  Given \autoref{obs:var:factor:fc} \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  Hence, \supportII{} entails a \ros{} between \pv{\rootsCon{}}{\valI{True}} and \(\Phi\) holds throughout \(\ed{\flat}\).
+    Given \autoref{obs:var:factor:fc} \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  Hence, \supportII{} (\autopageref{idea:support:possible}) entails a \ros{} between \pv{\rootsCon{}}{\valI{True}} and \(\Phi\) holds throughout \(\ed{\flat}\).
 
-  This completes the argument.
-  The \ros{0} between\pv{\rootsCon{}}{\valI{True}} and \(\Phi\) answers \qWhyV{} as applied to \autoref{illu:gist:roots:F}.
+  This completes the argument, by transitivity of entailment.
+  \end{dets}
 \end{note}
 
+% \subparagraph*{Structure}
 
-\subparagraph*{Structure}
+% \begin{note}
+%   Taking a step back, the structure of the argument given amounts to:
+%   \begin{enumerate}[label=\alph*., ref=(\alph*)]
+%   \item
+%     Identifying \(\ed{}\) as an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+%   \item
+%     Identifying a \se{} \(\ed{\flat}\) of \(\ed{}\).
+%   \item
+%     Observing that as \(\ed{\flat}\) is a \se{} of \(\ed{}\), \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) through \(\ed{\flat}\).
+%   \item
+%     Observing a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds throughout \(\ed{\flat}\) as \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+%   \end{enumerate}
+%   % 
+%   The details argument may generalise to a \ros{} between \(\pv{\psi}{v'}\) and \(\Phi\) when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) though this is far from immediate.
 
-
-\begin{note}
-  Taking a step back, the structure of the argument given amounts to:
-  \begin{enumerate}[label=\alph*., ref=(\alph*)]
-  \item
-    Identifying \(\ed{}\) as an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    Identifying a \se{} \(\ed{\flat}\) of \(\ed{}\).
-  \item
-    Observing that as \(\ed{\flat}\) is a \se{} of \(\ed{}\), \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) through \(\ed{\flat}\).
-  \item
-    Observing a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds throughout \(\ed{\flat}\) as \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
-  \end{enumerate}
-  % 
-  The details argument may generalise to a \ros{} between \(\pv{\psi}{v'}\) and \(\Phi\) when an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) though this is far from immediate.
-
-  We revisit these features separate from any particular \scen{0} in \autoref{cha:requs}.
-\end{note}
+%   We revisit these features separate from any particular \scen{0} in \autoref{cha:requs}.
+% \end{note}
 
 
 \paragraph*{Observation}

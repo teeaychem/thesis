@@ -481,3 +481,36 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+
+
+
+\newcounter{applicationCounter}
+\setcounter{applicationCounter}{0}
+\renewcommand{\theapplicationCounter}{\arabic{applicationCounter}}
+
+\NewDocumentEnvironment{application}{ o +b}
+{%
+  \refstepcounter{applicationCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Application~\arabic{applicationCounter}}}%
+    {\noindent\textbf{Application~\arabic{applicationCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+
+
+\NewDocumentEnvironment{dets}{ m +b}
+{%
+  \smallskip%
+  \noindent\emph{Details~of~\autoref{#1}}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adforn{39}%
+  \envEnd{}
+}
+
+% For some reason need padding else compile error
