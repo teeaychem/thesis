@@ -11,7 +11,7 @@
 \begin{note}
   Broad idea.
 
-  In turn, \ros{3} are answers to \qWhy{}, and if \issueConstraint{} holds, for any \ros{} which answers \qWhy{} there is some event where agent concludes.
+  In turn, \ros{3} are answers to \qWhy{}, and if \issueInclusion{} holds, for any \ros{} which answers \qWhy{} there is some event where agent concludes.
 \end{note}
 
 
@@ -48,7 +48,8 @@
   \noindent%
   In short, \supportI{} states that a \ros{} between \(\pv{\phi}{v}\) and \(\Phi\) holds form an \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).%
   \footnote{
-    The existence of a \ros{} is restricted to the sub-event when the agent \evals{} \(\phi\) as having \val{} \(v\) as a concludes event may span the \agents{} reasoning to \(\pv{\phi}{v}\) from \(\Phi\) (\autoref{assu:ConRea}).
+    The existence of a \ros{} is restricted to the sub-event when the agent \evals{} \(\phi\) as having \val{} \(v\) as a we assume a concludes event spans the \agents{} reasoning to \(\pv{\phi}{v}\) from \(\Phi\).
+    See \autoref{assu:ConRea} (\autopageref{assu:ConRea}) in \autoref{cha:clar} for further detail.
   }
 
   The motivation for \supportI{} is straightforward:
@@ -223,6 +224,50 @@
   So, it need not be the case that a \ros{} holds by \supportII{}.
 \end{note}
 
+
+\section{An application}
+
+
+\begin{note}
+  To help understand the role of \supportII{}, we return to \autoref{illu:gist:roots:F} and argue a \ros{} between \pv{\rootsCon{}}{\valI{True}} and some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation answers \qWhy{}.
+
+  \begin{application}[\qWhy{} and \autoref{illu:gist:roots:F}]%
+    \label{appl:qWhyV-s1}%
+    \color{blue}
+    The event of interest \(\ed{}\) is the event in which the agent concludes \pv{\rootsCon{}}{\valI{True}} from some \pool{} \(\Phi\) which captures the \agents{} understanding of factorisation.
+  \end{application}
+
+  \begin{dets}{appl:qWhyV-s1}
+    Given the definition of \qWhy{}, our task is to:
+    %
+    \begin{itemize}
+    \item
+      Find some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
+      \begin{itemize}
+      \item
+        \(\edo{\flat}\) entails is true of \(\edn{\flat}\) that:
+        A \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) holds throughout \(\ed{\flat}\).
+      \end{itemize}
+    \end{itemize}
+    %
+    \medskip
+
+    \noindent
+    The event of interest is the event which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning.
+    Let \(\edn{\flat}\) by the event and \(\edo{\flat}\) be the description `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \((2x + 1)(x - 1) = 0\)'.
+
+    \label{qWhyV:ex:con}
+    \(\edo{\flat}\) is clearly true of \(\edn{\flat}\).
+
+    Further, we have already argued \(\ed{\flat}\) is a \se{} of \(\ed{}\) (\autoref{obs:se-inst}, \autopageref{obs:se-inst}).
+    And, that \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\) (\autoref{obs:var:factor:fc}, \autopageref{obs:var:factor:fc}).
+
+    Given \autoref{obs:var:factor:fc} \pv{\rootsCon{}}{\valI{True}} is a \fc{} from \(\Phi\) throughout \(\ed{\flat}\).
+  Hence, \supportII{} (\autopageref{idea:support:possible}) entails a \ros{} between \pv{\rootsCon{}}{\valI{True}} and \(\Phi\) holds throughout \(\ed{\flat}\).
+
+  This completes the argument, by transitivity of entailment.
+  \end{dets}
+\end{note}
 
 
 \section[Some notes]{Some notes \hfill (Optional)}
