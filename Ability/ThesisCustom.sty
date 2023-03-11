@@ -1046,49 +1046,7 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\NewDocumentCommand{\ptypeAdv}{ o m }{%
-\tl_if_empty:nTF {#2}
-  {\IfNoValueTF{#1}{\obeybreaks{securely}}{\obeybreaks{securely\textsubscript{\ensuremath{#1}}}}}
-  {%
-    \ifnum0=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{securely}}{\obeybreaks{securely\textsubscript{\ensuremath{#1}}}}
-    \fi
-    \ifnum1=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{securely}}{\obeybreaks{securely\textsubscript{\ensuremath{#1}}}}
-    \fi
-    \ifnum2=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{Securely}}{\obeybreaks{Securely\textsubscript{\ensuremath{#1}}}}
-    \fi
-    \ifnum3=#2\relax%
-      \IfNoValueTF{#1}{\obeybreaks{Securely}}{\obeybreaks{Securely\textsubscript{\ensuremath{#1}}}}
-    \fi
-  }
-}
 
-\ExplSyntaxOn
-\NewDocumentCommand{\ptC}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:ptC]{\ptypeAdj{#2}\space concluding}
-  }
-  {
-    \hyperref[def:ptC]{\ptypeAdj{#2}\space #1}
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\ptCV}{ o m }{%
-\IfNoValueTF{#1}
-  {
-    \hyperref[def:ptC]{\ptypeAdv{#2}\space concluding}
-  }
-  {
-    \hyperref[def:ptC]{\ptypeAdv{#2}\space #1}
-  }
-}
-\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tC}{ o m }{%
@@ -1139,7 +1097,65 @@
 \ExplSyntaxOff
 
 
+\ExplSyntaxOn
+\NewDocumentCommand{\tCs}{ o m }{%
+\IfNoValueTF{#1}
+  {
+    \hyperref[idea:tC]{\typeAdv{#2}\space concludes}
+  }
+  {
+    \hyperref[idea:tC]{\typeAdv{#2}\space #1}
+  }
+}
+\ExplSyntaxOff
 
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tpro}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \hyperref[def:tpro]{\obeybreaks{projection}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{projection}}%
+    \fi
+    \ifnum1=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{projections}}%
+    \fi
+    \ifnum2=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{Projection}}%
+    \fi
+    \ifnum3=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{Projections}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tprof}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \hyperref[def:tpro]{\obeybreaks{projection}\space of\space a\space \torN{}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{projection}\space of\space a\space \torN{}}%
+    \fi
+    \ifnum1=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{projections\space of\space a\space \torN{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{Projection}\space of\space a\space \torN{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \hyperref[def:tpro]{\obeybreaks{Projections\space of\space a\space \torN{}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
 
 
 
