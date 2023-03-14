@@ -12,22 +12,22 @@
     \begin{enumerate}[label=\arabic*., ref=\arabic*]
     \item
       \label{illu:gist:roots:F:eq}
-      For some \(x \in \mathbb{R}\), \(2x^{2} - x - 1 = 0\).
+      For some \(x \in \mathbb{R}\), \rootsConEq{}.
     \item
       \label{illu:gist:roots:F:factor}
-      \((2x + 1)(x - 1) = 0\).
+      \((2x - 1)(x + 1) = 0\).
     \item
       \label{illu:gist:roots:F:zero}
-      Either \((2x + 1) = 0\) or \((x - 1) = 0\).
+      Either \((2x - 1) = 0\) or \((x + 1) = 0\).
     \item
       \label{illu:gist:roots:F:case:a}
-      If \((x - 1) = 0\), then \(x = 1\).
+      If \((x + 1) = 0\), then \(x = -1\).
     \item
       \label{illu:gist:roots:F:case:b}
-      If \((2x + 1) = 0\), then \(x = -\sfrac{1}{2}\).
+      If \((2x - 1) = 0\), then \(x = \sfrac{1}{2}\).
     \item
       \label{illu:gist:roots:F:factor:done}
-      Either \(x = 1\) or \(x = -\sfrac{1}{2}\).
+      Either \(x = -1\) or \(x = \sfrac{1}{2}\).
     \end{enumerate}
     %
     The agent concludes:
@@ -47,7 +47,7 @@
     \begin{enumerate}[label=\arabic*., ref=\arabic*]
     \item
       \label{illu:gist:roots:QF:eq}
-      For some \(x \in \mathbb{R}\), \(2x^{2} - x - 1 = 0\).
+      For some \(x \in \mathbb{R}\), \rootsConEq{}.
     \item
       \label{illu:gist:roots:QF:qf}
       The quadratic formula states \(x = \sfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}\).
@@ -59,13 +59,13 @@
       }
     \item
       \label{illu:gist:roots:QF:qf-subs}
-      \(x = \sfrac{-(-1) \pm \sqrt{(-1)^{2} - 4(2)(-1)}}{2(2)}\).
+      \(x = \sfrac{-(1) \pm \sqrt{(1)^{2} - 4(2)(-1)}}{2(2)}\).
     \item
       \label{illu:gist:roots:QF:qf:1}
-      \(x = \sfrac{(1 \pm 3)}{4}\).
+      \(x = \sfrac{(- 1 \pm 3)}{4}\).
     \item
       \label{illu:gist:roots:QF:qf:done}
-      Either \(x = 1\) or \(x = -\sfrac{1}{2}\).
+      Either \(x = - 1\) or \(x = \sfrac{1}{2}\).
     \end{enumerate}
     %
     The agent concludes:
@@ -407,10 +407,10 @@
 
 \begin{note}
   Consider an event corresponding to Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
-  Clause~\ref{idea:why:result} is satisfied as the eventual conclusion is a result of figuring out \((2x + 1)(x - 1) = 0\).
+  Clause~\ref{idea:why:result} is satisfied as the eventual conclusion is a result of figuring out \rootsConEqFac{}.
 
-  Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \((2x + 1)(x - 1) = 0\) favours an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{} over an event in which the agent fails to conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
-  In short, an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} when the agent figures out \((2x + 1)(x - 1) = 0\) is in progress.
+  Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \rootsConEqFac{} favours an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{} over an event in which the agent fails to conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
+  In short, an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} when the agent figures out \rootsConEqFac{} is in progress.
 
   Finally, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \propI{\rootsCon{}}, \valI{True} and the \pool{} captures \emph{that} the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
   Indeed, \ros{1} were introduced above to abstractly capture whatever makes it the case that the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
@@ -559,7 +559,7 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a for sure a counterexample to \issueInclusion{}.
+      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a counterexample to \issueInclusion{}.
     \item[\emph{Then}:]
       Conditions \ref{obs:iIceRestriction:why}, \ref{obs:iIceRestriction:distinct}, and \ref{obs:iIceRestriction:prior} are true of the \ros{} between \(\psi\), \(v'\), and \(\Psi\):
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
@@ -649,8 +649,8 @@
   \begin{itemize}
   \item
     For example, the event captured by Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
-    When the agent figures out \((2x + 1)(x - 1) = 0\), the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation.
-    And, the eventual conclusion is a result of figuring out \((2x + 1)(x - 1) = 0\).
+    When the agent figures out \rootsConEqFac{}, the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation.
+    And, the eventual conclusion is a result of figuring out \rootsConEqFac{}.
     So, a \ros{} between \propI{\rootsCon{}}, \valI{True}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any event in which the agent does not conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the relevant \pool{}.
   \end{itemize}
   %
