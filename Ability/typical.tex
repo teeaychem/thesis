@@ -468,12 +468,12 @@
 \begin{note}
   \begin{application}%
     \label{app:sc1-typ}%
-    \autoref{illu:gist:roots:F}
+    There is a reading of \autoref{illu:gist:roots:F}:
     \begin{itenum}
     \item[\emph{If}:]
       If the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
     \item[\emph{Then}:]
-      For \(n\) in  \(\{6, 12, 20, 35\}\):
+      For \(n\) in  \(\{6, 12, 20, 35, 42, 56\}\):
       \begin{itemize}
       \item
         The agent may switch to \rootsConEqGen{} and be concluding \pv{\propI{\rootsConGen{}}}{\valI{True}} from \(\Phi'\).
@@ -481,15 +481,48 @@
     \end{itenum}
   \end{application}
 
+  In other words, \tpro{} which includes four events.
+
   \begin{dets}{app:sc1-typ}
-    Intuition.
+    In contrast, \autoref{illu:gist:roots:F} is intuition.
 
-    Key part of the intuition is observation that \(n = m(m-1)\) for some \(m\).
-    For, \(nx^{2} = mx \cdot (m-1)\)
-    And, \(mx - (m-1)x = x\)
-    And, \(1 \cdot - 1 = - 1\).
+    Two parts.
+    Event, concluding.
+    \medskip
 
-    Helps if go for something like reasoning with chess.
+    Action may do.
+    Obtaining any variation is a matter of substitution.
+    Nothing more is required, and the agent may then work on variation in same way.
+    To deny this, not possible for the agent to substitute and work.
+    However, \autoref{illu:gist:roots:F} only captures reasoning.
+    So, get these events.
+
+    Note, whether the agent has any motivation to do is irrelevant, though is also compatible.
+    \medskip
+
+    \noindent%
+    Concluding.
+
+    The intuition is that the relevant reasoning for each quadratic equation is an instance of the reasoning the agent is doing.
+    In particular,  \(- 1\) so must be the case that \((ix + 1)(jx = 1)\), and \(n = m(m-1)\) for some \(m\).
+
+    So, however the agent approaches the problem, whatever they are doing in the actual case extends.
+
+    To tighten this up, assume the agent will observe it must be that \((ix + 1)(jx = 1)\) and fall back to an exhaustive over values of \(i,j \in \mathbb{N}\) search after some time.
+    This provides a solution.
+
+    For example, \(20\).
+
+    For, only values of interest are where \(i,j \leq 20\) and \(i \times j = 20\).
+
+    \(1, 20\), however \(\pm 19x\)
+    \(2, 10\), however \(\pm 8x\)
+    \(3, x\), no \(k\) such that \(3 \times k = 20\)
+    \(4, 5\), then \((5x + 1)(6x - 1)\) or \((6x + 1)(5x - 1)\).
+
+    Other values follow the same pattern.
+
+    So, so long as the agent will perform an exhaustive search if any other strategy fails, the agent will conclude \((5x + 1)(6x - 1)\).
   \end{dets}
 \end{note}
 
@@ -577,6 +610,23 @@
   And, second condition is satisfied.
 \end{note}
 
+
+\begin{note}
+  \begin{application}%
+    \label{app:sc1-fc}%
+    There is a reading of \autoref{illu:gist:roots:F}:
+    \begin{itenum}
+    \item[\emph{If}:]
+      If the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
+    \item[\emph{Then}:]
+      For \(n\) in  \(\{6, 12, 20, 35, 42, 56\}\):
+      \begin{itemize}
+      \item
+        The \pv{\propI{\rootsConGen{}}}{\valI{True}} is a \fc{} from \(\Phi'\).
+      \end{itemize}
+    \end{itenum}
+  \end{application}
+\end{note}
 
 
 \section*{Summary}
