@@ -51,7 +51,7 @@
     Max concludes \gistCalcEq{} has value \valI{True}.
   \end{enumerate}
   % 
-  Is understood as sating there is some event \(\edn{}\) such that \(\edn{}\) is a conclude event, the agent of \(\edn{}\) is Max, the \prop{0} of \(\edn{}\) is \gistCalcEq{} and the \val{} of \(\edn{}\) is \valI{True}.
+  Is understood as sating there is some event \(\edn{}\) such that \(\edn{}\) is a conclude event, the agent of \(\edn{}\) is Max, the \prop{0} of \(\edn{}\) is \gistCalcEq{} and the \val{} is \valI{True}.
 
   As events are referred to by descriptions true of the event, a description captures a specific event only if there is a unique event which satisfies the description.
 
@@ -142,15 +142,17 @@
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      \(\ed{}\) is an event in which \(\ed{\ast}\) is in progress.
+      \(\ed{\flat}\) is an event in which \(\ed{}\) is in progress.
     \end{itemize}
     % 
     \emph{If and only if}:
     % 
     \begin{itemize}
     \item
-      \(\edo{}\) entails \(\edo{\ast}\) is happening.\newline
-      \mbox{ }\hfill (Where \(\edo{\ast}\) is happening is understood in terms of the progressive aspect.)
+      \(\edn{}\) is a (maybe non-actual) development of \(\edn{\flat}\).
+    \item
+      \(\edo{\flat}\) entails \(\edo{}\) is happening.\newline
+      \mbox{ }\hfill (Where \(\edo{}\) is happening is understood in terms of the progressive aspect.)
     \end{itemize}
     \vspace{-.5\baselineskip}
   \end{intuition}
@@ -159,11 +161,11 @@
   For example, going by \autoref{def:es-in-prog}, the following are equivalent:
   \begin{itemize}
   \item
-    \(\ed{}\) is an event in which Max concludes \propM{\gistCalcEq{}} is \valI{True} is in progress.
+    \(\ed{\flat}\) is an event in which Max concludes \pv{\propM{\gistCalcEq{}}}{\valI{True}} is in progress.
   \item
-    \(\edo{}\) is true of \(\edn{}\) and entails \text{Max concludes \propM{\gistCalcEq{}} has \val{0} \valI{True}} is happening.
+    \(\edo{\flat}\) is true of \(\edn{\flat}\) and entails Max concludes \pv{\propM{\gistCalcEq{}}}{\valI{True}} is happening.
   \item
-    \(\edo{}\) is true of \(\edn{}\) and entails Max is concluding \propM{\gistCalcEq{}} is \valI{True}.
+    \(\edo{\flat}\) is true of \(\edn{\flat}\) and entails Max is concluding \propM{\gistCalcEq{}} is \valI{True}.
   \end{itemize}
 
   \noindent%
@@ -220,16 +222,16 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      \(\ed{}\) is an event in which \(\ed{\ast}\) is in progress.
+      \(\ed{\flat}\) is an event in which \(\ed{}\) is in progress.
     \item[\emph{Then}:]
       There is some \progAdj{0} event \(\edn{\sharp}\) such that~\ref{assu:PP:pe:dev} and~\ref{assu:PP:pe:verb} are both true:
       \begin{enumerate}[label=\roman*., ref=(\roman*)]
       \item
         \label{assu:PP:pe:dev}
-        \(\edn{\sharp}\) is a development of \(\edn{}\).
+        \(\edn{\sharp}\) is a development of \(\edn{\flat}\).
       \item
         \label{assu:PP:pe:verb}
-        \(\edo{\sharp}\) is true of \(\edn{\sharp}\), where \(\edo{\sharp}\) is the perfective correlate of \(\edo{\ast}\).
+        \(\edo{\sharp}\) is true of \(\edn{\sharp}\), where \(\edo{\sharp}\) is the perfective correlate of \(\edo{}\).
       \end{enumerate}
     \end{itenum}
     \vspace{-\baselineskip}
@@ -809,7 +811,7 @@
       \(\Phi\) captures the \agents{} understanding of factorisation prior to \(\edn{}\).
     \item
       \(\edo{}\) is the description:
-      `The agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)'.
+      `The agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\)'.
     \item
       \(\edn{\flat}\) covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning in \autoref{illu:gist:roots:F}
     \item
@@ -837,17 +839,14 @@
 
 \begin{note}
   The detail for \autoref{obs:se-inst} are somewhat complex.
-  No other detail for an application is quite as complex as the detail for \autoref{obs:se-inst}.
-  And, indeed, not other motivation for an observation or argument for a proposition is quite as complex as the detail for \autoref{obs:se-inst}.
-  Still, I sort of recommend working the detail for \autoref{obs:se-inst} as it highlights the way events and event descriptions interact.
-
+  I sort of recommend working the detail for \autoref{obs:se-inst} as it highlights the way events and event descriptions interact.
   Still, if you would like to skip ahead the very brief argument is:
 
   \begin{itemize}
   \item
-    Clause~\ref{assu:p:se:prog} of \autoref{def:se} is satisfied as an agent figuring out \rootsConEqFac{} with the aim to identify the factors of \rootsConEq{} is clearly working towards an event in which the conclude \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    Clause~\ref{assu:p:se:prog} of \autoref{def:se} is satisfied as an agent figuring out \rootsConEqFac{} with the aim to identify the factors of \rootsConEq{} is clearly working towards an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).
   \item
-    Clause~\ref{assu:p:se:hCon} of \autoref{def:se} is satisfied as it makes no sense for an agent to conclude \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} which captures the \agents{} understanding of factorisation is the conclusion does not partly happen as a result of factorisation, which is exactly what Step~\ref{illu:gist:roots:F:factor} of \autoref{illu:gist:roots:F} captures.
+    Clause~\ref{assu:p:se:hCon} of \autoref{def:se} is satisfied as it makes no sense for an agent to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from a \pool{} which captures the \agents{} understanding of factorisation is the conclusion does not partly happen as a result of factorisation, which is exactly what Step~\ref{illu:gist:roots:F:factor} of \autoref{illu:gist:roots:F} captures.
 
     Further, it is plausibly the case that the \agents{} conclusion is party a result of the agent aiming to figure out the factors of \rootsConEq{}.
 
@@ -867,18 +866,18 @@
 
     So, as the agent figures out \rootsConEqFac{}, the only reasoning which remains is captured by steps \ref{illu:gist:roots:F:zero} to \ref{illu:gist:roots:F:factor:done} of \autoref{illu:gist:roots:F}.
     These steps are more-or-less straightforward.
-    Hence, I take it to be clear an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) \emph{may} be in progress.
+    Hence, I take it to be clear an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) \emph{may} be in progress.
 
-    Further, as by \(\edo{\flat}\) the agent has the aim to identify the factors of \rootsConEq{} the previous observation may be strengthened to state an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) \emph{is} be in progress.
+    Further, as by \(\edo{\flat}\) the agent has the aim to identify the factors of \rootsConEq{} the previous observation may be strengthened to state an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) \emph{is} be in progress.
 
-    In short, the reasoning which remains to conclude \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) is more-or-less straightforward and the agent plans to complete the relevant reasoning.
-    So, \(\ed{\flat}\) is building to an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    In short, the reasoning which remains to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) is more-or-less straightforward and the agent plans to complete the relevant reasoning.
+    So, \(\ed{\flat}\) is building to an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).
 
     This is what we wanted to show, Clause~\ref{assu:p:se:prog} of \autoref{def:se} holds.
     \medskip
 
     \noindent
-    Note, in particular, our goal was only to show \(\edn{}\) under the description `the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\)' is in progress.
+    Note, in particular, our goal was only to show \(\edn{}\) under the description `the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\)' is in progress.
     Our goal was not to show \(\edn{}\) under any other description is in progress.
 
     And, note the importance of the \agents{} aim to identify the factors of \rootsConEq{}.
@@ -915,7 +914,7 @@
       \end{enumerate}
     \end{enumerate}
     %
-    In short, \ref{obs:se-inst:phew} states that an \agents{} conclusion of \propM{\rootsCon{}} has \val{0} \valI{True} from a \pool{} which captures the \agents{} understanding of factorisation prior to \(\edn{}\) partly happens as the result of the agent figuring out \rootsConEqFac{}.
+    In short, \ref{obs:se-inst:phew} states that an \agents{} conclusion of \pv{\propM{\rootsCon{}}}{\valI{True}} from a \pool{} which captures the \agents{} understanding of factorisation prior to \(\edn{}\) partly happens as the result of the agent figuring out \rootsConEqFac{}.
     \medskip
 
     \noindent%
@@ -933,7 +932,7 @@
     In short, \(\ed{}\) does not partly happens as a result of an event in which the agent figures out \rootsConEqFac{}.
 
     I take this to be a contradiction.
-    For, \(\edo{}\) describes \(\edn{+}\) as an event in which the agent concludes \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+    For, \(\edo{}\) describes \(\edn{+}\) as an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).
     And, \(\Phi\) captures the \agents{} understanding of factorisation.
     Yet, given the assumption made for a contradiction, \(\edo{}\) does not partly happen as a result of the agent factoring.
     And, if \(\edo{}\) does not partly happen as a result of the agent factoring then it is not the case that \(\edn{}\) is an event in which the agent concludes anything by their understanding of factorisation.
@@ -941,7 +940,7 @@
 
     In short, it is built in to description being true of conclusion by factorisation that the agent factors.%
     \footnote{
-      Indeed, it is built into \(\edn{+}\) being described as an event in which the agent \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) that \(\edn{+}\) partly happens as a result of reasoning which amounts to steps~\ref{illu:gist:roots:F:eq}~to~\ref{illu:gist:roots:F:factor:done} of \autoref{illu:gist:roots:F}.
+      Indeed, it is built into \(\edn{+}\) being described as an event in which the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) that \(\edn{+}\) partly happens as a result of reasoning which amounts to steps~\ref{illu:gist:roots:F:eq}~to~\ref{illu:gist:roots:F:factor:done} of \autoref{illu:gist:roots:F}.
     }
     \medskip
 
@@ -991,7 +990,7 @@
   % The key idea of \autoref{obs:se-inst} is somewhat straightforward:
   % Observe it makes no sense for \(\edo{}\) to be true of \(\edn{}\) if it is not the case that \(\ed{}\) partly happens as a result of \(\edo{\flat}\) being true of \(\edn{\flat}\).
 
-  % In particular, most of the detail of \autoref{obs:se-inst} amounted to arguing it makes no sense for an agent to conclude \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) without the conclusion partly happening as a result of the agent figuring out \rootsConEqFac{}.
+  % In particular, most of the detail of \autoref{obs:se-inst} amounted to arguing it makes no sense for an agent to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) without the conclusion partly happening as a result of the agent figuring out \rootsConEqFac{}.
 \end{note}
 
 
@@ -1009,7 +1008,7 @@
 
 
 \begin{note}
-  Before starting, recall we understand the sense of `why' present in \qWhy{} in terms of why did the event \(\ed{}\) in which an agent concludes some \prop{0} \(\phi\) has \val{0} \(v\) from some \pool{0} \(\Phi\) happen, rather than any incompatible event --- e.g., an event in which the agent failed to conclude \(\phi\) has \val{0} \(v\) from \(\Phi\).
+  Before starting, recall we understand the sense of `why' present in \qWhy{} in terms of why did the event \(\ed{}\) in which an agent concludes some \prop{0} \(\phi\) has \val{0} \(v\) from some \pool{0} \(\Phi\) happen, rather than any incompatible event --- e.g., an event in which the agent failed to conclude \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
 
@@ -1063,10 +1062,10 @@
 
 \begin{note}
   For example, \autoref{obs:se-inst} established the description \(\edo{\flat}\) such that the event \(\edn{\flat}\) which covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning is a \se{} of \(\ed{}\).
-  Specifically, \(\edo{\flat}\) was `the agent is concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \(\edn{\flat}\) and figures out \rootsConEqFac{}'
-  Hence, by \autoref{prop:PEbasic}, \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' the agent concluded \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\).
+  Specifically, \(\edo{\flat}\) was `the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) in \(\edn{\flat}\) and figures out \rootsConEqFac{}'
+  Hence, by \autoref{prop:PEbasic}, \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).
 
-  Specifically, given the argument for \autoref{obs:se-inst}, \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' the agent concluded \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) as the \agents{} conclusion happened as a result of the agent figuring out \rootsConEqFac{} and as the agent was concluding \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) while figuring out \rootsConEqFac{}.
+  Specifically, given the argument for \autoref{obs:se-inst}, \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) as the \agents{} conclusion happened as a result of the agent figuring out \rootsConEqFac{} and as the agent was concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) while figuring out \rootsConEqFac{}.
 \end{note}
 
 
@@ -1176,7 +1175,7 @@
   \end{argument}
 
   Given \autoref{prop:PEentail}, if \(\edo{\flat}\) is a \se{} of \(\ed{}\), then any part of \(\edo{\flat}\) explains `why' \(\ed{}\) happened.
-  Hence, given \autoref{obs:se-inst} the agent figuring out \rootsConEqFac{} explains why the agent concluded \propM{\rootsCon{}} has \val{0} \valI{True} from \(\Phi\) in \autoref{illu:gist:roots:F}.
+  Hence, given \autoref{obs:se-inst} the agent figuring out \rootsConEqFac{} explains why the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\) in \autoref{illu:gist:roots:F}.
 \end{note}
 
 
@@ -1198,7 +1197,7 @@
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{sketch:PE:cROS:a}
-        \(\ed{}\) is an event in which agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\).
+        \(\ed{}\) is an event in which agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         \label{sketch:PE:cROS:b}
         There is some \se{} \(\ed{\flat}\) of \(\ed{}\) such that:
@@ -1218,7 +1217,7 @@
     Assume conditions \ref{sketch:PE:cROS:a} and \ref{sketch:PE:cROS:b} hold.
 
     By Condition~\ref{sketch:PE:cROS:b}, the \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds through \(\ed{\flat}\) explains `why' \(\ed{}\) happened, in the sense of `why' present in \qWhy{}.
-    And, by Condition~\ref{sketch:PE:cROS:a}, \(\ed{}\) just is an event in which agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\).
+    And, by Condition~\ref{sketch:PE:cROS:a}, \(\ed{}\) just is an event in which agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
     Hence, the \ros{} between \(\psi\), \(v'\) and \(\Psi\) answers \qWhy{}.
   \end{argument}
 \end{note}
@@ -1278,7 +1277,7 @@
     Show some \se{} of an event in which an agent concludes some \prop{0} \(\phi\) has \val{0} from some \pool{0} \(\Phi\) entails a \ros{} holds.
   \item
     \label{eip:task:3}
-    Show some \se{} entails a \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds even when an agent has not concluded \(\psi\) has \val{0} \(v'\) from \(\Psi\) when the agent concludes \(\phi\) has \val{0} from \(\Phi\).
+    Show some \se{} entails a \ros{} between \(\psi\), \(v'\) and \(\Psi\) holds even when an agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\) when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
   \end{enumerate}
 
   Task~\ref{eip:task:1} establishes a \ros{0} may explain `why' an event happened, given \progExII{}/\autoref{sketch:PE:cROS}.
@@ -1286,7 +1285,7 @@
   Task~\ref{eip:task:2} establishes \ros{1} do explain `why' an event happened, given \progExII{}/\autoref{sketch:PE:cROS} and hence establishes certain answers \qWhy{}.
 
   And, Task~\ref{eip:task:3} establishes \issueInclusion{} fails to hold.
-  For, by \autoref{sketch:PE:cROS} the relevant \ros{} between \(\psi\), \(v'\) and \(\Psi\) answers \qWhy{}, and \issueInclusion{} holds only if the agent has also concluded \(\psi\) has \val{0} \(v'\) from \(\Psi\) when the agent concludes \(\phi\) has \val{0} from \(\Phi\).
+  For, by \autoref{sketch:PE:cROS} the relevant \ros{} between \(\psi\), \(v'\) and \(\Psi\) answers \qWhy{}, and \issueInclusion{} holds only if the agent has also concluded \(\pv{\psi}{v'}\) from \(\Psi\) when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
 \end{note}
 
 

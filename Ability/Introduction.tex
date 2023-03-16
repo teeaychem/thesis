@@ -15,19 +15,19 @@
       For some \(x \in \mathbb{R}\), \rootsConEq{}.
     \item
       \label{illu:gist:roots:F:factor}
-      \((2x - 1)(x + 1) = 0\).
+      \rootsConEqFac{}.
     \item
       \label{illu:gist:roots:F:zero}
-      Either \((2x - 1) = 0\) or \((x + 1) = 0\).
+      Either \(\rootsConEqFacL{} = 0\) or \(\rootsConEqFacR{} = 0\).
     \item
       \label{illu:gist:roots:F:case:a}
-      If \((x + 1) = 0\), then \(x = -1\).
+      If \(\rootsConEqFacL{} = 0\), then \(x = \rootsConEqFacLx{}\).
     \item
       \label{illu:gist:roots:F:case:b}
-      If \((2x - 1) = 0\), then \(x = \sfrac{1}{2}\).
+      If \(\rootsConEqFacR{} = 0\), then \(x = \rootsConEqFacRx{}\).
     \item
       \label{illu:gist:roots:F:factor:done}
-      Either \(x = -1\) or \(x = \sfrac{1}{2}\).
+      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
     \end{enumerate}
     %
     The agent concludes:
@@ -50,22 +50,22 @@
       For some \(x \in \mathbb{R}\), \rootsConEq{}.
     \item
       \label{illu:gist:roots:QF:qf}
-      The quadratic formula states \(x = \sfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}\).
+      The quadratic formula states \(x = \rootsQEq{}\).
     \item
       \label{illu:gist:roots:QF:subs}
-      Let \(a \coloneq 2\), \(b \coloneq -1\), and \(c \coloneq -1\).%
+      Let \(a \coloneq \rootsQa{}\), \(b \coloneq \rootsQb{}\), and \(c \coloneq \rootsQc{}\).%
       \footnote{
         \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
       }
     \item
       \label{illu:gist:roots:QF:qf-subs}
-      \(x = \sfrac{-(1) \pm \sqrt{(1)^{2} - 4(2)(-1)}}{2(2)}\).
+      \(x = \rootsQEqFill{\rootsQa{}}{\rootsQb{}}{\rootsQc{}}\).
     \item
       \label{illu:gist:roots:QF:qf:1}
-      \(x = \sfrac{(- 1 \pm 3)}{4}\).
+      \(x = \sfrac{(- 1 \pm 5)}{12}\).
     \item
       \label{illu:gist:roots:QF:qf:done}
-      Either \(x = - 1\) or \(x = \sfrac{1}{2}\).
+      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
     \end{enumerate}
     %
     The agent concludes:
@@ -118,6 +118,13 @@
 
 
 \begin{note}
+  \color{blue}
+  Specific \prop{3} and \val{1} are written in a \textsf{sans-serif} font, and arbitrary \prop{} and \val{} are written using lower case Greek letters and variations on the Latin letter \(v\), respectively.
+  \(\pv{\phi}{v}\) associates a \prop{0} and a \val{0}.
+\end{note}
+
+
+\begin{note}
   Further, an agent concludes \emph{from} some thing.
   In \autoref{illu:gist:roots:F} the agent concluded from their understanding of factorisation, and in \autoref{illu:gist:roots:QF} the agent concluded from their understanding of the quadratic formula.
 
@@ -140,32 +147,32 @@
     The \prop{0} having the \val{0} \emph{following from} the \pool{0}, from the \agpe{}.
   \end{enumerate}
   %
-  `From' is about what happened independent of the \agpe{}.
+  `From' is about what happened.
   `Follows from' is about connections between various \prop{1}-\val{1} dependent on the \agpe{}.
 
   For example, in \autoref{illu:gist:roots:F} the agent concludes \propM{\rootsCon{}} has value \valI{True} from some \pool{} which captures their understanding of factorisation.
-  Hence, the agent concluded \propM{\rootsCon{}} has value \valI{True} from the \pool{} and \propM{\rootsCon{}} having value \valI{True} follows from the \pool{} from the \agpe{}.
+  Hence, the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from the \pool{} and \pv{\propM{\rootsCon{}}}{\valI{True}} follows from the \pool{} from the \agpe{}.
 \end{note}
 
 
 \begin{note}
   A \emph{\ros{0}} abstractly captures when a \prop{0}-\val{0} pair `follows from' some \pool{}.
   Hence, a \ros{} between some \prop{0}, \val{0} and \pool{0} holds when an agent \eval{} the \prop{} as having the \val{0} from the \pool{0}.
-  So, in \autoref{illu:gist:roots:F} a \ros{} holds between \propM{\rootsCon{}}, \valI{True} and the relevant \pool{} when the agent \evals{} \propM{\rootsCon{}} as having \val{0} \valI{True}.
+  So, in \autoref{illu:gist:roots:F} a \ros{} holds between \pv{\propM{\rootsCon{}}}{\valI{True}} and the relevant \pool{} when the agent \evals{} \propM{\rootsCon{}} as having \val{0} \valI{True}.
 
   In this respect, \ros{0} help capture where an agent is \emph{concluding}.
   For example, consider \autoref{illu:gist:roots:F}.
-  It seems clear at the second step of reasoning the agent is concluding \propM{\rootsCon{}} has \val{} \valI{True}.
+  It seems clear at the second step of reasoning the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}}.
   Something ensures the agent is concluding.
-  And, we use a \ros{} between \propM{\rootsCon{}}, \valI{True} and a \pool{} which captures the \agents{} understanding of factorisation to captures whatever it is that ensures the agent is concluding.
+  And, we use a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and a \pool{} which captures the \agents{} understanding of factorisation to captures whatever it is that ensures the agent is concluding.
 
-  Alternatively one may say that agent has the ability, the know-how, skill, disposition, etc.\ to conclude \propM{\rootsCon{}} has value \valI{True} from the relevant \pool{} and is executing the know-how or manifesting the disposition at the second step of reasoning.
+  Alternatively one may say that agent has the ability, the know-how, skill, disposition, etc.\ to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} and is executing the know-how or manifesting the disposition at the second step of reasoning.
   Still, \ros{1} are designed to abstract from such specific details.
 
   Further, a \ros{0} may hold between some \prop{0}, \val{0}, and \pool{} regardless of whether the \prop{0}-\val{0} pair has been concluded `from' the \pool{}.
-  In this respect, a \ros{} between \propM{\rootsCon{}}, \valI{True} and a \pool{} which captures the \agents{} understanding of \emph{the quadratic equation} may hold at the second step of reasoning in \autoref{illu:gist:roots:F}.
+  In this respect, a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and a \pool{} which captures the \agents{} understanding of \emph{the quadratic equation} may hold at the second step of reasoning in \autoref{illu:gist:roots:F}.
   For, intuitively, the agent may abandon factorisation and do the reasoning outlined in \autoref{illu:gist:roots:QF}.
-  Though, it need not be the case that, given \(y = \sqrt{ 2 + \sqrt{2 + \cdots}}\), a \ros{} holds between \propM{y = 2}, \valI{True}, and the \agents{} understanding of factorisation (even though it is clear \(y^{2} - y - 2 = 0\) given a little insight).%
+  Though, it need not be the case that, given \(y = \sqrt{ 2 + \sqrt{2 + \cdots}}\), a \ros{} holds between \pv{\propM{y = 2}}{\valI{True}}, and the \agents{} understanding of factorisation.%
   \footnote{
     Specifically, we assume a \ros{} between some \prop{0}, \val{0}, and \pool{0} holds when there is some action may immediately do such that the agent is concluding the \prop{0}-\val{0} pair from the \pool{} when the agent does the action.
   }
@@ -219,21 +226,25 @@
   \end{rscenario}
 
   \noindent%
+  \autoref{scen:countS} is an instance of countersign.
+  Both Fox and Pritcher are members of The Party, and verify this to each other by completing a pre-determined exchange (``I come from Miran.'', ``Miran is early this year.'', \dots)
+
+  \noindent%
   Applying \prop{1}, \val{1}, and \pool{1}, we say that in the event described by \autoref{scen:countS} Fox concludes \propI{\signConA{}} has value \valI{True} from some \pool{} \(\Phi\).
-  And, when Fox \evals{} \propI{\signConA{}} as having \valI{True}, a \ros{} holds between \propI{\signConA{}}, \valI{True}, and \(\Phi\).%
+  And, when Fox \evals{} \propI{\signConA{}} as having \valI{True}, a \ros{} holds between \pv{\propI{\signConA{}}}{\valI{True}}, and \(\Phi\).%
   \footnote{
     Pritcher tells Fox the are a Party member at the end of the \scen{}.
     Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
   }
 
-  Further, after Pritcher's opening gambit `I come from Miran', Fox (sub-)concludes \propI{What Pritcher said was a sign} has \val{0} \valI{True} and some \pool{} \(\Psi\).
-  And, of interest is with the \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\).
+  Further, after Pritcher's opening `I come from Miran', Fox (sub-)concludes \pv{\propI{What Pritcher said was a sign}}{\valI{True}} and some \pool{} \(\Psi\).
+  And, of interest is with the \ros{} between \pv{\propI{What Pritcher said was a sign}}{\valI{True}} and some \pool{} \(\Psi\).
 
   In contrast to \scen{1} \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, the highlighted \ros{} is distinct from the \ros{} which characterises Fox's final conclusion.
   The \ros{} did not hold prior to Pritcher saying `I come from Miran'.
-  And, the \ros{} does not ensure Fox is concluding \propI{\signConA{}} has value \valI{True} from \(\Phi\).
+  And, the \ros{} does not ensure Fox is concluding \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\).
 
-  Still, the \ros{} is tightly connected to \emph{whether} Fox is concluding \propI{\signConA{}} has value \valI{True} from \(\Phi\) by the second conditional.
+  Still, the \ros{} is tightly connected to \emph{whether} Fox is concluding \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\) by the second conditional.
   For, the following conditional plausibly holds, from \agpe{Fox's}:
   %
   \begin{itenum}
@@ -247,7 +258,7 @@
   Hence, phrased in terms of \ros{1}, we have:
   \begin{itenum}
   \item[\emph{If}:]
-    A \ros{} between \propI{What Pritcher said was a sign}, \valI{True} and some \pool{} \(\Psi\) fails to hold.
+    A \ros{} between \pv{\propI{What Pritcher said was a sign}}{\valI{True}} and some \pool{} \(\Psi\) fails to hold.
   \item[\emph{Then}:]
     Fox does not conclude \propI{\signConA{}} has value \valI{True} from some \pool{} \(\Phi\).
   \end{itenum}
@@ -409,12 +420,12 @@
   Consider an event corresponding to Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
   Clause~\ref{idea:why:result} is satisfied as the eventual conclusion is a result of figuring out \rootsConEqFac{}.
 
-  Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \rootsConEqFac{} favours an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{} over an event in which the agent fails to conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
-  In short, an event in which the agent concludes \propI{\rootsCon{}} has \val{0} \valI{True} when the agent figures out \rootsConEqFac{} is in progress.
+  Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \rootsConEqFac{} favours an event in which the agent concludes \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{} over an event in which the agent fails to conclude \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{}.
+  In short, an event in which the agent concludes \pv{\propI{\rootsCon{}}}{\valI{True}} when the agent figures out \rootsConEqFac{} is in progress.
 
-  Finally, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \propI{\rootsCon{}}, \valI{True} and the \pool{} captures \emph{that} the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
-  Indeed, \ros{1} were introduced above to abstractly capture whatever makes it the case that the agent is concluding \propM{\rootsCon{}}, \valI{True} from the relevant \pool{}.
-  So, the \ros{} captures what it is for the agent to be concluding \propI{\rootsCon{}} has \val{0} \valI{True} from the \pool{}.
+  Finally, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \pv{\propI{\rootsCon{}}}{\valI{True}} and the \pool{} captures \emph{that} the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
+  Indeed, \ros{1} were introduced above to abstractly capture whatever makes it the case that the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
+  So, the \ros{} captures what it is for the agent to be concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{}.
 \end{note}
 
 
@@ -651,18 +662,17 @@
     For example, the event captured by Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
     When the agent figures out \rootsConEqFac{}, the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation.
     And, the eventual conclusion is a result of figuring out \rootsConEqFac{}.
-    So, a \ros{} between \propI{\rootsCon{}}, \valI{True}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any event in which the agent does not conclude \propI{\rootsCon{}} has \val{0} \valI{True} from the relevant \pool{}.
+    So, a \ros{} between \pv{\propI{\rootsCon{}}}{\valI{True}}, and a \pool{} which captures the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any event in which the agent does not conclude \pv{\propI{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
   \end{itemize}
   %
   Still, it may be the case the agent is concluding \(\phi\) has \val{0} \(v\) from \(\Phi\) \emph{only if} a \ros{} between \(\psi\), \(v'\), and \(\Psi\) (also) holds.
-  Hence, if the \ros{} between \(\psi\), \(v'\), and \(\Psi\) fails to hold, the agent is not concluding \(\phi\) has \val{0} \(v\) from \(\Phi\).
-  Yet, as the agent \emph{is} concluding \(\phi\) has \val{0} \(v\) from \(\Phi\), the \ros{} between \(\psi\), \(v'\), and \(\Psi\) favours an event in which the agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) over some other event.
+  In this respect, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) is part of what it is for an an event in which the agent concludes \(\phi\) has \val{0} \(v\) from \(\Phi\) to be favoured over some other event.
   %
   \begin{itemize}
   \item
     For example, consider Step~\ref{illu:gist:roots:F:factor} again.
-    I doubt possible the agent is concluding \propI{\rootsCon{}} has \val{0} \valI{True} from their understanding of factorisation \emph{and} a \ros{} fails to hold between \propI{\rootsSimp{}}, \val{0} \valI{True} from the \agents{} understanding of factorisation.
-    For, if \propI{\rootsSimp{}} having \val{0} \valI{True} plausibly follows from the \agents{} understanding of factorisation.
+    \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} plausibly follows from a sufficient understanding of factorisation.
+    So, I doubt it is possible the agent is concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from their understanding of factorisation \emph{unless} a \ros{} (also) holds between \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} and a \pool{} which captures the \agents{} understanding of factorisation.
   \end{itemize}
   %
   In other words, a \ros{} between \(\psi\), \(v'\), and \(\Psi\) holding is part of what it is for the agent to be concluding \(\phi\) has \val{0} \(v\) from \(\Phi\).
@@ -671,8 +681,8 @@
   %
   \begin{itemize}
   \item
-    For example, the agent may have yet concluded \propI{\rootsSimp{}} has \val{0} \valI{True} from their understanding of factorisation.
-    And, if the agent has, consider \propI{\rootsSimpX{}}, \propI{\rootsSimpY{}}, and so on\dots
+    For example, the agent may have yet concluded \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} from their understanding of factorisation.
+    And, if the agent has, consider \propI{\rootsConEqExV{20}{5}{4}}, and so on\dots
   \end{itemize}
   %
   This, is more-or-less it.
