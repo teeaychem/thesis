@@ -467,15 +467,25 @@
 \begin{note}
   \begin{application}%
     \label{app:sc1-typ}%
-    There is a reading of \autoref{illu:gist:roots:F}:
+    Given:
+    %
+    \begin{itemize}
+    \item
+      \(\edn{\flat}\) covers Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning in \autoref{illu:gist:roots:F}.
+    \item
+      \(\Phi\) captures the \agents{} understanding of factorisation prior to \(\edn{}\).
+    \end{itemize}
+    %
+    There is a reading of \autoref{illu:gist:roots:F} such that the following conditional holds:
+    %
     \begin{itenum}
     \item[\emph{If}:]
-      If the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
+      If \(\ed{\flat}\) is an event in which the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
     \item[\emph{Then}:]
       There is a \tpro{} \(\mathbb{P}\) which consists of:
       \begin{itemize}
       \item
-        There are \prop{0}-\val{0}-\pool{0} pairing, for each \(n\) in \(\rootsConAltSet{}\), such that:
+        \prop{2}-\val{0}-\pool{0} pairings, for each \(n\) in \(\rootsConAltSet{}\), such that:
         \begin{itemize}
         \item
           The \pool{} contains an equation of the form \rootsConEqGen{}.
@@ -483,7 +493,8 @@
           The \prop{0}-\val{0} pair is of the form \pv{\propI{\rootsConGen{}}}{\valI{True}}, where \(m \times (m - 1) = n\).
         \end{itemize}
       \item
-        Each event happens by the agent doing some action in \(\edn{}\) when agent is concluding.
+        Events \(\edn{\ast}\) such that:
+        \(\edn{\ast}\) is the outcome of an action done by \vAgent{} in \(\edn{\flat}\).
       \end{itemize}
     \end{itenum}
     \vspace{-\baselineskip}
@@ -496,67 +507,77 @@
 
   \begin{dets}{app:sc1-typ}
     We first argue there relevant \prop{0}-\val{0}-\pool{0} pairings are part of some \tpro{}.
-    Then, we argue there is a \tpro{} in which each event happens by the agent doing some action in \(\edn{}\).
+    Then, we argue there is a \tpro{} in which each event happens by the agent doing some action in \(\edn{\flat}\).
     \medskip
 
     \noindent%
-    Argument.
-    Agent is concluding.
-    Hence, concludes.
-    Structurally similar reasoning.
-    Sequence of steps.
-    Steps \ref{illu:gist:roots:F:zero} to \ref{illu:gist:roots:F:factor:done} are not particularly interesting.
-    Interest is with Step~\ref{illu:gist:roots:F:factor}, when the agent factors.
+    Suppose \(\ed{\flat}\) is an event in which the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
 
-    \(n\) in \(\rootsConAltSet{}\) are structurally similar, and so figure out.
-    For, factorisation is a method.
-    It does not depend on any particular instance of \(a\), \(b\), and \(c\).
-    Then there is something about the particular value.%
+    Now, factorisation is a method.
+    Specifically, given a quadratic equation is of the form \rootsConEqGenV{a}{b}{c}, factorisation involves finding \(i\), \(j\), \(q\), and \(r\) such that \(\rootsFacV{i}{j}{q}{r}\).
+    Indeed this is precisely what Step~\ref{illu:gist:roots:F:factor} of the \agents{} reasoning in \autoref{illu:gist:roots:F}.
+
+    Hence, it is clear there must be assignments other than \(a \coloneq 6\), \(b \coloneq 1\), \(c \coloneq 1\) such that it is possible for the agent to conclude \(\rootsConEqGenV{a}{b}{c} = \rootsFacV{i}{j}{q}{r}\).
+    For, if not there is no generality to the \agents{} reasoning.
+
+    At issue is:
+    \begin{itemize}
+    \item
+      Which values of \(a\), \(b\), and \(c\) are such that it is possible for the agent to conclude \(\rootsConEqGenV{a}{b}{c} = \rootsFacV{i}{j}{q}{r}\).
+    \item
+      Whether the agent goes on to identify the values of \(x\) such that \(\rootsFacL{i}{q} = 0\) or \(\rootsFacR{j}{r} = 0\).
+    \end{itemize}
+    \smallskip
+
+    \noindent%
+    To see the values of \(a\), \(b\), and \(c\) in \(\mathbb{P}\) must be possible, we observe the relation between \(a\), \(b\), \(c\), \(i\), \(j\), \(q\), and \(r\) in the variant quadratic equations structurally parallel those of the equation the agent reasons about in Step~\ref{illu:gist:roots:F:factor}.
+    In particular, observe:
+    %
+    \begin{itemize}
+    \item
+      \(c = q \times r\).
+      And, for each \(n\), \(c \coloneq -1\).
+      So, \(\rootsFacV{i}{j}{q}{r} =\rootsFacV{i}{j}{1}{1}\).
+    \item
+      Given \(\rootsFacV{i}{j}{1}{1}\), \(b = (i - j)\).
+      And, for each \(n\), \(b \coloneq 1\).
+      So, \(j = (i - 1)\).
+    \item
+      \(a = i \times j\).
+      So, given \(j = (i - 1)\), \(a = i \times (i - 1)\).
+    \end{itemize}
+    %
+    In short, the values of \(a\), \(b\), and \(c\) determine the values of \(i\), \(j\), \(q\), and \(r\) in a certain way.
+    Hence, the quadratic equations included in \(\mathbb{P}\) amount to minimal variations of the quadratic equation in Step~\ref{illu:gist:roots:F:factor}.
+    I.e., there is no structural difference between figuring out \rootsConEqExV{6}{3}{2} and, e.g., \rootsConEqExV{20}{5}{4}.%
     \footnote{
       Note, this motivation is compatible with strengthening the type of reasoning to factorisation with respect to quadratic formulas of a specific form.
-      Still, specific form is still factorisation.
+      Though, as \tpro{1} are used to capture a necessary rather than sufficient condition for an agent to be \tCV{} there is no need to narrow the relevant type.
     }
+    \smallskip
+
+    \noindent%
+    So, possible for the agent to conclude \(\rootsConEqGenV{n}{}{1} = \rootsFacV{i}{j}{1}{1}\).
+    Now, for the agent to conclude \rootsConGenV{i}{(i - 1)}.
+    Agent is concluding \rootsCon{}.
+    So, it must be possible to complete the remaining steps.
+    And, the arithmetic required is trivial.
+    \smallskip
+
+    \noindent%
+    So, Step~\ref{illu:gist:roots:F:factor} given minimal variations of the quadratic equation and steps~\ref{illu:gist:roots:F:zero} to \ref{illu:gist:roots:F:factor:done} by simplicity of the reasoning.
+    There are possible events in which the agent is concluding \pv{\propI{\rootsConGen{}}}{\valI{True}}.
+    \medskip
+
+    \noindent%
+    Finally, events are the outcome of an action done by \vAgent{} in \(\edn{\flat}\).
+
+    I take it to be clear the agent may pause and substitute \(6\) for \(n\).
+    And, the description of \autoref{illu:gist:roots:F} is consistent with this.
+
     Must be possible events in which the agent concludes.
     And, as the agent is concluding, get this before event.
     Hence, events in which conclusion is in progress.
-
-
-    Structural similarity, four observations:
-    \begin{itemize}
-    \item
-      A quadratic equation is of the form \rootsConEqGenV{a}{b}{c}, may be rewritten to be of the form: \((ix + q)(jx - r)\).
-    \item
-      The \(c\) term is obtained by multiplying \(q\) and \(r\).
-      For each \(n\) the \(c\) term is \(-1\).
-      So, \((ix + q)(jx - r)\) may be simplified to \((ix + 1)(jx - 1)\).%
-      \footnote{
-        Expanded, either \(q = 1\) and \(r = -1\) or \(q = -1\) and \(r = 1\).
-        As we have no yet fixed \(i\) and \(j\), there is no difference between these two cases.
-      }
-    \item
-      Given \((ix + 1)(jx - 1)\), the relevant \(b\) term is \((j - i)\).
-      And, given \(b = 1\), it must be the case that \(i = (j - 1)\).
-    \item
-      The \(a\) terms is \(n\), it must be the case that \(j \times (j - 1) = n\).
-    \end{itemize}
-    %
-    Now, the agent may not reason so abstractly.
-
-    The point of this analysis is to highlight there is no structural difference between figuring out \rootsConEqExV{6}{3}{2} and, e.g., \rootsConEqExV{20}{5}{4}.
-    These two quadratic equations and corresponding factorisations amount to variations on the same structural constraint between \(a\), \(b\) and \(c\) with respect to the quadratic equation and \(i\), \(j\), \(q\), and \(r\) with respect to the factorisation.
-
-    So, if the agent is reasoning by factorisation, the \agents{} reasoning should at least extend to apply to the instances relevant to the \prop{0}-\val{0}-\pool{0} pairings in \(\mathbb{P}\).
-
-    Again, the low bound on \(n\) is to ensure the agent has no difficulty doing the arithmetic required.
-    \medskip
-
-    \noindent
-    Action may do.
-    Obtaining any variation is a matter of substitution.
-    Nothing more is required, and the agent may then work on variation in same way.
-    To deny this, not possible for the agent to substitute and work.
-    However, \autoref{illu:gist:roots:F} only captures reasoning.
-    So, get these events.
   \end{dets}
 \end{note}
 
@@ -591,7 +612,7 @@
         \begin{enumerate}[label=\alph*., ref=\theenumi\alph*]
         \item
           \label{prop:tCV-fc:e:act:i}
-          \(\edn{\sharp}\) is the result of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
+          \(\edn{\sharp}\) is the outcome of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
         \item
           \label{prop:tCV-fc:e:act:ii}
           \vAgent{} \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\), for each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in \(\Psi\).
@@ -613,7 +634,7 @@
 
     \begin{itemize}
     \item
-      Clause~\ref{def:fc:ai} is satisfied as Sub-condition~\ref{prop:tCV-fc:e:act:i} \(\edn{\sharp}\) is the result of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
+      Clause~\ref{def:fc:ai} is satisfied as Sub-condition~\ref{prop:tCV-fc:e:act:i} \(\edn{\sharp}\) is the outcome of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
       In other words, \(\ed{\flat}\) is an event in which the agent may do \(a\).
     \item
       Clause~\ref{def:fc:act} is satisfied as conditions \ref{prop:tCV-fc:tC} and \ref{prop:tCV-fc:pro} entail:
