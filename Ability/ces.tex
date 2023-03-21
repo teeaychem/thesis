@@ -21,7 +21,7 @@
 
 
 \begin{note}
-  \begin{proposition}[\tCV{3} and \issueInclusion{}]
+  \begin{proposition}[\tCV{3} and failures of \issueInclusion{}]
     \label{prop:tCV-WhyV-ces}
     \vspace{-\baselineskip}
     \begin{itenum}
@@ -30,7 +30,7 @@
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{prop:hinge:X:tCed}
-        \(\ed{}\) is an event in which \vAgent{} is concludes \(\pv{\phi}{v}\) from \(\Phi\).
+        \(\ed{}\) is an event in which \vAgent{} (\typeAdv{}) concludes \(\pv{\phi}{v}\) from \(\Phi\) (by \torNa{} \(T\)).
       \item
         \label{prop:hinge:X:e:act:se}
         \(\ed{\flat}\) is a \se{} of \(\ed{}\).
@@ -61,18 +61,10 @@
     \vspace{-\baselineskip}
   \end{proposition}
 
-  I like to read \autoref{prop:tCV-WhyV-ces} as a dilemma:
+  \noindent%
+  \autoref{prop:tCV-WhyV-ces} is a variation on \autoref{prop:requ-WhyV-ces} (\autopageref{prop:requ-WhyV-ces}), where the condition of an agent \tCV{} helps identify \fc{1}, and in turn \requ{1} sufficient to show \issueInclusion{} does not hold.
 
-  \begin{quote}
-    \begin{itemize}[labelwidth = \widthof{\emph{Either}:}]
-    \item[\emph{Either}:]
-      There are no cases in which conditions \ref{prop:hinge:X:tCed}, \ref{prop:hinge:X:e:act:se}, \ref{prop:hinge:X:tC}, \ref{prop:hinge:X:e:pro} and \ref{prop:hinge:X:e:pro:fc} jointly hold.
-    \item[\emph{Or}:]
-      \issueInclusion{} does not hold.
-    \end{itemize}
-  \end{quote}
-
-  \begin{argument}{prop:tCV-WhyV-ces}
+    \begin{argument}{prop:tCV-WhyV-ces}
     Suppose \ref{prop:hinge:X:tCed}, \ref{prop:hinge:X:e:act:se}, \ref{prop:hinge:X:tC}, \ref{prop:hinge:X:e:pro} and \ref{prop:hinge:X:e:pro:fc} hold.
     \medskip
 
@@ -96,14 +88,30 @@
     And, in turn, by \autoref{prop:requ-WhyV} (\autopageref{prop:requ-WhyV}), the \ros{} between \(\pv{\psi}{v'}\) and \(\Psi\) answers \qWhy{}.
 
     So, if \issueInclusion{} holds, there is some past or present event with respect to \(\ed{}\) in which the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-    However, by Condition~\ref{prop:hinge:X:e:pro:fc:iii} there is no such event.
+    However, by Condition~\ref{prop:hinge:X:e:pro:fc:iii} there is no such event.%
+    \footnote{
+      Note, the argument for \autoref{prop:tCV-WhyV-ces} only assumes \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\).
+      The role of \tCV{} is limited to the event \(\edn{\flat}\) in which the conclusion of \(\edn{}\) is in progress.
+      Still, as \(\ed{\flat}\) is an event in which the agent is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by \torNa{} \(T\), and \(\ed{}\) happens as a result of \(\ed{\flat}\), it is natural for \(\ed{}\) to be an event in which \vAgent{} \typeAdv{} concludes \(\pv{\phi}{v}\) from \(\Phi\) by \torNa{} \(T\).
+    }
   \end{argument}
 \end{note}
 
 
-
 \section{Counter-samples}
 \label{sec:counter-samples}
+
+
+\begin{note}
+  With \autoref{prop:tCV-WhyV-ces} in hand, our final task is to show there are cases in which Conditions \ref{prop:hinge:X:tCed}, \ref{prop:hinge:X:e:act:se}, \ref{prop:hinge:X:tC}, \ref{prop:hinge:X:e:pro} and \ref{prop:hinge:X:e:pro:fc} hold.
+\end{note}
+
+
+\begin{note}
+  A few counterexamples.
+
+  The first counterexample is fully worked out and the following counterexamples highlight key features.
+\end{note}
 
 
 
@@ -111,6 +119,8 @@
 
 
 \begin{note}
+  The key features of a counterexample has been developed with respect to \autoref{illu:gist:roots:F} throughout this document.
+
   \begin{application}%
     \label{app:sc1-ce}%
     There is a reading of \autoref{illu:gist:roots:F}:
@@ -134,10 +144,11 @@
     \begin{itemize}
     \item
       \autoref{obs:se-inst}, \se{}.
+
+      This needs to be strengthened a little.
     \item
       \autoref{app:sc1-typ}, \fc{1}.
     \end{itemize}
-
     For \(n\) in  \(\{6, 12, 20, 35, 42, 56\}\):
     \begin{itemize}
     \item
@@ -160,13 +171,17 @@
 \end{note}
 
 
-\section{Sudoku puzzles}
+\subsection{Sudoku puzzles}
 
 
 \begin{note}
-  \begin{scenario}[Sudoku puzzles]
-    \label{illu:gist:sudoku}
+  The second counterexample is interactive.
+
+  \begin{scenario}[Sudoku puzzles]%
+    \label{illu:gist:sudoku}%
     % https://tex.stackexchange.com/questions/91422/tikz-sudoku-circle-and-connect-with-lines-some-cells
+    An agent (you) starts working on the left (or right) Sudoku puzzle.
+    \medskip
 
     \mbox{ }\hfill%
     \begin{adjustbox}{minipage=0.45\linewidth,scale=1}
@@ -213,10 +228,6 @@
     \mbox{ }\newline
     \mbox{ }\hfill(\cite[84,85]{Coussement:2007up})\newline
   \end{scenario}
-
-  \noindent%
-  If you understand the rules of Sudoku, this counter-sample is interactive.
-  For, start to fill in either grid and then return here.
 \end{note}
 
 
@@ -233,25 +244,16 @@
 \end{note}
 
 
-\subsection{Rock, paper, scissors}
-
-
 \begin{note}
-  A practical case.
-
-  \begin{scenario}
-    Agent is playing rock paper scissors.
-    First time.
-    No information about opponents.
-
-    All three a \fc{1}.
-  \end{scenario}
+  Multiple \fc{1}.
+  For example, 8 in upper mid, or 6 in left mid.
 \end{note}
 
 
 
 
-\paragraph*{Translation}
+
+\subsection{Translation}
 
 
 \begin{note}
@@ -261,75 +263,70 @@
 
 
 \begin{note}
-  \begin{illustration}[ジョジョリオン]%
+  \begin{scenario}[ジョジョリオン]%
     \nocite{huangmufeiluyan:2011aa}%
     Book.
     List of chapters.
-    Is the agent translating the chapter titles?
+    Translating the chapter titles.
 
     \begin{center}
       \bgroup
       \def\arraystretch{1.125}
       \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-        \multicolumn{2}{c}{Translations and chapter titles in `reading'} \\
         \hline\hline
         Translation & Title \\
         \hline
         Soft and wet & ソフト＆ウェット \\
-        \hdashline
-        Safety above everything else & \multirow{3}*{無事が何より} \\
-        Safety first & \\
-        Gotta be safe & \\
-        \hdashline
+        Safety first & 無事が何より \\
         Every day is summer vacation & 毎日が夏休み \\
-        \hdashline
         A hair clip from ??? period & 清の時代の髪留め \\
       \end{tabular}
       \egroup
     \end{center}
+  \end{scenario}
 
-    \noindent%
-    First and third examples are straightforward.
-    Difference is katakana and common kanji with a little grammar.
-    Second, overly literal and slightly different translations due to lack of information about context.
-    Fourth, do not need complete translation.
+  \noindent%
+  Translation.
+  In order to translate, sufficient understanding of two languages.
 
-    \noindent%
-    However, agent may fail to translate certain chapter titles such as:
+  Language, key feature is novel sentences.
+  Much like previous scenario, chapter titles, so further chapter titles.
+  
+  Still, in contrast to scenario,
+  
+  partial translations.
+  variety of translations.
 
-    \begin{center}
-      \bgroup
-      \def\arraystretch{1.125}
-      \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-        \multicolumn{2}{c}{Translations and chapter titles not in `reading'} \\
-        \hline\hline
-        Translation & Title \\
-        \hline
-        Software and wet & ソフト＆ウェット \\
-        \hdashline
-        The Qing Dynasty Hair Clip & 清の時代の髪留め \\
-        \hdashline
-        ??? & 母と子
-      \end{tabular}
-      \egroup
-    \end{center}
+  \begin{center}
+    \bgroup
+    \def\arraystretch{1.125}
+    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
+      \hline\hline
+      Translation & Title \\
+      \hline
+      Safety above everything else & \multirow{3}*{無事が何より} \\
+      Safety first & \\
+      Gotta be safe & \\
+    \end{tabular}
+    \egroup
+  \end{center}
 
-    \noindent%
-    First, translation ruled out by context, though possible.
-    Second and third, require knowledge that may be expected for fluency, but not reading.
-    Second, did not require complete translation.
-    Third, failure to translate \textquote{Mother and child}.
-  \end{illustration}
+  
+  With mathematical exercises, may expect agent to re-express solution.
+  For example, \(200\), \(2^{3} \times 5^{2}\).
+  However, distinct from finding solution.
+  No clear problem if only solve with \(200\) and then re-express.
+  
+  With translation, re-expression after translation seems problematic.
+  Suggests syntactic correspondence, but no clear grasp of semantic correspondence.
+  
+  Indeed, in the case of translation, absence of \fc{} (under standard circumstances) is plausibly important.
+  For example, 「ソフト＆ウェット」 is translated as 'Soft and Wet'.
+  The background context is a number of other The Artist Formerly Known As Prince references (e.g.\ ペイズリー・パーク/Paisley Park).
+  However, in a different context 「ソフト＆ウェット」 may be translated as 'software and wetware'.
 \end{note}
 
 
-
-\section{Prior \scen{1}}
-\label{sec:cscen1}
-
-\begin{note}
-  Selection tasks and \autoref{illu:tR:powers}.
-\end{note}
 
 \section{Point}
 \label{sec:point}
