@@ -250,6 +250,37 @@
 }
 
 
+
+\NewDocumentEnvironment{rdefinition}{ m m +b}
+{%
+  \refstepcounter{defiCounter}%
+  \label{#1}
+  \smallskip%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{\definitionName{2}~\arabic{defiCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+
+
+\newcommand\reDefinition[1]{
+  \smallskip%
+  \noindent\textbf{\definitionName{2}~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+
+
+
+
+
 \newcounter{propCounter}
 \setcounter{propCounter}{0}
 \renewcommand{\thepropCounter}{\arabic{propCounter}}
@@ -267,6 +298,35 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+
+\NewDocumentEnvironment{rproposition}{ m m +b}
+{%
+  \refstepcounter{propCounter}%
+  \label{#1}
+  \smallskip%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Proposition~\arabic{propCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+
+
+\newcommand\reProposition[1]{
+  \smallskip%
+  \noindent\textbf{Proposition~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+
+
+
 
 
 \newcounter{coroCounter}

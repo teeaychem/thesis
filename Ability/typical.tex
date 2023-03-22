@@ -130,14 +130,35 @@
   }
   is designed to implicitly capture the agent reasoning by some \torNa{}.
 
-  For, if the agent did not conclude the relevant \prop{0}-\val{0} pair by \tCV{} by some \torNa{} which corresponds to the \agents{} understanding, then various \prop{0}-\val{0} pairs of the relevant \pool{} would be irrelevant.
+  \begin{proposition}[Factorisation: \torNa{}, \pool{}]%
+    \label{prop:p-t}%
+    Given \(\Phi\) is a \pool{} which captures \vAgent{}' understanding of factorisation:
+    \begin{itenum}
+    \item[\emph{If}:]
+      \(\ed{}\) is an event in which \vAgent{} is concluding \(\pv{\phi}{\valI{True}}\) from \(\Phi\).
+    \item[\emph{Then}:]
+      \(\ed{}\) is an event in which \vAgent{} is \tCV{} \(\pv{\phi}{\valI{True}}\) from some \pool{} \(\Phi\) by factorisation.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{proposition}
 
+
+  \begin{argument}{prop:p-t}
+    Suppose \(\ed{}\) is an event in which \vAgent{} concludes \(\pv{\phi}{\valI{True}}\) from \(\Phi\).
+
+    Now, factorisation as understood in the context of quadratic equations just is rewriting an expression of the form \rootsConEqGenV{a}{b}{c} as the product of some factors of the form \(\rootsFacV{i}{j}{q}{r}\) and then identifying values of \(x\) such that \(\rootsFacL{i}{q} = 0\) and \(\rootsFacR{j}{r} = 0\).
+    Hence, in order for the agent to have applied their understanding of factorisation, the agent must be somewhere in the process of rewriting some expression as the product of some factors and identifying the relevant values of \(x\).
+    Therefore, \(\ed{}\) is an event in which \vAgent{} is \tCV{} \(\pv{\phi}{\valI{True}}\) from some \pool{} \(\Phi\) by factorisation.
+    \medskip
+
+    \noindent%
+    Conversely, the agent may be concluding \(\pv{\phi}{\valI{True}}\) by some other \torNa{}, but then the agent is concluding \(\pv{\phi}{\valI{True}}\) from some \pool{} other than \(\Phi\).
+  \end{argument}
+
+  \noindent%
   For example, in \autoref{illu:gist:roots:F} the agent to concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from some \pool{} which captures the \agents{} understanding of factorisation.
   In other words, the agent \tCV[concluded]{} \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} \(\Phi\) by the \torNa{} `factorisation'.
-  Or, a little more colloquially, the agent factored.
-
-  Conversely, if the agent did not factor, then the agent did not conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).
-  For, some aspect of the \agents{} understanding of factorisation was irrelevant to the way the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi\).%
+  Or, a little more colloquially, the agent factored.%
   \footnote{
     \autoref{def:tpro} does not, strictly, require a fixed \pool{}, though the \illu{1} which follow build on the intuitive connexion between a \torN{} an a \pool{} which captures an \agents{} understanding of some thing.
   }
@@ -153,8 +174,7 @@
   With the definition of a \torN{0} in hand we definition the feature of an agent \tCV{} of interest.
   We term this  the \emph{\tpro{}} of a \torN{}:
 
-  \begin{definition}[The \tprof{0}]
-    \label{def:tpro}
+  \begin{rdefinition}{def:tpro}{The \tprof{0}}%
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
@@ -176,7 +196,7 @@
       \end{itemize}
     \end{itenum}
     \vspace{-\baselineskip}
-  \end{definition}
+  \end{rdefinition}
 
   \noindent%
   Intuitively, \autoref{def:tpro} expresses the idea that an agent is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type of reasoning \(T\) only if some `law' holds.
@@ -210,8 +230,7 @@
 
   This is perhaps easier to see by rearranging \autoref{def:tpro}:
 
-  \begin{proposition}
-    \label{prop:tpro-switch}
+  \begin{rproposition}{prop:tpro-switch}{Shadows}
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
@@ -232,7 +251,7 @@
       \end{itemize}
     \end{itenum}
     \vspace{-\baselineskip}
-  \end{proposition}
+  \end{rproposition}
 
   \begin{argument}{prop:tpro-switch}
     Immediate by rearranging \autoref{def:tpro}.
@@ -506,8 +525,8 @@
   The details of \autoref{app:sc1-typ} highlight the way in which the instances of \(n\) amount to \emph{structurally similar} quadratic equations.
   In other words, each instance of \(n\) amounts to a quadratic equation which may be solved by reasoning which parallels what the agent is doing when concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
 
-  Indeed, it not enough to highlight, e.g.\ \rootsConEqGenV{20}{}{1} is a quadratic formula and \rootsConGen{} is an expression of the relevant factors.
-  For, \rootsConEqGenV{15}{}{1} is likewise a quadratic formula, but it seems unreasonable to expect the agent to be concluding \(x \in \{\sfrac{(\sqrt{61} - 1)}{30}, -\sfrac{(1 + \sqrt{61})}{30}\}\).%
+  Indeed, it not enough to highlight, e.g.\ \rootsConEqGenV{20}{}{1} is a quadratic equation and \rootsConGen{} is an expression of the relevant factors.
+  For, \rootsConEqGenV{15}{}{1} is likewise a quadratic equation, but it seems unreasonable to expect the agent to be concluding \(x \in \{\sfrac{(\sqrt{61} - 1)}{30}, -\sfrac{(1 + \sqrt{61})}{30}\}\).%
   \footnote{
     Likewise, as each instance of \(n\) amount to a structurally similar quadratic equation, there a plausibly other \tpro{1} which include quadratic equations of a different structure (e.g.\ \(x^{2} - 1\)).
     However, our interest with \tpro{1} is limited to a necessary condition on an agent \tCV{} (cf.\ \autoref{prop:tpro-switch}) and so there is no need for the \tpro{} to include all relevant \prop{0}-\val{0}-\pool{0} and event pairings.
