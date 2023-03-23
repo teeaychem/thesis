@@ -235,6 +235,7 @@
 \setcounter{defiCounter}{0}
 \renewcommand{\thedefiCounter}{\arabic{defiCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{definition}{ o +b }
 {%
   \refstepcounter{defiCounter}%
@@ -248,9 +249,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}%
 }
+\ExplSyntaxOff
 
-
-
+\ExplSyntaxOn
 \NewDocumentEnvironment{rdefinition}{ m m +b}
 {%
   \refstepcounter{defiCounter}%
@@ -265,8 +266,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
-
+\ExplSyntaxOn
 \newcommand\reDefinition[1]{
   \smallskip%
   \noindent\textbf{\definitionName{2}~\ref{#1}}~(\csname literallabel_#1\endcsname)
@@ -276,7 +278,7 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 
 
