@@ -1755,3 +1755,54 @@
       \ensuremath{d\sb{#1}}
 }
 \ExplSyntaxOff
+
+
+
+%\newcommand{\inwhich}[0]{in\space which}
+\newcommand{\inwhich}[0]{where}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\eiw}{ O{} m }{%
+  \tl_if_empty:nTF {#1}
+    {%
+    \tl_if_empty:nTF {#2}
+    {
+      \obeybreaks{event\space \inwhich{}}%
+    }
+    {%
+      \ifnum0=#2\relax%
+        \obeybreaks{event\space \inwhich{}}%
+      \fi
+      \ifnum1=#2\relax%
+        \obeybreaks{events\space \inwhich{}}%
+      \fi
+      \ifnum2=#2\relax%
+        \obeybreaks{Event\space \inwhich{}}%
+      \fi
+      \ifnum3=#2\relax%
+        \obeybreaks{Events\space \inwhich{}}%
+      \fi
+    }
+  }
+  {
+    \tl_if_empty:nTF {#2}
+    {
+      \obeybreaks{event\space #1\space \inwhich{}}%
+    }
+    {%
+      \ifnum0=#2\relax%
+        \obeybreaks{event\space #1\space \inwhich{}}%
+      \fi
+      \ifnum1=#2\relax%
+        \obeybreaks{events\space #1\space \inwhich{}}%
+      \fi
+      \ifnum2=#2\relax%
+        \obeybreaks{Event\space #1\space \inwhich{}}%
+      \fi
+      \ifnum3=#2\relax%
+        \obeybreaks{Events\space #1\space \inwhich{}}%
+      \fi
+    }
+  }
+}
+\ExplSyntaxOff
