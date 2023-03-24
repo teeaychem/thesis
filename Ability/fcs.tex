@@ -38,7 +38,7 @@
 
     \begin{itemize}
     \item
-      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(\edo{1}, \dots, \edo{k}\) such that clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} are true:
+      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(\edo{1}, \dots, \edo{k}\) such that clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} hold:
       %
       \begin{enumerate}[label=\Alph*., ref=\Alph*, series=fcCounter]
       \item
@@ -381,6 +381,18 @@
   Hence, as an event in which the agent concludes \ref{illu:fc:chess:I:c} is in progress when \ref{illu:fc:chess:I:cond:1} is true, an event in which the agent concludes \ref{illu:fc:chess:I:c} is (also) in progress when \ref{illu:fc:chess:I:cond:2} is true.
 \end{note}
 
+\begin{note}
+  Note, if \autoref{illu:fc:chess:I} is recast as a game of chess, and the agent of interest in White, it is plausible \ref{illu:fc:chess:I:c} has practical counterpart:
+  %
+  \begin{enumerate}[label=C\thescenarioCounter\('\)., ref=C\thescenarioCounter\('\)]
+  \item
+    \label{illu:fc:chess:I:c:p}
+    \pv{\propI{\wmove{Qh8}}}{\valI{Do}}
+  \end{enumerate}
+  %
+  For, a careful agent with a desire to win the game may do the reasoning sketched above, and then checkmate.
+\end{note}
+
 
 
 \paragraph{Illustration 3}
@@ -452,56 +464,56 @@
   % Using a chess engine to solve chess problems seems to defeat the purpose of thinking about the problem, but I almost always prefer to use a calculator for mildly complex arithmetic such as \(4^{4!}\) over my own understanding of arithmetic.
 \end{note}
 
-\paragraph{Illustration 4}
+% \paragraph{Illustration 4}
 
-\begin{note}
-  In some cases it is possible to easily point to something which prevents an agent from drawing a conclusion.
-  For example, consider the following story:
+% \begin{note}
+%   In some cases it is possible to easily point to something which prevents an agent from drawing a conclusion.
+%   For example, consider the following story:
 
-  \begin{scenario}[A copper kettle]%
-    \label{illu:kettle}%
-    An agent is committed to the following principle:%
-  \footnote{
-    Motivated by the observations that
-    \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
-    \item A.\ has provided testimony only if what A.\ has said is true.
-      And,
-    \item what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
-    \end{enumerate*}
-  }
-  %
-  \begin{itemize}
-  \item
-    An agent has provided testimony \emph{only if} if what they say is internally consistent.
-  \end{itemize}
-  %
-  And listens to A.'s defence:
-    %
-    \begin{quote}
-      A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable. His defence was: ``%
-      First, I never borrowed a kettle from B.\ at all; secondly, the kettle had a hole in it already when I got it from him; and thirdly, I gave him back the kettle undamaged.%
-      ''%
-      \mbox{ }\hfill\mbox{(\cite[62]{Freud:1960wx})}
-    \end{quote}
-    \vspace{-\baselineskip}
-  \end{scenario}
+%   \begin{scenario}[A copper kettle]%
+%     \label{illu:kettle}%
+%     An agent is committed to the following principle:%
+%   \footnote{
+%     Motivated by the observations that
+%     \begin{enumerate*}[label=(\alph*), ref=(\alph*)]
+%     \item A.\ has provided testimony only if what A.\ has said is true.
+%       And,
+%     \item what A.\ has said is true only if the three points of A.'s defence are jointly consistent.
+%     \end{enumerate*}
+%   }
+%   %
+%   \begin{itemize}
+%   \item
+%     An agent has provided testimony \emph{only if} if what they say is internally consistent.
+%   \end{itemize}
+%   %
+%   And listens to A.'s defence:
+%     %
+%     \begin{quote}
+%       A.\ borrowed a copper kettle from B.\ and after he had returned it was sued by B.\ because the kettle now had a big hole in it which made it unusable. His defence was: ``%
+%       First, I never borrowed a kettle from B.\ at all; secondly, the kettle had a hole in it already when I got it from him; and thirdly, I gave him back the kettle undamaged.%
+%       ''%
+%       \mbox{ }\hfill\mbox{(\cite[62]{Freud:1960wx})}
+%     \end{quote}
+%     \vspace{-\baselineskip}
+%   \end{scenario}
 
-  \noindent%
-  The conclusion of interest is:
-  % 
-  \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
-  \item
-    \label{illu:kettle:c}
-    \pv{\propI{A.'s defence is testimony}}{\valI{True}}
-  \end{enumerate}
-  % 
-  Further, suppose 
-  % 
-  It seems \ref{illu:kettle:c} is not a \fc{} from any \pool{} for the agent.
-  For, it is not possible for the agent to conclude \pv{\propI{The three points of A.'s defence are jointly consistent}}{\valI{True}} given the principle the agent is committed to.
-  Indeed, it seems clear \pv{\propI{The three points of A.'s defence are jointly \emph{in}consistent}}{\valI{True}} is a \fc{} from any relevant \pool{}.
-  For, it takes only a moments reflection to observe it is not possible to return a kettle one has not borrowed.
-\end{note}
+%   \noindent%
+%   The conclusion of interest is:
+%   % 
+%   \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
+%   \item
+%     \label{illu:kettle:c}
+%     \pv{\propI{A.'s defence is testimony}}{\valI{True}}
+%   \end{enumerate}
+%   % 
+%   Further, suppose 
+%   % 
+%   It seems \ref{illu:kettle:c} is not a \fc{} from any \pool{} for the agent.
+%   For, it is not possible for the agent to conclude \pv{\propI{The three points of A.'s defence are jointly consistent}}{\valI{True}} given the principle the agent is committed to.
+%   Indeed, it seems clear \pv{\propI{The three points of A.'s defence are jointly \emph{in}consistent}}{\valI{True}} is a \fc{} from any relevant \pool{}.
+%   For, it takes only a moments reflection to observe it is not possible to return a kettle one has not borrowed.
+% \end{note}
 
 % \begin{note}
 %   Likewise, \propM{0 = 1}, value \valI{True}, and a \pool{} which captures a common understanding of arithmetic during their normal workday.
@@ -562,72 +574,50 @@
 %   }
 % \end{note}
 
-\section[Limitations of the definition]{Limitations of the definition \hfill (Optional)}
+\section[Notes]{Notes \hfill (Optional)}
 
-
-\paragraph*{Practical \fc{1}}
 
 
 \begin{note}
-  A slight aside.
-  The abstraction to \prop{0}-\val{0} pairs is designed to allow values other than \valI{True}.
-  In particular, practical cases.
+  \fc{3} are defined via an event in which an agent is concluding.
+  And, given \assuPP{}, an event in which an agent is concluding entails the existence of a (possible) event in which the agent concludes.
+  So, definition similar to \autoref{def:fc} may be given which uses an event in which an agent concludes, rather than an event in which an agent is concluding.
 
-  Practical cases are interesting, as multiple incompatible conclusions.
-  For example, game of tic-tac-toe.
-  Not possible to play multiple cells at the same time, however any cell.%
-  \footnote{
-    Truth cases plausibly exist, but rest on paradoxes.
-    For example, liar sentence, two \fc{1}.
-  }
+  Still, we do not define \fc{3} via conclusions.
+\end{note}
 
-  However, while multiple incompatible conclusions, less clear there are multiple incompatible \fc{1}.
-  For, need it to be the case that the agent is concluding.
-  Hence, something establishes before the agent concludes.
+\begin{note}
+  The primary motivations is pragmatic.
 
-  \begin{scenario}
-    Two agents, \tttX{} and \tttO{}, are playing a game of tic-tac-toe.
-    The game progresses to the state depicted below.
+  Our interest with \fc{1} is something about the agent as they are which ensures it is possible for the agent to make the relevant conclusion.
+  \autoref{def:fc} focuses on the agent as they by focusing on an action the agent may perform such that they are concluding.
 
-    \begin{center}
-      \tictactoe{X, , ,
-        O,O,X,
-        X, , }
-    \end{center}
-  \end{scenario}
+  In contrast, stating \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\) for an agent just in case the agent may perform such that they are \emph{conclude} \(\pv{\phi}{v}\) from \(\Phi\) draws attention to the event.
+  This focuses on what may happen.
+\end{note}
 
-  Clear \tttO{} may play either top-mid, top-right, bottom-right, or bottom-mid.
-  Further, there is no chance for \tttO{} to win if \tttO{} plays either top-right or bottom-right, but there is a chance if \tttO{} plays either top-mid or bottom-mid.
-  And, any reasoning about the top positions may be mirrored with respect to the bottom positions.
+\begin{note}
+  A secondary motivation is intuition.
 
-  So, plausible nothing but a metaphorical coin toss distinguishes \pv{\propI{Top-mid}}{\valI{Play}} from \pv{\propI{Bottom-mid}}{\valI{Play}}.
-  However, by this observation, there is no event in which the agent is concluding \pv{\propI{Top-mid}}{\valI{Play}} or \pv{\propI{Bottom-mid}}{\valI{Play}}.
-  For, prior to either conclusion, nothing favours playing top-mid over bottom-mid and vice-versa.
+  An agent is concluding just in case an event in which the agent concludes is in progress.
+  Hence, sense of possibility with which an event in which the agent concludes is possible is constrained by an understanding of events in progress.
+  (See~\autoref{sec:progressive}).
 
-  This is not to say \pv{\propI{Top-mid}}{\valI{Play}} may not be a \fc{}.
-  For example, if \tttO{} has a strong preference for playing anywhere other than the bottom row, unless doing so results in a sure win, then \fc{}.
-  {\color{blue} Here, trivial \fc{} as with application.}
+  This sense of possibility helps rule out conclusions which are possible, but are not, intuitively, forgone.
 
-  However, from a \pool{} which captures \tttO{}'s preference, \pv{\propI{Bottom-mid}}{\valI{Play}} is not a \fc{}.
+  For example, \autoref{illu:fc:chess:I}, the agent may conclude \pv{\propI{It is \emph{not} possible for White to checkmate in a single move}}{\valI{True}} from a \pool{} \(\Phi\) which includes their understanding of chess.
+  Mistakes happen.
 
-  If not, unclear playing.
-  Something distinguishes symmetric positions.
-  But, bad description to say via tic-tac-toe.
+  Still, a mistake happening is distinct from a mistake being in progress.
 
-  Of course, maybe something additional which constrains.
-  However, \fc{} from restricted \pool{}.
-  If not possible to distinguish understanding of tic-tac-toe from additional constraints, then bad description.
-
-  Symmetry is built into the rules.
+  For example, it is unlikely there is an event in which the agent is \emph{concluding} \pv{\propI{It is not possible for White to checkmate in a single move}}{\valI{True}} from \(\Phi\).
 \end{note}
 
 
-
-\paragraph{Translation}
-
-
 \begin{note}
-  Likewise, translation.
+  While the definition of a \fc{1} is designed with certain features in mind, the way \fc{1} are defined plausibly fails to capture some natural cases.
+
+  For example, consider the following \scen{0}:
 
   \begin{scenario}[ジョジョリオン]%
     \label{scen:jojo}
@@ -661,25 +651,25 @@
     \pv{「無事が何より」 \propI{translates to `Safety first'}}{\valI{True}}
   \end{enumerate}
 
-  However, \autoref{scen:jojo:c} is plausibly not a \fc{} from any relevant \pool{} as multiple translations are possible.
-  For example:
-  %
-  \begin{center}
-    \bgroup
-    \def\arraystretch{1.125}
-    \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
-      Translation & Title \\
-      \hline
-      Safety above everything else & \multirow{3}*{無事が何より} \\
-      Safety is the most important thing & \\
-      Gotta be safe & \\
-    \end{tabular}
-    \egroup
-  \end{center}
+  \noindent%
+  Intuitively, \autoref{scen:jojo:c} is a \fc{}, so long as the agent is fairly good at translation.
+  Hence, something about the agent ensures they may make the translation.
 
-  Still, in some cases a unique translation is possible.
-  For example, 「ソフト＆ウェット」 is translated as 'Soft and Wet'.
-  And, given sufficient background context --- a number of other The Artist Formerly Known As Prince references --- and general knowledge, any other translation (e.g.\ 'software and wetware') is easily ruled out.
+  Still, \ref{scen:jojo:c} is plausibly not a \fc{} (as defined) from any relevant \pool{}.
+
+  For, multiple translations are possible, and there may be nothing about the agent which favours one translation over any other.
+  For example, 「無事が何より」 may (also) be translated to `Safety above everything else'.
+  So, in order for the agent to be concluding \pv{「無事が何より」 \propI{translates to `Safety first'}}{\valI{True}}, something about the agent must favour `Safety first' as a translation over `Safety above everything else'.%
+  \footnote{
+    In some cases there is a unique translation, and hence a plausible \fc{}.
+    For example, 「ソフト＆ウェット」 is translated as 'Soft and Wet'.
+    And, given some background context --- a number of other The Artist Formerly Known As Prince references --- and general knowledge, other translations (e.g.\ 'software and wetware') are ruled out.
+  }
+\end{note}
+
+\begin{note}
+  This noted, what matters for the overall argument of this document is what is captured by the definition of a \fc{} rather than what fails to be captured.
+  So, there is no particular need for you to stick to \fc{1} as defined over an intuitive understanding of \fc{1}, so long as the extension of your intuitive understanding includes the extension of the definition.
 \end{note}
 
 
