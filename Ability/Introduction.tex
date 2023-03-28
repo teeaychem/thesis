@@ -138,58 +138,59 @@
   %
   \begin{enumerate}
   \item
-    The \agents{} conclusion of the \prop{0}-\val{0} pair \emph{from} the \pool{0}.
+    That the \agents{} conclusion of the \prop{0}-\val{0} pair \emph{from} the \pool{0}.
   \item
-    The \prop{0} having the \val{0} \emph{following from} the \pool{0}, from the \agpe{}.
+    That the \prop{0}-\val{0} pair \emph{\fof{0}} the \pool{0} from the \agpe{}.
   \end{enumerate}
   %
   `From' is about what happened.
-  `Follows from' is about connections between various \prop{1}-\val{1} dependent on the \agpe{}.
+  `Follows from' is about connections between various \prop{1}-\val{1} given the \agpe{}.
 
   For example, in \autoref{illu:gist:roots:F} the agent concludes \propM{\rootsCon{}} has value \valI{True} from some \pool{} which includes their understanding of factorisation.
-  Hence, the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from the \pool{} and \pv{\propM{\rootsCon{}}}{\valI{True}} follows from the \pool{} from the \agpe{}.
+  Hence, the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} \emph{from} the \pool{} and \pv{\propM{\rootsCon{}}}{\valI{True}} \emph{\fof{}} the \pool{} from the \agpe{}.
+
+  In general, we assume \fofb{some \prop{0}-\val{0} pair}{some \pool{}} from an \agpe{} when the agent concludes the \prop{0}-\val{0} pair from the \pool{}.
 \end{note}
 
 
 \begin{note}
-  A \emph{\ros{0}} abstractly captures when a \prop{0}-\val{0} pair `follows from' some \pool{}.
-  Hence, a \ros{} between some \prop{0}, \val{0} and \pool{0} holds when an agent \eval{} the \prop{} as having the \val{0} from the \pool{0}.
-  So, in \autoref{illu:gist:roots:F} a \ros{} holds between \pv{\propM{\rootsCon{}}}{\valI{True}} and the relevant \pool{} when the agent \evals{} \propM{\rootsCon{}} as having \val{0} \valI{True}.
+  However, we also assume it may be the case \fofb{some \prop{0}-\val{0} pair}{some \pool{}} without there being an event where the agent has concluded the \prop{0}-\val{0} pair from the \pool{}.
 
-  In this respect, \ros{0} help capture where an agent is \emph{concluding}.
+  In particular, we assume it may be the case \fofb{some \prop{0}-\val{0} pair}{some \pool{}} when, or just prior to, an agent is \emph{concluding} the \prop{0}-\val{0} pair from the \pool{}.
+
   For example, consider \autoref{illu:gist:roots:F}.
-  It seems clear at the second step of reasoning the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}}.
-  Something ensures the agent is concluding.
-  And, we use a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and a \pool{} which includes the \agents{} understanding of factorisation to captures whatever it is that ensures the agent is concluding.
-
-  Alternatively one may say that agent has the ability, the know-how, skill, disposition, etc.\ to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} and is executing the know-how or manifesting the disposition at the second step of reasoning.
-  Still, \ros{1} are designed to abstract from such specific details.
-
-  Further, a \ros{0} may hold between some \prop{0}, \val{0}, and \pool{} regardless of whether the \prop{0}-\val{0} pair has been concluded `from' the \pool{}.
-  In this respect, a \ros{} between \pv{\propM{\rootsCon{}}}{\valI{True}} and a \pool{} which includes the \agents{} understanding of \emph{the quadratic equation} may hold at the second step of reasoning in \autoref{illu:gist:roots:F}.
-  For, intuitively, the agent may abandon factorisation and do the reasoning outlined in \autoref{illu:gist:roots:QF}.
-  Though, it need not be the case that, given \(y = \sqrt{ 2 + \sqrt{2 + \cdots}}\), a \ros{} holds between \pv{\propM{y = 2}}{\valI{True}}, and the \agents{} understanding of factorisation.%
+  At the second step of the \agents{} reasoning it seems the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from a \pool{} --- an event where the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from the \pool{} is in progress.
+  Hence, as the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from a \pool{}, it seems \pv{\propM{\rootsCon{}}}{\valI{True}} already \fof{} the \pool{} from the \agpe{}.%
   \footnote{
-    Specifically, we assume a \ros{} between some \prop{0}, \val{0}, and \pool{0} holds when there is some action may immediately do such that the agent is concluding the \prop{0}-\val{0} pair from the \pool{} when the agent does the action.
+    One may go further and say that agent has the ability, the know-how, skill, disposition, etc.\ to conclude \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} and is executing the know-how or manifesting the disposition at the second step of reasoning.
+    Each idea, on a plausible reading, suggests \pv{\propM{\rootsCon{}}}{\valI{True}} already \fof{} the \pool{} from the \agpe{}.
+    However, our interest is limited to the \fofr{}.
+  }
+
+  % Further, a \fofr{} may hold regardless of whether the \prop{0}-\val{0} pair has been concluded `from' the \pool{}.
+  % In this respect, a \rosb{\pv{\propM{\rootsCon{}}}{\valI{True}}}{a \pool{} which includes the \agents{} understanding of \emph{the quadratic equation}} may hold at the second step of reasoning in \autoref{illu:gist:roots:F}.
+  % For, intuitively, the agent may abandon factorisation and do the reasoning outlined in \autoref{illu:gist:roots:QF}.
+  Note, however, it need not be the case that, given \(y = \sqrt{ 2 + \sqrt{2 + \cdots}}\), \fofb{\pv{\propM{y = 2}}{\valI{True}}}{the \agents{} understanding of factorisation} holds.
+  The \fofr{} takes the \agpe{}, and the \agents{} grasp on factorisation and related concepts may be insufficient to solve all factorisation problems.
+  An \agpe{} is limited by what the agent may perceive.%
+  \footnote{
+    Specifically, we assume \fofb{some \prop{0}, \val{0}}{\pool{0}} when there is some action may immediately do such that the agent is concluding the \prop{0}-\val{0} pair from the \pool{} when the agent does the action.
   }
 \end{note}
 
 
 \begin{note}
-  In short, a \ros{} is an abstraction which relates a \prop{0}, \val{0}, and \pool{0} and captures that the \prop{} having the \val{} `follows from' the \pool{} from the \agpe{}.
-  Where, in particular, a \ros{} may hold prior to a conclusion and is such that whatever secures the applicability of the abstraction also ensures the agent may the option to be, or is, concluding \(\pv{\phi}{v}\) from \(\Phi\).
-
   This is all quite abstract.
   However, the abstraction has a purpose.
   Our interest is understanding the way an \eiw{0} an agent concludes happens, though we do not have interest in any particular theory about the way an \eiw{0} an agent concludes happens.
-  Rather, our interest is with a pre-theoretical constraint on such understanding.
-  And, abstracting to \prop{1}, \val{1}, \pool{1}, and \ros{1} allows a theory neutral account of some key aspects of conclusions.
+  Rather, our interest is with a (more-or-less) pre-theoretical constraint on such understanding.
+  And, abstracting to \prop{1}, \val{1}, \pool{1}, and a \fofr{0} allows a theory neutral account of some key aspects of conclusions.
 
   Given this is an introduction, the characterisation of the abstractions is brief.
   Other chapters in this document expand on these abstractions in detail.%
   \footnote{
     \autoref{cha:clar} focuses on \prop{1}, \val{1} and \pool{1}.
-    And, \autoref{cha:ros} focues on \ros{1}.
+    And, \autoref{cha:ros} focues on \fofr{1}.
   }
 \end{note}
 
@@ -223,43 +224,42 @@
 
   \noindent%
   \autoref{scen:countS} is an instance of `countersign'.
-  Both Fox and Pritcher are members of The Party, and verify this to each other by completing a pre-determined exchange (``I come from Miran.'', ``Miran is early this year.'', \dots).
+  Both Fox and Pritcher are members of The Party, and verify this to each other by countersigning --- completing a pre-determined exchange (``I come from Miran.'', ``Miran is early this year.'', \dots).
 
   \noindent%
   Applying \prop{1}, \val{1}, and \pool{1}, we say that in the event described by \autoref{scen:countS} Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from some \pool{} \(\Phi\).
-  And, when Fox \evals{} \propI{\signConA{}} as having \valI{True}, a \ros{} holds between \pv{\propI{\signConA{}}}{\valI{True}}, and \(\Phi\) from \agpe{Fox's}.%
+  And, when Fox \evals{} \propI{\signConA{}} as having \valI{True}, a \fofb{\pv{\propI{\signConA{}}}{\valI{True}}}{\(\Phi\)} from \agpe{Fox's}.%
   \footnote{
     Pritcher tells Fox the are a Party member at the end of the \scen{}.
     Still, Fox has already drawn the conclusion when Fox asks `Who are you?' via the sequence of countersigning.
   }
+\end{note}
 
+
+\begin{note}
   Further, after Pritcher's opening `I come from Miran', Fox (sub-)concludes \pv{\propI{\signConB{}}}{\valI{True}} and some \pool{} \(\Psi\).
-  And, of interest is with the \ros{} between \pv{\propI{\signConB{}}}{\valI{True}} and some \pool{} \(\Psi\).
+  Our interest is with \fofb{\pv{\propI{\signConB{}}}{\valI{True}}}{some \pool{} \(\Psi\)}.
 
-  In contrast to \scen{1} \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, the highlighted \ros{} is distinct from the \ros{} which characterises Fox's final conclusion.
-  The \ros{} did not hold prior to Pritcher saying `I come from Miran'.
-  And, the \ros{} does not ensure Fox is concluding \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\).
+  For, in contrast to \scen{1} \ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}, the highlighted \fofr{} is distinct from the \fofr{} which characterises Fox's final conclusion.
+  And, the highlighted \fofr{} did not hold before Pritcher said `I come from Miran'.
 
-  Still, the \ros{} is tightly connected to \emph{whether} Fox is concluding \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\) by the second conditional.
+  Still, the \fofr{} is tightly connected to \emph{whether} Fox is concluding \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\) by the second conditional.
   For, the following conditional plausibly holds, from \agpe{Fox's}:
-  \emph{If}
-  they didn't open with `I come from Miran'.
-  \emph{then}
-  they're not countersigning.
-  % \begin{itenum}
-  % \item[\emph{If}:]
-  %   They didn't open with `I come from Miran'.
-  % \item[\emph{Then}:]
-  %   They're not engaging in countersign.
-  % \end{itenum}
-  %
 
+  \begin{itenum}
+  \item[\emph{If}:]
+    They didn't open with `I come from Miran'.
+  \item[\emph{Then}:]
+    They're not engaging in countersign.
+  \end{itenum}
+
+  \noindent%
   And, if Fox doesn't think Pritcher is engaging in countersign, Fox does not conclude Pritcher a fellow Party member by countersign.
-  Hence, phrased in terms of \ros{1}, we have:
+  Hence, phrased in terms of \fofr{1}, we have:
   %
   \begin{itenum}
   \item[\emph{If}:]
-    A \ros{} between \pv{\propI{\signConB{}}}{\valI{True}} and some \pool{} \(\Psi\) fails to hold.
+    It not the case \fofb{\pv{\propI{\signConB{}}}{\valI{True}}}{some \pool{} \(\Psi\)}.
   \item[\emph{Then}:]
     Fox does not conclude \pv{\propI{\signConA{}}}{\valI{True}} from some \pool{} \(\Phi\).
   \end{itenum}
@@ -282,7 +282,7 @@
     Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}
     \item
-      Which \ros{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than some other event)?
+      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than some other event)?
     \end{itemize}
     \vspace{-1\baselineskip}
   \end{question}
@@ -411,12 +411,16 @@
 
 
 \begin{note}
-  Now, \qWhy{}, specifically, seeks answers to why \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) in terms of \ros{1}.
+  Now, \qWhy{}, specifically, seeks answers to why \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) in terms of \fofr{1}.
   Hence, given \autoref{idea:why}, our interest is with whether there is some event \(e'\) such that:
+  %
   \begin{enumerate*}[label=]
-  \item \(e\) is the result of \(e'\),
-  \item \(e'\) favours \(e\), and
-  \item \(e'\) favours \(e\) happening only if a \ros{} holds during \(e'\).
+  \item
+    \(e\) is the result of \(e'\),
+  \item
+    \(e'\) favours \(e\), and
+  \item
+    \(e'\) favours \(e\) happening only if a \fofr{} holds during \(e'\).
   \end{enumerate*}
 \end{note}
 
@@ -428,36 +432,32 @@
   Clause~\ref{idea:why:favour} is satisfied as the agent figuring out \rootsConEqFac{} favours an \eiw{0} the agent concludes \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{} over an \eiw{0} the agent fails to conclude \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{}.
   In short, an \eiw{0} the agent concludes \pv{\propI{\rootsCon{}}}{\valI{True}} when the agent figures out \rootsConEqFac{} is in progress.
 
-  Finally, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \pv{\propI{\rootsCon{}}}{\valI{True}} and the \pool{} captures \emph{that} the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
-  Indeed, \ros{1} were introduced above to abstractly capture whatever makes it the case that the agent is concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
-  So, the \ros{} captures what it is for the agent to be concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from the \pool{}.
+  Finally, Clause~\ref{idea:why:feat} is satisfied as the agent concluding \pv{\propM{\rootsCon{}}}{\valI{True}} from the relevant \pool{} (plausibly) entails \fofb{\pv{\propI{\rootsCon{}}}{\valI{True}}}{the \pool{}}.
 \end{note}
 
 
 \begin{note}
-  In short, the relevant \ros{0} answers \qWhy{} as the \ros{} captures what it is for the conclusion to in progress, and hence be favoured over some other event.
+  In short, the relevant \fofr{0} answers \qWhy{} as the \fofr{} is part of what it is for the conclusion to in progress, and hence be favoured over some other event.
 
   Parallel reasoning applies to the other (non-final) steps of \scen{1}~\ref{illu:gist:roots:F} and \ref{illu:gist:roots:QF}.
 \end{note}
 
 
 \begin{note}
-  Our discussion of \autoref{scen:countS}, by contrast, focused on a \ros{} between \propI{\signConB{}}, \valI{True} and some \pool{} \(\Psi\).
-  Pritcher had to say something in order conclude \pv{\propI{\signConB{}}}{\valI{True}} from \(\Phi\).
-  Hence, the reasoning applied to Step~\ref{illu:gist:roots:F:factor} of \autoref{illu:gist:roots:F} does not apply to this \ros{}.
+  Our discussion of \autoref{scen:countS}, by contrast, focused on \fingfb{\pv{\propI{\signConB{}}}{\valI{True}}}{some \pool{} \(\Psi\)}.
+  And, Pritcher had to say something in order for Fox to conclude \pv{\propI{\signConB{}}}{\valI{True}} from \(\Phi\).
+  Hence, the reasoning applied to Step~\ref{illu:gist:roots:F:factor} of \autoref{illu:gist:roots:F} does not apply here.
 
   Still, Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\) as a result of countersign.
-  Hence, we observed \emph{if} a \ros{} between \propI{\signConB{}}, \valI{True} and \(\Psi\) failed to hold \emph{then} Fox does not conclude \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\).
-  For, the relevant \ros{} captures Fox observing the initial step of the countersign.
+  Hence, we observed \emph{if} it is not the case \fofb{\pv{\propI{\signConB{}}}{\valI{True}}}{\(\Psi\)} \emph{then} Fox does not conclude \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\).
 
-  In short, given \(e'\) is the \eiw{0} Fox concludes \pv{\propI{\signConB{}}}{\valI{True}} from \(\Psi\) and \(e\) is the \eiw{0} Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\), and the \ros{} between \propI{\signConB{}}, \valI{True} and \(\Psi\):
+  So, given \(e'\) is the \eiw{0} Fox concludes \pv{\propI{\signConB{}}}{\valI{True}} from \(\Psi\) and \(e\) is the \eiw{0} Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\):
 
   Clause~\ref{idea:why:result} is satisfied as Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from \(\Phi\) by countersign as a result of Fox observing Pritcher's sign.
 
   Clause~\ref{idea:why:favour} is satisfied as Fox recognising Pritcher's sign leads Fox to continue to countersign.
 
-  And, Clause~\ref{idea:why:feat} is satisfied as the \ros{} between \propI{\signConB{}}, \valI{True} and \(\Psi\) includes Fox's observation that Pritcher is engaging in countersign.
-
+  And, Clause~\ref{idea:why:feat} is satisfied as \fingfb{\pv{\propI{\signConB{}}}{\valI{True}}}{\(\Psi\)} is such that \(\Psi\) includes Fox's observation that Pritcher is engaging in countersign.
 \end{note}
 
 
@@ -474,7 +474,7 @@
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
+      \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} answers \qWhy{}.
     \item[\emph{Then}:]
       An \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
     \end{itenum}
@@ -482,7 +482,7 @@
   \end{constraint}
 
   \noindent%
-  In short, \issueInclusion{} states that for any \ros{} between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\pv{\phi}{v}\) from \(\Phi\), there is an event such that the agent concludes the \prop{} has the \val{} from the \pool{} past or present to the \agents{} conclusion of \(\pv{\phi}{v}\) from \(\Phi\).%
+  In short, \issueInclusion{} states that for any \fingfr{} between a \prop{0}, \val{0}, and \pool{} which grants some understanding of the way an agent concluded \(\pv{\phi}{v}\) from \(\Phi\), there is an event such that the agent concludes the \prop{} has the \val{} from the \pool{} past or present to the \agents{} conclusion of \(\pv{\phi}{v}\) from \(\Phi\).%
   \footnote{
     Note, \qHow{} does not explicitly require the relevant event to be the \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
     Hence, a previous \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) may answer \qHow{}.
@@ -505,25 +505,23 @@
 
 
 \begin{note}
-  For narrow motivation, we observe \issueInclusion{} is compatible with the \ros{1} highlighted with respect to \scen{1}~\ref{illu:gist:roots:F},~\ref{illu:gist:roots:QF}, and \ref{scen:countS}.
+  For narrow motivation, we observe \issueInclusion{} is compatible with the \fofr{1} highlighted with respect to \scen{1}~\ref{illu:gist:roots:F},~\ref{illu:gist:roots:QF}, and \ref{scen:countS}.
 
-  With \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} the \ros{} of interest holds between \propM{\rootsCon{}}, \valI{True} and some \pool{} which includes the \agents{} understanding of factorisation or the quadratic formula.
+  With \scen{1}~\ref{illu:gist:roots:F}~and~\ref{illu:gist:roots:QF} the \fofr{} of interest holds between \propM{\rootsCon{}}, \valI{True} and some \pool{} which includes the \agents{} understanding of factorisation or the quadratic formula.
   And, the agent concludes \pv{\propM{\rootsCon{}}}{\valI{True}} from a \pool{} which includes the \agents{} understanding of factorisation or the quadratic formula.
 
-  And, with \autoref{scen:countS} the \ros{} of interest holds between \propI{\signConB{}}, \valI{True} and some \pool{} \(\Psi\).
+  And, with \autoref{scen:countS} the \fofr{} of interest holds between \propI{\signConB{}}, \valI{True} and some \pool{} \(\Psi\).
   Fox has concluded \pv{\propI{\signConB{}}}{\valI{True}} from \(\Psi\) when Fox concludes \pv{\propI{\signConA{}}}{\valI{True}} from some \pool{} \(\Phi\).
 \end{note}
 
 
 \begin{note}
-  To get a feel for what \issueInclusion{} rules out, consider \autoref{illu:gist:roots:F} and a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which includes the \agents{} understanding of the quadratic formula.
-  We suggested it may be the case a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which includes the \agents{} understanding of the quadratic formula answers `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from their understanding of factorisation.
-  \issueInclusion{} entails a \ros{} between \propM{\rootsCon{}}, \valI{True} and some \pool{} which includes the \agents{} understanding of the quadratic formula \emph{does not} answer `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from their understanding of factorisation.
+  To get a feel for what \issueInclusion{} rules out, consider \autoref{illu:gist:roots:F} and \fingfb{\pv{\propM{\rootsCon{}}}{\valI{True}}}{some \pool{} \(\Phi'\) which includes the \agents{} understanding of the quadratic formula}.
+  We suggested it may be the case \fingfb{\pv{\propM{\rootsCon{}}}{\valI{True}}}{\(\Phi'\)} answers `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from \(\Phi'\).
+  \issueInclusion{} entails a \fingfb{\pv{\propM{\rootsCon{}}}{\valI{True}}}{\(\Phi'\)} \emph{does not} answer `why' the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from their understanding of factorisation.
 
   And, this seems intuitive.
   For, it seems implausible that the \agents{} understanding of the quadratic formula favoured an \eiw{0} the agent concluded \pv{\propM{\rootsCon{}}}{\valI{True}} from their understanding of factorisation over any other event, as the agent did not conclude by the quadratic formula.
-
-  
 \end{note}
 
 
@@ -546,79 +544,70 @@
 
 \begin{note}
   The goal is to provide resources to identify counterexamples to \issueInclusion{}, given a general understanding of the way an \eiw{0} an agent concludes happens.
-  For ease of reference, we term the basic resources and the way they combine a `recipe' for counterexamples to \issueInclusion{}.
-  Specifically, the recipe identifies \scen{1} with the following features:
-  %
-  \begin{enumerate}
-  \item
-    An \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-  \item
-    A \ros{} between \(\psi\), \(v'\), and \(\Psi\) such that clauses \ref{reciF:qWhy}, \ref{reciF:distinct}, and \ref{reciF:nHow} hold:
-    %
-    \begin{enumerate}[label=\Alph*., ref=\Alph*]
-    \item
-      \label{reciF:qWhy}
-      The \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
-    \item
-      \label{reciF:distinct}
-      Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
-    \item
-      \label{reciF:nHow}
-      There is no prior (or present) \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-    \end{enumerate}
-  \end{enumerate}
-  %
-    The importance of clauses \ref{reciF:qWhy}, \ref{reciF:distinct}, and \ref{reciF:nHow} follow from the following observation:
+  The following observation characterises what is required for a counterexample:
 
-    \begin{observation}[Failures to \issueInclusion{}]%
+  \begin{observation}[Failures to \issueInclusion{}]%
     \label{obs:iIceRestriction}%
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      A \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a counterexample to \issueInclusion{}.
+      \issueInclusion{} fails to hold.
     \item[\emph{Then}:]
-      Conditions \ref{obs:iIceRestriction:why}, \ref{obs:iIceRestriction:distinct}, and \ref{obs:iIceRestriction:prior} are true of the \ros{} between \(\psi\), \(v'\), and \(\Psi\):
-      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      There is some event \(e\) such that:
+      \begin{enumerate}
       \item
-        \label{obs:iIceRestriction:why}
-        The \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
+        \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
       \item
-        \label{obs:iIceRestriction:distinct}
-        Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
-      \item
-        \label{obs:iIceRestriction:prior}
-        There is no prior (or present) \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+        There is some \fofr{} between \(\pv{\psi}{v'}\) and \(\Psi\) such that conditions \ref{reciF:qWhy}, \ref{reciF:distinct}, and \ref{reciF:nHow} hold:
+        %
+        \begin{enumerate}[label=\Alph*., ref=\Alph*]
+        \item
+          \label{reciF:qWhy}
+          \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} answers \qWhy{}.
+        \item
+          \label{reciF:distinct}
+          Either \(\psi\) is distinct from \(\phi\), \(v'\) is distinct from \(v\), or \(\Psi\) is distinct from \(\Phi\).
+        \item
+          \label{reciF:nHow}
+          There is no prior (or present) \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+        \end{enumerate}
       \end{enumerate}
     \end{itenum}
     \vspace{-1.5\baselineskip}
   \end{observation}
   %
   \begin{motivation}{obs:iIceRestriction}
-    Suppose a \ros{} between \(\psi\), \(v'\), and \(\Psi\) is a counterexample to \issueInclusion{}.
+    Suppose \issueInclusion{} fails to hold.
     We observe each condition holds.
 
-    \begin{enumerate}
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
     \item
-      \issueInclusion{} constrains answers to \qWhy{} in terms of answers to \qHow{}.
-    So, for the \ros{} between \(\psi\), \(v'\), and \(\Psi\) to be a counterexample to \issueInclusion{}, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) must answer \qWhy{}.
-  \item
-    \qWhy{} applies to \eiw{1} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
-
-    Now, if \(\psi\) is the same as \(\phi\), \(v'\) is the same as \(v\), and \(\Psi\) is the same as \(\Phi\) then the \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-    And, the \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) answers \qHow{}.
-    Hence, an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
-  \item
-    Finally, \qHow{} is compatible with \scen{1} where some prior \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
-    Whether or not there are \scen{1} with this feature is something we set aside.
-    Still, a counterexample to \issueInclusion{} is not guarantee if there is some prior \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-  \end{enumerate}
-  \vspace{-\baselineskip}
+      \qWhy{} concerns an event in which an agent concludes, hence it must be the case that for some \prop{0}-\val{0} pair \(\pv{\phi}{v}\) and \pool{} \(\Phi\) we have an event in which an agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    \item
+      In turn, for some fixed \fofr{} between \(\pv{\psi}{v'}\) and \(\Psi\):
+      \begin{enumerate}[label=\Alph*., ref=\Alph*]
+      \item
+        \issueInclusion{} constrains answers to \qWhy{} in terms of answers to \qHow{}.
+        So, in order for \issueInclusion{} to fail, \fingfb{\(\pv{\psi}{v'}\)}{\(\Phi\)} must answer \qWhy{}.
+      \item
+        If \(\psi\) is the same as \(\phi\), \(v'\) is the same as \(v\), and \(\Psi\) is the same as \(\Phi\) then the \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+        And, the \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) answers \qHow{}.
+        Hence, an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
+        This contradicts the failure of \issueInclusion{}.
+        So, at least on of these identifies must fail.
+      \item
+        Finally, \qHow{} is compatible with \scen{1} where some prior \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
+        Whether or not there are \scen{1} with this feature is something we set aside.
+        Still, a counterexample to \issueInclusion{} is not guaranteed if there is some prior \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
+      \end{enumerate}
+    \end{enumerate}
+    \vspace{-\baselineskip}
   \end{motivation}
 \end{note}
 
 
 \begin{note}
-  Still, the recipe is about showing \issueInclusion{} fails to hold \emph{given} appropriate \scen{1}, rather than constructing \scen{1}.
+  Still, our goal is to show \issueInclusion{} fails to hold \emph{given} appropriate \scen{1}, rather than constructing \scen{1}.
   So, strictly speaking, the thesis is:
   %
   \begin{quote}
@@ -628,24 +617,22 @@
   In other words, the goal of this document is to show that any \scen{0} which satisfies a collection of features entails \issueInclusion{} does not hold.
   This means assumptions, definitions, and propositions.
 
-  Of some interest, then, is whether \issueInclusion{} actually fails --- whether there really are events where a \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{} without an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).
-
-  Various \scen{1} which the recipe plausibly applies to will be given, are designed to be the sort of \scen{1} that plausibly happen to anyone multiple times on any given day.%
+  Of some interest, then, is whether \issueInclusion{} actually fails --- whether there really are events where \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} answers \qWhy{} without an \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\).%
   \footnote{
     Though a complete argument that such \scen{1} exist is beyond the scope of this thesis.
     For example, a corollary of such an argument would proof of an external world.
 
-    And, it may be the case that the \scen{1} identified by the recipe are understood to exist, and \issueInclusion{} fails to hold given this understanding, though it turns out that what's really going on in each \scen{0} identified is compatible with \issueInclusion{} ---- scepticism is quite powerful.
+    And, it may be the case that the \scen{1} identified are understood to exist, and \issueInclusion{} fails to hold given this understanding, though it turns out that what's really going on in each \scen{0} identified is compatible with \issueInclusion{} ---- scepticism is quite powerful.
   }
   And, I take this to be mostly on par with showing \issueInclusion{} fails to hold.
 \end{note}
 
 
 \begin{note}
-  The broad idea of the recipe is as follows:
+  The broad idea is as follows:
 
-  A \ros{} answers \qWhy{} when the \ros{} explains why an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happens, rather than some other event.
-  Given \autoref{idea:why}, a \ros{} answers \qWhy{} just in case the \ros{} holding is a key part of some event which both:
+  A \fingfr{} answers \qWhy{} when the \fingfr{} partly explains why an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\) happens, rather than some other event.
+  Given \autoref{idea:why}, a \fingfr{} answers \qWhy{} just in case the \fingfr{} holding is a key part of some event which both:
   \begin{itemize}
   \item
     Favours the \agents{} conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
@@ -660,28 +647,28 @@
   Further, suppose there is an \eiw{0} the agent is \emph{concluding} \(\pv{\phi}{v}\) from \(\Phi\).
   And, suppose the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) as a result of whatever happened when the agent was concluding \(\pv{\phi}{v}\) from \(\Phi\).
 
-  As motivated above, a \ros{} between \(\phi\), \(v\), and \(\Phi\) helps capture \emph{that} the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\), and in turns answers \qWhy{}.
+  As motivated above, an agent concluding \(\pv{\phi}{v}\) from \(\Phi\) plausibly involves \fingfb{\(\pv{\phi}{v}\)}{\(\Phi\)}, and, in turn, the \fingfr{} answers \qWhy{}.
   %
   \begin{itemize}
   \item
     For example, the event captured by Step~\ref{illu:gist:roots:F:factor} in \autoref{illu:gist:roots:F}.
     When the agent figures out \rootsConEqFac{}, the agent is concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from their understanding of factorisation.
     And, the eventual conclusion is a result of figuring out \rootsConEqFac{}.
-    So, a \ros{} between \pv{\propI{\rootsCon{}}}{\valI{True}}, and a \pool{} which includes the \agents{} understanding of factorisation answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any \eiw{0} the agent does not conclude \pv{\propI{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
+    So, \fingfb{\pv{\propI{\rootsCon{}}}{\valI{True}}}{a \pool{} which includes the \agents{} understanding of factorisation} answers \qWhy{}, as the \agents{} eventual conclusion is favoured over any \eiw{0} the agent does not conclude \pv{\propI{\rootsCon{}}}{\valI{True}} from the relevant \pool{}.
   \end{itemize}
   %
-  Still, it may be the case the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) \emph{only if} a \ros{} between \(\psi\), \(v'\), and \(\Psi\) (also) holds.
-  In this respect, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) is part of what it is for an an \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) to be favoured over some other event.
+  Still, it may be the case the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) \emph{only if} \fofb{\(\pv{\psi}{v'}\)}{\(\Psi\)}.
+  In this respect, \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} is part of what it is for an an \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) to be favoured over some other event.
   %
   \begin{itemize}
   \item
     For example, consider Step~\ref{illu:gist:roots:F:factor} again.
     \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} plausibly follows from a sufficient understanding of factorisation.
-    So, I doubt it is possible the agent is concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from their understanding of factorisation \emph{unless} a \ros{} (also) holds between \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} and a \pool{} which includes the \agents{} understanding of factorisation.
+    So, I doubt it is possible the agent is concluding \pv{\propI{\rootsCon{}}}{\valI{True}} from their understanding of factorisation \emph{unless} \fofb{\pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}}}{a \pool{} which includes the \agents{} understanding of factorisation}.
   \end{itemize}
   %
-  In other words, a \ros{} between \(\psi\), \(v'\), and \(\Psi\) holding is part of what it is for the agent to be concluding \(\pv{\phi}{v}\) from \(\Phi\).
-  And, as the \eiw{0} the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) favours a conclusion of \(\pv{\phi}{v}\), and the conclusion is the result of the concluding, the \ros{} between \(\psi\), \(v'\), and \(\Psi\) answers \qWhy{}.
+  In other words, \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} is part of what it is for the agent to be concluding \(\pv{\phi}{v}\) from \(\Phi\).
+  And, as the \eiw{0} the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) favours a conclusion of \(\pv{\phi}{v}\), and the conclusion is the result of the concluding, \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} answers \qWhy{}.
   The only remaining task is to ensure the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\), but instances are not too difficult to find.
   %
   \begin{itemize}
@@ -692,9 +679,9 @@
   %
   This, is more-or-less it.
 
-  Sometimes an agent concludes as a result of concluding in a particular way (e.g.\ by factorisation), and if the agent is concluding in a particular way, then various distinct \ros{1} holding are part of what it is to conclude in that particular way, and hence these answer \qWhy{}.
-  Put otherwise, sometimes an agent concludes as a result of concluding in a particular way and the agent is concluding in a particular way \emph{only if} various distinct \ros{1} holding are part of what it is to conclude in that particular way.
-  Hence, given \autoref{idea:why}, those \ros{} answer \qWhy{}.
+  Sometimes an agent concludes as a result of concluding in a particular way (e.g.\ by factorisation), and if the agent is concluding in a particular way, then various distinct \fingfr{1} are part of what it is to conclude in that particular way, and hence these answer \qWhy{}.
+  Put otherwise, sometimes an agent concludes as a result of concluding in a particular way and the agent is concluding in a particular way \emph{only if} various distinct \fingfr{1} are part of what it is to conclude in that particular way.
+  Hence, given \autoref{idea:why}, those \fingfr{} answer \qWhy{}.
 
   I think \issueInclusion{} is intuitive, though I also think this argument is basic enough to highlight that the intuition isn't quite right.
 
@@ -703,11 +690,10 @@
 
 
 \begin{note}
-  Note, \ros{3} are an abstraction.
-  And, with minor adjustments the above argument may be made in terms of ability, know-how, disposition etc.
+  With minor adjustments the above argument may be made in terms of ability, know-how, disposition etc.
   These concepts all involve something which extends beyond any instance.
   For example, an ability to use the quadratic formula extends beyond a single use of the formula, the know-how to countersign extends beyond a particular sequences of signing, and the disposition to factor involves factoring under a variety of stimulus conditions.
-  We work with \ros{1} as details about ability, know-how, or dispositions are largely irrelevant for the argument proper.
+  We work with \fingfr{1} as details about ability, know-how, or dispositions are largely irrelevant for the argument proper.
 \end{note}
 
 \section*{Summary and overview}
@@ -760,14 +746,14 @@
   In turn, \progEx{} expands on Clause \ref{idea:why:feat} of \autoref{idea:why}.
   Roughly, \progEx{} states that whatever is captured of \(\edn{\flat}\) by description \(\edo{\flat}\) is a (partial) explanation of `why' an agent concluded \(\pv{\phi}{v}\) from \(\Phi\).
 
-  The remainder of the document amounts to arguing certain descriptions capture \ros{1} holding, and some such \ros{1} are incompatible with \issueInclusion{}.
+  The remainder of the document amounts to arguing certain descriptions capture \fingfr{1}, and some such \fingfr{1} are incompatible with \issueInclusion{}.
 
-  Chapters~\ref{cha:fcs}, \ref{cha:ros}, and \autoref{cha:requs} establish the way a description of an event captures a \ros{}.
-  Following, \autoref{cha:requs} outlines a way to obtain \ros{1} which may amount to counterexamples to \issueInclusion{}, and \autoref{cha:ces} provides a pair of detailed counterexamples.
+  Chapters~\ref{cha:fcs}, \ref{cha:ros}, and \autoref{cha:requs} establish the way a description of an event captures a \fingfr{}.
+  Following, \autoref{cha:requs} outlines a way to obtain \fingfr{1} which may amount to counterexamples to \issueInclusion{}, and \autoref{cha:ces} provides a pair of detailed counterexamples.
 \end{note}
 
 \begin{note}
-  In a little more detail, chapters~\ref{cha:fcs} and \ref{cha:ros} focus on identifying \ros{}.
+  In a little more detail, chapters~\ref{cha:fcs} and \ref{cha:ros} focus on identifying \fingfr{}.
 
   Specifically, \autoref{cha:fcs} introduces the idea of \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) for an agent.
   Where, roughly, \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) just in case the agent may do some action and be concluding \(\pv{\psi}{v'}\) from \(\Psi\).
@@ -777,32 +763,28 @@
   %
   \begin{itemize}
   \item
-    A conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is sufficient from a \ros{} between \(\phi\), \(v\), and \(\Phi\) to hold from the \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
+    A conclusion of \(\pv{\phi}{v}\) from \(\Phi\) is sufficient for \(\pv{\phi}{v}\) to \fof{} \(\Phi\) from the \agpe{} when the agent concludes \(\pv{\phi}{v}\) from \(\Phi\).
   \item
-    \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is sufficient for a \ros{} between \(\psi\), \(v'\), and \(\Psi\) to hold from the relevant \agpe{}.
+    \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) is sufficient for \(\pv{\phi}{v}\) to \fof{} \(\Phi\) from the \agpe{}.
   \end{itemize}
   %
-  Hence, if a description \(\edo{\flat}\) of an event \(\edn{\flat}\) entails a \fc{0}, \(\edo{\flat}\) also entails a \ros{}.
-  And, if \(\edo{\flat}\) is captures a \se{} of an event in which an agent concludes, the \ros{} answers \qWhy{}.
+  Hence, if a description \(\edo{\flat}\) of an event \(\edn{\flat}\) entails a \fc{0}, \(\edo{\flat}\) also entails a corresponding \fingfr{}.
+  And, if \(\edo{\flat}\) is captures a \se{} of an event in which an agent concludes, the \fingfr{} answers \qWhy{}.
 
   A pair of quick notes may be helpful here:
 
   \begin{itemize}
   \item
-    Though \qWhy{} is stated with respect \ros{1} a \ros{1} is only an abstract what of capturing the `follows from' relation.
-    Talk of \ros{1} is simply an easy way to speak of this `follows from' relation.
-    I expect you to have a somewhat intuitive grasp on \ros{1} (the `follows from' relation) and \fc{1} hopefully identify some instances compatible with your intuitive grasp.
+    I expect you to have a somewhat intuitive grasp on the `\fof{}' relation and \fc{1} hopefully identify some instances compatible with your intuitive grasp.
   \item
     When we speak of \fc{1} our interest is with whatever it is that makes it the case \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\), rather than the (foregone-)conclusion of \(\pv{\phi}{v}\) from \(\Phi\).
     That is, whatever it is that makes it the case \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\) amounts to something which makes it the case that \(\pv{\psi}{v'}\) `follows from' \(\Psi\), from the \agpe{}.
   \end{itemize}
-  %
-  So, in short, chapters~\ref{cha:fcs} and \ref{cha:ros} focus on finding concrete instances of an abstract phenomenon (a \ros{}), no matter the way in which that abstract phenomenon happens to be realised on your preferred theory of the way things are.
 \end{note}
 
 
 \begin{note}
-  \autoref{cha:requs} details the way \fc{1}, \ros{1}, and \progEx{} interact to provide sufficient conditions for an answer to \qWhy{}.
+  \autoref{cha:requs} details the way \fc{1}, \fingfr{1}, and \progEx{} interact to provide sufficient conditions for an answer to \qWhy{}.
 
   Here, we identify a few answers to \qWhy{} which are compatible with \issueInclusion{}.
 
@@ -816,7 +798,7 @@
   The basic idea of an agent \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) is that there is some generality to the \agents{} reasoning.
   As noted above, with respect to \autoref{illu:gist:roots:F}, \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} plausibly follows from a sufficient understanding of factorisation.
   In turn, the agent may do some action any be concluding \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} from a \pool{} which captures their understanding of factorisation.
-  By the ideas of chapters~\ref{cha:fcs} and \ref{cha:ros} the identifies a \ros{}, and so long as the agent has not concluded \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} from the relevant \pool{}, a counterexample to \issueInclusion{}.
+  By the ideas of chapters~\ref{cha:fcs} and \ref{cha:ros} this identifies a \fingfr{}, and so long as the agent has not concluded \pv{\propI{\rootsConEqExV{12}{4}{3}}}{\valI{True}} from the relevant \pool{}, \issueInclusion{} fails to hold.
 \end{note}
 
 

@@ -356,10 +356,18 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\supportI}[0]{\hyperref[idea:support]{\obeybreaks{\text{\support{2}\space I}}}}
-\newcommand{\supportIpage}[0]{\autopageref{idea:support}}
-\newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\support{2}\space II}}}}
-\newcommand{\supportIIpage}[0]{\autopageref{idea:support:possible}}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosb}{ m m }{%
+    \obeybreaks{\ros{0}\space between\space #1\space and\space #2}%
+}
+\ExplSyntaxOff
+
+% \newcommand{\supportI}[0]{\hyperref[idea:support]{\obeybreaks{\text{\support{2}\space I}}}}
+% \newcommand{\supportIpage}[0]{\autopageref{idea:support}}
+% \newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\support{2}\space II}}}}
+% \newcommand{\supportIIpage}[0]{\autopageref{idea:support:possible}}
 
 
 \ExplSyntaxOn
@@ -1806,3 +1814,120 @@
   }
 }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fof}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{follows\space from}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{follows\space from}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\tJunk{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Follows\space from}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\tJunk{}}}%
+    \fi
+    }
+  }
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fingf}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{following\space from}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{following\space from}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\tJunk{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Following\space from}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\tJunk{}}}%
+    \fi
+    }
+  }
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fofr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{\fof{0}\space relation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fof{0}\space relation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fof{0}\space relations}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fof{2}\space relation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fof{2}\space relations}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fingfr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{\fingf{0}\space relation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fingf{0}\space relation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fingf{0}\space relations}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fingf{2}\space relation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{\fingf{2}\space relations}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fingfb}{ m m }{%
+    \obeybreaks{#1\space \fingf{0}\space #2}%
+}
+\ExplSyntaxOff
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\fofb}{ m m }{%
+    \obeybreaks{#1\space \fof{0}\space #2}%
+}
+\ExplSyntaxOff
+
+
+\newcommand{\supportI}[0]{\hyperref[idea:support]{\obeybreaks{\text{\fof{2}\space I}}}}
+\newcommand{\supportIpage}[0]{\autopageref{idea:support}}
+\newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\fof{2}\space II}}}}
+\newcommand{\supportIIpage}[0]{\autopageref{idea:support:possible}}
