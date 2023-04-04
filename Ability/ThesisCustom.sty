@@ -1931,3 +1931,61 @@
 \newcommand{\supportIpage}[0]{\autopageref{idea:support}}
 \newcommand{\supportII}[0]{\hyperref[idea:support:possible]{\obeybreaks{\text{\fof{2}\space II}}}}
 \newcommand{\supportIIpage}[0]{\autopageref{idea:support:possible}}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motingr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{motivating\space relation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{motivating\space relation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{motivating\space relations}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Motivating\space relation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Motivating\space relations}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motb}{ O{} m m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{#2\space motivate\space #3}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{#2\space motivate\space #3}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{#2\space motivates\space #3}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motingb}{ m m }{%
+    \obeybreaks{#1\space motivating\space #2}%
+}
+\ExplSyntaxOff
