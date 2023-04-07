@@ -7,16 +7,13 @@
 \PassOptionsToPackage{unicode}{hyperref}
 
 \documentclass[10pt]{report}
-% \usepackage[margin=1in]{geometry}
-% \newcommand\hmmax{0}
-% \newcommand\bmmax{0}
 \usepackage[british]{babel}
 
+\usepackage[online]{Suthesis-2e}
 
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{amssymb}
-
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
@@ -25,8 +22,6 @@
 
 \counterwithout{footnote}{chapter} % For continuous footnote numbering
 \counterwithout{figure}{chapter}
-
-\usepackage{nonumonpart} % Disable page numbers on 'Part' title pages
 
 \RequirePackage[usenames, dvipsnames]{xcolor}
 
@@ -57,10 +52,6 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% \usepackage{silence}
-% \WarningsOff[marginnote]% Suppress warnings related to package
-
-
 % % % The bibliography % % %
 \usepackage[%
   backend=biber,
@@ -78,7 +69,6 @@
   ]{biblatex}
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
-% \setlength\bibitemsep{1.5\itemsep}
 \newcommand{\noopsort}[1]{}
 \addbibresource{Ability.bib}
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
@@ -86,23 +76,8 @@
 
 \usepackage[inline]{enumitem}
 \SetEnumitemValue{labelindent}{standard}{.25\parindent}
-\setlist[itemize]{labelindent=standard} %, leftmargin=1.5em}
-\setlist[enumerate]{labelindent=standard} %, leftmargin=1.5em}
-
-\newlist{screenplay}{description}{1}
-\setlist[screenplay]{
-  style=standard,
-  leftmargin=1.5em,
-  font=\normalfont
-}
-
-\newlist{notationList}{itemize}{1}
-\setlist[notationList]{
-  style=standard,
-  % leftmargin=*,
-  font=\normalfont,
-  label=ノ
-}
+\setlist[itemize]{labelindent=standard}
+\setlist[enumerate]{labelindent=standard}
 
 \newlist{TOCEnum}{itemize}{1}
 \setlist[TOCEnum]{
@@ -188,9 +163,11 @@
 % \protrudechars=2 %
 \adjustspacing=2 %
 \newfontfeature{Microtype}{protrusion=default;expansion=default;}
-\setmainfont[Microtype]{Libertinus Serif}
-\setsansfont[Microtype,Scale=MatchLowercase]{Libertinus Sans}
-\setmonofont{Libertinus Mono}
+% \setmainfont[Microtype]{Libertinus Serif}
+% \setsansfont[Microtype,Scale=MatchLowercase]{Libertinus Sans}
+% \setmonofont{Libertinus Mono}
+\setmainfont[Microtype]{Times New Roman}
+\setsansfont[Microtype,Scale=MatchLowercase]{Helvetica}
 
 \usepackage[match]{luatexja-fontspec}
 % \setmainjfont{SourceHanSerif-Regular}
@@ -198,7 +175,7 @@
 % \setmonojfont{SourceHanMono}
 
 \usepackage[math-style=ISO]{unicode-math}
-\setmathfont{Libertinus Math}
+% \setmathfont{Libertinus Math}
 
 \usepackage[
 breaklinks,
@@ -272,18 +249,19 @@ colorlinks=true,
   \def\applicationCounterautorefname{Application}
 }
 
-\title{
-  Foregone-conclusions
-}
+\title{Foregone-conclusions}
 \author{Ben Sparkes}
+\dept{Philosophy}
 % \date{ }
+
+\setstretch{1.5}
+
 \begin{document}
 
 % % %
 \nocite{Lewis:1973aa}
 % % %
 
-\pagenumbering{roman}
 
 \maketitle
 
@@ -313,11 +291,14 @@ colorlinks=true,
   \mbox{ }\hfill\mbox{(\cite[20]{Malraux:1968aa})}
 \end{quote}
 
+\nocite{Tichy:1976tp}
+\nocite{Chisholm:1955aa}
+\nocite{Kratzer:1989aa}
+\nocite{Davidson:1973vd}
+
 \tableofcontents
 
 \newpage
-
-\pagenumbering{arabic}
 
 \include{introduction}
 
@@ -333,27 +314,15 @@ colorlinks=true,
 
 \include{ces}
 
-
-\nocite{Tichy:1976tp}
-\nocite{Chisholm:1955aa}
-\nocite{Kratzer:1989aa}
-
-\printbibliography
-
 \appendix
 
 \part*{Appendices}
-
-% \include{rationalisations}
 
 \include{conclusions}
 
 \include{diss}
 
-% \include{tortoise}
-
-% \include{tempA}
-
+\printbibliography
 
 \end{document}
 
