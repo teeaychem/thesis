@@ -1,0 +1,404 @@
+\makeatletter
+\renewcommand{\PackageInfo}[2]{}% Remove package information
+\renewcommand{\@font@info}[1]{}% Remove font information
+% \renewcommand{\@latex@info}[1]{}% Remove LaTeX information
+\makeatother
+
+\PassOptionsToPackage{unicode}{hyperref}
+
+\documentclass[10pt]{article}
+\usepackage[british]{babel}
+
+\usepackage{amsthm}         % (in part) For the defined environments
+\usepackage{mathtools}      % Improves  on amsmaths/mtpro2
+\usepackage{amssymb}
+
+\RequirePackage[usenames, dvipsnames]{xcolor}
+
+\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+\definecolor{details}{HTML}{FE4164}
+\definecolor{later}{HTML}{A65978}
+\definecolor{return}{HTML}{660066}
+\definecolor{link}{HTML}{66FFFF}
+\definecolor{comment}{HTML}{616161}
+\definecolor{offblack}{HTML}{434241}
+\definecolor{highlight}{HTML}{FE4164}
+
+% % % My packages % % %
+\usepackage{myNotation}
+\usepackage{ThesisCustom}
+\usepackage{CustomEnvs}
+\usepackage{ThesisFig}
+% % % % % % % % % % % %
+
+% \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
+% % % % % % %
+\usepackage{xfrac}
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{multirow}
+% https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% \usepackage{silence}
+% \WarningsOff[marginnote]% Suppress warnings related to package
+
+
+% % % The bibliography % % %
+\usepackage[%
+  backend=biber,
+  style=authoryear-comp,
+  bibstyle=authoryear,
+  citestyle=authoryear-comp,
+  uniquename=false,
+  backref=false,
+  hyperref=true,
+  url=false,
+  isbn=false,
+  doi=false,
+  useprefix=true,
+  maxbibnames=99,
+  ]{biblatex}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+% \setlength\bibitemsep{1.5\itemsep}
+\newcommand{\noopsort}[1]{}
+\addbibresource{Ability.bib}
+\DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
+% % % % % % % % % % % % % % %
+
+\usepackage[inline]{enumitem}
+\SetEnumitemValue{labelindent}{standard}{.25\parindent}
+\setlist[itemize]{labelindent=standard} %, leftmargin=1.5em}
+\setlist[enumerate]{labelindent=standard} %, leftmargin=1.5em}
+
+\newlist{screenplay}{description}{1}
+\setlist[screenplay]{
+  style=standard,
+  leftmargin=1.5em,
+  font=\normalfont
+}
+
+\newlist{notationList}{itemize}{1}
+\setlist[notationList]{
+  style=standard,
+  font=\normalfont,
+  label=ノ
+}
+
+\newlist{TOCEnum}{itemize}{1}
+\setlist[TOCEnum]{
+  style=standard,
+  leftmargin=*,
+  label=,%
+}
+
+\newlist{VAREnum}{itemize*}{1}
+\setlist[VAREnum]{
+  style=standard,
+  font=\normalfont,
+  label=\(\circ\),
+  noitemsep,
+}
+
+\newlist{itenum}{enumerate}{1}
+\setlist[itenum]{
+  style=standard,
+  font=\normalfont,
+  labelwidth = \widthof{\emph{Then}:},
+}
+
+% % % Misc packages % % %
+% \usepackage{setspace}
+% \usepackage{refcheck} % Can be used for checking references
+% \usepackage{lineno}   % For line numbers
+% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
+
+% % % % % % % % % % % % %
+
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+\usepackage{float}
+
+% % % % % % % % % % % % TIKZ
+\usepackage{tikz}
+\usetikzlibrary{bending,arrows,calc,arrows.meta,patterns,fadings}
+\usetikzlibrary{trees}
+\usetikzlibrary{backgrounds, positioning, fit, backgrounds}
+\usetikzlibrary{math}
+\usetikzlibrary{tikzmark}
+% % % % % % % % % % % %
+
+\usepackage{graphicx} % for images (png/jpeg etc.)
+\usepackage{caption} % for \caption* command
+
+% % % % % % % % % % % % MY COMMANDS
+\newcommand{\hozlinedash}[0]{%
+  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
+}
+
+% % % % % % % % % % % %
+\usepackage{xskak} % For chess diagram
+\usepackage{fitch} % For better fitch proofs?
+\usepackage{bussproofs} % For Gentzen-style?
+ \usepackage[ruled, linesnumbered]{algorithm2e} % for algorithms
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+
+% % % % % % % % % % % %
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\makeatletter
+\renewcommand\subparagraph{\@startsection{subparagraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+
+% % % Fonts% %
+\usepackage[no-math]{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
+% \defaultfontfeatures{Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
+\defaultfontfeatures{Ligatures={NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
+% \protrudechars=2 %
+\adjustspacing=2 %
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}
+\setmainfont[Microtype]{Libertinus Serif}
+\setsansfont[Microtype,Scale=MatchLowercase]{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+\usepackage[match]{luatexja-fontspec}
+% \setmainjfont{SourceHanSerif-Regular}
+% \setsansjfont{SourceHanSans-Regular}
+% \setmonojfont{SourceHanMono}
+
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{Libertinus Math}
+
+\usepackage[
+breaklinks,
+bookmarks=false,
+hidelinks,
+linkcolor=highlight,
+citecolor=highlight,
+colorlinks=true,
+% colorlinks=false,
+]{hyperref}
+
+\usepackage{csquotes}
+
+% \hyperlink{cite.MyKey}{link}
+% https://tex.stackexchange.com/questions/285710/hyperref-link-to-bibliography-entry
+
+% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
+
+\DeclareCiteCommand{\citeyear}
+{\usebibmacro{prenote}}
+{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\citeyearpar}[\mkbibparens]
+{\usebibmacro{prenote}}
+{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+% https://tex.stackexchange.com/questions/75902/hyperlinking-author-names-in-biblatex-when-using-citeauthor
+
+\DeclareCiteCommand{\citeauthor}
+{\boolfalse{citetracker}%
+  \boolfalse{pagetracker}%
+  \usebibmacro{prenote}%
+}%
+{\ifciteindex%
+{\indexnames{labelname}}%
+{}%
+\printtext[bibhyperref]{\printnames{labelname}}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}
+
+\addto\extrasbritish{
+  \def\chapterautorefname{Chapter}
+  \def\sectionautorefname{Section}
+  \def\subsectionautorefname{Section}
+  \def\subsubsectionautorefname{Section}
+  \def\paragraphautorefname{Section}
+  \def\subparagraphautorefname{Section}
+  \def\algocflineautorefname{Algorithm}
+  \def\AlgoLineautorefname{Line}
+  \def\pageautorefname{Page}
+  \def\footnoteautorefname{Footnote}
+  \def\scenarioCounterautorefname{Scenario}
+  \def\observationCounterautorefname{Observation}
+  \def\specificationCounterautorefname{Specification}
+  \def\illustrationCounterautorefname{Illustration}
+  \def\sketchCounterautorefname{Sketch}
+  \def\linkCounterautorefname{Link}
+  \def\constraintCounterautorefname{Constraint}
+  \def\questionCounterautorefname{Question}
+  \def\assumptionCounterautorefname{Assumption}
+  \def\defiCounterautorefname{Definition}
+  \def\propCounterautorefname{Proposition}
+  \def\ideaCounterautorefname{Idea}
+  \def\condCounterautorefname{Condition}
+  \def\intuitionCounterautorefname{Intuition}
+  \def\notationCounterautorefname{Notation}
+  \def\applicationCounterautorefname{Application}
+}
+
+\title{
+  Foregone-conclusions
+}
+\author{Ben Sparkes}
+% \date{ }
+\begin{document}
+
+
+\section{The phenomenon}
+\label{sec:overview}
+
+\begin{note}
+  \eiw{3} an agent concludes.
+\end{note}
+
+\begin{note}
+  \begin{rscenario}{illu:gist:roots:F}{Quadratic roots --- Factors}%
+    % \autoref{illu:gist:roots:F}
+    An agent reasons as follows:
+    %
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
+    \item
+      \label{illu:gist:roots:F:eq}
+      For some \(x \in \mathbb{R}\), \rootsConEq{}.
+    \item
+      \label{illu:gist:roots:F:factor}
+      \rootsConEqFac{}.
+    \item
+      \label{illu:gist:roots:F:zero}
+      Either \(\rootsConEqFacL{} = 0\) or \(\rootsConEqFacR{} = 0\).
+    \item
+      \label{illu:gist:roots:F:case:a}
+      If \(\rootsConEqFacL{} = 0\), then \(x = \rootsConEqFacLx{}\).
+    \item
+      \label{illu:gist:roots:F:case:b}
+      If \(\rootsConEqFacR{} = 0\), then \(x = \rootsConEqFacRx{}\).
+    \item
+      \label{illu:gist:roots:F:factor:done}
+      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
+    \end{enumerate}
+    %
+    The agent concludes:
+    \rootsCon{}.
+  \end{rscenario}
+
+  \noindent%
+  Intuitively, the agent concludes \propI{\rootsCon{}} from their understanding of factorisation.
+\end{note}
+
+
+\begin{note}
+  Various things seem irrelevant.
+  For example, the \agents{} understanding of the quadratic equation, etc.
+\end{note}
+
+
+\subsection{Abstractions}
+
+
+\begin{note}
+
+  
+
+
+
+
+
+
+  Abstractions to talk about this phenomena of this type:
+
+  \prop{1}, \val{1}, \pool{1}.
+  \prop{2} has \val{} on par with propositional attitudes.
+
+  From
+  \fingf{}
+\end{note}
+
+\begin{note}
+  Relationship between two questions about \eiw{3} an agent concludes.
+
+  \qWhy{} \qHow{}, \issueInclusion{}.
+\end{note}
+
+\begin{note}
+  Maybe \issueInclusion{} is intuitive, maybe not.
+
+  Document argues against \issueInclusion{}.
+\end{note}
+
+\begin{note}
+  For \issueInclusion{} to fail, need a counterexample.
+  Though this is more involved.
+
+  \begin{enumerate}
+  \item
+    Sense of `why' and `how'.
+  \item
+    Answers to \qWhy{}.
+  \item
+    Way to identify \fingfr{}.
+  \end{enumerate}
+\end{note}
+
+
+\begin{note}
+  Answers to \qWhy{}.
+
+  This is where things get a little involved.
+
+  \progEx{}.
+
+  Idea is, over any other event.
+  Event over any other event.
+  So, events in progress.
+  Some examples.
+  A little more careful.
+  Event in progress, an event of interest happens as a result.
+  Given this, event in progress is a partial answer to why the event happened, given the sense of why outlined.
+  
+\end{note}
+
+
+\begin{note}
+  When do we get \fingfr{}?
+
+  Two sufficient conditions:
+
+  \begin{itemize}
+  \item
+    When agent concludes
+  \item
+    When \fc{}.
+  \end{itemize}
+
+\end{note}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% TeX-master: "handout"
+%%% End:
+
