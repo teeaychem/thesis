@@ -187,6 +187,40 @@
 
 
 \ExplSyntaxOn
+\NewDocumentEnvironment{ridea}{ m m +b}
+{%
+  \refstepcounter{ideaCounter}%
+  \label{#1}
+  \smallskip%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Idea~\arabic{ideaCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\newcommand\reIdea[1]{
+  \smallskip%
+  \marginnote{\raggedright \autopageref{#1}}
+  \noindent\textbf{Idea~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+\ExplSyntaxOff
+
+
+
+
+
+\ExplSyntaxOn
 \NewDocumentCommand{\assumptionName}{ m }{%
   \tl_if_empty:nTF {#1}
   {\obeybreaks{assumption}}
@@ -217,6 +251,8 @@
   \mbox{ }\hfill\adfoutlineleafleft%
   \envEnd{}
 }
+
+
 
 \ExplSyntaxOn
 \NewDocumentCommand{\definitionName}{ m }{%
@@ -271,6 +307,7 @@
 \ExplSyntaxOn
 \newcommand\reDefinition[1]{
   \smallskip%
+  \marginnote{\raggedright \autopageref{#1}}
   \noindent\textbf{\definitionName{2}~\ref{#1}}~(\csname literallabel_#1\endcsname)
   \ignorespaces%
   \newline%
@@ -319,6 +356,7 @@
 
 \newcommand\reProposition[1]{
   \smallskip%
+  \marginnote{\raggedright \autopageref{#1}}
   \noindent\textbf{Proposition~\ref{#1}}~(\csname literallabel_#1\endcsname)
   \ignorespaces%
   \newline%
@@ -409,7 +447,7 @@
 
 % % % Notes % % %
 
-\renewcommand*{\marginfont}{\ttfamily\scriptsize}
+% \renewcommand*{\marginfont}{\ttfamily\scriptsize}
 
 \newcounter{noteCounter} % new counter for notes
 
