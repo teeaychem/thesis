@@ -74,13 +74,14 @@
   \end{rdefinition}
 
   \noindent%
-  \autoref{def:tor} is motivated by the minimal assumptions we have made about conclusions.
+  \autoref{def:tor} is motivated by the (minimal) assumptions we have made about conclusions.
 
-  First, have assumed a conclusion is an \eval{} that some \prop{0} has some \val{0} from some \pool{0} and nothing more.
-  Hence, for any reasoning associated with a conclusion there is always some \prop{0}-\val{0}-\pool{0} pairings associated with the reasoning.
-  And so for any \emph{intuitive} \torN{} there will always be an associate \torN{} as defined.
+  First, we assumed a conclusion is an \evalion{} of some \prop{0} having some \val{0} from some \pool{0}.
+  So, for any reasoning associated with a conclusion there is always some \prop{0}-\val{0}-\pool{0} pairing associated with the reasoning --- the \prop{0} and \val{0} which are part of the \evalion{}, and the \pool{0} the \evalion{} is made from.
+  Hence, for any \emph{intuitive} \torN{} one may associate the \prop{0}-\val{0}-\pool{0} pairs from any instance of the \torNa{} to obtain a corresponding \torN{} as defined.
+
   Second, we have made no other assumptions about what a conclusion amounts to.
-  So, without introducing further assumptions we have no way of provide an account of a \torN{0} in any finer-grain.%
+  So, it is not possible to provide an account of a \torN{0} in any finer-grain without appealing to additional resources.%
   \footnote{
     Note, it need not be the case that the agent is following a rule as advocated for by, e.g.\ \textcite{Boghossian:2008vf,Boghossian:2012vb} and \textcite{Broome:2002aa,Broome:2013aa}.
     Though, a \torNa{} may be understood as the extension of some rule.
@@ -89,10 +90,15 @@
 
 
 \begin{note}
-  Of course, this extensional definition of a \torN{0} is not ideal.
+  An extensional definition of a \torN{0} may fail to capture an intuitive understanding of a \torN{0}.
 
-  For example, I offer no guarantee there will be an extensional difference in terms of \prop{0}-\val{0}-\pool{0} pairings given two \torN{1} which are (intuitively) intensionally distinct.
-  And, for any collection of \prop{0}-\val{0}-\pool{0} pairings amounts to a \torN{0}.
+  In particular, it may be possible for an agent to conclude \(\pv{\phi}{v}\) from \(\Phi\) by two sufficiently distinct ways.
+  Or, a little more abstractly, two \torN{1} may be intensionally distinct by extensionally equivalent.%
+  \footnote{
+    Note, however, both the \prop{0}-\val{0} pair and \pool{} are fixed.
+    So, though both \autoref{illu:gist:roots:F} and \autoref{illu:gist:roots:QF} involve a conclusion of \pv{\rootsCon{}}{\valI{True}}, these \scen{1} do not clearly amount to the same \torN{} by \autoref{def:tor}.
+    For, \autoref{illu:gist:roots:F} involves an application factorisation, \autoref{illu:gist:roots:QF} involves an application of the quadratic formula, and details regarding factorisation and the quadratic formula are plausibly included in the relevant \pool{1}.
+  }
 
   Still, a more ideal definition of a \torN{0} may be substituted in place of \autoref{def:tor} so long as the definition returns a collection of \prop{0}-\val{0}-\pool{0} pairings.
 \end{note}
@@ -101,7 +107,7 @@
 \begin{note}
   For a brief example of a \torN{}, consider factorisation (as in~\autoref{illu:gist:roots:F}).
 
-  The following \prop{2}-\val{}-\pool{} pairings are plausibly in the type `factorisation', where the ellipses are expanded to include \prop{0}-\val{0} pairs which capture the \agents{} understanding of factorisation:
+  The following \prop{}-\val{}-\pool{} pairings are plausibly in the type `factorisation', where the ellipses are expanded to include \prop{0}-\val{0} pairs which capture the \agents{} understanding of factorisation:
   \begin{center}
     \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
       \pv{\propM{\rootsCon{}}}{\valI{True}} & \pv{\propM{\rootsConEq{}}}{\valI{True}}, \dots \\
@@ -110,7 +116,7 @@
     \end{tabular}
   \end{center}
   %
-  Likewise, the following \prop{2}-\val{}-\pool{} pairings are plausibly \emph{not} in the type `factorisation', where the ellipses may be expanded arbitrarily:
+  Likewise, the following \prop{0}-\val{}-\pool{} pairings are plausibly \emph{not} in the type `factorisation', where the ellipses may be expanded arbitrarily:
 
   \begin{center}
     \begin{tabular}{R{.45\textwidth} L{.45\textwidth}}
@@ -180,7 +186,7 @@
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      A collection \(\tproS{}\) of events associated with \prop{0}-\val{0}-\pool{0} pairings is a \emph{\tpro{}} of a type \(T\) with respect to \(\ed{}\) and agent \vAgent{}.
+      A collection \(\tproS{}\) of (maybe possible) events associated with \prop{0}-\val{0}-\pool{0} pairings is a \emph{\tpro{}} of a type \(T\) with respect to \(\ed{}\) and agent \vAgent{}.
     \end{itemize}
 
     \emph{If and only if}:
@@ -204,6 +210,27 @@
   \end{rdefinition}
 
   \noindent%
+  \autoref{def:tpro} defines a property of some collection of (maybe possible) events associated with \prop{0}-\val{0}-\pool{0} pairings.%
+  \footnote{
+    We do not require the agent to be reasoning by a particular type in the consequent of the conditional.
+    I would guess for most \tpro{1} the reasoning is of the same \torNa{} as the antecedent.
+    Still, I see no clear motivation for requiring this in the definition.
+  }
+  In other words, \autoref{def:tpro} does not define a collection of events and associated pairings.
+  Rather, \autoref{def:tpro} defines when a term applies to any such collection, given also an event and an agent.
+
+  In general, I have little to say about when some event and associated \prop{0}-\val{0} pairing is included in a \tpro{}.
+  Part of the overall argument of this document as stated rests on particular events and \prop{0}-\val{0}-\pool{0} pairings being included in a \tpro{}, as we are in search of failures of \issueInclusion{}.
+  However, the way we obtain failures of \issueInclusion{} is compatible with a variety of different perspectives on which events and associated \prop{0}-\val{0} pairings are included in a \tpro{}.
+
+  Some intuition for the broad concept is given.
+  Then some \illu{1} and an application follow.
+  And, the application is designed to highlight various considerations I think are sufficient (though not necessary) to establish some event and \prop{0}-\val{0}-\pool{0} pairing is part of a \tpro{} by showing, rather than telling.
+\end{note}
+
+
+
+\begin{note}
   Intuitively, \autoref{def:tpro} expresses the idea that an agent is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type of reasoning \(T\) only if some `law' holds.
   Where, `law' is understood in the colloquial sense of a universally quantified material conditional.%
   \footnote{
@@ -263,7 +290,7 @@
   \end{argument}
 
   \noindent%
-  Note, in particular, it is not possible to strengthen \autoref{prop:tpro-switch} to an if and \emph{only if}, as \tpro{1} are defined by a necessary condition on an agent \tCV{}.
+  Note, it is not possible to strengthen \autoref{prop:tpro-switch} to an if and \emph{only if}, as \tpro{1} are defined by a necessary condition on an agent \tCV{}.
 \end{note}
 
 
@@ -610,11 +637,13 @@
 
 
 \begin{note}
-  The link between and agent \tCV{} and \fc{1} is simple.
+  The link between and agent \tCV{} and \fc{1} is as follows:
+
   In some cases a \tpro{} of a \torNa{} will be the result of some action \(a\) the agent may do (e.g.\ switching to a different exercise in \autoref{illu:tR:powers}).
-  Hence, so long as the agent \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\), for each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in the relevant \pool{}, the \prop{0}-\val{0} pair must be a \fc{} from the \pool{}.
+  So, given the agent \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\), for each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in the relevant \pool{}, the \prop{0}-\val{0} pair must be a \fc{} from the \pool{}.
 
   In detail:
+  \newpage
 
   \begin{proposition}[\typeAdj{2} \fc{1}]%
     \label{prop:tCV-fc}%
