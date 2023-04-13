@@ -9,6 +9,8 @@
 \documentclass[10pt]{article}
 \usepackage[british]{babel}
 
+\usepackage[margin=1in]{geometry}
+
 \usepackage{amsthm}         % (in part) For the defined environments
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{amssymb}
@@ -74,35 +76,6 @@
 \setlist[itemize]{labelindent=standard} %, leftmargin=1.5em}
 \setlist[enumerate]{labelindent=standard} %, leftmargin=1.5em}
 
-\newlist{screenplay}{description}{1}
-\setlist[screenplay]{
-  style=standard,
-  leftmargin=1.5em,
-  font=\normalfont
-}
-
-\newlist{notationList}{itemize}{1}
-\setlist[notationList]{
-  style=standard,
-  font=\normalfont,
-  label=ノ
-}
-
-\newlist{TOCEnum}{itemize}{1}
-\setlist[TOCEnum]{
-  style=standard,
-  leftmargin=*,
-  label=,%
-}
-
-\newlist{VAREnum}{itemize*}{1}
-\setlist[VAREnum]{
-  style=standard,
-  font=\normalfont,
-  label=\(\circ\),
-  noitemsep,
-}
-
 \newlist{itenum}{enumerate}{1}
 \setlist[itenum]{
   style=standard,
@@ -111,9 +84,6 @@
 }
 
 % % % Misc packages % % %
-% \usepackage{setspace}
-% \usepackage{refcheck} % Can be used for checking references
-% \usepackage{lineno}   % For line numbers
 % \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
 
 % % % % % % % % % % % % %
@@ -138,16 +108,6 @@
 \newcommand{\hozlinedash}[0]{%
   \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
 }
-
-% % % % % % % % % % % %
-\usepackage{xskak} % For chess diagram
-\usepackage{fitch} % For better fitch proofs?
-\usepackage{bussproofs} % For Gentzen-style?
- \usepackage[ruled, linesnumbered]{algorithm2e} % for algorithms
-\SetKwInOut{Input}{Input}
-\SetKwInOut{Output}{Output}
-
-% % % % % % % % % % % %
 
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
@@ -190,30 +150,11 @@ bookmarks=false,
 hidelinks,
 linkcolor=highlight,
 citecolor=highlight,
-colorlinks=true,
-% colorlinks=false,
+% colorlinks=true,
+colorlinks=false,
 ]{hyperref}
 
 \usepackage{csquotes}
-
-% \hyperlink{cite.MyKey}{link}
-% https://tex.stackexchange.com/questions/285710/hyperref-link-to-bibliography-entry
-
-% https://tex.stackexchange.com/questions/83872/getting-hyperref-to-work-with-citeyear-and-citeyearpar-in-biblatex
-
-\DeclareCiteCommand{\citeyear}
-{\usebibmacro{prenote}}
-{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
-{\multicitedelim}
-{\usebibmacro{postnote}}
-
-\DeclareCiteCommand{\citeyearpar}[\mkbibparens]
-{\usebibmacro{prenote}}
-{\bibhyperref{\printfield{year}}\bibhyperref{\printfield{extrayear}}}
-{\multicitedelim}
-{\usebibmacro{postnote}}
-
-% https://tex.stackexchange.com/questions/75902/hyperlinking-author-names-in-biblatex-when-using-citeauthor
 
 \DeclareCiteCommand{\citeauthor}
 {\boolfalse{citetracker}%
@@ -234,7 +175,6 @@ colorlinks=true,
   \def\subsubsectionautorefname{Section}
   \def\paragraphautorefname{Section}
   \def\subparagraphautorefname{Section}
-  \def\algocflineautorefname{Algorithm}
   \def\AlgoLineautorefname{Line}
   \def\pageautorefname{Page}
   \def\footnoteautorefname{Footnote}
@@ -257,12 +197,15 @@ colorlinks=true,
 }
 
 \title{
-  Foregone-conclusions
+  Foregone-conclusions\\
+  Handout
 }
 \author{Ben Sparkes}
 % \date{ }
+
 \begin{document}
 
+\maketitle
 
 \section{The phenomenon}
 \label{sec:overview}
@@ -272,7 +215,8 @@ colorlinks=true,
 \end{note}
 
 \begin{note}
-  \begin{rscenario}{illu:gist:roots:F}{Quadratic roots --- Factors}%
+  \begin{minipage}{.5\linewidth}
+  \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factors}%
     % \autoref{illu:gist:roots:F}
     An agent reasons as follows:
     %
@@ -299,7 +243,42 @@ colorlinks=true,
     %
     The agent concludes:
     \rootsCon{}.
-  \end{rscenario}
+  \end{rscenariox}
+    \end{minipage}
+    \begin{minipage}{.5\linewidth}
+    \begin{rscenariox}{illu:gist:roots:QF}{Quadratic roots --- Formula}%
+    An agent reasons as follows:
+    %
+    \begin{enumerate}[label=\arabic*., ref=\arabic*]
+    \item
+      \label{illu:gist:roots:QF:eq}
+      For some \(x \in \mathbb{R}\), \rootsConEq{}.
+    \item
+      \label{illu:gist:roots:QF:qf}
+      The quadratic formula states \(x = \rootsQEq{}\).
+    \item
+      \label{illu:gist:roots:QF:subs}
+      Set \(a \coloneq \rootsQa{}\), \(b \coloneq \rootsQb{}\), and \(c \coloneq \rootsQc{}\).%
+      \footnotemark
+    \item
+      \label{illu:gist:roots:QF:qf-subs}
+      \(x = \rootsQEqFill{\rootsQa{}}{\rootsQb{}}{\rootsQc{}}\).
+    \item
+      \label{illu:gist:roots:QF:qf:1}
+      \(x = \sfrac{(- 1 \pm 5)}{12}\).
+    \item
+      \label{illu:gist:roots:QF:qf:done}
+      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
+    \end{enumerate}
+    %
+    The agent concludes:
+    \rootsCon{}.
+  \end{rscenariox}
+\end{minipage}
+
+\footnotetext{
+        \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
+      }
 
   \noindent%
   Intuitively, the agent concludes \propI{\rootsCon{}} from their understanding of factorisation.
@@ -316,27 +295,70 @@ colorlinks=true,
 
 
 \begin{note}
+  Abstractions to talk about \eiw{} an agent concludes:
 
-  
+  \begin{itemize}
+  \item
+    \prop{1}
+  \item
+    \val{1}
+  \item
+    \pool{1}.
+  \end{itemize}
 
-
-
-
-
-
-  Abstractions to talk about this phenomena of this type:
-
-  \prop{1}, \val{1}, \pool{1}.
   \prop{2} has \val{} on par with propositional attitudes.
 
-  From
-  \fingf{}
+  \begin{itemize}
+  \item
+    From
+  \item
+    \fingf{}
+  \end{itemize}
 \end{note}
+
+
+\section{\qWhy{}, \qHow{}, and a constraint}
+\label{sec:target}
+
 
 \begin{note}
   Relationship between two questions about \eiw{3} an agent concludes.
 
   \qWhy{} \qHow{}, \issueInclusion{}.
+
+  \begin{question}{questionWhy}{\qWhy{}}
+    Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    \begin{itemize}
+    \item
+      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than an \eiw{0} some other thing happens)?
+    \end{itemize}
+    \vspace{-1\baselineskip}
+  \end{question}
+
+  \begin{question}{questionHow}{\qHow{}}
+    \label{q:how}
+    Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
+    \begin{itemize}
+    \item
+      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) (rather than some other thing)?
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
+  \end{question}
+\end{note}
+
+
+\begin{note}
+  \begin{constraint}{consInclusion}{\issueInclusion{}}
+    \mbox{ }
+    \vspace{-\baselineskip}
+    \begin{itenum}
+    \item[\emph{If}:]
+      \fingfb{\(\pv{\psi}{v'}\)}{\(\Psi\)} answers \qWhy{}.
+    \item[\emph{Then}:]
+      An \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
+    \end{itenum}
+    \vspace{-\baselineskip}
+  \end{constraint}
 \end{note}
 
 \begin{note}
@@ -344,6 +366,10 @@ colorlinks=true,
 
   Document argues against \issueInclusion{}.
 \end{note}
+
+
+\section{Approach}
+\label{sec:approach}
 
 \begin{note}
   For \issueInclusion{} to fail, need a counterexample.
@@ -358,6 +384,10 @@ colorlinks=true,
     Way to identify \fingfr{}.
   \end{enumerate}
 \end{note}
+
+
+\section{Answers to \qWhy{}}
+\label{sec:answers-qwhy}
 
 
 \begin{note}

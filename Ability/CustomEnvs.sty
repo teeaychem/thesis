@@ -613,4 +613,19 @@
   \envEnd{}
 }
 
+
+\NewDocumentEnvironment{rscenariox}{ m m +b}
+{%
+  \refstepcounter{scenarioCounter}%
+  \label{#1}
+  \smallskip%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{Scenario~\arabic{scenarioCounter}}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \envEnd{}
+}
+
 % For some reason need padding else compile error

@@ -19,14 +19,22 @@
 
 \begin{note}
   We term the feature of interest a `\tpro{}' of a type of reasoning.
-  Roughly, the \tpro{} of a \torN{} is a collection of (possible) \eiw{1} an agent is concluding particular \prop{0}-\val{0} pairs from certain \pool{1}.
+  Roughly, the \tpro{} of a \torN{} is a collection of descriptions and \prop{0}-\val{0}-\pool{0} pairings.
+  And, if the agent is concluding by some \torNa{}, then for every description and associated \prop{0}-\val{0}-\pool{0} pairing in the \tpro{} of the type, for every event which satisfies the description (of which there must be at least one) the agent is concluding the relevant \prop{0}-\val{0} pair from the \pool{0}.
+  Conversely, if there is no \eiw{} the description is true of, or the agent is not concluding the relevant \prop{0}-\val{0} pair from the \pool{0} under some event the description is true of, the agent is not concluding by the \torNa{}.
+\end{note}
 
-  So, if the agent is concluding by some type, then for every event and associated \prop{0}-\val{0}-\pool{0} pairing in the \tpro{} of the type, the agent is concluding the relevant \prop{0}-\val{0} pair from the \pool{0}.
-  And conversely, if there is some \eiw[in the \tpro{}]{0} the agent is not concluding the relevant \prop{0}-\val{0} pair from the \pool{0}, the agent is not concluding by the type.
+\begin{note}
+  To give a brief example we return to in additional detail later, \citeauthor{Wason:1966aa} (\citeyear{Wason:1966aa}) argued the failure of agents to complete selection tasks in a particular way shows agents do generally reason about natural language conditionals as material conditionals.
 
-  For example, \citeauthor{Wason:1966aa} (\citeyear{Wason:1966aa}) argued the failure of agents to complete selection tasks in a particular way showed agents do reason about natural language conditions as material conditionals.
-  In other words, \citeauthor{Wason:1966aa} argued:
-  \emph{If} agents reasons about natural language conditions as material conditionals \emph{then} agents succeed at selection tasks.
+  Key to \citeauthor{Wason:1966aa}s argument is the idea that whenever an agent is engaging in a selection task the agent is reasoning about the conditional included in the selection task as a material conditional \emph{only if} the agent selects appropriate cards.
+  And, agents often do not select appropriate cards.
+
+  Expressed in terms of \tpro{1}:
+  The relevant descriptions capture engagement in a selection task.
+  And, the associated \prop{0}-\val{0}-\pool{0} pairings capture expected results of selection tasks if agents reason by the material conditional.
+  Failure to \emph{make} the relevant conclusion indicates the agent was \emph{making} the relevant conclusion.
+  So, by the idea of a \tpro{} the agent was not reasoning by the material conditional.
 \end{note}
 
 
@@ -38,9 +46,6 @@
 
 \section{\tprof{3}}
 \label{cha:typical:int}
-
-
-
 
 
 
@@ -182,50 +187,93 @@
   With the definition of a \torN{0} in hand we definition the feature of an agent \tCV{} of interest.
   We term this  the \emph{\tpro{}} of a \torN{}:
 
-  \begin{rdefinition}{def:tpro}{The \tprof{0}}%
+  \begin{rdefinition}{def:tpro}{\tprof{3}}%
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      A collection \(\tproS{}\) of (maybe possible) events associated with \prop{0}-\val{0}-\pool{0} pairings is a \emph{\tpro{}} of a type \(T\) with respect to \(\ed{}\) and agent \vAgent{}.
+      A collection \(\tproS{}\) of descriptions associated with \prop{0}-\val{0}-\pool{0} pairings is a \emph{\tpro{}} of type \(T\) with respect to a description \(\edo{}\) an agent \vAgent{}, \prop{0}-\val{0} pair \(\pv{\phi}{v}\), and \pool{} \(\Phi\).
     \end{itemize}
 
     \emph{If and only if}:
 
     \begin{itemize}
     \item
-      \begin{itenum}
-      \item[\emph{If}:]
-        \(\ed{}\) is an \eiw{0} \vAgent{} is \emph{\tCV{}} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
-      \item[\emph{Then}:]
-        For every event \(\edn{\ast}\) and associated \prop{0}-\val{} pair \(\pv{\psi}{v'}\) and \pool{0} \(\Psi\) in \(\tproS{}\):
-        \begin{itemize}
-        \item
-          \(\pv{\psi}{v'}\) and \(\Psi\) is in \(T\).
-        \item
-          \(\edn{\ast}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-        \end{itemize}
-      \end{itenum}
+      Clauses \ref{def:tpro:A} and \ref{def:tpro:B} hold:
+
+      \begin{enumerate}[label=\Alph*., ref=\Alph*]
+      \item
+        \label{def:tpro:A}
+        \(\edo{}\) entails: \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by type \(T\).
+      \item
+        \label{def:tpro:B}
+        For any (maybe possible) event \(\edn{}\):
+        \begin{itenum}
+        \item[\emph{If}:]
+          \(\edo{}\) is true of \(\edn{}\).
+        \item[\emph{Then}:]
+          For every description \(\edo{\ast}\) and associated \prop{0}-\val{} pair \(\pv{\psi}{v'}\) and \pool{0} \(\Psi\) in \(\tproS{}\):
+          \begin{itemize}
+          \item
+            \(\edo{\ast}\) is true of a (maybe possible) event \(\edn{+}\).
+          \item
+            For any (maybe possible) event \(\edn{\times}\) that \(\edo{\ast}\) is true of:
+            \begin{itemize}
+            \item
+              \(\edn{\times}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+            \end{itemize}
+          \end{itemize}
+        \end{itenum}
+      \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{rdefinition}
 
   \noindent%
-  \autoref{def:tpro} defines a property of some collection of (maybe possible) events associated with \prop{0}-\val{0}-\pool{0} pairings.%
+  \autoref{def:tpro} defines a property of some collection of descriptions associated with \prop{0}-\val{0}-\pool{0} pairings relative to a description of an event, a \torNa{}, \prop{0}-\val{0} pair, and \pool{}.%
   \footnote{
-    We do not require the agent to be reasoning by a particular type in the consequent of the conditional.
-    I would guess for most \tpro{1} the reasoning is of the same \torNa{} as the antecedent.
-    Still, I see no clear motivation for requiring this in the definition.
+    In other words, \autoref{def:tpro} does not define a collection of descriptions and associated pairings.
+    Rather, \autoref{def:tpro} defines when a term applies to any such collection, given some additional constraints.
   }
-  In other words, \autoref{def:tpro} does not define a collection of events and associated pairings.
-  Rather, \autoref{def:tpro} defines when a term applies to any such collection, given also an event and an agent.
+  The description entails the agent is \tCV{} the \prop{0}-\val{0} pair from the \pool{} by type \(T\), and a \tpro{} captures a necessary condition of the description being true of any event:
+  Each description in the \tpro{} is true of some \eiw{} the agent is concluding the associated \prop{0}-\val{0} pair from the associated \pool{}.%
+  \footnote{
+    We do not require each \prop{0}-\val{0} pair in the \tpro{} is included in the relevant \torNa{}.
+    For, while the constraint is intuitive --- and indeed every application of \autoref{def:tpro} we discuss is compatible with the constraint --- we have no need for the constraint to hold.
+  }
+\end{note}
 
-  In general, I have little to say about when some event and associated \prop{0}-\val{0} pairing is included in a \tpro{}.
-  Part of the overall argument of this document as stated rests on particular events and \prop{0}-\val{0}-\pool{0} pairings being included in a \tpro{}, as we are in search of failures of \issueInclusion{}.
-  However, the way we obtain failures of \issueInclusion{} is compatible with a variety of different perspectives on which events and associated \prop{0}-\val{0} pairings are included in a \tpro{}.
+\begin{note}
+  Our interest is often in whether an agent \emph{is} \tCV{}, and so whether the description a \tpro{} is defined relative to is true of some particular event.
+  And, \autoref{def:tpro} is designed to be ambivalent about whether the agent \emph{is} \tCV{} by working with descriptions which may be true of events rather than events which descriptions are true of.%
+  \footnote{
+    The relevant event of interest is quantified over by Clause~\ref{def:tpro:B}.
+    However, if the agent is not \tCV{}, the conditional is immediately true by having a false antecedent.
+  }
+
+  When applied to a particular event, this suggests the XXXXX
+
+  In this respect, \emph{given} an event and description, a \tpro{} functions to highlight was is also true of other 
+
+  In other words, when thinking about a \tpro{} 
+
+  
+
+  By defining \tpro{1} relative to descriptions the only 
+
+
+  the role of a \tpro{} is to identify certain things which must also be true if 
+
+  So, when evaluating whether some description and associated \prop{0}-\val{0}-\pool{0} pairing is part of a \tpro{} 
+\end{note}
+
+\begin{note}
+  In general, I have little to say about when some description and associated \prop{0}-\val{0} pairing is included in a \tpro{}.
+  Part of the overall argument of this document as stated rests on particular descriptions and \prop{0}-\val{0}-\pool{0} pairings being included in a \tpro{}, as we are in search of failures of \issueInclusion{}.
+  Still, the way we obtain failures of \issueInclusion{} is compatible with a variety of different perspectives on which descriptions and associated \prop{0}-\val{0} pairings are included in a \tpro{}.
 
   Some intuition for the broad concept is given.
   Then some \illu{1} and an application follow.
-  And, the application is designed to highlight various considerations I think are sufficient (though not necessary) to establish some event and \prop{0}-\val{0}-\pool{0} pairing is part of a \tpro{} by showing, rather than telling.
+  The application is designed to highlight considerations I think are sufficient (though not necessary) to establish some description and \prop{0}-\val{0}-\pool{0} pairing is part of a \tpro{} by showing, rather than telling.
 \end{note}
 
 
@@ -276,10 +324,14 @@
         \(\tproS{}\) is a projection of a type \(T\) with respect to \(\ed{}\) \vAgent{}.
       \end{enumerate}
     \item[\emph{Then}:]
-      For every event \(\edn{\sharp}\) and associated \prop{0}-\val{0}-\pool{0} pair \(\pv{\psi}{v'}\) and \(\Psi\) in \(\tproS{}\):
+      For every description \(\edo{\sharp}\) and associated \prop{0}-\val{0}-\pool{0} pair \(\pv{\psi}{v'}\) and \(\Psi\) in \(\tproS{}\):
       \begin{itemize}
       \item
-        \(\edn{\sharp}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+        For every event \(\edn{\sharp}\) such that \(\edo{\sharp}\) is true of \(\edn{\sharp}\):
+        \begin{itemize}
+        \item
+          \(\edn{\sharp}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+        \end{itemize}
       \end{itemize}
     \end{itenum}
     \vspace{-\baselineskip}
@@ -439,7 +491,7 @@
 \paragraph*{Powers}
 
 \begin{note}
-  Selection tasks are events which happen and highlight an \agents{} reasoning is not of some particular type.
+  Selection tasks are events which happen and suggest an \agents{} reasoning is \emph{not} of some particular type.
   However, our interest with \tCN{} primarily concerns events where the agent \emph{is} \tCV{} by some type.
 \end{note}
 
@@ -541,8 +593,8 @@
           The \prop{0}-\val{0} pair is of the form \pv{\propI{\rootsConGen{}}}{\valI{True}}, where \(m \times (m - 1) = n\).
         \end{itemize}
       \item
-        Events \(\edn{\ast}\) such that:
-        \(\edn{\ast}\) is the outcome of an action done by \vAgent{} in \(\edn{\flat}\).
+        Descriptions \(\edo{\ast}\) such that:
+        \(\edo{\ast}\) is true of the outcome of an action done by \vAgent{} in \(\edn{\flat}\).
       \end{itemize}
     \end{itenum}
     \vspace{-\baselineskip}
@@ -561,12 +613,12 @@
   For, \rootsConEqGenV{15}{}{1} is likewise a quadratic equation, but it seems unreasonable to expect the agent to be concluding \(x \in \{\sfrac{(\sqrt{61} - 1)}{30}, -\sfrac{(1 + \sqrt{61})}{30}\}\).%
   \footnote{
     Likewise, as each instance of \(n\) amount to a structurally similar quadratic equation, there a plausibly other \tpro{1} which include quadratic equations of a different structure (e.g.\ \(x^{2} - 1\)).
-    However, our interest with \tpro{1} is limited to a necessary condition on an agent \tCV{} (cf.\ \autoref{prop:tpro-switch}) and so there is no need for the \tpro{} to include all relevant \prop{0}-\val{0}-\pool{0} and event pairings.
+    However, our interest with \tpro{1} is limited to a necessary condition on an agent \tCV{} (cf.\ \autoref{prop:tpro-switch}) and so there is no need for the \tpro{} to include all relevant description and \prop{0}-\val{0}-\pool{0} pairings.
   }
 
   \begin{dets}{app:sc1-typ}
     We first argue there relevant \prop{0}-\val{0}-\pool{0} pairings are part of some \tpro{}.
-    Then, we argue a \tpro{} in which each event happens by the agent doing some action in \(\edn{\flat}\) is compatible with \autoref{illu:gist:roots:F}.
+    Then, we argue a \tpro{} in which each description is true of and event which happens by the agent doing some action in \(\edn{\flat}\) is compatible with \autoref{illu:gist:roots:F}.
     \medskip
 
     \noindent%
@@ -619,14 +671,14 @@
     A few additional steps remain for the agent to conclude \pv{\rootsConGenV{i}{(i - 1)}}{\valI{True}}.
     Still, by assumption the agent is \tCV{} \pv{\propI{\rootsCon{}}}{\valI{True}} from \(\Phi\) by factorisation.
     And, the remaining reasoning amounts to slight variations of steps \ref{illu:gist:roots:F:zero} to \ref{illu:gist:roots:F:factor:done} of \autoref{illu:gist:roots:F}.
-    The steps are sufficiently simple that I doubt there is any real concern over whether the agent may do variations.
-    Though similar reasoning applied to Step~\ref{illu:gist:roots:F:factor} applies.
+    Similar reasoning applies, and I leave this as an exercise for a motivated reader.
     \medskip
 
     \noindent%
-    The argument above did not specify the relevant events in the \tpro{} \(\mathbb{P}\).
-    However, to see a \tpro{} in which each event happens by the agent doing some action in \(\edn{\flat}\) is compatible with \autoref{illu:gist:roots:F} note \autoref{illu:gist:roots:F} only characterises the \agents{} reasoning.
-    Hence, the agent may have plenty of time to work on a different problem, and substituting \(n\) for \(6\) in \rootsConEq{}.
+    The argument has not yet specified the relevant descriptions in the \tpro{} \(\mathbb{P}\).
+    Still, \autoref{illu:gist:roots:F} only characterises the \agents{} reasoning.
+    So, the agent may have plenty of time to work on a different problem, and substituting \(n\) for \(6\) in \rootsConEq{}.
+    So, I take it to be plausible a description which captures the agent substituting \(n\) for \(6\) in \rootsConEq{} and then working on the substitution is plausible.
   \end{dets}
 \end{note}
 
@@ -643,32 +695,33 @@
   So, given the agent \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\), for each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in the relevant \pool{}, the \prop{0}-\val{0} pair must be a \fc{} from the \pool{}.
 
   In detail:
-  \newpage
 
   \begin{proposition}[\typeAdj{2} \fc{1}]%
     \label{prop:tCV-fc}%
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      Conditions \ref{prop:tCV-fc:tC}, \ref{prop:tCV-fc:pro}, and \ref{prop:tCV-fc:e} hold:
+      Conditions \ref{prop:tCV-fc:tC} and \ref{prop:tCV-fc:pro} hold:
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
       \item
         \label{prop:tCV-fc:tC}
         \(\ed{\flat}\) is an \eiw{0} \vAgent{} is \tCV{} \(\pv{\phi}{v}\) from \(\Phi\) by \torNa{} \(T\).
       \item
         \label{prop:tCV-fc:pro}
-        \(\tproS{}\) is a projection of a type \(T\) with respect to \(\ed{}\) \vAgent{}.
-      \item
-        \label{prop:tCV-fc:e}
-        For some event \(\edn{}\) and \prop{0}-\val{0}-\pool{0} pair \(\pv{\psi}{v'}\) and \(\Psi\) in \(\tproS{}\):
-        \begin{enumerate}[label=\alph*., ref=\theenumi\alph*]
+        \(\tproS{}\) is a projection of a type \(T\) with respect to \(\edo{\flat}\) and \vAgent{} such that:
+        \begin{itemize}
         \item
-          \label{prop:tCV-fc:e:act:i}
-          \(\edn{\sharp}\) is the outcome of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
-        \item
-          \label{prop:tCV-fc:e:act:ii}
-          \vAgent{} \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\), for each \prop{0}-\val{0} pair \(\pv{\psi'}{v''}\) in \(\Psi\).
-        \end{enumerate}
+          For some description \(\edo{\sharp}\) and \prop{0}-\val{0}-\pool{0} pair \(\pv{\psi}{v'}\) and \(\Psi\) in \(\tproS{}\):
+          \begin{enumerate}[label=\alph*., ref=\theenumi\alph*]
+          \item
+            \label{prop:tCV-fc:e:act:i}
+            \(\edo{\sharp}\) is satisfied by an event \(\edn{\sharp}\) which is the outcome of an action \(a\) done by \vAgent{} in \(\edn{\flat}\).
+          \item
+            \label{prop:tCV-fc:e:act:ii}
+            For each \(\pv{\psi'}{v''}\) in \(\Psi\):
+            \vAgent{} \evals{} \(\psi'\) as having value \(v''\) prior to doing \(a\).
+          \end{enumerate}
+        \end{itemize}
       \end{enumerate}
     \item[\emph{Then}:]
       \(\pv{\psi}{v'}\) is a \fc{0} from \(\Psi\) for \vAgent{} through \(\ed{\flat}\).
@@ -677,7 +730,7 @@
   \end{proposition}
 
   \begin{argument}{prop:tCV-fc}
-    Suppose conditions \ref{prop:tCV-fc:tC}, \ref{prop:tCV-fc:pro}, and \ref{prop:tCV-fc:e} hold and consider the event \(\edn{\sharp}\) and \prop{0}-\val{0}-\pool{0} pairing \(\pv{\psi}{v'}\) and \(\Psi\) given by Condition~\ref{prop:tCV-fc:e}.
+    Suppose conditions \ref{prop:tCV-fc:tC} and \ref{prop:tCV-fc:pro} hold.
 
     Our task is to show \autoref{def:fc} (\autopageref{def:fc}) holds.
     Specifically, we show clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} of \autoref{def:fc} are satisfied with respect to \(\ed{\flat}\), \(\pv{\psi}{v'}\) and \(\Psi\).
@@ -689,18 +742,8 @@
       Clause~\ref{def:fc:ai} is satisfied as Sub-condition~\ref{prop:tCV-fc:e:act:i} \(\edn{\sharp}\) is the outcome of an action \(a\) done by \vAgent{} in \(\ed{\flat}\).
       In other words, \(\ed{\flat}\) is an \eiw{0} the agent may do \(a\).
     \item
-      Clause~\ref{def:fc:act} is satisfied as conditions \ref{prop:tCV-fc:tC} and \ref{prop:tCV-fc:pro} entail:
-      % 
-      \begin{quote}
-        For every event \(\edn{\ast}\) and associated \prop{0}-\val{0}-\pool{0} pair \(\pv{\chi}{v''}\) and \(X\) in \(\tproS{}\):
-        \begin{itemize}
-        \item
-          \(\edn{\ast}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\chi}{v''}\) from \(X\).
-        \end{itemize}
-      \end{quote}
-      % 
-      So, in particular \(\edn{\sharp}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
-      Hence, the \eiw[\(\edn{\sharp}\)]{0} the agent does \(a\) is an \eiw{0} the agent is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+      Clause~\ref{def:fc:act} is satisfied as conditions \ref{prop:tCV-fc:tC} and \ref{prop:tCV-fc:pro} entail \(\ed{\sharp}\) is an \eiw{0} \vAgent{} is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
+      I.e., the \eiw[\(\edn{\sharp}\)]{0} the agent does \(a\) is an \eiw{0} the agent is concluding \(\pv{\psi}{v'}\) from \(\Psi\).
     \item
       Finally, Sub-condition~\ref{prop:tCV-fc:e:act:ii} is easily seen as equivalent to Clause~\ref{def:fc:result}.
     \end{itemize}
@@ -712,9 +755,14 @@
 
 \begin{note}
   For example, consider \autoref{illu:tR:powers}.
-  Agent is concluding \pv{\propI{n is 200}}{\valI{True}} by an understanding of multiplication for powers \emph{only if} the agent would be concluding \pv{\propI{a is 6}}{\valI{True}} from \pv{\propM{2^{100} \cdot 3^{100} = a^{100}}}{\valI{True}} were the agent to abandon \ref{mfp:g} and work on~\ref{mfp:f}.
-  So, we have some collection of events, result of action.
-  And, second condition is satisfied.
+
+  The agent is concluding \pv{\propI{n is 200}}{\valI{True}} by an understanding of multiplication for powers.
+  So, Condition \ref{prop:tCV-fc:tC} is satisfied.
+
+  Further, it is plausible the agent is concluding \pv{\propI{n is 200}}{\valI{True}} by an understanding of multiplication for powers \emph{only if} the agent would be concluding \pv{\propI{a is 6}}{\valI{True}} from \pv{\propM{2^{100} \cdot 3^{100} = a^{100}}}{\valI{True}} were the agent to abandon \ref{mfp:g} and work on~\ref{mfp:f}.
+
+  So, we plausibly have a \tpro{} where the relevant descriptions are satisfied by an event which is the outcome of an action done by the agent while concluding \pv{\propI{n is 200}}{\valI{True}}.
+  So, Condition \ref{prop:tCV-fc:pro} is also satisfied.
 \end{note}
 
 
