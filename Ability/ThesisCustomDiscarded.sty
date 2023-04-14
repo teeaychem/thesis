@@ -1599,3 +1599,587 @@
 \newcommand{\qWhyVnP}[0]{\hyperref[q:why:v:nP]{\named{\whyVName{}?}}}
 \newcommand{\qWhyV}[0]{\hyperref[q:why:v]{\named{\whyVName{}\textsuperscript{P}?}}}
 \newcommand{\qWhyVoP}[0]{\named{\hyperref[q:why:v:nP]{\whyVName{}}\textsuperscript{\hyperref[q:why:v]{(P)}}\hyperref[q:why:v:nP]{?}}}
+
+\newcommand{\issueConstraint}[0]{\hyperref[consConstraint]{\conRel{\whyVNamed{}}{\howVNamed{}}}}
+
+\newcommand{\linkW}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:why:support:pvpp}}}}
+\newcommand{\linkH}[0]{\hyperref[q:how]{\obeybreaks{\autoref{link:how-witnessing}}}}
+
+
+\newcommand{\howVName}[0]{Witness}
+
+
+\newcommand{\howVNamed}[0]{\named{\howVName{}?}}
+
+\newcommand{\whyVName}[0]{Support}
+\newcommand{\whyVNamed}[0]{\named{\whyVName{}?}}
+\newcommand{\qWhyV}[0]{\hyperref[questionWhyV]{\whyVNamed{}}}
+\newcommand{\qHowV}[0]{\hyperref[questionHowV]{\howVNamed{}}}
+
+\newcommand{\qWhyR}[0]{\hyperref[questionWhyR]{\textsc{\whyName{}}\textsubscript{r}\textsc{?}}}
+\newcommand{\qHowR}[0]{\hyperref[questionHowR]{\textsc{\howName{}}\textsubscript{r}\textsc{?}}}
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\factivity}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[principle:factivity]{factivity}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[principle:factivity]{factivity}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[principle:factivity]{Factivity}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\deadEnd}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:dead-end]{dead-end}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:dead-end]{dead-end}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:dead-end]{dead-ends}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:dead-end]{Dead-end}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:dead-end]{Dead-ends}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\collateral}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{collateral}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{collateral}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Collateral}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\support}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{support}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{support}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Support}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ros}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{relation\space of\space \support{0}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{relation\space of\space \support{0}}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{relations\space of\space \support{0}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Relation\space of\space \support{0}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Relations\space of\space \support{0}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosb}{ m m }{%
+    \obeybreaks{\ros{0}\space between\space #1\space and\space #2}%
+}
+\ExplSyntaxOff
+
+\NewDocumentCommand{\pwP}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{partial}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{partial}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Partial}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+
+\NewDocumentCommand{\pwit}{ O{} m }{%
+  \tl_if_empty:nTF {#2}
+  {%
+    \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witness#1}}%
+  }
+  {%
+    \ifnum0=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witness#1}}%
+    \fi
+    \ifnum1=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{0} \space witnesses}}%
+    \fi
+    \ifnum2=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{2} \space witness#1}}%
+    \fi
+    \ifnum3=#2\relax%
+      \obeybreaks{\hyperref[def:Pwit]{\pwP{2} \space witnesses}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\cScen}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
+    \fi
+    \ifnum1=#1\relax%f
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenarios}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenario}}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[scenType:Coll]{\textsf{C-scenarios}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % Commands that I don't think are needed
+\newcommand{\dd}[0]{\emph{de dicto}}
+\newcommand{\dr}[0]{\emph{de re}}
+
+% % % Transmission
+\newcommand{\tri}[2]{\emph{#2}\(_{\text{\tiny\emph #1}}\)} % For listing items in a transmission template
+
+\newcommand*{\rleadsto}{\reflectbox{\(\leadsto\)}}%
+
+\ExplSyntaxOn
+\NewDocumentCommand{\abgen}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{broad}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{broad}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{broad}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\abspec}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{narrow}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{narrow}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{narrow}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% Ability.
+
+
+
+% % % Boylan
+
+\newcommand{\BoyPS}[0]{\hyperref[Boylan:Past-Success]{\obeybreaks{Past Success}}} %
+\newcommand{\BoyVS}[0]{\hyperref[Boylan:Or-Success]{\obeybreaks{\(\lor\)- Success}}} %
+\newcommand{\BoyCEW}[0]{\hyperref[wrt]{\obeybreaks{the\space revised\space template}}} %
+\newcommand{\BoyPSC}[0]{\hyperref[Boylan:Past-Success:C]{\obeybreaks{Success Past}}} %
+\newcommand{\BoyPSCQC}[0]{\hyperref[Boylan:Past-Success:CQC]{\obeybreaks{Past Unsuccess}}} %
+\newcommand{\BoyPSIFF}[0]{\hyperref[Boylan:Past-Success:IFF]{\obeybreaks{Past Success Past}}} %
+
+\newcommand{\AbControl}[0]{\hyperref[ability:control]{\obeybreaks{\text{\textbf{Control}}}}}
+
+% Landman
+\newcommand{\lRweSym}[0]{\hyperref[def:LandRwe]{\ensuremath{R}}}
+\newcommand{\lRwe}[2]{\hyperref[def:LandRwe]{\ensuremath{R(#2,#1)}}}
+\newcommand{\mRwe}[2]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}(#2,#1)}}}
+\newcommand{\mRweSym}[0]{\hyperref[def:myRwe]{\ensuremath{\mathcal{R}}}}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\closeW}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{close-world}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{close-world}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{close-worlds}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Close-world}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Close-worlds}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+% \newcommand{\AlgAC}[0]{\hyperref[PrAl:g-a-c]{\obeybreaks{\text{\textsc{Stretch}}}}}
+% \newcommand{\AlgPC}[0]{\hyperref[PrAl:g-p-c]{\obeybreaks{\text{\textsc{Get-\(R\)-Continuations}}}}}
+% \newcommand{\AlgGetCs}[0]{\hyperref[PrAl:g-c]{\obeybreaks{\text{\textsc{Get-Continuations}}}}}
+% \newcommand{\AlgGetStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-Stops}}}}}
+% \newcommand{\AlgGetPStops}[0]{\hyperref[PrAl:g-s]{\obeybreaks{\text{\textsc{Get-\(R\)-Stops}}}}}
+% \newcommand{\AlgFindBranches}[0]{\hyperref[PrAl:find-branches]{\obeybreaks{\text{\textsc{Wiggle}}}}}
+% \newcommand{\AlgDevelopTree}[0]{\hyperref[PrAl:dev-tree]{\obeybreaks{\text{\textsc{Complete-Tree}}}}}
+
+% \newcommand{\SetAC}[0]{\obeybreaks{\text{@-Continuations}}}
+% \newcommand{\SetPC}[0]{\obeybreaks{\text{\(R\)-Continuations}}}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\pevent}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space EEevent}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space EEevent}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{0}\space EEevents}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{2}\space EEevent}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:potenital-event]{\potential{2}\space EEevents}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+\newcommand{\peventpage}[0]{\autopageref{def:potenital-event}}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\feedback}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{feedback}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{feedback}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\#\$\%\&}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Feedback}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\#\$\%\&}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\influence}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{influence}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{influence}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{influences}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Influence}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Influences}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ninf}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:ninf]{negative\space influence}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:ninf]{negative\space influence}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:ninf]{\tJunk{}}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:ninf]{Negative\space influence}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:ninf]{\tJunk{}}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\pinf}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{positive\space influence}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{positive\space influence}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Positive\space influence}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\ptypeAdj}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{secure}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{secure}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Secure}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosNE}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{direct}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{direct}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Direct}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rosE}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{vicarious}%
+  }
+  {%
+    \ifnum0=#1\relax\obeybreaks{vicarious}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Vicarious}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motingr}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[cha:ros]{is\space reason\space for\space relation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{is\space reason\space for\space relation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{is\space reason\space for\space relations}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Is\space reason\space for\space relation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[cha:ros]{Is\space reason\space for\space relations}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motb}{ O{} m m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{#2\space is\space reason\space for\space #3}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{#2\space is\space reason\space for\space #3}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{#2\space is\space reason\space for\space #3}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\motingb}{ m m }{%
+    \obeybreaks{#1\space is\space reason\space for\space #2}%
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rationalisation}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:rationalisation]{rationalisation}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:rationalisation]{rationalisation}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:rationalisation]{rationalisations}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:rationalisation]{Rationalisation}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:rationalisation]{Rationalisations}}%
+    \fi
+    }
+  }
+\ExplSyntaxOff

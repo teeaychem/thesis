@@ -304,8 +304,22 @@
 }
 \ExplSyntaxOff
 
+
 \ExplSyntaxOn
 \newcommand\reDefinition[1]{
+  \smallskip%
+  \noindent\textbf{\definitionName{2}~\ref{#1}}~(\csname literallabel_#1\endcsname)
+  \ignorespaces%
+  \newline%
+  \csname literalbody_#1\endcsname
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\newcommand\reDefinitionX[1]{
   \smallskip%
   \marginnote{\raggedright \autopageref{#1}}
   \noindent\textbf{\definitionName{2}~\ref{#1}}~(\csname literallabel_#1\endcsname)
