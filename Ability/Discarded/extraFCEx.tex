@@ -1,0 +1,165 @@
+\chapter{Additional examples of \fc{1}}
+\label{cha:addit-exampl-fcs1}
+
+
+\subsection{\scen{3} where some \prop{0}-\val{0} pair is a \fc{}}
+
+\begin{note}[Propositional logic]
+  \begin{scenario}[Propositional theorems]
+    \label{illu:sketch:prop-logic}
+    Suppose an agent has a good grasp of propositional logic.
+    In particular:
+    The agent has a good understanding of some method to construct semantic proofs.
+    For example, by constructing truth tables, or reasoning about valuation functions.
+  \end{scenario}
+
+  Given the agent's understanding of propositional logic, the following is a \fc{}:
+  \begin{itemize}
+  \item
+    For any valuation \(v\), \(v \vDash ((P \rightarrow Q) \rightarrow P) \rightarrow P \)
+  \end{itemize}
+
+  There's nothing particularly special about the formula.
+  Given a good understanding, any formula of a reasonable length will do.
+
+  Note, the agent is concluding.
+  It's fine for the agent to work things through on a piece of paper.
+\end{note}
+
+
+\begin{note}[Poppies]
+  To finish, we take something from literature:
+
+  \begin{scenario}[Poppies]
+    \label{illu:fc:poppies}
+    \mbox{ }
+    \vspace{-\baselineskip}
+    \begin{quote}
+      Was Tarquinius Superbus in seinem Garten mit den Mohnköpfen sprach, verstand der Sohn, aber nicht der Bote.
+
+      [What Tarquinius Superbus said in the garden by means of the poppies, the son understood but the messenger did not].\newline
+      \mbox{ }\hfill\mbox{(\cite[190]{Hamann:1822vp}/\cite[3]{Kierkegaard:1983ta})}
+  \end{quote}
+  \vspace{-\baselineskip}
+  \end{scenario}
+
+  \noindent The quote is from the epigraph to~\citeauthor{Kierkegaard:1983ta}'s \hyperlink{cite.Kierkegaard:1983ta}{Fear and Trembling}.
+  \hyperlink{cite.Kierkegaard:1983ta}{H.\ Hong and E.\ Hong} detail the relevant background:
+
+  \begin{quote}
+    When the son of Tarquinius Superbus had craftily gotten Gabii in his power, he sent a messenger to his father asking what he should do with the city.
+    Tarquinius, not trusting the messenger, gave no reply but took him into the garden, where with his cane he cut off the flowers of the tallest poppies.
+    The son understood from this that he should eliminate the leading men of the city.%
+    \mbox{ }\hfill\mbox{(\citeyear[339]{Kierkegaard:1983ta})}
+  \end{quote}
+
+  \noindent For Superbus' son, but not for the messenger the following was a \fc{} from some \pool{}:
+
+  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+  \item
+    \label{illu:fc:poppies:c}
+    \pv{\propI{Eliminate the leading men of the city}}{\valI{Should}}
+  \end{enumerate}
+
+  \noindent Or, at least, Superbus \emph{expected}~\ref{illu:fc:poppies:c} be a \fc{} for his son {\color{blue} after the son sees the poppies}.
+\end{note}
+
+\subsection{\scen{3} where a \prop{0}-\val{0} pair is not a \fc{}}
+
+\paragraph*{Novel information}
+
+\begin{note}
+  \begin{scenario}[Where's Wally]
+    \label{illu:fc:wally}
+    An agent has a book containing numerous drawings of scenes in which various characters are doing a variety of things.
+    Somewhere in each scene is a character called `Wally', identifiable by a collection distinguishing features.
+    These features include a red and white striped jumper, blue trousers, short brown wavy hair, round glasses, and so on.
+  \end{scenario}
+
+  Agent does not keep in mind 
+
+  \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+  \item
+    \label{illu:fc:wally:c}
+    \pv{\propI{The character identified is Wally}}{\valI{True}}
+  \end{enumerate}
+
+  Consider slight variation.
+  Agent forgets whether Wally wears round glasses part way through.
+  It remains the case that \ref{illu:fc:wally:c} is a \fc{}, so long as there was some 
+\end{note}
+
+\paragraph*{Conflict}
+
+\begin{note}
+  \begin{scenario}[Knowing whether and belief]%
+    \label{ill:fcs:kw}%
+    \citeauthor{Barker:1975un} suggests the following two principles hold with respect to knowing whether:
+
+    \begin{enumerate}[label=(\Alph*), ref=(\Alph*)]
+    \item
+      \label{Barker:1975un:A}
+      If \emph{S} knows whether \emph{p} and \emph{S} believes that \emph{p}, then \emph{p}.
+    \item
+      \label{Barker:1975un:B}
+      If \emph{S} knows whether \emph{p} and \emph{S} believes that not-\emph{p}, then not-\emph{p}.%
+      \mbox{ }\hfill\mbox{(\citeyear[281]{Barker:1975un})}
+    \end{enumerate}
+  \end{scenario}
+
+  \noindent The conclusions of interest are:
+
+  \begin{enumerate}[label=C\Alph*., ref=(C\Alph*)]
+  \item
+    \label{ill:fcs:kw:cA}
+    \pv{\propI{If \emph{S} knows whether \emph{p} and \emph{S} believes that \emph{p}, then \emph{p}}}{\valI{True}}
+  \item
+    \label{ill:fcs:kw:cB}
+    \pv{\propI{If \emph{S} knows whether \emph{p} and \emph{S} believes that not-\emph{p}, then not-\emph{p}}}{\valI{True}}
+  \end{enumerate}
+
+  \noindent I expect neither~\ref{ill:fcs:kw:cA} nor~\ref{ill:fcs:kw:cB} are \fc{1}.
+  For, rather than conclude either~\ref{ill:fcs:kw:cA} or~\ref{ill:fcs:kw:cB} one will find a counterexample.%
+  \footnote{
+    For example, consider an agent \emph{A} playing speed chess.
+    It's the end game, and \emph{A} believes they have a winning strategy.
+    \emph{A} knows whether they have a winning strategy, but doesn't have time to work through the details.
+    Given \ref{Barker:1975un:A}, \emph{A} has a winning strategy.
+    \emph{A} does not have a winning strategy.
+  }
+  And, given a counterexample one will not conclude the principle is true.
+\end{note}
+
+% \begin{note}[Non-deductive \illu{1}]
+%   \autoref{illu:fc:chess:I} and parallel examples are motivated by an agent's grasp on some effective method to solve a type of problem.
+%   However, \(\pv{\psi}{v'}\) being a \fc{} from \(\Psi\) does not require an effective method.
+%   It need only be the case that the agent is concluding \(\pv{\psi}{v'}\) from \(\Psi\) after an action is done.
+%   Consider, the following \scen{0}:
+
+%   \begin{scenario}[Sunny days]%
+%     \label{illu:fc:sunny}%
+%     It's mid summer day in the Bay Area.
+%   \end{scenario}
+
+%   \noindent For me, the following conclusion is a \fc{} from some \pool{}:
+
+%   \begin{enumerate}[label=C\thescenarioCounter., ref=(C\thescenarioCounter)]
+%   \item
+%     \label{illu:fc:sunny:c}
+%     \pv{\propI{It will rain tomorrow}}{\valI{False}}
+%   \end{enumerate}
+
+%   \noindent%
+%   There is no effective method for me to determine whether it will rain tomorrow, and I recognise there may be rain tomorrow.
+%   Still, I am sufficiently committed to some uniformity principle.%
+%   \footnote{
+%     Cf. (\cite[70]{Hempel:1965aa}),~(\cite{Henderson:2022aa}).
+%   }
+%   And, that the principle together with past experience, ensure that if I consider whether it will rain tomorrow, I conclude it will not rain.%
+% \end{note}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% TeX-engine: luatex
+%%% End:
