@@ -15,26 +15,15 @@
 \usepackage{mathtools}      % Improves  on amsmaths/mtpro2
 \usepackage{amssymb}
 
-\RequirePackage[usenames, dvipsnames]{xcolor}
-
-\definecolor{fuchsia}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
-\definecolor{details}{HTML}{FE4164}
-\definecolor{later}{HTML}{A65978}
-\definecolor{return}{HTML}{660066}
-\definecolor{link}{HTML}{66FFFF}
-\definecolor{comment}{HTML}{616161}
-\definecolor{offblack}{HTML}{434241}
-\definecolor{highlight}{HTML}{FE4164}
-
 % % % My packages % % %
 \usepackage{myNotation}
 \usepackage{ThesisCustom}
 \usepackage{CustomEnvs}
 \usepackage{ThesisFig}
-% % % % % % % % % % % %
+% % % % % % % % % % % % 
 
 % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
-% % % % % % %
+% % % % % % % 
 \usepackage{xfrac}
 \usepackage{array}
 \usepackage{arydshln}
@@ -50,26 +39,26 @@
 
 % % % The bibliography % % %
 \usepackage[%
-  backend=biber,
-  style=authoryear-comp,
-  bibstyle=authoryear,
-  citestyle=authoryear-comp,
-  uniquename=false,
-  backref=false,
-  hyperref=true,
-  url=false,
-  isbn=false,
-  doi=false,
-  useprefix=true,
-  maxbibnames=99,
-  ]{biblatex}
+backend=biber,
+style=authoryear-comp,
+bibstyle=authoryear,
+citestyle=authoryear-comp,
+uniquename=false,
+backref=false,
+hyperref=true,
+url=false,
+isbn=false,
+doi=false,
+useprefix=true,
+maxbibnames=99,
+]{biblatex}
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 % \setlength\bibitemsep{1.5\itemsep}
 \newcommand{\noopsort}[1]{}
 \addbibresource{Ability.bib}
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
-% % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % 
 
 \usepackage[inline]{enumitem}
 \SetEnumitemValue{labelindent}{standard}{.25\parindent}
@@ -81,12 +70,7 @@
   style=standard,
   font=\normalfont,
   labelwidth = \widthof{\emph{Then}:},
-}
-
-% % % Misc packages % % %
-% \usepackage{hyphenat} % For \hyp{} hyphenation command, and general hyphenation stuff
-
-% % % % % % % % % % % % %
+} 
 
 \usepackage[export]{adjustbox}
 \usepackage{subcaption}
@@ -99,15 +83,13 @@
 \usetikzlibrary{backgrounds, positioning, fit, backgrounds}
 \usetikzlibrary{math}
 \usetikzlibrary{tikzmark}
-% % % % % % % % % % % %
+% % % % % % % % % % % % 
+
 
 \usepackage{graphicx} % for images (png/jpeg etc.)
 \usepackage{caption} % for \caption* command
 
 % % % % % % % % % % % % MY COMMANDS
-\newcommand{\hozlinedash}[0]{%
-  \noindent\hdashrule[0.5ex][c]{\textwidth}{.1pt}{2.5pt}
-}
 
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
@@ -126,8 +108,6 @@
 
 % % % Fonts% %
 \usepackage[no-math]{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}%,Numbers={Proportional}}
-% \defaultfontfeatures{Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
 \defaultfontfeatures{Ligatures={NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
 % \protrudechars=2 %
 \adjustspacing=2 %
@@ -135,11 +115,6 @@
 \setmainfont[Microtype]{Libertinus Serif}
 \setsansfont[Microtype,Scale=MatchLowercase]{Libertinus Sans}
 \setmonofont{Libertinus Mono}
-
-\usepackage[match]{luatexja-fontspec}
-% \setmainjfont{SourceHanSerif-Regular}
-% \setsansjfont{SourceHanSans-Regular}
-% \setmonojfont{SourceHanMono}
 
 \usepackage[math-style=ISO]{unicode-math}
 \setmathfont{Libertinus Math}
@@ -155,18 +130,6 @@ colorlinks=false,
 ]{hyperref}
 
 \usepackage{csquotes}
-
-\DeclareCiteCommand{\citeauthor}
-{\boolfalse{citetracker}%
-  \boolfalse{pagetracker}%
-  \usebibmacro{prenote}%
-}%
-{\ifciteindex%
-{\indexnames{labelname}}%
-{}%
-\printtext[bibhyperref]{\printnames{labelname}}}%
-{\multicitedelim}%
-{\usebibmacro{postnote}}
 
 \addto\extrasbritish{
   \def\chapterautorefname{Chapter}
@@ -197,90 +160,103 @@ colorlinks=false,
 }
 
 \title{
-  Foregone-conclusions\\
-  Handout
+  Foregone-conclusions \quad / \quad Handout
 }
-\author{Ben Sparkes}
-% \date{ }
+% \author{Ben Sparkes}
+\date{ }
 
 \begin{document}
 
 \maketitle
 
-\section{The phenomenon}
+% Have a handout.
+% No slides.
+% Foundations for what I did in the thesis.
+% Large part of this is a framework to think about a whether a relation holds between more or less intuitive questions.
+% Questions are why and how an event happened.
+% Specifically, an event in which an agent makes a conclusion.
+% Relation is a constraint.
+% Intuitive that answers to how constrain answers to why.
+% For some intuition, think of Davidsonian style rationalisations.
+% Davidson's argument is that rationalisation are causal relations.
+% So, constraint holds.
+% Difficultly with approach via rationalisations is that rationalisations are a specific abstraction.
+% I'm interested in something a little different.
+
+\section{Phenomena}
 \label{sec:overview}
 
 \begin{note}
-  \eiw{3} an agent concludes.
+  \eiw{3} an agent concludes, for example:
 \end{note}
 
 \begin{note}
   \begin{minipage}{.5\linewidth}
-  \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factors}%
-    % \autoref{illu:gist:roots:F}
-    An agent reasons as follows:
-    %
-    \begin{enumerate}[label=\arabic*., ref=\arabic*]
-    \item
-      \label{illu:gist:roots:F:eq}
-      For some \(x \in \mathbb{R}\), \rootsConEq{}.
-    \item
-      \label{illu:gist:roots:F:factor}
-      \rootsConEqFac{}.
-    \item
-      \label{illu:gist:roots:F:zero}
-      Either \(\rootsConEqFacL{} = 0\) or \(\rootsConEqFacR{} = 0\).
-    \item
-      \label{illu:gist:roots:F:case:a}
-      If \(\rootsConEqFacL{} = 0\), then \(x = \rootsConEqFacLx{}\).
-    \item
-      \label{illu:gist:roots:F:case:b}
-      If \(\rootsConEqFacR{} = 0\), then \(x = \rootsConEqFacRx{}\).
-    \item
-      \label{illu:gist:roots:F:factor:done}
-      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
-    \end{enumerate}
-    %
-    The agent concludes:
-    \rootsCon{}.
-  \end{rscenariox}
-    \end{minipage}
-    \begin{minipage}{.5\linewidth}
+    \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factors}%
+      % \autoref{illu:gist:roots:F}
+      An agent reasons as follows:
+      % 
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{illu:gist:roots:F:eq}
+        For some \(x \in \mathbb{R}\), \rootsConEq{}.
+      \item
+        \label{illu:gist:roots:F:factor}
+        \rootsConEqFac{}.
+      \item
+        \label{illu:gist:roots:F:zero}
+        Either \(\rootsConEqFacL{} = 0\) or \(\rootsConEqFacR{} = 0\).
+      \item
+        \label{illu:gist:roots:F:case:a}
+        If \(\rootsConEqFacL{} = 0\), then \(x = \rootsConEqFacLx{}\).
+      \item
+        \label{illu:gist:roots:F:case:b}
+        If \(\rootsConEqFacR{} = 0\), then \(x = \rootsConEqFacRx{}\).
+      \item
+        \label{illu:gist:roots:F:factor:done}
+        Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
+      \end{enumerate}
+      % 
+      The agent concludes:
+      \rootsCon{}.
+    \end{rscenariox}
+  \end{minipage}
+  \begin{minipage}{.5\linewidth}
     \begin{rscenariox}{illu:gist:roots:QF}{Quadratic roots --- Formula}%
-    An agent reasons as follows:
-    %
-    \begin{enumerate}[label=\arabic*., ref=\arabic*]
-    \item
-      \label{illu:gist:roots:QF:eq}
-      For some \(x \in \mathbb{R}\), \rootsConEq{}.
-    \item
-      \label{illu:gist:roots:QF:qf}
-      The quadratic formula states \(x = \rootsQEq{}\).
-    \item
-      \label{illu:gist:roots:QF:subs}
-      Set \(a \coloneq \rootsQa{}\), \(b \coloneq \rootsQb{}\), and \(c \coloneq \rootsQc{}\).%
-      \footnotemark
-    \item
-      \label{illu:gist:roots:QF:qf-subs}
-      \(x = \rootsQEqFill{\rootsQa{}}{\rootsQb{}}{\rootsQc{}}\).
-    \item
-      \label{illu:gist:roots:QF:qf:1}
-      \(x = \sfrac{(- 1 \pm 5)}{12}\).
-    \item
-      \label{illu:gist:roots:QF:qf:done}
-      Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
-    \end{enumerate}
-    %
-    The agent concludes:
-    \rootsCon{}.
-  \end{rscenariox}
-\end{minipage}
+      % \autoref{illu:gist:roots:QF}
+      An agent reasons as follows:
+      % 
+      \begin{enumerate}[label=\arabic*., ref=\arabic*]
+      \item
+        \label{illu:gist:roots:QF:eq}
+        For some \(x \in \mathbb{R}\), \rootsConEq{}.
+      \item
+        \label{illu:gist:roots:QF:qf}
+        The quadratic formula states \(x = \rootsQEq{}\).
+      \item
+        \label{illu:gist:roots:QF:subs}
+        Set \(a \coloneq \rootsQa{}\), \(b \coloneq \rootsQb{}\), and \(c \coloneq \rootsQc{}\).%
+        \footnotemark
+      \item
+        \label{illu:gist:roots:QF:qf-subs}
+        \(x = \rootsQEqFill{\rootsQa{}}{\rootsQb{}}{\rootsQc{}}\).
+      \item
+        \label{illu:gist:roots:QF:qf:1}
+        \(x = \sfrac{(- 1 \pm 5)}{12}\).
+      \item
+        \label{illu:gist:roots:QF:qf:done}
+        Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
+      \end{enumerate}
+      % 
+      The agent concludes:
+      \rootsCon{}.
+    \end{rscenariox}
+  \end{minipage}
 
-\footnotetext{
-        \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
-      }
+  \footnotetext{
+    \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
+  }
 
-  \noindent%
   Intuitively, the agent concludes \propI{\rootsCon{}} from their understanding of factorisation.
 \end{note}
 
@@ -299,25 +275,50 @@ colorlinks=false,
 
   \begin{itemize}
   \item
-    \prop{1}
+    \prop{3} \(\leadsto\) ways things may be.
+    \begin{itemize}
+    \item
+      \propI{The soup is sweet}, \propI{Foxes like pineapples}, \propI{The time is 17:30}, and so on\dots
+    \end{itemize}
   \item
-    \val{1}
+    \val{3} \(\leadsto\) an \agpe{} on some way things may be.
+    \begin{itemize}
+    \item
+      \valI{True}, \valI{False}, \valI{Desirable}, \valI{Probable}, and so on\dots
+    \end{itemize}
   \item
-    \pool{1}.
+    \pool{3} \(\leadsto\) collections of \prop{1} paired with \val{1}.
+    \begin{itemize}
+    \item
+      Specifying \pool{1} is not particularly easy.
+
+      Agent concludes \propM{\rootsCon{}} has \valI{True} from a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and various \prop{0}-\val{0} pairs which capture the \agents{} understanding of factorisation.
+    \end{itemize}
   \end{itemize}
 
-  \prop{2} has \val{} on par with propositional attitudes.
+  % Think of this as a more flexible approach to propositional attitudes.
+
+  \noindent
+  Two relations:
 
   \begin{itemize}
   \item
-    From
+    An agent concludes a \prop{0} has some \val{0} \underline{\emph{from}} some \pool{}.
   \item
-    \fingf{}
+    A \prop{0} having some \val{0} \underline{\emph{\fof{}}} some \pool{} (from the \agpe{}, relative to an event).
   \end{itemize}
+
+  Note, a \fof{} relation may hold between arbitrary \prop{0}-\val{0}-\pool{0} pairings.
+  % If you like, think of this as a relation of support.
+  % However, there's nothing normative here.
+  % This is what distinguishes \fofr{} from rationalisations.
+  % For the moment, intuitive.
+  % Shortly give a pair of sufficient conditions for a \fofr{}.
 \end{note}
 
+\newpage
 
-\section{\qWhy{}, \qHow{}, and a constraint}
+\section{Two questions and a constraint \hfill (\qWhy{}, \qHow{}, and \issueInclusion{})}
 \label{sec:target}
 
 
@@ -325,7 +326,9 @@ colorlinks=false,
   Relationship between two questions about \eiw{3} an agent concludes.
 
   \qWhy{} \qHow{}, \issueInclusion{}.
+\end{note}
 
+\begin{note}
   \begin{question}{questionWhy}{\qWhy{}}
     Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}
@@ -335,12 +338,20 @@ colorlinks=false,
     \vspace{-1\baselineskip}
   \end{question}
 
+  Shuffling cards.
+  If random shuffle, no answer to why.
+  If magician performing sleight of hand, answer to why for chosen card.
+
+  \qWhy{} is about \fingfr{}.
+  Which \fingfr{} provide some insight.
+\end{note}
+
+\begin{note}
   \begin{question}{questionHow}{\qHow{}}
-    \label{q:how}
     Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}
     \item
-      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) (rather than some other thing)?
+      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) (rather than an \eiw{0} some other thing happens)?
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
@@ -385,10 +396,154 @@ colorlinks=false,
   \end{enumerate}
 \end{note}
 
+\begin{note}
+  Not really about the result.
+  Argument.
+  Fairly technical.
+  Framework so it's possible to create a direct argument.
+  Only issue is whether the definitions, ideas, etc.\ work out.
+  I.e.\ whether you agree.
+
+  Stress this point.
+  Well, what do I want to stress?
+  `Makes sense'.
+  So, think of epistemology.
+  Various cases, intuition about whether knows.
+  Intuition is taken as input for creating theory.
+  This is the sort of Rawlsian reflective equilibrium.
+
+  Important constraint.
+  Should not be the case framework presupposes answer.
+  See how these definitions come together.
+  
+\end{note}
+
+\newpage
 
 \section{Answers to \qWhy{}}
 \label{sec:answers-qwhy}
 
+\begin{note}
+  Basic idea: Obtain answers to \qWhy{} by considering conclusions in progress.
+\end{note}
+
+
+\begin{note}
+  Part of why this is interesting.
+  Maybe.
+  No subjunctives, with the exception of thinking about events in progress.
+  If you can do events in progress without subjunctives, then, things go through.
+  Even projections.
+  These talk about possibility, and entail various subjunctives, but that's about it.
+\end{note}
+
+
+\subsection{Events, in progress}
+\label{sec:events-progress}
+
+\begin{note}
+  Roughly, think of events in progress in terms of the (English) progressive aspect.
+  %
+  \begin{enumerate}
+  \item
+    The agent is making soup.\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent makes soup is in progress.
+  \item
+    The agent is reading Henley's `Invictus'.\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent reads Henley's `Invictus' is in progress.
+  \item
+    The agent is riding the slope.\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent rides the slope is in progress.
+  \end{enumerate}
+  %
+  This isn't quite right, as the (English) progressive has some quirks.
+  Though, it's good enough.
+\end{note}
+
+\begin{note}
+  Key feature of events in progress is captured by the term.
+  It is the case that some other event is in progress.
+\end{note}
+
+\subsection{Events and descriptions}
+\label{sec:events-descriptions}
+
+
+\begin{note}
+  Davidsonian.
+  However, a little loose to help smooth some ideas.
+  Basically, fix and event and definition of that event.
+
+  This is particularly useful for talking about events in progress.
+  If have an \eiw{} an agent concludes then there are some aspects of the event which were in progress, and other things that were not in progress.
+
+  Consider \autoref{illu:gist:roots:F}.
+  Agent's conclusion was in progress, but plausible order of steps 4 and 5 was not in progress.
+  Same with Step 5 of \autoref{illu:gist:roots:QF}, and here unspecified --- add or subtract first.
+
+  So distinct between these two things helps fix an event fairly easily, while narrowing down certain parts of the event.
+\end{note}
+
+\begin{note}
+  \begin{itemize}
+    \item
+      \(\edn{}\) picks out a specific event (i.e.\ an event under some unique description).
+    \item
+      \(\ed{}\) captures (the specific event) \(\edn{}\) under the particular description \(\edo{}\).
+    \end{itemize}
+\end{note}
+
+
+\subsection{\se{3}}
+
+\begin{note}
+  \begin{rdefinition}{def:se}{\se{3}}
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      \(\ed{\flat}\) is a \emph{\se{0}} of \(\ed{}\).
+    \end{itemize}
+    \emph{If and only if}:
+    \begin{itemize}
+    \item
+      Clauses~\ref{assu:p:se:prog} and \ref{assu:p:se:hCon} hold:
+      \begin{enumerate}[label=\Alph*., ref=\Alph*]
+      \item
+        \label{assu:p:se:prog}
+        \(\ed{\flat}\) is such that \(\ed{}\) is in progress.
+      \item
+        \label{assu:p:se:hCon}
+        \(\ed{}\) partly happens as a result of \(\ed{\flat}\).
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-\baselineskip}
+  \end{rdefinition}
+
+  \noindent%
+  \(\ed{\flat}\) being a \emph{\se{0}} of \(\ed{}\) concerns specific events \(\edn{\flat}\) and \(\edn{}\).
+  And, of interest is whether specific descriptions \(\edo{}\) and \(\edo{\flat}\) capture a particular connexion between \(\edn{\flat}\) and \(\edn{}\).
+
+  Still, our interest is only with parts of \(\edn{\flat}\) and \(\edn{}\), respectively.
+  Intuitively:
+  %
+  \begin{itemize}
+  \item
+    Clause~\ref{assu:p:se:prog} `looks forward':
+
+    The description \(\edo{\flat}\) of \(\edn{\flat}\) captures that an event described by \(\edo{}\) is in progress.
+  \item
+    Clause~\ref{assu:p:se:hCon} `looks backward':
+
+    \(\edn{}\) as described by \(\edo{}\) happened in part as a result of \(\edn{\flat}\) as described by \(\edo{\flat}\).
+  \end{itemize}
+
+  The role of Clause~\ref{assu:p:se:prog} is to ensure the event \(\edn{}\) is favoured over some other event.
+
+  And, the role of Clause~\ref{assu:p:se:hCon} is to ensure \(\edn{}\) happens as a result of being favoured.
+\end{note}
+
+\subsection{\progEx{2}}
+\label{sec:progex}
 
 \begin{note}
   Answers to \qWhy{}.
@@ -404,8 +559,16 @@ colorlinks=false,
   A little more careful.
   Event in progress, an event of interest happens as a result.
   Given this, event in progress is a partial answer to why the event happened, given the sense of why outlined.
-  
 \end{note}
+
+\paragraph{Example}
+
+\begin{note}
+  Step 2 of the scenarios.
+\end{note}
+
+\subsection{\progEx{2} and \fingfr{1}}
+\label{sec:progex-fingfr1}
 
 
 \begin{note}
@@ -419,9 +582,39 @@ colorlinks=false,
   \item
     When \fc{}.
   \end{itemize}
-
 \end{note}
 
+
+\section*{Presentation notes}
+\label{sec:presentation-notes}
+
+\begin{note}
+  In this talk, foundations for what I did in the thesis.
+  Few things.
+  \begin{enumerate}
+  \item
+    Phenomena of interest.
+  \item
+    What it is about the phenomena.
+  \item
+    A key part of the argument.
+  \end{enumerate}
+
+  With this in hand, if you're interested then working through the argument shouldn't take too long.
+\end{note}
+
+\begin{note}
+  Phenomena.
+
+  Event where an agent concludes.
+  Two instances.
+
+  As an aside, argument is independent of \prop{}, \val{}.
+  Deal with \valI{True}, but other things are good.
+
+  From relation and \fofr{}.
+  
+\end{note}
 
 \end{document}
 

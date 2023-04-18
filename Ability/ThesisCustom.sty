@@ -57,17 +57,7 @@
 \newcommand{\wnf}[0]{\hyperref[wnf]{\obeybreaks{No\space Feedback}}} % Weibserg's no feedback condition
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\ExplSyntaxOn
-\NewDocumentCommand{\TOCLine}{ O{} m }{% No inertia
-  \tl_if_empty:nTF {#1}
-  {%
-    \nameref{#2}\dotfill\autoref{#2},\space\autopageref{#2}
-  }
-  {%
-    \nameref{#2}\space{#1}\dotfill\autoref{#2},\space\autopageref{#2}
-  }
-}
-\ExplSyntaxOff
+
 % % % Verbs
 
 \makeatletter
@@ -76,8 +66,7 @@
 \def\@without#1{\ensuremath{[\![#1]\!]}}
 \makeatother
 
-\newcommand{\preName}[1]{\mbox{\textsc{#1}}} %{\mbox{\textsf{\textsc{#1}}}}
-\newcommand{\named}[1]{\mbox{\textsc{#1}}}
+
 
 % % % Property and event
 
@@ -125,7 +114,7 @@
 
 \newcommand{\qWhyV}[0]{\hyperref[questionWhyV]{\fof{2}?}}
 
-\newcommand{\issueInclusion}[0]{\hyperref[consInclusion]{\conRel{\qWhy{}}{\qHow{}}}}
+\newcommand{\issueInclusion}[0]{\hyperref[consInclusion]{\conRel{\whyName{}?}{\howName{}?}}}
 
 \newcommand{\pv}[2]{\ensuremath{\langle}#1, #2\ensuremath{\rangle}}
 \newcommand{\pvB}[2]{\obeybreaks{\ensuremath{\langle #1, #2 \rangle}}}
@@ -149,8 +138,6 @@
   }
 }
 \ExplSyntaxOff
-
-\newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
 \NewDocumentCommand{\prop}{ m }{%
@@ -197,6 +184,8 @@
   }
 }
 \ExplSyntaxOff
+
+\newcommand{\ofPremises}[0]{}%{\space of\space premises}
 
 \ExplSyntaxOn
 \NewDocumentCommand{\pool}{ m }{%
@@ -249,29 +238,6 @@
 
 \ExplSyntaxOn
 \newcommand{\witpage}[0]{\autopageref{def:witnessing}}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\pwitP}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {%
-    \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{1}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{(\hyperref[def:Pwit]{\pwP{2}}) \space \wit{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{(\hyperref[def:Pwit]{\pwP{2}}) \space \wit{1}}%
-    \fi
-  }
-}
 \ExplSyntaxOff
 
 % % % % % % Requisites etc % % %
@@ -362,75 +328,6 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\newcommand{\nagent}[1]{%
-\tl_if_empty:nTF {#1}
-  {
-    {\tJunk{}}
-  }
-  {%
-    \ifnum0=#1\relax
-      {\tJunk{}}%
-    \fi
-    \ifnum1=#1\relax
-      Sam%
-    \fi
-    \ifnum2=#1\relax
-      Taylor%
-    \fi
-    \ifnum3=#1\relax
-      Cameron%
-    \fi
-    \ifnum4=#1\relax
-      Kelsey%
-    \fi
-     \ifnum5=#1\relax
-      Archer%
-    \fi
-    \ifnum6=#1\relax
-      Jody%
-    \fi
-    \ifnum7=#1\relax
-      Phoenix%
-    \fi
-    \ifnum8=#1\relax
-      Frankie%
-    \fi
-    \ifnum9=#1\relax
-      Roxanne%
-    \fi
-    \ifnum10=#1\relax
-      Winter%
-    \fi
-    \ifnum11=#1\relax
-      Robin%
-    \fi
-    \ifnum12=#1\relax
-      Grayson%
-    \fi
-    \ifnum13=#1\relax
-      Logan%
-    \fi
-    \ifnum14=#1\relax
-      Leighton%
-    \fi
-    \ifnum15=#1\relax
-      Dana%
-    \fi
-    \ifnum16=#1\relax
-    Marin
-    \fi
-    \ifnum17=#1\relax
-    Ryan
-    \fi
-    \ifnum18=#1\relax
-    Cassidy
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
 % % % https://tex.stackexchange.com/questions/200211/using-the-same-figure-twice-with-no-new-number
 \newcommand{\repeatCaption}[2]{%
   \renewcommand{\thefigure}{\ref{#1}}%
@@ -477,17 +374,6 @@
 }
 \ExplSyntaxOff
 
-\newcommand{\howBasic}[0]{\obeybreaks{%
-  \emph{How}, in part, did the agent conclude \(\phi\) has value \(v\)?%
-}}
-
-\newcommand{\whyBasic}[0]{\obeybreaks{%
-  \emph{Why}, in part, did the agent conclude \(\phi\) has value \(v\)?%
-}}
-
-
-
-
 
 \ExplSyntaxOn
 \NewDocumentCommand{\assuPP}{ m }{
@@ -512,35 +398,7 @@
 }
 \ExplSyntaxOff
 
-
-
 % % % % % % Potntial, etc % % %
-
-\ExplSyntaxOn
-\NewDocumentCommand{\potential}{ m }{
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{potential}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{potential}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Potential}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tJunk{}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-
-
 
 \ExplSyntaxOn
 \NewDocumentCommand{\itc}{ m }{
@@ -802,28 +660,7 @@
 }
 \ExplSyntaxOff
 
-\ExplSyntaxOn
-\NewDocumentCommand{\tocN}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{type\space of\space conclusion}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{type\space of\space conclusion}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{types\space of\space conclusion}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{Type\space of\space conclusion}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{Types\space of\space conclusion}%
-    \fi
-  }
-}
-\ExplSyntaxOff
+
 
 \ExplSyntaxOn
 \NewDocumentCommand{\tI}{ m }{%
@@ -843,29 +680,6 @@
     \fi
     \ifnum3=#1\relax%
       \obeybreaks{members}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\tRep}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\hyperref[def:rotoc]{emblem}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{emblem}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{emblems}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
     \fi
   }
 }
@@ -1006,36 +820,6 @@
       \obeybreaks{\tJunk{}}%
     \fi
   }
-}
-\ExplSyntaxOff
-
-
-\ExplSyntaxOn
-\NewDocumentCommand{\rotocN}{ m }{%
-  \tl_if_empty:nTF {#1}
-  {
-    \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
-  }
-  {%
-    \ifnum0=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
-    \fi
-    \ifnum1=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
-    \fi
-    \ifnum2=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
-    \fi
-    \ifnum3=#1\relax%
-      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
-    \fi
-  }
-}
-\ExplSyntaxOff
-
-\ExplSyntaxOn
-\NewDocumentCommand{\rotoc}{ m }{%
-  \obeybreaks{\hyperref[def:rotoc]{\rotocN{#1}}}
 }
 \ExplSyntaxOff
 

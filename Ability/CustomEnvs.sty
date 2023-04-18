@@ -7,6 +7,7 @@
 
 \newcommand{\envEnd}[0]{\smallbreak}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{argument}{ m +b}
 {%
   \smallskip%
@@ -16,8 +17,9 @@
   \mbox{ }\hfill\adforn{39}%
   \envEnd{}
 }
+\ExplSyntaxOff
 
-
+\ExplSyntaxOn
 \NewDocumentEnvironment{motivation}{ m +b}
 {%
   \smallskip%
@@ -27,12 +29,13 @@
   \mbox{ }\hfill\adforn{39}%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 \newcounter{scenarioCounter}
 \setcounter{scenarioCounter}{0}
 \renewcommand{\thescenarioCounter}{\arabic{scenarioCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{scenario}{ o +b}
 {%
   \refstepcounter{scenarioCounter}%
@@ -46,7 +49,7 @@
   \mbox{ }\hfill\adfdownleafleft%
   \smallskip
 }
-
+\ExplSyntaxOff
 
 \NewDocumentEnvironment{rscenario}{ m m +b}
 {%
@@ -63,7 +66,7 @@
   \envEnd{}
 }
 
-
+\ExplSyntaxOn
 \newcommand\reScenario[1]{
   \smallskip%
   \noindent\textbf{Scenario~\ref{#1}}~(\csname literallabel_#1\endcsname)
@@ -73,12 +76,13 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 \newcounter{observationCounter}
 \setcounter{observationCounter}{0}
 \renewcommand{\theobservationCounter}{\arabic{observationCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{observation}{o +b}
 {%
   \refstepcounter{observationCounter}%
@@ -93,29 +97,14 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }{}
+\ExplSyntaxOff
 
-
-% \newcounter{specificationCounter}
-% \setcounter{specificationCounter}{0}
-% \renewcommand{\thespecificationCounter}{\arabic{specificationCounter}}
-
-% \NewDocumentEnvironment{specification}{ o +b}
-% {%
-%   \refstepcounter{specificationCounter}%
-%   \smallskip%
-%   \IfNoValueTF{#1}%
-%     {\noindent\textbf{Specification~\arabic{specificationCounter}}}%
-%     {\noindent\textbf{Specification~\arabic{specificationCounter}}~(#1)}%
-%   \mbox{ }\newline%
-%   #2%
-%   \mbox{ }\hfill\adfdownleafleft%
-%   \envEnd{}
-% }
 
 \newcounter{illustrationCounter}
 \setcounter{illustrationCounter}{0}
 \renewcommand{\theillustrationCounter}{\arabic{illustrationCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{illustration}{ o +b}
 {%
   \refstepcounter{illustrationCounter}%
@@ -128,12 +117,14 @@
   \mbox{ }\hfill\adfgee%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 
 \newcounter{sketchCounter}
 \setcounter{sketchCounter}{0}
 \renewcommand{\thesketchCounter}{\arabic{sketchCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{sketch}{ o +b}
 {%
   \refstepcounter{sketchCounter}%
@@ -146,31 +137,14 @@
   \mbox{ }\hfill\adfgee%
   \envEnd{}
 }
-
-
-\newcounter{linkCounter}
-\setcounter{linkCounter}{0}
-\renewcommand{\thelinkCounter}{\arabic{linkCounter}}
-
-\NewDocumentEnvironment{link}{ o +b}
-{%
-  \refstepcounter{linkCounter}%
-  \smallskip%
-  \parindent0pt%
-  \IfNoValueTF{#1}%
-    {\noindent\textbf{Link~\arabic{linkCounter}}}%
-    {\noindent\textbf{Link~\arabic{linkCounter}}~(#1)}%
-  \mbox{ }\newline%
-  #2%
-  \mbox{ }\hfill\adfgee%
-  \envEnd{}
-}
+\ExplSyntaxOff
 
 
 \newcounter{ideaCounter}
 \setcounter{ideaCounter}{0}
 \renewcommand{\theideaCounter}{\arabic{ideaCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{idea}{ o +b}
 {%
   \refstepcounter{ideaCounter}%
@@ -184,7 +158,7 @@
   \mbox{ }\hfill\adfast3%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 \ExplSyntaxOn
 \NewDocumentEnvironment{ridea}{ m m +b}
@@ -217,9 +191,6 @@
 \ExplSyntaxOff
 
 
-
-
-
 \ExplSyntaxOn
 \NewDocumentCommand{\assumptionName}{ m }{%
   \tl_if_empty:nTF {#1}
@@ -238,6 +209,7 @@
 \setcounter{assumptionCounter}{0}
 \renewcommand{\theassumptionCounter}{\arabic{assumptionCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{assumption}{ o +b}
 {%
   \refstepcounter{assumptionCounter}%
@@ -251,6 +223,7 @@
   \mbox{ }\hfill\adfoutlineleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 
 
@@ -338,6 +311,7 @@
 \setcounter{propCounter}{0}
 \renewcommand{\thepropCounter}{\arabic{propCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{proposition}{ o +b}
 {%
   \refstepcounter{propCounter}%
@@ -351,7 +325,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{rproposition}{ m m +b}
 {%
   \refstepcounter{propCounter}%
@@ -366,8 +342,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
-
+\ExplSyntaxOn
 \newcommand\reProposition[1]{
   \smallskip%
   \marginnote{\raggedright \autopageref{#1}}
@@ -378,34 +355,16 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 
-
-
-
-\newcounter{coroCounter}
-\setcounter{coroCounter}{0}
-\renewcommand{\thecoroCounter}{\arabic{coroCounter}}
-
-\NewDocumentEnvironment{corollary}{ o +b}
-{%
-  \refstepcounter{coroCounter}%
-  \smallskip%
-  \parindent0pt%
-  \IfNoValueTF{#1}%
-    {\noindent\textbf{Corollary~\arabic{coroCounter}}}%
-    {\noindent\textbf{Corollary~\arabic{coroCounter}}~(#1)}%
-  \mbox{ }\newline%
-  #2%
-  \mbox{ }\hfill\adfdownleafleft%
-  \envEnd{}
-}
 
 
 \newcounter{condCounter}
 \setcounter{condCounter}{0}
 \renewcommand{\thecondCounter}{\arabic{condCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{condition}{ o +b}
 {%
   \refstepcounter{condCounter}%
@@ -419,12 +378,13 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 \newcounter{notationCounter}
 \setcounter{notationCounter}{0}
 \renewcommand{\thenotationCounter}{\arabic{notationCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{notation}{ o +b}
 {%
   \refstepcounter{notationCounter}%
@@ -438,13 +398,14 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 
 \newcounter{intuitionCounter}
 \setcounter{intuitionCounter}{0}
 \renewcommand{\theintuitionCounter}{\arabic{intuitionCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{intuition}{ o +b}
 {%
   \refstepcounter{intuitionCounter}%
@@ -458,6 +419,7 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 % % % Notes % % %
 
@@ -540,6 +502,7 @@
 \setcounter{constraintCounter}{0}
 \renewcommand{\theconstraintCounter}{\arabic{constraintCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{constraint}{ m m +b}
 {%
   \refstepcounter{constraintCounter}%
@@ -555,6 +518,7 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 \newcommand\reConstraint[1]{
   \smallskip%
@@ -570,6 +534,7 @@
 \setcounter{questionCounter}{0}
 \renewcommand{\thequestionCounter}{\arabic{questionCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{question}{ m m +b}
 {%
   \refstepcounter{questionCounter}%
@@ -585,7 +550,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
+\ExplSyntaxOn
 \newcommand\reQuestion[1]{
   \smallskip%
   \noindent\textbf{Question~\ref{#1}}~(\csname literallabel_#1\endcsname)
@@ -595,13 +562,14 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
-
+\ExplSyntaxOff
 
 
 \newcounter{applicationCounter}
 \setcounter{applicationCounter}{0}
 \renewcommand{\theapplicationCounter}{\arabic{applicationCounter}}
 
+\ExplSyntaxOn
 \NewDocumentEnvironment{application}{ o +b}
 {%
   \refstepcounter{applicationCounter}%
@@ -615,8 +583,9 @@
   \mbox{ }\hfill\adfdownleafleft%
   \envEnd{}
 }
+\ExplSyntaxOff
 
-
+\ExplSyntaxOn
 \NewDocumentEnvironment{dets}{ m +b}
 {%
   \smallskip%
@@ -626,8 +595,9 @@
   \mbox{ }\hfill\adforn{39}%
   \envEnd{}
 }
+\ExplSyntaxOff
 
-
+\ExplSyntaxOn
 \NewDocumentEnvironment{rscenariox}{ m m +b}
 {%
   \refstepcounter{scenarioCounter}%
@@ -641,5 +611,6 @@
   #3%
   \envEnd{}
 }
+\ExplSyntaxOff
 
 % For some reason need padding else compile error

@@ -2183,3 +2183,255 @@
     }
   }
 \ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\TOCLine}{ O{} m }{% No inertia
+  \tl_if_empty:nTF {#1}
+  {%
+    \nameref{#2}\dotfill\autoref{#2},\space\autopageref{#2}
+  }
+  {%
+    \nameref{#2}\space{#1}\dotfill\autoref{#2},\space\autopageref{#2}
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\preName}[1]{\mbox{\textsc{#1}}} %{\mbox{\textsf{\textsc{#1}}}}
+\newcommand{\named}[1]{\mbox{\textsc{#1}}}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\pwitP}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{(\hyperref[def:Pwit]{\pwP{0}}) \space \wit{1}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{(\hyperref[def:Pwit]{\pwP{2}}) \space \wit{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{(\hyperref[def:Pwit]{\pwP{2}}) \space \wit{1}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\newcommand{\nagent}[1]{%
+\tl_if_empty:nTF {#1}
+  {
+    {\tJunk{}}
+  }
+  {%
+    \ifnum0=#1\relax
+      {\tJunk{}}%
+    \fi
+    \ifnum1=#1\relax
+      Sam%
+    \fi
+    \ifnum2=#1\relax
+      Taylor%
+    \fi
+    \ifnum3=#1\relax
+      Cameron%
+    \fi
+    \ifnum4=#1\relax
+      Kelsey%
+    \fi
+     \ifnum5=#1\relax
+      Archer%
+    \fi
+    \ifnum6=#1\relax
+      Jody%
+    \fi
+    \ifnum7=#1\relax
+      Phoenix%
+    \fi
+    \ifnum8=#1\relax
+      Frankie%
+    \fi
+    \ifnum9=#1\relax
+      Roxanne%
+    \fi
+    \ifnum10=#1\relax
+      Winter%
+    \fi
+    \ifnum11=#1\relax
+      Robin%
+    \fi
+    \ifnum12=#1\relax
+      Grayson%
+    \fi
+    \ifnum13=#1\relax
+      Logan%
+    \fi
+    \ifnum14=#1\relax
+      Leighton%
+    \fi
+    \ifnum15=#1\relax
+      Dana%
+    \fi
+    \ifnum16=#1\relax
+    Marin
+    \fi
+    \ifnum17=#1\relax
+    Ryan
+    \fi
+    \ifnum18=#1\relax
+    Cassidy
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\newcommand{\howBasic}[0]{\obeybreaks{%
+  \emph{How}, in part, did the agent conclude \(\phi\) has value \(v\)?%
+}}
+
+\newcommand{\whyBasic}[0]{\obeybreaks{%
+  \emph{Why}, in part, did the agent conclude \(\phi\) has value \(v\)?%
+}}
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\potential}{ m }{
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{potential}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{potential}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Potential}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tJunk{}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tRep}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\hyperref[def:rotoc]{emblem}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\hyperref[def:rotoc]{emblem}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\hyperref[def:rotoc]{emblems}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\hyperref[def:rotoc]{Emblems}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+
+\ExplSyntaxOn
+\NewDocumentCommand{\tocN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{type\space of\space conclusion}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{type\space of\space conclusion}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{types\space of\space conclusion}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{Type\space of\space conclusion}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{Types\space of\space conclusion}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rotocN}{ m }{%
+  \tl_if_empty:nTF {#1}
+  {
+    \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+  }
+  {%
+    \ifnum0=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum1=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum2=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+    \ifnum3=#1\relax%
+      \obeybreaks{\tRep{#1}\space of\space a\space \tocN{0}}%
+    \fi
+  }
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\rotoc}{ m }{%
+  \obeybreaks{\hyperref[def:rotoc]{\rotocN{#1}}}
+}
+\ExplSyntaxOff
+
+\newcounter{linkCounter}
+\setcounter{linkCounter}{0}
+\renewcommand{\thelinkCounter}{\arabic{linkCounter}}
+
+\NewDocumentEnvironment{link}{ o +b}
+{%
+  \refstepcounter{linkCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Link~\arabic{linkCounter}}}%
+    {\noindent\textbf{Link~\arabic{linkCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfgee%
+  \envEnd{}
+}
+
+
+\newcounter{coroCounter}
+\setcounter{coroCounter}{0}
+\renewcommand{\thecoroCounter}{\arabic{coroCounter}}
+
+\NewDocumentEnvironment{corollary}{ o +b}
+{%
+  \refstepcounter{coroCounter}%
+  \smallskip%
+  \parindent0pt%
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Corollary~\arabic{coroCounter}}}%
+    {\noindent\textbf{Corollary~\arabic{coroCounter}}~(#1)}%
+  \mbox{ }\newline%
+  #2%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
