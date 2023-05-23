@@ -119,9 +119,6 @@ maxbibnames=99,
 \usepackage[math-style=ISO]{unicode-math}
 \setmathfont{Libertinus Math}
 
-\usepackage{pifont}
-\newcommand{\hand}{\ding{43}}
-
 \usepackage[
 breaklinks,
 bookmarks=false,
@@ -163,7 +160,7 @@ colorlinks=false,
 }
 
 \title{
-  Foregone-conclusions \quad / \quad Handout
+  Foregone-conclusions \quad / \quad Handout notes
 }
 % \author{Ben Sparkes}
 \date{ }
@@ -172,92 +169,30 @@ colorlinks=false,
 
 \maketitle
 
-\begin{thesis}[First pass]
-  A constraint on answers to \emph{why} an \eiw{0} an agent concludes happens via \emph{how} the \eiw{0} an agent concludes happens does not hold.
-\end{thesis}
+\begin{itemize}
+\item
+  Understanding the way an \eiw{0} an agent concludes happens.
+
+  Two questions, why and how.
+
+  Whether answers to how constrain answers to why.
+\item
+  The plan is to cover, roughly, the foundations of the thesis.
+
+  The two questions, the constraint, and the way answers to \qWhy{} are obtained.
+  So, I will not present an abridged version of the overall argument of the thesis.
+\item
+  A handout, rather than slides.
+\item
+  
+\end{itemize}
+
 
 \section{\eiw{3} an agent concludes}
 \label{sec:overview}
 
 \begin{note}
-  \par\noindent\rule{\textwidth}{0.4pt}
-  \begin{minipage}{.5\linewidth}
-    \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factors}%
-      % \autoref{illu:gist:roots:F}
-      An agent reasons as follows:
-      % 
-      \begin{enumerate}[label=\arabic*., ref=\arabic*]
-      \item
-        \label{illu:gist:roots:F:eq}
-        For some \(x \in \mathbb{R}\), \rootsConEq{}.
-      \item
-        \label{illu:gist:roots:F:factor}
-        \rootsConEqFac{}.
-      \item
-        \label{illu:gist:roots:F:zero}
-        Either \(\rootsConEqFacL{} = 0\) or \(\rootsConEqFacR{} = 0\).
-      \item
-        \label{illu:gist:roots:F:case:a}
-        If \(\rootsConEqFacL{} = 0\), then \(x = \rootsConEqFacLx{}\).
-      \item
-        \label{illu:gist:roots:F:case:b}
-        If \(\rootsConEqFacR{} = 0\), then \(x = \rootsConEqFacRx{}\).
-      \item
-        \label{illu:gist:roots:F:factor:done}
-        Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
-      \end{enumerate}
-      % 
-      The agent concludes:
-      \rootsCon{}.
-    \end{rscenariox}
-  \end{minipage}
-  \begin{minipage}{.5\linewidth}
-    \begin{rscenariox}{illu:gist:roots:QF}{Quadratic roots --- Formula}%
-      % \autoref{illu:gist:roots:QF}
-      An agent reasons as follows:
-      % 
-      \begin{enumerate}[label=\arabic*., ref=\arabic*]
-      \item
-        \label{illu:gist:roots:QF:eq}
-        For some \(x \in \mathbb{R}\), \rootsConEq{}.
-      \item
-        \label{illu:gist:roots:QF:qf}
-        The quadratic formula states \(x = \rootsQEq{}\).
-      \item
-        \label{illu:gist:roots:QF:subs}
-        Set \(a \coloneq \rootsQa{}\), \(b \coloneq \rootsQb{}\), and \(c \coloneq \rootsQc{}\).%
-        %\footnotemark
-      \item
-        \label{illu:gist:roots:QF:qf-subs}
-        \(x = \rootsQEqFill{\rootsQa{}}{\rootsQb{}}{\rootsQc{}}\).
-      \item
-        \label{illu:gist:roots:QF:qf:1}
-        \(x = \sfrac{(- 1 \pm 5)}{12}\).
-      \item
-        \label{illu:gist:roots:QF:qf:done}
-        Either \(x = \rootsConEqFacLx{}\) or \(x = \rootsConEqFacRx{}\).
-      \end{enumerate}
-      % 
-      The agent concludes:
-      \rootsCon{}.
-    \end{rscenariox}
-  \end{minipage}
-  \par\noindent\rule{\textwidth}{0.4pt}
-
-  % \footnotetext{
-  %   \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
-  % }
-\end{note}
-
-\begin{note}
-  % Likewise:
-
-  % \begin{itemize}
-  % \item
-  %   In \autoref{illu:gist:roots:F} the agent does not conclude \propI{\rootsCon{}} from their understanding of the quadratic formula.
-  % \item
-  %   In \autoref{illu:gist:roots:QF} the agent does not conclude \propI{\rootsCon{}} from their understanding of factorisation.
-  % \end{itemize}
+  
 \end{note}
 
 
@@ -265,7 +200,7 @@ colorlinks=false,
 
 
 \begin{note}
-  Things:
+  Abstractions to talk about \eiw{} an agent concludes:
 
   \begin{itemize}
   \item
@@ -284,33 +219,25 @@ colorlinks=false,
     \pool{3} \(\leadsto\) collections of \prop{1} paired with \val{1}.
     \begin{itemize}
     \item
-      A \pool{} associated with an agent's understanding of factorisation, chess, sudoku puzzles, and so on\dots
+      Specifying \pool{1} is not particularly easy.
+
+      Agent concludes \propM{\rootsCon{}} has \valI{True} from a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and various \prop{0}-\val{0} pairs which capture the \agents{} understanding of factorisation.
     \end{itemize}
   \end{itemize}
 
   % Think of this as a more flexible approach to propositional attitudes.
 
   \noindent
-  Relations:
+  Two relations:
 
   \begin{itemize}
   \item
     An agent concludes a \prop{0} has some \val{0} \underline{\emph{from}} some \pool{}.
-    \begin{itemize}
-    \item
-      In \autoref{illu:gist:roots:F} the agent concludes \propI{\rootsCon{}} has \val{} \valI{True} from a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of factorisation.
-    \end{itemize}
   \item
     A \prop{0} having some \val{0} \underline{\emph{\fof{}}} some \pool{} (from the \agpe{}, relative to an event).
-    \begin{itemize}
-    \item
-      In \autoref{illu:gist:roots:QF}, at Step 3, \propI{\rootsCon{}} having \val{} \valI{True} followed from a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of the quadratic formula.
-    \end{itemize}
-    \begin{itemize}
-    \item[\hand]
-      A \fof{} relation may hold between arbitrary \prop{0}-\val{0}-\pool{0} pairings (different from rationalisations).
-    \end{itemize}
   \end{itemize}
+
+  Note, a \fof{} relation may hold between arbitrary \prop{0}-\val{0}-\pool{0} pairings.
   % If you like, think of this as a relation of support.
   % However, there's nothing normative here.
   % This is what distinguishes \fofr{} from rationalisations.
@@ -323,68 +250,42 @@ colorlinks=false,
 \section{Two questions and a constraint \hfill (\qWhy{}, \qHow{}, and \issueInclusion{})}
 \label{sec:target}
 
-\vfill
+
+\begin{note}
+  Relationship between two questions about \eiw{3} an agent concludes.
+
+  \qWhy{} \qHow{}, \issueInclusion{}.
+\end{note}
 
 \begin{note}
   \begin{question}{questionWhy}{\qWhy{}}
-    Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
+    Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}
     \item
-      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\) (rather than an \eiw{0} some other thing happens)?
+      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than an \eiw{0} some other thing happens)?
     \end{itemize}
     \vspace{-1\baselineskip}
   \end{question}
 
-  \begin{itemize}
-  \item[\hand]
-    \qWhy{} asks about explanatory \fingfr{1}.
-  \end{itemize}
+  Shuffling cards.
+  If random shuffle, no answer to why.
+  If magician performing sleight of hand, answer to why for chosen card.
 
-  \begin{itemize}
-  \item
-    The sense of `why' in \qWhy{} asks why \(e\) is an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
-    \begin{itemize}
-    \item
-      Shuffling cards.
-      \begin{itemize}
-      \item
-        If random shuffle, no answer to why.
-      \item
-        If performing sleight of hand, answer to why for chosen card.
-      \end{itemize}
-    \item
-      Biased die.
-    \end{itemize}
-  \end{itemize}
+  \qWhy{} is about \fingfr{}.
+  Which \fingfr{} provide some insight.
 \end{note}
-
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
 
 \begin{note}
   \begin{question}{questionHow}{\qHow{}}
-    Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
+    Given \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}
     \item
-      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\) (rather than an \eiw{0} some other thing happens)?
+      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \(\pv{\phi}{v}\) (rather than an \eiw{0} some other thing happens)?
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
-
-  \begin{itemize}
-  \item[\hand]
-    \qHow{} asks about explanatory \fof{1}.
-  \end{itemize}
 \end{note}
 
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
 
 \begin{note}
   \begin{constraint}{consInclusion}{\issueInclusion{}}
@@ -399,63 +300,95 @@ colorlinks=false,
     \vspace{-\baselineskip}
   \end{constraint}
 
-  \begin{itemize}
-  \item
-    I think this is (maybe) intuitive.
-    \begin{itemize}
-    \item
-      Sleight of hand happened, bias of a die took effect.
-    \end{itemize}
-  \item
-    \citeauthor{Davidson:1963aa} opens \citetitle{Davidson:1963aa} with the following question:
-
-    \begin{quote}
-      What is the relation between a reason and an action when the reason explains the action by giving the agent's reason for doing what he did?
-      We may call such explanations \emph{rationalizations}, and say that the reason rationalizes the action.%
-      \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
-    \end{quote}
-
-    Paraphrased:
-    % 
-    \begin{quote}
-      A rationalisation is an explanation of why an agent did action \(a\) by giving the agent's reason for doing \(a\).
-    \end{quote}
-    % 
-    \citeauthor{Davidson:1963aa} argues rationalisations are causal explanations.
-    So, this is plausibly an instance of answer to a `why' question being constrained by answers to a `how' question.
-  \item[\hand]
-    Rationalisations are different from \fofr{1}!
-  \end{itemize}
+  For some intuition, think of Davidsonian style rationalisations.
+  Davidson's argument is that rationalisation are causal relations.
+  So, constraint holds.
+  Difficultly with approach via rationalisations is that rationalisations are a specific abstraction.
+  I'm interested in something a little different.
 \end{note}
 
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
 
 \begin{note}
-  \begin{thesis}[Second pass]
-    \issueInclusion{} does not hold.
-  \end{thesis}
+  This is where some important work is done.
+  The thing is, this is set up in a careful way.
+  \fofr{3} answer both \qWhy{} and \qHow{}.
+  So, it's possible for a \fofr{} between a \prop{0}-\val{0} pair and \pool{} distinct from the \prop{0}-\val{0}-\pool{0} pair directly related to the conclusion to answer both \qWhy{} and \qHow{}.
+
+  Key observation is that if the agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\) then \(\pv{\psi}{v'}\) \fof{} \(\Psi\) does not answer \qHow{}.
 \end{note}
 
-\vfill
 
+\begin{note}
+  Might like to view \qWhy{} and \qHow{} as, respectively, asking about constitutive and causal explanations.
+  Still, I see no need to relate these questions to broader types of explanation.
+  If they do correspond, then great.
+  But, I'm not interested in whether a connexion between these types of explanation holds in general, or in the specific case of an \eiw{} an agent concludes.
+
+  As focus on getting answers to \qWhy{}, maybe you'll tell me more in the Q\&A.
+\end{note}
+
+
+\section{Approach}
+\label{sec:approach}
+
+\begin{note}
+  I argue \issueInclusion{} fails to hold.
+\end{note}
+
+
+\begin{note}
+  For \issueInclusion{} to fail, need a counterexample.
+  Though this is more involved.
+
+  \begin{enumerate}
+  \item
+    Sense of `why' and `how'.
+  \item
+    Answers to \qWhy{}.
+  \item
+    Way to identify \fingfr{}.
+  \end{enumerate}
+\end{note}
+
+\begin{note}
+  Not really about the result.
+  Argument.
+  Fairly technical.
+  Framework so it's possible to create a direct argument.
+  Only issue is whether the definitions, ideas, etc.\ work out.
+  I.e.\ whether you agree.
+
+  Stress this point.
+  Well, what do I want to stress?
+  `Makes sense'.
+  So, think of epistemology.
+  Various cases, intuition about whether knows.
+  Intuition is taken as input for creating theory.
+  This is the sort of Rawlsian reflective equilibrium.
+
+  Important constraint.
+  Should not be the case framework presupposes answer.
+  See how these definitions come together.
+  
+\end{note}
 
 \newpage
 
-\section{\progEx{2} (roughly)}
+\section{Answers to \qWhy{}}
 \label{sec:answers-qwhy}
 
 \begin{note}
   Basic idea: Obtain answers to \qWhy{} by considering conclusions in progress.
 \end{note}
 
+
 \begin{note}
-  The following is a simplified account of \progEx{}.
-  Specifically, omit descriptions.
-  Things don't quite work, but get the core idea.
+  Part of why this is interesting.
+  Maybe.
+  No subjunctives, with the exception of thinking about events in progress.
+  If you can do events in progress without subjunctives, then, things go through.
+  Even projections.
+  These talk about possibility, and entail various subjunctives, but that's about it.
 \end{note}
 
 
@@ -486,6 +419,35 @@ colorlinks=false,
   It is the case that some other event is in progress.
 \end{note}
 
+\subsection{Events and descriptions}
+\label{sec:events-descriptions}
+
+
+\begin{note}
+  Davidsonian.
+  However, a little loose to help smooth some ideas.
+  Basically, fix and event and definition of that event.
+
+  This is particularly useful for talking about events in progress.
+  If have an \eiw{} an agent concludes then there are some aspects of the event which were in progress, and other things that were not in progress.
+
+  Consider \autoref{illu:gist:roots:F}.
+  Agent's conclusion was in progress, but plausible order of steps 4 and 5 was not in progress.
+  Same with Step 5 of \autoref{illu:gist:roots:QF}, and here unspecified --- add or subtract first.
+
+  So distinct between these two things helps fix an event fairly easily, while narrowing down certain parts of the event.
+\end{note}
+
+\begin{note}
+  \begin{itemize}
+    \item
+      \(\edn{}\) picks out a specific event (i.e.\ an event under some unique description).
+    \item
+      \(\ed{}\) captures (the specific event) \(\edn{}\) under the particular description \(\edo{}\).
+    \end{itemize}
+\end{note}
+
+
 \subsection{\se{3}}
 
 \begin{note}
@@ -493,7 +455,7 @@ colorlinks=false,
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      \(\edn{\flat}\) is a \emph{\se{0}} of \(\edn{}\).
+      \(\ed{\flat}\) is a \emph{\se{0}} of \(\ed{}\).
     \end{itemize}
     \emph{If and only if}:
     \begin{itemize}
@@ -502,17 +464,17 @@ colorlinks=false,
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{assu:p:se:prog}
-        \(\edn{\flat}\) is such that \(\edn{}\) is in progress.
+        \(\ed{\flat}\) is such that \(\ed{}\) is in progress.
       \item
         \label{assu:p:se:hCon}
-        \(\edn{}\) partly happens as a result of \(\edn{\flat}\).
+        \(\ed{}\) partly happens as a result of \(\ed{\flat}\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{rdefinition}
 
   \noindent%
-  \(\edn{\flat}\) being a \emph{\se{0}} of \(\edn{}\) concerns specific events \(\edn{\flat}\) and \(\edn{}\).
+  \(\ed{\flat}\) being a \emph{\se{0}} of \(\ed{}\) concerns specific events \(\edn{\flat}\) and \(\edn{}\).
   And, of interest is whether specific descriptions \(\edo{}\) and \(\edo{\flat}\) capture a particular connexion between \(\edn{\flat}\) and \(\edn{}\).
 
   Still, our interest is only with parts of \(\edn{\flat}\) and \(\edn{}\), respectively.
@@ -534,21 +496,16 @@ colorlinks=false,
   And, the role of Clause~\ref{assu:p:se:hCon} is to ensure \(\edn{}\) happens as a result of being favoured.
 \end{note}
 
-
-\begin{note}
-  Consider \autoref{illu:gist:roots:F}.
-  Agent's conclusion was in progress, but plausible order of steps 4 and 5 was not in progress.
-  Same with Step 5 of \autoref{illu:gist:roots:QF}, and here unspecified --- add or subtract first.
-
-  So distinct between these two things helps fix an event fairly easily, while narrowing down certain parts of the event.
-\end{note}
-
-
-\subsection{\progExI{}}
+\subsection{\progEx{2}}
 \label{sec:progex}
 
-
 \begin{note}
+  Answers to \qWhy{}.
+
+  This is where things get a little involved.
+
+  \progEx{}.
+
   Idea is, over any other event.
   Event over any other event.
   So, events in progress.
@@ -561,20 +518,20 @@ colorlinks=false,
 
 \begin{note}
     \begin{rproposition}{prop:PEbasic}{\progExI{}}%
-    Given \(\edn{}\) is an \eiw{0} \vAgent{} does \(a\), and the sense of `why' present in \qWhy{}:
+    Given \(\ed{}\) is an \eiw{0} \vAgent{} does \(a\), and the sense of `why' present in \qWhy{}:
 
     \begin{itenum}
     \item[\emph{If}:]
-      \(\edn{\flat}\) is a \se{} of \(\edn{}\).
+      \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     \item[\emph{Then:}]
-      \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' \(\edn{}\) happened.
+      \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' \(\ed{}\) happened.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{rproposition}
 
   \noindent%
-  Given \(\edn{\flat}\) is a \se{} of \(\edn{}\), \(\edo{\flat}\) being true of \(\edn{}\) explains `why' \(\edn{}\) happened in a basic sense, as by Clause~\ref{assu:p:se:hCon} \(\edn{}\) partly happened as a result of \(\edn{\flat}\).
-  And, Clause~\ref{assu:p:se:prog} allows us to expand this observation to see \(\edn{}\) partly happened as a result of something which favoured \(\edn{}\) happening over any (incompatible) event.
+  Given \(\ed{\flat}\) is a \se{} of \(\ed{}\), \(\edo{\flat}\) being true of \(\ed{}\) explains `why' \(\ed{}\) happened in a basic sense, as by Clause~\ref{assu:p:se:hCon} \(\ed{}\) partly happened as a result of \(\ed{\flat}\).
+  And, Clause~\ref{assu:p:se:prog} allows us to expand this observation to see \(\ed{}\) partly happened as a result of something which favoured \(\ed{}\) happening over any (incompatible) event.
 \end{note}
 
 \paragraph{Example}
@@ -609,12 +566,32 @@ colorlinks=false,
 \label{sec:rationalisations}
 
 \begin{note}
-  
+  \citeauthor{Davidson:1963aa} opens \citetitle{Davidson:1963aa} with the following question:
+
+  \begin{quote}
+    What is the relation between a reason and an action when the reason explains the action by giving the agent's reason for doing what he did?
+    We may call such explanations \emph{rationalizations}, and say that the reason rationalizes the action.%
+    \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
+  \end{quote}
 
   \noindent%
+  Paraphrased:
+  %
+  \begin{quote}
+    A rationalisation involves an explanation of why some agent did some action \(a\) by giving the agent's reason for doing \(a\).
+  \end{quote}
+  %
+  And, \citeauthor{Davidson:1963aa} argues:
+  %
+  \begin{quote}
+    [R]ationalizations are causal explanations[.]%
+    \mbox{ }\hfill\mbox{(\citeyear[686]{Davidson:1963aa})}
+  \end{quote}
 \end{note}
 
 \begin{note}
+  So,\citeauthor{Davidson:1963aa}'s claim that rationalisations are causal explanations may be understood as an instance of a `why' question being constrained by a `how' question.
+
   Given a \eiw{} an agent concludes some \prop{0} \(\phi\) has some \val{0} \(v\) from some \pool{} \(\Phi\), a rationalisation may explain why the agent \emph{concluded} \(\phi\) has \val{0} from \(\Phi\).
   And, the various \prop{0}-\val{0} pairs in the \pool{} may be (part of) the \agents{} reason.
 
@@ -684,12 +661,141 @@ colorlinks=false,
   \end{scenario}
 \end{note}
 
+
+
+\newpage
+
+\section*{Presentation notes}
+\label{sec:presentation-notes}
+
+\paragraph*{Broad introduction}
+
+\begin{note}
+  \begin{itemize}
+  \item
+    Goal for this talk is to cover the foundations of the thesis.
+    If things go well, at the end of the presentation you will have a fairly good idea of:
+    \begin{enumerate}
+    \item
+      Broadly, what the thesis is about.
+    \item
+      What I argued for.
+    \item
+      The `core' of the argument.
+
+      The thesis is very detail oriented.
+      However, most of the thesis amounts to refining a particular idea to obtain a specific result.
+      The way the idea is refined is beyond the scope of a presentation like this, but I think the idea itself almost fits.
+    \end{enumerate}
+
+    I don't really like slides, so I've prepared a handout.
+  \item
+    Slightly high level:
+    \begin{itemize}
+    \item 
+      Given an event in which an agent concludes, two broad questions.
+      `Why' and `how'.
+      And, may think answers to why are constrained by answers to how.
+
+      A fairly well-known instance of this is \citeauthor{Davidson:1963aa}'s account of rationalisations.
+    \item
+      Briefly look at an instance.
+      Introduce some abstractions, state `why' and `how', and the constraint.
+      I argue constraint fails to hold.
+    \item
+      Core part of the argument is a way to obtain answers to why.
+    \end{itemize}
+  \end{itemize}
+\end{note}
+
+\paragraph{\eiw{3} an agent concludes}
+
+\begin{note}
+  Two scenarios.
+
+  Same conclusion, slightly different result.
+\end{note}
+
+\paragraph{Abstractions}
+
+\begin{note}
+  \begin{itemize}
+  \item
+    \prop{3}
+  \item
+    \val{3}
+  \item
+    \pool{3}
+  \item
+    Roughly, characterising inputs and outputs of reasoning.
+
+    If you like, think of propositional attitudes.
+    \prop{3} correspond to propositions and \val{1} correspond to attitudes.
+  \end{itemize}
+
+  With \prop{1}, \val{1}, and \pool{1} in hand, two relations of interest:
+
+  \begin{itemize}
+  \item
+    From relation
+  \item
+    \fofr{}, from the \agpe{}.
+  \end{itemize}
+
+  Relative to an \eiw{} agent concludes.
+
+  From, and \fof{}.
+  Coincide.
+  However, \fofr{} are more general.
+  With respect to \scen{1}, two from relations, only hold relative to the \scen{0}.
+  Still, the \fofr{} relation may hold in both \scen{1}.
+  I.e.\ agent concluded by factorisation, but had the option to use the quadratic formula.
+  For additional examples, consider practice problems.
+  If you've been learning the basics of factorisation, then \fofr{} should (hopefully) hold for practice problems.
+\end{note}
+
+\begin{note}
+  These are the abstractions.
+  And, with these in hand, formulate two questions.
+\end{note}
+
+\paragraph{Two questions and a constraint \hfill (\qWhy{}, \qHow{}, and \issueInclusion{})}
+
+\begin{note}
+  Why, how, and constraint.
+\end{note}
+
+\begin{note}
+  Notes on \qWhy{}:
+  \begin{itemize}
+  \item
+    Included in (partial) explanations.
+
+    Idea is, broad answers to why.
+    These may be partial.
+    And, whether this explanation `entails' a \fofr{0}.
+  \end{itemize}
+\end{note}
+
+
+\begin{note}
+  Phenomena.
+
+  Event where an agent concludes.
+  Two instances.
+
+  As an aside, argument is independent of \prop{}, \val{}.
+  Deal with \valI{True}, but other things are good.
+
+  From relation and \fofr{}.
+\end{note}
+
 \end{document}
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
 %%% TeX-engine: luatex
-%%% TeX-master: "handout"
+%%% TeX-master: "handoutNotes"
 %%% End:
 

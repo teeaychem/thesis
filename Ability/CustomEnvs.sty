@@ -613,4 +613,25 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\NewDocumentEnvironment{thesis}{ o +b}
+{%
+
+  \smallskip%
+  \hfill%
+  \hspace{\dimexpr-\fboxrule-\fboxsep\relax}\fbox{%
+  \begin{minipage}[t]{.9\linewidth}
+  \IfNoValueTF{#1}%
+    {\noindent\textbf{Thesis}}%
+    {\noindent\textbf{Thesis}~(#1)}%
+  \ignorespaces%
+  \newline%
+  #2%
+  \end{minipage}
+  }%
+  \hfill
+  \smallskip
+}
+\ExplSyntaxOff
+
 % For some reason need padding else compile error
