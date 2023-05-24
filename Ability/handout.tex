@@ -28,14 +28,6 @@
 \usepackage{array}
 \usepackage{arydshln}
 \usepackage{multirow}
-% https://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-% \usepackage{silence}
-% \WarningsOff[marginnote]% Suppress warnings related to package
-
 
 % % % The bibliography % % %
 \usepackage[%
@@ -58,7 +50,7 @@ maxbibnames=99,
 \newcommand{\noopsort}[1]{}
 \addbibresource{Ability.bib}
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}} % Enable Oxford Comma
-% % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % %
 
 \usepackage[inline]{enumitem}
 \SetEnumitemValue{labelindent}{standard}{.25\parindent}
@@ -70,7 +62,7 @@ maxbibnames=99,
   style=standard,
   font=\normalfont,
   labelwidth = \widthof{\emph{Then}:},
-} 
+}
 
 \usepackage[export]{adjustbox}
 \usepackage{subcaption}
@@ -83,7 +75,7 @@ maxbibnames=99,
 \usetikzlibrary{backgrounds, positioning, fit, backgrounds}
 \usetikzlibrary{math}
 \usetikzlibrary{tikzmark}
-% % % % % % % % % % % % 
+% % % % % % % % % % % %
 
 
 \usepackage{graphicx} % for images (png/jpeg etc.)
@@ -104,6 +96,15 @@ maxbibnames=99,
   {1.5ex \@plus .2ex}%
   {\normalfont\normalsize\bfseries}}
 \makeatother
+
+\makeatletter
+\newcommand\lLine{{\color{lightgray} \noindent\rule{\textwidth}{0.4pt}}}
+\newcommand\sepLine{
+  \vfill
+  \par\noindent\rule{\textwidth}{0.4pt}
+  \vfill}
+\makeatother
+
 
 
 % % % Fonts% %
@@ -334,7 +335,13 @@ colorlinks=false,
     \end{itemize}
     \vspace{-1\baselineskip}
   \end{question}
+\end{note}
 
+
+\lLine
+
+
+\begin{note}
   \begin{itemize}
   \item[\hand]
     \qWhy{} asks about explanatory \fingfr{1}.
@@ -342,7 +349,7 @@ colorlinks=false,
 
   \begin{itemize}
   \item
-    The sense of `why' in \qWhy{} asks why \(e\) is an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
+    The sense of `why' in \qWhy{} asks what (if anything) favoured \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
     \begin{itemize}
     \item
       Shuffling cards.
@@ -358,11 +365,7 @@ colorlinks=false,
   \end{itemize}
 \end{note}
 
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
+\sepLine
 
 \begin{note}
   \begin{question}{questionHow}{\qHow{}}
@@ -373,18 +376,23 @@ colorlinks=false,
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
+\end{note}
 
+\lLine
+
+\begin{note}
   \begin{itemize}
   \item[\hand]
-    \qHow{} asks about explanatory \fof{1}.
+    \qHow{} asks about what happened.
+  \end{itemize}
+
+  \begin{itemize}
+  \item
+    The sense of `how' in \qHow{} asks what (if anything) resulted in \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
   \end{itemize}
 \end{note}
 
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
+\sepLine
 
 \begin{note}
   \begin{constraint}{consInclusion}{\issueInclusion{}}
@@ -398,7 +406,11 @@ colorlinks=false,
     \end{itenum}
     \vspace{-\baselineskip}
   \end{constraint}
+\end{note}
 
+\lLine
+
+\begin{note}
   \begin{itemize}
   \item
     I think this is (maybe) intuitive.
@@ -428,11 +440,7 @@ colorlinks=false,
   \end{itemize}
 \end{note}
 
-\vfill
-
-\par\noindent\rule{\textwidth}{0.4pt}
-
-\vfill
+\sepLine
 
 \begin{note}
   \begin{thesis}[Second pass]
@@ -445,46 +453,108 @@ colorlinks=false,
 
 \newpage
 
-\section{\progEx{2} (roughly)}
+\section{Answers to \qWhy{} via \progEx{0}}
 \label{sec:answers-qwhy}
 
 \begin{note}
   Basic idea: Obtain answers to \qWhy{} by considering conclusions in progress.
 \end{note}
 
-\begin{note}
-  The following is a simplified account of \progEx{}.
-  Specifically, omit descriptions.
-  Things don't quite work, but get the core idea.
-\end{note}
-
-
 \subsection{Events, in progress}
 \label{sec:events-progress}
 
 \begin{note}
-  Roughly, think of events in progress in terms of the (English) progressive aspect.
-  %
-  \begin{enumerate}
-  \item
-    The agent is making soup.\newline
-    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent makes soup is in progress.
-  \item
-    The agent is reading Henley's `Invictus'.\newline
-    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent reads Henley's `Invictus' is in progress.
-  \item
-    The agent is riding the slope.\newline
-    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent rides the slope is in progress.
-  \end{enumerate}
-  %
-  This isn't quite right, as the (English) progressive has some quirks.
-  Though, it's good enough.
+  Some event \(\ed{\flat}\) such that some event \(\edn{}\) under description \(\edo{}\) is in progress.
+
+  \begin{itemize}
+  \item[\hand]
+    Some event \(\edn{}\) which satisfies description \(\edo{}\) is in progress.
+  \end{itemize}
 \end{note}
 
 \begin{note}
-  Key feature of events in progress is captured by the term.
-  It is the case that some other event is in progress.
+  Roughly, think of events in progress in terms of the (English) progressive aspect.
+  %
+  \begin{itemize}
+  \item
+    The agent is making soup.%\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent makes soup is in progress.
+
+    \mbox{ }\hfill \(\edo{}:\) `The agent makes soup.'
+  \item
+    The agent is reading Henley's `Invictus'.%\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent reads Henley's `Invictus' is in progress.
+
+    \mbox{ }\hfill \(\edo{}:\) `The agent reads Henley's `Invictus'.'
+  \item
+    The agent is passing the exam.%\newline
+    \mbox{ } \hfill \(\leadsto\) An \eiw{0} the agent passes the exam is in progress.
+
+    \mbox{ }\hfill \(\edo{}:\) `The agent passes the exam.'
+  \end{itemize}
+  %
+  This isn't quite right, as the progressive has some quirks.
+  Though, it's good enough.
 \end{note}
+
+\lLine
+
+\begin{note}
+  \begin{observation}[Favours]
+    If \(\ed{\flat}\) is such that \(\ed{}\) is in progress, then \(\ed{}\) is favoured over any event which in incompatible with \(\ed{}\) happening.
+  \end{observation}
+\end{note}
+
+\begin{note}
+  \begin{itemize}
+  \item
+    If concluding by factorisation, then not concluding by the quadratic equation.
+  \item
+    If rolling a biased die, then not leaving things up to chance.
+  \item
+    If team A is winning, then not team B is winning.
+  \end{itemize}
+\end{note}
+
+\lLine
+
+\begin{note}
+  \begin{observation}[Squandered progress]%
+    \label{obs:se-need-hCon}%
+    It may be the case that:
+    \begin{center}
+      \begin{itemize*}
+      \item
+        \(\ed{\flat}\) is such that some event \(\ed[ ]{+}\) is in progress.
+      \item
+        An event \(\ed[ ]{\times}\) happens.
+      \item
+        \(\ed[ ]{\times}\) does not partly happen as a result of \(\ed{\flat}\).
+      \end{itemize*}
+    \end{center}
+    \vspace{-\baselineskip}
+  \end{observation}
+
+  \begin{itemize}
+  \item
+    Agent changes to quadratic formula.
+  \item
+    Forgets sleight of hand.
+  \item
+    Team B forfeits due to injury.
+  \end{itemize}
+
+  \begin{itemize}
+  \item
+    \(\ed{\flat}\): An agent is passing an exam without external help.
+  \item
+    \(\ed{}\): The agent passes the exam.
+  \end{itemize}
+
+  \(\ed{\flat}\) is such that an event \(\ed{}\) is in progress, but the agent may pass the exam as the result of answers passed to them.
+\end{note}
+
+\newpage
 
 \subsection{\se{3}}
 
@@ -493,7 +563,7 @@ colorlinks=false,
     \vspace{-\baselineskip}
     \begin{itemize}
     \item
-      \(\edn{\flat}\) is a \emph{\se{0}} of \(\edn{}\).
+      \(\ed{\flat}\) is a \emph{\se{0}} of \(\ed{}\).
     \end{itemize}
     \emph{If and only if}:
     \begin{itemize}
@@ -502,36 +572,36 @@ colorlinks=false,
       \begin{enumerate}[label=\Alph*., ref=\Alph*]
       \item
         \label{assu:p:se:prog}
-        \(\edn{\flat}\) is such that \(\edn{}\) is in progress.
+        \(\ed{\flat}\) is such that \(\ed{}\) is in progress.
       \item
         \label{assu:p:se:hCon}
-        \(\edn{}\) partly happens as a result of \(\edn{\flat}\).
+        \(\ed{}\) partly happens as a result of \(\ed{\flat}\).
       \end{enumerate}
     \end{itemize}
     \vspace{-\baselineskip}
   \end{rdefinition}
 
   \noindent%
-  \(\edn{\flat}\) being a \emph{\se{0}} of \(\edn{}\) concerns specific events \(\edn{\flat}\) and \(\edn{}\).
-  And, of interest is whether specific descriptions \(\edo{}\) and \(\edo{\flat}\) capture a particular connexion between \(\edn{\flat}\) and \(\edn{}\).
+  \(\ed{\flat}\) being a \emph{\se{0}} of \(\ed{}\) concerns specific events \(\ed{\flat}\) and \(\ed{}\).
+  And, of interest is whether specific descriptions \(\edo{}\) and \(\edo{\flat}\) capture a particular connexion between \(\ed{\flat}\) and \(\ed{}\).
 
-  Still, our interest is only with parts of \(\edn{\flat}\) and \(\edn{}\), respectively.
+  Still, our interest is only with parts of \(\ed{\flat}\) and \(\ed{}\), respectively.
   Intuitively:
   %
   \begin{itemize}
   \item
     Clause~\ref{assu:p:se:prog} `looks forward':
 
-    The description \(\edo{\flat}\) of \(\edn{\flat}\) captures that an event described by \(\edo{}\) is in progress.
+    The description \(\edo{\flat}\) of \(\ed{\flat}\) captures that an event described by \(\edo{}\) is in progress.
   \item
     Clause~\ref{assu:p:se:hCon} `looks backward':
 
-    \(\edn{}\) as described by \(\edo{}\) happened in part as a result of \(\edn{\flat}\) as described by \(\edo{\flat}\).
+    \(\ed{}\) as described by \(\edo{}\) happened in part as a result of \(\ed{\flat}\) as described by \(\edo{\flat}\).
   \end{itemize}
 
-  The role of Clause~\ref{assu:p:se:prog} is to ensure the event \(\edn{}\) is favoured over some other event.
+  The role of Clause~\ref{assu:p:se:prog} is to ensure the event \(\ed{}\) is favoured over some other event.
 
-  And, the role of Clause~\ref{assu:p:se:hCon} is to ensure \(\edn{}\) happens as a result of being favoured.
+  And, the role of Clause~\ref{assu:p:se:hCon} is to ensure \(\ed{}\) happens as a result of being favoured.
 \end{note}
 
 
@@ -561,20 +631,20 @@ colorlinks=false,
 
 \begin{note}
     \begin{rproposition}{prop:PEbasic}{\progExI{}}%
-    Given \(\edn{}\) is an \eiw{0} \vAgent{} does \(a\), and the sense of `why' present in \qWhy{}:
+    Given \(\ed{}\) is an \eiw{0} \vAgent{} does \(a\), and the sense of `why' present in \qWhy{}:
 
     \begin{itenum}
     \item[\emph{If}:]
-      \(\edn{\flat}\) is a \se{} of \(\edn{}\).
+      \(\ed{\flat}\) is a \se{} of \(\ed{}\).
     \item[\emph{Then:}]
-      \(\edo{\flat}\) being true of \(\edn{\flat}\) explains `why' \(\edn{}\) happened.
+      \(\edo{\flat}\) being true of \(\ed{\flat}\) explains `why' \(\ed{}\) happened.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{rproposition}
 
   \noindent%
-  Given \(\edn{\flat}\) is a \se{} of \(\edn{}\), \(\edo{\flat}\) being true of \(\edn{}\) explains `why' \(\edn{}\) happened in a basic sense, as by Clause~\ref{assu:p:se:hCon} \(\edn{}\) partly happened as a result of \(\edn{\flat}\).
-  And, Clause~\ref{assu:p:se:prog} allows us to expand this observation to see \(\edn{}\) partly happened as a result of something which favoured \(\edn{}\) happening over any (incompatible) event.
+  Given \(\ed{\flat}\) is a \se{} of \(\ed{}\), \(\edo{\flat}\) being true of \(\ed{}\) explains `why' \(\ed{}\) happened in a basic sense, as by Clause~\ref{assu:p:se:hCon} \(\ed{}\) partly happened as a result of \(\ed{\flat}\).
+  And, Clause~\ref{assu:p:se:prog} allows us to expand this observation to see \(\ed{}\) partly happened as a result of something which favoured \(\ed{}\) happening over any (incompatible) event.
 \end{note}
 
 \paragraph{Example}
