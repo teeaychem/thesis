@@ -1046,10 +1046,41 @@
 }
 \ExplSyntaxOff
 
+\ExplSyntaxOn
+\NewDocumentCommand{\eXd}{ O{} m }{%
+  \tl_if_empty:nTF {#1}
+  {%
+    \tl_if_empty:nTF {#2}
+    {%
+      \ensuremath{\reflectbox{\ensuremath{e}}\sp{d}}
+    }
+    {
+     \ensuremath{\reflectbox{\ensuremath{e}}\sb{#2}\sp{d\sb{#2}}}
+    }
+  }
+  {
+    \tl_if_empty:nTF {#2}
+    {%
+      \ensuremath{\reflectbox{\ensuremath{e}}\sp{d\sb{#1}}}
+    }
+    {
+     \ensuremath{\reflectbox{\ensuremath{e}}\sb{#2}\sp{d\sb{#1}}}
+    }
+
+  }
+}
+\ExplSyntaxOff
+
 
 \ExplSyntaxOn
 \NewDocumentCommand{\edn}{ m }{%
       \ensuremath{e\sb{#1}}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\eXdn}{ m }{%
+      \ensuremath{\reflectbox{\ensuremath{e}}\sb{#1}}
 }
 \ExplSyntaxOff
 

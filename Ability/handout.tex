@@ -101,6 +101,8 @@ maxbibnames=99,
 \newcommand\lLine{{\color{lightgray} \noindent\rule{\textwidth}{0.4pt}}}
 \newcommand\sepLine{
   \vfill
+  \par\noindent\rule{\textwidth}{0.4pt}%
+  \vspace{-10pt}%
   \par\noindent\rule{\textwidth}{0.4pt}
   \vfill}
 \makeatother
@@ -269,22 +271,22 @@ colorlinks=false,
 
   \begin{itemize}
   \item
-    \underline{\textbf{\prop{3}}}: Ways things may be.
+    \underline{\textbf{\prop{3}}}: Some way things may be.
     \begin{itemize}
     \item
-      \propI{The soup is sweet}, \propI{Foxes like pineapples}, \propI{The time is 17:30}, \dots
+      \propI{The soup is sweet}, \propI{Foxes like pineapples}, \propI{The time is 17:30}, \dots \hfill \(\phi, \psi, \dots\)
     \end{itemize}
   \item
     \underline{\textbf{\val{3}}}: Agent's perspectives on the way some things are.
     \begin{itemize}
     \item
-      \valI{True}, \valI{False}, \valI{Desirable}, \valI{Probable}, \dots
+      \valI{True}, \valI{False}, \valI{Desirable}, \valI{Probable}, \dots \hfill \(v, v', \dots\)
     \end{itemize}
   \item
     \underline{\textbf{\pool{3}}}: Collections of \prop{1} paired with \val{1}.
     \begin{itemize}
     \item
-      A \pool{} associated with an agent's understanding of factorisation, chess, sudoku puzzles, \dots
+      A \pool{} associated with an agent's understanding of factorisation, chess, sudoku puzzles, \dots \hfill \(\Phi, \Psi, \dots\)
     \end{itemize}
   \end{itemize}
 
@@ -313,8 +315,8 @@ colorlinks=false,
     \item[\hand]
       A \fof{} relation may hold between arbitrary \prop{0}-\val{0}-\pool{0} pairings and does not require a from relation.
       \begin{itemize}
-      \item
-        Think propositional justification, but only descriptive.
+      \item[\(\leadsto\)]
+        Maybe think propositional justification, but only descriptive.
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -350,7 +352,7 @@ colorlinks=false,
     The sense of `why' in \qWhy{} asks what (if anything) favoured \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
     \begin{itemize}
     \item
-      Card have been shuffled and \mainCard{} is \mainCardPos{}.
+      Cards have been shuffled and \mainCard{} is \mainCardPos{}.
       \begin{itemize}
       \item
         If random shuffle, no answer to why \mainCard{} is \mainCardPos{}. \hfill (Any card may have been there.)
@@ -403,9 +405,9 @@ colorlinks=false,
     Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
     \begin{itenum}
     \item[\emph{If}:]
-      \prop{2} \(\psi\) having \val{} \(v\) \fingf{} \(\Psi\) answers \qWhy{}.
+      \prop{2} \(\psi\) having \val{} \(v\) \fingf{} \pool{} \(\Psi\) answers \qWhy{}.
     \item[\emph{Then}:]
-      A prior or present \eiw{0} the agent concludes \(\psi\) has \val{} \(v\) from \(\Psi\) answers \qHow{}.
+      A prior or present \eiw{0} the agent concludes \(\psi\) has \val{} \(v\) from \pool{} \(\Psi\) answers \qHow{}.
     \end{itenum}
     \vspace{-\baselineskip}
   \end{constraint}
@@ -419,7 +421,7 @@ colorlinks=false,
     I think this is (maybe) intuitive.
     \begin{itemize}
     \item
-      Sleight of hand happened, agent concluded via factorisation/the quadratic formula.
+      Sleight of hand happened, the agent concluded via factorisation/the quadratic formula.
     \end{itemize}
   \item
     \citeauthor{Davidson:1963aa} opens \citetitle{Davidson:1963aa} with the following question:
@@ -437,7 +439,7 @@ colorlinks=false,
     \end{quote}
     %
     \citeauthor{Davidson:1963aa} argues rationalisations are causal explanations.
-    So, this is plausibly an instance of answer to a `why' question being constrained by answers to a `how' question.
+    So, this is plausibly an instance of an answer to a `why' question being constrained by answers to a `how' question.
     \begin{itemize}
     \item
       Though, rationalisations are different from \fofr{1} and there's no mapping between the two.
@@ -465,15 +467,20 @@ colorlinks=false,
   Basic idea: Obtain answers to \qWhy{} by considering conclusions in progress.
 \end{note}
 
-\subsection{Events, in progress}
+\subsection{Events in which an event in progress}
 \label{sec:events-progress}
 
 \begin{note}
-  Some event \(\ed{\flat}\) such that some event \(\edn{}\) which satisfies description \(\edo{}\) is in progress.
+  \begin{quote}
+    Events \(\ed{\flat}\) such that some event \(\edn{}\) which satisfies description \(\edo{}\) is in progress.
+  \end{quote}
 \end{note}
 
 \begin{note}
-  Roughly, think of events in progress in terms of the (English) progressive aspect:
+  Roughly, think of events in progress in terms of the (English) progressive aspect:\footnote{
+    This is a common analysis of the progressive.
+    See, e.g., \cite{Bennett:1972uw,Dowty:1979vq,Parsons:1990aa,Landman:1992wh,Portner:1998um}.
+  }
   %
   \begin{enumerate}
   \item
@@ -667,7 +674,7 @@ colorlinks=false,
     \item[\emph{If}:]
       \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
     \item[\emph{Then}:]
-      For the agent, \(\phi\) having \val{} \(v\) \fof{} \(\Phi\) through \(\ed{\flat}\).
+      For the agent, \(\phi\) having \val{} \(v\) \fof{} \pool{} \(\Phi\) through \(\ed{\flat}\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{idea}
@@ -680,14 +687,14 @@ colorlinks=false,
   \item
     Consider the contrapositive.
 
-    If, for the agent, \(\phi\) having \val{} \(v\) does not \fof{} \(\Phi\), then there is nothing which ensures the agent concluding \(\phi\) has \val{} \(v\) from \(\Phi\).
+    If, for the agent, \(\phi\) having \val{} \(v\) does not \fof{} \pool{} \(\Phi\), then there is nothing which ensures the agent concluding \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
   \end{itemize}
 
   \begin{itemize}
   \item[\hand]
     So, this is the way we obtain \fofr{1} which answer \qWhy{}.
   \item
-    In the thesis, this idea is tightened up significantly, and is where the title `\fc{1}' comes from.
+    In the thesis, this idea is tightened up significantly and is where `\fc{1}' have a key role.
   \end{itemize}
 \end{note}
 
@@ -707,7 +714,7 @@ colorlinks=false,
     \item[\emph{If}:]
       \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
     \item[\emph{Then}:]
-      For the agent, \(\psi\) having \val{} \(v'\) \fof{} \(\Psi\) through \(\ed{\flat}\).
+      For the agent, \(\psi\) having \val{} \(v'\) \fof{} \pool{} \(\Psi\) through \(\ed{\flat}\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{idea}
@@ -765,10 +772,10 @@ colorlinks=false,
       \item[\emph{If}:]
         \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
       \item[\emph{Then}:]
-        For the agent, \(\psi\) having \val{} \(v'\) \fof{} \(\Psi\) through \(\ed{\flat}\).
+        For the agent, \(\psi\) having \val{} \(v'\) \fof{} \pool{} \(\Psi\) through \(\ed{\flat}\).
       \end{itenum}
     \item
-      The agent has not concluded \(\psi\) has \val{} \(v'\) from \(\Psi\).
+      The agent has not concluded \(\psi\) has \val{} \(v'\) from \pool{} \(\Psi\).
     \end{itemize}
     \vspace{-\baselineskip}
   \end{idea}
@@ -838,6 +845,19 @@ colorlinks=false,
 
 \end{document}
 
+\begin{note}
+  Well, a more general perspective on Wason, etc.\ is in terms of mistakes.
+  Intuitively, it's only the case that an agent is making a mistake, relative to their perspective, if in typical circumstances the agent does things differently.
+  In parallel, the agent is only doing things correctly, if in typical circumstances the agent does things the same.
+
+  If there are no typical circumstances, then there's no generality to the agent's reasoning, and therefore nothing which establishes whether the agent is mistakenly or correctly doing things, from their perspective.
+  The only other option is some independent measure, but an independent measure is only good for evaluating what the agent has done, not accounting for why the agent did that thing.
+
+  In short, when we describe an agent reasoning, we have a type of reasoning in mind.
+  And, this implies the agent may reason in other ways.
+  In turn, this implies various following from relations hold.
+\end{note}
+
 \section{Extras}
 
 \subsection*{\scen{3}}
@@ -879,6 +899,8 @@ colorlinks=false,
     \newline
   \end{rscenario}
 \end{note}
+
+
 
 
 %%% Local Variables:
