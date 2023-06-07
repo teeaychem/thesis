@@ -1,0 +1,36 @@
+\ProvidesPackage{Handout}
+
+\RequirePackage{xparse}
+\RequirePackage{xcolor}
+\definecolor{comment}{HTML}{FE4164}%Neon Fuchsia %{F535AA}%Neon Pink
+
+\newif\ifshowcomments
+
+\DeclareOption{show}{
+  \showcommentstrue %comment to hide comments
+}
+
+\DeclareOption{hide}{
+  \showcommentsfalse %comment to hide comments
+}
+
+\ProcessOptions\relax
+
+\newcounter{commentCounter} % new counter for comments
+
+% Using \unskip removes space which is default for missing argument
+
+\ExplSyntaxOn
+\NewDocumentEnvironment{comment}{+b}
+{%
+  \ifshowcomments
+  \smallskip
+  \hfill\begin{minipage}{.95\linewidth}
+  \color{comment}
+  #1%
+  \end{minipage}\hfill
+  \smallskip
+  \fi
+}
+\ExplSyntaxOff
+
