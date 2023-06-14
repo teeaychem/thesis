@@ -24,6 +24,8 @@
 \usepackage[hide]{Handout}
 % % % % % % % % % % % %
 
+\usepackage{multicol}
+
 % \usepackage{selnolig}% For suppressing certain typographic ligatures automatically
 % % % % % % %
 \usepackage{xfrac}
@@ -37,6 +39,15 @@
 
 
 \usepackage{xskak} % For chess diagram
+
+% https://tex.stackexchange.com/questions/212710/fill-space-created-by-phantom-with-other-text
+% \usepackage{calc}
+% \newcommand{\textover}[3][l]{%
+%  % #1 is the alignment, default l
+%  % #2 is the text to be printed
+%  % #3 is the text for setting the width
+%  \makebox[\widthof{#3}][#1]{#2}%
+%  }
 
 % % % The bibliography % % %
 \usepackage[%
@@ -109,7 +120,7 @@ maxbibnames=99,
 \makeatother
 
 \makeatletter
-\newcommand\lLine{{\color{lightgray} \noindent\rule{\textwidth}{0.4pt}}}
+\newcommand\lLine{{\color{gray} \noindent\rule{\textwidth}{0.4pt}}}
 \newcommand\sepLine{
   \vfill
   \par\noindent\rule{\textwidth}{0.4pt}%
@@ -117,7 +128,6 @@ maxbibnames=99,
   \par\noindent\rule{\textwidth}{0.4pt}
   \vfill}
 \makeatother
-
 
 
 % % % Fonts% %
@@ -178,11 +188,9 @@ colorlinks=false,
   \def\applicationCounterautorefname{Application}
 }
 
-\title{
-  \fc{3}
-}
-% \author{Ben Sparkes}
-\date{ }
+\title{\fc{3}}
+\author{Sparkes}
+\date{2023/06/13}
 
 \begin{document}
 
@@ -210,9 +218,11 @@ colorlinks=false,
 
 
 \begin{thesis}[First pass]
-  A constraint on answers to: \emph{Why} an \eiw{0} an agent concludes happened
+  A constraint:
 
-  By answers to: \emph{How} the \eiw{0} an agent concludes happens
+  \quad On answers to: \emph{Why} \textover[c]{an}{the} \eiw{0} \textover[c]{an}{the} agent concludes happened.
+
+  \quad \textover[r]{By answers to}{On answers to}: \textover[c]{\emph{How}}{\emph{Why}} the \eiw{0} the agent concludes happened.
 
   Does not hold.
 \end{thesis}
@@ -224,13 +234,12 @@ colorlinks=false,
   At issue is why the event happened, rather than why the agent concluded.
 \end{comment}
 
-\section{\eiw{3} an agent concludes}
-\label{sec:overview}
+\section{\eiw{3} an agent concludes and some abstractions}
 
 \begin{note}
   \par\noindent\rule{\textwidth}{0.4pt}
   \begin{minipage}{.5\linewidth}
-    \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factors}%
+    \begin{rscenariox}{illu:gist:roots:F}{Quadratic roots --- Factorisation}%
       An agent reasons as follows:
       %
       \begin{enumerate}[label=\arabic*., ref=\arabic*]
@@ -294,41 +303,33 @@ colorlinks=false,
   \(a\) is the coefficient of the \(x^{2}\) term, \(b\) is the coefficient of the \(x\) term, and \(c\) is the constant.
 \end{comment}
 
-\begin{comment}
-  \begin{itemize}
-  \item
-    In \autoref{illu:gist:roots:F} the agent does not conclude \propI{\rootsCon{}} from their understanding of the quadratic formula.
-  \item
-    In \autoref{illu:gist:roots:QF} the agent does not conclude \propI{\rootsCon{}} from their understanding of factorisation.
-  \end{itemize}
-\end{comment}
+% \begin{comment}
+%   \begin{itemize}
+%   \item
+%     In \autoref{illu:gist:roots:F} the agent does not conclude \propI{\rootsCon{}} from their understanding of the quadratic formula.
+%   \item
+%     In \autoref{illu:gist:roots:QF} the agent does not conclude \propI{\rootsCon{}} from their understanding of factorisation.
+%   \end{itemize}
+% \end{comment}
 
-\subsection{Abstractions}
-
-\begin{comment}
-  Two distinct collections of abstraction.
-
-  The first characterises inputs and outputs of reasoning.
-
-  The second characterises relations between inputs and outputs of reasoning.
-\end{comment}
+% \subsection{Abstractions}
 
 \begin{note}
   \begin{itemize}[label = \squareBullet]
   \item
-    \underline{\textbf{\prop{3}}}: Some way things may be.
+    \textbf{\prop{3}}: Some way things may be. \hfill {\color{gray} (Propositions)}
     \begin{itemize}
     \item
       \propI{The soup is sweet}, \propI{Foxes like pineapples}, \propI{The time is 17:30}, \dots \hfill \(\phi, \psi, \dots\)
     \end{itemize}
   \item
-    \underline{\textbf{\val{3}}}: Agent's perspectives on the way some things are.
+    \textbf{\val{3}}: An agent's perspectives on the way some things may be. \hfill {\color{gray} (Propositional attitudes)}
     \begin{itemize}
     \item
       \valI{True}, \valI{False}, \valI{Desirable}, \valI{Probable}, \dots \hfill \(v, v', \dots\)
     \end{itemize}
   \item
-    \underline{\textbf{\pool{3}}}: Collections of \prop{1} paired with \val{1}.
+    \textbf{\pool{3}}: Collections of \prop{1} paired with \val{1}. \hfill {\color{gray} (Collections of propositional attitudes)}
     \begin{itemize}
     \item
       A \pool{} associated with an agent's understanding of factorisation, chess, sudoku puzzles, \dots \hfill \(\Phi, \Psi, \dots\)
@@ -337,7 +338,7 @@ colorlinks=false,
 
 \begin{comment}
   Think of this as a more flexible approach to propositional attitudes.
-  Instead of agent evaluates \prop{} \(\phi\) to have \val{} \(v\), say agent from attitude \(A\) toward proposition \(\phi\).
+  Instead of agent evaluates \prop{} \(\phi\) to have \val{} \(v\), say agent formed attitude \(A\) toward proposition \(\phi\).
 
   \prop{3} correspond to propositions and \val{1} correspond to attitudes.
 \end{comment}
@@ -346,23 +347,27 @@ colorlinks=false,
 
   \begin{itemize}[label = \squareBullet]
   \item
-    An agent concludes a \prop{0} \(\phi\) has some \val{0} \(v\) \underline{\textbf{from}} some \pool{} \(\Phi\). \hfill (During some event.)
+    An agent concludes a \prop{0}-\val{0} pair \(\pv{\phi}{v}\) \textbf{from} some \pool{} \(\Phi\). \hfill (During some event.)
     \begin{itemize}
     \item
-      In \autoref{illu:gist:roots:F} the agent concludes \propI{\rootsCon{}} has \val{} \valI{True} from a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of factorisation.
+      In \autoref{illu:gist:roots:F} the agent concludes \pv{\propI{\rootsCon{}}}{\valI{True}} from a \pool{} which includes \pv{\propM{\rootsConEq{}}}{\valI{True}} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of factorisation.
     \end{itemize}
   \item
-    A \prop{0} \(\psi\) having some \val{0} \(v'\) \underline{\textbf{\fof{}}} some \pool{} \(\Psi\), from an \agpe{}. \hfill (Relative to some event.)
+    A \prop{2}-\val{0} pair \(\pv{\phi}{v}\) \textbf{\fof{}} some \pool{} \(\Phi\), from an \agpe{}. \hfill (Relative to some event.)
     \begin{itemize}
     \item
-      In \autoref{illu:gist:roots:QF}, at Step 3, \propI{\rootsCon{}} having \val{} \valI{True} \fof{} a \pool{} which includes \propM{\rootsConEq{}} having \val{0} \valI{True} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of the quadratic formula.
+      In \autoref{illu:gist:roots:QF}, at Step 3, \pv{\propI{\rootsCon{}}}{\valI{True}} \fof{} a \pool{} which includes \pv{\propM{\rootsConEq{}}}{\valI{True}} and \prop{0}-\val{0} pairs associated with the \agents{} understanding of the quadratic formula.
     \end{itemize}
     \begin{itemize}
     \item[\hand]
       A \fof{} relation may hold between arbitrary \prop{0}-\val{0}-\pool{0} pairings and does not require a from relation.
       \begin{itemize}
-      \item[\(\leadsto\)]
-        Maybe think propositional justification, but only descriptive.
+      \item
+        No developed theory of \fofr{1}.
+        Instead, sufficient conditions.
+        E.g.\ from \(\Rightarrow\) \fof{}.
+      % \item[\(\leadsto\)]
+      %   Maybe think propositional justification, but only descriptive.
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -371,12 +376,8 @@ colorlinks=false,
 \begin{comment}
   Relative to an \eiw{} agent concludes.
 
-  From, and \fof{}.
-  Coincide.
-  However, \fofr{} are more general.
-  With respect to \scen{1}, two from relations, only hold relative to the \scen{0}.
-  Still, the \fofr{} relation may hold in both \scen{1}.
-  I.e.\ agent concluded by factorisation, but had the option to use the quadratic formula.
+  E.g.\ agent concluded by factorisation, but had the option to use the quadratic formula.
+
   For additional examples, consider practice problems.
   If you've been learning the basics of factorisation, then \fofr{} should (hopefully) hold for practice problems.
 \end{comment}
@@ -392,6 +393,8 @@ colorlinks=false,
   If you'd like additional motivation for this sort of thing, consider propositional justification.
 \end{comment}
 
+\newpage
+
 \section{Two questions and a constraint \hfill (\qWhy{}, \qHow{}, and \issueInclusion{})}
 \label{sec:target}
 
@@ -403,10 +406,10 @@ colorlinks=false,
 
 \begin{note}
   \begin{question}{questionWhy}{\qWhy{}}
-    Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
+    Given \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}[label = \squareBullet]
     \item
-      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\) (rather than an \eiw{0} some other thing happens)?
+      Which \fofr{1} are included in (partial) explanations of \emph{why} \(e\) is an \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than an \eiw{0} some other thing happens)?
     \end{itemize}
     \vspace{-1.25\baselineskip}
   \end{question}
@@ -419,7 +422,7 @@ colorlinks=false,
 \begin{note}
   \begin{itemize}
   \item
-    The sense of `why' in \qWhy{} asks what (if anything) favoured \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
+    The sense of `why' in \qWhy{} asks what (if anything) favoured \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an \eiw{} \(B\) happened.
     %
     \begin{itemize}
     \item
@@ -435,9 +438,12 @@ colorlinks=false,
 
   \begin{itemize}
   \item[\hand]
-    \qWhy{} asks about `explanatory' \fingfr{1}. \hfill (Non-technical)
+    \qWhy{} asks about (partially) `explanatory' \fingfr{1}.
   \item
-    \propM{\rootsCon{}} having \val{} \valI{True} \fof{} a \pool{} which contains \propM{\rootsConEq{}} having \val{} \valI{True} and various other \prop{0}-\val{0} pairs associated with the agent's understanding of factorisation.
+    Intuitively, \pv{\propM{\rootsCon{}}}{\valI{True}} \fof{} a \pool{} which contains \pv{\propM{\rootsConEq{}}}{\valI{True}} and various other \prop{0}-\val{0} pairs associated with the agent's understanding of factorisation. (Similar to forcing a card.)\par
+
+    I do not presuppose \qWhy{} has answers.
+    Rather, I argue \qWhy{} has answers (sketched below).
   \end{itemize}
 \end{note}
 
@@ -458,10 +464,10 @@ colorlinks=false,
 
 \begin{note}
   \begin{question}{questionHow}{\qHow{}}
-    Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
+    Given \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itemize}[label = \squareBullet]
     \item
-      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\) (rather than an \eiw{0} some other thing happens)?
+      Which past or present events (partially) explain \emph{how} \(e\) is an \eiw{0} the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) (rather than an \eiw{0} some other thing happens)?
     \end{itemize}
     \vspace{-1.5\baselineskip}
   \end{question}
@@ -470,30 +476,27 @@ colorlinks=false,
 \lLine
 
 \begin{note}
-  \begin{itemize}
-  \item[\hand]
-    \qHow{} asks about what happened.
-  \end{itemize}
-
   \begin{itemize}[noitemsep]
   \item
-    The sense of `how' in \qHow{} asks what (if anything) resulted in \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened.
+    The sense of `how' in \qHow{} asks what (if anything) resulted in \(e\) being an \eiw{} \(A\) happened, rather than \(e\) being an event in which \(B\) happened  --- e.g.\ from relations.
+  \item
+    E.g.\ what happened when the agent shuffled cards or made a conclusion.
   \end{itemize}
 \end{note}
 
 \sepLine
 
 \begin{note}
-  \begin{constraint}{consInclusion}{\issueInclusion{}}
-    Given \(e\) is an \eiw{0} \vAgent{} concludes \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\):
+  \begin{constraintD}{consInclusion}{\issueInclusion{}}
+    Given \(e\) is an \eiw{0} an agent concludes \(\pv{\phi}{v}\) from \(\Phi\):
     \begin{itenum}
     \item[\emph{If}:]
-      \prop{2} \(\psi\) having \val{} \(v\) \fingf{} \pool{} \(\Psi\) answers \qWhy{}.
+      Some \prop{0}-\val{0} pair \(\pv{\psi}{v'}\) \fingf{} \(\Psi\) answers \qWhy{}.
     \item[\emph{Then}:]
-      A prior or present \eiw{0} the agent concludes \(\psi\) has \val{} \(v\) from \pool{} \(\Psi\) answers \qHow{}.
+      A prior or present \eiw{0} the agent concludes \(\pv{\psi}{v'}\) from \(\Psi\) answers \qHow{}.
     \end{itenum}
     \vspace{-1.25\baselineskip}
-  \end{constraint}
+  \end{constraintD}
 \end{note}
 
 \begin{comment}
@@ -510,7 +513,11 @@ colorlinks=false,
 \begin{note}
   \begin{itemize}[noitemsep]
   \item
-    Only answers to \qWhy{} are \(\phi\) having \val{} \(v\) \fingf{} \(\Psi\). \hfill (Unless the agent has concluded \(\psi\) has \val{} \(v'\) from \(\Psi\).)
+    I.e.\ The only answers to \qWhy{} are when \(\pv{\phi}{v}\) \fof{} \(\Phi\). \hfill (Unless the agent has concluded \(\pv{\psi}{v'}\) from \(\Psi\).)
+    \begin{itemize}
+    \item[\hand]
+      A \fofr{} only answers \qWhy{} if it has been `witnessed' by a from relation.
+    \end{itemize}
   \item
     I think \issueInclusion{} is (maybe) intuitive.
     \begin{itemize}
@@ -526,14 +533,15 @@ colorlinks=false,
       \mbox{ }\hfill\mbox{(\citeyear[685]{Davidson:1963aa})}
     \end{quote}
 
-    Paraphrased:
-    %
-    \begin{quote}
-      A rationalisation is an explanation of why an agent did action \(a\) by giving the agent's reason for doing \(a\).
-    \end{quote}
-    %
+    % Paraphrased:
+    % %
+    % \begin{quote}
+    %   A rationalisation is an explanation of why an agent did action \(a\) by giving the agent's reason for doing \(a\).
+    % \end{quote}
+    % %
     \citeauthor{Davidson:1963aa} argues rationalisations are causal explanations.
     So, this is plausibly an instance of an answer to a `why' question being constrained by answers to a `how' question.
+    (See also \cite{Hieronymi:2011aa}.)
     \begin{itemize}
     \item
       Though, rationalisations are different from \fofr{1} and there's no mapping between the two.
@@ -545,7 +553,7 @@ colorlinks=false,
 
 \begin{note}
   \begin{thesis}[Second pass]
-    \issueInclusion{} does not hold.
+    The Constraint (\issueInclusion{}) does not hold.
   \end{thesis}
 \end{note}
 
@@ -615,10 +623,6 @@ colorlinks=false,
   Even projections.
   These talk about possibility, and entail various subjunctives, but that's about it.
 \end{comment}
-
-
-\subsection{Events in which an event in progress}
-\label{sec:events-progress}
 
 \begin{note}
   \hfill\hspace{\dimexpr-\fboxrule-\fboxsep\relax}\fbox{%
@@ -700,9 +704,7 @@ colorlinks=false,
     \vspace{-\baselineskip}
     \begin{itenum}
     \item[\emph{If}:]
-      \(\ed{\flat}\) is such that some event \(\eXdn{}\) which satisfies description \(\edo{}\) is in progress.
-    \item[\emph{And}:]
-      \(\ed{}\) happens.
+      \(\ed{\flat}\) is such that some event \(\eXdn{}\) which satisfies description \(\edo{}\) is in progress \emph{and} \(\ed{}\) happens.
     \item[\emph{Then}:]
       The details of \(\edn{\flat}\) captured by \(\edo{\flat}\) favoured \(\ed{}\) happening over any other event.
     \end{itenum}
@@ -725,12 +727,12 @@ colorlinks=false,
       The following two conditions hold:
       \begin{itemize}
       \item
-        \(\ed{\flat}\) is an \eiw{} an agent either is, or has the option to be, concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+        \(\ed{\flat}\) is an \eiw{} an agent either is, or has the option to be, concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \item
         The agent already evaluates each \prop{0} in \(\Phi\) with it's paired \val{}.
       \end{itemize}
     \item[\emph{Then}:]
-      For the agent, \(\phi\) having \val{} \(v\) \fof{} \pool{} \(\Phi\) through \(\ed{\flat}\).
+      For the agent, \(\pv{\phi}{v}\) \fof{} \(\Phi\) through \(\ed{\flat}\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{idea}
@@ -752,20 +754,39 @@ colorlinks=false,
   \item
     Consider the contrapositive:
 
-    \begin{itenum}
+    \begin{itenum}[noitemsep]
     \item[\emph{If}:]
-      For the agent, it is not the case \(\phi\) having \val{} \(v\) \fof{} \pool{} \(\Phi\).
+      For the agent, it is not the case \(\pv{\phi}{v}\) \fof{} \(\Phi\).
     \item[\emph{Then}:]
-      There is nothing which ensures the agent concluding \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+      There is nothing which ensures the agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \end{itenum}
   \end{itemize}
+\end{note}
 
+\sepLine
+
+\begin{note}
   \begin{itemize}
   \item
-    So, this is the way we obtain \fofr{1} which answer \qWhy{}. \newline
-    (In the thesis, this idea is tightened up a little\dots)
+    \progEx{2} paired with \fc{1} is the way we get \fofr{1} which answer \qWhy{}.
+    \begin{itemize}
+    \item[\hand]
+      If an agent is concluding \(\pv{\phi}{v}\) from \(\Phi\) then:
+      \begin{itemize}
+      \item
+        An event in which the agent concludes \(\pv{\phi}{v}\) from \(\Phi\) is favoured over any other event.
+        \begin{itemize}
+        \item
+          And, included is that \(\pv{\phi}{v}\) \fof{} \(\Phi\), from the agent's perspective.
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
   \end{itemize}
 \end{note}
+
+\vfill
+
+\newpage
 
 
 \section{Failure}
@@ -773,13 +794,13 @@ colorlinks=false,
 % \sepLine
 
 \begin{note}
-  \begin{idea}[Sometimes an agent's reasoning is of a particular type, and so it must be that other \fofr{1} hold]
+  \begin{idea}[Sometimes an agent's reasoning is of a type, and so it must be that other \fofr{1} hold]
     \emph{Sometimes}:
     \begin{itenum}
     \item[\emph{If}:]
-      \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+      \(\ed{\flat}\) is an \eiw{} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \item[\emph{Then}:]
-      For the agent, \(\psi\) having \val{} \(v'\) \fof{} \pool{} \(\Psi\) through \(\ed{\flat}\).
+      For the agent, \(\pv{\psi}{v'}\) \fof{} \(\Psi\) through \(\ed{\flat}\).
     \end{itenum}
     \vspace{-\baselineskip}
   \end{idea}
@@ -823,11 +844,20 @@ colorlinks=false,
   The agent's doesn't need anything other than the recursive definition to get \(L_{4}\), though they'll get \(L_{2}\) and \(L_{3}\) on the way to \(L_{4}\).
 \end{comment}
 
-  \begin{itemize}
+  \begin{itemize}[noitemsep]
   \item[\hand]
-    For negative cases which appeal to this idea, consider:
-    Selection tasks (\cite{Wason:1966aa}) and various observations regarding Decision theory (\cite{Allais:1979aa}, \cite{Ellsberg:1961aa}, \cite{Quinn:1990aa}) and logical principles (\cite{Makinson:1965aa}, \cite{Kyburg:1997aa}).\newline
-    \mbox{}\hfill \leadsto As subjects fail at selection tasks, they do not reason about natural language conditionals as material conditionals.
+    For negative cases which appeal to this idea, consider selection tasks (\cite{Wason:1966aa}):
+    \begin{itemize}[noitemsep]
+    \item[\leadsto]
+      As agents fail at selection tasks, they do not reason about natural language conditionals as material conditionals.
+    \item
+      Contraposed:
+      \begin{itemize}
+      \item Agents reason about nat.\ lang.\ conditionals as material conditionals \emph{only if} they succeed at selection tasks.
+      \end{itemize}
+    \end{itemize}
+  \item
+    See also various observations regarding Decision theory (\cite{Allais:1979aa}, \cite{Ellsberg:1961aa}, \cite{Quinn:1990aa}), structural principles (\cite{Makinson:1965aa}, \cite{Kyburg:1997aa}), and folk psychology (\cite{Bratman:1981aa,Bratman:1987aa})
   \end{itemize}
 \end{note}
 
@@ -836,19 +866,19 @@ colorlinks=false,
 \begin{note}
   \begin{idea}[Typical failure]
     \emph{Sometimes}:
-    \begin{itemize}
+    \begin{enumerate}[label=\Alph*.]
     \item
       \begin{itenum}
       \item[\emph{If}:]
-        \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+        \(\ed{\flat}\) is an \eiw{} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
       \item[\emph{Then}:]
-        For the agent, \(\psi\) having \val{} \(v'\) \fof{} \pool{} \(\Psi\) through \(\ed{\flat}\).
+        For the agent, \(\pv{\psi}{v'}\) \fof{} \(\Psi\) through \(\ed{\flat}\).
       \end{itenum}
     \item
-      \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+      \(\ed{\flat}\) is an \eiw{} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
     \item
-      The agent has not concluded \(\psi\) has \val{} \(v'\) from \pool{} \(\Psi\).
-    \end{itemize}
+      The agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).
+    \end{enumerate}
     \vspace{-\baselineskip}
   \end{idea}
 \end{note}
@@ -859,17 +889,17 @@ colorlinks=false,
     \item
       \begin{itenum}
       \item[\emph{If}:]
-        \prop{2} \(\phi\) having \val{} \(v\) is a \fc{} from \pool{} \(\Phi\).
+        \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\).
       \item[\emph{Then}:]
-        \prop{2} \(\psi\) having \val{} \(v'\) is a \fc{} from \(\Psi\).
+        \(\pv{\psi}{v'}\) is a \fc{} from \(\Psi\).
       \end{itenum}
     \item
-      \prop{2} \(\phi\) having \val{} \(v\) is a \fc{} from \pool{} \(\Phi\).
+      \(\pv{\phi}{v}\) is a \fc{} from \(\Phi\).
     \item
-      The agent has not concluded \(\psi\) has \val{} \(v'\) from \pool{} \(\Psi\).
+      The agent has not concluded \(\pv{\psi}{v'}\) from \(\Psi\).
     \end{itemize}
 
-    What secures the relevant \fc{1} is that \(\ed{\flat}\) is an \eiw{} an agent concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
+    What secures the relevant \fc{1} is that \(\ed{\flat}\) is an \eiw{} an agent concluding \(\pv{\phi}{v}\) from \(\Phi\).
 \end{comment}
 
 \lLine
@@ -965,9 +995,11 @@ colorlinks=false,
   Well, plausibly due to the same neural activity in other events.
 \end{comment}
 
+\vfill
+
 \newpage
 
-\section{\progEx{}, in a little more detail}
+\section{\progEx{2}, a little more}
 
 \begin{note}
   \begin{observation}[Squandered progress]%
@@ -1045,7 +1077,7 @@ colorlinks=false,
 \begin{note}
   \begin{idea}[\progEx{2}]%
     \label{prop:PEbasic}
-    Given \(\ed{}\) is an \eiw{0} \vAgent{} does \(a\), and the sense of `why' present in \qWhy{}:
+    Given \(\ed{}\) is an \eiw{0} an agent does \(a\), and the sense of `why' present in \qWhy{}:
 
     \begin{itenum}
     \item[\emph{If}:]
@@ -1082,7 +1114,7 @@ colorlinks=false,
     It's fine to look backwards, as our interest is in why (and how) an event happened.
     \begin{itemize}
     \item
-      Though, note, when looking forward we do not look forward with the benefit of hindsight.
+      Though, when looking forward we do not do so with the benefit of hindsight (hence the existential).
     \end{itemize}
   \end{itemize}
 \end{note}
@@ -1095,6 +1127,41 @@ colorlinks=false,
 \section{More on \fc{1}}
 
 \begin{note}
+    \begin{rdefinition}{def:fc}{\fc{3}}%
+    \vspace{-\baselineskip}
+    \begin{itemize}
+    \item
+      \prop{2}-\val{0} pair \(\pv{\phi}{v}\) is a \emph{\fc{0}} from \pool{} \(\Phi\) for an agent through an event \(\ed{}\).
+    \end{itemize}
+
+    \emph{If and only if}
+
+    \begin{itemize}
+    \item
+      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(\edo{1}, \dots, \edo{k}\) such that clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} hold:
+      %
+      \begin{enumerate}[label=\Alph*., ref=\Alph*, series=fcCounter]
+      \item
+        \label{def:fc:ai}
+        \(\ed{i}\) is an \eiw{0} the agent may do some action \(a_{i}\).
+        %
+      \item
+        \label{def:fc:act}
+        The \eiw[\(\edn{a_{i}}\)]{0} the agent does \(a_{i}\) is an \eiw{0} the agent is concluding \(\pv{\phi}{v}\) from \(\Phi\).
+        %
+      \item
+        \label{def:fc:result}
+        For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), the agent \evals{} \(\phi'\) as having value \(v'\) prior to doing \(a_{i}\).
+        %
+      \end{enumerate}
+    \end{itemize}
+    \vspace{-1.5\baselineskip}
+  \end{rdefinition}
+\end{note}
+
+\sepLine
+
+\begin{note}
   \begin{scenario}[Paltry]
     \label{scen:fc:chick}%
     An agent reads Puzzle~25 of \citeauthor{Dudeney:1995aa}'s \citetitle{Dudeney:1995aa}:
@@ -1103,17 +1170,19 @@ colorlinks=false,
       Three chickens and one duck sold for as much as two geese; one chicken, two ducks, and three geese were sold together for \$25.00. What was the price of each bird in an exact number of dollars?%
       \mbox{ }\hfill\mbox{(\citeyear[9]{Dudeney:1995aa})}
     \end{quote}
-    \vspace{-\baselineskip}
+    \vspace{-1.5\baselineskip}
   \end{scenario}
 \end{note}
+
+\lLine
 
 \begin{note}[Chess]
   \begin{scenario}[Chess]%
     \label{illu:fc:chess:I}%
-    An agent reads \citeauthor{Emms:2000aa}' Puzzle 113 (\citeyear[33]{Emms:2000aa}):
+    An agent reads \citeauthor{Emms:2000aa}' Puzzle 113 (\citeyear[33]{Emms:2000aa}):\vspace{-\baselineskip}
     \begin{quote}
       \mbox{ }\hfill%
-      \begin{adjustbox}{minipage=\linewidth, scale=1}
+      \begin{adjustbox}{minipage=\linewidth, scale=.75}
         \centering
         \newchessgame[
         setwhite={pa2,pb2,pc2,pd3,pf2,pg3,ra1,re1,bd4,kg1,qe5},
@@ -1128,43 +1197,8 @@ colorlinks=false,
         Is possible for White to checkmate in a single move?
       \end{center}
     \end{quote}
-    \vspace{-\baselineskip}
+    \vspace{-2\baselineskip}
   \end{scenario}
-\end{note}
-
-\lLine
-
-\begin{note}
-    \begin{rdefinition}{def:fc}{\fc{3}}%
-    \vspace{-\baselineskip}
-    \begin{itemize}
-    \item
-      \prop{2} \(\phi\) having \val{} \(v\) is a \emph{\fc{0}} from \pool{} \(\Phi\) for agent \vAgent{} through an event \(\ed{}\).
-    \end{itemize}
-
-    \emph{If and only if}
-
-    \begin{itemize}
-    \item
-      For some partition of \(\edn{}\) into sub-events \(\edn{1}, \dots, \edn{k}\) there are descriptions \(\edo{1}, \dots, \edo{k}\) such that clauses \ref{def:fc:ai}, \ref{def:fc:act} and \ref{def:fc:result} hold:
-      %
-      \begin{enumerate}[label=\Alph*., ref=\Alph*, series=fcCounter]
-      \item
-        \label{def:fc:ai}
-        \(\ed{i}\) is an \eiw{0} \vAgent{} may do some action \(a_{i}\).
-        %
-      \item
-        \label{def:fc:act}
-        The \eiw[\(\edn{a_{i}}\)]{0} \vAgent{} does \(a_{i}\) is an \eiw{0} \vAgent{} is concluding \prop{} \(\phi\) has \val{} \(v\) from \pool{} \(\Phi\).
-        %
-      \item
-        \label{def:fc:result}
-        For each \prop{0}-\val{0} pair \(\pv{\phi'}{v'}\) in \(\Phi\), \vAgent{} \evals{} \(\phi'\) as having value \(v'\) prior to doing \(a_{i}\).
-        %
-      \end{enumerate}
-    \end{itemize}
-    \vspace{-\baselineskip}
-  \end{rdefinition}
 \end{note}
 
 \lLine
@@ -1191,17 +1225,19 @@ colorlinks=false,
 
     \noindent%
     The agent then reads 「無事が何より」.
+    \vspace{-\baselineskip}
   \end{scenario}
-
-  \noindent%
-  The conclusion of interest is:
-  %
-  \begin{enumerate}[label=C\thescenarioCounter., ref=C\thescenarioCounter]
-  \item
-    \label{scen:jojo:c}
-    \pv{「無事が何より」 \propI{translates to `Safety first'}}{\valI{True}}
-  \end{enumerate}
 \end{note}
+\mbox{}\newline
+
+\sepLine
+
+\begin{multicols}{2}
+  {
+    \renewcommand*{\bibfont}{\tiny}
+    \printbibliography[heading=none]
+  }
+\end{multicols}
 
 \end{document}
 
@@ -1216,36 +1252,6 @@ colorlinks=false,
   In short, when we describe an agent reasoning, we have a type of reasoning in mind.
   And, this implies the agent may reason in other ways.
   In turn, this implies various following from relations hold.
-\end{note}
-
-\section{Extras}
-
-\subsection*{\scen{3}}
-\label{sec:scen3}
-
-
-\begin{note}
-  \begin{rscenario}{scen:countS}{Countersign}%
-    \indent The captain mumbled, ``I come from Miran.''
-
-    The man returned the gambit, grimly.
-    ``Miran is early this year.''
-
-    The captain said, ``No earlier than last year.''
-
-    But the man did not step aside.
-    He said, ``Who are you?''
-
-    ``Aren't you Fox?''
-
-    ``Do you always answer by asking?''
-
-    The captain took an imperceptibly longer breath, and then said calmly,
-    ``I am Han Pritcher, Captain of the Fleet, and member of the Democratic Underground Party.
-    Will you let me in?''%
-    \mbox{ }\hfill\mbox{(\cite[70]{Asimov:1945aa})}%
-    \newline
-  \end{rscenario}
 \end{note}
 
 

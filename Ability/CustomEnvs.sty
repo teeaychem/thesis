@@ -530,6 +530,24 @@
   \envEnd{}
 }
 
+\ExplSyntaxOn
+\NewDocumentEnvironment{constraintD}{ m m +b}
+{%
+  \refstepcounter{constraintCounter}%
+  \label{#1}
+  \smallskip%
+  \parindent0pt%
+  \expandafter\gdef\csname literallabel_#1\expandafter\endcsname\expandafter{#2}
+  \noindent\textbf{The\space Constraint}~(#2)
+  \expandafter\gdef\csname literalbody_#1\expandafter\endcsname\expandafter{#3}
+  \ignorespaces%
+  \newline%
+  #3%
+  \mbox{ }\hfill\adfdownleafleft%
+  \envEnd{}
+}
+\ExplSyntaxOff
+
 \newcounter{questionCounter}
 \setcounter{questionCounter}{0}
 \renewcommand{\thequestionCounter}{\arabic{questionCounter}}
